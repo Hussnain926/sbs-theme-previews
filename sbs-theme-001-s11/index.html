@@ -1,0 +1,482 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>Voltline Theme</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,600;0,800;1,900&family=Barlow:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#fff;--ink:#0E0F11;--volt:#C6FF00;--mute:#5F6368;--line:#E3E4E6;--card:#F2F3F0;--dark:#0E0F11;--ondark:#fff;
+--display:"Barlow Condensed","Arial Narrow",Impact,sans-serif;--body:Barlow,"Helvetica Neue",Arial,sans-serif;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0E0F11;--ink:#F4F5F2;--mute:#A4A8AD;--line:#2A2D31;--card:#1A1C1F;--dark:#000;}}
+:root[data-theme="dark"]{--bg:#0E0F11;--ink:#F4F5F2;--mute:#A4A8AD;--line:#2A2D31;--card:#1A1C1F;--dark:#000}
+*,*::before,*::after{box-sizing:inherit}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 16px/1.55 var(--body);-webkit-font-smoothing:antialiased}
+img,svg{max-width:100%;display:block}a{color:inherit}button,input,select,textarea{font:inherit;color:inherit}
+:focus-visible{outline:3px solid var(--volt);outline-offset:2px}
+.wrap{max-width:1320px;margin:0 auto;padding:0 clamp(16px,3vw,36px)}.narrow{max-width:760px}
+[hidden]{display:none!important}.sr{position:absolute;left:-9999px}
+.preview-bar{background:#2A2D31;color:#fff;font-size:14px;padding:10px 0;position:relative;z-index:30}
+.preview-bar .wrap{display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+.preview-bar .pages{display:flex;gap:6px;overflow-x:auto;flex:1 1 auto;padding-bottom:2px}
+.preview-bar button{background:transparent;border:1px solid rgba(255,255,255,.4);color:#fff;padding:5px 12px;border-radius:999px;cursor:pointer;white-space:nowrap}
+.preview-bar button[aria-pressed="true"]{background:#C6FF00;border-color:#C6FF00;color:#0E0F11;font-weight:600}
+.preview-bar label{display:flex;gap:6px;align-items:center;white-space:nowrap;cursor:pointer}
+body.show-sections [data-dawn]{position:relative;outline:2px dashed #FF2D78;outline-offset:-2px}
+body.show-sections [data-dawn]::after{content:attr(data-dawn);position:absolute;top:8px;right:8px;background:#FF2D78;color:#fff;font:600 12px/1 var(--body);padding:6px 8px;z-index:6;pointer-events:none}
+/* announce + header */
+.announce{background:var(--volt);color:#0E0F11;text-align:center;font:800 14px/1 var(--display);letter-spacing:.12em;text-transform:uppercase;padding:11px 16px}
+header.site{position:sticky;top:0;z-index:20;background:#0E0F11;color:#fff}
+.head{display:flex;align-items:center;gap:28px;height:72px}
+.logo{font:italic 900 34px/1 var(--display);text-transform:uppercase;text-decoration:none;letter-spacing:.01em}.logo b{color:var(--volt)}
+.head nav{display:flex;gap:24px;flex:1;font:800 17px/1 var(--display);text-transform:uppercase;letter-spacing:.08em}
+.head nav a{text-decoration:none;display:flex;gap:6px;align-items:center}.head nav a:hover{color:var(--volt)}
+.pill{background:var(--volt);color:#0E0F11;font-size:11px;padding:3px 6px;letter-spacing:.06em}
+.head nav a.deals{color:var(--volt)}
+.tools{display:flex;gap:18px;font:800 16px/1 var(--display);text-transform:uppercase;letter-spacing:.08em}.tools a{text-decoration:none}.tools a:hover{color:var(--volt)}
+.menu-btn{display:none;background:none;border:0;color:#fff;padding:6px;cursor:pointer}
+@media (max-width:1140px){.head nav{display:none}.menu-btn{display:block}.head{gap:12px}.logo{flex:1}.tools .hide-sm{display:none}}@media (max-width:480px){.trust-in{grid-template-columns:1fr}.tr{border-right:0;border-bottom:1px solid var(--line)}.nums{grid-template-columns:1fr}}@media (max-width:420px){.logo{font-size:28px}.tools{gap:12px;font-size:15px}.hero-l,.preview-bar{min-width:0}}
+/* base */
+section.block{padding:clamp(40px,6vw,76px) 0}section.tight{padding-top:0}
+.sec-head{display:flex;justify-content:space-between;align-items:end;gap:16px;margin-bottom:24px;flex-wrap:wrap}
+h2.h{font:italic 900 clamp(38px,5.4vw,66px)/.9 var(--display);text-transform:uppercase;margin:0}
+.sec-head a{font:800 17px/1 var(--display);text-transform:uppercase;letter-spacing:.08em}
+.btn{display:inline-block;padding:15px 28px;border:2px solid var(--ink);text-decoration:none;font:800 18px/1 var(--display);text-transform:uppercase;letter-spacing:.08em;background:transparent;cursor:pointer;text-align:center;border-radius:0}
+.btn.solid{background:var(--ink);color:var(--bg)}.btn.solid:hover{background:var(--volt);color:#0E0F11;border-color:var(--volt)}
+.btn.volt{background:var(--volt);color:#0E0F11;border-color:var(--volt)}.btn.volt:hover{background:#fff;border-color:#fff}
+.btn.ghost{border-color:#fff;color:#fff}.btn.ghost:hover{background:#fff;color:#0E0F11}
+.btn:not(.solid):not(.volt):not(.ghost):hover{background:var(--card)}
+.btns{display:flex;gap:12px;flex-wrap:wrap}.muted{color:var(--mute)}
+/* hero */
+.hero{background:#0E0F11;color:#fff;overflow:hidden}
+.hero-in{display:grid;grid-template-columns:1.1fr .9fr;min-height:clamp(460px,52vw,640px)}
+.hero-l{padding:clamp(32px,5vw,72px) clamp(16px,3vw,48px) clamp(32px,5vw,72px) max(16px,calc((100vw - 1320px)/2 + 36px));display:flex;flex-direction:column;justify-content:center;gap:22px}
+.hero h1{font:italic 900 clamp(60px,9.5vw,140px)/.84 var(--display);text-transform:uppercase;margin:0}.hero h1 em{color:var(--volt);font-style:inherit}
+.hero p{max-width:40ch;font-size:clamp(17px,1.5vw,20px);color:#D4D6D9;margin:0}
+.hero-r{background:var(--volt);position:relative;clip-path:polygon(18% 0,100% 0,100% 100%,0 100%);display:grid;place-items:center}
+.hero-r svg{width:62%;color:#0E0F11;margin-left:14%}
+.sticker{position:absolute;left:18%;bottom:12%;width:116px;height:116px;border-radius:50%;background:#0E0F11;color:var(--volt);display:grid;place-items:center;text-align:center;transform:rotate(-12deg);font:800 15px/1 var(--display);text-transform:uppercase;letter-spacing:.08em}
+.sticker strong{display:block;font:italic 900 40px/1 var(--display);color:#fff}
+@media (max-width:860px){.hero-in{grid-template-columns:1fr}.hero-l{padding:36px 16px}.hero-r{clip-path:polygon(0 12%,100% 0,100% 100%,0 100%);min-height:340px}.hero-r svg{margin:0;width:48%}.sticker{left:auto;right:6%}}
+/* trust */
+.trust{border-bottom:1px solid var(--line)}.trust-in{display:grid;grid-template-columns:repeat(4,1fr)}
+.tr{display:flex;gap:12px;align-items:center;padding:20px 16px;border-right:1px solid var(--line)}.tr:last-child{border:0}
+.tr i{width:40px;height:40px;background:var(--volt);color:#0E0F11;display:grid;place-items:center;font:italic 900 20px/1 var(--display);flex:none}
+.tr>div{min-width:0}.tr strong{display:block;font:800 18px/1 var(--display);text-transform:uppercase;letter-spacing:.05em}.tr span{font-size:14px;color:var(--mute)}
+@media (max-width:820px){.trust-in{grid-template-columns:1fr 1fr}.tr:nth-child(2){border-right:0}.tr:nth-child(-n+2){border-bottom:1px solid var(--line)}}
+/* categories */
+.cats{display:grid;grid-template-columns:repeat(7,1fr);gap:10px}
+.cat{text-decoration:none;display:block;cursor:pointer;text-align:center}
+.cat .sq{aspect-ratio:1;background:var(--card);display:grid;place-items:center;border-bottom:4px solid transparent;transition:border-color .2s}
+.cat:hover .sq{border-color:var(--volt)}.cat .sq svg{width:62%}
+.cat h3{font:800 18px/1 var(--display);text-transform:uppercase;letter-spacing:.06em;margin:10px 0 0}
+@media (max-width:980px){.cats{grid-template-columns:repeat(4,1fr)}}@media (max-width:560px){.cats{grid-template-columns:repeat(3,1fr);gap:8px}}
+/* promos */
+.promos{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.promo{min-height:clamp(240px,30vw,360px);padding:clamp(22px,3vw,40px);display:flex;flex-direction:column;justify-content:flex-end;gap:14px;position:relative;overflow:hidden}
+.promo.d{background:#0E0F11;color:#fff}.promo.v{background:var(--volt);color:#0E0F11}
+.promo h3{font:italic 900 clamp(38px,5vw,64px)/.88 var(--display);text-transform:uppercase;margin:0;max-width:11ch;position:relative;z-index:1}
+.promo p{margin:0;max-width:30ch;position:relative;z-index:1}.promo .btn{align-self:flex-start;position:relative;z-index:1}
+.promo svg{position:absolute;right:-4%;top:6%;width:44%;opacity:.9}.promo.d svg{color:var(--volt)}.promo.v svg{color:#0E0F11}
+@media (max-width:700px){.promos{grid-template-columns:1fr}}
+/* product cards */
+.grid{display:grid;grid-template-columns:repeat(5,1fr);gap:clamp(10px,1.4vw,18px)}.grid.four{grid-template-columns:repeat(4,1fr)}.grid.three{grid-template-columns:repeat(3,1fr)}
+.p{display:flex;flex-direction:column;text-decoration:none;cursor:pointer;min-width:0}
+.p .img{background:var(--card);aspect-ratio:1;display:grid;place-items:center;position:relative}.p .img svg{width:64%;transition:transform .3s}.p:hover .img svg{transform:scale(1.06)}
+.tag{position:absolute;top:0;left:0;background:var(--ink);color:var(--bg);font:800 13px/1 var(--display);text-transform:uppercase;letter-spacing:.1em;padding:6px 9px}.tag.new{background:var(--volt);color:#0E0F11}
+.p h3{font:800 20px/1.05 var(--display);text-transform:uppercase;letter-spacing:.03em;margin:12px 0 4px}
+.pm{color:var(--mute);font-size:14px}.cf{margin-top:auto;padding-top:10px;display:grid;gap:8px}.cf b{font:italic 900 24px/1 var(--display)}
+.add{background:#0E0F11;color:#fff;border:0;padding:12px;font:800 16px/1 var(--display);text-transform:uppercase;letter-spacing:.1em;cursor:pointer;width:100%}.add:hover{background:var(--volt);color:#0E0F11}
+@media (max-width:1100px){.grid{grid-template-columns:repeat(3,1fr)}.grid.four{grid-template-columns:repeat(3,1fr)}}
+@media (max-width:760px){.grid,.grid.four,.grid.three{grid-template-columns:repeat(2,1fr)}.grid.slide{display:flex;overflow-x:auto;scroll-snap-type:x mandatory}.grid.slide .p{flex:0 0 62%;scroll-snap-align:start}}
+/* feature band */
+.band{background:#0E0F11;color:#fff}
+.band h2.h em{color:var(--volt);font-style:inherit}
+.fcards{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.fc{position:relative;aspect-ratio:3/4;display:flex;align-items:flex-end;padding:20px;overflow:hidden;cursor:pointer;text-decoration:none}
+.fc svg{position:absolute;inset:8% 12% 28% 12%;width:76%;opacity:.9}
+.fc span{position:relative;font:italic 900 clamp(30px,3.6vw,46px)/.9 var(--display);text-transform:uppercase}
+.fc em{position:absolute;top:16px;right:16px;background:var(--volt);color:#0E0F11;font:italic 900 22px/1 var(--display);padding:8px 10px;font-style:italic}
+.fc.a{background:#1E2024}.fc.b{background:var(--volt);color:#0E0F11}.fc.c{background:#2B2F36}.fc.a svg,.fc.c svg{color:var(--volt)}.fc.b svg{color:#0E0F11}.fc.b em{background:#0E0F11;color:var(--volt)}
+@media (max-width:760px){.fcards{grid-template-columns:1fr}.fc{aspect-ratio:4/3}}
+/* fit finder (custom feature) */
+.finder{display:grid;grid-template-columns:.9fr 1.1fr;gap:clamp(20px,4vw,56px);align-items:start}
+.finder p.lead{color:#C9CCD0;max-width:42ch;margin:0 0 24px}
+.fgrp{border:0;padding:0;margin:0 0 20px}.fgrp legend{font:800 16px/1 var(--display);text-transform:uppercase;letter-spacing:.12em;color:var(--volt);margin-bottom:10px}
+.opts{display:flex;gap:8px;flex-wrap:wrap}
+.opts button{background:transparent;border:2px solid #4A4E55;color:#fff;padding:11px 18px;font:800 17px/1 var(--display);text-transform:uppercase;letter-spacing:.06em;cursor:pointer}
+.opts button[aria-pressed="true"]{background:var(--volt);color:#0E0F11;border-color:var(--volt)}
+.fres{background:#1A1C1F;padding:clamp(18px,3vw,32px)}
+.fres .size{font:italic 900 clamp(70px,9vw,120px)/.9 var(--display);color:var(--volt)}
+.fres .sum{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:18px}
+.fres .mini{background:#0E0F11;padding:10px}.fres .mini .im{aspect-ratio:1;display:grid;place-items:center}.fres .mini svg{width:70%}.fres .mini small{display:block;font:800 14px/1.1 var(--display);text-transform:uppercase;letter-spacing:.05em}
+@media (max-width:860px){.finder{grid-template-columns:1fr}}
+/* newsletter */
+.news{background:var(--volt);color:#0E0F11}.news-in{display:grid;grid-template-columns:1fr 1fr;gap:24px;align-items:center;padding:clamp(32px,5vw,56px) 0}
+.news h2{font:italic 900 clamp(34px,4.6vw,58px)/.9 var(--display);text-transform:uppercase;margin:0}
+.field{padding:15px 16px;border:2px solid var(--ink);background:var(--bg);border-radius:0;width:100%}
+.news form{display:flex;gap:8px;flex-wrap:wrap}.news .field{flex:1 1 220px;width:auto;background:#fff;color:#0E0F11}
+.news .btn.solid{background:#0E0F11;color:#fff}.news .btn.solid:hover{background:#fff;color:#0E0F11;border-color:#0E0F11}
+@media (max-width:820px){.news-in{grid-template-columns:1fr}}
+/* custom divider */
+.stitch{height:12px;background:repeating-linear-gradient(90deg,var(--ink) 0 14px,transparent 14px 24px) center/100% 3px no-repeat}
+.band .stitch{background:repeating-linear-gradient(90deg,var(--volt) 0 14px,transparent 14px 24px) center/100% 3px no-repeat}
+/* footer */
+footer.site{background:#0E0F11;color:#fff;padding:52px 0 28px}
+.foot{display:grid;grid-template-columns:1.6fr 1fr 1fr 1fr;gap:28px}
+.foot h4{font:800 17px/1 var(--display);text-transform:uppercase;letter-spacing:.14em;color:var(--volt);margin:0 0 14px}
+.foot ul{list-style:none;margin:0;padding:0;display:grid;gap:8px;color:#B7BABE}.foot a{text-decoration:none}.foot a:hover{color:#fff;text-decoration:underline}
+.legal{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;border-top:1px solid #2A2D31;margin-top:36px;padding-top:18px;color:#8A8E94;font-size:14px}
+@media (max-width:820px){.foot{grid-template-columns:1fr 1fr}}
+/* shared */
+.crumbs{font-size:14px;color:var(--mute);padding:18px 0}.crumbs a{text-decoration:none}.crumbs a:hover{text-decoration:underline}
+details.acc{border-top:1px solid var(--line);padding:14px 0}details.acc:last-of-type{border-bottom:1px solid var(--line)}
+details.acc summary{cursor:pointer;font:800 20px/1.1 var(--display);text-transform:uppercase;letter-spacing:.04em;list-style:none;display:flex;justify-content:space-between;gap:12px}
+details.acc summary::-webkit-details-marker{display:none}details.acc summary::after{content:"+";font-size:22px;line-height:1}details.acc[open] summary::after{content:"–"}
+details.acc p{color:var(--mute);margin:10px 0 0}
+.faq{display:grid;grid-template-columns:.8fr 1.2fr;gap:clamp(20px,4vw,56px)}@media (max-width:860px){.faq{grid-template-columns:1fr}}
+.pageh{font:italic 900 clamp(52px,8vw,110px)/.88 var(--display);text-transform:uppercase;margin:6px 0 18px}
+.pic{background:var(--card)}.pat-a{background:repeating-linear-gradient(135deg,#1E2024 0 8px,#2B2F36 8px 12px)}.pat-b{background:repeating-linear-gradient(45deg,#C6FF00 0 10px,#B5EB00 10px 14px)}.pat-c{background:radial-gradient(circle,rgba(255,255,255,.14) 0 3px,transparent 4px) 0 0/14px 12px,#3A3F47}.pat-d{background:repeating-linear-gradient(0deg,#D9DAD4 0 6px,#CBCCC5 6px 7px)}
+.iwt{display:grid;grid-template-columns:1fr 1fr;gap:clamp(20px,4vw,56px);align-items:center}.iwt .pic{aspect-ratio:5/4}.iwt h2{font:italic 900 clamp(34px,4.6vw,56px)/.9 var(--display);text-transform:uppercase;margin:0 0 14px}.iwt p{max-width:44ch;margin:0 0 22px}.iwt.flip .pic{order:2}
+@media (max-width:860px){.iwt{grid-template-columns:1fr}.iwt.flip .pic{order:0}}
+.cols{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}.col{background:var(--card);padding:24px}.col h3{font:800 24px/1 var(--display);text-transform:uppercase;margin:0 0 6px}.col p{margin:0;color:var(--mute)}
+@media (max-width:820px){.cols{grid-template-columns:1fr}}
+.reviews{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(16px,3vw,36px)}blockquote{margin:0;border-left:5px solid var(--volt);padding-left:18px}blockquote p{font-size:19px;line-height:1.45;margin:0 0 10px}blockquote cite{font-style:normal;color:var(--mute);font-size:15px}
+@media (max-width:820px){.reviews{grid-template-columns:1fr}}
+.video{position:relative;aspect-ratio:16/8;display:grid;place-items:center;border:0;width:100%;padding:0;color:#fff;cursor:pointer}
+.video .play{width:84px;height:84px;border-radius:50%;background:var(--volt);display:grid;place-items:center}
+.video .cap{position:absolute;left:20px;bottom:18px;font:italic 900 clamp(26px,4vw,48px)/.9 var(--display);text-transform:uppercase;text-align:left}
+.post{text-decoration:none;display:block;cursor:pointer}.post .pic{aspect-ratio:3/2}.post small{display:block;color:var(--mute);margin:12px 0 4px}.post h3{margin:0 0 6px;font:800 24px/1.05 var(--display);text-transform:uppercase}.post p{margin:0;color:var(--mute)}
+/* collection */
+.col-banner{background:#0E0F11;color:#fff;padding:clamp(24px,4vw,48px) 0}.col-banner h1{font:italic 900 clamp(56px,9vw,128px)/.84 var(--display);text-transform:uppercase;margin:0}.col-banner h1 em{color:var(--volt);font-style:inherit}
+.col-banner .crumbs{color:#B7BABE;padding-top:0}
+.col-layout{display:grid;grid-template-columns:240px 1fr;gap:clamp(20px,3vw,40px);padding:28px 0 56px}
+.filters fieldset{border:0;border-bottom:1px solid var(--line);padding:0 0 14px;margin:0 0 14px}.filters legend{font:800 18px/1 var(--display);text-transform:uppercase;letter-spacing:.1em;margin-bottom:8px}
+.filters label{display:flex;gap:8px;align-items:center;margin:6px 0;cursor:pointer}.filters input[type=checkbox]{width:18px;height:18px;accent-color:#0E0F11}
+.swatch-row{display:flex;gap:8px;flex-wrap:wrap}.swatch-row label{margin:0}.swatch-row input{position:absolute;opacity:0}.swatch-row span{width:28px;height:28px;border:2px solid var(--line);display:block}
+.swatch-row input:checked+span{outline:2px solid var(--ink);outline-offset:2px}.swatch-row input:focus-visible+span{outline:3px solid var(--volt)}
+.toolbar{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-bottom:18px;flex-wrap:wrap}.toolbar select{padding:9px 10px;border:2px solid var(--ink);background:var(--bg);border-radius:0}
+.filter-toggle{display:none}
+.pager{display:flex;gap:6px;justify-content:center;margin-top:34px}.pager a{min-width:42px;padding:9px;text-align:center;border:2px solid var(--line);text-decoration:none;font:800 17px/1 var(--display)}.pager a[aria-current]{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+.fitnote{background:var(--volt);color:#0E0F11;padding:18px 22px;font-size:17px}
+@media (max-width:860px){.col-layout{grid-template-columns:1fr}.filters{display:none}.filters.open{display:block}.filter-toggle{display:inline-block}}
+/* product */
+.pdp>*,.cart-grid>*,.col-layout>*,.finder>*,.hero-in>*{min-width:0}.pdp{display:grid;grid-template-columns:1.2fr .8fr;gap:clamp(20px,4vw,56px);padding-bottom:56px}
+.gallery{display:grid;grid-template-columns:1fr 1fr;gap:10px}.gallery .g{background:var(--card);aspect-ratio:1;display:grid;place-items:center}.gallery .g:first-child{grid-column:1/-1;aspect-ratio:6/5}.gallery svg{width:56%}
+.buy{position:sticky;top:88px;align-self:start}.buy h1{font:italic 900 clamp(44px,5vw,70px)/.88 var(--display);text-transform:uppercase;margin:0 0 10px}
+.price{font:italic 900 32px/1 var(--display);margin:0 0 8px}.note{color:var(--mute);margin:0 0 22px}
+.opt{border:0;padding:0;margin:0 0 20px}.opt legend{font:800 17px/1 var(--display);text-transform:uppercase;letter-spacing:.1em;margin-bottom:10px}
+.swatches,.sizes{display:flex;gap:8px;flex-wrap:wrap}.swatches button{width:38px;height:38px;border:2px solid var(--line);cursor:pointer}.swatches button[aria-pressed="true"]{outline:2px solid var(--ink);outline-offset:2px}
+.sizes button{min-width:54px;padding:11px;border:2px solid var(--ink);background:transparent;cursor:pointer;font:800 17px/1 var(--display)}.sizes button[aria-pressed="true"]{background:var(--ink);color:var(--bg)}.sizes button:disabled{opacity:.35;text-decoration:line-through;cursor:not-allowed}
+.fittip{background:var(--volt);color:#0E0F11;padding:12px 14px;font-size:15px;margin-bottom:22px}.full{width:100%;margin:0 0 10px;display:block}
+.appbox{border:2px dashed var(--mute);padding:26px;display:grid;grid-template-columns:auto 1fr auto;gap:24px;align-items:center}.stars{font-size:22px;letter-spacing:2px}
+@media (max-width:900px){.pdp{grid-template-columns:1fr}.buy{position:static}.appbox{grid-template-columns:1fr}}
+/* cart */
+.cart-grid{display:grid;grid-template-columns:1fr 360px;gap:clamp(20px,4vw,48px);padding:8px 0 56px}
+.cl{display:grid;grid-template-columns:96px 1fr auto;gap:16px;padding:18px 0;border-bottom:1px solid var(--line);align-items:start}.cl .thumb{background:var(--card);aspect-ratio:1;display:grid;place-items:center}.cl .thumb svg{width:70%}
+.cl h3{margin:0;font:800 22px/1 var(--display);text-transform:uppercase}.cl b{font:italic 900 24px/1 var(--display)}
+.qty{display:inline-flex;border:2px solid var(--ink);margin-top:10px}.qty button{background:none;border:0;width:34px;height:34px;cursor:pointer}.qty span{min-width:30px;display:grid;place-items:center}
+.linkbtn{background:none;border:0;padding:0;text-decoration:underline;cursor:pointer;color:var(--mute);font-size:14px;margin-left:12px}
+.summary{background:var(--card);padding:24px;align-self:start}.ship-bar{height:8px;background:var(--line);margin:8px 0 18px}.ship-bar i{display:block;height:100%;background:var(--volt);outline:1px solid #0E0F11}
+.summary textarea{width:100%;min-height:70px;padding:10px;border:2px solid var(--line);background:var(--bg);margin:6px 0 16px}
+.row{display:flex;justify-content:space-between;font:800 22px/1 var(--display);text-transform:uppercase;margin-bottom:8px}
+@media (max-width:900px){.cart-grid{grid-template-columns:1fr}}
+/* overlays */
+.overlay{position:fixed;inset:0;background:rgba(0,0,0,.55);z-index:40}
+.drawer{position:fixed;top:0;bottom:0;width:min(420px,92vw);background:var(--bg);z-index:41;display:flex;flex-direction:column;padding:calc(20px + env(safe-area-inset-top,0px)) 22px calc(20px + env(safe-area-inset-bottom,0px));box-shadow:0 0 0 1px var(--line)}
+.drawer.right{right:0}.drawer.left{left:0}.drawer-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:16px}.drawer-head h2{font:italic 900 36px/1 var(--display);text-transform:uppercase;margin:0}
+.x{background:none;border:0;font-size:28px;line-height:1;cursor:pointer;padding:4px 8px}.drawer nav{display:grid;gap:4px}.drawer nav a{font:italic 900 40px/1.1 var(--display);text-transform:uppercase;text-decoration:none}.drawer .body{flex:1;overflow:auto}
+/* article/about/contact/404 */
+.feature-post{display:grid;grid-template-columns:1.3fr 1fr;gap:clamp(20px,4vw,48px);align-items:center;margin-bottom:44px;text-decoration:none;cursor:pointer}.feature-post .pic{aspect-ratio:16/10}.feature-post h2{font:italic 900 clamp(36px,4.6vw,60px)/.9 var(--display);text-transform:uppercase;margin:8px 0 12px}
+@media (max-width:860px){.feature-post{grid-template-columns:1fr}}
+.article-hero{aspect-ratio:21/9;margin-bottom:30px}.article h1{font:italic 900 clamp(44px,6vw,84px)/.88 var(--display);text-transform:uppercase;margin:0 0 12px}.article .by{color:var(--mute);margin-bottom:26px}
+.article p{font-size:18px;line-height:1.75;margin:0 0 20px}.article h2{font:italic 900 36px/1 var(--display);text-transform:uppercase;margin:34px 0 12px}
+.share{display:flex;gap:14px;border-top:1px solid var(--line);padding-top:18px;margin-top:30px;color:var(--mute)}
+.about-hero{min-height:clamp(320px,46vw,540px);display:flex;align-items:flex-end;padding:clamp(24px,4vw,48px) 0;color:#fff}.about-hero .wrap{width:100%}.about-hero h1{font:italic 900 clamp(56px,11vw,150px)/.84 var(--display);text-transform:uppercase;margin:0;max-width:10ch}.about-hero h1 em{color:var(--volt);font-style:inherit}
+.story{font-size:19px;line-height:1.7}.story p{margin:0 0 18px}.mrow{display:grid;gap:clamp(32px,5vw,64px)}
+.nums{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}.nums div{background:var(--card);padding:26px 22px}.nums strong{display:block;font:italic 900 clamp(46px,5vw,68px)/1 var(--display)}
+@media (max-width:820px){.nums{grid-template-columns:1fr 1fr}}
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}.contact-grid .span{grid-column:1/-1}.contact-grid label{display:block;font:800 17px/1 var(--display);text-transform:uppercase;letter-spacing:.08em;margin-bottom:6px}.contact-grid textarea{min-height:140px}
+@media (max-width:640px){.contact-grid{grid-template-columns:1fr}}
+.nf{padding:clamp(48px,8vw,110px) 0;text-align:center}.nf h1{font:italic 900 clamp(100px,22vw,280px)/.8 var(--display);margin:0}.nf h1 em{color:var(--volt);font-style:inherit;-webkit-text-stroke:2px #0E0F11}.nf p{font-size:20px;margin:18px 0 26px}.nf form{display:flex;gap:8px;max-width:520px;margin:0 auto 18px}
+.toast{position:fixed;left:50%;bottom:calc(20px + env(safe-area-inset-bottom,0px));transform:translateX(-50%);background:#0E0F11;color:var(--volt);padding:12px 18px;z-index:50;font:800 18px/1 var(--display);text-transform:uppercase;letter-spacing:.06em}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
+@media (max-width:480px){.trust-in{grid-template-columns:1fr}.tr{border-right:0;border-bottom:1px solid var(--line)}.nums{grid-template-columns:1fr}.tr strong,.tr span{overflow-wrap:anywhere}}
+.cats>*{min-width:0}@media (max-width:400px){.cat h3{font-size:15px;letter-spacing:.02em}}
+</style>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+<symbol id="g-jacket" viewBox="0 0 200 240"><path fill="currentColor" d="M62 36 86 26q14 16 28 0l24 10 38 34-12 82-15-6v76H51v-76l-15 6L24 70z"/><path fill="none" stroke="rgba(0,0,0,.3)" stroke-width="2" d="M100 42v166M86 26l14 40 14-40"/></symbol>
+<symbol id="g-tee" viewBox="0 0 200 240"><path fill="currentColor" d="M56 50 86 38q14 18 28 0l30 12 32 36-24 16-8-11v116H56V91l-8 11-24-16z"/><path fill="none" stroke="rgba(0,0,0,.25)" stroke-width="2" d="M86 38q14 26 28 0"/></symbol>
+<symbol id="g-trouser" viewBox="0 0 200 240"><path fill="currentColor" d="M62 26h76l12 190h-38l-12-118-12 118H50z"/><path fill="none" stroke="rgba(0,0,0,.3)" stroke-width="2" d="M62 40h76M100 40v58"/></symbol>
+<symbol id="g-knit" viewBox="0 0 200 240"><path fill="currentColor" d="M60 44 84 34q16 10 32 0l24 10 34 40-2 118-16-4V100l-4 110H56l-4-110v98l-16 4-2-118z"/><path fill="none" stroke="rgba(0,0,0,.22)" stroke-width="2" d="M84 34q16 22 32 0M56 196h88"/></symbol>
+<symbol id="g-hood" viewBox="0 0 200 240"><path fill="currentColor" d="M70 30q30-18 60 0l30 24 22 120-22 8-6-60v82H46v-82l-6 60-22-8 22-120z"/><path fill="none" stroke="rgba(0,0,0,.3)" stroke-width="2" d="M78 34q22 40 44 0M100 78v34M70 150h60v30H70z"/></symbol>
+<symbol id="g-short" viewBox="0 0 200 240"><path fill="currentColor" d="M54 56h92l14 110h-52l-8-48-8 48H40z"/><path fill="none" stroke="rgba(0,0,0,.3)" stroke-width="2" d="M54 70h92M100 70v48"/></symbol>
+<symbol id="g-cap" viewBox="0 0 200 240"><path fill="currentColor" d="M44 130q0-60 56-60t56 60q30 6 38 22-40-8-94-8-54 0-56-14z"/><circle cx="100" cy="72" r="5" fill="rgba(0,0,0,.3)"/></symbol>
+</svg>
+
+<div class="preview-bar"><div class="wrap"><div class="pages" role="group" aria-label="Preview page" id="pageTabs"></div><label><input type="checkbox" id="showSections"> Show section names</label></div></div>
+<div class="announce" data-dawn="Announcement bar">Free UK delivery over £75 &nbsp;/&nbsp; 30-day free returns</div>
+<header class="site" data-dawn="Header"><div class="wrap head">
+<button class="menu-btn" aria-label="Open menu" data-open="menu"><svg width="26" height="26" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 7h18M3 12h18M3 17h18" stroke="currentColor" stroke-width="2"/></svg></button>
+<a class="logo" href="#" data-go="home">Volt<b>line</b></a>
+<nav aria-label="Main"><a href="#" data-go="collection">New <span class="pill">NEW</span></a><a href="#" data-go="collection">Outerwear</a><a href="#" data-go="collection">Tees</a><a href="#" data-go="collection">Bottoms</a><a href="#" data-go="blog">Journal</a><a href="#" class="deals" data-go="collection">Deals</a></nav>
+<div class="tools"><a href="#" data-go="search">Search</a><a href="#" class="hide-sm" data-go="contact">Help</a><a href="#" data-open="cart">Cart (<span class="cart-count">0</span>)</a></div></div></header>
+
+<!-- HOME -->
+<main id="view-home">
+<section class="hero" data-dawn="Image banner"><div class="hero-in">
+<div class="hero-l"><h1>Built to <em>move</em>.<br>Cut to last.</h1><p>Heavyweight training and street layers, made in small runs and tested hard before they reach you.</p><div class="btns"><a href="#" class="btn volt" data-go="collection">Shop new drop</a><a href="#" class="btn ghost" data-go="collection">Shop deals</a></div></div>
+<div class="hero-r"><svg viewBox="0 0 200 240" aria-hidden="true"><use href="#g-hood"/></svg><div class="sticker"><div>From<strong>£68</strong>Hoodies</div></div></div></div></section>
+<section class="trust" data-dawn="Multicolumn (trust strip)"><div class="wrap trust-in">
+<div class="tr"><i>£</i><div><strong>Free delivery</strong><span>On orders over £75</span></div></div>
+<div class="tr"><i>30</i><div><strong>Free returns</strong><span>30 days, prepaid label</span></div></div>
+<div class="tr"><i>2D</i><div><strong>Ships in 2 days</strong><span>Tracked, same-day before 2 pm</span></div></div>
+<div class="tr"><i>★</i><div><strong>4.8 rated</strong><span>From 2,100+ reviews</span></div></div></div></section>
+<section class="block" data-dawn="Collection list"><div class="wrap"><div class="sec-head"><h2 class="h">Shop by category</h2></div>
+<div class="cats">
+<a class="cat" data-go="collection"><div class="sq"><svg viewBox="0 0 200 240" style="color:#0E0F11" aria-hidden="true"><use href="#g-jacket"/></svg></div><h3>Jackets</h3></a>
+<a class="cat" data-go="collection"><div class="sq"><svg viewBox="0 0 200 240" style="color:#0E0F11" aria-hidden="true"><use href="#g-hood"/></svg></div><h3>Hoodies</h3></a>
+<a class="cat" data-go="collection"><div class="sq"><svg viewBox="0 0 200 240" style="color:#0E0F11" aria-hidden="true"><use href="#g-tee"/></svg></div><h3>Tees</h3></a>
+<a class="cat" data-go="collection"><div class="sq"><svg viewBox="0 0 200 240" style="color:#0E0F11" aria-hidden="true"><use href="#g-knit"/></svg></div><h3>Knitwear</h3></a>
+<a class="cat" data-go="collection"><div class="sq"><svg viewBox="0 0 200 240" style="color:#0E0F11" aria-hidden="true"><use href="#g-trouser"/></svg></div><h3>Trousers</h3></a>
+<a class="cat" data-go="collection"><div class="sq"><svg viewBox="0 0 200 240" style="color:#0E0F11" aria-hidden="true"><use href="#g-short"/></svg></div><h3>Shorts</h3></a>
+<a class="cat" data-go="collection"><div class="sq"><svg viewBox="0 0 200 240" style="color:#0E0F11" aria-hidden="true"><use href="#g-cap"/></svg></div><h3>Caps</h3></a>
+</div></div></section>
+<section class="block tight" data-dawn="Multicolumn (promo banners)"><div class="wrap promos">
+<div class="promo d"><svg viewBox="0 0 200 240" aria-hidden="true"><use href="#g-jacket"/></svg><h3>Winter layers</h3><p>Insulated shells and heavy fleece, up to 30% off.</p><a href="#" class="btn volt" data-go="collection">Shop winter</a></div>
+<div class="promo v"><svg viewBox="0 0 200 240" aria-hidden="true"><use href="#g-tee"/></svg><h3>Tee bundle</h3><p>Any three heavyweight tees for £120.</p><a href="#" class="btn solid" data-go="collection">Build a bundle</a></div></div></section>
+<section class="block tight" data-dawn="Featured collection"><div class="wrap"><div class="sec-head"><h2 class="h">New drop</h2><a href="#" data-go="collection">View all</a></div><div class="grid" data-grid="0,1,2,3,4"></div></div></section>
+<div class="stitch" data-dawn="Selvedge: Selvedge divider" aria-hidden="true"></div>
+<section class="block band" id="finder" data-dawn="Selvedge: Fit finder"><div class="wrap finder">
+<div><h2 class="h" style="margin-bottom:16px">Find your <em>fit</em></h2><p class="lead">Tell us your height and how you like it to sit. We pick a size and three pieces that match.</p>
+<fieldset class="fgrp"><legend>Height</legend><div class="opts" data-grp="h"><button type="button" aria-pressed="false">Under 5'7"</button><button type="button" aria-pressed="true">5'7" to 6'0"</button><button type="button" aria-pressed="false">Over 6'0"</button></div></fieldset>
+<fieldset class="fgrp"><legend>Fit</legend><div class="opts" data-grp="f"><button type="button" aria-pressed="false">Fitted</button><button type="button" aria-pressed="true">Regular</button><button type="button" aria-pressed="false">Oversized</button></div></fieldset></div>
+<div class="fres" aria-live="polite"><small class="muted" style="color:#A4A8AD">Your size</small><div class="size" id="fsize">M</div><p id="fnote" style="color:#C9CCD0;margin:0">Regular fit, true to size.</p><div class="sum" id="fpicks"></div></div></div></section>
+<section class="block" data-dawn="Featured collection"><div class="wrap"><div class="sec-head"><h2 class="h">Best sellers</h2><a href="#" data-go="collection">View all</a></div><div class="grid slide" data-grid="5,6,7,8,9"></div></div></section>
+<section class="block band tight" style="padding-top:clamp(40px,6vw,76px)" data-dawn="Multicolumn (feature cards)"><div class="wrap"><div class="sec-head"><h2 class="h">Train <em>harder</em></h2></div>
+<div class="fcards"><a class="fc a" data-go="collection"><svg viewBox="0 0 200 240" aria-hidden="true"><use href="#g-hood"/></svg><em>£68</em><span>Heavy<br>hoodies</span></a><a class="fc b" data-go="collection"><svg viewBox="0 0 200 240" aria-hidden="true"><use href="#g-tee"/></svg><em>£36</em><span>Gym<br>tees</span></a><a class="fc c" data-go="collection"><svg viewBox="0 0 200 240" aria-hidden="true"><use href="#g-short"/></svg><em>£44</em><span>Lift<br>shorts</span></a></div></div></section>
+<section class="block" data-dawn="Image with text"><div class="wrap iwt"><div class="pic pat-a" role="img" aria-label="Close-up of heavy fleece"></div><div><h2>Fleece that holds its shape</h2><p>Our 400 gsm loopback is brushed once, washed twice and pre-shrunk, so the fit you try on is the fit you keep.</p><a href="#" class="btn" data-go="article">Read the fabric diary</a></div></div></section>
+<section class="block tight" data-dawn="Multicolumn (reviews)"><div class="wrap"><div class="sec-head"><h2 class="h">Worn hard</h2></div><div class="reviews">
+<blockquote><p>Washed forty times and the hoodie hasn't bobbled once. Best fleece I've owned.</p><cite>Marcus, Manchester</cite></blockquote>
+<blockquote><p>The fit finder nailed my size first go. The tee sits perfectly across the shoulders.</p><cite>Aisha, Glasgow</cite></blockquote>
+<blockquote><p>Shorts survive deadlifts and squats without riding up. Ordered a second pair.</p><cite>Tom, Bristol</cite></blockquote></div></div></section>
+<section class="block tight" data-dawn="Video"><div class="wrap"><button class="video pat-a" type="button" aria-label="Play video: how we test our fleece"><span class="play"><svg width="30" height="30" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z" fill="#0E0F11"/></svg></span><span class="cap">How we test our fleece</span></button></div></section>
+<section class="block tight" data-dawn="Collapsible content"><div class="wrap faq"><h2 class="h">Questions, answered</h2><div>
+<details class="acc"><summary>How do I pick my size?</summary><p>Use the fit finder above, or the size tip next to each size selector. Oversized pieces are cut roomy, so size down for a regular fit.</p></details>
+<details class="acc"><summary>Will fleece shrink?</summary><p>Everything is pre-shrunk. Wash cold and expect under 2%.</p></details>
+<details class="acc"><summary>How long does delivery take?</summary><p>Orders ship within 2 days. UK delivery is 2 to 4 working days.</p></details>
+<details class="acc"><summary>Can I return worn items?</summary><p>Unworn items with tags can be returned within 30 days for a full refund.</p></details></div></div></section>
+<section class="block tight" data-dawn="Featured blog"><div class="wrap"><div class="sec-head"><h2 class="h">From the journal</h2><a href="#" data-go="blog">All posts</a></div><div class="grid three" data-posts="0,1,2"></div></div></section>
+<section class="news" data-dawn="Email signup"><div class="wrap news-in"><h2>Get 10% off your first drop</h2><form data-sub><label class="sr" for="em1">Email address</label><input class="field" id="em1" type="email" placeholder="Your email address" required><button class="btn solid" type="submit">Subscribe</button></form></div></section>
+</main>
+
+<!-- COLLECTION -->
+<main id="view-collection" hidden>
+<section class="col-banner" data-dawn="Collection banner"><div class="wrap"><div class="crumbs"><a href="#" data-go="home">Home</a> / New drop</div><h1>New <em>drop</em></h1><p style="max-width:56ch;color:#D4D6D9">Heavyweight training and street layers. <span id="colCount">12</span> products.</p></div></section>
+<section data-dawn="Product grid"><div class="wrap col-layout">
+<aside class="filters" id="filters" aria-label="Filters">
+<fieldset><legend>Category</legend><label><input type="checkbox" value="jackets" data-f="cat"> Jackets</label><label><input type="checkbox" value="hoodies" data-f="cat"> Hoodies</label><label><input type="checkbox" value="tees" data-f="cat"> Tees</label><label><input type="checkbox" value="bottoms" data-f="cat"> Bottoms</label><label><input type="checkbox" value="knit" data-f="cat"> Knitwear</label></fieldset>
+<fieldset><legend>Colour</legend><div class="swatch-row">
+<label title="Black"><input type="checkbox" value="Black" data-f="col" aria-label="Black"><span style="background:#0E0F11"></span></label>
+<label title="Volt"><input type="checkbox" value="Volt" data-f="col" aria-label="Volt"><span style="background:#C6FF00"></span></label>
+<label title="Stone"><input type="checkbox" value="Stone" data-f="col" aria-label="Stone"><span style="background:#C9C6BC"></span></label>
+<label title="Slate"><input type="checkbox" value="Slate" data-f="col" aria-label="Slate"><span style="background:#4A5360"></span></label>
+<label title="Ember"><input type="checkbox" value="Ember" data-f="col" aria-label="Ember"><span style="background:#E8501C"></span></label></div></fieldset>
+<fieldset><legend>Size</legend><label><input type="checkbox"> S</label><label><input type="checkbox"> M</label><label><input type="checkbox"> L</label><label><input type="checkbox"> XL</label></fieldset>
+<fieldset style="border:0"><legend>Price</legend><label><input type="checkbox" value="u60" data-f="price"> Under £60</label><label><input type="checkbox" value="o60" data-f="price"> £60 and over</label></fieldset></aside>
+<div><div class="toolbar"><button class="btn filter-toggle" type="button" id="filterToggle" aria-controls="filters" aria-expanded="false">Filter</button><span class="muted"><span id="colShown">12</span> products</span>
+<label>Sort by <select id="sort"><option value="feat">Featured</option><option value="low">Price, low to high</option><option value="high">Price, high to low</option></select></label></div>
+<div class="grid four" id="colGrid"></div>
+<nav class="pager" aria-label="Pages"><a href="#" aria-current="page">1</a><a href="#">2</a><a href="#">3</a><a href="#" aria-label="Next page">›</a></nav></div></div></section>
+<section class="block tight" data-dawn="Rich text"><div class="wrap"><div class="fitnote"><strong>Fit note:</strong> hoodies and jackets run roomy, tees are true to size, bottoms are sized by waist.</div></div></section>
+<section class="block tight" data-dawn="Collapsible content"><div class="wrap faq"><h2 class="h">About the drop</h2><div>
+<details class="acc"><summary>How often do new pieces land?</summary><p>A new drop goes live on the first Thursday of each month. Subscribers get it a day early.</p></details>
+<details class="acc"><summary>Do sold-out sizes come back?</summary><p>Core pieces restock every season. Limited colours are one run only.</p></details></div></div></section>
+<section class="news" data-dawn="Email signup"><div class="wrap news-in"><h2>Get 10% off your first drop</h2><form data-sub><label class="sr" for="em2">Email address</label><input class="field" id="em2" type="email" placeholder="Your email address" required><button class="btn solid" type="submit">Subscribe</button></form></div></section>
+</main>
+
+<!-- PRODUCT -->
+<main id="view-product" hidden>
+<div class="wrap"><nav class="crumbs" data-dawn="Selvedge: Breadcrumbs" aria-label="Breadcrumb"><a href="#" data-go="home">Home</a> / <a href="#" data-go="collection">Hoodies</a> / Heavy Hoodie</nav></div>
+<section data-dawn="Product information"><div class="wrap pdp">
+<div class="gallery"><div class="g"><svg viewBox="0 0 200 240" aria-hidden="true" id="mainArt" style="color:#0E0F11"><use href="#g-hood"/></svg></div><div class="g pat-a"></div><div class="g" style="background:var(--volt)"><svg viewBox="0 0 200 240" style="color:#0E0F11" aria-hidden="true"><use href="#g-hood"/></svg></div></div>
+<div class="buy"><h1>Heavy Hoodie</h1><p class="price">£68</p><p class="note">400 gsm loopback fleece, pre-shrunk and brushed once. Boxy fit, drop shoulder.</p>
+<fieldset class="opt"><legend>Colour: <span id="cname">Black</span></legend><div class="swatches"><button type="button" aria-pressed="true" aria-label="Black" style="background:#0E0F11" data-c="Black" data-hex="#0E0F11"></button><button type="button" aria-pressed="false" aria-label="Volt" style="background:#C6FF00" data-c="Volt" data-hex="#C6FF00"></button><button type="button" aria-pressed="false" aria-label="Slate" style="background:#4A5360" data-c="Slate" data-hex="#4A5360"></button></div></fieldset>
+<fieldset class="opt"><legend>Size</legend><div class="sizes"><button type="button" aria-pressed="false">S</button><button type="button" aria-pressed="true">M</button><button type="button" aria-pressed="false">L</button><button type="button" aria-pressed="false">XL</button><button type="button" disabled aria-label="XXL, sold out">XXL</button></div></fieldset>
+<div class="fittip">Roomy through the body. Between sizes, go down one.</div>
+<button class="btn solid full" type="button" data-add="1">Add to cart</button><button class="btn full" type="button">Buy it now</button>
+<details class="acc" open><summary>Fabric</summary><p>80% cotton, 20% recycled polyester. 400 gsm loopback. Double-layer hood, YKK zip pocket.</p></details>
+<details class="acc"><summary>Fit and size guide</summary><p>Boxy, hip length. Model is 183 cm and wears M. Chest: S 108, M 114, L 120, XL 126 cm.</p></details>
+<details class="acc"><summary>Care</summary><p>Wash cold, inside out. Tumble dry low or hang.</p></details>
+<details class="acc"><summary>Shipping and returns</summary><p>Ships in 2 days. Free returns for 30 days.</p></details></div></div></section>
+<section class="block" data-dawn="Image with text"><div class="wrap iwt flip"><div class="pic pat-a" role="img" aria-label="Fleece weave close-up"></div><div><h2>Loopback that lasts</h2><p>Looped yarn on the inside traps heat and resists pilling. It's the same construction used in heavyweight sportswear, in a fit built for the gym and the street.</p></div></div></section>
+<section class="block tight" data-dawn="Apps (reviews)"><div class="wrap"><div class="sec-head"><h2 class="h">Reviews</h2></div><div class="appbox"><div><div class="stars" aria-label="4.8 out of 5">★★★★★</div><strong>4.8 out of 5</strong><div class="muted">from 312 reviews</div></div><blockquote><p>Warm, heavy and it kept its shape after months of washing. Sized down and it's perfect.</p><cite>Priya, Leeds · Size S · Verified buyer</cite></blockquote><button class="btn" type="button">Write a review</button></div><p class="muted" style="font-size:14px;margin-top:10px">Reviews app area: Judge.me, Loox or Shopify Product Reviews renders here.</p></div></section>
+<section class="block tight" data-dawn="Related products"><div class="wrap"><div class="sec-head"><h2 class="h">Wear it with</h2></div><div class="grid slide" data-grid="2,5,10,6,3"></div></div></section>
+<section class="block tight" data-dawn="Multicolumn"><div class="wrap cols"><div class="col"><h3>Free returns</h3><p>30 days, prepaid label in the box.</p></div><div class="col"><h3>Ships in 2 days</h3><p>Tracked, same day before 2 pm.</p></div><div class="col"><h3>Tested hard</h3><p>Every fabric is wash-tested 40 times.</p></div></div></section>
+<div style="height:48px"></div></main>
+
+<!-- CART -->
+<main id="view-cart" hidden>
+<div class="wrap" style="padding-top:24px"><h1 class="pageh">Your cart</h1></div>
+<div class="wrap cart-grid"><section data-dawn="Cart items"><div id="cartLines"></div><p id="cartEmpty" class="muted" hidden>Your cart is empty. <a href="#" data-go="collection">Shop the new drop</a></p></section>
+<aside class="summary" data-dawn="Subtotal"><p id="shipMsg" style="margin:0"></p><div class="ship-bar"><i id="shipBar" style="width:0"></i></div>
+<label for="note" style="font-weight:600">Order note</label><textarea id="note" placeholder="Gift message or delivery note"></textarea>
+<div class="row"><span>Subtotal</span><span id="subtotal">£0</span></div><p class="muted" style="font-size:14px;margin:0 0 16px">Taxes and shipping calculated at checkout.</p><button class="btn solid full" type="button">Check out</button></aside></div>
+<section class="block tight" data-dawn="Featured collection"><div class="wrap"><div class="sec-head"><h2 class="h">Add to your order</h2></div><div class="grid slide" data-grid="2,5,10,11,6"></div></div></section>
+<div style="height:48px"></div></main>
+
+<!-- SEARCH -->
+<main id="view-search" hidden>
+<section class="block" style="padding-top:24px" data-dawn="Search results"><div class="wrap"><h1 class="pageh">Search</h1>
+<form id="searchForm" style="display:flex;gap:8px;max-width:640px;margin-bottom:12px"><label class="sr" for="q">Search products</label><input class="field" id="q" type="search" value="hoodie" placeholder="Search products"><button class="btn solid" type="submit">Search</button></form>
+<p class="muted" id="searchCount"></p><div class="grid four" id="searchGrid"></div></div></section>
+<section class="block tight" data-dawn="Featured collection"><div class="wrap"><div class="sec-head"><h2 class="h">Popular right now</h2></div><div class="grid slide" data-grid="0,4,1,7,9"></div></div></section>
+<div style="height:48px"></div></main>
+
+<!-- BLOG -->
+<main id="view-blog" hidden>
+<section class="block" style="padding-top:24px" data-dawn="Blog posts"><div class="wrap"><h1 class="pageh">Journal</h1>
+<a class="feature-post" data-go="article"><div class="pic pat-a" role="img" aria-label="Fleece close-up"></div><div><small class="muted">12 September 2026 · Fabric</small><h2>Why we test fleece forty times</h2><p class="muted">What wash-testing reveals about pilling, shrink and shape, and how we changed our loopback after round one.</p></div></a>
+<div class="grid three" data-posts="1,2,3,4,5,0"></div></div></section>
+<section class="news" data-dawn="Email signup"><div class="wrap news-in"><h2>New posts, first</h2><form data-sub><label class="sr" for="em3">Email address</label><input class="field" id="em3" type="email" placeholder="Your email address" required><button class="btn solid" type="submit">Subscribe</button></form></div></section>
+</main>
+
+<!-- ARTICLE -->
+<main id="view-article" hidden>
+<article class="block article" style="padding-top:24px" data-dawn="Blog post"><div class="wrap narrow"><nav class="crumbs" style="padding-top:0" aria-label="Breadcrumb"><a href="#" data-go="home">Home</a> / <a href="#" data-go="blog">Journal</a></nav>
+<h1>Why we test fleece forty times</h1><p class="by">12 September 2026 · By Sam Hale · 5 min read</p></div>
+<div class="wrap"><div class="article-hero pat-b" role="img" aria-label="Volt fleece swatch"></div></div>
+<div class="wrap narrow"><p>A fleece can feel perfect on day one and fall apart by week six. We wanted to know why, so every new fabric goes through forty home-style washes before we cut a single piece.</p>
+<h2>Washes one to ten</h2><p>This is where shrink shows. Our first loopback lost 6% in length. We pre-shrunk the cloth at the mill and the loss dropped under 2%.</p>
+<h2>Washes ten to thirty</h2><p>Pilling starts here. Tighter yarn twist and a single brushing pass kept the surface flat where a double brush fuzzed up within a dozen washes.</p>
+<h2>Washes thirty to forty</h2><p>By now the cuffs tell the truth. Ours still spring back. If they hadn't, the fabric wouldn't have made the drop.</p>
+<div class="share"><span>Share:</span><a href="#">Facebook</a><a href="#">Pinterest</a><a href="#">Copy link</a></div></div></article>
+<section class="block tight" data-dawn="Featured collection"><div class="wrap"><div class="sec-head"><h2 class="h">Shop the story</h2></div><div class="grid slide" data-grid="1,0,5,6,3"></div></div></section>
+<section class="news" data-dawn="Email signup"><div class="wrap news-in"><h2>New posts, first</h2><form data-sub><label class="sr" for="em4">Email address</label><input class="field" id="em4" type="email" placeholder="Your email address" required><button class="btn solid" type="submit">Subscribe</button></form></div></section>
+</main>
+
+<!-- ABOUT -->
+<main id="view-about" hidden>
+<section class="about-hero pat-a" data-dawn="Image banner"><div class="wrap"><h1>Made to <em>move</em></h1></div></section>
+<section class="block" data-dawn="Rich text"><div class="wrap narrow story"><p>Voltline started in 2020 in a Sheffield garage with one hoodie and a simple test: wash it forty times and see what's left.</p><p>Most of what we tried fell apart, so we went to the mills directly and asked for heavier cloth, tighter knits and finishes that last. We make small runs and repair what we sell.</p></div></section>
+<section class="block tight" data-dawn="Multirow"><div class="wrap mrow">
+<div class="iwt"><div class="pic pat-a" role="img" aria-label="Fleece on the loom"></div><div><h2>The cloth</h2><p>Loopback from Portugal, jersey from Turkey, shell fabric from Italy. Every mill is audited before we order.</p></div></div>
+<div class="iwt flip"><div class="pic pat-c" role="img" aria-label="Pattern cutting"></div><div><h2>The cut</h2><p>Patterns are cut for movement: gusseted shoulders, longer backs, and room where lifters need it.</p></div></div>
+<div class="iwt"><div class="pic pat-b" role="img" aria-label="Finished seams"></div><div><h2>The finish</h2><p>Flat-lock seams and bar-tacked stress points. Built so the repair promise rarely gets used.</p></div></div></div></section>
+<section class="block" data-dawn="Multicolumn"><div class="wrap nums"><div><strong>40</strong>wash tests per fabric</div><div><strong>300</strong>pieces per run, at most</div><div><strong>2,400</strong>repairs done free</div><div><strong>2020</strong>the year we started</div></div></section>
+<div class="stitch" data-dawn="Selvedge: Selvedge divider" aria-hidden="true"></div>
+</main>
+
+<!-- CONTACT -->
+<main id="view-contact" hidden>
+<section class="block" style="padding-top:24px" data-dawn="Page"><div class="wrap narrow"><h1 class="pageh">Contact us</h1><p style="font-size:19px;margin:0">We reply within one working day, Monday to Friday.</p></div></section>
+<section class="block tight" data-dawn="Contact form"><div class="wrap narrow"><form class="contact-grid" id="contactForm">
+<div><label for="cn">Name</label><input class="field" id="cn" required></div><div><label for="ce">Email</label><input class="field" id="ce" type="email" required></div>
+<div class="span"><label for="co">Order number (optional)</label><input class="field" id="co" placeholder="#1042"></div>
+<div class="span"><label for="cm">Message</label><textarea class="field" id="cm" required></textarea></div>
+<div class="span"><button class="btn solid" type="submit">Send message</button></div></form></div></section>
+<section class="block" data-dawn="Multicolumn"><div class="wrap cols"><div class="col"><h3>Email</h3><p>hello@voltline.co<br>Replies within one working day</p></div><div class="col"><h3>Phone</h3><p>+44 114 496 0000<br>Mon to Fri, 9 am to 5 pm</p></div><div class="col"><h3>Returns address</h3><p>Voltline Returns, Unit 7, Foundry Road, Sheffield S1 2AB</p></div></div></section>
+<section class="block tight" data-dawn="Collapsible content"><div class="wrap faq"><h2 class="h">Quick answers</h2><div>
+<details class="acc"><summary>Where is my order?</summary><p>Your tracking link is in your shipping email. Most orders arrive in 2 to 4 working days.</p></details>
+<details class="acc"><summary>How do I start a return?</summary><p>Use the prepaid label in your parcel, or email your order number for a new one.</p></details>
+<details class="acc"><summary>How do I book a repair?</summary><p>Email a photo of the damage and your order number and we'll send a label.</p></details></div></div></section>
+<div style="height:48px"></div></main>
+
+<!-- 404 -->
+<main id="view-404" hidden>
+<section class="nf" data-dawn="404 page"><div class="wrap"><h1>4<em>0</em>4</h1><p>Page not found. It may have sold out, or the link is wrong.</p>
+<form data-search404><label class="sr" for="q404">Search products</label><input class="field" id="q404" type="search" placeholder="Search products"><button class="btn solid" type="submit">Search</button></form>
+<a href="#" class="btn" data-go="collection">Back to the shop</a></div></section>
+<section class="block tight" data-dawn="Featured collection"><div class="wrap"><div class="sec-head"><h2 class="h">Best sellers</h2></div><div class="grid slide" data-grid="5,6,7,8,9"></div></div></section>
+<div style="height:48px"></div></main>
+
+<footer class="site" data-dawn="Footer"><div class="wrap"><div class="foot">
+<div><a class="logo" href="#" data-go="home">Volt<b>line</b></a><p style="margin:14px 0 0;max-width:34ch;color:#B7BABE">Heavyweight training and street layers, wash-tested forty times and repaired for free.</p></div>
+<div><h4>Shop</h4><ul><li><a href="#" data-go="collection">New drop</a></li><li><a href="#" data-go="collection">Jackets</a></li><li><a href="#" data-go="collection">Hoodies</a></li><li><a href="#" data-go="collection">Tees</a></li></ul></div>
+<div><h4>Help</h4><ul><li><a href="#" data-go="contact">Contact</a></li><li><a href="#" data-go="contact">Delivery</a></li><li><a href="#" data-go="contact">Returns</a></li><li><a href="#" data-go="404">Size guide</a></li></ul></div>
+<div><h4>Company</h4><ul><li><a href="#" data-go="about">About</a></li><li><a href="#" data-go="blog">Journal</a></li><li><a href="#" data-go="search">Search</a></li></ul></div></div>
+<div class="legal"><span>© 2026 Voltline. All rights reserved.</span><span>Privacy · Terms · Refunds</span></div></div></footer>
+
+<div class="overlay" id="ovMenu" data-close hidden></div>
+<aside class="drawer left" id="menuDrawer" aria-label="Menu" hidden data-dawn="Header (menu drawer)"><div class="drawer-head"><h2>Menu</h2><button class="x" type="button" data-close aria-label="Close menu">×</button></div>
+<nav><a href="#" data-go="collection">New drop</a><a href="#" data-go="collection">Outerwear</a><a href="#" data-go="collection">Tees</a><a href="#" data-go="blog">Journal</a><a href="#" data-go="about">About</a><a href="#" data-go="contact">Contact</a></nav></aside>
+<div class="overlay" id="ovCart" data-close hidden></div>
+<aside class="drawer right" id="cartDrawer" aria-label="Cart" hidden data-dawn="Cart drawer"><div class="drawer-head"><h2>Cart</h2><button class="x" type="button" data-close aria-label="Close cart">×</button></div>
+<div class="body" id="drawerLines"></div><div class="row" style="margin-top:14px"><span>Subtotal</span><span id="drawerSub">£0</span></div>
+<button class="btn solid full" type="button">Check out</button><a href="#" class="btn full" data-go="cart">View cart</a></aside>
+<div class="toast" id="toast" role="status" hidden></div>
+
+<script>
+(function(){
+var P=[
+{n:"Heavy Hoodie",s:"hood",c:"#0E0F11",cn:"Black",p:68,t:"400 gsm",cat:"hoodies",tag:"New",d:["#0E0F11","#C6FF00","#4A5360"]},
+{n:"Gym Tee",s:"tee",c:"#C6FF00",cn:"Volt",p:36,t:"240 gsm",cat:"tees",tag:"New",d:["#C6FF00","#0E0F11"]},
+{n:"Storm Shell",s:"jacket",c:"#4A5360",cn:"Slate",p:128,t:"Waterproof",cat:"jackets",tag:"New",d:["#4A5360","#0E0F11"]},
+{n:"Lift Short",s:"short",c:"#0E0F11",cn:"Black",p:44,t:"4-way stretch",cat:"bottoms",tag:"New",d:["#0E0F11","#C9C6BC"]},
+{n:"Trail Cap",s:"cap",c:"#E8501C",cn:"Ember",p:28,t:"Cotton twill",cat:"tees",tag:"New",d:["#E8501C","#0E0F11"]},
+{n:"Core Jogger",s:"trouser",c:"#4A5360",cn:"Slate",p:58,t:"Fleece",cat:"bottoms",tag:"Best seller",d:["#4A5360","#0E0F11"]},
+{n:"Quarter-Zip Knit",s:"knit",c:"#C9C6BC",cn:"Stone",p:74,t:"Merino blend",cat:"knit",tag:"Best seller",d:["#C9C6BC","#0E0F11"]},
+{n:"Oversized Tee",s:"tee",c:"#0E0F11",cn:"Black",p:42,t:"280 gsm",cat:"tees",tag:"Best seller",d:["#0E0F11","#C9C6BC","#C6FF00"]},
+{n:"Puffer Vest",s:"jacket",c:"#E8501C",cn:"Ember",p:96,t:"Insulated",cat:"jackets",tag:"Sale",d:["#E8501C","#0E0F11"]},
+{n:"Zip Hoodie",s:"hood",c:"#C9C6BC",cn:"Stone",p:72,t:"400 gsm",cat:"hoodies",tag:"Best seller",d:["#C9C6BC","#4A5360"]},
+{n:"Crew Sweat",s:"knit",c:"#4A5360",cn:"Slate",p:54,t:"Loopback",cat:"knit",tag:"",d:["#4A5360","#0E0F11"]},
+{n:"Track Short",s:"short",c:"#C6FF00",cn:"Volt",p:38,t:"Ripstop",cat:"bottoms",tag:"New",d:["#C6FF00","#0E0F11"]}];
+var POSTS=[{t:"Why we test fleece forty times",d:"12 September 2026",k:"Fabric",e:"What wash-testing reveals about pilling and shape.",pat:"pat-a"},
+{t:"How to size a hoodie",d:"2 September 2026",k:"Fit",e:"Chest, length and drop shoulder, explained.",pat:"pat-c"},
+{t:"Inside the Portuguese mill",d:"20 August 2026",k:"Makers",e:"Where our 400 gsm loopback is knitted.",pat:"pat-b"},
+{t:"Train in the cold",d:"8 August 2026",k:"Training",e:"Layering for a winter session without overheating.",pat:"pat-d"},
+{t:"What 2,400 repairs taught us",d:"24 July 2026",k:"Repairs",e:"The seams that fail first and how we changed them.",pat:"pat-a"},
+{t:"Shorts that survive squats",d:"10 July 2026",k:"Training",e:"Gussets, rise and why length matters.",pat:"pat-c"}];
+var cart=[{i:1,size:"M",col:"Volt",q:1},{i:5,size:"32",col:"Slate",q:1}];
+function $(s,r){return (r||document).querySelector(s)}function $$(s,r){return Array.prototype.slice.call((r||document).querySelectorAll(s))}
+function money(v){return "£"+v.toLocaleString("en-GB")}
+function card(i){var p=P[i];return '<a class="p" href="#" data-go="product"><div class="img">'+(p.tag?'<span class="tag'+(p.tag==="New"?" new":"")+'">'+p.tag+'</span>':'')+'<svg viewBox="0 0 200 240" style="color:'+p.c+'" aria-hidden="true"><use href="#g-'+p.s+'"/></svg></div><h3>'+p.n+'</h3><div class="pm">'+p.cn+' · '+p.t+'</div><div class="cf"><b>'+money(p.p)+'</b><button class="add" type="button" data-add="'+i+'">Add to cart</button></div></a>'}
+function postCard(i){var p=POSTS[i];return '<a class="post" href="#" data-go="article"><div class="pic '+p.pat+'" role="img" aria-label="'+p.t+'"></div><small>'+p.d+' · '+p.k+'</small><h3>'+p.t+'</h3><p>'+p.e+'</p></a>'}
+$$("[data-grid]").forEach(function(g){g.innerHTML=g.dataset.grid.split(",").map(Number).map(card).join("")});
+$$("[data-posts]").forEach(function(g){g.innerHTML=g.dataset.posts.split(",").map(Number).map(postCard).join("")});
+function renderCollection(){var cats=$$('[data-f="cat"]:checked').map(function(x){return x.value}),cols=$$('[data-f="col"]:checked').map(function(x){return x.value}),prices=$$('[data-f="price"]:checked').map(function(x){return x.value}),
+idx=P.map(function(_,i){return i}).filter(function(i){var p=P[i];return (!cats.length||cats.indexOf(p.cat)>-1)&&(!cols.length||cols.indexOf(p.cn)>-1)&&(!prices.length||(prices.indexOf("u60")>-1&&p.p<60)||(prices.indexOf("o60")>-1&&p.p>=60))});
+var s=$("#sort").value;if(s==="low")idx.sort(function(a,b){return P[a].p-P[b].p});if(s==="high")idx.sort(function(a,b){return P[b].p-P[a].p});
+$("#colGrid").innerHTML=idx.length?idx.map(card).join(""):'<p class="muted">No products match these filters. Clear a filter to see more.</p>';$("#colShown").textContent=idx.length}
+$$(".filters input").forEach(function(x){x.addEventListener("change",renderCollection)});$("#sort").addEventListener("change",renderCollection);
+$("#filterToggle").addEventListener("click",function(){var f=$("#filters");f.classList.toggle("open");this.setAttribute("aria-expanded",f.classList.contains("open"))});renderCollection();
+function runSearch(q){q=(q||"").trim().toLowerCase();var idx=P.map(function(_,i){return i}).filter(function(i){var p=P[i];return !q||(p.n+" "+p.t+" "+p.cat+" "+p.cn).toLowerCase().indexOf(q)>-1});
+$("#searchCount").textContent=idx.length+" result"+(idx.length===1?"":"s")+(q?' for "'+q+'"':"");$("#searchGrid").innerHTML=idx.length?idx.map(card).join(""):'<p class="muted">No products found. Try "hoodie", "tee" or "short", or browse the best sellers below.</p>'}
+$("#searchForm").addEventListener("submit",function(e){e.preventDefault();runSearch($("#q").value)});
+$("[data-search404]").addEventListener("submit",function(e){e.preventDefault();$("#q").value=$("#q404").value;runSearch($("#q404").value);show("search")});runSearch("hoodie");
+function renderCart(){var sub=0,count=0,html="";cart.forEach(function(l,k){var p=P[l.i];sub+=p.p*l.q;count+=l.q;
+html+='<div class="cl"><div class="thumb"><svg viewBox="0 0 200 240" style="color:'+p.c+'" aria-hidden="true"><use href="#g-'+p.s+'"/></svg></div><div><h3>'+p.n+'</h3><div class="muted" style="font-size:14px">'+l.col+' · '+l.size+'</div><div class="qty"><button type="button" aria-label="Decrease quantity" data-q="'+k+'" data-d="-1">−</button><span>'+l.q+'</span><button type="button" aria-label="Increase quantity" data-q="'+k+'" data-d="1">+</button></div><button type="button" class="linkbtn" data-rm="'+k+'">Remove</button></div><b>'+money(p.p*l.q)+'</b></div>'});
+$("#cartLines").innerHTML=html;$("#drawerLines").innerHTML=html||'<p class="muted">Your cart is empty.</p>';$("#cartEmpty").hidden=cart.length>0;
+$("#subtotal").textContent=money(sub);$("#drawerSub").textContent=money(sub);$$(".cart-count").forEach(function(c){c.textContent=count});
+var left=75-sub;$("#shipMsg").textContent=left>0?"Spend "+money(left)+" more for free delivery":"You've got free delivery";$("#shipBar").style.width=Math.min(100,sub/75*100)+"%"}
+document.addEventListener("click",function(e){var q=e.target.closest("[data-q]"),rm=e.target.closest("[data-rm]"),add=e.target.closest("[data-add]");
+if(q){var l=cart[+q.dataset.q];l.q=Math.max(1,l.q+(+q.dataset.d));renderCart()}
+if(rm){cart.splice(+rm.dataset.rm,1);renderCart()}
+if(add){e.preventDefault();e.stopPropagation();var i=+add.dataset.add,sz=$('.sizes button[aria-pressed="true"]',add.closest("main"));var col=(add.closest("#view-product")&&$("#cname"))?$("#cname").textContent:P[i].cn;
+cart.push({i:i,size:sz?sz.textContent:"M",col:col,q:1});renderCart();openDrawer("cart")}},true);
+renderCart();
+function openDrawer(w){var d=w==="cart"?$("#cartDrawer"):$("#menuDrawer"),o=w==="cart"?$("#ovCart"):$("#ovMenu");d.hidden=false;o.hidden=false;var b=d.querySelector(".x");if(b)b.focus()}
+function closeDrawers(){$$(".drawer,.overlay").forEach(function(x){x.hidden=true})}
+document.addEventListener("click",function(e){var o=e.target.closest("[data-open]");if(o){e.preventDefault();openDrawer(o.dataset.open)}});
+$$("[data-close]").forEach(function(x){x.addEventListener("click",closeDrawers)});document.addEventListener("keydown",function(e){if(e.key==="Escape")closeDrawers()});
+document.addEventListener("click",function(e){var sw=e.target.closest(".swatches button");if(sw){$$(".swatches button",sw.parentNode).forEach(function(x){x.setAttribute("aria-pressed","false")});sw.setAttribute("aria-pressed","true");$("#cname").textContent=sw.dataset.c;$("#mainArt").style.color=sw.dataset.hex}
+var sz=e.target.closest(".sizes button:not([disabled])");if(sz){$$(".sizes button",sz.parentNode).forEach(function(x){x.setAttribute("aria-pressed","false")});sz.setAttribute("aria-pressed","true")}});
+// Fit finder
+var SIZES=["XS","S","M","L","XL","XXL"],fs={h:1,f:1};
+function renderFit(){var k=fs.h+(fs.f-1);var i=Math.max(0,Math.min(5,k+1));var sz=SIZES[i];$("#fsize").textContent=sz;
+$("#fnote").textContent=["Fitted: cut close to the body, so we sized you up a touch for comfort.","Regular fit, true to size.","Oversized: our cuts are already roomy, so this is the size that gives the boxy look."][fs.f];
+$("#fpicks").innerHTML=[0,1,3].map(function(n){var p=P[n];return '<div class="mini"><div class="im"><svg viewBox="0 0 200 240" style="color:'+p.c+'" aria-hidden="true"><use href="#g-'+p.s+'"/></svg></div><small>'+p.n+'</small></div>'}).join("")}
+$$(".opts").forEach(function(g){g.addEventListener("click",function(e){var b=e.target.closest("button");if(!b)return;$$("button",g).forEach(function(x){x.setAttribute("aria-pressed","false")});b.setAttribute("aria-pressed","true");fs[g.dataset.grp]=$$("button",g).indexOf(b);renderFit()})});renderFit();
+function toast(msg){var t=$("#toast");t.textContent=msg;t.hidden=false;clearTimeout(t._t);t._t=setTimeout(function(){t.hidden=true},2200)}
+$$("[data-sub]").forEach(function(f){f.addEventListener("submit",function(e){e.preventDefault();f.querySelector("button").textContent="Subscribed";toast("Subscribed. Your 10% code is on its way.")})});
+$("#contactForm").addEventListener("submit",function(e){e.preventDefault();this.reset();toast("Message sent. We'll reply within one working day.")});
+$(".video").addEventListener("click",function(){toast("Video plays here (YouTube or Vimeo link set in the editor)")});
+var VIEWS=[["home","Homepage"],["collection","Collection"],["product","Product"],["cart","Cart"],["search","Search"],["blog","Blog"],["article","Article"],["about","About"],["contact","Contact"],["404","404"]];
+$("#pageTabs").innerHTML=VIEWS.map(function(v){return '<button type="button" data-view="'+v[0]+'" aria-pressed="false">'+v[1]+'</button>'}).join("");
+function show(v){VIEWS.forEach(function(x){$("#view-"+x[0]).hidden=x[0]!==v});$$("#pageTabs button").forEach(function(b){b.setAttribute("aria-pressed",String(b.dataset.view===v))});closeDrawers();window.scrollTo(0,0)}
+$("#pageTabs").addEventListener("click",function(e){var b=e.target.closest("button");if(b)show(b.dataset.view)});
+document.addEventListener("click",function(e){var a=e.target.closest("[data-go]");if(a){e.preventDefault();show(a.dataset.go)}});
+$("#showSections").addEventListener("change",function(){document.body.classList.toggle("show-sections",this.checked)});
+show("home");
+})();
+</script>
+
+</body></html>

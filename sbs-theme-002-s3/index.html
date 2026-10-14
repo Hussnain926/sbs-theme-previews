@@ -1,0 +1,568 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>Mortise Home Theme</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@100..125,400..900&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+/* Layout concept: Reference B "Spec sheet / Industrial" applied to Home & Decor: grid-paper hero with a FIG. 01 plate, bento categories, bordered 4-up cards, wall-planner calculator, spec-plate product page. */
+:root{
+  --bg:#E4E2DA; --paper:#F7F6F1; --ink:#1A1C20; --accent:#E8541C; --accent-ink:#1A1C20; --mute:#5E625F; --rule:#1A1C20; --soft:#D3D1C7; --dark:#1A1C20; --dark-ink:#F2F1EA;
+  --display:"Archivo","Arial Black",Arial,sans-serif; --mono:"IBM Plex Mono",ui-monospace,Menlo,monospace;
+  --pad:max(16px,env(safe-area-inset-left,0px)); --padr:max(16px,env(safe-area-inset-right,0px));
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#121316;--paper:#1B1D21;--ink:#ECEBE4;--accent:#FF6A33;--accent-ink:#121316;--mute:#9EA19C;--rule:#ECEBE4;--soft:#2A2C31;--dark:#0B0C0E;--dark-ink:#ECEBE4;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#121316;--paper:#1B1D21;--ink:#ECEBE4;--accent:#FF6A33;--accent-ink:#121316;--mute:#9EA19C;--rule:#ECEBE4;--soft:#2A2C31;--dark:#0B0C0E;--dark-ink:#ECEBE4;color-scheme:dark}
+*,*::before,*::after{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 16px/1.55 var(--display);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+img,svg{max-width:100%;display:block}
+a{color:inherit}
+button,input,select,textarea{font:inherit;color:inherit}
+:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
+.sr{position:absolute;left:-9999px}
+.w{max-width:1280px;margin:0 auto;padding-left:var(--pad);padding-right:var(--padr)}
+.mono{font-family:var(--mono);font-size:12px;letter-spacing:.06em;text-transform:uppercase}
+.mute{color:var(--mute)}
+/* preview bar */
+.pv{background:var(--dark);color:var(--dark-ink);font-size:13px;padding-block:8px;position:relative;z-index:30}
+.pv .w{display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+.pv .tabs{display:flex;gap:6px;overflow-x:auto;flex:1 1 280px;min-width:0;padding-bottom:2px}
+.pv button{background:transparent;border:1px solid rgba(255,255,255,.4);color:inherit;padding:4px 10px;cursor:pointer;white-space:nowrap;font:500 12px var(--mono);text-transform:uppercase}
+.pv button[aria-pressed="true"]{background:var(--accent);border-color:var(--accent);color:var(--accent-ink)}
+.pv label{display:flex;gap:6px;align-items:center;white-space:nowrap;cursor:pointer;font:500 12px var(--mono);text-transform:uppercase}
+body.names [data-dawn]{position:relative;outline:2px dashed var(--accent);outline-offset:-2px}
+body.names [data-dawn]::after{content:attr(data-dawn);position:absolute;top:6px;right:6px;background:var(--accent);color:var(--accent-ink);font:500 11px/1 var(--mono);padding:5px 7px;z-index:8;pointer-events:none}
+/* utility + header */
+.util{background:var(--ink);color:var(--paper);padding-block:7px}
+.util .w{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
+header.hd{background:var(--paper);border-bottom:2px solid var(--rule);position:sticky;top:env(safe-area-inset-top,0px);z-index:20}
+.hd .row{display:grid;grid-template-columns:auto 1fr auto;gap:18px;align-items:center;min-height:68px}
+.brand{display:flex;gap:10px;align-items:center;text-decoration:none;font:900 22px/1 var(--display);font-stretch:125%;text-transform:uppercase;letter-spacing:-.01em}
+.mark{white-space:nowrap;flex:none;width:34px;height:34px;background:var(--ink);color:var(--paper);display:grid;place-items:center;font:900 16px var(--display)}
+.mark b{color:var(--accent)}
+.hd nav{display:flex;gap:6px;flex-wrap:wrap;justify-content:center}
+.hd nav a{padding:6px 10px;text-decoration:none;font:600 13px var(--display);text-transform:uppercase;letter-spacing:.04em;border:1px solid transparent}
+.hd nav a:hover{border-color:var(--rule)}
+.hd .deals{border:1px solid var(--rule);color:var(--accent);font-weight:800}
+.tools{display:flex;gap:8px;align-items:center}
+.sbox{border:1px solid var(--rule);display:flex;align-items:center;gap:6px;padding:6px 10px;background:transparent;cursor:pointer;font:500 12px var(--mono);color:var(--mute);min-width:150px}
+.cartpill{background:var(--ink);color:var(--paper);border:0;padding:9px 14px;cursor:pointer;font:700 13px var(--display);text-transform:uppercase}
+.cartpill span{background:var(--accent);color:var(--accent-ink);padding:1px 6px;margin-left:6px}
+.mbtn{display:none;background:none;border:1px solid var(--rule);padding:6px;cursor:pointer}
+@media(max-width:960px){.hd .row{grid-template-columns:auto 1fr auto}.hd nav{display:none}.mbtn{display:block}.sbox{display:none}}
+/* common */
+.blk{padding-block:clamp(40px,6vw,76px)}
+.sh{display:flex;justify-content:space-between;align-items:end;gap:12px;flex-wrap:wrap;margin-bottom:24px;border-bottom:2px solid var(--rule);padding-bottom:12px}
+.h2{font:900 clamp(30px,4.6vw,56px)/.95 var(--display);font-stretch:125%;text-transform:uppercase;margin:0;text-wrap:balance}
+.btn{display:inline-block;border:2px solid var(--ink);padding:13px 22px;font:800 14px var(--display);text-transform:uppercase;letter-spacing:.04em;text-decoration:none;background:transparent;cursor:pointer;text-align:center}
+.btn.fill{background:var(--accent);border-color:var(--ink);color:var(--accent-ink)}
+.btn.dk{background:var(--ink);color:var(--paper)}
+.btn:hover{transform:translate(-2px,-2px);box-shadow:3px 3px 0 var(--ink)}
+.bt{display:flex;gap:10px;flex-wrap:wrap}
+.full{width:100%;margin-bottom:10px}
+.tick{height:14px;border-block:1px solid var(--rule);background:repeating-linear-gradient(90deg,var(--rule) 0 1px,transparent 1px 12px) 0 0/100% 6px no-repeat,var(--paper)}
+/* hero */
+.hero{background:var(--bg);background-image:linear-gradient(var(--soft) 1px,transparent 1px),linear-gradient(90deg,var(--soft) 1px,transparent 1px);background-size:32px 32px;border-bottom:2px solid var(--rule)}
+.hg{display:grid;grid-template-columns:1.1fr .9fr;gap:clamp(20px,4vw,52px);padding-block:clamp(28px,5vw,64px);align-items:center}
+.hero h1{font:900 clamp(44px,8.4vw,112px)/.88 var(--display);font-stretch:125%;text-transform:uppercase;margin:12px 0 18px;text-wrap:balance}
+.hero h1 em{font-style:normal;color:var(--accent)}
+.hero p.lead{max-width:44ch;font-size:18px;margin:0 0 24px}
+.fig{background:var(--paper);border:2px solid var(--rule);padding:14px;position:relative}
+.fig .cap{display:flex;justify-content:space-between;margin-bottom:8px}
+.fig .plate{background:var(--soft);aspect-ratio:1/1;display:grid;place-items:center;position:relative;border:1px solid var(--rule)}
+.fig .plate svg{width:62%;color:var(--ink)}
+.dim{position:absolute;font:500 11px var(--mono);background:var(--paper);border:1px solid var(--rule);padding:2px 6px}
+.fig .ft{display:flex;justify-content:space-between;gap:8px;align-items:center;margin-top:10px;font-weight:800;text-transform:uppercase;flex-wrap:wrap}
+@media(max-width:900px){.hg{grid-template-columns:1fr}}
+.trust{background:var(--dark);color:var(--dark-ink)}
+.trust .w{display:grid;grid-template-columns:repeat(4,1fr);gap:0}
+.trust div.t{padding:18px 14px;border-right:1px solid rgba(255,255,255,.18);display:flex;gap:10px;align-items:center}
+.trust div.t:last-child{border-right:0}
+.trust svg{width:26px;height:26px;color:var(--accent);flex:none}
+.trust strong{display:block;font-size:14px;text-transform:uppercase}
+@media(max-width:800px){.trust .w{grid-template-columns:1fr 1fr}}
+/* bento */
+.bento{display:grid;grid-template-columns:repeat(4,1fr);grid-auto-rows:minmax(150px,auto);gap:0;border:2px solid var(--rule);background:var(--paper)}
+.bt1{grid-column:span 2;grid-row:span 2;background:var(--accent);color:var(--accent-ink);padding:22px;display:flex;flex-direction:column;justify-content:space-between;text-decoration:none;cursor:pointer;border-right:2px solid var(--rule)}
+.bt1 h3{font:900 clamp(32px,4.5vw,60px)/.9 var(--display);font-stretch:125%;text-transform:uppercase;margin:0}
+.bt1 svg{width:46%;align-self:flex-end}
+.bti{padding:16px;border-right:1px solid var(--rule);border-bottom:1px solid var(--rule);display:flex;flex-direction:column;justify-content:space-between;text-decoration:none;cursor:pointer;min-width:0}
+.bti:hover{background:var(--soft)}
+.bti h3{margin:0;font:800 18px/1.1 var(--display);text-transform:uppercase;display:flex;justify-content:space-between;gap:8px}
+.bti svg.ic{width:44px;height:44px;color:var(--ink)}
+@media(max-width:800px){.bento{grid-template-columns:1fr 1fr}.bt1{grid-column:span 2;grid-row:auto}}
+/* cards */
+.g4{display:grid;grid-template-columns:repeat(4,1fr);gap:0;border:2px solid var(--rule);border-right:0;border-bottom:0}
+.g3{grid-template-columns:repeat(3,1fr)}
+.pc{background:var(--paper);border-right:2px solid var(--rule);border-bottom:2px solid var(--rule);padding:12px;display:flex;flex-direction:column;gap:8px;min-width:0}
+.pc .im{aspect-ratio:1/1;background:var(--soft);display:grid;place-items:center;position:relative;cursor:pointer;border:1px solid var(--rule)}
+.pc .im svg{width:62%;transition:transform .25s}
+.pc:hover .im svg{transform:translateY(-4px)}
+.pc .tg{position:absolute;top:8px;left:8px;background:var(--ink);color:var(--paper);padding:2px 6px;font:500 11px var(--mono);text-transform:uppercase}
+.pc h3{margin:0;font:800 16px/1.2 var(--display);cursor:pointer}
+.pc .mt{font:400 12px var(--mono);color:var(--mute);text-transform:uppercase}
+.pc .cf{display:flex;justify-content:space-between;gap:8px;align-items:center;margin-top:auto}
+.pc .cf b{font:800 18px var(--display)}
+.pc .ad{background:var(--ink);color:var(--paper);border:0;padding:8px 12px;font:700 12px var(--display);text-transform:uppercase;cursor:pointer}
+.pc .ad:hover{background:var(--accent);color:var(--accent-ink)}
+@media(max-width:980px){.g4,.g3{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:420px){.pc{padding:8px}.pc .cf{flex-direction:column;align-items:stretch}.pc .ad{width:100%}}
+/* planner */
+.plan{background:var(--paper);border:2px solid var(--rule);display:grid;grid-template-columns:.9fr 1.1fr}
+.plan .ctl{padding:22px;border-right:2px solid var(--rule);display:grid;gap:14px;align-content:start}
+.plan .vis{padding:22px;background:var(--bg);display:grid;gap:14px;align-content:start;min-width:0}
+.pre{display:flex;gap:6px;flex-wrap:wrap}
+.pre button{border:1px solid var(--rule);background:transparent;padding:6px 10px;font:500 12px var(--mono);text-transform:uppercase;cursor:pointer}
+.pre button[aria-pressed="true"]{background:var(--ink);color:var(--paper)}
+.stp{display:flex;align-items:center;justify-content:space-between;gap:10px;border:1px solid var(--rule);padding:6px 6px 6px 12px}
+.stp label{font:500 12px var(--mono);text-transform:uppercase}
+.stp .c{display:flex;align-items:center}
+.stp button{width:34px;height:34px;border:1px solid var(--rule);background:var(--paper);cursor:pointer;font-weight:800}
+.stp output{min-width:64px;text-align:center;font:500 14px var(--mono)}
+.wallbox{border:2px solid var(--rule);background:var(--paper);padding:10px;overflow:hidden}
+.wallbox .wall{display:flex;flex-wrap:wrap;gap:4px;align-content:flex-start}
+.wallbox .wall i{display:block;aspect-ratio:5/7;background:var(--soft);border:2px solid var(--ink);flex:0 0 calc((100% - 4px*(var(--n) - 1))/var(--n))}
+.res{display:grid;grid-template-columns:repeat(3,1fr);gap:0;border:2px solid var(--rule)}
+.res div{padding:12px;border-right:1px solid var(--rule);background:var(--paper)}
+.res div:last-child{border-right:0}
+.res b{display:block;font:900 28px/1 var(--display)}
+@media(max-width:860px){.plan{grid-template-columns:1fr}.plan .ctl{border-right:0;border-bottom:2px solid var(--rule)}}
+/* promos, news, footer */
+.pr2{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.promo{border:2px solid var(--rule);padding:24px;min-height:230px;display:flex;flex-direction:column;justify-content:space-between;gap:16px;background:var(--paper)}
+.promo.a{background:var(--ink);color:var(--paper)}
+.promo h3{font:900 clamp(26px,3.4vw,42px)/.95 var(--display);font-stretch:125%;text-transform:uppercase;margin:0}
+@media(max-width:700px){.pr2{grid-template-columns:1fr}}
+.news{background:var(--accent);color:var(--accent-ink);border-block:2px solid var(--rule)}
+.news .ni{display:grid;grid-template-columns:1fr 1fr;gap:20px;align-items:center;padding-block:36px}
+.news h2{font:900 clamp(28px,4vw,48px)/.95 var(--display);font-stretch:125%;text-transform:uppercase;margin:0}
+.news form{display:flex;gap:8px;flex-wrap:wrap}
+.fld{padding:13px 14px;border:2px solid var(--ink);background:var(--paper);color:var(--ink);width:100%;border-radius:0}
+.news .fld{flex:1 1 200px;width:auto}
+@media(max-width:800px){.news .ni{grid-template-columns:1fr}}
+footer.ft{background:var(--dark);color:var(--dark-ink);padding-block:44px 28px}
+.fgrid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:24px}
+.fgrid h4{margin:0 0 10px;font:500 12px var(--mono);text-transform:uppercase;color:var(--accent)}
+.fgrid ul{list-style:none;margin:0;padding:0;display:grid;gap:6px;opacity:.85}
+.fgrid a{text-decoration:none}.fgrid a:hover{text-decoration:underline}
+.fb{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;margin-top:32px;padding-top:16px;border-top:1px solid rgba(255,255,255,.2)}
+@media(max-width:800px){.fgrid{grid-template-columns:1fr 1fr}}
+/* collection */
+.cb{background:var(--paper);border-bottom:2px solid var(--rule);padding-block:24px}
+.cb h1,.ph{font:900 clamp(40px,7vw,92px)/.9 var(--display);font-stretch:125%;text-transform:uppercase;margin:6px 0}
+.clay{display:grid;grid-template-columns:240px 1fr;gap:28px;padding-block:28px 56px}
+.flt fieldset{border:2px solid var(--rule);background:var(--paper);margin:0 0 12px;padding:12px}
+.flt legend{font:500 12px var(--mono);text-transform:uppercase;padding:0 6px}
+.flt label{display:flex;gap:8px;align-items:center;margin:6px 0;cursor:pointer}
+.flt input{accent-color:var(--accent);width:18px;height:18px}
+.tbar{display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap;margin-bottom:14px}
+.tbar select{padding:8px;border:2px solid var(--rule);background:var(--paper);border-radius:0}
+.ftg{display:none}
+@media(max-width:860px){.clay{grid-template-columns:1fr}.flt{display:none}.flt.open{display:block}.ftg{display:inline-block}}
+.pager{display:flex;gap:6px;justify-content:center;margin-top:28px}
+.pager a{min-width:40px;padding:8px;text-align:center;border:2px solid var(--rule);text-decoration:none;font:500 13px var(--mono)}
+.pager a[aria-current]{background:var(--ink);color:var(--paper)}
+/* product */
+.bc{background:var(--paper);border-bottom:2px solid var(--rule);padding-block:12px}
+.bc a{text-decoration:none}.bc a:hover{text-decoration:underline}
+.pdp{display:grid;grid-template-columns:1.1fr .9fr;gap:clamp(20px,3.5vw,48px);padding-block:28px 48px}
+.pdp>*{min-width:0}
+.thumbs{display:flex;gap:6px;margin-top:10px}
+.thumbs button{flex:1;border:2px solid var(--rule);background:var(--paper);padding:6px;cursor:pointer;font:500 11px var(--mono);text-transform:uppercase}
+.thumbs button[aria-pressed="true"]{background:var(--ink);color:var(--paper)}
+.spec{width:100%;border-collapse:collapse;margin-top:12px;background:var(--paper);border:2px solid var(--rule)}
+.spec th,.spec td{padding:8px 12px;border-bottom:1px solid var(--rule);text-align:left;font-size:14px}
+.spec th{font:500 12px var(--mono);text-transform:uppercase;width:42%;color:var(--mute)}
+.buy h1{font:900 clamp(32px,4.4vw,56px)/.92 var(--display);font-stretch:125%;text-transform:uppercase;margin:6px 0 10px}
+.price{font:900 30px var(--display);margin:0 0 6px}
+.opts{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:16px}
+.opts button{border:2px solid var(--rule);background:var(--paper);padding:10px 14px;cursor:pointer;font:700 13px var(--display);text-transform:uppercase;display:flex;gap:8px;align-items:center}
+.opts button[aria-pressed="true"]{background:var(--ink);color:var(--paper)}
+.opts i{width:14px;height:14px;border:1px solid var(--rule);display:block}
+.qcalc{border:2px solid var(--rule);background:var(--paper);padding:12px;margin-bottom:14px;display:flex;justify-content:space-between;gap:12px;align-items:center;flex-wrap:wrap}
+.dl{border:2px solid var(--rule);background:var(--paper);margin-block:14px}
+.dl div{display:flex;justify-content:space-between;gap:12px;padding:10px 12px;border-bottom:1px solid var(--rule)}
+.dl div:last-child{border-bottom:0}
+.chk{list-style:none;padding:0;margin:0 0 14px;display:grid;gap:4px}
+.chk li::before{content:"\2713";color:var(--accent);font-weight:900;margin-right:8px}
+.twoc{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.twoc table{width:100%;border-collapse:collapse;background:var(--paper);border:2px solid var(--rule)}
+.twoc td,.twoc th{padding:9px 12px;border-bottom:1px solid var(--rule);text-align:left;font-size:14px}
+.twoc th{font:500 12px var(--mono);text-transform:uppercase;color:var(--mute)}
+@media(max-width:860px){.pdp,.twoc{grid-template-columns:1fr}}
+.fbt{background:var(--dark);color:var(--dark-ink)}
+.fbr{display:grid;grid-template-columns:repeat(3,1fr) auto;gap:0;border:2px solid var(--dark-ink)}
+.fbr label{padding:14px;border-right:1px solid rgba(255,255,255,.3);display:grid;gap:8px;cursor:pointer}
+.fbr label .im{background:rgba(255,255,255,.1);aspect-ratio:3/2;display:grid;place-items:center}
+.fbr label .im svg{width:40%;color:var(--dark-ink)}
+.fbr .tot{padding:14px;display:grid;gap:8px;align-content:center}
+.fbr input{accent-color:var(--accent);width:18px;height:18px;margin-right:6px}
+@media(max-width:860px){.fbr{grid-template-columns:1fr}.fbr label{border-right:0;border-bottom:1px solid rgba(255,255,255,.3)}}
+/* cart */
+.cg{display:grid;grid-template-columns:1fr 360px;gap:28px;padding-block:8px 48px}
+.cg>*{min-width:0}
+.cl{display:grid;grid-template-columns:84px 1fr auto;gap:14px;padding:14px;border:2px solid var(--rule);background:var(--paper);margin-bottom:10px;align-items:start}
+.cl .th{aspect-ratio:1/1;background:var(--soft);display:grid;place-items:center;border:1px solid var(--rule)}
+.cl .th svg{width:66%}
+.cl h3{margin:0;font:800 16px var(--display)}
+.qty{display:inline-flex;border:2px solid var(--rule);margin-top:8px}
+.qty button{width:32px;height:32px;border:0;background:none;cursor:pointer;font-weight:800}
+.qty span{min-width:30px;display:grid;place-items:center;font-family:var(--mono)}
+.lk{background:none;border:0;text-decoration:underline;cursor:pointer;color:var(--mute);margin-left:10px;font-size:13px}
+.sum{border:2px solid var(--rule);background:var(--paper);padding:18px;align-self:start}
+.sbar{height:8px;border:1px solid var(--rule);margin:8px 0 14px}
+.sbar i{display:block;height:100%;background:var(--accent)}
+.row{display:flex;justify-content:space-between;font:800 18px var(--display);margin-bottom:8px}
+.sum textarea{width:100%;min-height:64px;margin:6px 0 14px}
+@media(max-width:900px){.cg{grid-template-columns:1fr}}
+.pgh{padding-top:24px}
+/* blog */
+.fp{display:grid;grid-template-columns:1.3fr 1fr;gap:0;border:2px solid var(--rule);background:var(--paper);margin-bottom:28px;cursor:pointer}
+.fp .pic{min-height:260px}
+.fp .tx{padding:24px;border-left:2px solid var(--rule)}
+.fp h2{font:900 clamp(26px,3.4vw,44px)/.95 var(--display);font-stretch:125%;text-transform:uppercase;margin:8px 0 10px}
+@media(max-width:860px){.fp{grid-template-columns:1fr}.fp .tx{border-left:0;border-top:2px solid var(--rule)}}
+.pt{background:var(--paper);border-right:2px solid var(--rule);border-bottom:2px solid var(--rule);cursor:pointer;min-width:0}
+.pt .pic{aspect-ratio:3/2;border-bottom:2px solid var(--rule)}
+.pt .tx{padding:14px}
+.pt h3{margin:4px 0 6px;font:800 19px/1.2 var(--display)}
+.pt p{margin:0;color:var(--mute);font-size:14px}
+.pa{background:repeating-linear-gradient(135deg,var(--ink) 0 2px,var(--soft) 2px 14px)}
+.pb{background:radial-gradient(circle at 30% 30%,var(--accent) 0 22%,transparent 23%),var(--soft)}
+.pcz{background:linear-gradient(90deg,var(--ink) 0 8%,transparent 8% 16%) 0 0/48px 100%,var(--soft)}
+.pd{background:repeating-linear-gradient(0deg,var(--soft) 0 14px,var(--paper) 14px 28px)}
+.art{max-width:760px;margin:0 auto;padding-block:28px 48px}
+.art p{font-size:18px;line-height:1.7;margin:0 0 18px}
+.art h2{font:900 28px var(--display);font-stretch:125%;text-transform:uppercase;margin:30px 0 10px}
+.art .by{font:500 12px var(--mono);text-transform:uppercase;color:var(--mute);margin-bottom:22px}
+/* about/contact/404 */
+.ab{background:var(--ink);color:var(--paper);padding-block:clamp(40px,7vw,96px);border-bottom:2px solid var(--rule);background-image:linear-gradient(rgba(255,255,255,.08) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.08) 1px,transparent 1px);background-size:32px 32px}
+.ab h1{font:900 clamp(40px,8vw,110px)/.88 var(--display);font-stretch:125%;text-transform:uppercase;margin:10px 0 0;max-width:14ch}
+.nums{display:grid;grid-template-columns:repeat(4,1fr);border:2px solid var(--rule);background:var(--paper)}
+.nums div{padding:20px;border-right:1px solid var(--rule)}
+.nums div:last-child{border-right:0}
+.nums b{display:block;font:900 clamp(32px,4vw,52px)/1 var(--display);color:var(--accent)}
+.nums.n3{grid-template-columns:repeat(3,1fr)}
+@media(max-width:800px){.nums,.nums.n3{grid-template-columns:1fr 1fr}}
+@media(max-width:520px){.nums,.nums.n3{grid-template-columns:1fr}.nums div{border-right:0;border-bottom:1px solid var(--rule)}}
+.cfm{display:grid;grid-template-columns:1fr 1fr;gap:14px;max-width:720px}
+.cfm .sp{grid-column:1/-1}
+.cfm label{display:block;font:500 12px var(--mono);text-transform:uppercase;margin-bottom:5px}
+.cfm textarea{min-height:130px}
+@media(max-width:600px){.cfm{grid-template-columns:1fr}}
+.nf{padding-block:clamp(48px,8vw,100px);text-align:center}
+.nf h1{font:900 clamp(96px,22vw,260px)/.8 var(--display);font-stretch:125%;margin:0;color:var(--accent)}
+.nf form{display:flex;gap:8px;max-width:520px;margin:20px auto}
+.rt{max-width:760px;font-size:19px;line-height:1.7}
+/* drawers */
+.ov{position:fixed;inset:0;background:rgba(10,10,12,.5);z-index:40}
+.dr{position:fixed;top:0;bottom:0;width:min(420px,92vw);background:var(--paper);z-index:41;display:flex;flex-direction:column;padding:calc(18px + env(safe-area-inset-top,0px)) 18px calc(18px + env(safe-area-inset-bottom,0px));border:2px solid var(--rule)}
+.dr.r{right:0}.dr.l{left:0}
+.dh{display:flex;justify-content:space-between;align-items:center;margin-bottom:12px}
+.dh h2{margin:0;font:900 26px var(--display);text-transform:uppercase}
+.xb{background:none;border:2px solid var(--rule);width:36px;height:36px;font-size:20px;cursor:pointer}
+.dr nav{display:grid;gap:4px}
+.dr nav a{font:900 28px/1.15 var(--display);text-transform:uppercase;text-decoration:none}
+.dr .bd{flex:1;overflow:auto}
+.toast{position:fixed;left:50%;bottom:calc(18px + env(safe-area-inset-bottom,0px));transform:translateX(-50%);background:var(--ink);color:var(--paper);padding:10px 16px;z-index:50;font-weight:700;max-width:90vw}
+@media(prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="s-lamp" viewBox="0 0 200 200"><path fill="currentColor" d="M70 20h60l22 56H48z"/><path fill="none" stroke="currentColor" stroke-width="6" d="M100 76v96M66 176h68"/><path fill="none" stroke="rgba(128,128,128,.6)" stroke-width="2" d="M70 20 60 76M130 20l10 56"/></symbol>
+  <symbol id="s-vase" viewBox="0 0 200 200"><path fill="currentColor" d="M82 22h36v26q38 18 38 66 0 52-56 62-56-10-56-62 0-48 38-66z"/><path fill="none" stroke="rgba(128,128,128,.6)" stroke-width="2" d="M62 118q38 16 76 0"/></symbol>
+  <symbol id="s-chair" viewBox="0 0 200 200"><path fill="currentColor" d="M54 24h92l6 78H48z"/><path fill="currentColor" d="M40 102h120v26H40z"/><path fill="none" stroke="currentColor" stroke-width="8" d="M54 128l-8 50M146 128l8 50M80 128v40M120 128v40"/></symbol>
+  <symbol id="s-frame" viewBox="0 0 200 200"><rect x="48" y="22" width="104" height="156" fill="currentColor"/><rect x="62" y="36" width="76" height="128" fill="rgba(128,128,128,.35)"/><path fill="none" stroke="rgba(128,128,128,.8)" stroke-width="3" d="M70 140l24-34 18 22 12-14 8 12"/></symbol>
+  <symbol id="s-mirror" viewBox="0 0 200 200"><circle cx="100" cy="100" r="76" fill="currentColor"/><circle cx="100" cy="100" r="60" fill="rgba(128,128,128,.35)"/><path fill="none" stroke="rgba(255,255,255,.55)" stroke-width="4" d="M62 78q10-22 36-28"/></symbol>
+  <symbol id="s-cushion" viewBox="0 0 200 200"><path fill="currentColor" d="M30 44q70-16 140 0 12 56 0 112-70 16-140 0-12-56 0-112z"/><path fill="none" stroke="rgba(128,128,128,.6)" stroke-width="2" d="M30 44l24 24M170 44l-24 24M30 156l24-24M170 156l-24-24"/></symbol>
+  <symbol id="s-candle" viewBox="0 0 200 200"><rect x="60" y="76" width="80" height="96" fill="currentColor"/><path fill="var(--accent)" d="M100 28q18 22 0 40-18-18 0-40z"/><path stroke="rgba(128,128,128,.6)" stroke-width="3" d="M100 68v8"/></symbol>
+  <symbol id="s-rug" viewBox="0 0 200 200"><rect x="24" y="44" width="152" height="112" fill="currentColor"/><path fill="none" stroke="rgba(128,128,128,.7)" stroke-width="3" d="M40 60h120v80H40zM56 76h88v48H56z"/><path stroke="currentColor" stroke-width="3" d="M24 56h-10M24 72h-10M24 88h-10M24 104h-10M24 120h-10M24 136h-10M176 56h10M176 72h10M176 88h10M176 104h10M176 120h10M176 136h10"/></symbol>
+  <symbol id="i-truck" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" d="M2 6h12v10H2zM14 9h5l3 3v4h-8zM6 18.5a1.5 1.5 0 1 0 .01 0M18 18.5a1.5 1.5 0 1 0 .01 0"/></symbol>
+  <symbol id="i-ret" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" d="M4 12a8 8 0 1 0 3-6.2M4 4v5h5"/></symbol>
+  <symbol id="i-ruler" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" d="M2 8h20v8H2zM6 8v4M10 8v3M14 8v4M18 8v3"/></symbol>
+  <symbol id="i-lock" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" d="M5 11h14v10H5zM8 11V7a4 4 0 0 1 8 0v4"/></symbol>
+  <symbol id="i-arrow" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" d="M5 12h14M13 6l6 6-6 6"/></symbol>
+</svg>
+
+<div class="pv"><div class="w"><div class="tabs" id="tabs" role="group" aria-label="Preview page"></div><label><input type="checkbox" id="names"> Show section names</label></div></div>
+
+<div class="util mono" data-dawn="Announcement bar"><div class="w"><span>Free delivery over $150</span><span>Ships from Leeds in 2 days</span><span>Trade accounts open</span></div></div>
+
+<header class="hd" data-dawn="Header"><div class="w row">
+  <a class="brand" href="#" data-go="home"><span class="mark">J<b>&amp;</b></span>Joist &amp; Co</a>
+  <nav aria-label="Main"><a href="#" data-go="collection">Lighting</a><a href="#" data-go="collection">Furniture</a><a href="#" data-go="collection">Wall</a><a href="#" data-go="collection">Textiles</a><a href="#" data-go="blog">Journal</a><a href="#" class="deals" data-go="collection">Deals</a></nav>
+  <div class="tools"><button class="sbox" type="button" data-go="search" aria-label="Search">Search products</button><button class="mbtn" type="button" data-open="menu" aria-label="Open menu"><svg width="22" height="22" viewBox="0 0 24 24"><path d="M3 7h18M3 12h18M3 17h18" stroke="currentColor" stroke-width="2"/></svg></button><button class="cartpill" type="button" data-open="cart">Cart<span class="cc">0</span></button></div>
+</div></header>
+
+<!-- HOME -->
+<main id="v-home">
+  <section class="hero" data-dawn="Image banner"><div class="w hg">
+    <div><span class="mono">Spec no. 0147 / Home &amp; Decor</span>
+      <h1>Rooms built to <em>measure.</em></h1>
+      <p class="lead">Lamps, vases, chairs and frames sold with real dimensions, so what you order fits the wall, shelf or corner you measured.</p>
+      <div class="bt"><a href="#" class="btn fill" data-go="collection">Shop the range</a><a href="#planner" class="btn">Plan a gallery wall</a></div></div>
+    <div class="fig"><div class="cap mono"><span>FIG. 01</span><span>Arc Floor Lamp</span></div>
+      <div class="plate"><svg viewBox="0 0 200 200"><use href="#s-lamp"/></svg><span class="dim" style="left:10px;top:44%">H 168 cm</span><span class="dim" style="right:10px;bottom:10px">Base 34 cm</span><span class="dim" style="right:10px;top:10px">Shade 30 cm</span></div>
+      <div class="ft"><span>$189</span><a href="#" class="mono" data-go="product" style="text-decoration:none">View spec plate &rarr;</a></div></div>
+  </div></section>
+  <div class="trust" data-dawn="Multicolumn"><div class="w">
+    <div class="t"><svg><use href="#i-truck"/></svg><span><strong>Free delivery</strong>Orders over $150</span></div>
+    <div class="t"><svg><use href="#i-ruler"/></svg><span><strong>Exact sizes</strong>On every listing</span></div>
+    <div class="t"><svg><use href="#i-ret"/></svg><span><strong>45-day returns</strong>Collected free</span></div>
+    <div class="t"><svg><use href="#i-lock"/></svg><span><strong>Secure checkout</strong>Cards and PayPal</span></div></div></div>
+  <section class="blk" data-dawn="Collection list"><div class="w">
+    <div class="sh"><h2 class="h2">Browse by type</h2><span class="mono mute">7 collections</span></div>
+    <div class="bento">
+      <a class="bt1" data-go="collection"><span class="mono">Collection 01</span><h3>Lighting</h3><svg viewBox="0 0 200 200"><use href="#s-lamp"/></svg></a>
+      <a class="bti" data-go="collection"><h3>Chairs <svg width="20" height="20"><use href="#i-arrow"/></svg></h3><svg class="ic" viewBox="0 0 200 200"><use href="#s-chair"/></svg></a>
+      <a class="bti" data-go="collection"><h3>Vases <svg width="20" height="20"><use href="#i-arrow"/></svg></h3><svg class="ic" viewBox="0 0 200 200"><use href="#s-vase"/></svg></a>
+      <a class="bti" data-go="collection"><h3>Frames <svg width="20" height="20"><use href="#i-arrow"/></svg></h3><svg class="ic" viewBox="0 0 200 200"><use href="#s-frame"/></svg></a>
+      <a class="bti" data-go="collection"><h3>Mirrors <svg width="20" height="20"><use href="#i-arrow"/></svg></h3><svg class="ic" viewBox="0 0 200 200"><use href="#s-mirror"/></svg></a>
+      <a class="bti" data-go="collection"><h3>Cushions <svg width="20" height="20"><use href="#i-arrow"/></svg></h3><svg class="ic" viewBox="0 0 200 200"><use href="#s-cushion"/></svg></a>
+      <a class="bti" data-go="collection"><h3>Rugs <svg width="20" height="20"><use href="#i-arrow"/></svg></h3><svg class="ic" viewBox="0 0 200 200"><use href="#s-rug"/></svg></a>
+    </div></div></section>
+  <div class="tick" data-dawn="Selvedge: Divider" aria-hidden="true"></div>
+  <section class="blk" data-dawn="Featured collection"><div class="w">
+    <div class="sh"><h2 class="h2">New this month</h2><a href="#" class="mono" data-go="collection">View all</a></div>
+    <div class="g4" data-grid="0,1,2,3"></div></div></section>
+  <section class="blk" id="planner" style="padding-top:0" data-dawn="Selvedge: Wall planner (custom)"><div class="w">
+    <div class="sh"><h2 class="h2">Gallery wall planner</h2><span class="mono mute">Enter the wall, get the frame count</span></div>
+    <div class="plan">
+      <div class="ctl">
+        <div class="pre" id="pre"><button type="button" aria-pressed="true" data-w="240">Sofa wall</button><button type="button" aria-pressed="false" data-w="120">Hallway</button><button type="button" aria-pressed="false" data-w="180">Bed head</button></div>
+        <div class="stp"><label>Wall width</label><div class="c"><button type="button" data-st="wall" data-d="-10" aria-label="Narrower">&minus;</button><output id="oWall">240 cm</output><button type="button" data-st="wall" data-d="10" aria-label="Wider">+</button></div></div>
+        <div class="stp"><label>Frame width</label><div class="c"><button type="button" data-st="fw" data-d="-10" aria-label="Narrower frame">&minus;</button><output id="oFw">50 cm</output><button type="button" data-st="fw" data-d="10" aria-label="Wider frame">+</button></div></div>
+        <div class="stp"><label>Gap between</label><div class="c"><button type="button" data-st="gap" data-d="-2" aria-label="Smaller gap">&minus;</button><output id="oGap">8 cm</output><button type="button" data-st="gap" data-d="2" aria-label="Bigger gap">+</button></div></div>
+      </div>
+      <div class="vis">
+        <div class="wallbox" aria-hidden="true"><div class="wall" id="wall"></div></div>
+        <div class="res"><div><span class="mono mute">Frames per row</span><b id="rN">4</b></div><div><span class="mono mute">Side margin</span><b id="rM">0 cm</b></div><div><span class="mono mute">Cost</span><b id="rC">$152</b></div></div>
+        <button class="btn fill" type="button" id="planAdd">Add frames to cart</button>
+      </div></div></div></section>
+  <section class="blk" style="padding-top:0" data-dawn="Image with text (promos)"><div class="w pr2">
+    <div class="promo a"><span class="mono">Autumn trade offer</span><h3>10% off when you buy a room set</h3><div><a href="#" class="btn fill" data-go="collection">Shop sets</a></div></div>
+    <div class="promo"><span class="mono">Measure first</span><h3>Free cut-to-size curtain swatches</h3><div><a href="#" class="btn" data-go="contact">Order swatches</a></div></div></div></section>
+  <section class="blk" style="padding-top:0" data-dawn="Featured collection"><div class="w">
+    <div class="sh"><h2 class="h2">Best sellers</h2><a href="#" class="mono" data-go="collection">View all</a></div>
+    <div class="g4" data-grid="4,5,6,7"></div></div></section>
+  <section class="blk" style="padding-top:0" data-dawn="Collapsible content"><div class="w twoc">
+    <h2 class="h2">Questions, answered</h2>
+    <div><details style="border:2px solid var(--rule);background:var(--paper);padding:12px;margin-bottom:8px"><summary><b>How do I measure for a lamp?</b></summary><p class="mute">Check ceiling height, then pick a lamp at least 30 cm shorter. Listings show height, base and shade width.</p></details>
+      <details style="border:2px solid var(--rule);background:var(--paper);padding:12px;margin-bottom:8px"><summary><b>Do frames include mounts?</b></summary><p class="mute">Yes. Every frame ships with a mat, hanging kit and a paper template.</p></details>
+      <details style="border:2px solid var(--rule);background:var(--paper);padding:12px"><summary><b>How are chairs delivered?</b></summary><p class="mute">Flat-packed by courier in 2 to 5 days, or assembled by two-person team for $39.</p></details></div></div></section>
+  <section class="blk" style="padding-top:0" data-dawn="Featured blog"><div class="w">
+    <div class="sh"><h2 class="h2">From the journal</h2><a href="#" class="mono" data-go="blog">All posts</a></div>
+    <div class="g4 g3" data-posts="0,1,2"></div></div></section>
+  <section class="news" data-dawn="Email signup"><div class="w ni"><h2>Spec updates, first</h2><form data-sub><label class="sr" for="e1">Email</label><input class="fld" id="e1" type="email" placeholder="Your email address" required><button class="btn dk" type="submit">Subscribe</button></form></div></section>
+</main>
+
+<!-- COLLECTION -->
+<main id="v-collection" hidden>
+  <section class="cb" data-dawn="Collection banner"><div class="w"><div class="mono mute"><a href="#" data-go="home">Home</a> / Collection</div><h1>All home pieces</h1><p class="mute" style="max-width:60ch;margin:0">Twelve pieces, each listed with its exact dimensions. <span id="cShown">12</span> shown.</p></div></section>
+  <section data-dawn="Product grid"><div class="w clay">
+    <aside class="flt" id="flt" aria-label="Filters">
+      <fieldset><legend>Type</legend><label><input type="checkbox" value="lighting" data-f="cat"> Lighting</label><label><input type="checkbox" value="furniture" data-f="cat"> Furniture</label><label><input type="checkbox" value="wall" data-f="cat"> Wall</label><label><input type="checkbox" value="textiles" data-f="cat"> Textiles</label><label><input type="checkbox" value="decor" data-f="cat"> Decor</label></fieldset>
+      <fieldset><legend>Price</legend><label><input type="checkbox" value="u60" data-f="pr"> Under $60</label><label><input type="checkbox" value="o60" data-f="pr"> $60 and over</label></fieldset>
+      <fieldset><legend>Finish</legend><label><input type="checkbox" value="Oak" data-f="fin"> Oak</label><label><input type="checkbox" value="Black" data-f="fin"> Black</label><label><input type="checkbox" value="Stone" data-f="fin"> Stone</label></fieldset>
+    </aside>
+    <div><div class="tbar"><button class="btn ftg" type="button" id="ftg" aria-expanded="false" aria-controls="flt">Filter</button><span class="mono mute"><span id="cShown2">12</span> products</span><label class="mono">Sort <select id="sort"><option value="f">Featured</option><option value="l">Price, low to high</option><option value="h">Price, high to low</option></select></label></div>
+      <div class="g4 g3" id="cGrid"></div>
+      <nav class="pager" aria-label="Pages"><a href="#" aria-current="page">1</a><a href="#">2</a><a href="#">3</a><a href="#" aria-label="Next">&rsaquo;</a></nav></div></div></section>
+  <section class="blk" style="padding-top:0" data-dawn="Rich text"><div class="w"><div class="promo" style="min-height:0"><span class="mono">Measuring note</span><p style="margin:0;font-size:18px">All sizes are listed in centimetres, height by width by depth. Lamps are measured to the shade top.</p></div></div></section>
+  <section class="news" data-dawn="Email signup"><div class="w ni"><h2>Spec updates, first</h2><form data-sub><label class="sr" for="e2">Email</label><input class="fld" id="e2" type="email" placeholder="Your email address" required><button class="btn dk" type="submit">Subscribe</button></form></div></section>
+</main>
+
+<!-- PRODUCT -->
+<main id="v-product" hidden>
+  <nav class="bc mono" data-dawn="Selvedge: Breadcrumbs (custom)" aria-label="Breadcrumb"><div class="w"><a href="#" data-go="home">Home</a> / <a href="#" data-go="collection">Lighting</a> / Arc Floor Lamp</div></nav>
+  <section data-dawn="Product information"><div class="w pdp">
+    <div><div class="fig"><div class="cap mono"><span>FIG. 02</span><span id="figLbl">Front elevation</span></div><div class="plate"><svg viewBox="0 0 200 200" id="figSvg" style="width:62%"><use href="#s-lamp"/></svg></div>
+      <div class="thumbs" id="thumbs"><button type="button" aria-pressed="true" data-t="Front elevation" data-z="62">Front</button><button type="button" aria-pressed="false" data-t="Detail: shade" data-z="100">Detail</button><button type="button" aria-pressed="false" data-t="In scale: 1 to 20" data-z="34">Scale</button></div></div>
+      <table class="spec"><caption class="mono" style="text-align:left;padding:8px 0">Spec plate</caption><tbody><tr><th>Height</th><td>168 cm</td></tr><tr><th>Shade</th><td>30 cm dia.</td></tr><tr><th>Base</th><td>34 cm dia., 4.2 kg</td></tr><tr><th>Cable</th><td>2.5 m, inline switch</td></tr><tr><th>Bulb</th><td>E27, up to 60 W</td></tr><tr><th>Material</th><td>Powder-coated steel</td></tr></tbody></table></div>
+    <div class="buy"><span class="mono mute">Ref. JC-LT-014</span><h1>Arc Floor Lamp</h1><p class="price">$189</p><p class="mute">An arched steel stem that reaches 90 cm over a sofa arm and keeps the base out of the walkway.</p>
+      <div class="mono" style="margin-bottom:6px">Finish: <span id="fname">Black</span></div>
+      <div class="opts" id="fins"><button type="button" aria-pressed="true" data-n="Black"><i style="background:#1A1C20"></i>Black</button><button type="button" aria-pressed="false" data-n="Oak"><i style="background:#B8935F"></i>Oak</button><button type="button" aria-pressed="false" data-n="Stone"><i style="background:#C9C6BA"></i>Stone</button></div>
+      <div class="qcalc"><span class="mono">Quantity</span><div class="qty"><button type="button" id="pq-" aria-label="Fewer">&minus;</button><span id="pq">1</span><button type="button" id="pq+" aria-label="More">+</button></div><b id="ptot" style="font:900 22px var(--display)">$189</b></div>
+      <button class="btn fill full" type="button" id="pAdd">Add to cart</button><button class="btn dk full" type="button" data-go="cart">Buy it now</button>
+      <div class="dl"><div><span>Delivery</span><b>2 to 5 days, free over $150</b></div><div><span>Returns</span><b>45 days, free pickup</b></div><div><span>Warranty</span><b>5 years</b></div></div>
+      <ul class="chk"><li>UK and EU plug fitted</li><li>Dimmer-compatible</li><li>Assembly takes 5 minutes, no tools</li></ul></div></div></section>
+  <section class="blk" style="padding-top:0" data-dawn="Collapsible content (description and shipping)"><div class="w twoc">
+    <table><thead><tr><th colspan="2">Description</th></tr></thead><tbody><tr><td>Stem</td><td>Single-piece arched steel</td></tr><tr><td>Shade</td><td>Spun metal, matte inside</td></tr><tr><td>Reach</td><td>90 cm from base</td></tr><tr><td>Care</td><td>Dry cloth only</td></tr></tbody></table>
+    <table><thead><tr><th colspan="2">Shipping</th></tr></thead><tbody><tr><td>Dispatch</td><td>Within 2 days</td></tr><tr><td>Standard</td><td>$12, free over $150</td></tr><tr><td>White glove</td><td>$39, placed and assembled</td></tr><tr><td>Returns</td><td>45 days, free pickup</td></tr></tbody></table></div></section>
+  <section class="blk fbt" data-dawn="Related products (Frequently bought together)"><div class="w">
+    <div class="sh" style="border-color:var(--dark-ink)"><h2 class="h2">Bought together</h2></div>
+    <div class="fbr"><label><div class="im"><svg viewBox="0 0 200 200"><use href="#s-lamp"/></svg></div><span><input type="checkbox" checked data-b="189"> Arc Floor Lamp $189</span></label><label><div class="im"><svg viewBox="0 0 200 200"><use href="#s-vase"/></svg></div><span><input type="checkbox" checked data-b="42"> Bud Vase Set $42</span></label><label><div class="im"><svg viewBox="0 0 200 200"><use href="#s-candle"/></svg></div><span><input type="checkbox" checked data-b="45"> Soy Candle Trio $45</span></label>
+      <div class="tot"><span class="mono">Bundle total</span><b id="bTot" style="font:900 28px var(--display)">$276</b><button class="btn fill" type="button" id="bAdd">Add bundle</button></div></div></div></section>
+  <section class="blk" data-dawn="Related products"><div class="w"><div class="sh"><h2 class="h2">More from lighting</h2></div><div class="g4" data-grid="8,0,1,6"></div></div></section>
+</main>
+
+<!-- CART -->
+<main id="v-cart" hidden>
+  <div class="w pgh"><div class="mono mute">Cart</div><h1 class="ph" style="margin-bottom:18px">Your cart</h1></div>
+  <div class="w cg"><section data-dawn="Cart items"><div id="cLines"></div><p id="cEmpty" class="mute" hidden>Your cart is empty. <a href="#" data-go="collection">Shop the range</a></p></section>
+    <aside class="sum" data-dawn="Subtotal"><p id="sMsg" style="margin:0"></p><div class="sbar"><i id="sBar" style="width:0"></i></div><label class="mono" for="note">Order note</label><textarea class="fld" id="note" placeholder="Delivery note or gift message"></textarea><div class="row"><span>Subtotal</span><span id="sub">$0</span></div><p class="mute" style="font-size:13px;margin:0 0 14px">Taxes and delivery calculated at checkout.</p><button class="btn fill full" type="button">Check out</button></aside></div>
+  <section class="blk" style="padding-top:0" data-dawn="Featured collection"><div class="w"><div class="sh"><h2 class="h2">Finish the room</h2></div><div class="g4" data-grid="1,3,5,6"></div></div></section>
+</main>
+
+<!-- SEARCH -->
+<main id="v-search" hidden>
+  <section class="blk" style="padding-top:24px" data-dawn="Search results"><div class="w"><h1 class="ph">Search</h1>
+    <form id="sf" style="display:flex;gap:8px;max-width:640px;margin-bottom:10px"><label class="sr" for="q">Search</label><input class="fld" id="q" type="search" value="lamp"><button class="btn dk" type="submit">Search</button></form>
+    <p class="mono mute" id="sCount"></p><div class="g4" id="sGrid"></div></div></section>
+  <section class="blk" style="padding-top:0" data-dawn="Featured collection"><div class="w"><div class="sh"><h2 class="h2">Popular now</h2></div><div class="g4" data-grid="0,4,2,7"></div></div></section>
+</main>
+
+<!-- BLOG -->
+<main id="v-blog" hidden>
+  <section class="blk" style="padding-top:24px" data-dawn="Blog posts"><div class="w"><h1 class="ph">Journal</h1>
+    <div class="fp" data-go="article"><div class="pic pa"></div><div class="tx"><span class="mono mute">14 Oct 2026 / Measuring</span><h2>How to hang a gallery wall that lines up</h2><p class="mute">Paper templates, a spirit level and a 6 cm gap. The method our studio uses.</p></div></div>
+    <div class="g4 g3" data-posts="1,2,3,4,5,0"></div></div></section>
+  <section class="news" data-dawn="Email signup"><div class="w ni"><h2>New posts, first</h2><form data-sub><label class="sr" for="e3">Email</label><input class="fld" id="e3" type="email" placeholder="Your email address" required><button class="btn dk" type="submit">Subscribe</button></form></div></section>
+</main>
+
+<!-- ARTICLE -->
+<main id="v-article" hidden>
+  <nav class="bc mono" aria-label="Breadcrumb"><div class="w"><a href="#" data-go="home">Home</a> / <a href="#" data-go="blog">Journal</a> / Gallery wall</div></nav>
+  <article class="w art" data-dawn="Blog post"><h1 class="ph" style="font-size:clamp(34px,5vw,64px)">How to hang a gallery wall that lines up</h1><p class="by">14 Oct 2026 / By Mae Okoro / 6 min read</p>
+    <div class="pic pa" style="aspect-ratio:21/9;border:2px solid var(--rule);margin-bottom:24px" role="img" aria-label="Frame layout pattern"></div>
+    <p>Start on the floor. Lay your frames out on a sheet of paper the size of the wall, keep a 6 cm gap and trace each one. Tape those templates to the wall before you hammer a single nail.</p>
+    <h2>Pick the centre line</h2><p>Hang the middle row at 145 cm from the floor to its centre. Eyes land there in most rooms, and the rest of the wall builds up and out from that line.</p>
+    <h2>Check the maths</h2><p>On a 240 cm wall with 50 cm frames and 8 cm gaps, four frames fit with 8 cm spare. Our planner on the home page does this sum for you.</p>
+    <h2>Fix and level</h2><p>Mark nail points through the paper, tear it away, then hang. A small spirit level on the top edge of each frame keeps the row true.</p></article>
+  <section class="blk" style="padding-top:0" data-dawn="Featured collection"><div class="w"><div class="sh"><h2 class="h2">Shop the story</h2></div><div class="g4" data-grid="3,11,4,1"></div></div></section>
+</main>
+
+<!-- ABOUT -->
+<main id="v-about" hidden>
+  <section class="ab" data-dawn="Image banner"><div class="w"><span class="mono">About Joist &amp; Co</span><h1>Furniture with the numbers on it</h1></div></section>
+  <section class="blk" data-dawn="Rich text"><div class="w"><div class="rt"><p>Joist &amp; Co started in 2020 in a Leeds workshop after one too many sofas arrived two centimetres too wide for the door.</p><p>Every product page lists height, width, depth and weight, and every photo has a scale bar. If it does not fit, we collect it free.</p></div></div></section>
+  <section class="blk" style="padding-top:0" data-dawn="Multicolumn"><div class="w nums"><div><b>2020</b>year founded</div><div><b>312</b>products with full specs</div><div><b>45</b>day returns</div><div><b>4.8</b>average review score</div></div></section>
+  <div class="tick" data-dawn="Selvedge: Divider" aria-hidden="true"></div>
+  <section class="blk" data-dawn="Multirow"><div class="w twoc"><div class="promo" style="min-height:0"><span class="mono">The studio</span><h3>Measured, drawn, then made</h3><p class="mute" style="margin:0">Each design starts as a dimensioned drawing and is tested in a mock room.</p></div><div class="promo a" style="min-height:0"><span class="mono">The makers</span><h3>Six small workshops</h3><p style="margin:0;opacity:.8">Oak in Yorkshire, steel in Sheffield, linen in Belgium.</p></div></div></section>
+</main>
+
+<!-- CONTACT -->
+<main id="v-contact" hidden>
+  <section class="blk" style="padding-top:24px" data-dawn="Page"><div class="w"><h1 class="ph">Contact us</h1><p style="font-size:19px;margin:0 0 24px">We reply within one working day, Monday to Friday.</p></div></section>
+  <section data-dawn="Contact form"><div class="w"><form class="cfm" id="cf"><div><label for="cn">Name</label><input class="fld" id="cn" required></div><div><label for="ce">Email</label><input class="fld" id="ce" type="email" required></div><div class="sp"><label for="co">Order number (optional)</label><input class="fld" id="co" placeholder="#2041"></div><div class="sp"><label for="cm">Message</label><textarea class="fld" id="cm" required></textarea></div><div class="sp"><button class="btn fill" type="submit">Send message</button></div></form></div></section>
+  <section class="blk" data-dawn="Multicolumn"><div class="w nums n3"><div><span class="mono mute">Email</span><br>hello@joistand.co</div><div><span class="mono mute">Phone</span><br>+44 113 496 0000</div><div><span class="mono mute">Studio</span><br>Unit 9, Mill Lane, Leeds LS1 4AB</div></div></section>
+</main>
+
+<!-- 404 -->
+<main id="v-404" hidden>
+  <section class="nf" data-dawn="404 page"><div class="w"><span class="mono">Error / Page not found</span><h1>404</h1><p style="font-size:20px">This page is out of scale. It may have sold out, or the link is wrong.</p>
+    <form data-s404><label class="sr" for="q4">Search</label><input class="fld" id="q4" type="search" placeholder="Search products"><button class="btn dk" type="submit">Search</button></form><a href="#" class="btn" data-go="collection">Back to the shop</a></div></section>
+  <section class="blk" style="padding-top:0" data-dawn="Featured collection"><div class="w"><div class="sh"><h2 class="h2">Best sellers</h2></div><div class="g4" data-grid="4,5,6,7"></div></div></section>
+</main>
+
+<footer class="ft" data-dawn="Footer"><div class="w"><div class="fgrid">
+  <div><h4>Joist &amp; Co</h4><p style="max-width:34ch;opacity:.85;margin:0">Home and decor sold with real dimensions. Made in small runs, collected free if it does not fit.</p></div>
+  <div><h4>Shop</h4><ul><li><a href="#" data-go="collection">Lighting</a></li><li><a href="#" data-go="collection">Furniture</a></li><li><a href="#" data-go="collection">Wall</a></li><li><a href="#" data-go="collection">Textiles</a></li></ul></div>
+  <div><h4>Help</h4><ul><li><a href="#" data-go="contact">Contact</a></li><li><a href="#" data-go="contact">Delivery</a></li><li><a href="#" data-go="contact">Returns</a></li><li><a href="#" data-go="404">Size guide</a></li></ul></div>
+  <div><h4>Company</h4><ul><li><a href="#" data-go="about">About</a></li><li><a href="#" data-go="blog">Journal</a></li><li><a href="#" data-go="search">Search</a></li></ul></div></div>
+  <div class="fb mono"><span>&copy; 2026 Joist &amp; Co</span><span>Prices in USD</span></div></div></footer>
+
+<div class="ov" id="ovM" data-close hidden></div>
+<aside class="dr l" id="drM" hidden aria-label="Menu" data-dawn="Header (menu drawer)"><div class="dh"><h2>Menu</h2><button class="xb" type="button" data-close aria-label="Close menu">&times;</button></div><nav><a href="#" data-go="collection">Lighting</a><a href="#" data-go="collection">Furniture</a><a href="#" data-go="collection">Wall</a><a href="#" data-go="collection">Textiles</a><a href="#" data-go="blog">Journal</a><a href="#" data-go="about">About</a><a href="#" data-go="contact">Contact</a></nav></aside>
+<div class="ov" id="ovC" data-close hidden></div>
+<aside class="dr r" id="drC" hidden aria-label="Cart" data-dawn="Cart drawer"><div class="dh"><h2>Cart</h2><button class="xb" type="button" data-close aria-label="Close cart">&times;</button></div><div class="bd" id="dLines"></div><div class="row" style="margin-top:12px"><span>Subtotal</span><span id="dSub">$0</span></div><button class="btn fill full" type="button">Check out</button><a href="#" class="btn full" data-go="cart">View cart</a></aside>
+<div class="toast" id="toast" role="status" hidden></div>
+
+<script>
+(function(){
+  var P=[
+    {n:"Arc Floor Lamp",s:"lamp",c:"#1A1C20",p:189,t:"168 cm tall",cat:"lighting",fin:"Black"},
+    {n:"Bud Vase Set",s:"vase",c:"#9C8F7A",p:42,t:"Set of 3",cat:"decor",fin:"Stone"},
+    {n:"Slat Lounge Chair",s:"chair",c:"#B8935F",p:320,t:"W 68 cm",cat:"furniture",fin:"Oak"},
+    {n:"Gallery Frame 50x70",s:"frame",c:"#1A1C20",p:38,t:"50 x 70 cm",cat:"wall",fin:"Black"},
+    {n:"Round Oak Mirror",s:"mirror",c:"#B8935F",p:96,t:"60 cm dia.",cat:"wall",fin:"Oak"},
+    {n:"Linen Cushion",s:"cushion",c:"#C9C6BA",p:34,t:"50 x 50 cm",cat:"textiles",fin:"Stone"},
+    {n:"Soy Candle Trio",s:"candle",c:"#9C8F7A",p:45,t:"3 x 200 g",cat:"decor",fin:"Stone"},
+    {n:"Wool Rug 160x230",s:"rug",c:"#7C6F5E",p:249,t:"160 x 230 cm",cat:"textiles",fin:"Stone"},
+    {n:"Desk Task Lamp",s:"lamp",c:"#B8935F",p:79,t:"46 cm tall",cat:"lighting",fin:"Oak"},
+    {n:"Stoneware Vase",s:"vase",c:"#1A1C20",p:64,t:"32 cm tall",cat:"decor",fin:"Black"},
+    {n:"Boucle Armchair",s:"chair",c:"#C9C6BA",p:380,t:"W 74 cm",cat:"furniture",fin:"Stone"},
+    {n:"Frame Set of 3",s:"frame",c:"#B8935F",p:99,t:"3 sizes",cat:"wall",fin:"Oak"}
+  ];
+  var POSTS=[
+    {t:"How to hang a gallery wall that lines up",d:"14 Oct 2026",k:"Measuring",e:"Paper templates, a level and a 6 cm gap.",pat:"pa"},
+    {t:"Choosing a lamp height for your sofa",d:"3 Oct 2026",k:"Lighting",e:"Reach, shade width and the 30 cm rule.",pat:"pb"},
+    {t:"Rug sizes, explained with a tape measure",d:"21 Sep 2026",k:"Textiles",e:"Why 160 x 230 suits most living rooms.",pat:"pcz"},
+    {t:"Inside the Sheffield steel shop",d:"9 Sep 2026",k:"Makers",e:"How an arc lamp stem is bent and finished.",pat:"pd"},
+    {t:"Small hallway, big mirror",d:"28 Aug 2026",k:"Wall",e:"Three mirror sizes tested in 120 cm halls.",pat:"pb"},
+    {t:"Oak or black: choosing a finish",d:"12 Aug 2026",k:"Style",e:"What each finish does to a north-facing room.",pat:"pa"}
+  ];
+  var cart=[{i:5,fin:"Stone",q:2},{i:6,fin:"Stone",q:1}];
+  function $(s,r){return (r||document).querySelector(s)}
+  function $$(s,r){return Array.prototype.slice.call((r||document).querySelectorAll(s))}
+  function $m(v){return "$"+v.toLocaleString("en-US")}
+  function card(i){var p=P[i];return '<div class="pc"><div class="im" data-go="product"><span class="tg">'+p.cat+'</span><svg viewBox="0 0 200 200" style="color:'+p.c+'"><use href="#s-'+p.s+'"/></svg></div><h3 data-go="product">'+p.n+'</h3><div class="mt">'+p.t+' / '+p.fin+'</div><div class="cf"><b>'+$m(p.p)+'</b><button class="ad" type="button" data-add="'+i+'">Add</button></div></div>'}
+  function post(i){var p=POSTS[i];return '<div class="pt" data-go="article"><div class="pic '+p.pat+'" role="img" aria-label="'+p.t+'"></div><div class="tx"><span class="mono mute">'+p.d+' / '+p.k+'</span><h3>'+p.t+'</h3><p>'+p.e+'</p></div></div>'}
+  $$("[data-grid]").forEach(function(g){g.innerHTML=g.dataset.grid.split(",").map(function(x){return card(+x)}).join("")});
+  $$("[data-posts]").forEach(function(g){g.innerHTML=g.dataset.posts.split(",").map(function(x){return post(+x)}).join("")});
+  function renderCol(){
+    var cats=$$('[data-f="cat"]:checked').map(function(x){return x.value}),pr=$$('[data-f="pr"]:checked').map(function(x){return x.value}),fn=$$('[data-f="fin"]:checked').map(function(x){return x.value});
+    var idx=P.map(function(_,i){return i}).filter(function(i){var p=P[i];return(!cats.length||cats.indexOf(p.cat)>-1)&&(!fn.length||fn.indexOf(p.fin)>-1)&&(!pr.length||(pr.indexOf("u60")>-1&&p.p<60)||(pr.indexOf("o60")>-1&&p.p>=60))});
+    var s=$("#sort").value;if(s==="l")idx.sort(function(a,b){return P[a].p-P[b].p});if(s==="h")idx.sort(function(a,b){return P[b].p-P[a].p});
+    $("#cGrid").innerHTML=idx.length?idx.map(card).join(""):'<p class="mute" style="padding:16px">No products match. Clear a filter to see more.</p>';
+    $("#cShown").textContent=idx.length;$("#cShown2").textContent=idx.length;
+  }
+  $$(".flt input").forEach(function(x){x.addEventListener("change",renderCol)});$("#sort").addEventListener("change",renderCol);
+  $("#ftg").addEventListener("click",function(){var f=$("#flt");f.classList.toggle("open");this.setAttribute("aria-expanded",f.classList.contains("open"))});
+  renderCol();
+  function runS(q){q=(q||"").trim().toLowerCase();var idx=P.map(function(_,i){return i}).filter(function(i){var p=P[i];return !q||(p.n+" "+p.cat+" "+p.fin+" "+p.t).toLowerCase().indexOf(q)>-1});
+    $("#sCount").textContent=idx.length+" result"+(idx.length===1?"":"s")+(q?' for "'+q+'"':"");
+    $("#sGrid").innerHTML=idx.length?idx.map(card).join(""):'<p class="mute" style="padding:16px">No products found. Try "lamp", "vase" or "oak".</p>'}
+  $("#sf").addEventListener("submit",function(e){e.preventDefault();runS($("#q").value)});
+  $("[data-s404]").addEventListener("submit",function(e){e.preventDefault();$("#q").value=$("#q4").value;runS($("#q4").value);show("search")});
+  runS("lamp");
+  function addTo(i,fin,q){var f=cart.filter(function(l){return l.i===i&&l.fin===fin})[0];if(f)f.q+=q;else cart.push({i:i,fin:fin,q:q});renderCart()}
+  function renderCart(){var sub=0,cnt=0,h="";
+    cart.forEach(function(l,k){var p=P[l.i];sub+=p.p*l.q;cnt+=l.q;
+      h+='<div class="cl"><div class="th"><svg viewBox="0 0 200 200" style="color:'+p.c+'"><use href="#s-'+p.s+'"/></svg></div><div><h3>'+p.n+'</h3><div class="mono mute">'+l.fin+' / '+p.t+'</div><div class="qty"><button type="button" aria-label="Fewer" data-q="'+k+'" data-d="-1">&minus;</button><span>'+l.q+'</span><button type="button" aria-label="More" data-q="'+k+'" data-d="1">+</button></div><button type="button" class="lk" data-rm="'+k+'">Remove</button></div><b>'+$m(p.p*l.q)+'</b></div>'});
+    $("#cLines").innerHTML=h;$("#dLines").innerHTML=h||'<p class="mute">Your cart is empty.</p>';$("#cEmpty").hidden=cart.length>0;
+    $("#sub").textContent=$m(sub);$("#dSub").textContent=$m(sub);$$(".cc").forEach(function(c){c.textContent=cnt});
+    var left=150-sub;$("#sMsg").textContent=left>0?"Spend "+$m(left)+" more for free delivery":"You have free delivery";$("#sBar").style.width=Math.min(100,sub/1.5)+"%"}
+  document.addEventListener("click",function(e){
+    var q=e.target.closest("[data-q]"),rm=e.target.closest("[data-rm]"),ad=e.target.closest("[data-add]");
+    if(q){var l=cart[+q.dataset.q];l.q=Math.max(1,l.q+(+q.dataset.d));renderCart()}
+    if(rm){cart.splice(+rm.dataset.rm,1);renderCart()}
+    if(ad){var i=+ad.dataset.add;addTo(i,P[i].fin,1);openD("c")}});
+  renderCart();
+  function openD(w){var d=$(w==="c"?"#drC":"#drM"),o=$(w==="c"?"#ovC":"#ovM");d.hidden=false;o.hidden=false;var b=d.querySelector(".xb");if(b)b.focus()}
+  function closeD(){$$(".dr,.ov").forEach(function(x){x.hidden=true})}
+  document.addEventListener("click",function(e){var o=e.target.closest("[data-open]");if(o)openD(o.dataset.open==="cart"?"c":"m");if(e.target.closest("[data-close]"))closeD()});
+  document.addEventListener("keydown",function(e){if(e.key==="Escape")closeD()});
+  function toast(m){var t=$("#toast");t.textContent=m;t.hidden=false;clearTimeout(t._t);t._t=setTimeout(function(){t.hidden=true},2200)}
+  $$("[data-sub]").forEach(function(f){f.addEventListener("submit",function(e){e.preventDefault();f.querySelector("button").textContent="Subscribed";toast("Subscribed. Spec updates are on the way.")})});
+  $("#cf").addEventListener("submit",function(e){e.preventDefault();this.reset();toast("Message sent. We reply within one working day.")});
+  // planner
+  var W={wall:240,fw:50,gap:8,min:{wall:60,fw:20,gap:0},max:{wall:400,fw:90,gap:20}};
+  function plan(){var n=Math.max(1,Math.floor((W.wall+W.gap)/(W.fw+W.gap))),used=n*W.fw+(n-1)*W.gap,m=Math.max(0,W.wall-used);
+    $("#oWall").textContent=W.wall+" cm";$("#oFw").textContent=W.fw+" cm";$("#oGap").textContent=W.gap+" cm";
+    $("#rN").textContent=n;$("#rM").textContent=m+" cm";$("#rC").textContent=$m(n*38);
+    var w=$("#wall");w.style.setProperty("--n",n);w.innerHTML=new Array(n+1).join("<i></i>");W.n=n}
+  document.addEventListener("click",function(e){var s=e.target.closest("[data-st]");if(s){var k=s.dataset.st;W[k]=Math.min(W.max[k],Math.max(W.min[k],W[k]+(+s.dataset.d)));$$("#pre button").forEach(function(b){b.setAttribute("aria-pressed","false")});plan()}
+    var pb=e.target.closest("#pre button");if(pb){$$("#pre button").forEach(function(b){b.setAttribute("aria-pressed","false")});pb.setAttribute("aria-pressed","true");W.wall=+pb.dataset.w;plan()}});
+  $("#planAdd").addEventListener("click",function(){addTo(3,"Black",W.n);openD("c")});
+  plan();
+  // product
+  var pq=1;function pu(){$("#pq").textContent=pq;$("#ptot").textContent=$m(189*pq)}
+  $("#pq-").addEventListener("click",function(){pq=Math.max(1,pq-1);pu()});$("#pq\\+").addEventListener("click",function(){pq++;pu()});
+  $("#pAdd").addEventListener("click",function(){addTo(0,$("#fname").textContent,pq);openD("c")});
+  $("#fins").addEventListener("click",function(e){var b=e.target.closest("button");if(!b)return;$$("#fins button").forEach(function(x){x.setAttribute("aria-pressed","false")});b.setAttribute("aria-pressed","true");$("#fname").textContent=b.dataset.n});
+  $("#thumbs").addEventListener("click",function(e){var b=e.target.closest("button");if(!b)return;$$("#thumbs button").forEach(function(x){x.setAttribute("aria-pressed","false")});b.setAttribute("aria-pressed","true");$("#figLbl").textContent=b.dataset.t;$("#figSvg").style.width=b.dataset.z+"%"});
+  function bt(){var t=0;$$("[data-b]").forEach(function(c){if(c.checked)t+=+c.dataset.b});$("#bTot").textContent=$m(t)}
+  $$("[data-b]").forEach(function(c){c.addEventListener("change",bt)});
+  $("#bAdd").addEventListener("click",function(){var m={189:0,42:1,45:6};$$("[data-b]").forEach(function(c){if(c.checked)addTo(m[c.dataset.b],P[m[c.dataset.b]].fin,1)});openD("c")});
+  // routing
+  var V=[["home","Homepage"],["collection","Collection"],["product","Product"],["cart","Cart"],["search","Search"],["blog","Blog"],["article","Article"],["about","About"],["contact","Contact"],["404","404"]];
+  $("#tabs").innerHTML=V.map(function(v){return '<button type="button" data-view="'+v[0]+'" aria-pressed="false">'+v[1]+'</button>'}).join("");
+  function show(v){V.forEach(function(x){$("#v-"+x[0]).hidden=x[0]!==v});$$("#tabs button").forEach(function(b){b.setAttribute("aria-pressed",String(b.dataset.view===v))});closeD();window.scrollTo(0,0)}
+  $("#tabs").addEventListener("click",function(e){var b=e.target.closest("button");if(b)show(b.dataset.view)});
+  document.addEventListener("click",function(e){var a=e.target.closest("[data-go]");if(a){e.preventDefault();show(a.dataset.go)}});
+  $("#names").addEventListener("change",function(){document.body.classList.toggle("names",this.checked)});
+  show("home");
+})();
+</script>
+
+</body></html>

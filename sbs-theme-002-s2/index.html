@@ -1,0 +1,904 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>Kiln Home Theme</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,600;0,800;1,900&family=Barlow:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+/* Layout concept: Reference A "Slash / Athletic" applied to home & decor: accent announcement bar, dark caps header, split hero with diagonal cut and rotated price sticker, trust strip, 7-tile category row, 2-up promo banners, 5-up flat product grid with full-width black add buttons, dark feature band with 3 oversized room cards, volt newsletter, dark 4-col footer. */
+:root{
+  --bg:#FFFFFF; --ink:#0E0F11; --volt:#C6FF00; --volt-ink:#0E0F11; --soft:#F1F2EE; --line:#DADCD4; --mute:#5F6358; --dark:#0E0F11; --dark-ink:#FFFFFF; --dark-soft:#1B1D20;
+  --display:"Barlow Condensed","Arial Narrow",Impact,sans-serif;
+  --body:"Barlow","Helvetica Neue",Arial,sans-serif;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){--bg:#121316;--ink:#F3F4EF;--soft:#1C1E22;--line:#2D3035;--mute:#A3A79C;--dark:#07080A;--dark-soft:#17191C;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#121316;--ink:#F3F4EF;--soft:#1C1E22;--line:#2D3035;--mute:#A3A79C;--dark:#07080A;--dark-soft:#17191C;color-scheme:dark}
+*,*::before,*::after{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 16px/1.55 var(--body);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+img,svg{max-width:100%;display:block}
+a{color:inherit}
+button,input,select,textarea{font:inherit;color:inherit}
+:focus-visible{outline:3px solid var(--volt);outline-offset:2px;box-shadow:0 0 0 5px var(--ink)}
+.wrap{max-width:1360px;margin:0 auto;padding:0 clamp(16px,3.5vw,40px)}
+.narrow{max-width:760px}
+.sr{position:absolute;left:-9999px}
+.muted{color:var(--mute)}
+.disp{font-family:var(--display);font-weight:900;font-style:italic;text-transform:uppercase;letter-spacing:-.005em}
+
+/* preview bar */
+.pbar{background:#000;color:#fff;font-size:14px;padding:10px 0;position:relative;z-index:30}
+.pbar .wrap{display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+.pbar .pages{display:flex;gap:6px;overflow-x:auto;flex:1 1 auto;padding-bottom:2px;min-width:0}
+.pbar button{background:transparent;border:1px solid rgba(255,255,255,.4);color:#fff;padding:5px 12px;border-radius:0;cursor:pointer;white-space:nowrap}
+.pbar button[aria-pressed="true"]{background:var(--volt);border-color:var(--volt);color:#0E0F11;font-weight:600}
+.pbar label{display:flex;gap:6px;align-items:center;white-space:nowrap;cursor:pointer}
+body.show-sections [data-dawn]{position:relative;outline:2px dashed #FF2E93;outline-offset:-2px}
+body.show-sections [data-dawn]::after{content:attr(data-dawn);position:absolute;top:8px;right:8px;background:#FF2E93;color:#fff;font:600 12px/1 var(--body);padding:6px 8px;z-index:6;pointer-events:none}
+
+/* header */
+.announce{background:var(--volt);color:#0E0F11;text-align:center;font:800 14px/1 var(--display);letter-spacing:.12em;text-transform:uppercase;padding:10px 16px}
+header.site{background:var(--dark);color:var(--dark-ink);position:sticky;top:0;z-index:20}
+.head{display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:24px;height:72px}
+.logo{font:900 34px/1 var(--display);font-style:italic;text-transform:uppercase;text-decoration:none;letter-spacing:.01em;display:flex;align-items:center;gap:8px}
+.logo i{background:var(--volt);color:#0E0F11;padding:2px 8px 2px 6px;transform:skewX(-12deg);display:inline-block}
+.head nav{display:flex;gap:26px;font:800 17px/1 var(--display);letter-spacing:.1em;text-transform:uppercase;justify-content:center}
+.head nav a{text-decoration:none;position:relative;padding:6px 0}
+.head nav a:hover{color:var(--volt)}
+.head nav .new::after{content:"NEW";background:var(--volt);color:#0E0F11;font-size:10px;padding:2px 5px;margin-left:6px;vertical-align:2px}
+.head nav .deals{color:var(--volt)}
+.tools{display:flex;gap:18px;align-items:center;font:800 16px/1 var(--display);letter-spacing:.1em;text-transform:uppercase}
+.tools a{text-decoration:none}
+.cartpill{background:var(--volt);color:#0E0F11;padding:10px 16px;transform:skewX(-10deg)}
+.cartpill span{display:inline-block;transform:skewX(10deg)}
+.menu-btn{display:none;background:none;border:0;color:#fff;padding:6px;cursor:pointer}
+@media (max-width:1180px){.head{grid-template-columns:auto 1fr auto}.head nav{display:none}.menu-btn{display:block}.tools .hide-sm{display:none}.head{gap:12px}.logo{justify-self:center}}
+@media (max-width:520px){.trust{grid-template-columns:1fr}.trust div{border-right:0}.stat{grid-template-columns:1fr 1fr;gap:10px}.stat div{padding:16px;min-width:0}.stat strong{font-size:40px}}
+.trust div,.stat div{min-width:0}
+@media (max-width:420px){.logo{font-size:26px}.tools{gap:10px;font-size:14px}.cartpill{padding:9px 10px}.head{gap:6px}.menu-btn{padding:2px}.hero h1{font-size:54px}.sticker{width:84px;font-size:12px}.sticker strong{font-size:30px}}
+.theme-btn{background:none;border:1px solid rgba(255,255,255,.35);color:#fff;padding:6px 10px;cursor:pointer;font:800 13px/1 var(--display);letter-spacing:.1em;text-transform:uppercase}
+
+/* slash divider (custom) */
+.slash{height:22px;background:repeating-linear-gradient(115deg,var(--volt) 0 14px,var(--dark) 14px 28px)}
+
+/* drawers */
+.overlay{position:fixed;inset:0;background:rgba(0,0,0,.6);z-index:40}
+.drawer{position:fixed;top:0;bottom:0;width:min(440px,92vw);background:var(--bg);z-index:41;display:flex;flex-direction:column;padding:calc(20px + env(safe-area-inset-top,0px)) 22px calc(20px + env(safe-area-inset-bottom,0px));border:0}
+.drawer.right{right:0}.drawer.left{left:0;background:var(--dark);color:var(--dark-ink)}
+.drawer-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:16px}
+.drawer-head h2{font:900 34px/1 var(--display);font-style:italic;text-transform:uppercase;margin:0}
+.x{background:none;border:0;font-size:30px;line-height:1;cursor:pointer;padding:4px 8px}
+.drawer nav{display:grid;gap:2px}
+.drawer nav a{font:900 40px/1.1 var(--display);font-style:italic;text-transform:uppercase;text-decoration:none}
+.drawer .body{flex:1;overflow:auto}
+
+/* shared */
+section.block{padding:clamp(40px,6vw,76px) 0}
+section.tight{padding-top:0}
+.sec-head{display:flex;justify-content:space-between;align-items:end;gap:16px;margin-bottom:24px;flex-wrap:wrap}
+h2.h{font:900 clamp(38px,5.4vw,70px)/.9 var(--display);font-style:italic;text-transform:uppercase;margin:0}
+.sec-head a{font:800 17px/1 var(--display);letter-spacing:.1em;text-transform:uppercase}
+.btns{display:flex;gap:12px;flex-wrap:wrap}
+.btn{display:inline-block;padding:15px 28px;border:2px solid var(--ink);text-decoration:none;font:800 18px/1 var(--display);letter-spacing:.1em;text-transform:uppercase;background:transparent;cursor:pointer;text-align:center;border-radius:0}
+.btn.solid{background:var(--ink);color:var(--bg)}
+.btn.volt{background:var(--volt);border-color:var(--volt);color:#0E0F11}
+.btn.volt:hover{background:#fff}
+.btn.solid:hover{background:var(--volt);color:#0E0F11;border-color:var(--volt)}
+.btn:not(.solid):not(.volt):hover{background:var(--soft)}
+.btn.onDark{border-color:#fff;color:#fff}
+.btn.onDark:hover{background:#fff;color:#0E0F11}
+.full{width:100%;margin:0 0 10px}
+
+/* product cards: flat square, caps badge, full-width black add */
+.grid{display:grid;grid-template-columns:repeat(5,1fr);gap:clamp(10px,1.4vw,18px)}
+.grid.four{grid-template-columns:repeat(4,1fr)}
+.grid.three{grid-template-columns:repeat(3,1fr)}
+.pc{display:flex;flex-direction:column;min-width:0}
+.pc .img{background:var(--soft);aspect-ratio:1;display:grid;place-items:center;position:relative;text-decoration:none;cursor:pointer;overflow:hidden}
+.pc .img svg{width:62%;transition:transform .3s ease}
+.pc:hover .img svg{transform:scale(1.06) rotate(-2deg)}
+.badge{position:absolute;top:0;left:0;background:var(--ink);color:var(--bg);font:800 13px/1 var(--display);letter-spacing:.12em;text-transform:uppercase;padding:7px 10px}
+.badge.v{background:var(--volt);color:#0E0F11}
+.pc h3{font:800 20px/1.1 var(--display);text-transform:uppercase;margin:12px 0 2px;letter-spacing:.02em}
+.pc .sub{color:var(--mute);font-size:14px}
+.pc .cf{margin-top:auto;padding-top:10px}
+.pc .pr{font:800 22px/1 var(--display);margin:6px 0 10px;display:block}
+.pc .pr s{color:var(--mute);font-weight:600;margin-left:6px;font-size:17px}
+.pc .addb{width:100%;background:var(--dark);color:#fff;border:0;padding:13px 10px;font:800 16px/1 var(--display);letter-spacing:.12em;text-transform:uppercase;cursor:pointer}
+.pc .addb:hover{background:var(--volt);color:#0E0F11}
+@media (max-width:1180px){.grid{grid-template-columns:repeat(3,1fr)}.grid.four{grid-template-columns:repeat(3,1fr)}}
+@media (max-width:760px){.grid,.grid.four,.grid.three{grid-template-columns:repeat(2,1fr)}.pc h3{font-size:17px}}
+
+/* textures */
+.t-oak{background:repeating-linear-gradient(90deg,#B98B5A 0 14px,#AD7F50 14px 16px,#C4986A 16px 30px)}
+.t-linen{background:repeating-linear-gradient(0deg,rgba(0,0,0,.05) 0 2px,transparent 2px 5px),#D9D1C0}
+.t-clay{background:radial-gradient(circle at 30% 30%,#D98A5C,#B4562B)}
+.t-sage{background:repeating-linear-gradient(135deg,#7F9279 0 8px,#8DA086 8px 12px)}
+.t-char{background:repeating-linear-gradient(45deg,#2A2D31 0 8px,#33373C 8px 12px)}
+
+/* trust strip */
+.trust{display:grid;grid-template-columns:repeat(4,1fr);border-bottom:1px solid var(--line)}
+.trust div{display:flex;gap:12px;align-items:center;padding:18px 16px;border-right:1px solid var(--line)}
+.trust div:last-child{border-right:0}
+.trust svg{width:30px;height:30px;flex:none}
+.trust b{display:block;font:800 17px/1 var(--display);letter-spacing:.08em;text-transform:uppercase}
+.trust small{color:var(--mute)}
+@media (max-width:860px){.trust{grid-template-columns:1fr 1fr}.trust div:nth-child(2){border-right:0}.trust div{border-bottom:1px solid var(--line)}}
+
+/* hero split with diagonal cut */
+.hero{background:var(--dark);color:#fff;overflow:hidden}
+.hero-in{display:grid;grid-template-columns:1.05fr .95fr;min-height:clamp(440px,48vw,640px)}
+.hero-copy{padding:clamp(32px,5vw,72px) clamp(16px,3.5vw,40px) clamp(32px,5vw,72px) max(16px,calc((100vw - 1360px)/2 + 40px));display:flex;flex-direction:column;justify-content:center;gap:20px;position:relative;z-index:2}
+.hero h1{font:900 clamp(60px,9.6vw,150px)/.84 var(--display);font-style:italic;text-transform:uppercase;margin:0}
+.hero h1 em{color:var(--volt);font-style:italic}
+.hero p{max-width:40ch;font-size:clamp(17px,1.5vw,20px);color:#D4D6CC;margin:0}
+.hero-art{background:var(--volt);position:relative;clip-path:polygon(18% 0,100% 0,100% 100%,0 100%);display:grid;place-items:center;margin-left:-8%}
+.hero-art svg{width:56%;color:#0E0F11;margin-left:8%}
+.sticker{position:absolute;right:clamp(14px,5vw,60px);top:clamp(14px,4vw,44px);width:clamp(96px,11vw,150px);aspect-ratio:1;background:#0E0F11;color:var(--volt);border-radius:50%;display:grid;place-items:center;text-align:center;transform:rotate(12deg);font:800 15px/1 var(--display);letter-spacing:.1em;text-transform:uppercase;box-shadow:0 0 0 4px var(--volt)}
+.sticker strong{display:block;font:900 clamp(34px,4vw,54px)/.9 var(--display);font-style:italic}
+@media (max-width:860px){.hero-in{grid-template-columns:1fr}.hero-copy{padding:36px 16px}.hero-art{clip-path:polygon(0 12%,100% 0,100% 100%,0 100%);margin:0;min-height:340px}.hero-art svg{margin:0;width:48%}}
+
+/* category row */
+.cats{display:grid;grid-template-columns:repeat(7,1fr);gap:10px}
+.cat{text-decoration:none;cursor:pointer;display:block}
+.cat .sq{aspect-ratio:1;background:var(--soft);display:grid;place-items:center;transition:background .2s}
+.cat:hover .sq{background:var(--volt)}
+.cat:hover .sq svg{color:#0E0F11}
+.cat svg{width:58%;color:var(--ink)}
+.cat b{display:block;font:800 18px/1 var(--display);letter-spacing:.08em;text-transform:uppercase;margin-top:10px;text-align:center}
+@media (max-width:1000px){.cats{grid-template-columns:repeat(4,1fr)}}
+@media (max-width:560px){.cats{grid-template-columns:repeat(3,1fr);gap:8px}.cat b{font-size:15px}}
+
+/* promo banners */
+.promos{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.promo{padding:clamp(24px,3.5vw,48px);min-height:300px;display:flex;flex-direction:column;justify-content:flex-end;gap:12px;position:relative;overflow:hidden}
+.promo.d{background:var(--dark);color:#fff}
+.promo.v{background:var(--volt);color:#0E0F11}
+.promo h3{font:900 clamp(40px,5vw,68px)/.88 var(--display);font-style:italic;text-transform:uppercase;margin:0;position:relative;z-index:2}
+.promo p{margin:0;max-width:30ch;position:relative;z-index:2}
+.promo svg{position:absolute;right:-4%;top:6%;width:44%;opacity:.9}
+.promo.d svg{color:var(--volt)}.promo.v svg{color:#0E0F11}
+@media (max-width:760px){.promos{grid-template-columns:1fr}}
+
+/* dark feature band: shop the room (custom niche section) */
+.band{background:var(--dark);color:#fff}
+.band .h{color:#fff}
+.rooms{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.room{position:relative;aspect-ratio:3/4;overflow:hidden;display:block}
+.room>svg.scene{position:absolute;inset:0;width:100%;height:100%;color:rgba(255,255,255,.2)}
+.room .tagp{position:absolute;left:0;bottom:0;right:0;padding:18px;background:linear-gradient(transparent,rgba(0,0,0,.85));z-index:2}
+.room h3{font:900 34px/.95 var(--display);font-style:italic;text-transform:uppercase;margin:0 0 6px;color:#fff}
+.room .price{display:inline-block;background:var(--volt);color:#0E0F11;font:900 22px/1 var(--display);padding:6px 12px;transform:skewX(-8deg)}
+.hot{position:absolute;z-index:3;width:30px;height:30px;border-radius:50%;background:var(--volt);color:#0E0F11;border:3px solid #0E0F11;cursor:pointer;font:900 16px/1 var(--display);display:grid;place-items:center;padding:0}
+.hot:hover,.hot[aria-expanded="true"]{background:#fff}
+.hotcard{position:absolute;z-index:4;background:#fff;color:#0E0F11;padding:10px 12px;width:min(190px,70%);font-size:14px;line-height:1.3}
+.hotcard b{display:block;font:800 18px/1 var(--display);text-transform:uppercase}
+.hotcard button{margin-top:8px;width:100%;background:#0E0F11;color:#fff;border:0;padding:9px;font:800 14px/1 var(--display);letter-spacing:.1em;text-transform:uppercase;cursor:pointer}
+@media (max-width:860px){.rooms{grid-template-columns:1fr}.room{aspect-ratio:4/3}}
+
+.newsb{background:var(--volt);color:#0E0F11}
+.news-in{display:grid;grid-template-columns:1fr 1fr;gap:24px;align-items:center}
+.newsb h2{font:900 clamp(38px,5vw,64px)/.9 var(--display);font-style:italic;text-transform:uppercase;margin:0}
+.newsb form{display:flex;gap:8px;flex-wrap:wrap}
+.field{padding:15px 16px;border:2px solid var(--ink);background:var(--bg);width:100%;border-radius:0}
+.newsb .field{flex:1 1 220px;width:auto;background:#fff;color:#0E0F11;border-color:#0E0F11}
+.newsb .btn.solid{background:#0E0F11;color:#fff;border-color:#0E0F11}
+@media (max-width:820px){.news-in{grid-template-columns:1fr}}
+
+/* misc content */
+.reviews{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.rev{background:var(--soft);padding:24px}
+.rev p{font-size:18px;margin:0 0 12px}
+.rev cite{font:800 16px/1 var(--display);letter-spacing:.1em;text-transform:uppercase;font-style:normal}
+.stars{color:var(--ink);letter-spacing:2px;font-size:20px;background:var(--volt);display:inline-block;padding:2px 8px;color:#0E0F11;margin-bottom:10px}
+@media (max-width:820px){.reviews{grid-template-columns:1fr}}
+.stat{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.stat div{background:var(--soft);padding:24px;border-top:6px solid var(--volt)}
+.stat strong{display:block;font:900 clamp(44px,5vw,70px)/1 var(--display);font-style:italic}
+@media (max-width:820px){.stat{grid-template-columns:1fr 1fr}}
+details.acc{border-top:1px solid var(--line);padding:14px 0}
+details.acc:last-of-type{border-bottom:1px solid var(--line)}
+details.acc summary{cursor:pointer;font:800 20px/1.2 var(--display);letter-spacing:.04em;text-transform:uppercase;list-style:none;display:flex;justify-content:space-between;gap:12px}
+details.acc summary::-webkit-details-marker{display:none}
+details.acc summary::after{content:"+";font-size:26px;line-height:1}
+details.acc[open] summary::after{content:"–"}
+details.acc p{color:var(--mute);margin:10px 0 0}
+.faq{display:grid;grid-template-columns:.8fr 1.2fr;gap:clamp(20px,4vw,56px)}
+@media (max-width:860px){.faq{grid-template-columns:1fr}}
+.crumbs{font:800 15px/1 var(--display);letter-spacing:.1em;text-transform:uppercase;color:var(--mute);padding:20px 0}
+.crumbs a{text-decoration:none}.crumbs a:hover{color:var(--ink)}
+.crumbbar{background:var(--soft);border-bottom:1px solid var(--line)}
+.crumbbar .crumbs{padding:14px 0}
+.post{text-decoration:none;display:block;cursor:pointer}
+.post .pic{aspect-ratio:3/2}
+.post small{display:block;color:var(--mute);margin:12px 0 4px;text-transform:uppercase;letter-spacing:.08em;font-size:13px}
+.post h3{margin:0 0 6px;font:800 24px/1.05 var(--display);text-transform:uppercase}
+.post p{margin:0;color:var(--mute)}
+.pageh{font:900 clamp(52px,8vw,110px)/.86 var(--display);font-style:italic;text-transform:uppercase;margin:8px 0 18px}
+
+/* collection */
+.col-banner{background:var(--dark);color:#fff;padding:clamp(28px,4vw,56px) 0;position:relative;overflow:hidden}
+.col-banner h1{font:900 clamp(56px,10vw,140px)/.84 var(--display);font-style:italic;text-transform:uppercase;margin:0}
+.col-banner h1 em{color:var(--volt)}
+.col-banner p{max-width:56ch;margin:14px 0 0;color:#CFD1C7}
+.col-banner .crumbs{padding-top:0;color:#9EA194}.col-banner .crumbs a:hover{color:#fff}
+.col-layout{display:grid;grid-template-columns:240px 1fr;gap:clamp(20px,3vw,40px);padding:28px 0 64px}
+.filters fieldset{border:0;border-bottom:1px solid var(--line);padding:0 0 16px;margin:0 0 16px;min-width:0}
+.filters legend{font:800 18px/1 var(--display);letter-spacing:.1em;text-transform:uppercase;margin-bottom:8px;padding:0}
+.filters label{display:flex;gap:8px;align-items:center;margin:6px 0;cursor:pointer}
+.filters input[type=checkbox]{width:18px;height:18px;accent-color:var(--ink)}
+.swatch-row{display:flex;gap:8px;flex-wrap:wrap}
+.swatch-row input{position:absolute;opacity:0}
+.swatch-row span{width:28px;height:28px;border:2px solid var(--line);display:block}
+.swatch-row input:checked+span{outline:3px solid var(--volt);outline-offset:1px;box-shadow:0 0 0 5px var(--ink)}
+.toolbar{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-bottom:18px;flex-wrap:wrap}
+.toolbar select{padding:9px 10px;border:2px solid var(--ink);background:var(--bg);border-radius:0}
+.filter-toggle{display:none}
+.pager{display:flex;gap:6px;justify-content:center;margin-top:36px}
+.pager a{min-width:42px;padding:9px;text-align:center;border:2px solid var(--line);text-decoration:none;font:800 17px/1 var(--display)}
+.pager a[aria-current]{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+.note-v{background:var(--volt);color:#0E0F11;padding:18px 22px;font-size:17px}
+@media (max-width:860px){.col-layout{grid-template-columns:1fr}.filters{display:none}.filters.open{display:block}.filter-toggle{display:inline-block}}
+
+/* product */
+.pdp{display:grid;grid-template-columns:1.2fr .8fr;gap:clamp(20px,4vw,56px);padding:8px 0 64px}
+.gallery{display:grid;grid-template-columns:1fr 1fr;gap:10px;min-width:0}
+.gallery .g{background:var(--soft);aspect-ratio:1;display:grid;place-items:center;min-width:0}
+.gallery .g:first-child{grid-column:1/-1;aspect-ratio:5/4;position:relative}
+.gallery svg{width:56%}
+.buy{position:sticky;top:90px;align-self:start;min-width:0}
+.buy h1{font:900 clamp(46px,5.2vw,76px)/.86 var(--display);font-style:italic;text-transform:uppercase;margin:0 0 10px}
+.price{font:900 34px/1 var(--display);margin:0 0 6px}
+.note{color:var(--mute);margin:0 0 22px}
+.opt{border:0;padding:0;margin:0 0 20px;min-width:0}
+.opt legend{font:800 18px/1 var(--display);letter-spacing:.1em;text-transform:uppercase;margin-bottom:10px;padding:0}
+.swatches,.sizes{display:flex;gap:8px;flex-wrap:wrap}
+.swatches button{width:38px;height:38px;border:2px solid var(--line);cursor:pointer;border-radius:0}
+.swatches button[aria-pressed="true"]{outline:3px solid var(--volt);outline-offset:1px;box-shadow:0 0 0 5px var(--ink)}
+.sizes button{min-width:64px;padding:11px;border:2px solid var(--ink);background:transparent;cursor:pointer;border-radius:0;font:800 16px/1 var(--display);letter-spacing:.06em;text-transform:uppercase}
+.sizes button[aria-pressed="true"]{background:var(--ink);color:var(--bg)}
+.sizes button:disabled{opacity:.35;text-decoration:line-through;cursor:not-allowed}
+.fittip{background:var(--volt);color:#0E0F11;padding:12px 14px;font-size:15px;margin-bottom:22px}
+.iwt{display:grid;grid-template-columns:1fr 1fr;gap:clamp(20px,4vw,56px);align-items:center}
+.iwt .pic{aspect-ratio:5/4;min-width:0}
+.iwt h2{font:900 clamp(36px,4.6vw,60px)/.9 var(--display);font-style:italic;text-transform:uppercase;margin:0 0 14px}
+.iwt p{max-width:44ch;margin:0 0 22px}
+.iwt.flip .pic{order:2}
+@media (max-width:860px){.iwt{grid-template-columns:1fr}.iwt.flip .pic{order:0}}
+.appbox{border:2px dashed var(--mute);padding:28px;display:grid;grid-template-columns:auto 1fr auto;gap:24px;align-items:center}
+@media (max-width:900px){.pdp{grid-template-columns:1fr}.buy{position:static}.appbox{grid-template-columns:1fr}}
+.promises{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.promise{background:var(--soft);padding:24px;border-top:6px solid var(--volt)}
+.promise h3{margin:0 0 4px;font:800 22px/1 var(--display);text-transform:uppercase;letter-spacing:.04em}
+.promise p{margin:0;color:var(--mute)}
+@media (max-width:820px){.promises{grid-template-columns:1fr}}
+
+/* cart */
+.cart-grid{display:grid;grid-template-columns:1fr 380px;gap:clamp(20px,4vw,48px);padding:8px 0 56px}
+.cl{display:grid;grid-template-columns:96px 1fr auto;gap:16px;padding:18px 0;border-bottom:1px solid var(--line);align-items:start}
+.cl .thumb{background:var(--soft);aspect-ratio:1;display:grid;place-items:center}
+.cl .thumb svg{width:68%}
+.cl h3{margin:0;font:800 20px/1.1 var(--display);text-transform:uppercase}
+.qty{display:inline-flex;border:2px solid var(--ink);margin-top:10px}
+.qty button{background:none;border:0;width:36px;height:36px;cursor:pointer;font-size:18px}
+.qty span{min-width:32px;display:grid;place-items:center}
+.linkbtn{background:none;border:0;padding:0;text-decoration:underline;cursor:pointer;color:var(--mute);font-size:14px;margin-left:12px}
+.summary{background:var(--soft);padding:24px;align-self:start;min-width:0}
+.ship-bar{height:8px;background:var(--line);margin:8px 0 18px}
+.ship-bar i{display:block;height:100%;background:var(--volt);box-shadow:inset 0 0 0 1px #0E0F11}
+.summary textarea{width:100%;min-height:70px;padding:10px;border:2px solid var(--line);background:var(--bg);margin:6px 0 16px}
+.row{display:flex;justify-content:space-between;font:800 24px/1 var(--display);margin-bottom:8px;text-transform:uppercase}
+@media (max-width:900px){.cart-grid{grid-template-columns:1fr}}
+.cl>b{font:800 22px/1 var(--display)}
+
+/* blog / article */
+.feature-post{display:grid;grid-template-columns:1.3fr 1fr;gap:clamp(20px,4vw,48px);align-items:center;margin-bottom:48px;text-decoration:none;cursor:pointer}
+.feature-post .pic{aspect-ratio:16/10;min-width:0}
+.feature-post h2{font:900 clamp(38px,4.8vw,64px)/.88 var(--display);font-style:italic;text-transform:uppercase;margin:8px 0 12px}
+@media (max-width:860px){.feature-post{grid-template-columns:1fr}}
+.article-hero{aspect-ratio:21/9;margin-bottom:32px}
+.article h1{font:900 clamp(46px,6.4vw,92px)/.86 var(--display);font-style:italic;text-transform:uppercase;margin:0 0 12px}
+.article .by{color:var(--mute);margin-bottom:28px}
+.article p{font-size:18px;line-height:1.75;margin:0 0 20px}
+.article h2{font:900 38px/1 var(--display);font-style:italic;text-transform:uppercase;margin:36px 0 12px}
+.share{display:flex;gap:14px;border-top:1px solid var(--line);padding-top:18px;margin-top:32px;color:var(--mute);flex-wrap:wrap}
+
+/* about / contact / 404 */
+.about-hero{min-height:clamp(320px,46vw,540px);display:flex;align-items:flex-end;padding:clamp(24px,4vw,48px) 0;color:#fff;position:relative}
+.about-hero h1{font:900 clamp(56px,11vw,160px)/.84 var(--display);font-style:italic;text-transform:uppercase;margin:0;max-width:11ch;background:#0E0F11;display:inline;padding:0 .1em;box-decoration-break:clone;-webkit-box-decoration-break:clone}
+.story{font-size:19px;line-height:1.7}.story p{margin:0 0 18px}
+.mrow{display:grid;gap:clamp(32px,5vw,64px)}
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.contact-grid .span{grid-column:1/-1}
+.contact-grid label{display:block;font:800 17px/1 var(--display);letter-spacing:.1em;text-transform:uppercase;margin-bottom:6px}
+.contact-grid textarea{min-height:140px}
+.contact-grid>div{min-width:0}
+@media (max-width:640px){.contact-grid{grid-template-columns:1fr}}
+.nf{padding:clamp(48px,8vw,110px) 0;text-align:center}
+.nf h1{font:900 clamp(110px,24vw,320px)/.78 var(--display);font-style:italic;margin:0;background:var(--volt);color:#0E0F11;display:inline-block;padding:0 .12em;transform:rotate(-3deg)}
+.nf p{font-size:20px;margin:26px 0}
+.nf form{display:flex;gap:8px;max-width:520px;margin:0 auto 18px}
+.toast{position:fixed;left:50%;bottom:calc(20px + env(safe-area-inset-bottom,0px));transform:translateX(-50%);background:var(--volt);color:#0E0F11;padding:13px 20px;z-index:50;font:800 17px/1.2 var(--display);letter-spacing:.06em;text-transform:uppercase;max-width:92vw;text-align:center}
+
+/* footer */
+footer.site{background:var(--dark);color:#fff;padding:56px 0 32px}
+.foot{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:28px}
+.foot h4{margin:0 0 12px;font:800 19px/1 var(--display);letter-spacing:.12em;text-transform:uppercase;color:var(--volt)}
+.foot ul{list-style:none;margin:0;padding:0;display:grid;gap:8px;color:#B8BBAF}
+.foot ul a{text-decoration:none}.foot ul a:hover{color:#fff}
+.foot-bottom{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;margin-top:40px;padding-top:20px;border-top:1px solid #2D3035;color:#9EA194;font-size:14px}
+@media (max-width:820px){.foot{grid-template-columns:1fr 1fr}}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
+</style>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="g-lamp" viewBox="0 0 200 200"><path fill="currentColor" d="M70 22h60l22 62H48z"/><rect x="96" y="84" width="8" height="82" fill="currentColor"/><ellipse cx="100" cy="174" rx="40" ry="9" fill="currentColor"/><path d="M70 22h60" stroke="rgba(0,0,0,.25)" stroke-width="3" fill="none"/></symbol>
+  <symbol id="g-vase" viewBox="0 0 200 200"><path fill="currentColor" d="M82 22h36v22c0 14 36 30 36 80 0 40-22 56-54 56s-54-16-54-56c0-50 36-66 36-80z"/><path d="M60 110q40 16 80 0" stroke="rgba(0,0,0,.25)" stroke-width="3" fill="none"/></symbol>
+  <symbol id="g-chair" viewBox="0 0 200 200"><path fill="currentColor" d="M54 20h92l8 84H46z"/><rect x="40" y="104" width="120" height="22" fill="currentColor"/><path fill="currentColor" d="M52 126h14l-6 56H48zM134 126h14l4 56h-12z"/><path d="M72 36v56M100 36v56M128 36v56" stroke="rgba(0,0,0,.2)" stroke-width="3"/></symbol>
+  <symbol id="g-rug" viewBox="0 0 200 200"><rect x="22" y="48" width="156" height="104" fill="currentColor"/><rect x="34" y="60" width="132" height="80" fill="none" stroke="rgba(0,0,0,.3)" stroke-width="3"/><path d="M60 100l20-20 20 20-20 20zM100 100l20-20 20 20-20 20z" fill="none" stroke="rgba(0,0,0,.3)" stroke-width="3"/><path d="M22 56h-10M22 70h-10M22 84h-10M22 116h-10M22 130h-10M22 144h-10M178 56h10M178 70h10M178 84h10M178 116h10M178 130h10M178 144h10" stroke="currentColor" stroke-width="3"/></symbol>
+  <symbol id="g-mirror" viewBox="0 0 200 200"><ellipse cx="100" cy="92" rx="52" ry="68" fill="currentColor"/><ellipse cx="100" cy="92" rx="40" ry="56" fill="none" stroke="rgba(0,0,0,.28)" stroke-width="3"/><path d="M82 70q18-16 40 0" stroke="rgba(255,255,255,.6)" stroke-width="4" fill="none"/><path d="M70 160l-14 30M130 160l14 30" stroke="currentColor" stroke-width="6"/></symbol>
+  <symbol id="g-cushion" viewBox="0 0 200 200"><path fill="currentColor" d="M30 48q70-20 140 0 14 52 0 104-70 20-140 0-14-52 0-104z"/><path d="M30 48q40 52 0 104M170 48q-40 52 0 104" fill="none" stroke="rgba(0,0,0,.25)" stroke-width="3"/><circle cx="100" cy="100" r="5" fill="rgba(0,0,0,.3)"/></symbol>
+  <symbol id="g-shelf" viewBox="0 0 200 200"><rect x="30" y="40" width="140" height="10" fill="currentColor"/><rect x="30" y="100" width="140" height="10" fill="currentColor"/><rect x="30" y="160" width="140" height="10" fill="currentColor"/><rect x="40" y="14" width="22" height="26" fill="currentColor"/><rect x="110" y="74" width="40" height="26" fill="currentColor"/><rect x="56" y="124" width="30" height="36" fill="currentColor"/></symbol>
+  <symbol id="i-truck" viewBox="0 0 24 24"><path d="M2 6h12v10H2zM14 10h5l3 3v3h-8zM6 19a2 2 0 100-4 2 2 0 000 4zM18 19a2 2 0 100-4 2 2 0 000 4z" fill="none" stroke="currentColor" stroke-width="2"/></symbol>
+  <symbol id="i-return" viewBox="0 0 24 24"><path d="M4 12a8 8 0 108-8H7M7 1L4 4l3 3" fill="none" stroke="currentColor" stroke-width="2"/></symbol>
+  <symbol id="i-shield" viewBox="0 0 24 24"><path d="M12 2l8 3v6c0 5-3.5 9-8 11-4.5-2-8-6-8-11V5z" fill="none" stroke="currentColor" stroke-width="2"/></symbol>
+  <symbol id="i-chat" viewBox="0 0 24 24"><path d="M3 4h18v12H9l-5 4V4z" fill="none" stroke="currentColor" stroke-width="2"/></symbol>
+</svg>
+
+<div class="pbar">
+  <div class="wrap">
+    <div class="pages" role="group" aria-label="Preview page" id="pageTabs"></div>
+    <label><input type="checkbox" id="showSections"> Show section names</label>
+  </div>
+</div>
+
+<div class="announce" data-dawn="Announcement bar">Free delivery over $150 &nbsp;/&nbsp; 30-day returns &nbsp;/&nbsp; Autumn sale up to 40% off</div>
+
+<header class="site" data-dawn="Header">
+  <div class="wrap head">
+    <button class="menu-btn" aria-label="Open menu" data-open="menu"><svg width="26" height="26" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 7h18M3 12h18M3 17h18" stroke="currentColor" stroke-width="2.5"/></svg></button>
+    <a class="logo" href="#" data-go="home"><i>K</i>ILN</a>
+    <nav aria-label="Main"><a class="new" href="#" data-go="collection">New in</a><a href="#" data-go="collection">Lighting</a><a href="#" data-go="collection">Seating</a><a href="#" data-go="collection">Rugs</a><a href="#" data-go="blog">Journal</a><a class="deals" href="#" data-go="collection">Sale</a></nav>
+    <div class="tools"><a href="#" data-go="search">Search</a><a href="#" class="hide-sm" data-go="contact">Help</a><button class="theme-btn hide-sm" id="themeBtn" type="button" aria-label="Toggle dark mode">Mode</button><a href="#" class="cartpill" data-go="cart"><span>Cart (<span class="cart-count">0</span>)</span></a></div>
+  </div>
+</header>
+
+<!-- HOME -->
+<main id="view-home">
+  <section class="hero" data-dawn="Image banner">
+    <div class="hero-in">
+      <div class="hero-copy">
+        <h1>Rooms with <em>edge.</em></h1>
+        <p>Lamps, seating, rugs and mirrors cut sharp and built heavy. Flat-pack that goes together in minutes and lasts for decades.</p>
+        <div class="btns"><a href="#" class="btn volt" data-go="collection">Shop new in</a><a href="#" class="btn onDark" data-go="collection">Autumn sale</a></div>
+      </div>
+      <div class="hero-art"><div class="sticker"><div>From<strong>$39</strong>Lamps</div></div><svg viewBox="0 0 200 200" aria-hidden="true"><use href="#g-lamp"/></svg></div>
+    </div>
+  </section>
+  <div class="trust wrap" data-dawn="Multicolumn (trust strip)">
+    <div><svg><use href="#i-truck"/></svg><span><b>Free delivery</b><small>Orders over $150</small></span></div>
+    <div><svg><use href="#i-return"/></svg><span><b>30-day returns</b><small>Free, prepaid label</small></span></div>
+    <div><svg><use href="#i-shield"/></svg><span><b>5-year warranty</b><small>On every frame</small></span></div>
+    <div><svg><use href="#i-chat"/></svg><span><b>Real humans</b><small>Mon to Fri support</small></span></div>
+  </div>
+
+  <section class="block" data-dawn="Collection list">
+    <div class="wrap">
+      <div class="sec-head"><h2 class="h">Shop by room piece</h2></div>
+      <div class="cats" data-cats></div>
+    </div>
+  </section>
+
+  <section class="block tight" data-dawn="Multicolumn (promo banners)">
+    <div class="wrap promos">
+      <a class="promo d" href="#" data-go="collection"><svg viewBox="0 0 200 200" aria-hidden="true"><use href="#g-chair"/></svg><h3>Seating<br>drop</h3><p>Boucle, oak and steel. Six new chairs, built for real living rooms.</p><span class="btn volt" style="align-self:flex-start;position:relative;z-index:2">Shop seating</span></a>
+      <a class="promo v" href="#" data-go="collection"><svg viewBox="0 0 200 200" aria-hidden="true"><use href="#g-rug"/></svg><h3>Rugs<br>40% off</h3><p>Hand-tufted wool in four weights. Ends Sunday.</p><span class="btn solid" style="align-self:flex-start;position:relative;z-index:2">Shop rugs</span></a>
+    </div>
+  </section>
+
+  <div class="slash" data-dawn="Slash: Slash divider" aria-hidden="true"></div>
+
+  <section class="block" data-dawn="Featured collection">
+    <div class="wrap">
+      <div class="sec-head"><h2 class="h">Trending now</h2><a href="#" data-go="collection">View all</a></div>
+      <div class="grid" data-grid="0,1,2,3,4"></div>
+    </div>
+  </section>
+
+  <section class="block band" data-dawn="Slash: Shop the room">
+    <div class="wrap">
+      <div class="sec-head"><h2 class="h">Shop the room</h2><a href="#" data-go="collection" style="color:var(--volt)">All room edits</a></div>
+      <p style="color:#CFD1C7;max-width:56ch;margin:0 0 24px">Tap a dot to see the piece and add it to your cart.</p>
+      <div class="rooms" id="rooms"></div>
+    </div>
+  </section>
+
+  <section class="block" data-dawn="Featured product">
+    <div class="wrap iwt">
+      <div class="pic t-oak" role="img" aria-label="Oak finish swatch" style="display:grid;place-items:center"><svg viewBox="0 0 200 200" aria-hidden="true" style="width:56%;color:#0E0F11"><use href="#g-chair"/></svg></div>
+      <div>
+        <p class="muted" style="margin:0 0 6px;font:800 16px/1 var(--display);letter-spacing:.14em;text-transform:uppercase">Best seller</p>
+        <h2>Slab Lounge Chair</h2>
+        <p class="price">$289</p>
+        <p class="note">Solid oak frame, 80 kg/m3 foam, removable boucle cover. Assembles with one hex key in six minutes.</p>
+        <fieldset class="opt"><legend>Cover</legend><div class="sizes"><button type="button" aria-pressed="true">Oat</button><button type="button" aria-pressed="false">Char</button><button type="button" aria-pressed="false">Moss</button></div></fieldset>
+        <div class="btns"><button class="btn solid" type="button" data-add="2">Add to cart</button><a href="#" class="btn" data-go="product">Full details</a></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="block tight" data-dawn="Multicolumn (reviews)">
+    <div class="wrap">
+      <div class="sec-head"><h2 class="h">Lived in. Loved.</h2></div>
+      <div class="reviews">
+        <div class="rev"><span class="stars" aria-label="5 stars">★★★★★</span><p>The Slab chair is heavy in the best way. Nothing wobbles, and the cover came out clean in one wash.</p><cite>Rhea, Manchester</cite></div>
+        <div class="rev"><span class="stars" aria-label="5 stars">★★★★★</span><p>Ordered the 200 x 300 rug and the size finder guidance was right. Fills the room without touching the walls.</p><cite>Tom, Chicago</cite></div>
+        <div class="rev"><span class="stars" aria-label="4 stars">★★★★☆</span><p>Lamp arrived in two days. Warm light, solid base, and the cable is a proper 3 metres.</p><cite>Aisha, Dubai</cite></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="block tight" data-dawn="Featured collection">
+    <div class="wrap">
+      <div class="sec-head"><h2 class="h">Sale picks</h2><a href="#" data-go="collection">View all</a></div>
+      <div class="grid" data-grid="5,6,7,8,9"></div>
+    </div>
+  </section>
+
+  <section class="block tight" data-dawn="Collapsible content">
+    <div class="wrap faq">
+      <h2 class="h">Quick answers</h2>
+      <div>
+        <details class="acc"><summary>How long does assembly take?</summary><p>Most pieces take 5 to 15 minutes with the hex key in the box. Rugs and mirrors need none.</p></details>
+        <details class="acc"><summary>Can I return a rug I have unrolled?</summary><p>Yes. Unrolled rugs can be returned within 30 days if they are clean and flat-packed again.</p></details>
+        <details class="acc"><summary>Do you ship outside the US?</summary><p>We ship to the UK, Canada and the UAE. Delivery takes 4 to 9 working days.</p></details>
+        <details class="acc"><summary>What does the warranty cover?</summary><p>Frames and bases for five years. Covers and fabrics for one year of normal home use.</p></details>
+      </div>
+    </div>
+  </section>
+
+  <section class="block tight" data-dawn="Featured blog">
+    <div class="wrap">
+      <div class="sec-head"><h2 class="h">From the journal</h2><a href="#" data-go="blog">All posts</a></div>
+      <div class="grid three" data-posts="0,1,2"></div>
+    </div>
+  </section>
+
+  <section class="block newsb" data-dawn="Email signup"><div class="wrap news-in"><h2>10% off your first room</h2><form data-sub><label class="sr" for="em1">Email address</label><input class="field" id="em1" type="email" placeholder="Your email address" required><button class="btn solid" type="submit">Get 10% off</button></form></div></section>
+</main>
+
+<!-- COLLECTION -->
+<main id="view-collection" hidden>
+  <section class="col-banner" data-dawn="Collection banner">
+    <div class="wrap">
+      <div class="crumbs"><a href="#" data-go="home">Home</a> / New in</div>
+      <h1>New <em>in.</em></h1>
+      <p>Fresh lighting, seating, rugs and mirrors. <span id="colCount">12</span> products.</p>
+    </div>
+  </section>
+  <section data-dawn="Product grid">
+    <div class="wrap col-layout">
+      <aside class="filters" id="filters" aria-label="Filters">
+        <fieldset><legend>Category</legend>
+          <label><input type="checkbox" value="lighting" data-f="cat"> Lighting</label>
+          <label><input type="checkbox" value="seating" data-f="cat"> Seating</label>
+          <label><input type="checkbox" value="rugs" data-f="cat"> Rugs</label>
+          <label><input type="checkbox" value="mirrors" data-f="cat"> Mirrors</label>
+          <label><input type="checkbox" value="decor" data-f="cat"> Decor</label>
+        </fieldset>
+        <fieldset><legend>Colour</legend>
+          <div class="swatch-row">
+            <label title="Oak"><input type="checkbox" value="Oak" data-f="col" aria-label="Oak"><span style="background:#B98B5A"></span></label>
+            <label title="Char"><input type="checkbox" value="Char" data-f="col" aria-label="Char"><span style="background:#2F3237"></span></label>
+            <label title="Oat"><input type="checkbox" value="Oat" data-f="col" aria-label="Oat"><span style="background:#DCD3BF"></span></label>
+            <label title="Moss"><input type="checkbox" value="Moss" data-f="col" aria-label="Moss"><span style="background:#7F9279"></span></label>
+            <label title="Clay"><input type="checkbox" value="Clay" data-f="col" aria-label="Clay"><span style="background:#C2693C"></span></label>
+          </div>
+        </fieldset>
+        <fieldset style="border:0"><legend>Price</legend>
+          <label><input type="checkbox" value="u100" data-f="price"> Under $100</label>
+          <label><input type="checkbox" value="o100" data-f="price"> $100 and over</label>
+        </fieldset>
+      </aside>
+      <div>
+        <div class="toolbar">
+          <button class="btn filter-toggle" type="button" id="filterToggle" aria-controls="filters" aria-expanded="false">Filter</button>
+          <span class="muted"><span id="colShown">12</span> products</span>
+          <label>Sort by <select id="sort"><option value="feat">Featured</option><option value="low">Price, low to high</option><option value="high">Price, high to low</option></select></label>
+        </div>
+        <div class="grid four" id="colGrid"></div>
+        <nav class="pager" aria-label="Pages"><a href="#" aria-current="page">1</a><a href="#">2</a><a href="#">3</a><a href="#" aria-label="Next page">›</a></nav>
+      </div>
+    </div>
+  </section>
+  <section class="block tight" data-dawn="Rich text"><div class="wrap"><div class="note-v"><strong>Size note:</strong> rugs are listed in centimetres, lamp heights include the shade, chairs have seat height under the dimensions tab.</div></div></section>
+  <section class="block tight" data-dawn="Collapsible content">
+    <div class="wrap faq">
+      <h2 class="h">About new in</h2>
+      <div>
+        <details class="acc"><summary>How often do new pieces land?</summary><p>Every second Thursday. Subscribers see them 24 hours early.</p></details>
+        <details class="acc"><summary>Will sold-out colours return?</summary><p>Core colours restock each season. Limited colours are one run only.</p></details>
+        <details class="acc"><summary>Can I order fabric swatches?</summary><p>Yes. Up to five swatches ship free in 2 days.</p></details>
+      </div>
+    </div>
+  </section>
+  <section class="block newsb" data-dawn="Email signup"><div class="wrap news-in"><h2>First look at new drops</h2><form data-sub><label class="sr" for="em2">Email address</label><input class="field" id="em2" type="email" placeholder="Your email address" required><button class="btn solid" type="submit">Subscribe</button></form></div></section>
+</main>
+
+<!-- PRODUCT -->
+<main id="view-product" hidden>
+  <div class="crumbbar"><div class="wrap"><nav class="crumbs" data-dawn="Slash: Breadcrumbs" aria-label="Breadcrumb"><a href="#" data-go="home">Home</a> / <a href="#" data-go="collection">Seating</a> / Slab Lounge Chair</nav></div></div>
+  <section data-dawn="Product information" style="padding-top:28px">
+    <div class="wrap pdp">
+      <div class="gallery">
+        <div class="g"><span class="badge v">Best seller</span><svg viewBox="0 0 200 200" aria-hidden="true" id="mainArt" style="color:#DCD3BF"><use href="#g-chair"/></svg></div>
+        <div class="g t-oak"></div>
+        <div class="g"><svg viewBox="0 0 200 200" style="color:#2F3237" aria-hidden="true"><use href="#g-chair"/></svg></div>
+      </div>
+      <div class="buy">
+        <h1>Slab Lounge Chair</h1>
+        <p class="price">$289 <s class="muted" style="font-size:22px">$340</s></p>
+        <p class="note">Solid oak frame, high-density foam, removable boucle cover. Assembles in six minutes with one hex key.</p>
+        <fieldset class="opt"><legend>Cover: <span id="cname">Oat</span></legend>
+          <div class="swatches">
+            <button type="button" aria-pressed="true" aria-label="Oat" style="background:#DCD3BF" data-c="Oat" data-hex="#DCD3BF"></button>
+            <button type="button" aria-pressed="false" aria-label="Char" style="background:#2F3237" data-c="Char" data-hex="#2F3237"></button>
+            <button type="button" aria-pressed="false" aria-label="Moss" style="background:#7F9279" data-c="Moss" data-hex="#7F9279"></button>
+          </div>
+        </fieldset>
+        <fieldset class="opt"><legend>Leg finish</legend>
+          <div class="sizes"><button type="button" aria-pressed="true">Oak</button><button type="button" aria-pressed="false">Black</button><button type="button" disabled aria-label="Walnut, sold out">Walnut</button></div>
+        </fieldset>
+        <div class="fittip">Seat height 44 cm, width 78 cm. Fits through a 70 cm doorway flat-packed.</div>
+        <button class="btn solid full" type="button" data-add="2">Add to cart</button>
+        <button class="btn full" type="button">Buy it now</button>
+        <details class="acc" open><summary>Materials</summary><p>Solid European oak legs and rails, 80 kg/m3 foam, 100% recycled polyester boucle cover, zipped for washing.</p></details>
+        <details class="acc"><summary>Dimensions</summary><p>W 78 x D 82 x H 76 cm. Seat height 44 cm. Weight 14 kg.</p></details>
+        <details class="acc"><summary>Care</summary><p>Spot clean. Cover washes at 30 degrees on a gentle cycle. Re-oil legs once a year.</p></details>
+        <details class="acc"><summary>Delivery and returns</summary><p>Ships in 2 days. Free returns for 30 days with the prepaid label.</p></details>
+      </div>
+    </div>
+  </section>
+  <section class="block" data-dawn="Image with text">
+    <div class="wrap iwt flip">
+      <div class="pic t-oak" role="img" aria-label="Oak grain close-up"></div>
+      <div><h2>Joined, not glued</h2><p>Every rail is a dovetail joint cut on a CNC and finished by hand. That is why the frame still feels tight in year five.</p></div>
+    </div>
+  </section>
+  <section class="block tight" data-dawn="Apps (reviews)">
+    <div class="wrap">
+      <div class="sec-head"><h2 class="h">Reviews</h2></div>
+      <div class="appbox">
+        <div><div class="stars" aria-label="4.8 out of 5">★★★★★</div><br><strong>4.8 out of 5</strong><div class="muted">from 312 reviews</div></div>
+        <div><p style="font-size:19px;margin:0 0 8px">Solid, heavy and comfortable. Cover came out of the wash looking new.</p><cite style="font:800 16px/1 var(--display);letter-spacing:.1em;text-transform:uppercase;font-style:normal">Priya, Bristol / Verified buyer</cite></div>
+        <button class="btn" type="button">Write a review</button>
+      </div>
+      <p class="muted" style="font-size:14px;margin-top:10px">Reviews app area: Judge.me, Loox or Shopify Product Reviews renders here.</p>
+    </div>
+  </section>
+  <section class="block tight" data-dawn="Related products">
+    <div class="wrap"><div class="sec-head"><h2 class="h">Pairs well with</h2></div><div class="grid" data-grid="0,3,5,7,9"></div></div>
+  </section>
+  <section class="block tight" data-dawn="Multicolumn">
+    <div class="wrap promises">
+      <div class="promise"><h3>30-day returns</h3><p>Prepaid label in the box.</p></div>
+      <div class="promise"><h3>5-year warranty</h3><p>Frames and bases covered.</p></div>
+      <div class="promise"><h3>Ships in 2 days</h3><p>Tracked, with a delivery window.</p></div>
+    </div>
+  </section>
+  <div style="height:40px"></div>
+</main>
+
+<!-- CART -->
+<main id="view-cart" hidden>
+  <div class="wrap" style="padding-top:24px"><h1 class="pageh">Your cart</h1></div>
+  <div class="wrap cart-grid">
+    <section data-dawn="Cart items"><div id="cartLines"></div><p id="cartEmpty" class="muted" hidden>Your cart is empty. <a href="#" data-go="collection">Shop new in</a></p></section>
+    <aside class="summary" data-dawn="Subtotal">
+      <p id="shipMsg" style="margin:0;font-weight:600"></p>
+      <div class="ship-bar"><i id="shipBar" style="width:0;display:block"></i></div>
+      <label for="note" style="font:800 17px/1 var(--display);letter-spacing:.1em;text-transform:uppercase">Order note</label>
+      <textarea id="note" placeholder="Gift message or delivery note"></textarea>
+      <div class="row"><span>Subtotal</span><span id="subtotal">$0</span></div>
+      <p class="muted" style="font-size:14px;margin:0 0 16px">Taxes and delivery calculated at checkout.</p>
+      <button class="btn volt full" type="button">Check out</button>
+    </aside>
+  </div>
+  <section class="block tight" data-dawn="Featured collection"><div class="wrap"><div class="sec-head"><h2 class="h">Complete the room</h2></div><div class="grid" data-grid="1,3,5,7,9"></div></div></section>
+  <div style="height:40px"></div>
+</main>
+
+<!-- SEARCH -->
+<main id="view-search" hidden>
+  <section class="block" style="padding-top:24px" data-dawn="Search results">
+    <div class="wrap">
+      <h1 class="pageh">Search</h1>
+      <form id="searchForm" style="display:flex;gap:8px;max-width:640px;margin-bottom:12px"><label class="sr" for="q">Search products</label><input class="field" id="q" type="search" value="oak" placeholder="Search products"><button class="btn solid" type="submit">Search</button></form>
+      <p class="muted" id="searchCount"></p>
+      <div class="grid" id="searchGrid"></div>
+    </div>
+  </section>
+  <section class="block tight" data-dawn="Featured collection"><div class="wrap"><div class="sec-head"><h2 class="h">Popular right now</h2></div><div class="grid" data-grid="0,4,1,7,3"></div></div></section>
+  <div style="height:40px"></div>
+</main>
+
+<!-- BLOG -->
+<main id="view-blog" hidden>
+  <section class="block" style="padding-top:24px" data-dawn="Blog posts">
+    <div class="wrap">
+      <h1 class="pageh">Journal</h1>
+      <a class="feature-post" data-go="article" href="#">
+        <div class="pic t-oak" role="img" aria-label="Oak room"></div>
+        <div><small class="muted">12 October 2026 / Guides</small><h2>How to size a rug</h2><p class="muted">The 3 rules that stop a rug looking too small, with measurements for every room.</p></div>
+      </a>
+      <div class="grid three" data-posts="1,2,3,4,5,0"></div>
+    </div>
+  </section>
+  <section class="block newsb" data-dawn="Email signup"><div class="wrap news-in"><h2>New posts, first</h2><form data-sub><label class="sr" for="em3">Email address</label><input class="field" id="em3" type="email" placeholder="Your email address" required><button class="btn solid" type="submit">Subscribe</button></form></div></section>
+</main>
+
+<!-- ARTICLE -->
+<main id="view-article" hidden>
+  <article class="block article" style="padding-top:24px" data-dawn="Blog post">
+    <div class="wrap narrow">
+      <nav class="crumbs" style="padding-top:0" aria-label="Breadcrumb"><a href="#" data-go="home">Home</a> / <a href="#" data-go="blog">Journal</a></nav>
+      <h1>How to size a rug</h1>
+      <p class="by">12 October 2026 / By Maya Reed / 5 min read</p>
+    </div>
+    <div class="wrap"><div class="article-hero t-clay" role="img" aria-label="Rug in a living room"></div></div>
+    <div class="wrap narrow">
+      <p>Most rugs are bought too small. The room looks like it is floating on a postage stamp, and the furniture never sits right. Three rules fix it.</p>
+      <h2>Rule one: front legs on</h2>
+      <p>In a living room, at least the front legs of every sofa and chair should sit on the rug. For a 3 m sofa, a 200 x 300 cm rug is the smallest size that works.</p>
+      <h2>Rule two: leave 30 to 50 cm of floor</h2>
+      <p>A border of bare floor frames the rug. Less than 30 cm and the rug looks squeezed. More than 50 cm and it starts to look small again.</p>
+      <h2>Rule three: under the bed, not beside it</h2>
+      <p>For a bed, the rug should extend at least 60 cm past both sides and the foot. A 160 x 230 rug suits a double, a 200 x 300 suits a king.</p>
+      <div class="share"><span>Share:</span><a href="#">Facebook</a><a href="#">Pinterest</a><a href="#">Copy link</a></div>
+    </div>
+  </article>
+  <section class="block tight" data-dawn="Featured collection"><div class="wrap"><div class="sec-head"><h2 class="h">Shop the story</h2></div><div class="grid" data-grid="4,5,6,7,8"></div></div></section>
+  <section class="block newsb" data-dawn="Email signup"><div class="wrap news-in"><h2>New posts, first</h2><form data-sub><label class="sr" for="em4">Email address</label><input class="field" id="em4" type="email" placeholder="Your email address" required><button class="btn solid" type="submit">Subscribe</button></form></div></section>
+</main>
+
+<!-- ABOUT -->
+<main id="view-about" hidden>
+  <section class="about-hero t-char" data-dawn="Image banner"><div class="wrap"><h1>Built heavy. Built to stay.</h1></div></section>
+  <section class="block" data-dawn="Rich text">
+    <div class="wrap narrow story">
+      <p>Kiln began in 2020 in a garage workshop with a simple complaint: flat-pack furniture felt flimsy. We started cutting oak, steel and wool to heavier specs and testing every piece for ten years of use.</p>
+      <p>We sell fewer pieces, ship them flat to cut emissions, and cover every frame for five years.</p>
+    </div>
+  </section>
+  <section class="block tight" data-dawn="Multirow">
+    <div class="wrap mrow">
+      <div class="iwt"><div class="pic t-oak" role="img" aria-label="Oak planks"></div><div><h2>The material</h2><p>European oak from managed forests, wool from mills we visit each year, steel cut within 200 km of our workshop.</p></div></div>
+      <div class="iwt flip"><div class="pic t-sage" role="img" aria-label="Fabric samples"></div><div><h2>The test</h2><p>Chairs take 80,000 sit cycles on our rig. Lamps run 2,000 hours. Rugs get walked on by a machine with a rubber boot.</p></div></div>
+    </div>
+  </section>
+  <section class="block" data-dawn="Multicolumn">
+    <div class="wrap stat">
+      <div><strong>80k</strong>sit cycles per chair</div>
+      <div><strong>5</strong>year frame warranty</div>
+      <div><strong>14kg</strong>lounge chair weight</div>
+      <div><strong>2020</strong>the year we started</div>
+    </div>
+  </section>
+  <div class="slash" data-dawn="Slash: Slash divider" aria-hidden="true"></div>
+</main>
+
+<!-- CONTACT -->
+<main id="view-contact" hidden>
+  <section class="block" style="padding-top:24px" data-dawn="Page">
+    <div class="wrap narrow"><h1 class="pageh">Contact us</h1><p style="font-size:19px;margin:0">We reply within one working day, Monday to Friday.</p></div>
+  </section>
+  <section class="block tight" data-dawn="Contact form">
+    <div class="wrap narrow">
+      <form class="contact-grid" id="contactForm">
+        <div><label for="cn">Name</label><input class="field" id="cn" required></div>
+        <div><label for="ce">Email</label><input class="field" id="ce" type="email" required></div>
+        <div class="span"><label for="co">Order number (optional)</label><input class="field" id="co" placeholder="#2041"></div>
+        <div class="span"><label for="cm">Message</label><textarea class="field" id="cm" required></textarea></div>
+        <div class="span"><button class="btn solid" type="submit">Send message</button></div>
+      </form>
+    </div>
+  </section>
+  <section class="block" data-dawn="Multicolumn">
+    <div class="wrap promises">
+      <div class="promise"><h3>Email</h3><p>hello@kiln.example<br>Replies within one working day</p></div>
+      <div class="promise"><h3>Phone</h3><p>+1 555 010 0199<br>Mon to Fri, 9 am to 5 pm</p></div>
+      <div class="promise"><h3>Returns address</h3><p>Kiln Returns, Unit 9, Foundry Road, Leeds LS1 4AB</p></div>
+    </div>
+  </section>
+  <section class="block tight" data-dawn="Collapsible content">
+    <div class="wrap faq">
+      <h2 class="h">Quick answers</h2>
+      <div>
+        <details class="acc"><summary>Where is my order?</summary><p>Your tracking link is in the shipping email. Most orders arrive in 2 to 5 working days.</p></details>
+        <details class="acc"><summary>How do I start a return?</summary><p>Use the prepaid label in the box, or email your order number for a new one.</p></details>
+        <details class="acc"><summary>A part is missing. What now?</summary><p>Email a photo and your order number. We ship the part free within 2 days.</p></details>
+      </div>
+    </div>
+  </section>
+  <div style="height:40px"></div>
+</main>
+
+<!-- 404 -->
+<main id="view-404" hidden>
+  <section class="nf" data-dawn="404 page">
+    <div class="wrap">
+      <h1>404</h1>
+      <p>Page not found. It may have sold out, or the link is wrong.</p>
+      <form data-search404><label class="sr" for="q404">Search products</label><input class="field" id="q404" type="search" placeholder="Search products"><button class="btn solid" type="submit">Search</button></form>
+      <a href="#" class="btn" data-go="collection">Back to the shop</a>
+    </div>
+  </section>
+  <section class="block tight" data-dawn="Featured collection"><div class="wrap"><div class="sec-head"><h2 class="h">Best sellers</h2></div><div class="grid" data-grid="0,1,2,3,4"></div></div></section>
+  <div style="height:40px"></div>
+</main>
+
+<div class="slash" aria-hidden="true"></div>
+<footer class="site" data-dawn="Footer">
+  <div class="wrap">
+    <div class="foot">
+      <div><h4>Kiln</h4><p style="margin:0;max-width:34ch;color:#B8BBAF">Heavy-duty home pieces, flat-packed and built to last. Five-year warranty on every frame.</p></div>
+      <div><h4>Shop</h4><ul><li><a href="#" data-go="collection">New in</a></li><li><a href="#" data-go="collection">Lighting</a></li><li><a href="#" data-go="collection">Seating</a></li><li><a href="#" data-go="collection">Rugs</a></li></ul></div>
+      <div><h4>Help</h4><ul><li><a href="#" data-go="contact">Contact</a></li><li><a href="#" data-go="contact">Delivery</a></li><li><a href="#" data-go="contact">Returns</a></li><li><a href="#" data-go="404">Assembly guides</a></li></ul></div>
+      <div><h4>Company</h4><ul><li><a href="#" data-go="about">About</a></li><li><a href="#" data-go="blog">Journal</a></li><li><a href="#" data-go="search">Search</a></li></ul></div>
+    </div>
+    <div class="foot-bottom"><span>&copy; 2026 Kiln Home</span><span>Visa / Mastercard / PayPal / Apple Pay</span></div>
+  </div>
+</footer>
+
+<div class="overlay" id="ovMenu" data-close hidden></div>
+<aside class="drawer left" id="menuDrawer" aria-label="Menu" hidden data-dawn="Header (menu drawer)">
+  <div class="drawer-head"><h2>Menu</h2><button class="x" type="button" data-close aria-label="Close menu" style="color:#fff">×</button></div>
+  <nav><a href="#" data-go="collection">New in</a><a href="#" data-go="collection">Lighting</a><a href="#" data-go="collection">Seating</a><a href="#" data-go="collection">Rugs</a><a href="#" data-go="blog">Journal</a><a href="#" data-go="about">About</a><a href="#" data-go="contact">Contact</a></nav>
+</aside>
+<div class="overlay" id="ovCart" data-close hidden></div>
+<aside class="drawer right" id="cartDrawer" aria-label="Cart" hidden data-dawn="Cart drawer">
+  <div class="drawer-head"><h2>Cart</h2><button class="x" type="button" data-close aria-label="Close cart">×</button></div>
+  <div class="body" id="drawerLines"></div>
+  <div class="row" style="margin-top:14px"><span>Subtotal</span><span id="drawerSub">$0</span></div>
+  <button class="btn volt full" type="button">Check out</button>
+  <a href="#" class="btn full" data-go="cart">View cart</a>
+</aside>
+<div class="toast" id="toast" role="status" hidden></div>
+
+<script>
+(function(){
+  var P=[
+    {n:"Slab Table Lamp",s:"lamp",c:"#C6FF00",cn:"Volt",p:79,t:"Best seller",cat:"lighting",d:["#C6FF00","#2F3237"],ink:1},
+    {n:"Arch Floor Mirror",s:"mirror",c:"#8A8F86",cn:"Char",p:189,t:"New",cat:"mirrors",d:["#2F3237","#B98B5A"]},
+    {n:"Slab Lounge Chair",s:"chair",c:"#DCD3BF",cn:"Oat",p:289,t:"Best seller",cat:"seating",d:["#DCD3BF","#2F3237","#7F9279"]},
+    {n:"Kiln Wool Rug 200",s:"rug",c:"#C2693C",cn:"Clay",p:249,t:"-40%",cat:"rugs",d:["#C2693C","#DCD3BF"]},
+    {n:"Ridge Vase",s:"vase",c:"#7F9279",cn:"Moss",p:44,t:"New",cat:"decor",d:["#7F9279","#DCD3BF"]},
+    {n:"Boucle Cushion",s:"cushion",c:"#DCD3BF",cn:"Oat",p:34,t:"-20%",cat:"decor",d:["#DCD3BF","#C2693C"]},
+    {n:"Ladder Shelf",s:"shelf",c:"#B98B5A",cn:"Oak",p:159,t:"New",cat:"decor",d:["#B98B5A","#2F3237"]},
+    {n:"Bolt Floor Lamp",s:"lamp",c:"#2F3237",cn:"Char",p:129,t:"-25%",cat:"lighting",d:["#2F3237","#DCD3BF"]},
+    {n:"Block Armchair",s:"chair",c:"#7F9279",cn:"Moss",p:319,t:"New",cat:"seating",d:["#7F9279","#2F3237"]},
+    {n:"Pebble Rug 160",s:"rug",c:"#DCD3BF",cn:"Oat",p:139,t:"-40%",cat:"rugs",d:["#DCD3BF","#2F3237"]},
+    {n:"Round Wall Mirror",s:"mirror",c:"#B98B5A",cn:"Oak",p:89,t:"Sale",cat:"mirrors",d:["#B98B5A","#2F3237"]},
+    {n:"Tall Stem Vase",s:"vase",c:"#C2693C",cn:"Clay",p:58,t:"New",cat:"decor",d:["#C2693C","#2F3237"]}
+  ];
+  var POSTS=[
+    {t:"How to size a rug",d:"12 October 2026",k:"Guides",e:"Three rules, with measurements for every room.",pat:"t-clay"},
+    {t:"Lighting a room in layers",d:"2 October 2026",k:"Lighting",e:"Ambient, task and accent: what each one does.",pat:"t-char"},
+    {t:"Inside our oak workshop",d:"20 September 2026",k:"Makers",e:"Where the lounge chair frame is cut and joined.",pat:"t-oak"},
+    {t:"Boucle: care and cleaning",d:"8 September 2026",k:"Care",e:"Stains, spills and washing the cover.",pat:"t-linen"},
+    {t:"Small living rooms, big seating",d:"24 August 2026",k:"Style",e:"Chairs that fit a 3 m wall.",pat:"t-sage"},
+    {t:"What 80,000 sits taught us",d:"10 August 2026",k:"Testing",e:"The rig, the failures and the redesign.",pat:"t-char"}
+  ];
+  var CATS=[["Lighting","lamp"],["Seating","chair"],["Rugs","rug"],["Mirrors","mirror"],["Cushions","cushion"],["Shelving","shelf"],["Vases","vase"]];
+  var ROOMS=[
+    {n:"Living room edit",pr:"$478",pat:"t-char",hs:[{x:22,y:30,i:0},{x:60,y:56,i:2},{x:48,y:64,i:3}]},
+    {n:"Hall edit",pr:"$312",pat:"t-oak",hs:[{x:30,y:28,i:1},{x:66,y:62,i:6},{x:40,y:66,i:4}]},
+    {n:"Bedroom edit",pr:"$286",pat:"t-sage",hs:[{x:70,y:28,i:7},{x:36,y:60,i:9},{x:62,y:68,i:5}]}
+  ];
+  var cart=[{i:1,size:"Std",col:"Char",q:1},{i:5,size:"Std",col:"Oat",q:2}];
+  function $(s,r){return (r||document).querySelector(s)}
+  function $$(s,r){return Array.prototype.slice.call((r||document).querySelectorAll(s))}
+  function money(v){return "$"+v.toLocaleString("en-US")}
+  function card(i){var p=P[i],neg=/^-/.test(p.t);return '<div class="pc"><a class="img" href="#" data-go="product" style="background:'+(p.ink?'#0E0F11':'')+'"><span class="badge'+(neg?' v':'')+'">'+p.t+'</span><svg viewBox="0 0 200 200" style="color:'+p.c+'" aria-hidden="true"><use href="#g-'+p.s+'"/></svg></a><h3>'+p.n+'</h3><span class="sub">'+p.cn+'</span><div class="cf"><span class="pr">'+money(p.p)+'</span><button class="addb" type="button" data-add="'+i+'">Add to cart</button></div></div>'}
+  function postCard(i){var p=POSTS[i];return '<a class="post" href="#" data-go="article"><div class="pic '+p.pat+'" role="img" aria-label="'+p.t+'"></div><small>'+p.d+' / '+p.k+'</small><h3>'+p.t+'</h3><p>'+p.e+'</p></a>'}
+  $$("[data-grid]").forEach(function(g){g.innerHTML=g.dataset.grid.split(",").map(Number).map(card).join("")});
+  $$("[data-posts]").forEach(function(g){g.innerHTML=g.dataset.posts.split(",").map(Number).map(postCard).join("")});
+  $("[data-cats]").innerHTML=CATS.map(function(c){return '<a class="cat" href="#" data-go="collection"><div class="sq"><svg viewBox="0 0 200 200" aria-hidden="true"><use href="#g-'+c[1]+'"/></svg></div><b>'+c[0]+'</b></a>'}).join("");
+
+  // shop the room
+  $("#rooms").innerHTML=ROOMS.map(function(r,ri){
+    return '<div class="room '+r.pat+'" data-room="'+ri+'"><svg class="scene" viewBox="0 0 100 130" aria-hidden="true"><rect x="0" y="96" width="100" height="34" fill="rgba(0,0,0,.35)"/><path d="M0 96H100" stroke="rgba(255,255,255,.35)" stroke-width="1"/></svg>'+
+    r.hs.map(function(h,hi){return '<button class="hot" type="button" style="left:'+h.x+'%;top:'+h.y+'%" aria-expanded="false" aria-label="Show '+P[h.i].n+'" data-hot="'+ri+'-'+hi+'">+</button>'}).join("")+
+    '<div class="tagp"><h3>'+r.n+'</h3><span class="price">'+r.pr+'</span></div></div>'}).join("");
+  document.addEventListener("click",function(e){
+    var h=e.target.closest("[data-hot]");
+    $$(".hotcard").forEach(function(x){x.remove()});
+    $$("[data-hot]").forEach(function(x){x.setAttribute("aria-expanded","false")});
+    if(!h)return;
+    var k=h.dataset.hot.split("-"),r=ROOMS[+k[0]],pt=r.hs[+k[1]],p=P[pt.i];
+    var wasOpen=h._open;h._open=!wasOpen;
+    if(wasOpen)return;
+    h.setAttribute("aria-expanded","true");
+    var c=document.createElement("div");c.className="hotcard";
+    c.style.left=Math.min(pt.x,55)+"%";c.style.top="calc("+Math.min(pt.y+8,50)+"% + 20px)";
+    c.innerHTML='<b>'+p.n+'</b>'+money(p.p)+'<button type="button" data-add="'+pt.i+'">Add to cart</button>';
+    h.parentNode.appendChild(c);
+  });
+
+  function renderCollection(){
+    var cats=$$('[data-f="cat"]:checked').map(function(x){return x.value}),
+        cols=$$('[data-f="col"]:checked').map(function(x){return x.value}),
+        prices=$$('[data-f="price"]:checked').map(function(x){return x.value}),
+        idx=P.map(function(_,i){return i}).filter(function(i){var p=P[i];
+          return (!cats.length||cats.indexOf(p.cat)>-1)&&(!cols.length||cols.indexOf(p.cn)>-1)&&
+            (!prices.length||(prices.indexOf("u100")>-1&&p.p<100)||(prices.indexOf("o100")>-1&&p.p>=100));});
+    var s=$("#sort").value; if(s==="low")idx.sort(function(a,b){return P[a].p-P[b].p}); if(s==="high")idx.sort(function(a,b){return P[b].p-P[a].p});
+    $("#colGrid").innerHTML=idx.length?idx.map(card).join(""):'<p class="muted">No products match these filters. Clear a filter to see more.</p>';
+    $("#colShown").textContent=idx.length;
+  }
+  $$(".filters input").forEach(function(x){x.addEventListener("change",renderCollection)});
+  $("#sort").addEventListener("change",renderCollection);
+  $("#filterToggle").addEventListener("click",function(){var f=$("#filters");f.classList.toggle("open");this.setAttribute("aria-expanded",f.classList.contains("open"))});
+  renderCollection();
+
+  function runSearch(q){
+    q=(q||"").trim().toLowerCase();
+    var idx=P.map(function(_,i){return i}).filter(function(i){var p=P[i];return !q||(p.n+" "+p.t+" "+p.cat+" "+p.cn).toLowerCase().indexOf(q)>-1});
+    $("#searchCount").textContent=idx.length+" result"+(idx.length===1?"":"s")+(q?' for "'+q+'"':"");
+    $("#searchGrid").innerHTML=idx.length?idx.map(card).join(""):'<p class="muted">No products found. Try "lamp", "rug" or "oak", or browse popular pieces below.</p>';
+  }
+  $("#searchForm").addEventListener("submit",function(e){e.preventDefault();runSearch($("#q").value)});
+  $("[data-search404]").addEventListener("submit",function(e){e.preventDefault();$("#q").value=$("#q404").value;runSearch($("#q404").value);show("search")});
+  runSearch("oak");
+
+  function renderCart(){
+    var sub=0,count=0,html="";
+    cart.forEach(function(l,k){var p=P[l.i];sub+=p.p*l.q;count+=l.q;
+      html+='<div class="cl"><div class="thumb"><svg viewBox="0 0 200 200" style="color:'+p.c+'" aria-hidden="true"><use href="#g-'+p.s+'"/></svg></div><div><h3>'+p.n+'</h3><div class="muted" style="font-size:14px">'+l.col+' / '+l.size+'</div><div class="qty"><button type="button" aria-label="Decrease quantity" data-q="'+k+'" data-d="-1">−</button><span>'+l.q+'</span><button type="button" aria-label="Increase quantity" data-q="'+k+'" data-d="1">+</button></div><button type="button" class="linkbtn" data-rm="'+k+'">Remove</button></div><b>'+money(p.p*l.q)+'</b></div>';});
+    $("#cartLines").innerHTML=html; $("#drawerLines").innerHTML=html||'<p class="muted">Your cart is empty.</p>';
+    $("#cartEmpty").hidden=cart.length>0;
+    $("#subtotal").textContent=money(sub); $("#drawerSub").textContent=money(sub);
+    $$(".cart-count").forEach(function(c){c.textContent=count});
+    var left=150-sub; $("#shipMsg").textContent=left>0?"Spend "+money(left)+" more for free delivery":"You have free delivery";
+    $("#shipBar").style.width=Math.min(100,sub/150*100)+"%";
+  }
+  document.addEventListener("click",function(e){
+    var q=e.target.closest("[data-q]"),rm=e.target.closest("[data-rm]"),add=e.target.closest("[data-add]");
+    if(q){var l=cart[+q.dataset.q];l.q=Math.max(1,l.q+(+q.dataset.d));renderCart();}
+    if(rm){cart.splice(+rm.dataset.rm,1);renderCart();}
+    if(add){var i=+add.dataset.add,sz=$('.sizes button[aria-pressed="true"]',add.closest("section")||document);
+      var col=(add.closest("#view-product")&&$("#cname"))?$("#cname").textContent:P[i].cn;
+      cart.push({i:i,size:sz?sz.textContent:"Std",col:col,q:1});renderCart();$$(".hotcard").forEach(function(x){x.remove()});openDrawer("cart");}
+  });
+  renderCart();
+
+  function openDrawer(w){var d=w==="cart"?$("#cartDrawer"):$("#menuDrawer"),o=w==="cart"?$("#ovCart"):$("#ovMenu");d.hidden=false;o.hidden=false;var b=d.querySelector(".x");if(b)b.focus();}
+  function closeDrawers(){$$(".drawer,.overlay").forEach(function(x){x.hidden=true})}
+  $("[data-open=menu]").addEventListener("click",function(){openDrawer("menu")});
+  $$("[data-close]").forEach(function(x){x.addEventListener("click",closeDrawers)});
+  document.addEventListener("keydown",function(e){if(e.key==="Escape")closeDrawers()});
+
+  document.addEventListener("click",function(e){
+    var sw=e.target.closest(".swatches button");
+    if(sw){$$(".swatches button",sw.parentNode).forEach(function(x){x.setAttribute("aria-pressed","false")});sw.setAttribute("aria-pressed","true");$("#cname").textContent=sw.dataset.c;$("#mainArt").style.color=sw.dataset.hex;}
+    var sz=e.target.closest(".sizes button:not([disabled])");
+    if(sz){$$(".sizes button",sz.parentNode).forEach(function(x){x.setAttribute("aria-pressed","false")});sz.setAttribute("aria-pressed","true");}
+  });
+
+  function toast(msg){var t=$("#toast");t.textContent=msg;t.hidden=false;clearTimeout(t._t);t._t=setTimeout(function(){t.hidden=true},2200)}
+  $$("[data-sub]").forEach(function(f){f.addEventListener("submit",function(e){e.preventDefault();f.querySelector("button").textContent="Subscribed";toast("Subscribed. Look out for the next drop.")})});
+  $("#contactForm").addEventListener("submit",function(e){e.preventDefault();this.reset();toast("Message sent. We will reply within one working day.")});
+  $("#themeBtn").addEventListener("click",function(){var r=document.documentElement,d=r.getAttribute("data-theme")==="dark"||(!r.getAttribute("data-theme")&&window.matchMedia("(prefers-color-scheme: dark)").matches);r.setAttribute("data-theme",d?"light":"dark")});
+
+  var VIEWS=[["home","Homepage"],["collection","Collection"],["product","Product"],["cart","Cart"],["search","Search"],["blog","Blog"],["article","Article"],["about","About"],["contact","Contact"],["404","404"]];
+  $("#pageTabs").innerHTML=VIEWS.map(function(v){return '<button type="button" data-view="'+v[0]+'" aria-pressed="false">'+v[1]+'</button>'}).join("");
+  function show(v){
+    VIEWS.forEach(function(x){$("#view-"+x[0]).hidden=x[0]!==v});
+    $$("#pageTabs button").forEach(function(b){b.setAttribute("aria-pressed",String(b.dataset.view===v))});
+    closeDrawers(); $$(".hotcard").forEach(function(x){x.remove()}); window.scrollTo(0,0);
+  }
+  $("#pageTabs").addEventListener("click",function(e){var b=e.target.closest("button");if(b)show(b.dataset.view)});
+  document.addEventListener("click",function(e){var a=e.target.closest("[data-go]");if(a){e.preventDefault();show(a.dataset.go)}});
+  $("#showSections").addEventListener("change",function(){document.body.classList.toggle("show-sections",this.checked)});
+  show("home");
+})();
+</script>
+
+</body></html>
