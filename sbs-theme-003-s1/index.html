@@ -1,0 +1,900 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Dewpoint Skincare Theme</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,800&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+/* Dewpoint. Layout: soft bento, floating pill header, rounded cards (Reference C).
+   Palette: plum-black ink, rose-cream page, blush sand tiles, coral accent */
+:root{
+  --page:#F7F0EC; --sand:#EEDFD7; --ink:#2A1D24; --accent:#F26B4E; --accent-ink:#2A1D24; --stone:#7A6870; --line:#E2D2C9; --card:#FFFAF7; --on-dark:#F7F0EC; --dark:#2A1D24; --dark2:#3A2A32; --mint:#CFE3D6; --lilac:#E3D8EE;
+  --display:"Bricolage Grotesque","Arial Narrow",Arial,sans-serif;
+  --body:"Instrument Sans","Helvetica Neue",Arial,sans-serif;
+  --r:30px; --r-sm:20px;
+  color-scheme:light;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){--page:#18121A;--sand:#2A2027;--ink:#F3E9E4;--accent:#F47B60;--accent-ink:#1E1519;--stone:#B3A2AA;--line:#3A2E35;--card:#211920;--on-dark:#F3E9E4;--dark:#0F0B0E;--dark2:#241B21;--mint:#23332A;--lilac:#2C2536;color-scheme:dark}}
+:root[data-theme="dark"]{--page:#18121A;--sand:#2A2027;--ink:#F3E9E4;--accent:#F47B60;--accent-ink:#1E1519;--stone:#B3A2AA;--line:#3A2E35;--card:#211920;--on-dark:#F3E9E4;--dark:#0F0B0E;--dark2:#241B21;--mint:#23332A;--lilac:#2C2536;color-scheme:dark}
+*,*::before,*::after{box-sizing:border-box}
+body{margin:0;background:var(--page);color:var(--ink);font:400 16px/1.6 var(--body);-webkit-font-smoothing:antialiased}
+svg{display:block;max-width:100%}
+a{color:inherit}
+button,input,select,textarea{font:inherit;color:inherit}
+:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
+[hidden]{display:none!important}
+.wrap{max-width:1240px;margin:0 auto;padding:0 clamp(16px,3vw,32px)}
+.narrow{max-width:760px}
+.sr{position:absolute;left:-9999px}
+.muted{color:var(--stone)}
+h1,h2,h3,h4{font-family:var(--display);text-wrap:balance;letter-spacing:-.02em}
+em{font-style:normal;color:var(--accent)}
+
+/* preview bar (not part of theme) */
+.pv{background:#120C10;color:#fff;font-size:14px;padding:10px 0;position:relative;z-index:30}
+.pv .wrap{display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+.pv .pages{display:flex;gap:6px;overflow-x:auto;flex:1 1 auto;min-width:0;padding-bottom:2px}
+.pv button{background:transparent;border:1px solid rgba(255,255,255,.4);color:#fff;padding:5px 12px;border-radius:999px;cursor:pointer;white-space:nowrap}
+.pv button[aria-pressed="true"]{background:#F26B4E;border-color:#F26B4E;color:#2A1D24;font-weight:600}
+.pv label{display:flex;gap:6px;align-items:center;white-space:nowrap;cursor:pointer}
+body.show-sections [data-dawn]{position:relative;outline:2px dashed var(--accent);outline-offset:-2px}
+body.show-sections [data-dawn]::after{content:attr(data-dawn);position:absolute;top:8px;right:8px;background:var(--accent);color:#2A1D24;font:600 12px/1 var(--body);padding:6px 9px;border-radius:999px;z-index:6;pointer-events:none}
+
+/* announcement + floating pill header */
+.announce{background:var(--ink);color:var(--page);text-align:center;font-size:14px;font-weight:500;padding:8px 16px}
+.announce b{color:var(--accent)}
+header.site{position:sticky;top:0;z-index:20;padding:12px 0}
+.pill{display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:16px;background:var(--card);border:1px solid var(--line);border-radius:999px;padding:8px 10px 8px 10px;box-shadow:0 8px 28px rgba(42,29,36,.08)}
+.logo{display:flex;align-items:center;gap:10px;text-decoration:none;font:800 22px/1 var(--display);letter-spacing:-.03em}
+.chip{width:38px;height:38px;border-radius:50%;background:var(--accent);color:var(--accent-ink);display:grid;place-items:center}
+.chip svg{width:20px;height:20px}
+.pill nav{display:flex;gap:4px;justify-content:center;flex-wrap:wrap}
+.pill nav a{text-decoration:none;padding:8px 14px;border-radius:999px;font-size:15px;font-weight:500}
+.pill nav a:hover{background:var(--sand)}
+.pill nav .nb{background:var(--mint);color:#1F3A2B;font-size:11px;font-weight:600;border-radius:999px;padding:2px 7px;margin-left:6px}
+.tools{display:flex;gap:8px;align-items:center}
+.tools a.s{text-decoration:none;padding:8px 14px;border-radius:999px;font-size:15px;background:var(--sand)}
+.cartpill{background:var(--ink);color:var(--page);text-decoration:none;border-radius:999px;padding:10px 18px;font-weight:600;font-size:15px}
+.menu-btn{display:none;background:var(--sand);border:0;border-radius:50%;width:40px;height:40px;cursor:pointer}
+@media (max-width:920px){.pill nav{display:none}.menu-btn{display:grid;place-items:center}.tools a.s{display:none}}
+
+/* overlay + drawers */
+.overlay{position:fixed;inset:0;background:rgba(18,12,16,.5);z-index:40}
+.drawer{position:fixed;top:0;bottom:0;width:min(420px,92vw);background:var(--page);z-index:41;display:flex;flex-direction:column;padding:20px 22px;gap:10px}
+.drawer.right{right:0;border-radius:var(--r) 0 0 var(--r)}.drawer.left{left:0;border-radius:0 var(--r) var(--r) 0}
+.drawer-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:6px}
+.drawer-head h2{font:800 30px/1 var(--display);margin:0}
+.x{background:var(--sand);border:0;width:40px;height:40px;border-radius:50%;font-size:22px;cursor:pointer}
+.drawer nav{display:grid;gap:4px}
+.drawer nav a{font:800 32px/1.2 var(--display);text-decoration:none;letter-spacing:-.03em}
+.drawer .body{flex:1;overflow:auto}
+
+/* shared */
+section.block{padding:clamp(28px,5vw,56px) 0}
+section.tight{padding-top:12px}
+.sec-head{display:flex;justify-content:space-between;align-items:end;gap:16px;margin-bottom:22px;flex-wrap:wrap}
+.h{font:800 clamp(30px,4.2vw,48px)/1.02 var(--display);margin:0}
+.kick{display:inline-block;font-size:13px;font-weight:600;background:var(--sand);border-radius:999px;padding:5px 12px;margin-bottom:10px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;border-radius:999px;padding:13px 22px;font-weight:600;text-decoration:none;border:1.5px solid var(--ink);background:transparent;cursor:pointer;font-size:15px}
+.btn.solid{background:var(--ink);color:var(--page)}
+.btn.acc{background:var(--accent);color:var(--accent-ink);border-color:var(--accent)}
+.btn.light{border-color:rgba(255,255,255,.55);color:#fff}
+.btn.full{width:100%}
+.field{width:100%;border:1.5px solid var(--line);background:var(--card);border-radius:999px;padding:12px 18px}
+textarea.field{border-radius:var(--r-sm);min-height:120px}
+.linkbtn{background:none;border:0;padding:0;text-decoration:underline;cursor:pointer;color:var(--stone);font-size:14px}
+.pageh{font:800 clamp(36px,5vw,60px)/1 var(--display);margin:8px 0 18px}
+.crumbs{font-size:14px;color:var(--stone);padding:6px 0 10px}
+.crumbs a{text-decoration:none}
+
+/* hero bento */
+.bento{display:grid;grid-template-columns:1.7fr 1fr;gap:14px}
+.hero-card{background:var(--dark);color:var(--on-dark);border-radius:var(--r);padding:clamp(26px,4vw,52px);display:grid;grid-template-columns:1.2fr 1fr;gap:20px;align-items:center;min-height:500px;position:relative;overflow:hidden}
+.hero-card h1{font:400 clamp(40px,5.6vw,74px)/.98 var(--display);margin:0 0 16px}
+.hero-card h1 b{font-weight:800}
+.hero-card p{color:#D9C8CF;max-width:42ch;margin:0 0 24px;font-size:17px}
+.btns{display:flex;gap:10px;flex-wrap:wrap}
+.circle{aspect-ratio:1;border-radius:50%;background:var(--accent);position:relative;display:grid;place-items:center;color:var(--card)}
+.circle svg{width:56%;color:#FFF3EC}
+.float{position:absolute;background:var(--card);color:var(--ink);font-size:13px;font-weight:600;border-radius:999px;padding:7px 13px;box-shadow:0 6px 18px rgba(0,0,0,.18);white-space:nowrap}
+.float.a{top:10%;left:-6%}.float.b{bottom:14%;right:-4%}.float.c{bottom:-2%;left:16%;background:var(--mint);color:#1F3A2B}
+.stack{display:grid;gap:14px;grid-template-rows:1fr 1fr}
+.promo{border-radius:var(--r);padding:26px;display:flex;flex-direction:column;justify-content:space-between;text-decoration:none;cursor:pointer;min-height:200px;position:relative;overflow:hidden}
+.promo h3{font:800 28px/1.05 var(--display);margin:0;max-width:14ch}
+.promo span{font-weight:600}
+.promo svg{position:absolute;right:-10px;bottom:-14px;width:120px;opacity:.9}
+.sandc{background:var(--sand)}.accc{background:var(--lilac)}
+@media (max-width:900px){.bento{grid-template-columns:1fr}.hero-card{grid-template-columns:1fr;min-height:0}.circle{max-width:300px;margin:10px auto}.stack{grid-template-rows:none;grid-template-columns:1fr 1fr}}
+@media (max-width:560px){.stack{grid-template-columns:1fr}.float.a{left:0}.float.b{right:0}}
+
+/* trust strip */
+.trust{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:14px}
+.trust div{display:flex;gap:12px;align-items:center;padding:8px 10px}
+.trust i{width:44px;height:44px;border-radius:50%;background:var(--sand);display:grid;place-items:center;flex:none;font-style:normal}
+.trust i svg{width:22px}
+.trust b{display:block;font-size:15px}.trust span{font-size:14px;color:var(--stone)}
+@media (max-width:820px){.trust{grid-template-columns:1fr 1fr}}
+@media (max-width:460px){.trust{grid-template-columns:1fr}}
+
+/* circle category tiles */
+.cats{display:grid;grid-template-columns:repeat(6,1fr);gap:16px}
+.cat{text-align:center;text-decoration:none;cursor:pointer}
+.cat .ring{aspect-ratio:1;border-radius:50%;display:grid;place-items:center;margin-bottom:10px;transition:transform .2s}
+.cat:hover .ring{transform:translateY(-4px)}
+.cat .ring svg{width:52%}
+.cat b{font-weight:600}
+@media (max-width:820px){.cats{grid-template-columns:repeat(3,1fr)}}
+
+/* pill tabs + product cards */
+.tabs{display:flex;gap:6px;flex-wrap:wrap}
+.tabs button{border:1.5px solid var(--line);background:var(--card);border-radius:999px;padding:8px 16px;cursor:pointer;font-weight:500}
+.tabs button[aria-pressed="true"]{background:var(--ink);color:var(--page);border-color:var(--ink)}
+.grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.grid.three{grid-template-columns:repeat(3,1fr)}
+@media (max-width:980px){.grid{grid-template-columns:repeat(3,1fr)}}
+@media (max-width:720px){.grid,.grid.three{grid-template-columns:repeat(2,1fr);gap:10px}}
+.p{text-decoration:none;display:flex;flex-direction:column;gap:8px;cursor:pointer}
+.p .img{background:var(--sand);border-radius:var(--r-sm);aspect-ratio:4/5;display:grid;place-items:center;position:relative;overflow:hidden}
+.p .img svg{width:58%;transition:transform .25s}
+.p:hover .img svg{transform:scale(1.05) rotate(-2deg)}
+.tag{position:absolute;top:12px;left:12px;background:var(--card);border-radius:999px;font-size:12px;font-weight:600;padding:4px 10px}
+.p h3{font:600 17px/1.25 var(--body);letter-spacing:0;margin:2px 0 0}
+.cf{display:flex;justify-content:space-between;align-items:center;gap:8px}
+.sub{color:var(--stone);font-size:14px}
+.addp{width:40px;height:40px;border-radius:50%;background:var(--accent);color:var(--accent-ink);border:0;font-size:22px;font-weight:600;cursor:pointer;flex:none}
+.skin{display:flex;gap:4px;flex-wrap:wrap}
+.skin i{font-style:normal;font-size:12px;border:1px solid var(--line);border-radius:999px;padding:1px 8px;color:var(--stone)}
+
+/* droplet divider (Selvedge divider, restyled) */
+.divider{display:flex;align-items:center;gap:14px;color:var(--accent)}
+.divider::before,.divider::after{content:"";flex:1;height:2px;background:repeating-linear-gradient(90deg,var(--line) 0 10px,transparent 10px 18px)}
+.divider svg{width:26px}
+
+/* routine builder (custom feature) */
+.rb{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:clamp(20px,3vw,36px);display:grid;grid-template-columns:1fr 1.05fr;gap:28px}
+.rb h2{margin:0 0 6px}
+.q{margin:0 0 16px;border:0;padding:0}
+.q legend{font-weight:600;margin-bottom:8px}
+.chips{display:flex;gap:8px;flex-wrap:wrap}
+.chips button{border:1.5px solid var(--line);background:var(--page);border-radius:999px;padding:9px 16px;cursor:pointer;font-weight:500}
+.chips button[aria-pressed="true"]{background:var(--accent);border-color:var(--accent);color:var(--accent-ink)}
+.ampm{display:inline-flex;background:var(--sand);border-radius:999px;padding:4px}
+.ampm button{border:0;background:transparent;border-radius:999px;padding:8px 18px;cursor:pointer;font-weight:600}
+.ampm button[aria-pressed="true"]{background:var(--ink);color:var(--page)}
+.steps{list-style:none;margin:0 0 16px;padding:0;display:grid;gap:10px;counter-reset:s}
+.steps li{display:grid;grid-template-columns:40px 64px 1fr auto;gap:12px;align-items:center;background:var(--page);border-radius:var(--r-sm);padding:10px 14px 10px 10px;counter-increment:s}
+.steps li::before{content:counter(s);width:36px;height:36px;border-radius:50%;background:var(--ink);color:var(--page);display:grid;place-items:center;font:800 16px/1 var(--display)}
+.steps .th{width:64px;height:64px;border-radius:16px;background:var(--sand);display:grid;place-items:center}
+.steps .th svg{width:60%}
+.steps small{display:block;color:var(--stone);font-size:13px}
+.steps b{font-weight:600}
+.rb-total{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;border-top:1px dashed var(--line);padding-top:16px}
+.rb-total strong{font:800 30px/1 var(--display)}
+.rb-total s{color:var(--stone);margin-left:8px;font-size:16px}
+.rb-note{font-size:14px;color:var(--stone);margin:10px 0 0}
+@media (max-width:900px){.rb{grid-template-columns:1fr}}
+@media (max-width:480px){.steps li{grid-template-columns:36px 1fr auto}.steps .th{display:none}}
+
+/* image with text / feature product */
+.iwt{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.iwt .art{border-radius:var(--r);background:var(--mint);display:grid;place-items:center;min-height:420px;position:relative;overflow:hidden}
+.iwt .art svg{width:44%}
+.iwt .copy{border-radius:var(--r);background:var(--card);border:1px solid var(--line);padding:clamp(24px,4vw,48px);display:flex;flex-direction:column;justify-content:center}
+.iwt .copy p{color:var(--stone);max-width:48ch}
+.ing{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:8px 0 22px}
+.ing div{background:var(--page);border-radius:16px;padding:12px 14px}
+.ing b{display:block;font-family:var(--display);font-size:18px}
+.ing span{font-size:14px;color:var(--stone)}
+@media (max-width:820px){.iwt{grid-template-columns:1fr}.iwt .art{min-height:280px}}
+.fp{display:grid;grid-template-columns:1.1fr 1fr;gap:28px;align-items:center;background:var(--sand);border-radius:var(--r);padding:clamp(20px,3vw,36px)}
+.fp .pic{background:var(--card);border-radius:var(--r-sm);aspect-ratio:1;display:grid;place-items:center}
+.fp .pic svg{width:46%}
+.fp h2{margin:0 0 6px}
+.price{font:800 28px/1 var(--display);margin:8px 0 12px}
+@media (max-width:820px){.fp{grid-template-columns:1fr}}
+
+/* dark feature card with list rows */
+.dark-card{background:var(--dark);color:var(--on-dark);border-radius:var(--r);padding:clamp(22px,3.5vw,44px);display:grid;grid-template-columns:.9fr 1.3fr;gap:28px;align-items:center}
+.dark-card p{color:#D9C8CF}
+.rows{display:grid;gap:10px}
+.row-i{display:grid;grid-template-columns:72px 1fr auto 44px;gap:16px;align-items:center;background:var(--dark2);border-radius:var(--r-sm);padding:10px 14px 10px 10px;text-decoration:none;cursor:pointer}
+.row-i .th{width:72px;height:72px;border-radius:16px;background:#4A3741;display:grid;place-items:center}
+.row-i .th svg{width:58%}
+.row-i small{display:block;color:#C3B1B9}
+.row-i .go{width:44px;height:44px;border-radius:50%;background:var(--accent);color:var(--accent-ink);display:grid;place-items:center;font-weight:700}
+@media (max-width:860px){.dark-card{grid-template-columns:1fr}}
+@media (max-width:480px){.row-i{grid-template-columns:56px 1fr 40px}.row-i .th{width:56px;height:56px}.row-i b.pr{display:none}}
+
+/* collapsible */
+.faq{display:grid;gap:10px}
+.faq details{background:var(--card);border:1px solid var(--line);border-radius:var(--r-sm);padding:4px 20px}
+.faq summary{cursor:pointer;font-weight:600;padding:14px 0;list-style:none;display:flex;justify-content:space-between;gap:12px}
+.faq summary::after{content:"+";font:800 22px/1 var(--display);color:var(--accent)}
+.faq details[open] summary::after{content:"–"}
+.faq p{margin:0 0 16px;color:var(--stone)}
+
+/* blog */
+.posts{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.post{text-decoration:none;cursor:pointer;display:block}
+.post .pic{border-radius:var(--r-sm);aspect-ratio:4/3;display:grid;place-items:center;margin-bottom:12px}
+.post .pic svg{width:34%}
+.post small{color:var(--stone);font-size:13px}
+.post h3{font:800 22px/1.15 var(--display);margin:4px 0 6px}
+.post p{margin:0;color:var(--stone);font-size:15px}
+.tone1{background:var(--sand)}.tone2{background:var(--mint)}.tone3{background:var(--lilac)}.tone4{background:#F8D4C8}
+@media (max-width:820px){.posts{grid-template-columns:1fr 1fr}}
+@media (max-width:520px){.posts{grid-template-columns:1fr}}
+
+/* newsletter */
+.news{background:var(--accent);color:var(--accent-ink);border-radius:var(--r);padding:clamp(24px,4vw,48px);display:grid;grid-template-columns:1.1fr 1fr;gap:20px;align-items:center}
+.news h2{margin:0;font:800 clamp(30px,4vw,46px)/1 var(--display)}
+.news p{margin:8px 0 0}
+.news form{display:flex;gap:8px;background:var(--card);border-radius:999px;padding:6px}
+.news input{border:0;background:transparent;flex:1;padding:10px 14px;min-width:0}
+.news input:focus{outline:none}
+@media (max-width:820px){.news{grid-template-columns:1fr}}
+
+/* collection */
+.col-banner{background:var(--dark);color:var(--on-dark);border-radius:var(--r);padding:clamp(24px,4vw,48px);display:grid;grid-template-columns:1.4fr 1fr;gap:20px;align-items:center;overflow:hidden}
+.col-banner p{color:#D9C8CF;max-width:52ch}
+.col-banner .blob{aspect-ratio:1;max-width:220px;justify-self:end;border-radius:50%;background:var(--accent);display:grid;place-items:center}
+.col-banner .blob svg{width:50%;color:#FFF3EC}
+@media (max-width:720px){.col-banner{grid-template-columns:1fr}.col-banner .blob{display:none}}
+.col-layout{display:grid;grid-template-columns:240px 1fr;gap:24px;align-items:start}
+.filters{background:var(--card);border:1px solid var(--line);border-radius:var(--r-sm);padding:18px;position:sticky;top:96px}
+.filters fieldset{border:0;padding:0;margin:0 0 16px}
+.filters legend{font-weight:600;margin-bottom:6px}
+.filters label{display:flex;gap:8px;align-items:center;padding:3px 0;cursor:pointer}
+.filters input{accent-color:var(--accent)}
+.toolbar{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-bottom:14px;flex-wrap:wrap}
+.toolbar select{border:1.5px solid var(--line);background:var(--card);border-radius:999px;padding:9px 14px}
+#filterToggle{display:none}
+@media (max-width:820px){.col-layout{grid-template-columns:1fr}.filters{display:none;position:static}.filters.open{display:block}#filterToggle{display:inline-flex}}
+
+/* product page */
+.pdp{display:grid;grid-template-columns:1.15fr 1fr;gap:clamp(20px,4vw,48px);align-items:start}
+.gallery{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.gallery .g{background:var(--sand);border-radius:var(--r-sm);display:grid;place-items:center;aspect-ratio:1}
+.gallery .g:first-child{grid-column:span 2;aspect-ratio:5/4}
+.gallery .g svg{width:42%}
+.buy h1{font:800 clamp(34px,4vw,50px)/1 var(--display);margin:0 0 6px}
+.note{color:var(--stone)}
+.opt{border:0;padding:0;margin:0 0 16px}
+.opt legend{font-weight:600;margin-bottom:8px}
+.sizes{display:flex;gap:8px;flex-wrap:wrap}
+.sizes button{border:1.5px solid var(--line);background:var(--card);border-radius:999px;padding:9px 18px;cursor:pointer;font-weight:500}
+.sizes button[aria-pressed="true"]{background:var(--ink);color:var(--page);border-color:var(--ink)}
+.sizes button[disabled]{opacity:.45;text-decoration:line-through;cursor:not-allowed}
+.qty{display:inline-flex;align-items:center;border:1.5px solid var(--line);border-radius:999px;background:var(--card)}
+.qty button{border:0;background:none;width:38px;height:38px;cursor:pointer;font-size:18px}
+.qty span{min-width:28px;text-align:center;font-weight:600}
+.buyrow{display:flex;gap:10px;align-items:center;margin:6px 0 12px}
+.buyrow .btn{flex:1}
+.perks{list-style:none;padding:0;margin:16px 0 0;display:grid;gap:8px}
+.perks li{background:var(--card);border:1px solid var(--line);border-radius:999px;padding:10px 16px;font-size:14px}
+.sub-opt{display:grid;gap:8px;margin:0 0 14px}
+.sub-opt label{display:flex;justify-content:space-between;gap:10px;align-items:center;border:1.5px solid var(--line);background:var(--card);border-radius:var(--r-sm);padding:12px 16px;cursor:pointer}
+.sub-opt input{accent-color:var(--accent)}
+@media (max-width:860px){.pdp{grid-template-columns:1fr}}
+
+/* cart */
+.cart-grid{display:grid;grid-template-columns:1.6fr 1fr;gap:24px;align-items:start}
+.cl{display:grid;grid-template-columns:84px 1fr auto;gap:14px;align-items:center;background:var(--card);border:1px solid var(--line);border-radius:var(--r-sm);padding:12px;margin-bottom:10px}
+.cl .thumb{width:84px;height:84px;border-radius:16px;background:var(--sand);display:grid;place-items:center}
+.cl .thumb svg{width:58%}
+.cl h3{font:600 16px/1.2 var(--body);letter-spacing:0;margin:0}
+.cl .qty{margin:6px 0}
+.summary{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:22px;position:sticky;top:96px}
+.summary textarea{width:100%;border:1.5px solid var(--line);border-radius:16px;background:var(--page);padding:10px 12px;margin:6px 0 14px;min-height:80px}
+.row{display:flex;justify-content:space-between;font-weight:600;font-size:18px;margin-bottom:6px}
+.ship-bar{height:10px;border-radius:999px;background:var(--sand);overflow:hidden;margin:8px 0 16px}
+.ship-bar i{display:block;height:100%;background:var(--accent);border-radius:999px;transition:width .3s}
+@media (max-width:860px){.cart-grid{grid-template-columns:1fr}.summary{position:static}}
+
+/* article */
+.art-hero{border-radius:var(--r);aspect-ratio:21/8;display:grid;place-items:center;margin:8px 0 26px}
+.art-hero svg{width:16%}
+.prose{max-width:720px;margin:0 auto;font-size:18px}
+.prose h2{font:800 30px/1.1 var(--display);margin:32px 0 10px}
+.prose blockquote{margin:24px 0;padding:20px 24px;background:var(--sand);border-radius:var(--r-sm);font:600 22px/1.3 var(--display)}
+.prose ol{padding-left:22px}
+
+/* about */
+.about-hero{background:var(--accent);color:var(--accent-ink);border-radius:var(--r);padding:clamp(28px,5vw,64px);display:grid;grid-template-columns:1.3fr 1fr;gap:24px;align-items:center}
+.about-hero h1{font:400 clamp(40px,6vw,76px)/.98 var(--display);margin:0}
+.about-hero h1 b{font-weight:800}
+.about-hero .blob{aspect-ratio:1;border-radius:50%;background:var(--card);display:grid;place-items:center}
+.about-hero .blob svg{width:46%;color:var(--accent)}
+.cols3{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.cols3 > div{background:var(--card);border:1px solid var(--line);border-radius:var(--r-sm);padding:24px}
+.cols3 i{font-style:normal;width:46px;height:46px;border-radius:50%;background:var(--sand);display:grid;place-items:center;font:800 18px/1 var(--display);margin-bottom:12px}
+.cols3 h3{margin:0 0 6px;font-size:22px}
+.cols3 p{margin:0;color:var(--stone)}
+.mrow{display:grid;gap:14px}
+.mrow > div{display:grid;grid-template-columns:1fr 1fr;gap:14px;align-items:stretch}
+.mrow .pic{border-radius:var(--r);min-height:260px;display:grid;place-items:center}
+.mrow .pic svg{width:30%}
+.mrow .txt{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:clamp(22px,3vw,40px);display:flex;flex-direction:column;justify-content:center}
+.mrow .txt p{color:var(--stone);margin:0}
+.mrow > div:nth-child(even) .pic{order:2}
+@media (max-width:820px){.about-hero{grid-template-columns:1fr}.about-hero .blob{max-width:240px}.cols3{grid-template-columns:1fr}.mrow > div{grid-template-columns:1fr}.mrow > div:nth-child(even) .pic{order:0}}
+
+/* contact */
+.contact{display:grid;grid-template-columns:1fr 1.2fr;gap:20px;align-items:start}
+.contact form{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:24px;display:grid;gap:12px}
+.contact form label{font-weight:600;font-size:14px}
+.info{display:grid;gap:10px}
+.info div{background:var(--sand);border-radius:var(--r-sm);padding:18px 20px}
+.info b{display:block;font-family:var(--display);font-size:20px}
+@media (max-width:820px){.contact{grid-template-columns:1fr}}
+
+/* 404 */
+.nf{text-align:center;padding:40px 0}
+.nf .big{font:800 clamp(110px,22vw,240px)/.85 var(--display);letter-spacing:-.06em;color:var(--accent);margin:0}
+.nf form{display:flex;gap:8px;max-width:480px;margin:18px auto 0}
+
+/* footer */
+footer.site{padding:20px 0 calc(20px + env(safe-area-inset-bottom,0px))}
+.foot-card{background:var(--dark);color:var(--on-dark);border-radius:var(--r);padding:clamp(24px,4vw,48px);overflow:hidden}
+.foot{display:grid;grid-template-columns:1.5fr 1fr 1fr 1fr;gap:24px}
+.foot h4{font:800 20px/1 var(--display);margin:0 0 12px}
+.foot ul{list-style:none;margin:0;padding:0;display:grid;gap:6px}
+.foot a{text-decoration:none;color:#D9C8CF}
+.foot a:hover{color:#fff}
+.foot-big{font:800 clamp(80px,17vw,220px)/.8 var(--display);letter-spacing:-.06em;margin:28px 0 -14px;color:rgba(247,240,236,.07);white-space:nowrap}
+.pay{display:flex;gap:6px;flex-wrap:wrap;margin-top:14px}
+.pay span{border:1px solid rgba(255,255,255,.2);border-radius:999px;padding:3px 10px;font-size:12px;color:#D9C8CF}
+@media (max-width:820px){.foot{grid-template-columns:1fr 1fr}}
+
+.toast{position:fixed;left:50%;bottom:calc(20px + env(safe-area-inset-bottom,0px));transform:translateX(-50%);background:var(--ink);color:var(--page);padding:12px 20px;border-radius:999px;z-index:60;font-weight:600;max-width:92vw}
+</style></head>
+<body>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+<symbol id="h-serum" viewBox="0 0 200 240"><rect x="78" y="20" width="44" height="34" rx="10" fill="#2A1D24"/><rect x="88" y="6" width="24" height="20" rx="10" fill="#2A1D24"/><rect x="56" y="54" width="88" height="160" rx="26" fill="currentColor"/><rect x="74" y="100" width="52" height="60" rx="10" fill="rgba(255,255,255,.55)"/><rect x="66" y="66" width="10" height="130" rx="5" fill="rgba(255,255,255,.35)"/></symbol>
+<symbol id="h-jar" viewBox="0 0 200 240"><rect x="44" y="70" width="112" height="34" rx="12" fill="#2A1D24"/><rect x="34" y="100" width="132" height="104" rx="34" fill="currentColor"/><rect x="62" y="132" width="76" height="40" rx="10" fill="rgba(255,255,255,.55)"/><rect x="46" y="112" width="10" height="72" rx="5" fill="rgba(255,255,255,.35)"/></symbol>
+<symbol id="h-tube" viewBox="0 0 200 240"><path fill="currentColor" d="M62 30h76l-8 156H70z"/><rect x="58" y="22" width="84" height="14" rx="4" fill="rgba(0,0,0,.18)"/><rect x="76" y="186" width="48" height="40" rx="10" fill="#2A1D24"/><rect x="80" y="74" width="40" height="64" rx="8" fill="rgba(255,255,255,.55)"/></symbol>
+<symbol id="h-pump" viewBox="0 0 200 240"><rect x="94" y="16" width="12" height="36" fill="#2A1D24"/><rect x="80" y="12" width="56" height="14" rx="7" fill="#2A1D24"/><rect x="80" y="48" width="40" height="22" rx="6" fill="#2A1D24"/><rect x="50" y="68" width="100" height="148" rx="30" fill="currentColor"/><rect x="70" y="110" width="60" height="62" rx="12" fill="rgba(255,255,255,.55)"/><rect x="60" y="80" width="10" height="120" rx="5" fill="rgba(255,255,255,.35)"/></symbol>
+<symbol id="h-mist" viewBox="0 0 200 240"><rect x="84" y="16" width="32" height="30" rx="8" fill="#2A1D24"/><rect x="74" y="44" width="52" height="16" rx="6" fill="#2A1D24"/><rect x="62" y="58" width="76" height="160" rx="20" fill="currentColor"/><rect x="76" y="104" width="48" height="70" rx="10" fill="rgba(255,255,255,.55)"/><circle cx="140" cy="28" r="4" fill="currentColor"/><circle cx="154" cy="20" r="3" fill="currentColor"/><circle cx="152" cy="36" r="3" fill="currentColor"/></symbol>
+<symbol id="h-drop" viewBox="0 0 24 24"><path fill="currentColor" d="M12 2C9 7 5 10.5 5 15a7 7 0 0 0 14 0c0-4.5-4-8-7-13z"/></symbol>
+<symbol id="h-leaf" viewBox="0 0 24 24"><path fill="currentColor" d="M20 4C9 4 4 9 4 17c0 1 .2 2 .4 3 .8-4 4-8 9.6-10-4 3-6.6 6-7.6 10H8c6 0 12-4 12-16z"/></symbol>
+<symbol id="h-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="5" fill="currentColor"/><path stroke="currentColor" stroke-width="2" stroke-linecap="round" d="M12 1v3M12 20v3M1 12h3M20 12h3M4.2 4.2l2.1 2.1M17.7 17.7l2.1 2.1M4.2 19.8l2.1-2.1M17.7 6.3l2.1-2.1"/></symbol>
+<symbol id="h-box" viewBox="0 0 24 24"><path fill="currentColor" d="M3 7l9-4 9 4v10l-9 4-9-4zm9 2l6.5-2.9L12 3.3 5.5 6.1z"/></symbol>
+<symbol id="h-turn" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" d="M4 12a8 8 0 1 0 2.4-5.7M4 4v4h4"/></symbol>
+</svg>
+
+<div class="pv"><div class="wrap">
+  <div class="pages" role="group" aria-label="Preview page" id="pageTabs"></div>
+  <label><input type="checkbox" id="showSections"> Show section names</label>
+</div></div>
+
+<div class="announce" data-dawn="Announcement bar">Free delivery over $45 · <b>Build your routine</b> and save 15% on 3 or more steps</div>
+
+<header class="site" data-dawn="Header (floating pill)">
+  <div class="wrap"><div class="pill">
+    <a class="logo" href="#" data-go="home"><span class="chip"><svg viewBox="0 0 24 24"><use href="#h-drop"/></svg></span>Dewpoint</a>
+    <nav aria-label="Main"><a href="#" data-go="collection">Skincare<span class="nb">NEW</span></a><a href="#" data-go="collection">Serums</a><a href="#" data-go="collection">Moisturisers</a><a href="#" data-go="collection">SPF</a><a href="#routine">Routine builder</a><a href="#" data-go="blog">Journal</a></nav>
+    <div class="tools"><a class="s" href="#" data-go="search">Search</a><button class="menu-btn" aria-label="Open menu" data-open="menu" type="button"><svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 7h18M3 12h18M3 17h18" stroke="currentColor" stroke-width="2"/></svg></button><a class="cartpill" href="#" data-go="cart">Bag (<span class="cart-count">0</span>)</a></div>
+  </div></div>
+</header>
+
+<!-- HOME -->
+<main id="view-home">
+  <section class="block" style="padding-top:8px" data-dawn="Image banner (bento hero)">
+    <div class="wrap bento">
+      <div class="hero-card">
+        <div>
+          <h1>Skin that looks <b>rested</b>, <em>not</em> <b>done.</b></h1>
+          <p>Short-ingredient serums, creams and SPF made for daily use. Pick your skin type and we will build the routine.</p>
+          <div class="btns"><a href="#routine" class="btn acc">Build my routine</a><a href="#" class="btn light" data-go="collection">Shop skincare</a></div>
+        </div>
+        <div class="circle"><svg viewBox="0 0 200 240" aria-hidden="true" style="color:#FFF3EC"><use href="#h-serum"/></svg><span class="float a">Barrier Serum</span><span class="float b">From $28</span><span class="float c">Fragrance free</span></div>
+      </div>
+      <div class="stack">
+        <a class="promo sandc" data-go="collection"><h3>New: Cloud Cream in two textures</h3><span>Shop moisturisers →</span><svg viewBox="0 0 200 240" style="color:#F8D4C8" aria-hidden="true"><use href="#h-jar"/></svg></a>
+        <a class="promo accc" data-go="collection"><h3>SPF 50 that wears clear</h3><span>Shop sun care →</span><svg viewBox="0 0 200 240" style="color:#FFFAF7" aria-hidden="true"><use href="#h-tube"/></svg></a>
+      </div>
+    </div>
+  </section>
+
+  <section class="block tight" data-dawn="Multicolumn (trust strip)">
+    <div class="wrap"><div class="trust">
+      <div><i><svg viewBox="0 0 24 24" style="color:var(--accent)"><use href="#h-leaf"/></svg></i><span><b>Vegan formulas</b>No animal-derived ingredients</span></div>
+      <div><i><svg viewBox="0 0 24 24" style="color:var(--accent)"><use href="#h-drop"/></svg></i><span><b>Fragrance free</b>Across the core range</span></div>
+      <div><i><svg viewBox="0 0 24 24" style="color:var(--accent)"><use href="#h-box"/></svg></i><span><b>Free delivery</b>On orders over $45</span></div>
+      <div><i><svg viewBox="0 0 24 24" style="color:var(--accent)"><use href="#h-turn"/></svg></i><span><b>30-day returns</b>Even if opened</span></div>
+    </div></div>
+  </section>
+
+  <section class="block" data-dawn="Collection list (circle tiles)">
+    <div class="wrap">
+      <div class="sec-head"><h2 class="h">Shop by <em>step</em></h2><a href="#" class="btn" data-go="collection">All products</a></div>
+      <div class="cats">
+        <a class="cat" data-go="collection"><div class="ring" style="background:var(--sand)"><svg viewBox="0 0 200 240" style="color:#F8D4C8"><use href="#h-pump"/></svg></div><b>Cleansers</b></a>
+        <a class="cat" data-go="collection"><div class="ring" style="background:var(--mint)"><svg viewBox="0 0 200 240" style="color:#FFFAF7"><use href="#h-mist"/></svg></div><b>Toners &amp; mists</b></a>
+        <a class="cat" data-go="collection"><div class="ring" style="background:#F8D4C8"><svg viewBox="0 0 200 240" style="color:#F26B4E"><use href="#h-serum"/></svg></div><b>Serums</b></a>
+        <a class="cat" data-go="collection"><div class="ring" style="background:var(--lilac)"><svg viewBox="0 0 200 240" style="color:#FFFAF7"><use href="#h-jar"/></svg></div><b>Moisturisers</b></a>
+        <a class="cat" data-go="collection"><div class="ring" style="background:var(--sand)"><svg viewBox="0 0 200 240" style="color:#FCE7A8"><use href="#h-tube"/></svg></div><b>SPF</b></a>
+        <a class="cat" data-go="collection"><div class="ring" style="background:var(--dark)"><svg viewBox="0 0 200 240" style="color:#F26B4E"><use href="#h-jar"/></svg></div><b>Sets</b></a>
+      </div>
+    </div>
+  </section>
+
+  <section class="block tight" data-dawn="Featured collection (pill tabs)">
+    <div class="wrap">
+      <div class="sec-head"><h2 class="h">Most <em>reordered</em></h2>
+        <div class="tabs" id="homeTabs" role="group" aria-label="Filter products"><button type="button" data-t="all" aria-pressed="true">All</button><button type="button" data-t="serum" aria-pressed="false">Serums</button><button type="button" data-t="moist" aria-pressed="false">Moisturisers</button><button type="button" data-t="spf" aria-pressed="false">SPF</button><button type="button" data-t="clean" aria-pressed="false">Cleansers</button></div>
+      </div>
+      <div class="grid" id="homeGrid"></div>
+    </div>
+  </section>
+
+  <div class="wrap" data-dawn="Custom: Selvedge divider"><div class="divider"><svg viewBox="0 0 24 24"><use href="#h-drop"/></svg></div></div>
+
+  <section class="block" id="routine" data-dawn="Custom: Routine builder">
+    <div class="wrap"><div class="rb">
+      <div>
+        <span class="kick">Routine builder</span>
+        <h2 class="h">Your routine in <em>three taps</em></h2>
+        <p class="muted" style="margin:0 0 18px">Tell us your skin type and what you want to work on. We pick one product per step and show the bundle price.</p>
+        <fieldset class="q"><legend>1. Skin type</legend><div class="chips" id="rbSkin"><button type="button" data-v="dry" aria-pressed="false">Dry</button><button type="button" data-v="oily" aria-pressed="false">Oily</button><button type="button" data-v="combo" aria-pressed="true">Combination</button><button type="button" data-v="sensitive" aria-pressed="false">Sensitive</button></div></fieldset>
+        <fieldset class="q"><legend>2. Main goal</legend><div class="chips" id="rbGoal"><button type="button" data-v="hydrate" aria-pressed="true">Hydration</button><button type="button" data-v="glow" aria-pressed="false">Dull skin</button><button type="button" data-v="clear" aria-pressed="false">Breakouts</button><button type="button" data-v="calm" aria-pressed="false">Redness</button></div></fieldset>
+        <fieldset class="q"><legend>3. Time of day</legend><div class="ampm" id="rbTime"><button type="button" data-v="am" aria-pressed="true">Morning</button><button type="button" data-v="pm" aria-pressed="false">Evening</button></div></fieldset>
+      </div>
+      <div>
+        <ol class="steps" id="rbSteps" aria-live="polite"></ol>
+        <div class="rb-total"><div><span class="muted" style="font-size:14px">Routine bundle, 15% off</span><br><strong id="rbTotal">$0</strong><s id="rbWas">$0</s></div><button class="btn acc" type="button" id="rbAdd">Add routine to bag</button></div>
+        <p class="rb-note" id="rbNote"></p>
+      </div>
+    </div></div>
+  </section>
+
+  <section class="block tight" data-dawn="Image with text">
+    <div class="wrap iwt">
+      <div class="art"><svg viewBox="0 0 200 240" style="color:#FFFAF7" aria-hidden="true"><use href="#h-pump"/></svg></div>
+      <div class="copy">
+        <span class="kick" style="background:var(--mint);align-self:flex-start">What's inside</span>
+        <h2 class="h" style="margin:0 0 10px">Five ingredients or fewer <em>doing the work</em></h2>
+        <p>Every formula lists its active ingredient and the percentage on the front of the bottle. No fillers added for texture or scent.</p>
+        <div class="ing"><div><b>Niacinamide 5%</b><span>Evens tone, calms shine</span></div><div><b>Ceramides</b><span>Supports the skin barrier</span></div><div><b>Hyaluronic acid</b><span>Holds water in the skin</span></div><div><b>Zinc oxide</b><span>Mineral UV filter</span></div></div>
+        <a href="#" class="btn solid" data-go="about" style="align-self:flex-start">How we formulate</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="block" data-dawn="Featured product">
+    <div class="wrap"><div class="fp">
+      <div class="pic"><svg viewBox="0 0 200 240" style="color:#F26B4E" aria-hidden="true"><use href="#h-serum"/></svg></div>
+      <div>
+        <span class="kick" style="background:var(--card)">Best place to start</span>
+        <h2 class="h">Barrier Serum</h2>
+        <p class="price">$28</p>
+        <p class="muted">5% niacinamide and three ceramides in a water-light gel. Use morning and night under moisturiser. 30 ml lasts about two months.</p>
+        <div class="sizes" style="margin:12px 0 16px"><button type="button" aria-pressed="true">30 ml</button><button type="button" aria-pressed="false">50 ml</button></div>
+        <div class="btns"><button class="btn solid" type="button" data-add="0">Add to bag</button><a href="#" class="btn" data-go="product">Full details</a></div>
+      </div>
+    </div></div>
+  </section>
+
+  <section class="block tight" data-dawn="Multicolumn (dark list card)">
+    <div class="wrap"><div class="dark-card">
+      <div>
+        <span class="kick" style="background:var(--dark2);color:var(--on-dark)">Sets</span>
+        <h2 class="h" style="color:var(--on-dark)">Ready-made <em>routines</em></h2>
+        <p>Three steps chosen for one skin type, boxed together. Each set costs less than buying the steps on their own.</p>
+        <a href="#" class="btn acc" data-go="collection">Shop all sets</a>
+      </div>
+      <div class="rows">
+        <a class="row-i" data-go="product"><span class="th"><svg viewBox="0 0 200 240" style="color:#F8D4C8"><use href="#h-jar"/></svg></span><span><b>The Dry Skin Set</b><small>Cleanser, Barrier Serum, Cloud Cream Rich</small></span><b class="pr">$62</b><span class="go">→</span></a>
+        <a class="row-i" data-go="product"><span class="th"><svg viewBox="0 0 200 240" style="color:#CFE3D6"><use href="#h-pump"/></svg></span><span><b>The Clear Skin Set</b><small>Gel Cleanser, Clarity Serum, Daily Fluid</small></span><b class="pr">$58</b><span class="go">→</span></a>
+        <a class="row-i" data-go="product"><span class="th"><svg viewBox="0 0 200 240" style="color:#E3D8EE"><use href="#h-tube"/></svg></span><span><b>The Daytime Set</b><small>Rose Mist, Barrier Serum, Clear SPF 50</small></span><b class="pr">$66</b><span class="go">→</span></a>
+      </div>
+    </div></div>
+  </section>
+
+  <section class="block" data-dawn="Collapsible content">
+    <div class="wrap narrow" style="margin:0 auto">
+      <h2 class="h" style="margin-bottom:18px">Questions, <em>answered</em></h2>
+      <div class="faq">
+        <details open><summary>In what order do I apply the products?</summary><p>Thinnest to thickest: cleanser, mist or toner, serum, moisturiser. SPF goes on last in the morning. The routine builder lists the steps in order.</p></details>
+        <details><summary>Can I use niacinamide and vitamin C together?</summary><p>Yes. Our Glow Drops and Barrier Serum are made at a pH that lets you layer them. If your skin is sensitive, use one in the morning and one at night.</p></details>
+        <details><summary>Are the products safe during pregnancy?</summary><p>Our formulas do not contain retinol or salicylic acid above 0.5%. Ask your doctor before starting new skincare during pregnancy.</p></details>
+        <details><summary>What if a product does not suit my skin?</summary><p>Send it back within 30 days, even if opened, and we refund it in full.</p></details>
+      </div>
+    </div>
+  </section>
+
+  <section class="block tight" data-dawn="Featured blog">
+    <div class="wrap">
+      <div class="sec-head"><h2 class="h">From the <em>journal</em></h2><a href="#" class="btn" data-go="blog">All articles</a></div>
+      <div class="posts" data-posts="0,1,2"></div>
+    </div>
+  </section>
+
+  <section class="block" data-dawn="Email signup">
+    <div class="wrap"><div class="news">
+      <div><h2>Skin notes, twice a month</h2><p>New launches, ingredient guides and early access to sets. No daily emails.</p></div>
+      <form data-sub><label class="sr" for="nl1">Email</label><input id="nl1" type="email" placeholder="you@example.com" required><button class="btn solid" type="submit">Sign up</button></form>
+    </div></div>
+  </section>
+</main>
+
+<!-- COLLECTION -->
+<main id="view-collection" hidden>
+  <div class="wrap"><nav class="crumbs" data-dawn="Custom: Breadcrumbs" aria-label="Breadcrumb"><a href="#" data-go="home">Home</a> / Skincare</nav></div>
+  <section data-dawn="Collection banner">
+    <div class="wrap"><div class="col-banner">
+      <div><span class="kick" style="background:var(--dark2);color:var(--on-dark)">12 products</span><h1 class="pageh" style="margin:6px 0 10px">Skincare</h1><p>Cleansers, serums, moisturisers and SPF. Filter by your skin type to see what suits you.</p></div>
+      <div class="blob"><svg viewBox="0 0 200 240"><use href="#h-pump"/></svg></div>
+    </div></div>
+  </section>
+  <section class="block" data-dawn="Product grid">
+    <div class="wrap col-layout">
+      <aside class="filters" id="filters" aria-label="Filters">
+        <fieldset><legend>Product type</legend>
+          <label><input type="checkbox" data-f="cat" value="clean"> Cleansers</label>
+          <label><input type="checkbox" data-f="cat" value="serum"> Serums</label>
+          <label><input type="checkbox" data-f="cat" value="moist"> Moisturisers</label>
+          <label><input type="checkbox" data-f="cat" value="spf"> SPF</label>
+          <label><input type="checkbox" data-f="cat" value="mist"> Mists</label>
+        </fieldset>
+        <fieldset><legend>Skin type</legend>
+          <label><input type="checkbox" data-f="skin" value="dry"> Dry</label>
+          <label><input type="checkbox" data-f="skin" value="oily"> Oily</label>
+          <label><input type="checkbox" data-f="skin" value="combo"> Combination</label>
+          <label><input type="checkbox" data-f="skin" value="sensitive"> Sensitive</label>
+        </fieldset>
+        <fieldset><legend>Price</legend>
+          <label><input type="checkbox" data-f="price" value="u25"> Under $25</label>
+          <label><input type="checkbox" data-f="price" value="o25"> $25 and over</label>
+        </fieldset>
+      </aside>
+      <div>
+        <div class="toolbar"><button class="btn" type="button" id="filterToggle" aria-expanded="false" aria-controls="filters">Filters</button><span class="muted"><span id="colShown">12</span> products</span><label class="sr" for="sort">Sort</label><select id="sort"><option value="feat">Featured</option><option value="low">Price, low to high</option><option value="high">Price, high to low</option></select></div>
+        <div class="grid three" id="colGrid"></div>
+      </div>
+    </div>
+  </section>
+  <section class="block tight" data-dawn="Rich text">
+    <div class="wrap narrow" style="margin:0 auto;text-align:center"><h2 class="h">Not sure where to start?</h2><p class="muted">Most people need three things: a gentle cleanser, one serum for their main goal, and a moisturiser. Add SPF in the morning.</p><a href="#routine" class="btn solid" data-go="home">Use the routine builder</a></div>
+  </section>
+  <section class="block" data-dawn="Collapsible content">
+    <div class="wrap narrow" style="margin:0 auto"><div class="faq">
+      <details><summary>How long does a 30 ml serum last?</summary><p>About two months with two to three drops morning and night.</p></details>
+      <details><summary>Do you test on animals?</summary><p>No. We do not test on animals and neither do our suppliers.</p></details>
+    </div></div>
+  </section>
+  <section class="block tight" data-dawn="Email signup">
+    <div class="wrap"><div class="news"><div><h2>First order? Take 10% off</h2><p>Sign up and we email you a code.</p></div><form data-sub><label class="sr" for="nl2">Email</label><input id="nl2" type="email" placeholder="you@example.com" required><button class="btn solid" type="submit">Get the code</button></form></div></div>
+  </section>
+</main>
+
+<!-- PRODUCT -->
+<main id="view-product" hidden>
+  <div class="wrap"><nav class="crumbs" data-dawn="Custom: Breadcrumbs" aria-label="Breadcrumb"><a href="#" data-go="home">Home</a> / <a href="#" data-go="collection">Serums</a> / Barrier Serum</nav></div>
+  <section data-dawn="Product information">
+    <div class="wrap pdp">
+      <div class="gallery">
+        <div class="g"><svg viewBox="0 0 200 240" id="mainArt" style="color:#F26B4E"><use href="#h-serum"/></svg></div>
+        <div class="g tone2"><svg viewBox="0 0 200 240" style="color:#FFFAF7"><use href="#h-serum"/></svg></div>
+        <div class="g tone3"><svg viewBox="0 0 200 240" style="color:#FFFAF7"><use href="#h-jar"/></svg></div>
+      </div>
+      <div class="buy">
+        <span class="kick">Serum · All skin types</span>
+        <h1>Barrier Serum</h1>
+        <p class="price" id="pdpPrice">$28</p>
+        <p class="note">5% niacinamide with three ceramides in a water-light gel. Calms shine, evens tone and helps skin hold moisture. Fragrance free.</p>
+        <fieldset class="opt"><legend>Size</legend>
+          <div class="sizes" id="pdpSize"><button type="button" aria-pressed="true" data-p="28">30 ml</button><button type="button" aria-pressed="false" data-p="42">50 ml</button><button type="button" disabled aria-label="100 ml, sold out">100 ml</button></div>
+        </fieldset>
+        <fieldset class="opt"><legend>Purchase</legend>
+          <div class="sub-opt"><label><span><input type="radio" name="pf" checked> One-time purchase</span><b id="oneP">$28</b></label><label><span><input type="radio" name="pf"> Refill every 2 months, save 10%</span><b id="subP">$25.20</b></label></div>
+        </fieldset>
+        <div class="buyrow"><div class="qty"><button type="button" id="pqMinus" aria-label="Decrease quantity">−</button><span id="pq">1</span><button type="button" id="pqPlus" aria-label="Increase quantity">+</button></div><button class="btn acc" type="button" data-add="0">Add to bag</button></div>
+        <button class="btn solid full" type="button">Buy it now</button>
+        <ul class="perks"><li>Free delivery over $45, dispatched in 1 working day</li><li>30-day returns, even if opened</li><li>Vegan, fragrance free, made in small batches</li></ul>
+      </div>
+    </div>
+  </section>
+  <section class="block" data-dawn="Collapsible content">
+    <div class="wrap narrow" style="margin:0 auto"><div class="faq">
+      <details open><summary>How to use</summary><p>Morning and night, press two to three drops into clean skin before moisturiser. In the morning, finish with SPF.</p></details>
+      <details><summary>Full ingredients</summary><p>Aqua, Niacinamide, Glycerin, Ceramide NP, Ceramide AP, Ceramide EOP, Sodium Hyaluronate, Pentylene Glycol, Xanthan Gum, Phenoxyethanol.</p></details>
+      <details><summary>Delivery and returns</summary><p>Free delivery over $45. Returns accepted within 30 days, opened or not.</p></details>
+    </div></div>
+  </section>
+  <section class="block tight" data-dawn="Image with text">
+    <div class="wrap iwt">
+      <div class="copy"><span class="kick" style="background:var(--sand);align-self:flex-start">Pairs well</span><h2 class="h" style="margin:0 0 10px">Lock it in with <em>Cloud Cream</em></h2><p>Serum first, cream second. The cream's squalane seals in the water the serum pulls into the skin.</p><a href="#" class="btn solid" data-go="product" style="align-self:flex-start">See Cloud Cream</a></div>
+      <div class="art" style="background:var(--lilac)"><svg viewBox="0 0 200 240" style="color:#FFFAF7" aria-hidden="true"><use href="#h-jar"/></svg></div>
+    </div>
+  </section>
+  <section class="block" data-dawn="Related products">
+    <div class="wrap"><div class="sec-head"><h2 class="h">Complete the <em>routine</em></h2></div><div class="grid" data-grid="2,4,6,1"></div></div>
+  </section>
+</main>
+
+<!-- CART -->
+<main id="view-cart" hidden>
+  <div class="wrap" style="padding-top:16px"><h1 class="pageh">Your bag</h1></div>
+  <div class="wrap cart-grid">
+    <section data-dawn="Cart items"><div id="cartLines"></div><p id="cartEmpty" class="muted" hidden>Your bag is empty. <a href="#" data-go="collection">Shop skincare</a></p></section>
+    <aside class="summary" data-dawn="Subtotal">
+      <p id="shipMsg" style="margin:0"></p>
+      <div class="ship-bar"><i id="shipBar" style="width:0"></i></div>
+      <label for="note" style="font-weight:600">Order note</label>
+      <textarea id="note" placeholder="Gift message or delivery note"></textarea>
+      <div class="row"><span>Subtotal</span><span id="subtotal">$0</span></div>
+      <p class="muted" style="font-size:14px;margin:0 0 16px">Taxes and shipping calculated at checkout.</p>
+      <button class="btn solid full" type="button">Check out</button>
+    </aside>
+  </div>
+  <section class="block tight" data-dawn="Featured collection"><div class="wrap"><div class="sec-head"><h2 class="h">Add a <em>final step</em></h2></div><div class="grid" data-grid="5,3,7,9"></div></div></section>
+</main>
+
+<!-- SEARCH -->
+<main id="view-search" hidden>
+  <section class="block" style="padding-top:16px" data-dawn="Search results">
+    <div class="wrap">
+      <h1 class="pageh">Search</h1>
+      <form id="searchForm" style="display:flex;gap:8px;max-width:640px;margin-bottom:12px"><label class="sr" for="q">Search products</label><input class="field" id="q" type="search" value="serum" placeholder="Search products"><button class="btn solid" type="submit">Search</button></form>
+      <p class="muted" id="searchCount"></p>
+      <div class="grid" id="searchGrid"></div>
+    </div>
+  </section>
+  <section class="block tight" data-dawn="Featured collection"><div class="wrap"><div class="sec-head"><h2 class="h">Most <em>reordered</em></h2></div><div class="grid" data-grid="0,4,5,8"></div></div></section>
+</main>
+
+<!-- BLOG -->
+<main id="view-blog" hidden>
+  <section class="block" style="padding-top:16px" data-dawn="Blog posts">
+    <div class="wrap"><h1 class="pageh">Journal</h1><p class="muted" style="margin-top:-6px;max-width:60ch">Ingredient guides, routines and notes from the lab.</p><div class="posts" data-posts="0,1,2,3,4,5"></div></div>
+  </section>
+  <section class="block tight" data-dawn="Email signup">
+    <div class="wrap"><div class="news"><div><h2>Get new articles first</h2><p>Two emails a month. Unsubscribe any time.</p></div><form data-sub><label class="sr" for="nl3">Email</label><input id="nl3" type="email" placeholder="you@example.com" required><button class="btn solid" type="submit">Sign up</button></form></div></div>
+  </section>
+</main>
+
+<!-- ARTICLE -->
+<main id="view-article" hidden>
+  <article class="block" style="padding-top:16px" data-dawn="Blog post">
+    <div class="wrap">
+      <nav class="crumbs" aria-label="Breadcrumb"><a href="#" data-go="home">Home</a> / <a href="#" data-go="blog">Journal</a> / Guides</nav>
+      <div class="prose" style="max-width:820px"><small class="muted">14 October 2026 · Guides · 5 min read</small><h1 class="pageh" style="margin-top:6px">How to layer a serum and a moisturiser</h1></div>
+      <div class="art-hero tone4"><svg viewBox="0 0 200 240" style="color:#F26B4E"><use href="#h-serum"/></svg></div>
+      <div class="prose">
+        <p>A serum and a moisturiser do different jobs. The serum carries the active ingredient into the top layer of the skin. The moisturiser slows down water loss. Put them on in the wrong order and the serum cannot reach the skin.</p>
+        <h2>Thinnest to thickest</h2>
+        <p>Apply products from the most watery to the richest. On most mornings that means:</p>
+        <ol><li>Gentle cleanser</li><li>Mist or toner, if you use one</li><li>Serum: two to three drops</li><li>Moisturiser: a pea-sized amount</li><li>SPF 50: two finger lengths for face and neck</li></ol>
+        <blockquote>Give each layer about a minute. It does not need to be fully dry, just no longer wet.</blockquote>
+        <h2>One active at a time</h2>
+        <p>If you are new to actives, start with one serum and use it for four weeks before adding another. That way you can tell which product is doing what.</p>
+      </div>
+    </div>
+  </article>
+  <section class="block tight" data-dawn="Featured collection"><div class="wrap"><div class="sec-head"><h2 class="h">Mentioned in this <em>article</em></h2></div><div class="grid" data-grid="0,2,4,5"></div></div></section>
+</main>
+
+<!-- ABOUT -->
+<main id="view-about" hidden>
+  <section class="block" style="padding-top:8px" data-dawn="Image banner">
+    <div class="wrap"><div class="about-hero"><h1>Fewer steps, <b>clearer labels.</b></h1><div class="blob"><svg viewBox="0 0 24 24"><use href="#h-drop"/></svg></div></div></div>
+  </section>
+  <section class="block tight" data-dawn="Rich text">
+    <div class="wrap narrow" style="margin:0 auto;text-align:center"><p style="font:600 clamp(22px,2.6vw,30px)/1.3 var(--display)">Dewpoint makes a short range of skincare with the main ingredient and its percentage printed on the front. You should know what you are putting on your face without reading the small print.</p></div>
+  </section>
+  <section class="block" data-dawn="Multicolumn">
+    <div class="wrap cols3">
+      <div><i>1</i><h3>Short formulas</h3><p>Five key ingredients or fewer per product, with no added fragrance.</p></div>
+      <div><i>2</i><h3>Small batches</h3><p>We mix in batches small enough to sell within six months, so nothing sits on a shelf.</p></div>
+      <div><i>3</i><h3>Refills</h3><p>Serums and creams come in refill pouches that use less plastic than a new bottle.</p></div>
+    </div>
+  </section>
+  <div class="wrap" data-dawn="Custom: Selvedge divider"><div class="divider"><svg viewBox="0 0 24 24"><use href="#h-drop"/></svg></div></div>
+  <section class="block" data-dawn="Multirow">
+    <div class="wrap mrow">
+      <div><div class="pic tone2"><svg viewBox="0 0 200 240" style="color:#FFFAF7"><use href="#h-mist"/></svg></div><div class="txt"><h3 class="h" style="font-size:32px;margin:0 0 8px">Made for daily use</h3><p>Our products are built to be used every day, morning and night, without a break-in period.</p></div></div>
+      <div><div class="pic tone4"><svg viewBox="0 0 200 240" style="color:#F26B4E"><use href="#h-pump"/></svg></div><div class="txt"><h3 class="h" style="font-size:32px;margin:0 0 8px">Tested before launch</h3><p>Each formula goes through stability and skin-compatibility testing before it goes on sale.</p></div></div>
+    </div>
+  </section>
+  <section class="block tight" data-dawn="Image with text">
+    <div class="wrap iwt"><div class="art" style="background:var(--sand)"><svg viewBox="0 0 200 240" style="color:#F8D4C8"><use href="#h-jar"/></svg></div><div class="copy"><h2 class="h" style="margin:0 0 10px">Visit the <em>studio</em></h2><p>Our studio shop is open Thursday to Saturday. Bring your current routine and we will help you simplify it.</p><a href="#" class="btn solid" data-go="contact" style="align-self:flex-start">Get directions</a></div></div>
+  </section>
+</main>
+
+<!-- CONTACT -->
+<main id="view-contact" hidden>
+  <section class="block" style="padding-top:16px" data-dawn="Page">
+    <div class="wrap narrow"><h1 class="pageh">Contact</h1><p class="muted">Questions about an order or which product suits your skin? We reply within one working day.</p></div>
+  </section>
+  <section class="block tight" data-dawn="Contact form">
+    <div class="wrap contact">
+      <div class="info" data-dawn="Multicolumn"><div><b>Email</b>hello@dewpoint.example</div><div><b>Hours</b>Monday to Friday, 9am to 5pm</div><div><b>Skin questions</b>Send a photo in natural light and tell us what you use now.</div></div>
+      <form id="contactForm"><label for="cn">Name</label><input class="field" id="cn" required><label for="ce">Email</label><input class="field" id="ce" type="email" required><label for="cm">Message</label><textarea class="field" id="cm" required></textarea><button class="btn solid" type="submit">Send message</button></form>
+    </div>
+  </section>
+  <section class="block" data-dawn="Collapsible content">
+    <div class="wrap narrow" style="margin:0 auto"><div class="faq">
+      <details><summary>Where is my order?</summary><p>You get a tracking link by email as soon as your order leaves us, usually within one working day.</p></details>
+      <details><summary>Can I change my refill dates?</summary><p>Yes. Log in to your account to skip, pause or move a refill.</p></details>
+    </div></div>
+  </section>
+</main>
+
+<!-- 404 -->
+<main id="view-404" hidden>
+  <section class="block" data-dawn="404 page">
+    <div class="wrap nf"><p class="big">404</p><h1 class="h">This page has evaporated</h1><p class="muted">The link may be old, or the product may have moved.</p><form data-search404><label class="sr" for="q404">Search</label><input class="field" id="q404" type="search" placeholder="Search products"><button class="btn solid" type="submit">Search</button></form></div>
+  </section>
+  <section class="block tight" data-dawn="Featured collection"><div class="wrap"><div class="sec-head"><h2 class="h">Try <em>these</em> instead</h2></div><div class="grid" data-grid="0,2,4,1"></div></div></section>
+</main>
+
+<footer class="site" data-dawn="Footer">
+  <div class="wrap"><div class="foot-card">
+    <div class="foot">
+      <div><h4>Dewpoint</h4><p style="margin:0;max-width:34ch;color:#D9C8CF">Short-ingredient skincare with the main active and its percentage on the front of every bottle.</p><div class="pay"><span>Visa</span><span>Mastercard</span><span>PayPal</span><span>Shop Pay</span></div></div>
+      <div><h4>Shop</h4><ul><li><a href="#" data-go="collection">Cleansers</a></li><li><a href="#" data-go="collection">Serums</a></li><li><a href="#" data-go="collection">Moisturisers</a></li><li><a href="#" data-go="collection">SPF</a></li><li><a href="#" data-go="collection">Sets</a></li></ul></div>
+      <div><h4>Help</h4><ul><li><a href="#" data-go="contact">Contact</a></li><li><a href="#" data-go="contact">Delivery</a></li><li><a href="#" data-go="contact">Returns</a></li><li><a href="#routine" data-go="home">Routine builder</a></li></ul></div>
+      <div><h4>Company</h4><ul><li><a href="#" data-go="about">About</a></li><li><a href="#" data-go="blog">Journal</a></li><li><a href="#" data-go="search">Search</a></li></ul></div>
+    </div>
+    <p class="foot-big" aria-hidden="true">Dewpoint</p>
+  </div></div>
+</footer>
+
+<div class="overlay" id="ovMenu" data-close hidden></div>
+<aside class="drawer left" id="menuDrawer" aria-label="Menu" hidden data-dawn="Header (menu drawer)">
+  <div class="drawer-head"><h2>Menu</h2><button class="x" type="button" data-close aria-label="Close menu">×</button></div>
+  <nav><a href="#" data-go="collection">Skincare</a><a href="#" data-go="collection">Serums</a><a href="#" data-go="collection">Moisturisers</a><a href="#" data-go="collection">SPF</a><a href="#" data-go="blog">Journal</a><a href="#" data-go="about">About</a><a href="#" data-go="contact">Contact</a></nav>
+</aside>
+<div class="overlay" id="ovCart" data-close hidden></div>
+<aside class="drawer right" id="cartDrawer" aria-label="Bag" hidden data-dawn="Cart drawer">
+  <div class="drawer-head"><h2>Bag</h2><button class="x" type="button" data-close aria-label="Close bag">×</button></div>
+  <div class="body" id="drawerLines"></div>
+  <div class="row" style="margin-top:14px"><span>Subtotal</span><span id="drawerSub">$0</span></div>
+  <button class="btn solid full" type="button">Check out</button>
+  <a href="#" class="btn full" data-go="cart">View bag</a>
+</aside>
+<div class="toast" id="toast" role="status" hidden></div>
+
+<script>
+(function(){
+  var P=[
+    {n:"Barrier Serum",s:"serum",c:"#F26B4E",p:28,t:"Niacinamide 5%",cat:"serum",sk:["dry","oily","combo","sensitive"],sz:"30 ml"},
+    {n:"Gentle Gel Cleanser",s:"pump",c:"#CFE3D6",p:18,t:"pH 5.5",cat:"clean",sk:["oily","combo"],sz:"150 ml"},
+    {n:"Cloud Cream Light",s:"jar",c:"#F8D4C8",p:32,t:"Squalane",cat:"moist",sk:["oily","combo"],sz:"50 ml"},
+    {n:"Cloud Cream Rich",s:"jar",c:"#E3D8EE",p:34,t:"Shea + ceramides",cat:"moist",sk:["dry","sensitive"],sz:"50 ml"},
+    {n:"Clear SPF 50",s:"tube",c:"#FCE7A8",p:26,t:"No white cast",cat:"spf",sk:["dry","oily","combo","sensitive"],sz:"50 ml"},
+    {n:"Rose Water Mist",s:"mist",c:"#F8D4C8",p:16,t:"Alcohol free",cat:"mist",sk:["dry","combo","sensitive"],sz:"100 ml"},
+    {n:"Milk Cleanser",s:"pump",c:"#FFFAF7",p:20,t:"Oat extract",cat:"clean",sk:["dry","sensitive"],sz:"150 ml"},
+    {n:"Glow Drops",s:"serum",c:"#FCE7A8",p:30,t:"Vitamin C 10%",cat:"serum",sk:["dry","combo"],sz:"30 ml"},
+    {n:"Clarity Serum",s:"serum",c:"#CFE3D6",p:27,t:"Zinc + BHA 0.5%",cat:"serum",sk:["oily","combo"],sz:"30 ml"},
+    {n:"Calm Serum",s:"serum",c:"#E3D8EE",p:29,t:"Centella",cat:"serum",sk:["sensitive","dry"],sz:"30 ml"},
+    {n:"Daily Fluid SPF 30",s:"tube",c:"#CFE3D6",p:24,t:"Oil free",cat:"spf",sk:["oily","combo"],sz:"40 ml"},
+    {n:"Overnight Mask",s:"jar",c:"#2A1D24",p:36,t:"Peptides",cat:"moist",sk:["dry","combo","sensitive"],sz:"75 ml"}
+  ];
+  var SK={dry:"Dry",oily:"Oily",combo:"Combination",sensitive:"Sensitive"};
+  var POSTS=[
+    {t:"How to layer a serum and a moisturiser",d:"14 October 2026",k:"Guides",e:"Thinnest to thickest, and why the order matters.",tone:"tone4",s:"serum"},
+    {t:"What niacinamide does, in plain words",d:"2 October 2026",k:"Ingredients",e:"The percentages that work and the ones that only add cost.",tone:"tone2",s:"pump"},
+    {t:"SPF every morning, even in winter",d:"20 September 2026",k:"Sun care",e:"How much to use and how to reapply over makeup.",tone:"tone1",s:"tube"},
+    {t:"A routine for skin that is dry and oily",d:"6 September 2026",k:"Routines",e:"Combination skin needs two textures, not two routines.",tone:"tone3",s:"jar"},
+    {t:"Refills: what changes and what does not",d:"24 August 2026",k:"Studio",e:"Same formula, a pouch instead of a bottle.",tone:"tone2",s:"mist"},
+    {t:"Calming redness without hiding it",d:"10 August 2026",k:"Guides",e:"Centella, oat and patience.",tone:"tone4",s:"serum"}
+  ];
+  var cart=[{i:0,v:"30 ml",q:1},{i:4,v:"50 ml",q:1}];
+  function $(s,r){return (r||document).querySelector(s)}
+  function $$(s,r){return Array.prototype.slice.call((r||document).querySelectorAll(s))}
+  function money(v){return "$"+(Math.round(v*100)/100).toFixed(v%1?2:0)}
+  function art(p,w){return '<svg viewBox="0 0 200 240" style="color:'+p.c+'" aria-hidden="true"><use href="#h-'+p.s+'"/></svg>'}
+  function card(i){var p=P[i];return '<a class="p" href="#" data-go="product"><div class="img"><span class="tag">'+p.t+'</span>'+art(p)+'</div><h3>'+p.n+'</h3><div class="skin">'+p.sk.slice(0,2).map(function(s){return '<i>'+SK[s]+'</i>'}).join("")+'</div><div class="cf"><span><b>'+money(p.p)+'</b> <span class="sub">'+p.sz+'</span></span><button class="addp" type="button" aria-label="Add '+p.n+' to bag" data-add="'+i+'">+</button></div></a>'}
+  function postCard(i){var p=POSTS[i];return '<a class="post" href="#" data-go="article"><div class="pic '+p.tone+'" role="img" aria-label="'+p.t+'"><svg viewBox="0 0 200 240" style="color:#FFFAF7"><use href="#h-'+p.s+'"/></svg></div><small>'+p.d+' · '+p.k+'</small><h3>'+p.t+'</h3><p>'+p.e+'</p></a>'}
+  $$("[data-grid]").forEach(function(g){g.innerHTML=g.dataset.grid.split(",").map(Number).map(card).join("")});
+  $$("[data-posts]").forEach(function(g){g.innerHTML=g.dataset.posts.split(",").map(Number).map(postCard).join("")});
+
+  function homeTab(t){var idx=P.map(function(_,i){return i}).filter(function(i){return t==="all"||P[i].cat===t}).slice(0,4);$("#homeGrid").innerHTML=idx.map(card).join("")}
+  $("#homeTabs").addEventListener("click",function(e){var b=e.target.closest("button");if(!b)return;$$("#homeTabs button").forEach(function(x){x.setAttribute("aria-pressed",String(x===b))});homeTab(b.dataset.t)});
+  homeTab("all");
+
+  function renderCollection(){
+    var cats=$$('[data-f="cat"]:checked').map(function(x){return x.value}),
+        skins=$$('[data-f="skin"]:checked').map(function(x){return x.value}),
+        prices=$$('[data-f="price"]:checked').map(function(x){return x.value}),
+        idx=P.map(function(_,i){return i}).filter(function(i){var p=P[i];
+          return (!cats.length||cats.indexOf(p.cat)>-1)&&(!skins.length||skins.some(function(s){return p.sk.indexOf(s)>-1}))&&
+            (!prices.length||(prices.indexOf("u25")>-1&&p.p<25)||(prices.indexOf("o25")>-1&&p.p>=25));});
+    var s=$("#sort").value; if(s==="low")idx.sort(function(a,b){return P[a].p-P[b].p}); if(s==="high")idx.sort(function(a,b){return P[b].p-P[a].p});
+    $("#colGrid").innerHTML=idx.length?idx.map(card).join(""):'<p class="muted">No products match these filters. Clear a filter to see more.</p>';
+    $("#colShown").textContent=idx.length;
+  }
+  $$(".filters input").forEach(function(x){x.addEventListener("change",renderCollection)});
+  $("#sort").addEventListener("change",renderCollection);
+  $("#filterToggle").addEventListener("click",function(){var f=$("#filters");f.classList.toggle("open");this.setAttribute("aria-expanded",String(f.classList.contains("open")))});
+  renderCollection();
+
+  function runSearch(q){
+    q=(q||"").trim().toLowerCase();
+    var idx=P.map(function(_,i){return i}).filter(function(i){var p=P[i];return !q||(p.n+" "+p.t+" "+p.cat+" "+p.sk.join(" ")).toLowerCase().indexOf(q)>-1});
+    $("#searchCount").textContent=idx.length+" result"+(idx.length===1?"":"s")+(q?' for "'+q+'"':"");
+    $("#searchGrid").innerHTML=idx.length?idx.map(card).join(""):'<p class="muted">No products found. Try "serum", "spf" or "cleanser".</p>';
+  }
+  $("#searchForm").addEventListener("submit",function(e){e.preventDefault();runSearch($("#q").value)});
+  $("[data-search404]").addEventListener("submit",function(e){e.preventDefault();$("#q").value=$("#q404").value;runSearch($("#q404").value);show("search")});
+  runSearch("serum");
+
+  function lineHtml(l,k){var p=P[l.i];return '<div class="cl"><div class="thumb">'+art(p)+'</div><div><h3>'+p.n+'</h3><div class="muted" style="font-size:14px">'+l.v+'</div><div class="qty"><button type="button" aria-label="Decrease quantity" data-q="'+k+'" data-d="-1">−</button><span>'+l.q+'</span><button type="button" aria-label="Increase quantity" data-q="'+k+'" data-d="1">+</button></div><button type="button" class="linkbtn" data-rm="'+k+'">Remove</button></div><b>'+money(p.p*l.q)+'</b></div>'}
+  function renderCart(){
+    var sub=0,count=0,html="";
+    cart.forEach(function(l,k){sub+=P[l.i].p*l.q;count+=l.q;html+=lineHtml(l,k)});
+    $("#cartLines").innerHTML=html; $("#drawerLines").innerHTML=html||'<p class="muted">Your bag is empty.</p>';
+    $("#cartEmpty").hidden=cart.length>0;
+    $("#subtotal").textContent=money(sub); $("#drawerSub").textContent=money(sub);
+    $$(".cart-count").forEach(function(c){c.textContent=count});
+    var left=45-sub; $("#shipMsg").textContent=left>0?"Spend "+money(left)+" more for free delivery":"You've got free delivery";
+    $("#shipBar").style.width=Math.min(100,sub/45*100)+"%";
+  }
+  function addToCart(i,v){var ex=cart.filter(function(l){return l.i===i&&l.v===v})[0];if(ex)ex.q++;else cart.push({i:i,v:v,q:1});}
+  document.addEventListener("click",function(e){
+    var q=e.target.closest("[data-q]"),rm=e.target.closest("[data-rm]"),add=e.target.closest("[data-add]");
+    if(q){var l=cart[+q.dataset.q];l.q=Math.max(1,l.q+(+q.dataset.d));renderCart();}
+    if(rm){cart.splice(+rm.dataset.rm,1);renderCart();}
+    if(add){e.preventDefault();e.stopPropagation();var i=+add.dataset.add,v=P[i].sz;
+      if(add.closest("#view-product")){var s=$("#pdpSize [aria-pressed=true]");if(s)v=s.textContent;var n=+$("#pq").textContent;for(var k=0;k<n;k++)addToCart(i,v);}else addToCart(i,v);
+      renderCart();openDrawer("cart");}
+  },true);
+  renderCart();
+
+  function openDrawer(w){var d=w==="cart"?$("#cartDrawer"):$("#menuDrawer"),o=w==="cart"?$("#ovCart"):$("#ovMenu");d.hidden=false;o.hidden=false;var b=d.querySelector(".x");if(b)b.focus();}
+  function closeDrawers(){$$(".drawer,.overlay").forEach(function(x){x.hidden=true})}
+  $("[data-open=menu]").addEventListener("click",function(){openDrawer("menu")});
+  $$("[data-close]").forEach(function(x){x.addEventListener("click",closeDrawers)});
+  document.addEventListener("keydown",function(e){if(e.key==="Escape")closeDrawers()});
+
+  // product page options
+  $("#pdpSize").addEventListener("click",function(e){var b=e.target.closest("button:not([disabled])");if(!b)return;$$("#pdpSize button").forEach(function(x){x.setAttribute("aria-pressed",String(x===b))});var pr=+b.dataset.p;$("#pdpPrice").textContent=money(pr);$("#oneP").textContent=money(pr);$("#subP").textContent="$"+(pr*.9).toFixed(2)});
+  $("#pqMinus").addEventListener("click",function(){$("#pq").textContent=Math.max(1,+$("#pq").textContent-1)});
+  $("#pqPlus").addEventListener("click",function(){$("#pq").textContent=+$("#pq").textContent+1});
+  document.addEventListener("click",function(e){var sz=e.target.closest(".fp .sizes button");if(sz){$$(".fp .sizes button").forEach(function(x){x.setAttribute("aria-pressed",String(x===sz))})}});
+
+  // Routine builder
+  var RB={skin:"combo",goal:"hydrate",time:"am"};
+  var CLEAN={dry:6,sensitive:6,oily:1,combo:1};
+  var SERUM={hydrate:0,glow:7,clear:8,calm:9};
+  var MOIST={dry:3,sensitive:3,oily:2,combo:2};
+  var WHY={hydrate:"Holds water and supports the barrier",glow:"Vitamin C for brighter, more even skin",clear:"Zinc and a little BHA to keep pores clear",calm:"Centella to settle redness"};
+  function chip(groupId,key){$("#"+groupId).addEventListener("click",function(e){var b=e.target.closest("button");if(!b)return;$$("#"+groupId+" button").forEach(function(x){x.setAttribute("aria-pressed",String(x===b))});RB[key]=b.dataset.v;build()})}
+  chip("rbSkin","skin");chip("rbGoal","goal");chip("rbTime","time");
+  var current=[];
+  function build(){
+    var serum=SERUM[RB.goal];
+    if(RB.skin==="sensitive"&&RB.goal==="clear")serum=9;
+    var steps=[[CLEAN[RB.skin],"Cleanse","Massage into damp skin for 30 seconds"],[serum,"Treat",WHY[RB.goal]],[MOIST[RB.skin],"Moisturise","A pea-sized amount, face and neck"]];
+    if(RB.time==="am")steps.push([RB.skin==="oily"||RB.skin==="combo"?10:4,"Protect","Last step every morning"]);
+    else steps[2]=[RB.skin==="oily"?2:11,"Repair","Leave on overnight, rinse in the morning"];
+    current=steps.map(function(s){return s[0]});
+    $("#rbSteps").innerHTML=steps.map(function(s){var p=P[s[0]];return '<li><span class="th">'+art(p)+'</span><span><small>'+s[1]+'</small><b>'+p.n+'</b><small>'+s[2]+'</small></span><b>'+money(p.p)+'</b></li>'}).join("");
+    var full=current.reduce(function(a,i){return a+P[i].p},0);
+    $("#rbWas").textContent=money(full);$("#rbTotal").textContent="$"+(full*.85).toFixed(2);
+    $("#rbNote").textContent=SK[RB.skin]+" skin, "+(RB.time==="am"?"morning":"evening")+" routine. "+(RB.skin==="sensitive"?"Patch test new products on your inner arm for 24 hours first.":"Start one new product at a time.");
+  }
+  $("#rbAdd").addEventListener("click",function(){current.forEach(function(i){addToCart(i,P[i].sz)});renderCart();openDrawer("cart");toast(current.length+" products added. Routine discount applies at checkout.")});
+  build();
+
+  function toast(msg){var t=$("#toast");t.textContent=msg;t.hidden=false;clearTimeout(t._t);t._t=setTimeout(function(){t.hidden=true},2400)}
+  $$("[data-sub]").forEach(function(f){f.addEventListener("submit",function(e){e.preventDefault();f.querySelector("button").textContent="Subscribed";toast("Subscribed. Check your inbox to confirm.")})});
+  $("#contactForm").addEventListener("submit",function(e){e.preventDefault();this.reset();toast("Message sent. We reply within one working day.")});
+
+  var VIEWS=[["home","Homepage"],["collection","Collection"],["product","Product"],["cart","Cart"],["search","Search"],["blog","Blog"],["article","Article"],["about","About"],["contact","Contact"],["404","404"]];
+  $("#pageTabs").innerHTML=VIEWS.map(function(v){return '<button type="button" data-view="'+v[0]+'" aria-pressed="false">'+v[1]+'</button>'}).join("");
+  function show(v){
+    VIEWS.forEach(function(x){$("#view-"+x[0]).hidden=x[0]!==v});
+    $$("#pageTabs button").forEach(function(b){b.setAttribute("aria-pressed",String(b.dataset.view===v))});
+    closeDrawers(); window.scrollTo(0,0);
+  }
+  $("#pageTabs").addEventListener("click",function(e){var b=e.target.closest("button");if(b)show(b.dataset.view)});
+  document.addEventListener("click",function(e){var a=e.target.closest("[data-go]");if(a&&!e.defaultPrevented){e.preventDefault();var h=a.getAttribute("href");show(a.dataset.go);if(h&&h.length>1&&h.charAt(0)==="#"){var el=document.querySelector(h);if(el)el.scrollIntoView()}}});
+  $$('a[href^="#"]:not([data-go])').forEach(function(a){a.addEventListener("click",function(e){e.preventDefault();var t=a.getAttribute("href");if(t.length>1){if($("#view-home").hidden)show("home");var el=document.querySelector(t);if(el)el.scrollIntoView({behavior:"smooth"})}})});
+  $("#showSections").addEventListener("change",function(){document.body.classList.toggle("show-sections",this.checked)});
+  show("home");
+})();
+</script>
+</body></html>
