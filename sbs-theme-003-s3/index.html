@@ -1,0 +1,1097 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Oriel Skincare Theme</title>
+<meta name="description" content="Oriel: a clinical-clean Shopify theme design for skincare brands. Sample design for Shopify Brands SEO.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bone:#F6F4F0; --paper:#FFFFFF; --mist:#E4ECEF; --mist-2:#D4E0E5; --ink:#17232B; --ink-2:#4A5862; --ink-3:#7C8A93;
+  --petrol:#2F5D74; --petrol-d:#22485B; --clay:#B4553C; --line:rgba(23,35,43,.12); --line-2:rgba(23,35,43,.2);
+  --serif:'Instrument Serif',Georgia,serif; --sans:'Manrope',system-ui,sans-serif;
+  --r:14px; --r-sm:8px; --max:1360px; --ease:cubic-bezier(.2,.7,.2,1);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:var(--sans);color:var(--ink);background:var(--bone);font-size:15px;line-height:1.6;-webkit-font-smoothing:antialiased}
+img{display:block;max-width:100%}
+a{color:inherit;text-decoration:none}
+button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
+input,select,textarea{font:inherit;color:inherit}
+:focus-visible{outline:2px solid var(--petrol);outline-offset:3px;border-radius:4px}
+.wrap{max-width:var(--max);margin:0 auto;padding:0 40px}
+.serif{font-family:var(--serif);font-weight:400}
+.eyebrow{font-size:11px;letter-spacing:.18em;text-transform:uppercase;font-weight:600;color:var(--petrol)}
+h1,h2,h3{font-family:var(--serif);font-weight:400;letter-spacing:-.01em;line-height:1.05}
+h2{font-size:clamp(34px,4vw,54px)}
+h2 em,h1 em{font-style:italic;color:var(--petrol)}
+.sec{padding:112px 0}
+.sec-head{display:flex;align-items:end;justify-content:space-between;gap:24px;margin-bottom:44px}
+.sec-head p{max-width:420px;color:var(--ink-2)}
+.link{font-size:13px;font-weight:600;border-bottom:1px solid currentColor;padding-bottom:2px;white-space:nowrap}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;height:52px;padding:0 30px;border-radius:999px;font-weight:600;font-size:14px;letter-spacing:.01em;transition:background .3s var(--ease),transform .3s var(--ease),color .3s}
+.btn-ink{background:var(--ink);color:#fff}.btn-ink:hover{background:var(--petrol)}
+.btn-petrol{background:var(--petrol);color:#fff}.btn-petrol:hover{background:var(--petrol-d)}
+.btn-line{border:1px solid var(--line-2)}.btn-line:hover{background:var(--ink);color:#fff}
+.btn-white{background:#fff;color:var(--ink)}.btn-white:hover{background:var(--mist)}
+.reveal{opacity:0;transform:translateY(24px);transition:opacity .9s var(--ease),transform .9s var(--ease)}
+.reveal.in{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}*{scroll-behavior:auto}}
+
+/* design toolbar */
+.dt{position:sticky;top:0;z-index:90;background:#0E151A;color:#C9D4DA;font-size:12px}
+.dt .wrap{display:flex;align-items:center;gap:6px;height:44px;overflow-x:auto;scrollbar-width:none}
+.dt b{color:#fff;font-weight:700;margin-right:10px;white-space:nowrap}
+.dt button{padding:6px 12px;border-radius:999px;white-space:nowrap;color:#C9D4DA}
+.dt button.on{background:#fff;color:#0E151A}
+.dt label{margin-left:auto;display:flex;align-items:center;gap:8px;white-space:nowrap;cursor:pointer}
+body.show-names [data-dawn]{position:relative;outline:1px dashed rgba(47,93,116,.55);outline-offset:-1px}
+body.show-names [data-dawn]::before{content:attr(data-dawn);position:absolute;top:6px;left:6px;z-index:60;background:var(--petrol);color:#fff;font:600 10px/1 var(--sans);letter-spacing:.06em;padding:5px 8px;border-radius:4px;pointer-events:none}
+.page{display:none}.page.on{display:block}
+
+/* announcement */
+.ann{background:var(--ink);color:#E9EFF1;font-size:12px;letter-spacing:.04em;height:38px;overflow:hidden;position:relative}
+.ann div{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;opacity:0;transform:translateY(100%);transition:.6s var(--ease)}
+.ann div.on{opacity:1;transform:none}
+.ann div.out{opacity:0;transform:translateY(-100%)}
+
+/* header */
+.hdr{background:var(--bone);border-bottom:1px solid var(--line);position:sticky;top:44px;z-index:80}
+.hdr .wrap{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;height:76px}
+.nav{display:flex;align-items:center;gap:28px;font-size:13.5px;font-weight:500}
+.nav > a,.nav > div > a{display:block;padding:28px 0;position:relative}
+.nav > a::after,.nav > div > a::after{content:"";position:absolute;left:0;right:100%;bottom:22px;height:1px;background:currentColor;transition:right .35s var(--ease)}
+.nav > a:hover::after,.nav > div:hover > a::after{right:0}
+.logo{font-family:var(--serif);font-size:34px;letter-spacing:.14em;line-height:1}
+.logo small{display:block;font-family:var(--sans);font-size:9px;letter-spacing:.42em;text-align:center;color:var(--ink-3);margin-top:4px}
+.tools{display:flex;justify-content:flex-end;gap:6px;align-items:center}
+.ic{width:42px;height:42px;display:grid;place-items:center;border-radius:999px;position:relative}
+.ic:hover{background:var(--mist)}
+.ic svg{width:20px;height:20px;stroke:currentColor;fill:none;stroke-width:1.5}
+.count{position:absolute;top:4px;right:2px;min-width:18px;height:18px;border-radius:9px;background:var(--petrol);color:#fff;font-size:10px;font-weight:700;display:grid;place-items:center;padding:0 5px;transition:transform .3s var(--ease)}
+.count.bump{transform:scale(1.35)}
+.routine-cta{font-size:12.5px;font-weight:600;border:1px solid var(--line-2);border-radius:999px;padding:9px 16px;margin-right:6px}
+.routine-cta:hover{background:var(--ink);color:#fff}
+.burger{display:none}
+.mega-host{position:static}
+.mega{position:absolute;left:0;right:0;top:100%;background:var(--paper);border-bottom:1px solid var(--line);opacity:0;visibility:hidden;transform:translateY(-6px);transition:.35s var(--ease);box-shadow:0 30px 60px -30px rgba(23,35,43,.25)}
+.mega-host:hover .mega,.mega-host:focus-within .mega{opacity:1;visibility:visible;transform:none}
+.mega .wrap{display:grid;grid-template-columns:repeat(3,1fr) 1.4fr;gap:40px;padding-top:40px;padding-bottom:44px;height:auto}
+.mega h4{font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-3);margin-bottom:14px;font-weight:600}
+.mega ul{list-style:none;display:grid;gap:10px;font-size:14px}
+.mega ul a:hover{color:var(--petrol)}
+.mega-tile{display:block;position:relative;border-radius:var(--r);overflow:hidden;aspect-ratio:16/10}
+.mega-tile img{width:100%;height:100%;object-fit:cover}
+.mega-tile span{position:absolute;left:18px;bottom:16px;color:#fff;font-family:var(--serif);font-size:26px;text-shadow:0 2px 20px rgba(0,0,0,.25)}
+
+/* hero */
+.hero{position:relative;height:min(86vh,780px);min-height:560px;overflow:hidden;background:var(--mist)}
+.hero img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:70% 30%;transform:scale(1.04);animation:heroZoom 9s var(--ease) forwards}
+@keyframes heroZoom{to{transform:scale(1)}}
+.hero .wrap{position:relative;height:100%;display:flex;flex-direction:column;justify-content:center}
+.hero h1{font-size:clamp(52px,7.4vw,108px);max-width:620px}
+.hero p{max-width:400px;margin:22px 0 34px;color:var(--ink-2);font-size:16.5px}
+.hero .ctas{display:flex;gap:22px;align-items:center}
+.hero-claims{position:absolute;bottom:34px;left:40px;right:40px;display:flex;gap:10px;flex-wrap:wrap}
+.claim{background:rgba(255,255,255,.72);backdrop-filter:blur(10px);border-radius:999px;padding:9px 16px;font-size:12px;font-weight:600;display:flex;align-items:center;gap:8px}
+.claim i{width:6px;height:6px;border-radius:50%;background:var(--petrol)}
+
+/* concern chips */
+.concerns{display:grid;grid-template-columns:repeat(6,1fr);gap:22px}
+.concern{display:block;text-align:center}
+.concern .ring{aspect-ratio:1;border-radius:50%;overflow:hidden;border:1px solid var(--line);padding:6px;transition:border-color .3s}
+.concern .ring img{width:100%;height:100%;object-fit:cover;border-radius:50%;transition:transform .7s var(--ease)}
+.concern:hover .ring{border-color:var(--petrol)}
+.concern:hover img{transform:scale(1.08)}
+.concern b{display:block;margin-top:14px;font-weight:600;font-size:14px}
+.concern small{color:var(--ink-3);font-size:12px}
+
+/* product card: beauty clinical (size chips + quick view) */
+.grid4{display:grid;grid-template-columns:repeat(4,1fr);gap:28px 22px}
+.card{position:relative}
+.mwrap{position:relative;border-radius:var(--r);overflow:hidden}
+.card .media{display:block;position:relative;aspect-ratio:4/5;border-radius:var(--r);overflow:hidden;background:var(--mist)}
+.card .media img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:opacity .6s var(--ease),transform 1s var(--ease)}
+.card .media .alt{opacity:0}
+.card:hover .media .alt{opacity:1}
+.card:hover .media img{transform:scale(1.03)}
+.badge{position:absolute;top:14px;left:14px;z-index:2;font-size:10.5px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;background:#fff;padding:6px 10px;border-radius:999px}
+.badge.sale{background:var(--clay);color:#fff}
+.badge.new{background:var(--petrol);color:#fff}
+.wish{position:absolute;top:10px;right:10px;z-index:2;width:36px;height:36px;border-radius:50%;background:rgba(255,255,255,.8);display:grid;place-items:center}
+.wish svg{width:17px;height:17px;stroke:var(--ink);fill:none;stroke-width:1.6}
+.wish.on svg{fill:var(--clay);stroke:var(--clay)}
+.qa{position:absolute;left:12px;right:12px;bottom:12px;z-index:2;display:flex;gap:8px;transform:translateY(calc(100% + 14px));transition:transform .45s var(--ease)}
+.card:hover .qa,.card:focus-within .qa{transform:none}
+.qa button{flex:1;height:44px;border-radius:999px;background:var(--ink);color:#fff;font-size:13px;font-weight:600}
+.qa button:hover{background:var(--petrol)}
+.qa button.ghost{flex:0 0 44px;background:#fff;color:var(--ink)}
+.card .info{padding:16px 2px 0}
+.stars{display:flex;align-items:center;gap:6px;font-size:12px;color:var(--ink-3)}
+.stars i{font-style:normal;letter-spacing:1px;color:var(--ink)}
+.card h3{font-family:var(--sans);font-size:15px;font-weight:600;margin:6px 0 2px;line-height:1.35}
+.card .sub{font-size:12.5px;color:var(--ink-3)}
+.card .row{display:flex;align-items:center;justify-content:space-between;margin-top:10px}
+.price{font-weight:600;font-size:14.5px}
+.price s{color:var(--ink-3);font-weight:500;margin-left:6px}
+.price .now{color:var(--clay)}
+.sizes{display:flex;gap:5px}
+.sizes button{font-size:11px;font-weight:600;border:1px solid var(--line-2);border-radius:999px;padding:3px 9px;color:var(--ink-2)}
+.sizes button.on{background:var(--ink);border-color:var(--ink);color:#fff}
+
+/* ingredient tabs */
+.ingr{display:grid;grid-template-columns:1.1fr 1fr;gap:0;background:var(--paper);border-radius:22px;overflow:hidden}
+.ingr .img{position:relative;min-height:560px}
+.ingr .img img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:opacity .6s}
+.ingr .txt{padding:64px 64px 56px;display:flex;flex-direction:column}
+.tabs{display:flex;gap:6px;margin:26px 0 30px;flex-wrap:wrap}
+.tabs button{padding:9px 16px;border-radius:999px;border:1px solid var(--line-2);font-size:13px;font-weight:600}
+.tabs button.on{background:var(--petrol);border-color:var(--petrol);color:#fff}
+.ingr h3{font-size:44px;margin-bottom:14px}
+.ingr p{color:var(--ink-2);max-width:440px}
+.facts{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:auto;padding-top:36px;border-top:1px solid var(--line)}
+.facts b{font-family:var(--serif);font-size:30px;font-weight:400;display:block;line-height:1.1}
+.facts span{font-size:12px;color:var(--ink-3)}
+
+/* routine builder */
+.rb{background:var(--ink);color:#E9EFF1;border-radius:22px;padding:64px}
+.rb .top{display:flex;justify-content:space-between;align-items:end;gap:20px;margin-bottom:40px}
+.rb h2 em{color:#9EC3D4}
+.seg{display:inline-flex;background:rgba(255,255,255,.08);border-radius:999px;padding:4px}
+.seg button{padding:10px 22px;border-radius:999px;font-weight:600;font-size:13px;color:#C9D4DA}
+.seg button.on{background:#fff;color:var(--ink)}
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.step{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);border-radius:var(--r);padding:16px;display:flex;flex-direction:column;gap:12px;cursor:pointer;transition:border-color .3s,background .3s}
+.step.on{border-color:#9EC3D4;background:rgba(158,195,212,.1)}
+.step .n{font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:#9EC3D4;font-weight:700;display:flex;justify-content:space-between}
+.step .n i{width:20px;height:20px;border-radius:50%;border:1px solid rgba(255,255,255,.35);display:grid;place-items:center;font-style:normal;font-size:11px}
+.step.on .n i{background:#9EC3D4;border-color:#9EC3D4;color:var(--ink)}
+.step img{aspect-ratio:1;object-fit:cover;border-radius:10px;width:100%}
+.step b{font-size:14px;font-weight:600}
+.step span{font-size:12.5px;color:#9FB0B9}
+.rb .total{display:flex;justify-content:space-between;align-items:center;margin-top:30px;padding-top:26px;border-top:1px solid rgba(255,255,255,.12);gap:20px;flex-wrap:wrap}
+.rb .total .sum{font-size:14px;color:#9FB0B9}
+.rb .total .sum b{color:#fff;font-size:22px;font-weight:600;margin:0 8px}
+.rb .total .sum s{opacity:.6}
+
+/* editorial split */
+.edit{position:relative;border-radius:22px;overflow:hidden;min-height:620px;display:flex;align-items:flex-end}
+.edit img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.edit .panel{position:relative;margin:40px;background:rgba(246,244,240,.92);backdrop-filter:blur(8px);border-radius:var(--r);padding:40px;max-width:460px}
+.edit .panel h2{font-size:44px;margin:10px 0 14px}
+.edit .panel p{color:var(--ink-2);margin-bottom:24px}
+
+/* reviews */
+.rev-wrap{display:grid;grid-template-columns:320px 1fr;gap:56px}
+.rev-sum .big{font-family:var(--serif);font-size:96px;line-height:1}
+.bars{display:grid;gap:8px;margin:20px 0 26px;font-size:12px;color:var(--ink-3)}
+.bars div{display:grid;grid-template-columns:40px 1fr 34px;align-items:center;gap:10px}
+.bars span{height:4px;background:var(--mist-2);border-radius:2px;overflow:hidden;position:relative}
+.bars span::after{content:"";position:absolute;inset:0;width:var(--w);background:var(--ink)}
+.revs{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;align-items:start}
+.rev{background:var(--paper);border-radius:var(--r);padding:26px;display:flex;flex-direction:column;gap:12px}
+.rev p{font-size:14.5px}
+.rev .who{margin-top:auto;font-size:12px;color:var(--ink-3);display:flex;justify-content:space-between;gap:8px}
+.tag{font-size:11px;font-weight:600;background:var(--mist);border-radius:999px;padding:4px 10px;color:var(--petrol-d)}
+.demo-note{font-size:11px;color:var(--ink-3);margin-top:16px}
+
+/* journal */
+.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:26px}
+.post{display:block}.post .media{display:block;aspect-ratio:4/3;border-radius:var(--r);overflow:hidden}
+.post img{width:100%;height:100%;object-fit:cover;transition:transform 1s var(--ease)}
+.post:hover img{transform:scale(1.04)}
+.post .meta{font-size:12px;color:var(--ink-3);margin:16px 0 6px}
+.post h3{font-size:28px}
+
+/* newsletter */
+.news{background:var(--mist);border-radius:22px;padding:72px;display:grid;grid-template-columns:1.2fr 1fr;gap:40px;align-items:center}
+.news h2{font-size:52px}
+.news form{display:flex;background:#fff;border-radius:999px;padding:6px;gap:6px}
+.news input{flex:1;border:0;background:none;padding:0 20px;outline:0;min-width:0}
+.news small{display:block;margin-top:12px;color:var(--ink-3);font-size:12px}
+
+/* trust */
+.trust{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.trust > div{padding:30px 26px;display:flex;gap:14px;align-items:flex-start}
+.trust > div+div{border-left:1px solid var(--line)}
+.trust svg{width:26px;height:26px;stroke:var(--petrol);fill:none;stroke-width:1.4;flex:none}
+.trust b{display:block;font-size:14px;font-weight:600}
+.trust span{font-size:12.5px;color:var(--ink-3)}
+
+/* footer */
+.ftr{background:var(--ink);color:#B9C6CD;padding:84px 0 30px;margin-top:112px}
+.ftr .cols{display:grid;grid-template-columns:1.5fr repeat(3,1fr);gap:40px}
+.ftr .logo{color:#fff}
+.ftr h4{color:#fff;font-size:12px;letter-spacing:.16em;text-transform:uppercase;margin-bottom:16px;font-weight:600}
+.ftr ul{list-style:none;display:grid;gap:10px;font-size:14px}
+.ftr a:hover{color:#fff}
+.ftr .bottom{display:flex;justify-content:space-between;align-items:center;margin-top:64px;padding-top:24px;border-top:1px solid rgba(255,255,255,.1);font-size:12px;gap:20px;flex-wrap:wrap}
+.pay{display:flex;gap:8px}
+.pay span{border:1px solid rgba(255,255,255,.2);border-radius:5px;padding:4px 8px;font-size:10px;font-weight:700;letter-spacing:.06em}
+.social{display:flex;gap:10px;margin-top:22px}
+.social a{width:38px;height:38px;border-radius:50%;border:1px solid rgba(255,255,255,.2);display:grid;place-items:center;font-size:12px;font-weight:700}
+
+/* breadcrumbs */
+.crumbs{font-size:12.5px;color:var(--ink-3);padding:22px 0}
+.crumbs a:hover{color:var(--ink)}
+.crumbs span{margin:0 8px}
+
+/* collection */
+.col-hero{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center;padding:20px 0 56px}
+.col-hero h1{font-size:76px}
+.col-hero p{color:var(--ink-2);max-width:460px;margin-top:16px}
+.col-hero .img{aspect-ratio:16/9;border-radius:22px;overflow:hidden}
+.col-hero .img img{width:100%;height:100%;object-fit:cover}
+.col{display:grid;grid-template-columns:250px 1fr;gap:48px}
+.filters{position:sticky;top:140px;align-self:start}
+.fg{border-top:1px solid var(--line);padding:18px 0}
+.fg h4{font-size:13px;font-weight:600;margin-bottom:12px;display:flex;justify-content:space-between}
+.fg label{display:flex;align-items:center;gap:10px;font-size:13.5px;padding:5px 0;cursor:pointer;color:var(--ink-2)}
+.fg input{accent-color:var(--petrol);width:16px;height:16px}
+.fg .pills{display:flex;flex-wrap:wrap;gap:6px}
+.fg .pills button{border:1px solid var(--line-2);border-radius:999px;padding:6px 12px;font-size:12.5px}
+.fg .pills button.on{background:var(--ink);color:#fff;border-color:var(--ink)}
+.toolbar{display:flex;justify-content:space-between;align-items:center;margin-bottom:24px;font-size:13px;color:var(--ink-2);gap:16px}
+.toolbar select{border:1px solid var(--line-2);border-radius:999px;padding:9px 16px;background:transparent}
+.grid3p{display:grid;grid-template-columns:repeat(3,1fr);gap:28px 22px}
+.promo-tile{border-radius:var(--r);overflow:hidden;position:relative;background:var(--petrol);color:#fff;display:flex;flex-direction:column;justify-content:flex-end;padding:28px;min-height:100%}
+.promo-tile img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.55;mix-blend-mode:luminosity}
+.promo-tile > *{position:relative}
+.promo-tile h3{font-size:36px;margin:8px 0 16px}
+.load{text-align:center;margin-top:52px}
+.load p{font-size:12.5px;color:var(--ink-3);margin-bottom:14px}
+.load .bar{width:220px;height:2px;background:var(--mist-2);margin:0 auto 20px;position:relative}
+.load .bar::after{content:"";position:absolute;inset:0;width:66%;background:var(--ink)}
+.chips-active{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:18px}
+.chips-active button{background:var(--mist);border-radius:999px;padding:6px 12px;font-size:12px;font-weight:600}
+
+/* product page */
+.pdp{display:grid;grid-template-columns:1.15fr 1fr;gap:64px;padding-bottom:40px}
+.gal{display:grid;grid-template-columns:84px 1fr;gap:16px;position:sticky;top:140px;align-self:start}
+.thumbs{display:grid;gap:10px;align-content:start}
+.thumbs button{aspect-ratio:4/5;border-radius:10px;overflow:hidden;border:1px solid transparent;background:var(--mist)}
+.thumbs button.on{border-color:var(--ink)}
+.thumbs img{width:100%;height:100%;object-fit:cover}
+.main-img{aspect-ratio:4/5;border-radius:18px;overflow:hidden;background:var(--mist);position:relative;cursor:zoom-in}
+.main-img img{width:100%;height:100%;object-fit:cover;transition:transform .5s var(--ease)}
+.main-img.zoom img{transform:scale(1.6)}
+.buy h1{font-size:56px;margin:10px 0 8px}
+.buy .lead{color:var(--ink-2);margin:14px 0 22px}
+.buy .stars{font-size:13px}
+.tags{display:flex;gap:6px;flex-wrap:wrap;margin:16px 0 4px}
+.opt{margin-top:24px}
+.opt h4{font-size:13px;font-weight:600;margin-bottom:10px;display:flex;justify-content:space-between}
+.opt h4 span{font-weight:500;color:var(--ink-3)}
+.sizepills{display:flex;gap:10px}
+.sizepills button{flex:1;border:1px solid var(--line-2);border-radius:12px;padding:14px;text-align:left}
+.sizepills button b{display:block;font-size:14px}
+.sizepills button span{font-size:12px;color:var(--ink-3)}
+.sizepills button.on{border-color:var(--ink);box-shadow:inset 0 0 0 1px var(--ink)}
+.plan{display:grid;gap:10px}
+.plan label{display:flex;align-items:center;gap:12px;border:1px solid var(--line-2);border-radius:12px;padding:14px 16px;cursor:pointer}
+.plan label.on{border-color:var(--ink);box-shadow:inset 0 0 0 1px var(--ink)}
+.plan input{accent-color:var(--petrol)}
+.plan .p{margin-left:auto;font-weight:600}
+.plan small{display:block;color:var(--ink-3);font-size:12px}
+.qtyrow{display:flex;gap:12px;margin-top:24px}
+.qty{display:flex;align-items:center;border:1px solid var(--line-2);border-radius:999px;height:56px}
+.qty button{width:46px;height:100%;font-size:18px}
+.qty input{width:34px;text-align:center;border:0;background:none;font-weight:600}
+.qtyrow .btn{flex:1;height:56px}
+.perks{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:20px;font-size:12.5px;color:var(--ink-2)}
+.perks div{display:flex;gap:8px;align-items:center}
+.perks i{width:6px;height:6px;border-radius:50%;background:var(--petrol)}
+.acc{margin-top:30px;border-top:1px solid var(--line)}
+.acc details{border-bottom:1px solid var(--line)}
+.acc summary{list-style:none;cursor:pointer;padding:18px 0;font-weight:600;font-size:14px;display:flex;justify-content:space-between}
+.acc summary::after{content:"+";font-size:20px;font-weight:400;transition:transform .3s}
+.acc details[open] summary::after{transform:rotate(45deg)}
+.acc .in{padding:0 0 20px;color:var(--ink-2);font-size:14px}
+.acc .in ul{padding-left:18px}
+.sticky-atc{position:fixed;left:0;right:0;bottom:0;z-index:70;background:rgba(255,255,255,.96);backdrop-filter:blur(10px);border-top:1px solid var(--line);transform:translateY(100%);transition:transform .45s var(--ease)}
+.sticky-atc.on{transform:none}
+.sticky-atc .wrap{display:flex;align-items:center;gap:16px;height:76px}
+.sticky-atc img{width:48px;height:56px;object-fit:cover;border-radius:8px}
+.sticky-atc .nm{font-weight:600;font-size:14px}
+.sticky-atc .nm span{display:block;font-weight:500;color:var(--ink-3);font-size:12px}
+.sticky-atc .btn{margin-left:auto;height:46px}
+.how{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.how div{background:var(--paper);border-radius:var(--r);padding:30px}
+.how b{font-family:var(--serif);font-size:44px;font-weight:400;color:var(--petrol);display:block;line-height:1}
+.how h4{font-size:15px;margin:12px 0 6px}
+.how p{font-size:13.5px;color:var(--ink-2)}
+.fbt{display:grid;grid-template-columns:1fr 340px;gap:40px;background:var(--paper);border-radius:22px;padding:44px}
+.fbt .items{display:flex;align-items:center;gap:14px}
+.fbt .it{flex:1;text-align:center}
+.fbt .it img{aspect-ratio:4/5;object-fit:cover;border-radius:12px;width:100%;margin-bottom:10px}
+.fbt .it label{font-size:13px;display:flex;gap:8px;justify-content:center;align-items:center}
+.fbt .plus{font-size:26px;color:var(--ink-3)}
+.fbt .tot{border-left:1px solid var(--line);padding-left:40px;display:flex;flex-direction:column;justify-content:center;gap:10px}
+.fbt .tot b{font-size:28px}
+.rev-filter{display:flex;gap:6px;margin-bottom:20px;flex-wrap:wrap}
+.rev-filter button{border:1px solid var(--line-2);border-radius:999px;padding:7px 14px;font-size:12.5px;font-weight:600}
+.rev-filter button.on{background:var(--ink);color:#fff;border-color:var(--ink)}
+
+/* cart page */
+.cart-page{display:grid;grid-template-columns:1fr 380px;gap:56px;padding-bottom:40px}
+.ship{background:var(--paper);border-radius:var(--r);padding:20px 24px;margin-bottom:22px;font-size:13.5px}
+.ship .bar{height:6px;background:var(--mist);border-radius:3px;margin-top:12px;overflow:hidden}
+.ship .bar i{display:block;height:100%;background:var(--petrol);border-radius:3px;transition:width .6s var(--ease)}
+.line{display:grid;grid-template-columns:110px 1fr auto;gap:22px;padding:22px 0;border-bottom:1px solid var(--line);align-items:center}
+.line img{aspect-ratio:4/5;object-fit:cover;border-radius:12px;width:100%}
+.line h4{font-size:15px;font-weight:600}
+.line .sub{font-size:12.5px;color:var(--ink-3);margin:2px 0 12px}
+.line .qty{height:40px}
+.line .qty button{width:36px}
+.line .rm{font-size:12px;color:var(--ink-3);text-decoration:underline;margin-left:14px}
+.summary{background:var(--paper);border-radius:18px;padding:30px;position:sticky;top:140px;align-self:start}
+.summary h3{font-size:30px;margin-bottom:18px}
+.summary .r{display:flex;justify-content:space-between;font-size:14px;padding:6px 0}
+.summary .r.t{font-weight:700;font-size:17px;border-top:1px solid var(--line);margin-top:10px;padding-top:16px}
+.summary textarea{width:100%;border:1px solid var(--line-2);border-radius:10px;padding:12px;margin:16px 0;min-height:70px;background:transparent;resize:vertical}
+.summary .btn{width:100%}
+.summary .tb{display:flex;justify-content:center;gap:8px;margin-top:16px}
+.summary .tb span{border:1px solid var(--line-2);border-radius:5px;padding:4px 8px;font-size:10px;font-weight:700}
+.upsell{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:40px}
+.upsell .u{display:flex;gap:14px;align-items:center;background:var(--paper);border-radius:12px;padding:12px}
+.upsell img{width:64px;height:78px;object-fit:cover;border-radius:8px}
+.upsell b{font-size:13.5px;display:block}
+.upsell span{font-size:12.5px;color:var(--ink-3)}
+.upsell button{margin-left:auto;width:34px;height:34px;border-radius:50%;border:1px solid var(--line-2);font-size:18px}
+
+/* drawer, modal, toast */
+.scrim{position:fixed;inset:0;background:rgba(14,21,26,.4);z-index:95;opacity:0;visibility:hidden;transition:.35s}
+.scrim.on{opacity:1;visibility:visible}
+.drawer{position:fixed;top:0;right:0;bottom:0;width:min(440px,100%);background:var(--bone);z-index:96;transform:translateX(100%);transition:transform .5s var(--ease);display:flex;flex-direction:column}
+.drawer.on{transform:none}
+.drawer .hd{display:flex;justify-content:space-between;align-items:center;padding:22px 26px;border-bottom:1px solid var(--line)}
+.drawer .hd h3{font-size:30px}
+.drawer .bd{flex:1;overflow:auto;padding:0 26px}
+.drawer .ft{padding:22px 26px;border-top:1px solid var(--line)}
+.drawer .ship{margin:18px 0 0;background:var(--paper)}
+.dl{display:grid;grid-template-columns:72px 1fr auto;gap:14px;padding:18px 0;border-bottom:1px solid var(--line);align-items:center;font-size:13.5px}
+.dl img{width:72px;height:88px;object-fit:cover;border-radius:10px}
+.dl b{display:block}
+.dl span{color:var(--ink-3);font-size:12px}
+.empty{padding:60px 0;text-align:center;color:var(--ink-3)}
+.modal{position:fixed;left:50%;top:50%;z-index:97;width:min(860px,94vw);background:var(--bone);border-radius:22px;overflow:hidden;display:grid;grid-template-columns:1fr 1fr;transform:translate(-50%,-46%);opacity:0;visibility:hidden;transition:.4s var(--ease)}
+.modal.on{transform:translate(-50%,-50%);opacity:1;visibility:visible}
+.modal img{width:100%;height:100%;object-fit:cover;aspect-ratio:4/5}
+.modal .c{padding:40px;display:flex;flex-direction:column}
+.modal h3{font-size:40px;margin:8px 0}
+.modal .x{position:absolute;top:14px;right:14px;width:38px;height:38px;border-radius:50%;background:#fff;font-size:18px}
+.toast{visibility:hidden;opacity:0;position:fixed;left:50%;bottom:28px;transform:translate(-50%,140%);background:var(--ink);color:#fff;border-radius:999px;padding:14px 22px;font-size:13.5px;z-index:99;transition:transform .45s var(--ease);display:flex;gap:10px;align-items:center}
+.toast.on{transform:translate(-50%,0);visibility:visible;opacity:1}
+.toast i{width:20px;height:20px;border-radius:50%;background:#9EC3D4;color:var(--ink);display:grid;place-items:center;font-style:normal;font-size:12px;font-weight:700}
+
+/* search, blog, article, about, contact, 404 */
+.search-box{display:flex;align-items:center;border-bottom:2px solid var(--ink);padding:14px 0;margin:30px 0 20px}
+.search-box input{flex:1;border:0;background:none;font-family:var(--serif);font-size:48px;outline:0;min-width:0}
+.sugg{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:44px}
+.sugg button{background:var(--paper);border-radius:999px;padding:8px 14px;font-size:13px}
+.blog-feat{display:grid;grid-template-columns:1.3fr 1fr;gap:48px;align-items:center;margin-bottom:72px}
+.blog-feat .media{display:block;aspect-ratio:3/2;border-radius:22px;overflow:hidden}
+.blog-feat img{width:100%;height:100%;object-fit:cover}
+.blog-feat h2{font-size:56px;margin:12px 0 16px}
+.art{max-width:760px;margin:0 auto}
+.art h1{font-size:68px;margin:14px 0 18px}
+.art .meta{color:var(--ink-3);font-size:13px}
+.art .cover{max-width:1100px;margin:40px auto;aspect-ratio:21/9;border-radius:22px;overflow:hidden}
+.art .cover img{width:100%;height:100%;object-fit:cover}
+.art p{font-size:17.5px;line-height:1.8;color:#2B3740;margin-bottom:22px}
+.art h2{font-size:38px;margin:40px 0 16px}
+.art blockquote{font-family:var(--serif);font-size:34px;line-height:1.25;border-left:2px solid var(--petrol);padding-left:28px;margin:36px 0;color:var(--petrol-d)}
+.art .shop-inline{display:flex;gap:18px;align-items:center;background:var(--paper);border-radius:var(--r);padding:16px;margin:30px 0}
+.art .shop-inline img{width:84px;height:100px;object-fit:cover;border-radius:10px}
+.about-hero{position:relative;height:620px;border-radius:22px;overflow:hidden;display:flex;align-items:flex-end}
+.about-hero img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.about-hero .t{position:relative;padding:56px;max-width:720px;color:#fff;text-shadow:0 2px 30px rgba(0,0,0,.25)}
+.about-hero h1{font-size:84px}
+.manifest{display:grid;grid-template-columns:1fr 1fr;gap:72px;align-items:start}
+.manifest p{font-size:18px;color:var(--ink-2);margin-bottom:18px}
+.vals{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+.vals div{border-top:1px solid var(--ink);padding-top:18px}
+.vals b{font-family:var(--serif);font-size:28px;font-weight:400;display:block;margin-bottom:8px}
+.vals span{font-size:13.5px;color:var(--ink-2)}
+.split-img{display:grid;grid-template-columns:1fr 1fr;gap:22px}
+.split-img img{border-radius:22px;aspect-ratio:4/5;object-fit:cover;width:100%}
+.contact{display:grid;grid-template-columns:1fr 1.2fr;gap:72px}
+.contact h1{font-size:76px}
+.contact .ways{display:grid;gap:18px;margin-top:36px}
+.contact .ways div{border-top:1px solid var(--line);padding-top:16px}
+.contact .ways b{display:block;font-size:14px}
+.contact .ways span{color:var(--ink-2);font-size:14px}
+.form{background:var(--paper);border-radius:22px;padding:44px;display:grid;gap:16px}
+.form .two{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.form label{font-size:12.5px;font-weight:600;display:grid;gap:8px}
+.form input,.form select,.form textarea{border:1px solid var(--line-2);border-radius:10px;padding:14px;background:var(--bone);outline:0}
+.form input:focus,.form textarea:focus,.form select:focus{border-color:var(--petrol)}
+.faq details{border-bottom:1px solid var(--line)}
+.faq summary{padding:20px 0;cursor:pointer;font-weight:600;list-style:none;display:flex;justify-content:space-between}
+.faq summary::after{content:"+";font-size:20px;font-weight:400}
+.faq p{padding-bottom:20px;color:var(--ink-2)}
+.nf{min-height:70vh;display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center}
+.nf h1{font-size:180px;line-height:.9;color:var(--petrol)}
+.nf h2{margin:18px 0 14px}
+.nf .img{aspect-ratio:4/5;border-radius:22px;overflow:hidden}
+.nf .img img{width:100%;height:100%;object-fit:cover}
+
+/* mobile menu */
+.mnav{position:fixed;inset:0;background:var(--bone);z-index:96;transform:translateX(-100%);transition:transform .5s var(--ease);padding:24px;overflow:auto}
+.mnav.on{transform:none}
+.mnav a{display:block;font-family:var(--serif);font-size:38px;padding:8px 0;border-bottom:1px solid var(--line)}
+.mnav .x{font-size:26px;margin-bottom:20px}
+
+@media (max-width:1100px){
+  .grid4{grid-template-columns:repeat(2,1fr)}
+  .concerns{grid-template-columns:repeat(3,1fr)}
+  .steps{grid-template-columns:repeat(2,1fr)}
+  .revs{grid-template-columns:1fr 1fr}
+}
+@media (max-width:760px){
+  body{font-size:14.5px}
+  .wrap{padding:0 18px}
+  .sec{padding:72px 0}
+  .sec-head{flex-direction:column;align-items:flex-start;margin-bottom:28px}
+  .hdr{top:44px}
+  .hdr .wrap{height:62px;grid-template-columns:auto 1fr auto}
+  .nav,.routine-cta,.tools .hide-m{display:none}
+  .burger{display:grid}
+  .logo{font-size:26px;text-align:center}
+  .logo small{display:none}
+  .hero{height:auto;min-height:0}
+  .hero img{position:relative;height:340px;object-position:78% 30%}
+  .hero .wrap{padding-top:30px;padding-bottom:30px}
+  .hero h1{font-size:50px}
+  .hero-claims{position:static;padding:0 18px 26px}
+  .concerns{display:flex;overflow-x:auto;gap:14px;scroll-snap-type:x mandatory;margin:0 -18px;padding:0 18px}
+  .concern{flex:0 0 104px;scroll-snap-align:start}
+  .grid4,.grid3p{grid-template-columns:1fr 1fr;gap:22px 12px}
+  .qa{transform:none;left:8px;right:8px;bottom:8px}
+  .qa button{height:38px;font-size:12px}
+  .qa button.ghost{display:none}
+  .card .row{flex-direction:column;align-items:flex-start;gap:6px}
+  .ingr{grid-template-columns:1fr}
+  .ingr .img{min-height:300px}
+  .ingr .txt{padding:30px 22px}
+  .ingr h3{font-size:36px}
+  .rb{padding:34px 20px}
+  .rb .top{flex-direction:column;align-items:flex-start}
+  .steps{grid-template-columns:1fr 1fr;gap:10px}
+  .edit{min-height:520px}
+  .edit .panel{margin:14px;padding:26px}
+  .rev-wrap{grid-template-columns:1fr;gap:28px}
+  .revs{grid-template-columns:1fr}
+  .grid3{grid-template-columns:1fr}
+  .news{grid-template-columns:1fr;padding:34px 22px}
+  .news h2{font-size:38px}
+  .news > *{min-width:0}
+  .news .btn{padding:0 18px}
+  .trust{grid-template-columns:1fr 1fr}
+  .trust > div:nth-child(3){border-left:0}
+  .trust > div{padding:20px 12px;flex-direction:column;gap:10px;min-width:0}
+  .ftr .cols{grid-template-columns:1fr 1fr}
+  .ftr .cols > div:first-child{grid-column:1/-1}
+  .col-hero{grid-template-columns:1fr;gap:20px}
+  .col-hero h1{font-size:52px}
+  .col{grid-template-columns:1fr}
+  .filters{position:static;display:flex;gap:8px;overflow-x:auto}
+  .filters .fg{border:1px solid var(--line-2);border-radius:999px;padding:8px 14px;flex:none}
+  .filters .fg h4{margin:0;font-size:12.5px}
+  .filters .fg > :not(h4){display:none}
+  .pdp{grid-template-columns:1fr;gap:28px}
+  .gal{position:static;grid-template-columns:1fr}
+  .thumbs{grid-auto-flow:column;grid-auto-columns:64px;order:2}
+  .buy h1{font-size:42px}
+  .how{grid-template-columns:1fr}
+  .fbt{grid-template-columns:1fr;padding:24px}
+  .fbt .tot{border-left:0;padding-left:0}
+  .cart-page{grid-template-columns:1fr}
+  .line{grid-template-columns:84px 1fr;}
+  .line > :last-child{grid-column:2}
+  .upsell{grid-template-columns:1fr}
+  .blog-feat{grid-template-columns:1fr;gap:20px}
+  .blog-feat h2{font-size:40px}
+  .art h1{font-size:44px}
+  .about-hero{height:460px}
+  .about-hero .t{padding:26px}
+  .about-hero h1{font-size:52px}
+  .manifest,.contact,.split-img{grid-template-columns:1fr;gap:28px}
+  .vals{grid-template-columns:1fr 1fr}
+  .form{padding:24px}
+  .form .two{grid-template-columns:1fr}
+  .contact h1{font-size:52px}
+  .nf{grid-template-columns:1fr}
+  .nf h1{font-size:120px}
+  .modal{grid-template-columns:1fr;max-height:90vh;overflow:auto}
+  .modal img{aspect-ratio:16/10}
+  .modal .c{padding:24px}
+  .sticky-atc .wrap{height:68px}
+  .sticky-atc img,.sticky-atc .nm span{display:none}
+  .search-box input{font-size:32px}
+}
+</style>
+</head>
+<body>
+
+<div class="dt" data-dawn="Design toolbar (preview only)">
+  <div class="wrap">
+    <b>Oriel · Skincare</b>
+    <button data-go="home" class="on">Home</button>
+    <button data-go="collection">Collection</button>
+    <button data-go="product">Product</button>
+    <button data-go="cart">Cart</button>
+    <button data-go="search">Search</button>
+    <button data-go="blog">Blog</button>
+    <button data-go="article">Article</button>
+    <button data-go="about">About</button>
+    <button data-go="contact">Contact</button>
+    <button data-go="404">404</button>
+    <label><input type="checkbox" id="names"> Show section names</label>
+  </div>
+</div>
+
+<div class="ann" data-dawn="announcement-bar">
+  <div class="on">Free shipping on orders over $60</div>
+  <div>Build an AM + PM routine and save 10%</div>
+  <div>Fragrance-free formulas in recyclable glass</div>
+</div>
+
+<header class="hdr" data-dawn="header (centred logo, mega menu)">
+  <div class="wrap">
+    <nav class="nav">
+      <div class="mega-host"><a href="#" data-go="collection">Shop</a>
+        <div class="mega">
+          <div class="wrap">
+            <div><h4>By category</h4><ul><li><a href="#" data-go="collection">Cleansers</a></li><li><a href="#" data-go="collection">Toners</a></li><li><a href="#" data-go="collection">Serums</a></li><li><a href="#" data-go="collection">Moisturisers</a></li><li><a href="#" data-go="collection">Sun care</a></li><li><a href="#" data-go="collection">Masks &amp; oils</a></li></ul></div>
+            <div><h4>By concern</h4><ul><li><a href="#" data-go="collection">Dryness</a></li><li><a href="#" data-go="collection">Dullness</a></li><li><a href="#" data-go="collection">Fine lines</a></li><li><a href="#" data-go="collection">Breakouts</a></li><li><a href="#" data-go="collection">Sensitivity</a></li></ul></div>
+            <div><h4>Featured</h4><ul><li><a href="#" data-go="collection">Best sellers</a></li><li><a href="#" data-go="collection">New in</a></li><li><a href="#" data-go="collection">Sets &amp; routines</a></li><li><a href="#" data-go="collection">Travel sizes</a></li></ul></div>
+            <a class="mega-tile" href="#" data-go="collection"><img data-src="shelf" alt="Skincare shelf"><span>The four-step routine</span></a>
+          </div>
+        </div>
+      </div>
+      <a href="#" data-go="collection">Concerns</a>
+      <a href="#routine" data-go="home">Routine</a>
+      <a href="#" data-go="article">Ingredients</a>
+      <a href="#" data-go="blog">Journal</a>
+    </nav>
+    <button class="ic burger" aria-label="Menu" id="burger"><svg viewBox="0 0 24 24"><path d="M3 7h18M3 12h18M3 17h18"/></svg></button>
+    <a href="#" class="logo" data-go="home">ORIEL<small>CLINICAL SKINCARE</small></a>
+    <div class="tools">
+      <a href="#routine" class="routine-cta" data-go="home">Find your routine</a>
+      <button class="ic" aria-label="Search" data-go="search"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg></button>
+      <button class="ic hide-m" aria-label="Account"><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 21c1.5-4 4.5-6 8-6s6.5 2 8 6"/></svg></button>
+      <button class="ic" aria-label="Cart" id="openCart"><svg viewBox="0 0 24 24"><path d="M5 8h14l-1.2 12H6.2z"/><path d="M9 8a3 3 0 0 1 6 0"/></svg><span class="count" id="count">0</span></button>
+    </div>
+  </div>
+</header>
+
+<!-- ================= HOME ================= -->
+<main class="page on" id="p-home">
+  <section class="hero" data-dawn="image-banner (hero)">
+    <img data-src="hero" alt="Woman holding Oriel serum">
+    <div class="wrap">
+      <span class="eyebrow">New · Hydra Serum 3HA</span>
+      <h1 class="reveal">Skin, <em>precisely</em> cared for.</h1>
+      <p class="reveal">Short ingredient lists, clinical doses, no fragrance. Everything your skin needs and nothing it doesn't.</p>
+      <div class="ctas reveal"><a href="#routine" class="btn btn-ink">Find your routine</a><a href="#" class="link" data-go="collection">Shop best sellers</a></div>
+    </div>
+    <div class="hero-claims"><span class="claim"><i></i>Fragrance-free</span><span class="claim"><i></i>Vegan formulas</span><span class="claim"><i></i>Recyclable glass</span><span class="claim"><i></i>Made in small batches</span></div>
+  </section>
+
+  <section class="sec" data-dawn="collection-list (shop by concern)">
+    <div class="wrap">
+      <div class="sec-head reveal"><div><span class="eyebrow">Shop by concern</span><h2>Start with <em>your skin</em>.</h2></div><p>Pick what you want to change. We'll show the formulas made for it.</p></div>
+      <div class="concerns reveal" id="concerns"></div>
+    </div>
+  </section>
+
+  <section class="sec" style="padding-top:0" data-dawn="featured-collection (best sellers)">
+    <div class="wrap">
+      <div class="sec-head reveal"><div><span class="eyebrow">Best sellers</span><h2>The <em>essentials</em>.</h2></div><a href="#" class="link" data-go="collection">View all 24 products</a></div>
+      <div class="grid4" id="best"></div>
+    </div>
+  </section>
+
+  <section class="sec" style="padding-top:0" data-dawn="sbs-ingredient-spotlight">
+    <div class="wrap">
+      <div class="ingr reveal">
+        <div class="img" id="ingrImg"><img data-src="gel" alt="Hyaluronic gel"></div>
+        <div class="txt">
+          <span class="eyebrow">Ingredient spotlight</span>
+          <div class="tabs" id="ingrTabs"><button class="on" data-i="0">Hyaluronic acid</button><button data-i="1">Niacinamide</button><button data-i="2">Ceramides</button></div>
+          <h3 id="ingrH">Three weights of <em>hyaluronic acid</em>.</h3>
+          <p id="ingrP">Large molecules hold water on the surface. Small ones reach deeper layers. Together they plump and smooth without a sticky finish.</p>
+          <div class="facts" id="ingrF"><div><b>3</b><span>molecular weights</span></div><div><b>2%</b><span>total concentration</span></div><div><b>AM/PM</b><span>use twice daily</span></div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" style="padding-top:0" id="routine" data-dawn="sbs-routine-builder">
+    <div class="wrap">
+      <div class="rb reveal">
+        <div class="top">
+          <div><span class="eyebrow" style="color:#9EC3D4">Routine builder</span><h2 style="color:#fff;margin-top:10px">Your routine, <em>in four steps</em>.</h2></div>
+          <div class="seg" id="seg"><button class="on" data-t="am">Morning</button><button data-t="pm">Evening</button></div>
+        </div>
+        <div class="steps" id="steps"></div>
+        <div class="total"><div class="sum" id="rbSum"></div><button class="btn btn-white" id="rbAdd">Add routine to bag</button></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" style="padding-top:0" data-dawn="image-with-text (editorial)">
+    <div class="wrap">
+      <div class="edit reveal">
+        <img data-src="shelf" alt="Bathroom shelf with Oriel products">
+        <div class="panel"><span class="eyebrow">The method</span><h2>Less product. <em>Better skin.</em></h2><p>Four steps, morning and night. Each formula does one job well, so your shelf stays short and your skin stays calm.</p><a href="#" class="btn btn-ink" data-go="article">Read the method</a></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" style="padding-top:0" data-dawn="sbs-reviews (rating summary + cards)">
+    <div class="wrap rev-wrap">
+      <div class="rev-sum reveal">
+        <span class="eyebrow">Reviews</span>
+        <div class="big">4.8</div>
+        <div class="stars"><i>★★★★★</i> based on 1,240 reviews</div>
+        <div class="bars"><div>5 ★<span style="--w:84%"></span>84%</div><div>4 ★<span style="--w:11%"></span>11%</div><div>3 ★<span style="--w:3%"></span>3%</div><div>2 ★<span style="--w:1%"></span>1%</div><div>1 ★<span style="--w:1%"></span>1%</div></div>
+        <a href="#" class="btn btn-line" data-go="product">Read all reviews</a>
+        <p class="demo-note">Demo content: replace with your store's reviews app.</p>
+      </div>
+      <div class="revs reveal">
+        <div class="rev"><div class="stars"><i>★★★★★</i></div><p>"My skin drinks this. No stickiness, and it sits well under SPF every morning."</p><span class="tag" style="align-self:flex-start">Dry skin</span><div class="who"><span>Sample review</span><span>Hydra Serum</span></div></div>
+        <div class="rev"><div class="stars"><i>★★★★★</i></div><p>"Gentle enough for my sensitive cheeks. The texture is light and it absorbs fast."</p><span class="tag" style="align-self:flex-start">Sensitive</span><div class="who"><span>Sample review</span><span>Barrier Cream</span></div></div>
+        <div class="rev"><div class="stars"><i>★★★★☆</i></div><p>"Finally an SPF with no white cast. It feels like a light lotion."</p><span class="tag" style="align-self:flex-start">Combination</span><div class="who"><span>Sample review</span><span>Daily Fluid SPF 50</span></div></div>
+      </div>
+    </div>
+  </section>
+
+  <section data-dawn="multicolumn (trust)">
+    <div class="wrap"><div class="trust">
+      <div><svg viewBox="0 0 24 24"><path d="M3 7h11v9H3zM14 10h4l3 3v3h-7"/><circle cx="7" cy="17" r="2"/><circle cx="17" cy="17" r="2"/></svg><div><b>Free shipping over $60</b><span>Delivered in 2 to 4 days</span></div></div>
+      <div><svg viewBox="0 0 24 24"><path d="M4 12a8 8 0 1 0 3-6.2M4 4v4h4"/></svg><div><b>30-day returns</b><span>Even on opened products</span></div></div>
+      <div><svg viewBox="0 0 24 24"><path d="M12 3c4 4 6 7 6 10a6 6 0 0 1-12 0c0-3 2-6 6-10z"/></svg><div><b>Fragrance-free</b><span>No essential oils, ever</span></div></div>
+      <div><svg viewBox="0 0 24 24"><path d="M7 4h10v4l-2 2v10H9V10L7 8z"/></svg><div><b>Recyclable glass</b><span>Return empties for credit</span></div></div>
+    </div></div>
+  </section>
+
+  <section class="sec" data-dawn="featured-blog (journal)">
+    <div class="wrap">
+      <div class="sec-head reveal"><div><span class="eyebrow">Journal</span><h2>Skin, <em>explained</em>.</h2></div><a href="#" class="link" data-go="blog">All articles</a></div>
+      <div class="grid3 reveal" id="posts"></div>
+    </div>
+  </section>
+
+  <section data-dawn="newsletter">
+    <div class="wrap"><div class="news reveal">
+      <div><span class="eyebrow">The Oriel letter</span><h2>Get <em>10% off</em> your first order.</h2></div>
+      <div><form onsubmit="event.preventDefault();toast('Thanks. Check your inbox for your code.')"><input type="email" placeholder="Email address" required aria-label="Email"><button class="btn btn-ink">Subscribe</button></form><small>One email a month. Ingredient notes, routines and early access.</small></div>
+    </div></div>
+  </section>
+</main>
+
+<!-- ================= COLLECTION ================= -->
+<main class="page" id="p-collection">
+  <div class="wrap">
+    <div class="crumbs" data-dawn="sbs-breadcrumbs"><a href="#" data-go="home">Home</a><span>/</span><a href="#">Shop</a><span>/</span>All skincare</div>
+    <section class="col-hero" data-dawn="main-collection-banner">
+      <div><span class="eyebrow">Collection</span><h1>All <em class="serif">skincare</em></h1><p>Eight formulas that cover a full routine. Filter by your concern or skin type to find your match.</p></div>
+      <div class="img"><img data-src="lab" alt="Oriel lab"></div>
+    </section>
+    <section class="col" data-dawn="main-collection-product-grid (filters + grid)">
+      <aside class="filters" id="filters">
+        <div class="fg"><h4>Concern</h4>
+          <label><input type="checkbox" value="dryness">Dryness</label><label><input type="checkbox" value="dullness">Dullness</label><label><input type="checkbox" value="lines">Fine lines</label><label><input type="checkbox" value="breakouts">Breakouts</label><label><input type="checkbox" value="sensitive">Sensitivity</label>
+        </div>
+        <div class="fg"><h4>Skin type</h4><div class="pills"><button>Dry</button><button>Oily</button><button>Combination</button><button>Sensitive</button></div></div>
+        <div class="fg"><h4>Product type</h4><label><input type="checkbox">Serums</label><label><input type="checkbox">Moisturisers</label><label><input type="checkbox">Cleansers</label><label><input type="checkbox">Sun care</label></div>
+        <div class="fg"><h4>Price <span>$20 – $60</span></h4><input type="range" min="20" max="60" value="60" style="width:100%;accent-color:var(--petrol)"></div>
+      </aside>
+      <div>
+        <div class="toolbar"><span id="pcount">8 products</span><select aria-label="Sort"><option>Best selling</option><option>Price, low to high</option><option>Price, high to low</option><option>Newest</option></select></div>
+        <div class="chips-active" id="chips"></div>
+        <div class="grid3p" id="colgrid"></div>
+        <div class="load"><p>Showing 8 of 12</p><div class="bar"></div><button class="btn btn-line">Load more</button></div>
+      </div>
+    </section>
+  </div>
+</main>
+
+<!-- ================= PRODUCT ================= -->
+<main class="page" id="p-product">
+  <div class="wrap">
+    <div class="crumbs" data-dawn="sbs-breadcrumbs"><a href="#" data-go="home">Home</a><span>/</span><a href="#" data-go="collection">Serums</a><span>/</span>Hydra Serum 3HA</div>
+    <section class="pdp" data-dawn="main-product">
+      <div class="gal">
+        <div class="thumbs" id="thumbs"></div>
+        <div class="main-img" id="mainImg"><img data-src="serum" alt="Hydra Serum"></div>
+      </div>
+      <div class="buy" id="buy">
+        <span class="eyebrow">Serum · Hydration</span>
+        <h1>Hydra Serum <em>3HA</em></h1>
+        <div class="stars"><i>★★★★★</i> 4.8 · <a href="#pdpRev" class="link" style="font-weight:500">212 reviews</a></div>
+        <p class="lead">A water-light serum with three weights of hyaluronic acid and panthenol. Plumps, smooths and preps skin for everything after it.</p>
+        <div class="tags"><span class="tag">Dry skin</span><span class="tag">Dehydration</span><span class="tag">All skin types</span><span class="tag">Fragrance-free</span></div>
+        <div class="opt"><h4>Size <span id="sizeLbl">30 ml</span></h4><div class="sizepills" id="sizes"><button class="on" data-p="38" data-l="30 ml"><b>30 ml</b><span>About 2 months</span></button><button data-p="54" data-l="50 ml"><b>50 ml</b><span>About 3 months · best value</span></button></div></div>
+        <div class="opt"><h4>Purchase</h4><div class="plan" id="plan">
+          <label class="on"><input type="radio" name="plan" checked data-d="0">One-time purchase<span class="p" id="p1">$38</span></label>
+          <label><input type="radio" name="plan" data-d="0.15"><span>Subscribe &amp; save 15%<small>Delivered every 8 weeks. Skip or cancel anytime.</small></span><span class="p" id="p2">$32.30</span></label>
+        </div></div>
+        <div class="qtyrow"><div class="qty"><button aria-label="Less" id="qm">−</button><input id="qtyv" value="1" aria-label="Quantity"><button aria-label="More" id="qp">+</button></div><button class="btn btn-ink" id="atc">Add to bag · $38</button></div>
+        <div class="perks"><div><i></i>Free shipping over $60</div><div><i></i>30-day returns</div><div><i></i>Ships in 1 business day</div><div><i></i>Recyclable glass</div></div>
+        <div class="acc">
+          <details open><summary>What it does</summary><div class="in">Binds water at three depths for hydration that lasts all day. Panthenol supports the skin barrier. Use morning and night after cleansing.</div></details>
+          <details><summary>Key ingredients</summary><div class="in"><ul><li>Hyaluronic acid, 3 weights (2%)</li><li>Panthenol (vitamin B5)</li><li>Glycerin</li></ul></div></details>
+          <details><summary>Full ingredient list</summary><div class="in">Aqua, Glycerin, Sodium Hyaluronate, Hydrolyzed Sodium Hyaluronate, Sodium Acetylated Hyaluronate, Panthenol, Pentylene Glycol, Ethylhexylglycerin, Phenoxyethanol. (Demo list)</div></details>
+          <details><summary>How to use</summary><div class="in">Press 2 to 3 drops into damp skin after cleansing. Follow with moisturiser. In the morning, finish with SPF.</div></details>
+          <details><summary>Shipping &amp; returns</summary><div class="in">Free standard shipping over $60. Returns accepted within 30 days, including opened products.</div></details>
+        </div>
+      </div>
+    </section>
+  </div>
+  <section class="sec" data-dawn="multicolumn (how to use)">
+    <div class="wrap">
+      <div class="sec-head"><div><span class="eyebrow">How to use</span><h2>Three drops, <em>twice a day</em>.</h2></div></div>
+      <div class="how"><div><b>01</b><h4>Cleanse</h4><p>Wash with Gel Cleanser and leave skin slightly damp.</p></div><div><b>02</b><h4>Press in</h4><p>Warm 2 to 3 drops between fingertips and press over face and neck.</p></div><div><b>03</b><h4>Seal</h4><p>Follow with Barrier Cream. In the morning add Daily Fluid SPF 50.</p></div></div>
+    </div>
+  </section>
+  <section class="sec" style="padding-top:0" data-dawn="sbs-frequently-bought-together">
+    <div class="wrap"><div class="fbt">
+      <div><span class="eyebrow">Pairs well with</span><h2 style="font-size:40px;margin:8px 0 26px">Complete the <em>morning routine</em>.</h2>
+        <div class="items" id="fbt"></div></div>
+      <div class="tot"><span style="color:var(--ink-3);font-size:13px">Bundle total</span><b id="fbtT"></b><span style="font-size:13px;color:var(--petrol)">You save 10% when bought together</span><button class="btn btn-ink" id="fbtAdd">Add selected to bag</button></div>
+    </div></div>
+  </section>
+  <section class="sec" style="padding-top:0" id="pdpRev" data-dawn="sbs-reviews (product)">
+    <div class="wrap">
+      <div class="sec-head"><div><span class="eyebrow">Reviews</span><h2>4.8 out of 5, <em>212 reviews</em>.</h2></div><button class="btn btn-line">Write a review</button></div>
+      <div class="rev-filter" id="rf"><button class="on" data-f="all">All</button><button data-f="Dry skin">Dry skin</button><button data-f="Oily">Oily</button><button data-f="Sensitive">Sensitive</button></div>
+      <div class="revs" id="pdpRevs"></div>
+      <p class="demo-note">Demo content: reviews are samples and will come from your reviews app.</p>
+    </div>
+  </section>
+  <section class="sec" style="padding-top:0" data-dawn="product-recommendations">
+    <div class="wrap"><div class="sec-head"><div><span class="eyebrow">You may also like</span><h2>Recently <em>viewed</em>.</h2></div></div><div class="grid4" id="recs"></div></div>
+  </section>
+  <div class="sticky-atc" id="satc" data-dawn="sbs-sticky-add-to-cart">
+    <div class="wrap"><img data-src="serum" alt=""><div class="nm">Hydra Serum 3HA<span id="satcV">30 ml · One-time</span></div><button class="btn btn-ink" id="satcBtn">Add to bag · $38</button></div>
+  </div>
+</main>
+
+<!-- ================= CART ================= -->
+<main class="page" id="p-cart">
+  <div class="wrap">
+    <div class="crumbs" data-dawn="sbs-breadcrumbs"><a href="#" data-go="home">Home</a><span>/</span>Your bag</div>
+    <h1 style="font-size:68px;margin:6px 0 30px">Your <em class="serif" style="color:var(--petrol)">bag</em></h1>
+    <section class="cart-page" data-dawn="main-cart-items + main-cart-footer">
+      <div>
+        <div class="ship" id="shipBox"></div>
+        <div id="cartLines"></div>
+        <h3 style="font-size:30px;margin-top:44px">Add a <em style="color:var(--petrol)">finishing step</em></h3>
+        <div class="upsell" id="upsell"></div>
+      </div>
+      <aside class="summary">
+        <h3>Summary</h3>
+        <div class="r"><span>Subtotal</span><span id="sub">$0</span></div>
+        <div class="r"><span>Shipping</span><span id="shp">Calculated at checkout</span></div>
+        <div class="r t"><span>Total</span><span id="tot">$0</span></div>
+        <textarea placeholder="Order note or gift message"></textarea>
+        <button class="btn btn-ink" onclick="toast('Checkout is handled by Shopify.')">Checkout</button>
+        <div class="tb"><span>VISA</span><span>MC</span><span>AMEX</span><span>PAYPAL</span><span>SHOP PAY</span></div>
+      </aside>
+    </section>
+  </div>
+</main>
+
+<!-- ================= SEARCH ================= -->
+<main class="page" id="p-search">
+  <div class="wrap">
+    <section data-dawn="main-search">
+      <div class="search-box"><input id="q" placeholder="Search Oriel" value="serum" aria-label="Search"><svg viewBox="0 0 24 24" width="28" height="28" stroke="currentColor" fill="none" stroke-width="1.5"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg></div>
+      <div class="sugg"><span style="font-size:13px;color:var(--ink-3);margin-right:6px;align-self:center">Popular:</span><button>hyaluronic</button><button>spf</button><button>sensitive skin</button><button>night</button><button>gift set</button></div>
+      <p style="font-size:13px;color:var(--ink-3);margin-bottom:20px" id="sres"></p>
+      <div class="grid4" id="sgrid"></div>
+    </section>
+  </div>
+</main>
+
+<!-- ================= BLOG ================= -->
+<main class="page" id="p-blog">
+  <div class="wrap">
+    <div class="crumbs" data-dawn="sbs-breadcrumbs"><a href="#" data-go="home">Home</a><span>/</span>Journal</div>
+    <section data-dawn="main-blog">
+      <div class="blog-feat"><a class="media" href="#" data-go="article"><img data-src="shelf" alt=""></a><div><span class="eyebrow">Featured · Routine</span><h2>The four-step routine, <em>explained</em>.</h2><p style="color:var(--ink-2);margin-bottom:24px">Why fewer products often work better, and what each step actually does for your skin.</p><a href="#" class="btn btn-ink" data-go="article">Read article</a></div></div>
+      <div class="tabs" style="margin:0 0 34px"><button class="on">All</button><button>Ingredients</button><button>Routines</button><button>Sun care</button><button>Sensitive skin</button></div>
+      <div class="grid3" id="posts2"></div>
+    </section>
+  </div>
+</main>
+
+<!-- ================= ARTICLE ================= -->
+<main class="page" id="p-article">
+  <div class="wrap">
+    <div class="crumbs" data-dawn="sbs-breadcrumbs"><a href="#" data-go="home">Home</a><span>/</span><a href="#" data-go="blog">Journal</a><span>/</span>Routine</div>
+  </div>
+  <article data-dawn="main-article">
+    <div class="wrap art" style="text-align:center"><span class="eyebrow">Routine · 6 min read</span><h1>The four-step routine, <em>explained</em>.</h1><p class="meta">By the Oriel team · October 2026</p></div>
+    <div class="wrap"><div class="art cover"><img data-src="shelf" alt=""></div></div>
+    <div class="wrap art">
+      <p>Most skin does best with a short routine done consistently. Four steps cover what skin needs: clean it, hydrate it, protect the barrier, and shield it from the sun.</p>
+      <h2>1. Cleanse, gently</h2>
+      <p>A low-foam gel cleanser removes sunscreen and oil without stripping. If your skin feels tight afterwards, your cleanser is too strong.</p>
+      <div class="shop-inline"><img data-src="cleanser" alt=""><div><b>Gel Cleanser</b><div style="font-size:13px;color:var(--ink-3)">150 ml · $24</div></div><button class="btn btn-ink" style="margin-left:auto;height:44px" onclick="addToCart(1)">Add</button></div>
+      <h2>2. Hydrate with a serum</h2>
+      <p>Hyaluronic acid draws water into the skin. Apply it to damp skin and seal it in straight away.</p>
+      <blockquote>"Consistency beats intensity. The best routine is the one you actually do every day."</blockquote>
+      <h2>3. Protect the barrier</h2>
+      <p>A ceramide moisturiser keeps water in and irritants out. This step matters most for dry and sensitive skin.</p>
+      <h2>4. Finish with SPF</h2>
+      <p>Daily sunscreen is the single most effective step for long-term skin health. Use it every morning, rain or shine.</p>
+    </div>
+  </article>
+  <section class="sec" data-dawn="featured-collection (shop the article)">
+    <div class="wrap"><div class="sec-head"><div><span class="eyebrow">Shop the routine</span><h2>Everything in <em>this article</em>.</h2></div></div><div class="grid4" id="artgrid"></div></div>
+  </section>
+</main>
+
+<!-- ================= ABOUT ================= -->
+<main class="page" id="p-about">
+  <div class="wrap">
+    <div class="crumbs" data-dawn="sbs-breadcrumbs"><a href="#" data-go="home">Home</a><span>/</span>About</div>
+    <section class="about-hero" data-dawn="image-banner (about)"><img data-src="lab" alt=""><div class="t"><span class="eyebrow" style="color:#fff">Our story</span><h1>Fewer ingredients. <em style="color:#fff">More care.</em></h1></div></section>
+    <section class="sec manifest" data-dawn="rich-text (manifesto)">
+      <h2>We make skincare the way a <em>lab</em> would, and explain it the way a <em>friend</em> would.</h2>
+      <div><p>Oriel started with one question: what does skin actually need? The answer was shorter than most shelves suggest.</p><p>Every formula has a clear job, a short ingredient list and a dose that works. No fragrance, no fillers, no fuss.</p><a href="#" class="btn btn-ink" data-go="collection">Shop the range</a></div>
+    </section>
+    <section data-dawn="multicolumn (values)"><div class="vals"><div><b>Clinical doses</b><span>Active ingredients at levels that make a difference.</span></div><div><b>Fragrance-free</b><span>No perfume or essential oils in any formula.</span></div><div><b>Small batches</b><span>Made fresh in small runs for better stability.</span></div><div><b>Refill & return</b><span>Send back empties and get store credit.</span></div></div></section>
+    <section class="sec split-img" data-dawn="collage"><img data-src="portrait" alt=""><img data-src="hands" alt=""></section>
+  </div>
+</main>
+
+<!-- ================= CONTACT ================= -->
+<main class="page" id="p-contact">
+  <div class="wrap">
+    <div class="crumbs" data-dawn="sbs-breadcrumbs"><a href="#" data-go="home">Home</a><span>/</span>Contact</div>
+    <section class="contact" data-dawn="contact-form">
+      <div><span class="eyebrow">Contact</span><h1>We're here <em class="serif" style="color:var(--petrol)">to help</em>.</h1><p style="color:var(--ink-2);margin-top:16px">Questions about your skin, your order or an ingredient? Our team answers within one business day.</p>
+        <div class="ways"><div><b>Email</b><span>hello@oriel.example</span></div><div><b>Skin advice</b><span>Book a free 15-minute video consult</span></div><div><b>Hours</b><span>Mon to Fri, 9am to 6pm</span></div></div></div>
+      <form class="form" onsubmit="event.preventDefault();toast('Message sent. We will reply within one business day.')">
+        <div class="two"><label>Name<input required></label><label>Email<input type="email" required></label></div>
+        <label>Topic<select><option>Product advice</option><option>My order</option><option>Returns</option><option>Wholesale</option></select></label>
+        <label>Message<textarea rows="5" required></textarea></label>
+        <button class="btn btn-ink">Send message</button>
+      </form>
+    </section>
+    <section class="sec faq" data-dawn="collapsible-content (FAQ)" style="max-width:820px">
+      <h2 style="margin-bottom:20px">Common <em>questions</em></h2>
+      <details><summary>Are your products suitable for sensitive skin?</summary><p>Every formula is fragrance-free. We still suggest a patch test before first use.</p></details>
+      <details><summary>Can I use the serum with retinol?</summary><p>Yes. Apply the serum first, then your retinol, then moisturiser.</p></details>
+      <details><summary>How long does shipping take?</summary><p>Orders ship in one business day and usually arrive in 2 to 4 days.</p></details>
+    </section>
+  </div>
+</main>
+
+<!-- ================= 404 ================= -->
+<main class="page" id="p-404">
+  <div class="wrap">
+    <section class="nf" data-dawn="main-404">
+      <div><h1 class="serif">404</h1><h2>This page has <em>evaporated</em>.</h2><p style="color:var(--ink-2);margin-bottom:28px">The link may be old, or the product has moved. Try a search or start with our best sellers.</p><div style="display:flex;gap:12px;flex-wrap:wrap"><a href="#" class="btn btn-ink" data-go="collection">Shop best sellers</a><a href="#" class="btn btn-line" data-go="search">Search</a></div></div>
+      <div class="img"><img data-src="texture" alt=""></div>
+    </section>
+  </div>
+</main>
+
+<footer class="ftr" data-dawn="footer">
+  <div class="wrap">
+    <div class="cols">
+      <div><div class="logo">ORIEL</div><p style="margin-top:18px;max-width:320px;font-size:14px">Clinical skincare with short ingredient lists. Made in small batches, packed in recyclable glass.</p><div class="social"><a href="#">IG</a><a href="#">TT</a><a href="#">PI</a><a href="#">YT</a></div></div>
+      <div><h4>Shop</h4><ul><li><a href="#" data-go="collection">All products</a></li><li><a href="#" data-go="collection">Best sellers</a></li><li><a href="#" data-go="collection">Sets</a></li><li><a href="#" data-go="collection">Gift cards</a></li></ul></div>
+      <div><h4>Learn</h4><ul><li><a href="#" data-go="blog">Journal</a></li><li><a href="#" data-go="article">Ingredients</a></li><li><a href="#routine" data-go="home">Routine builder</a></li><li><a href="#" data-go="about">About us</a></li></ul></div>
+      <div><h4>Help</h4><ul><li><a href="#" data-go="contact">Contact</a></li><li><a href="#" data-go="contact">Shipping</a></li><li><a href="#" data-go="contact">Returns</a></li><li><a href="#" data-go="contact">FAQ</a></li></ul></div>
+    </div>
+    <div class="bottom"><span>© 2026 Oriel. Theme design by Shopify Brands SEO.</span><div class="pay"><span>VISA</span><span>MC</span><span>AMEX</span><span>PAYPAL</span><span>SHOP PAY</span></div></div>
+  </div>
+</footer>
+
+<div class="scrim" id="scrim"></div>
+<aside class="drawer" id="drawer" aria-label="Cart" data-dawn="cart-drawer">
+  <div class="hd"><h3>Your bag</h3><button class="ic" id="closeCart" aria-label="Close">✕</button></div>
+  <div class="bd"><div class="ship" id="dShip"></div><div id="dLines"></div></div>
+  <div class="ft"><div class="summary" style="position:static;padding:0;background:none"><div class="r t" style="border:0;margin:0;padding:0 0 14px"><span>Subtotal</span><span id="dSub">$0</span></div></div><button class="btn btn-ink" style="width:100%" data-go="cart" id="viewCart">View bag &amp; checkout</button></div>
+</aside>
+<div class="modal" id="qv" role="dialog" aria-label="Quick view">
+  <button class="x" id="qvX" aria-label="Close">✕</button>
+  <img id="qvImg" alt="">
+  <div class="c"><span class="eyebrow" id="qvCat"></span><h3 id="qvName"></h3><div class="stars" id="qvStars"></div><p style="color:var(--ink-2);margin:14px 0 20px" id="qvDesc"></p>
+    <div class="opt" style="margin-top:0"><h4>Size</h4><div class="sizepills" id="qvSizes"></div></div>
+    <button class="btn btn-ink" style="margin-top:24px" id="qvAdd"></button><a href="#" class="link" style="align-self:flex-start;margin-top:18px" data-go="product">View full details</a></div>
+</div>
+<nav class="mnav" id="mnav"><button class="x" id="mx" aria-label="Close">✕</button>
+  <a href="#" data-go="collection">Shop all</a><a href="#" data-go="collection">Concerns</a><a href="#routine" data-go="home">Routine</a><a href="#" data-go="article">Ingredients</a><a href="#" data-go="blog">Journal</a><a href="#" data-go="about">About</a><a href="#" data-go="contact">Contact</a>
+</nav>
+<div class="toast" id="toast"><i>✓</i><span id="toastT"></span></div>
+
+<script>
+const IMG='https://shopifybrandsseo.com/wp-content/uploads/2026/10/oriel-demo-';
+const src=k=>IMG+k+'.jpg';
+const P=[
+ {id:0,n:'Hydra Serum 3HA',c:'Serum',img:'serum',alt:'serum-alt',p:38,sz:[['30 ml',38],['50 ml',54]],r:'4.8',rc:212,b:'Best seller',bc:'',con:['dryness','dullness'],d:'Three weights of hyaluronic acid for deep, lasting hydration.'},
+ {id:1,n:'Gel Cleanser',c:'Cleanser',img:'cleanser',alt:'hands',p:24,sz:[['150 ml',24]],r:'4.7',rc:148,con:['breakouts','sensitive'],d:'A low-foam gel that cleans without stripping.'},
+ {id:2,n:'Barrier Cream',c:'Moisturiser',img:'moisturiser',alt:'texture',p:42,sz:[['50 ml',42],['100 ml',68]],r:'4.9',rc:96,b:'New',bc:'new',con:['dryness','sensitive'],d:'Ceramides and squalane to repair and protect.'},
+ {id:3,n:'Daily Fluid SPF 50',c:'Sun care',img:'spf',alt:'portrait',p:32,sz:[['50 ml',32]],r:'4.6',rc:174,con:['lines','dullness'],d:'A weightless fluid with no white cast.'},
+ {id:4,n:'Eye Renewal',c:'Eye care',img:'eye',alt:'texture',p:36,was:44,sz:[['15 ml',36]],r:'4.7',rc:83,b:'Sale',bc:'sale',con:['lines'],d:'Peptides and caffeine for tired eyes.'},
+ {id:5,n:'Balancing Toner',c:'Toner',img:'toner',alt:'gel',p:26,sz:[['200 ml',26]],r:'4.6',rc:121,con:['breakouts','dullness'],d:'Niacinamide and PHA to refine and even tone.'},
+ {id:6,n:'Clay Reset Mask',c:'Mask',img:'mask',alt:'hands',p:30,sz:[['75 ml',30]],r:'4.8',rc:67,con:['breakouts'],d:'Kaolin clay that clears without drying.'},
+ {id:7,n:'Night Oil',c:'Face oil',img:'oil',alt:'serum-alt',p:40,sz:[['30 ml',40]],r:'4.9',rc:58,b:'Limited',bc:'',con:['dryness','lines'],d:'Squalane and rosehip for overnight repair.'}
+];
+const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)];
+const money=v=>'$'+(Math.round(v*100)/100).toFixed(v%1?2:0);
+const stars=r=>'★★★★★'.slice(0,Math.round(+r))+'☆☆☆☆☆'.slice(0,5-Math.round(+r));
+
+function card(p){
+  const multi=p.sz.length>1;
+  return `<div class="card" data-con="${p.con.join(' ')}"><div class="mwrap">
+   <a href="#" class="media" data-go="product">${p.b?`<span class="badge ${p.bc}">${p.b}</span>`:''}
+     <img src="${src(p.img)}" alt="${p.n}" loading="lazy"><img class="alt" src="${src(p.alt)}" alt="" loading="lazy"></a>
+   <button class="wish" aria-label="Wishlist" onclick="this.classList.toggle('on')"><svg viewBox="0 0 24 24"><path d="M12 20s-7-4.4-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 5.6-7 10-7 10z"/></svg></button>
+   <div class="qa">${multi?`<button onclick="quick(${p.id})">Choose size</button>`:`<button onclick="addToCart(${p.id})">Add to bag · ${money(p.p)}</button>`}<button class="ghost" aria-label="Quick view" onclick="quick(${p.id})">⤢</button></div></div>
+   <div class="info"><div class="stars"><i>${stars(p.r)}</i>${p.r} (${p.rc})</div>
+     <h3><a href="#" data-go="product">${p.n}</a></h3><div class="sub">${p.c} · ${p.d.split(' ').slice(0,5).join(' ')}…</div>
+     <div class="row"><span class="price">${p.was?`<span class="now">${money(p.p)}</span><s>${money(p.was)}</s>`:(multi?'From ':'')+money(p.p)}</span>
+     ${multi?`<span class="sizes">${p.sz.map((s,i)=>`<button class="${i?'':'on'}" onclick="pickSize(this)">${s[0]}</button>`).join('')}</span>`:''}</div></div></div>`;
+}
+window.pickSize=b=>{b.parentNode.querySelectorAll('button').forEach(x=>x.classList.remove('on'));b.classList.add('on')};
+
+function fill(){
+  $('#best').innerHTML=[0,2,3,4].map(i=>card(P[i])).join('');
+  $('#recs').innerHTML=[2,5,7,3].map(i=>card(P[i])).join('');
+  $('#artgrid').innerHTML=[1,0,2,3].map(i=>card(P[i])).join('');
+  renderCol();
+  const C=[['Dryness','portrait','6 products'],['Dullness','serum-alt','4 products'],['Fine lines','eye','3 products'],['Breakouts','mask','3 products'],['Sensitivity','hands','5 products'],['Sun care','spf','2 products']];
+  $('#concerns').innerHTML=C.map(c=>`<a href="#" class="concern" data-go="collection"><div class="ring"><img src="${src(c[1])}" alt="${c[0]}" loading="lazy"></div><b>${c[0]}</b><small>${c[2]}</small></a>`).join('');
+  const posts=[['shelf','Routine','The four-step routine, explained'],['gel','Ingredients','Hyaluronic acid: how three weights work'],['portrait','Sun care','Why SPF is the step you should never skip'],['texture','Sensitive skin','Building a routine for reactive skin'],['lab','Ingredients','Niacinamide at 5%: what to expect'],['hands','Routine','Body care that follows the same rules']];
+  const pc=p=>`<a href="#" class="post" data-go="article"><div class="media"><img src="${src(p[0])}" alt="" loading="lazy"></div><div class="meta">${p[1]} · 5 min read</div><h3>${p[2]}</h3></a>`;
+  $('#posts').innerHTML=posts.slice(0,3).map(pc).join('');
+  $('#posts2').innerHTML=posts.map(pc).join('');
+  $$('img[data-src]').forEach(i=>i.src=src(i.dataset.src));
+  // pdp
+  const g=['serum','serum-alt','texture','gel','portrait'];
+  $('#thumbs').innerHTML=g.map((k,i)=>`<button class="${i?'':'on'}" data-k="${k}"><img src="${src(k)}" alt=""></button>`).join('');
+  $('#thumbs').onclick=e=>{const b=e.target.closest('button');if(!b)return;$$('#thumbs button').forEach(x=>x.classList.remove('on'));b.classList.add('on');$('#mainImg img').src=src(b.dataset.k)};
+  $('#mainImg').onclick=function(e){this.classList.toggle('zoom');const r=this.getBoundingClientRect();this.querySelector('img').style.transformOrigin=`${(e.clientX-r.left)/r.width*100}% ${(e.clientY-r.top)/r.height*100}%`};
+  const R=[['Dry skin',5,'"Plump and dewy by morning. I use it under everything now."'],['Sensitive',5,'"No stinging at all, which is rare for me. Fragrance-free really matters."'],['Oily',4,'"Light enough for oily skin. I just use less of it at night."'],['Dry skin',5,'"Second bottle. The 50 ml is worth it."'],['Sensitive',5,'"Calm, hydrated skin. It is my one non-negotiable step."'],['Oily',4,'"Absorbs fast, no shine. Would love a bigger size."']];
+  const rr=f=>{$('#pdpRevs').innerHTML=R.filter(r=>f=='all'||r[0]==f).map(r=>`<div class="rev"><div class="stars"><i>${stars(r[1])}</i></div><p>${r[2]}</p><span class="tag" style="align-self:flex-start">${r[0]}</span><div class="who"><span>Sample review</span><span>Verified buyer</span></div></div>`).join('')};rr('all');
+  $('#rf').onclick=e=>{const b=e.target.closest('button');if(!b)return;$$('#rf button').forEach(x=>x.classList.remove('on'));b.classList.add('on');rr(b.dataset.f)};
+  // fbt
+  const F=[0,2,3];
+  $('#fbt').innerHTML=F.map((i,k)=>`${k?'<span class="plus">+</span>':''}<div class="it"><img src="${src(P[i].img)}" alt=""><label><input type="checkbox" checked data-i="${i}" style="accent-color:var(--petrol)">${P[i].n}</label><div style="font-size:13px;color:var(--ink-3)">${money(P[i].p)}</div></div>`).join('');
+  const ft=()=>{const s=$$('#fbt input:checked').map(x=>P[x.dataset.i].p).reduce((a,b)=>a+b,0);$('#fbtT').innerHTML=`${money(s*.9)} <s style="font-size:16px;color:var(--ink-3);font-weight:500">${money(s)}</s>`};ft();
+  $('#fbt').onchange=ft;
+  $('#fbtAdd').onclick=()=>{$$('#fbt input:checked').forEach(x=>addToCart(+x.dataset.i,true));toast('Bundle added to your bag');bump()};
+  renderSearch();
+}
+// collection filter
+function renderCol(){
+  const on=$$('#filters input[type=checkbox][value]:checked').map(x=>x.value);
+  const list=P.filter(p=>!on.length||on.some(c=>p.con.includes(c)));
+  const cards=list.map(card);
+  if(cards.length>3)cards.splice(3,0,`<div class="promo-tile" data-dawn="sbs-promo-tile"><img src="${src('shelf')}" alt=""><span class="eyebrow" style="color:#CFE2EA">Routine set</span><h3>AM + PM routine, <em>save 10%</em></h3><a href="#routine" class="btn btn-white" data-go="home" style="align-self:flex-start">Build yours</a></div>`);
+  $('#colgrid').innerHTML=cards.join('');
+  $('#pcount').textContent=list.length+' products';
+  $('#chips').innerHTML=on.map(c=>`<button data-c="${c}">${c} ✕</button>`).join('')+(on.length?'<button data-c="*" style="background:none;text-decoration:underline">Clear all</button>':'');
+}
+document.addEventListener('change',e=>{if(e.target.closest('#filters'))renderCol()});
+$('#chips').onclick=e=>{const c=e.target.dataset.c;if(!c)return;$$('#filters input[value]').forEach(x=>{if(c=='*'||x.value==c)x.checked=false});renderCol()};
+$$('.fg .pills button').forEach(b=>b.onclick=()=>b.classList.toggle('on'));
+function renderSearch(){const q=($('#q').value||'').toLowerCase();const l=P.filter(p=>(p.n+p.c+p.d).toLowerCase().includes(q));$('#sres').textContent=`${l.length} results for "${q}"`;$('#sgrid').innerHTML=l.map(card).join('')}
+$('#q').oninput=renderSearch;
+$$('.sugg button').forEach(b=>b.onclick=()=>{$('#q').value=b.textContent;renderSearch()});
+
+// ingredient tabs
+const ING=[['gel','Three weights of <em>hyaluronic acid</em>.','Large molecules hold water on the surface. Small ones reach deeper layers. Together they plump and smooth without a sticky finish.',[['3','molecular weights'],['2%','total concentration'],['AM/PM','use twice daily']]],
+['serum-alt','<em>Niacinamide</em> for even, calm skin.','Vitamin B3 refines the look of pores, evens tone and supports the barrier. Gentle enough for daily use.',[['5%','niacinamide'],['8 wks','to see results'],['AM/PM','use twice daily']]],
+['texture','<em>Ceramides</em> that lock moisture in.','Skin-identical lipids rebuild the barrier, so water stays in and irritants stay out. Essential for dry and sensitive skin.',[['3','ceramide types'],['24 h','barrier support'],['PM','best at night']]]];
+$('#ingrTabs').onclick=e=>{const b=e.target.closest('button');if(!b)return;$$('#ingrTabs button').forEach(x=>x.classList.remove('on'));b.classList.add('on');const d=ING[b.dataset.i];const im=$('#ingrImg img');im.style.opacity=0;setTimeout(()=>{im.src=src(d[0]);im.style.opacity=1},250);$('#ingrH').innerHTML=d[1];$('#ingrP').textContent=d[2];$('#ingrF').innerHTML=d[3].map(f=>`<div><b>${f[0]}</b><span>${f[1]}</span></div>`).join('')};
+
+// routine builder
+const RB={am:[['Cleanse',1],['Hydrate',0],['Moisturise',2],['Protect',3]],pm:[['Cleanse',1],['Treat',5],['Repair',7],['Eyes',4]]};
+let rbT='am';
+function renderRB(){
+  $('#steps').innerHTML=RB[rbT].map((s,i)=>{const p=P[s[1]];return `<div class="step on" data-i="${s[1]}" tabindex="0" role="checkbox" aria-checked="true"><div class="n">Step ${i+1} · ${s[0]}<i>✓</i></div><img src="${src(p.img)}" alt=""><b>${p.n}</b><span>${money(p.p)}</span></div>`}).join('');sumRB();
+}
+function sumRB(){const sel=$$('#steps .step.on').map(s=>P[s.dataset.i].p);const t=sel.reduce((a,b)=>a+b,0);$('#rbSum').innerHTML=`${sel.length} products<b>${money(t*.9)}</b><s>${money(t)}</s> · 10% routine saving`}
+$('#steps').onclick=$('#steps').onkeydown=e=>{if(e.type=='keydown'&&e.key!=' '&&e.key!='Enter')return;const s=e.target.closest('.step');if(!s)return;e.preventDefault();s.classList.toggle('on');s.setAttribute('aria-checked',s.classList.contains('on'));sumRB()};
+$('#seg').onclick=e=>{const b=e.target.closest('button');if(!b)return;$$('#seg button').forEach(x=>x.classList.remove('on'));b.classList.add('on');rbT=b.dataset.t;renderRB()};
+$('#rbAdd').onclick=()=>{const s=$$('#steps .step.on');if(!s.length)return toast('Pick at least one step');s.forEach(x=>addToCart(+x.dataset.i,true));toast(`${s.length} products added with 10% off`);bump()};
+
+// cart
+let cart=[];
+function addToCart(id,silent,size){const p=P[id];const sz=size||p.sz[0];const key=id+sz[0];const f=cart.find(c=>c.key==key);f?f.q++:cart.push({key,id,s:sz[0],pr:sz[1],q:1});renderCart();if(!silent){toast(`${p.n} added to your bag`);bump()}}
+window.addToCart=addToCart;
+function bump(){const c=$('#count');c.classList.add('bump');setTimeout(()=>c.classList.remove('bump'),300)}
+function shipHTML(sub){const left=Math.max(0,60-sub);return `${left?`You're <b>${money(left)}</b> away from free shipping`:'<b>You have free shipping.</b>'}<div class="bar"><i style="width:${Math.min(100,sub/60*100)}%"></i></div>`}
+function renderCart(){
+  const sub=cart.reduce((a,c)=>a+c.pr*c.q,0),n=cart.reduce((a,c)=>a+c.q,0);
+  $('#count').textContent=n;
+  $('#shipBox').innerHTML=shipHTML(sub);$('#dShip').innerHTML=shipHTML(sub);
+  $('#sub').textContent=money(sub);$('#tot').textContent=money(sub);$('#dSub').textContent=money(sub);
+  $('#shp').textContent=sub>=60?'Free':'Calculated at checkout';
+  const empty='<div class="empty">Your bag is empty.<br><br><a href="#" class="btn btn-ink" data-go="collection">Shop best sellers</a></div>';
+  $('#cartLines').innerHTML=cart.length?cart.map(c=>{const p=P[c.id];return `<div class="line"><img src="${src(p.img)}" alt=""><div><h4>${p.n}</h4><div class="sub">${c.s} · ${money(c.pr)}</div><div style="display:flex;align-items:center"><div class="qty"><button onclick="chg('${c.key}',-1)">−</button><input value="${c.q}" aria-label="Quantity" readonly><button onclick="chg('${c.key}',1)">+</button></div><button class="rm" onclick="chg('${c.key}',-999)">Remove</button></div></div><b>${money(c.pr*c.q)}</b></div>`}).join(''):empty;
+  $('#dLines').innerHTML=cart.length?cart.map(c=>{const p=P[c.id];return `<div class="dl"><img src="${src(p.img)}" alt=""><div><b>${p.n}</b><span>${c.s} · Qty ${c.q}</span></div><b>${money(c.pr*c.q)}</b></div>`}).join(''):'<div class="empty">Your bag is empty.</div>';
+  const up=P.filter(p=>!cart.some(c=>c.id==p.id)).slice(0,3);
+  $('#upsell').innerHTML=up.map(p=>`<div class="u"><img src="${src(p.img)}" alt=""><div><b>${p.n}</b><span>${money(p.p)}</span></div><button onclick="addToCart(${p.id})" aria-label="Add">+</button></div>`).join('');
+}
+window.chg=(k,d)=>{const c=cart.find(x=>x.key==k);c.q+=d;if(c.q<=0)cart=cart.filter(x=>x!==c);renderCart()};
+const openCart=()=>{$('#drawer').classList.add('on');$('#scrim').classList.add('on')};
+const closeAll=()=>{['#drawer','#scrim','#qv','#mnav'].forEach(s=>$(s).classList.remove('on'))};
+$('#openCart').onclick=openCart;$('#closeCart').onclick=closeAll;$('#scrim').onclick=closeAll;$('#qvX').onclick=closeAll;
+document.addEventListener('keydown',e=>{if(e.key=='Escape')closeAll()});
+$('#burger').onclick=()=>$('#mnav').classList.add('on');$('#mx').onclick=closeAll;
+
+// quick view
+let qvId=0,qvSz;
+window.quick=id=>{const p=P[id];qvId=id;qvSz=p.sz[0];$('#qvImg').src=src(p.img);$('#qvCat').textContent=p.c;$('#qvName').textContent=p.n;$('#qvStars').innerHTML=`<i>${stars(p.r)}</i> ${p.r} (${p.rc})`;$('#qvDesc').textContent=p.d;
+  $('#qvSizes').innerHTML=p.sz.map((s,i)=>`<button class="${i?'':'on'}" data-i="${i}"><b>${s[0]}</b><span>${money(s[1])}</span></button>`).join('');
+  $('#qvAdd').textContent=`Add to bag · ${money(qvSz[1])}`;$('#qv').classList.add('on');$('#scrim').classList.add('on')};
+$('#qvSizes').onclick=e=>{const b=e.target.closest('button');if(!b)return;$$('#qvSizes button').forEach(x=>x.classList.remove('on'));b.classList.add('on');qvSz=P[qvId].sz[b.dataset.i];$('#qvAdd').textContent=`Add to bag · ${money(qvSz[1])}`};
+$('#qvAdd').onclick=()=>{addToCart(qvId,false,qvSz);closeAll()};
+
+// pdp buy box
+let pdp={p:38,l:'30 ml',d:0,q:1};
+function pdpUpd(){const one=pdp.p*pdp.q,sub=pdp.p*(1-.15)*pdp.q,price=pdp.d?sub:one;$('#p1').textContent=money(pdp.p);$('#p2').textContent=money(pdp.p*.85);$('#sizeLbl').textContent=pdp.l;$('#atc').textContent=`Add to bag · ${money(price)}`;$('#satcBtn').textContent=$('#atc').textContent;$('#satcV').textContent=`${pdp.l} · ${pdp.d?'Subscribe & save':'One-time'}`}
+$('#sizes').onclick=e=>{const b=e.target.closest('button');if(!b)return;$$('#sizes button').forEach(x=>x.classList.remove('on'));b.classList.add('on');pdp.p=+b.dataset.p;pdp.l=b.dataset.l;pdpUpd()};
+$('#plan').onchange=e=>{$$('#plan label').forEach(l=>l.classList.toggle('on',l.contains(e.target)));pdp.d=+e.target.dataset.d;pdpUpd()};
+$('#qm').onclick=()=>{pdp.q=Math.max(1,pdp.q-1);$('#qtyv').value=pdp.q;pdpUpd()};
+$('#qp').onclick=()=>{pdp.q++;$('#qtyv').value=pdp.q;pdpUpd()};
+const pdpAdd=()=>{for(let i=0;i<pdp.q;i++)addToCart(0,true,[pdp.l,pdp.d?pdp.p*.85:pdp.p]);toast('Hydra Serum added to your bag');bump();openCart()};
+$('#atc').onclick=pdpAdd;$('#satcBtn').onclick=pdpAdd;
+new IntersectionObserver(([e])=>{$('#satc').classList.toggle('on',!e.isIntersecting&&$('#p-product').classList.contains('on')&&e.boundingClientRect.top<0)}).observe($('#atc'));
+
+// toast
+let tt;function toast(t){$('#toastT').textContent=t;$('#toast').classList.add('on');clearTimeout(tt);tt=setTimeout(()=>$('#toast').classList.remove('on'),2400)}
+window.toast=toast;
+
+// pages
+function go(pg,hash){$$('.page').forEach(p=>p.classList.toggle('on',p.id=='p-'+pg));$$('.dt button').forEach(b=>b.classList.toggle('on',b.dataset.go==pg));closeAll();$('#satc').classList.remove('on');
+  if(hash){setTimeout(()=>document.querySelector(hash)?.scrollIntoView({behavior:'smooth'}),60)}else window.scrollTo(0,0);observe()}
+document.addEventListener('click',e=>{const a=e.target.closest('[data-go]');if(!a)return;e.preventDefault();const h=a.getAttribute('href');go(a.dataset.go,h&&h.length>1&&h[0]=='#'?h:null)});
+$('#names').onchange=e=>document.body.classList.toggle('show-names',e.target.checked);
+
+// announcement
+let ai=0;setInterval(()=>{const d=$$('.ann div');d[ai].classList.remove('on');d[ai].classList.add('out');const o=d[ai];setTimeout(()=>o.classList.remove('out'),600);ai=(ai+1)%d.length;d[ai].classList.add('on')},4000);
+
+// reveal
+let io;function observe(){io?.disconnect();io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.12});$$('.page.on .reveal:not(.in)').forEach(r=>io.observe(r))}
+
+fill();renderRB();renderCart();pdpUpd();observe();
+if(location.hash.startsWith('#p='))go(location.hash.slice(3));
+</script>
+</body>
+</html>
