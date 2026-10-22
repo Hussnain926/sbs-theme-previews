@@ -1,0 +1,889 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Swatch Beauty Theme</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,600;0,800;1,800;1,900&family=Barlow:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+/* Swatch. Layout: slash / athletic (Reference A). Condensed italic caps, square corners, diagonal hero panel.
+   Palette: black, white, hot pink accent */
+:root{
+  --ink:#0E0F11; --paper:#FFFFFF; --grey:#F2F2F0; --line:#E2E2DE; --mute:#6B6D70; --accent:#FF3B8B; --accent-ink:#0E0F11; --dark2:#1B1C20;
+  --display:"Barlow Condensed","Arial Narrow",Arial,sans-serif;
+  --body:"Barlow","Helvetica Neue",Arial,sans-serif;
+  color-scheme:light;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){--ink:#F4F4F2;--paper:#0E0F11;--grey:#17181B;--line:#2A2B30;--mute:#A3A5A9;--accent:#FF4D96;--accent-ink:#0E0F11;--dark2:#1B1C20;color-scheme:dark}}
+:root[data-theme="dark"]{--ink:#F4F4F2;--paper:#0E0F11;--grey:#17181B;--line:#2A2B30;--mute:#A3A5A9;--accent:#FF4D96;--accent-ink:#0E0F11;--dark2:#1B1C20;color-scheme:dark}
+*,*::before,*::after{box-sizing:border-box}
+body{margin:0;background:var(--paper);color:var(--ink);font:400 16px/1.55 var(--body);-webkit-font-smoothing:antialiased}
+svg{display:block;max-width:100%}
+a{color:inherit}
+button,input,select,textarea{font:inherit;color:inherit}
+:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
+[hidden]{display:none!important}
+.wrap{max-width:1320px;margin:0 auto;padding:0 clamp(16px,3vw,32px)}
+.narrow{max-width:780px}
+.sr{position:absolute;left:-9999px}
+.muted{color:var(--mute)}
+h1,h2,h3,h4{font-family:var(--display);font-style:italic;font-weight:900;text-transform:uppercase;letter-spacing:-.01em;line-height:.92;margin:0}
+.fixed-dark{--ink:#F4F4F2;--paper:#0E0F11;--mute:#A9ABAF;--line:#2A2B30;background:#0E0F11;color:#F4F4F2}
+
+/* preview bar (not part of theme) */
+.pv{background:#000;color:#fff;font-size:14px;padding:10px 0;position:relative;z-index:30}
+.pv .wrap{display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+.pv .pages{display:flex;gap:6px;overflow-x:auto;flex:1 1 auto;min-width:0;padding-bottom:2px}
+.pv button{background:transparent;border:1px solid rgba(255,255,255,.4);color:#fff;padding:5px 12px;cursor:pointer;white-space:nowrap}
+.pv button[aria-pressed="true"]{background:#FF3B8B;border-color:#FF3B8B;color:#0E0F11;font-weight:700}
+.pv label{display:flex;gap:6px;align-items:center;white-space:nowrap;cursor:pointer}
+body.show-sections [data-dawn]{position:relative;outline:2px dashed #FF3B8B;outline-offset:-2px}
+body.show-sections [data-dawn]::after{content:attr(data-dawn);position:absolute;top:8px;right:8px;background:#FF3B8B;color:#0E0F11;font:700 12px/1 var(--body);padding:6px 9px;z-index:6;pointer-events:none}
+
+/* announcement + dark header */
+.announce{background:var(--accent);color:var(--accent-ink);text-align:center;font:800 15px/1 var(--display);letter-spacing:.06em;text-transform:uppercase;padding:10px 16px}
+header.site{position:sticky;top:0;z-index:20;background:#0E0F11;color:#F4F4F2;border-bottom:3px solid #FF3B8B}
+.hbar{display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:20px;min-height:68px}
+.logo{font:900 italic 34px/1 var(--display);text-transform:uppercase;text-decoration:none;letter-spacing:-.02em}
+.logo span{color:#FF3B8B}
+header.site nav{display:flex;gap:2px;justify-content:center;flex-wrap:wrap}
+header.site nav a{text-decoration:none;font:800 17px/1 var(--display);text-transform:uppercase;letter-spacing:.04em;padding:10px 12px}
+header.site nav a:hover{color:#FF3B8B}
+header.site nav .nb{background:#FF3B8B;color:#0E0F11;font-size:11px;padding:2px 6px;margin-left:6px;vertical-align:2px}
+header.site nav a.deals{color:#FF3B8B}
+.tools{display:flex;gap:8px;align-items:center}
+.tools a{text-decoration:none;font:800 16px/1 var(--display);text-transform:uppercase;letter-spacing:.04em;padding:11px 14px;border:2px solid rgba(255,255,255,.3)}
+.tools a.bag{background:#FF3B8B;border-color:#FF3B8B;color:#0E0F11}
+.menu-btn{display:none;background:transparent;border:2px solid rgba(255,255,255,.3);color:#fff;width:44px;height:44px;cursor:pointer}
+@media (max-width:980px){header.site nav{display:none}.menu-btn{display:grid;place-items:center}.tools a.s{display:none}}
+
+/* overlay + drawers */
+.overlay{position:fixed;inset:0;background:rgba(0,0,0,.6);z-index:40}
+.drawer{position:fixed;top:0;bottom:0;width:min(420px,92vw);background:var(--paper);z-index:41;display:flex;flex-direction:column;padding:20px 22px;gap:10px}
+.drawer.right{right:0;border-left:4px solid #FF3B8B}.drawer.left{left:0;border-right:4px solid #FF3B8B}
+.drawer-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:8px}
+.drawer-head h2{font-size:40px}
+.x{background:var(--ink);color:var(--paper);border:0;width:42px;height:42px;font-size:22px;cursor:pointer}
+.drawer nav{display:grid;gap:2px}
+.drawer nav a{font:900 italic 40px/1.1 var(--display);text-transform:uppercase;text-decoration:none}
+.drawer .body{flex:1;overflow:auto}
+
+/* shared */
+section.block{padding:clamp(32px,5vw,64px) 0}
+section.tight{padding-top:12px}
+.sec-head{display:flex;justify-content:space-between;align-items:end;gap:16px;margin-bottom:22px;flex-wrap:wrap;border-bottom:3px solid var(--ink);padding-bottom:12px}
+.h{font-size:clamp(40px,5.4vw,72px)}
+.h em{font-style:italic;color:var(--accent)}
+.kick{display:inline-block;align-self:flex-start;font:800 15px/1 var(--display);text-transform:uppercase;letter-spacing:.1em;background:var(--accent);color:var(--accent-ink);padding:6px 10px;margin-bottom:12px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:15px 24px;font:800 18px/1 var(--display);text-transform:uppercase;letter-spacing:.06em;text-decoration:none;border:2px solid var(--ink);background:transparent;cursor:pointer}
+.btn.solid{background:var(--ink);color:var(--paper)}
+.btn.acc{background:#FF3B8B;color:#0E0F11;border-color:#FF3B8B}
+.btn.light{border-color:#fff;color:#fff}
+.btn.full{width:100%}
+.field{width:100%;border:2px solid var(--ink);background:var(--paper);padding:13px 14px}
+textarea.field{min-height:120px}
+.linkbtn{background:none;border:0;padding:0;text-decoration:underline;cursor:pointer;color:var(--mute);font-size:14px}
+.pageh{font-size:clamp(48px,7vw,96px);margin:8px 0 18px}
+.crumbs{font:700 14px/1 var(--display);text-transform:uppercase;letter-spacing:.08em;color:var(--mute);padding:14px 0}
+.crumbs a{text-decoration:none}
+
+/* hero: split with diagonal cut */
+.hero{display:grid;grid-template-columns:1.1fr 1fr;min-height:560px;background:#0E0F11;color:#F4F4F2;overflow:hidden;position:relative}
+.hero .copy{padding:clamp(28px,5vw,72px);display:flex;flex-direction:column;justify-content:center;position:relative;z-index:2}
+.hero h1{font-size:clamp(64px,9vw,132px);margin:0 0 18px}
+.hero h1 em{font-style:italic;color:#FF3B8B}
+.hero p{max-width:44ch;color:#C9CACD;font-size:18px;margin:0 0 26px}
+.hero .panel{background:#FF3B8B;clip-path:polygon(18% 0,100% 0,100% 100%,0 100%);display:grid;place-items:center;position:relative}
+.hero .panel svg{width:46%;color:#0E0F11}
+.sticker{position:absolute;top:14%;left:22%;background:#fff;color:#0E0F11;width:126px;height:126px;border-radius:50%;display:grid;place-items:center;text-align:center;font:900 italic 30px/.9 var(--display);text-transform:uppercase;transform:rotate(-12deg);box-shadow:6px 6px 0 #0E0F11}
+.sticker small{display:block;font:700 13px/1.1 var(--body);font-style:normal}
+@media (max-width:860px){.hero{grid-template-columns:1fr}.hero .panel{clip-path:polygon(0 12%,100% 0,100% 100%,0 100%);min-height:320px}.sticker{left:8%;top:18%;width:104px;height:104px;font-size:24px}}
+
+/* trust strip */
+.trust{display:grid;grid-template-columns:repeat(4,1fr);border-bottom:1px solid var(--line)}
+.trust div{display:flex;gap:12px;align-items:center;padding:20px 16px;border-right:1px solid var(--line)}
+.trust div:last-child{border-right:0}
+.trust i{width:42px;height:42px;background:var(--ink);color:var(--paper);display:grid;place-items:center;flex:none}
+.trust i svg{width:22px}
+.trust b{display:block;font:800 18px/1.1 var(--display);text-transform:uppercase;letter-spacing:.03em}
+.trust span{font-size:14px;color:var(--mute)}
+@media (max-width:860px){.trust{grid-template-columns:1fr 1fr}.trust div:nth-child(2){border-right:0}}
+
+/* 7 square category tiles */
+.cats{display:grid;grid-template-columns:repeat(7,1fr);gap:8px}
+.cat{text-decoration:none;cursor:pointer;display:block}
+.cat .tile{aspect-ratio:1;background:var(--grey);display:grid;place-items:center;transition:background .15s}
+.cat:hover .tile{background:#FF3B8B}
+.cat .tile svg{width:52%}
+.cat b{display:block;font:900 italic 20px/1 var(--display);text-transform:uppercase;margin-top:8px}
+@media (max-width:980px){.cats{grid-template-columns:repeat(4,1fr)}}
+@media (max-width:560px){.cats{grid-template-columns:repeat(3,1fr)}}
+
+/* 2-up promo banners */
+.promos{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.promo{min-height:250px;padding:28px;display:flex;flex-direction:column;justify-content:space-between;text-decoration:none;cursor:pointer;position:relative;overflow:hidden}
+.promo h3{font-size:clamp(40px,4.6vw,64px);max-width:9ch;position:relative;z-index:1}
+.promo span{font:800 17px/1 var(--display);text-transform:uppercase;letter-spacing:.06em;position:relative;z-index:1}
+.promo svg{position:absolute;right:-8px;bottom:-20px;width:150px}
+.promo.dark{background:#0E0F11;color:#F4F4F2}
+.promo.pink{background:#FF3B8B;color:#0E0F11}
+@media (max-width:720px){.promos{grid-template-columns:1fr}}
+
+/* product grid 5-up flat cards */
+.grid{display:grid;grid-template-columns:repeat(5,1fr);gap:14px}
+.grid.four{grid-template-columns:repeat(4,1fr)}
+.grid.three{grid-template-columns:repeat(3,1fr)}
+@media (max-width:1100px){.grid,.grid.four{grid-template-columns:repeat(3,1fr)}}
+@media (max-width:720px){.grid,.grid.four,.grid.three{grid-template-columns:repeat(2,1fr);gap:10px}}
+.p{text-decoration:none;display:flex;flex-direction:column;gap:6px;cursor:pointer}
+.p .img{background:var(--grey);aspect-ratio:1;display:grid;place-items:center;position:relative}
+.p .img svg{width:54%}
+.badge{position:absolute;top:0;left:0;background:#0E0F11;color:#fff;font:800 14px/1 var(--display);text-transform:uppercase;letter-spacing:.06em;padding:6px 8px}
+.badge.pink{background:#FF3B8B;color:#0E0F11}
+.p h3{font:700 16px/1.25 var(--body);font-style:normal;text-transform:none;letter-spacing:0;margin-top:4px}
+.p .meta{font-size:14px;color:var(--mute)}
+.p .pr{font:900 italic 24px/1 var(--display)}
+.addp{width:100%;background:var(--ink);color:var(--paper);border:0;padding:12px;font:800 16px/1 var(--display);text-transform:uppercase;letter-spacing:.08em;cursor:pointer;margin-top:4px}
+.addp:hover{background:#FF3B8B;color:#0E0F11}
+.dots{display:flex;gap:4px}
+.dots i{width:14px;height:14px;border:1px solid rgba(0,0,0,.15)}
+
+/* slash divider (Selvedge divider restyle) */
+.divider{height:16px;background:repeating-linear-gradient(-45deg,var(--ink) 0 6px,transparent 6px 14px);opacity:.9}
+
+/* shade finder (custom feature) */
+.sf{display:grid;grid-template-columns:1fr 1fr;border:3px solid var(--ink)}
+.sf .ask{padding:clamp(22px,3vw,40px);border-right:3px solid var(--ink)}
+.sf .ans{padding:clamp(22px,3vw,40px);background:var(--grey);display:flex;flex-direction:column;gap:16px}
+.q{border:0;padding:0;margin:0 0 18px}
+.q legend{font:800 18px/1 var(--display);text-transform:uppercase;letter-spacing:.06em;margin-bottom:10px}
+.opts{display:flex;flex-wrap:wrap;gap:6px}
+.opts button{border:2px solid var(--ink);background:var(--paper);padding:10px 14px;cursor:pointer;font:800 16px/1 var(--display);text-transform:uppercase;letter-spacing:.04em;display:flex;gap:8px;align-items:center}
+.opts button i{width:16px;height:16px;border:1px solid rgba(0,0,0,.2)}
+.opts button[aria-pressed="true"]{background:var(--ink);color:var(--paper)}
+.match{display:grid;grid-template-columns:150px 1fr;gap:18px;align-items:center}
+.chip{aspect-ratio:1;border:3px solid var(--ink);position:relative}
+.chip span{position:absolute;bottom:0;left:0;right:0;background:var(--ink);color:var(--paper);font:800 15px/1 var(--display);text-transform:uppercase;text-align:center;padding:6px}
+.match h3{font-size:clamp(40px,4vw,56px)}
+.match p{margin:6px 0 0;color:var(--mute)}
+.pair{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.pair div{background:var(--paper);border:2px solid var(--ink);padding:12px 14px}
+.pair small{display:block;font:700 13px/1 var(--display);text-transform:uppercase;letter-spacing:.08em;color:var(--mute);margin-bottom:6px}
+.pair b{display:block;font-weight:700}
+.pair em{font-style:normal;font:900 italic 22px/1 var(--display)}
+.sf-total{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;border-top:3px solid var(--ink);padding-top:14px}
+.sf-total strong{font:900 italic 40px/1 var(--display)}
+@media (max-width:900px){.sf{grid-template-columns:1fr}.sf .ask{border-right:0;border-bottom:3px solid var(--ink)}}
+@media (max-width:460px){.match{grid-template-columns:100px 1fr}.pair{grid-template-columns:1fr}}
+
+/* dark feature band, 3 oversized image cards */
+.band{background:#0E0F11;color:#F4F4F2}
+.band .sec-head{border-color:#F4F4F2}
+.big3{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.bigc{position:relative;aspect-ratio:3/4;background:#1B1C20;display:grid;place-items:center;text-decoration:none;cursor:pointer;overflow:hidden}
+.bigc svg{width:52%}
+.bigc h3{position:absolute;left:18px;bottom:18px;font-size:clamp(34px,3.4vw,48px);max-width:8ch}
+.bigc .tagp{position:absolute;top:16px;right:16px;background:#FF3B8B;color:#0E0F11;font:900 italic 26px/1 var(--display);padding:8px 12px;transform:rotate(4deg)}
+@media (max-width:860px){.big3{grid-template-columns:1fr}.bigc{aspect-ratio:4/3}}
+
+/* image with text */
+.iwt{display:grid;grid-template-columns:1fr 1fr;border:3px solid var(--ink)}
+.iwt .art{background:#FF3B8B;display:grid;place-items:center;min-height:400px}
+.iwt .art svg{width:40%;color:#0E0F11}
+.iwt .copy{padding:clamp(24px,4vw,56px);display:flex;flex-direction:column;justify-content:center}
+.iwt .copy p{color:var(--mute);max-width:50ch}
+.stats{display:grid;grid-template-columns:1fr 1fr;gap:0;margin:8px 0 22px;border:2px solid var(--ink)}
+.stats div{padding:12px 14px;border-right:2px solid var(--ink);border-bottom:2px solid var(--ink)}
+.stats div:nth-child(2n){border-right:0}
+.stats div:nth-last-child(-n+2){border-bottom:0}
+.stats b{display:block;font:900 italic 24px/1 var(--display);text-transform:uppercase}
+.stats span{font-size:14px;color:var(--mute)}
+@media (max-width:820px){.iwt{grid-template-columns:1fr}.iwt .art{min-height:260px}}
+
+/* collapsible */
+.faq{border-top:3px solid var(--ink)}
+.faq details{border-bottom:1px solid var(--line)}
+.faq summary{cursor:pointer;font:800 22px/1.15 var(--display);text-transform:uppercase;padding:18px 0;list-style:none;display:flex;justify-content:space-between;gap:12px}
+.faq summary::after{content:"+";color:var(--accent);font-size:28px}
+.faq details[open] summary::after{content:"–"}
+.faq p{margin:0 0 18px;color:var(--mute)}
+
+/* blog */
+.posts{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.post{text-decoration:none;cursor:pointer;display:block}
+.post .pic{aspect-ratio:16/10;display:grid;place-items:center;margin-bottom:12px;background:var(--grey)}
+.post .pic.pk{background:#FF3B8B}.post .pic.dk{background:#0E0F11}
+.post .pic svg{width:26%}
+.post small{font:700 13px/1 var(--display);text-transform:uppercase;letter-spacing:.08em;color:var(--mute)}
+.post h3{font-size:30px;margin:6px 0 6px}
+.post p{margin:0;color:var(--mute);font-size:15px}
+@media (max-width:820px){.posts{grid-template-columns:1fr 1fr}}
+@media (max-width:520px){.posts{grid-template-columns:1fr}}
+
+/* newsletter band */
+.news{background:#FF3B8B;color:#0E0F11}
+.news .wrap{display:grid;grid-template-columns:1.1fr 1fr;gap:24px;align-items:center;padding-top:44px;padding-bottom:44px}
+.news h2{font-size:clamp(44px,5.6vw,76px)}
+.news p{margin:8px 0 0;font-weight:500}
+.news form{display:flex;border:3px solid #0E0F11;background:#fff}
+.news input{border:0;background:transparent;flex:1;padding:14px 16px;min-width:0;color:#0E0F11}
+.news input:focus{outline:none}
+.news button{border:0}
+@media (max-width:820px){.news .wrap{grid-template-columns:1fr}}
+
+/* collection */
+.col-banner{background:#0E0F11;color:#F4F4F2;display:grid;grid-template-columns:1.4fr 1fr;overflow:hidden}
+.col-banner .c{padding:clamp(24px,4vw,56px)}
+.col-banner p{color:#C9CACD;max-width:52ch}
+.col-banner .pk{background:#FF3B8B;clip-path:polygon(22% 0,100% 0,100% 100%,0 100%);display:grid;place-items:center}
+.col-banner .pk svg{width:34%;color:#0E0F11}
+@media (max-width:720px){.col-banner{grid-template-columns:1fr}.col-banner .pk{display:none}}
+.col-layout{display:grid;grid-template-columns:240px 1fr;gap:24px;align-items:start}
+.filters{border:3px solid var(--ink);padding:18px;position:sticky;top:90px}
+.filters fieldset{border:0;padding:0;margin:0 0 16px}
+.filters legend{font:800 18px/1 var(--display);text-transform:uppercase;letter-spacing:.06em;margin-bottom:8px}
+.filters label{display:flex;gap:8px;align-items:center;padding:3px 0;cursor:pointer}
+.filters input{accent-color:#FF3B8B;width:18px;height:18px}
+.toolbar{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-bottom:14px;flex-wrap:wrap}
+.toolbar select{border:2px solid var(--ink);background:var(--paper);padding:10px 12px;font-weight:600}
+#filterToggle{display:none}
+@media (max-width:820px){.col-layout{grid-template-columns:1fr}.filters{display:none;position:static}.filters.open{display:block}#filterToggle{display:inline-flex}}
+
+/* product page */
+.pdp{display:grid;grid-template-columns:1.1fr 1fr;gap:clamp(20px,4vw,48px);align-items:start}
+.gallery{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.gallery .g{background:var(--grey);display:grid;place-items:center;aspect-ratio:1}
+.gallery .g:first-child{grid-column:span 2;aspect-ratio:4/3}
+.gallery .g svg{width:38%}
+.buy h1{font-size:clamp(48px,5.4vw,76px);margin:6px 0 10px}
+.price{font:900 italic 40px/1 var(--display);margin:6px 0 12px}
+.note{color:var(--mute)}
+.opt{border:0;padding:0;margin:0 0 16px}
+.opt legend{font:800 18px/1 var(--display);text-transform:uppercase;letter-spacing:.06em;margin-bottom:8px}
+.swatches{display:flex;gap:6px;flex-wrap:wrap}
+.swatches button{width:44px;height:44px;border:2px solid transparent;cursor:pointer;outline:1px solid rgba(0,0,0,.15)}
+.swatches button[aria-pressed="true"]{border-color:var(--ink);box-shadow:inset 0 0 0 3px var(--paper)}
+.sizes{display:flex;gap:6px;flex-wrap:wrap}
+.sizes button{border:2px solid var(--ink);background:var(--paper);padding:10px 16px;cursor:pointer;font:800 16px/1 var(--display);text-transform:uppercase}
+.sizes button[aria-pressed="true"]{background:var(--ink);color:var(--paper)}
+.sizes button[disabled]{opacity:.4;text-decoration:line-through;cursor:not-allowed}
+.qty{display:inline-flex;align-items:center;border:2px solid var(--ink)}
+.qty button{border:0;background:none;width:42px;height:46px;cursor:pointer;font-size:20px}
+.qty span{min-width:30px;text-align:center;font-weight:700}
+.buyrow{display:flex;gap:8px;align-items:stretch;margin:6px 0 10px}
+.buyrow .btn{flex:1}
+.perks{list-style:none;padding:0;margin:16px 0 0;border-top:3px solid var(--ink)}
+.perks li{padding:12px 0;border-bottom:1px solid var(--line);font-weight:600}
+@media (max-width:860px){.pdp{grid-template-columns:1fr}}
+
+/* cart */
+.cart-grid{display:grid;grid-template-columns:1.6fr 1fr;gap:24px;align-items:start}
+.cl{display:grid;grid-template-columns:90px 1fr auto;gap:14px;align-items:center;border-bottom:1px solid var(--line);padding:14px 0}
+.cl .thumb{width:90px;height:90px;background:var(--grey);display:grid;place-items:center}
+.cl .thumb svg{width:56%}
+.cl h3{font:700 16px/1.25 var(--body);font-style:normal;text-transform:none;letter-spacing:0}
+.cl .qty{margin:6px 0}
+.cl .qty button{height:34px;width:34px}
+.summary{border:3px solid var(--ink);padding:22px;position:sticky;top:90px}
+.summary textarea{width:100%;border:2px solid var(--ink);background:var(--paper);padding:10px 12px;margin:6px 0 14px;min-height:80px}
+.row{display:flex;justify-content:space-between;font:900 italic 26px/1 var(--display);text-transform:uppercase;margin-bottom:8px}
+.ship-bar{height:10px;background:var(--grey);margin:8px 0 16px}
+.ship-bar i{display:block;height:100%;background:#FF3B8B;transition:width .3s}
+@media (max-width:860px){.cart-grid{grid-template-columns:1fr}.summary{position:static}}
+
+/* article */
+.art-hero{aspect-ratio:21/8;display:grid;place-items:center;margin:8px 0 26px;background:#FF3B8B}
+.art-hero svg{width:14%;color:#0E0F11}
+.prose{max-width:720px;margin:0 auto;font-size:18px}
+.prose h2{font-size:42px;margin:34px 0 10px}
+.prose blockquote{margin:24px 0;padding:20px 24px;border-left:8px solid #FF3B8B;background:var(--grey);font:800 italic 28px/1.1 var(--display);text-transform:uppercase}
+
+/* about */
+.about-hero{display:grid;grid-template-columns:1.2fr 1fr;background:#0E0F11;color:#F4F4F2;min-height:420px;overflow:hidden}
+.about-hero .c{padding:clamp(28px,5vw,64px);display:flex;align-items:center}
+.about-hero h1{font-size:clamp(60px,8vw,120px)}
+.about-hero h1 em{color:#FF3B8B;font-style:italic}
+.about-hero .pk{background:#FF3B8B;clip-path:polygon(20% 0,100% 0,100% 100%,0 100%);display:grid;place-items:center}
+.about-hero .pk svg{width:36%;color:#0E0F11}
+.cols3{display:grid;grid-template-columns:repeat(3,1fr);border:3px solid var(--ink)}
+.cols3 > div{padding:26px;border-right:3px solid var(--ink)}
+.cols3 > div:last-child{border-right:0}
+.cols3 i{font:900 italic 64px/1 var(--display);color:#FF3B8B;font-style:italic}
+.cols3 h3{font-size:34px;margin:6px 0}
+.cols3 p{margin:0;color:var(--mute)}
+.mrow{display:grid;gap:12px}
+.mrow > div{display:grid;grid-template-columns:1fr 1fr;border:3px solid var(--ink)}
+.mrow .pic{min-height:280px;display:grid;place-items:center;background:var(--grey)}
+.mrow .pic.pk{background:#FF3B8B}
+.mrow .pic svg{width:28%}
+.mrow .txt{padding:clamp(22px,3vw,44px);display:flex;flex-direction:column;justify-content:center}
+.mrow .txt p{color:var(--mute);margin:8px 0 0}
+.mrow > div:nth-child(even) .pic{order:2}
+@media (max-width:820px){.about-hero{grid-template-columns:1fr}.about-hero .pk{min-height:200px}.cols3{grid-template-columns:1fr}.cols3 > div{border-right:0;border-bottom:3px solid var(--ink)}.cols3 > div:last-child{border-bottom:0}.mrow > div{grid-template-columns:1fr}.mrow > div:nth-child(even) .pic{order:0}}
+
+/* contact */
+.contact{display:grid;grid-template-columns:1fr 1.2fr;gap:20px;align-items:start}
+.contact form{border:3px solid var(--ink);padding:24px;display:grid;gap:12px}
+.contact form label{font:800 16px/1 var(--display);text-transform:uppercase;letter-spacing:.06em}
+.info{display:grid;gap:0;border:3px solid var(--ink)}
+.info div{padding:18px 20px;border-bottom:2px solid var(--ink)}
+.info div:last-child{border-bottom:0}
+.info b{display:block;font:900 italic 26px/1 var(--display);text-transform:uppercase;margin-bottom:4px}
+@media (max-width:820px){.contact{grid-template-columns:1fr}}
+
+/* 404 */
+.nf{text-align:center;padding:40px 0}
+.nf .big{font:900 italic clamp(140px,26vw,300px)/.8 var(--display);color:#FF3B8B;margin:0}
+.nf form{display:flex;max-width:480px;margin:18px auto 0}
+
+/* footer */
+footer.site{background:#0E0F11;color:#F4F4F2;padding:52px 0 calc(28px + env(safe-area-inset-bottom,0px));border-top:6px solid #FF3B8B}
+.foot{display:grid;grid-template-columns:1.6fr 1fr 1fr 1fr;gap:24px}
+.foot h4{font-size:26px;margin:0 0 12px}
+.foot ul{list-style:none;margin:0;padding:0;display:grid;gap:6px}
+.foot a{text-decoration:none;color:#C9CACD}
+.foot a:hover{color:#FF3B8B}
+.pay{display:flex;gap:6px;flex-wrap:wrap;margin-top:14px}
+.pay span{border:1px solid rgba(255,255,255,.25);padding:3px 8px;font-size:12px;color:#C9CACD}
+.legal{margin-top:36px;padding-top:16px;border-top:1px solid rgba(255,255,255,.15);font-size:13px;color:#8D8F93}
+@media (max-width:820px){.foot{grid-template-columns:1fr 1fr}}
+
+.toast{position:fixed;left:50%;bottom:calc(20px + env(safe-area-inset-bottom,0px));transform:translateX(-50%);background:#0E0F11;color:#fff;border-left:6px solid #FF3B8B;padding:14px 20px;z-index:60;font-weight:700;max-width:92vw}
+</style></head>
+<body>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+<symbol id="h-tint" viewBox="0 0 200 240"><rect x="70" y="16" width="60" height="42" fill="#0E0F11"/><rect x="58" y="56" width="84" height="168" fill="currentColor"/><rect x="72" y="104" width="56" height="70" fill="rgba(255,255,255,.6)"/></symbol>
+<symbol id="h-lip" viewBox="0 0 200 240"><path fill="currentColor" d="M78 20h44v20l-6 8v48H84V48l-6-8z"/><rect x="66" y="96" width="68" height="128" fill="#0E0F11"/><rect x="66" y="96" width="68" height="16" fill="rgba(255,255,255,.25)"/></symbol>
+<symbol id="h-compact" viewBox="0 0 200 240"><rect x="26" y="64" width="148" height="30" fill="#0E0F11"/><rect x="26" y="94" width="148" height="108" fill="currentColor"/><circle cx="100" cy="148" r="34" fill="rgba(255,255,255,.55)"/></symbol>
+<symbol id="h-wand" viewBox="0 0 200 240"><rect x="88" y="12" width="24" height="72" fill="#0E0F11"/><rect x="72" y="84" width="56" height="144" fill="currentColor"/><rect x="82" y="120" width="36" height="70" fill="rgba(255,255,255,.5)"/></symbol>
+<symbol id="h-bottle" viewBox="0 0 200 240"><rect x="84" y="12" width="32" height="34" fill="#0E0F11"/><rect x="76" y="44" width="48" height="14" fill="#0E0F11"/><rect x="52" y="58" width="96" height="166" fill="currentColor"/><rect x="68" y="108" width="64" height="68" fill="rgba(255,255,255,.55)"/></symbol>
+<symbol id="h-stick" viewBox="0 0 200 240"><rect x="74" y="20" width="52" height="40" fill="currentColor"/><rect x="66" y="60" width="68" height="168" fill="#0E0F11"/><rect x="66" y="60" width="68" height="20" fill="rgba(255,255,255,.2)"/></symbol>
+<symbol id="i-truck" viewBox="0 0 24 24"><path fill="currentColor" d="M2 6h12v9H2zm12 3h4l4 4v2h-8zM6 18a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm12 0a2 2 0 1 1 0-4 2 2 0 0 1 0 4z"/></symbol>
+<symbol id="i-leaf" viewBox="0 0 24 24"><path fill="currentColor" d="M20 4C9 4 4 9 4 17c0 1 .2 2 .4 3 .8-4 4-8 9.6-10-4 3-6.6 6-7.6 10H8c6 0 12-4 12-16z"/></symbol>
+<symbol id="i-swatch" viewBox="0 0 24 24"><path fill="currentColor" d="M3 3h8v18H3zm10 4l5-2 3 7-8 9z"/></symbol>
+<symbol id="i-turn" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2.6" d="M4 12a8 8 0 1 0 2.4-5.7M4 4v4h4"/></symbol>
+</svg>
+
+<div class="pv"><div class="wrap">
+  <div class="pages" role="group" aria-label="Preview page" id="pageTabs"></div>
+  <label><input type="checkbox" id="showSections"> Show section names</label>
+</div></div>
+
+<div class="announce" data-dawn="Announcement bar">Free shade swap within 30 days · Free delivery over $40</div>
+
+<header class="site" data-dawn="Header">
+  <div class="wrap hbar">
+    <a class="logo" href="#" data-go="home">Swat<span>ch</span></a>
+    <nav aria-label="Main"><a href="#" data-go="collection">Face<span class="nb">NEW</span></a><a href="#" data-go="collection">Lips</a><a href="#" data-go="collection">Cheeks</a><a href="#" data-go="collection">Skincare</a><a href="#shade">Shade finder</a><a href="#" data-go="collection" class="deals">Deals</a></nav>
+    <div class="tools"><a class="s" href="#" data-go="search">Search</a><button class="menu-btn" aria-label="Open menu" data-open="menu" type="button"><svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 7h18M3 12h18M3 17h18" stroke="currentColor" stroke-width="2.4"/></svg></button><a class="bag" href="#" data-go="cart">Bag (<span class="cart-count">0</span>)</a></div>
+  </div>
+</header>
+
+<!-- HOME -->
+<main id="view-home">
+  <section data-dawn="Image banner (slash hero)">
+    <div class="hero">
+      <div class="copy">
+        <span class="kick">New: Skin Tint SPF 30</span>
+        <h1>Your shade. <em>Fast.</em></h1>
+        <p>Buildable tint, cream blush and lip colour in 40 shades. Use the shade finder and get your match in three taps.</p>
+        <div class="btns" style="display:flex;gap:10px;flex-wrap:wrap"><a href="#shade" class="btn acc">Find my shade</a><a href="#" class="btn light" data-go="collection">Shop face</a></div>
+      </div>
+      <div class="panel"><svg viewBox="0 0 200 240" aria-hidden="true"><use href="#h-tint"/></svg><div class="sticker"><div>$26<small>Skin Tint</small></div></div></div>
+    </div>
+  </section>
+
+  <section data-dawn="Multicolumn (trust strip)">
+    <div class="wrap"><div class="trust">
+      <div><i><svg viewBox="0 0 24 24"><use href="#i-swatch"/></svg></i><span><b>40 shades</b>Fair to deep</span></div>
+      <div><i><svg viewBox="0 0 24 24"><use href="#i-turn"/></svg></i><span><b>Free shade swap</b>Within 30 days</span></div>
+      <div><i><svg viewBox="0 0 24 24"><use href="#i-truck"/></svg></i><span><b>Free delivery</b>On orders over $40</span></div>
+      <div><i><svg viewBox="0 0 24 24"><use href="#i-leaf"/></svg></i><span><b>Vegan</b>Every formula</span></div>
+    </div></div>
+  </section>
+
+  <section class="block" data-dawn="Collection list (7 tiles)">
+    <div class="wrap">
+      <div class="sec-head"><h2 class="h">Shop by <em>category</em></h2><a href="#" class="btn" data-go="collection">View all</a></div>
+      <div class="cats">
+        <a class="cat" data-go="collection"><div class="tile"><svg viewBox="0 0 200 240" style="color:#E7B999"><use href="#h-tint"/></svg></div><b>Skin tint</b></a>
+        <a class="cat" data-go="collection"><div class="tile"><svg viewBox="0 0 200 240" style="color:#D9A07E"><use href="#h-wand"/></svg></div><b>Concealer</b></a>
+        <a class="cat" data-go="collection"><div class="tile"><svg viewBox="0 0 200 240" style="color:#E2557A"><use href="#h-stick"/></svg></div><b>Blush</b></a>
+        <a class="cat" data-go="collection"><div class="tile"><svg viewBox="0 0 200 240" style="color:#B5375A"><use href="#h-lip"/></svg></div><b>Lips</b></a>
+        <a class="cat" data-go="collection"><div class="tile"><svg viewBox="0 0 200 240" style="color:#C99266"><use href="#h-compact"/></svg></div><b>Bronzer</b></a>
+        <a class="cat" data-go="collection"><div class="tile"><svg viewBox="0 0 200 240" style="color:#FFFFFF"><use href="#h-bottle"/></svg></div><b>Skincare</b></a>
+        <a class="cat" data-go="collection"><div class="tile"><svg viewBox="0 0 200 240" style="color:#FF3B8B"><use href="#h-compact"/></svg></div><b>Kits</b></a>
+      </div>
+    </div>
+  </section>
+
+  <section class="block tight" data-dawn="Multicolumn (promo banners)">
+    <div class="wrap promos">
+      <a class="promo dark" data-go="collection"><h3>Lip &amp; cheek duos</h3><span>Shop duos →</span><svg viewBox="0 0 200 240" style="color:#FF3B8B" aria-hidden="true"><use href="#h-stick"/></svg></a>
+      <a class="promo pink" data-go="collection"><h3>3 for 2 on lips</h3><span>Mix any shades →</span><svg viewBox="0 0 200 240" style="color:#FFFFFF" aria-hidden="true"><use href="#h-lip"/></svg></a>
+    </div>
+  </section>
+
+  <section class="block" data-dawn="Featured collection">
+    <div class="wrap">
+      <div class="sec-head"><h2 class="h">Best <em>sellers</em></h2><a href="#" class="btn" data-go="collection">Shop all</a></div>
+      <div class="grid" data-grid="0,1,2,3,4"></div>
+    </div>
+  </section>
+
+  <div class="wrap" data-dawn="Custom: Selvedge divider"><div class="divider"></div></div>
+
+  <section class="block" id="shade" data-dawn="Custom: Shade finder">
+    <div class="wrap">
+      <div class="sec-head"><h2 class="h">Shade <em>finder</em></h2><span class="muted">Three questions. One match.</span></div>
+      <div class="sf">
+        <div class="ask">
+          <fieldset class="q"><legend>1. Skin depth</legend><div class="opts" id="sfDepth">
+            <button type="button" data-v="0" aria-pressed="false"><i style="background:#F6DCC8"></i>Fair</button>
+            <button type="button" data-v="1" aria-pressed="false"><i style="background:#EBC4A3"></i>Light</button>
+            <button type="button" data-v="2" aria-pressed="true"><i style="background:#D4A07A"></i>Medium</button>
+            <button type="button" data-v="3" aria-pressed="false"><i style="background:#B07A52"></i>Tan</button>
+            <button type="button" data-v="4" aria-pressed="false"><i style="background:#7A4E33"></i>Deep</button>
+          </div></fieldset>
+          <fieldset class="q"><legend>2. Undertone</legend><div class="opts" id="sfTone">
+            <button type="button" data-v="C" aria-pressed="false">Cool</button>
+            <button type="button" data-v="N" aria-pressed="true">Neutral</button>
+            <button type="button" data-v="W" aria-pressed="false">Warm</button>
+            <button type="button" data-v="O" aria-pressed="false">Olive</button>
+          </div></fieldset>
+          <fieldset class="q"><legend>3. Finish</legend><div class="opts" id="sfFinish">
+            <button type="button" data-v="dewy" aria-pressed="true">Dewy</button>
+            <button type="button" data-v="natural" aria-pressed="false">Natural</button>
+            <button type="button" data-v="matte" aria-pressed="false">Matte</button>
+          </div></fieldset>
+          <p class="muted" style="margin:0;font-size:14px">Not sure of your undertone? Look at the veins on your wrist: blue means cool, green means warm, both means neutral.</p>
+        </div>
+        <div class="ans" aria-live="polite">
+          <div class="match"><div class="chip" id="sfChip"><span id="sfCode">M2N</span></div><div><small class="muted" style="font:700 14px/1 var(--display);text-transform:uppercase;letter-spacing:.08em">Your match</small><h3 id="sfName">Medium 2 Neutral</h3><p id="sfNote"></p></div></div>
+          <div class="pair">
+            <div><small>Skin Tint SPF 30</small><b id="sfTintShade">M2N</b><em>$26</em></div>
+            <div><small>Concealer, one shade lighter</small><b id="sfConShade">M1N</b><em>$20</em></div>
+          </div>
+          <div class="sf-total"><div><small class="muted" style="font:700 14px/1 var(--display);text-transform:uppercase;letter-spacing:.08em">Both together</small><br><strong id="sfTotal">$46</strong></div><button class="btn acc" type="button" id="sfAdd">Add both to bag</button></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="block tight" data-dawn="Image with text">
+    <div class="wrap"><div class="iwt">
+      <div class="art"><svg viewBox="0 0 200 240" aria-hidden="true"><use href="#h-tint"/></svg></div>
+      <div class="copy">
+        <span class="kick" style="align-self:flex-start">The formula</span>
+        <h2 class="h" style="margin:0 0 12px">Skin first, <em>colour second</em></h2>
+        <p>Every base product has skincare inside, so you can wear it all day without a heavy layer underneath.</p>
+        <div class="stats"><div><b>SPF 30</b><span>Mineral filter in the tint</span></div><div><b>Niacinamide</b><span>In the concealer</span></div><div><b>Squalane</b><span>In the cream blush</span></div><div><b>Fragrance free</b><span>Across the range</span></div></div>
+        <a href="#" class="btn solid" data-go="about" style="align-self:flex-start">How we make it</a>
+      </div>
+    </div></div>
+  </section>
+
+  <section class="block band" data-dawn="Multicolumn (dark feature band)">
+    <div class="wrap">
+      <div class="sec-head"><h2 class="h" style="color:#F4F4F2">The <em>kits</em></h2><a href="#" class="btn light" data-go="collection">All kits</a></div>
+      <div class="big3">
+        <a class="bigc" data-go="product"><span class="tagp">$58</span><svg viewBox="0 0 200 240" style="color:#E7B999"><use href="#h-tint"/></svg><h3>The 5-minute face</h3></a>
+        <a class="bigc" data-go="product"><span class="tagp">$42</span><svg viewBox="0 0 200 240" style="color:#FF3B8B"><use href="#h-stick"/></svg><h3>Lip &amp; cheek trio</h3></a>
+        <a class="bigc" data-go="product"><span class="tagp">$64</span><svg viewBox="0 0 200 240" style="color:#FFFFFF"><use href="#h-bottle"/></svg><h3>Prep &amp; glow set</h3></a>
+      </div>
+    </div>
+  </section>
+
+  <section class="block" data-dawn="Collapsible content">
+    <div class="wrap narrow" style="margin:0 auto">
+      <h2 class="h" style="margin-bottom:18px">Shade <em>questions</em></h2>
+      <div class="faq">
+        <details open><summary>What if my shade is wrong?</summary><p>Swap it for free within 30 days, even if you have opened it. We send the new shade before you post the old one back.</p></details>
+        <details><summary>Does the tint replace sunscreen?</summary><p>It has SPF 30 from zinc oxide. Use a full amount, about two finger lengths, if you rely on it as your only sun protection.</p></details>
+        <details><summary>Are the products vegan?</summary><p>Yes. No animal-derived ingredients, and we do not test on animals.</p></details>
+        <details><summary>How long does a tint last?</summary><p>About three months with daily use.</p></details>
+      </div>
+    </div>
+  </section>
+
+  <section class="block tight" data-dawn="Featured blog">
+    <div class="wrap">
+      <div class="sec-head"><h2 class="h">Tips &amp; <em>tutorials</em></h2><a href="#" class="btn" data-go="blog">All articles</a></div>
+      <div class="posts" data-posts="0,1,2"></div>
+    </div>
+  </section>
+
+  <section class="news" data-dawn="Email signup">
+    <div class="wrap">
+      <div><h2>First in line for new shades</h2><p>Launches, restocks and tutorials. Two emails a month.</p></div>
+      <form data-sub><label class="sr" for="nl1">Email</label><input id="nl1" type="email" placeholder="you@example.com" required><button class="btn solid" type="submit">Sign up</button></form>
+    </div>
+  </section>
+</main>
+
+<!-- COLLECTION -->
+<main id="view-collection" hidden>
+  <div class="wrap"><nav class="crumbs" data-dawn="Custom: Breadcrumbs" aria-label="Breadcrumb"><a href="#" data-go="home">Home</a> / Face</nav></div>
+  <section data-dawn="Collection banner">
+    <div class="wrap"><div class="col-banner">
+      <div class="c"><span class="kick">12 products</span><h1 class="pageh" style="margin:6px 0 10px">Face</h1><p>Skin tint, concealer, blush and bronzer. Filter by category, finish or price.</p></div>
+      <div class="pk"><svg viewBox="0 0 200 240"><use href="#h-compact"/></svg></div>
+    </div></div>
+  </section>
+  <section class="block" data-dawn="Product grid">
+    <div class="wrap col-layout">
+      <aside class="filters" id="filters" aria-label="Filters">
+        <fieldset><legend>Category</legend>
+          <label><input type="checkbox" data-f="cat" value="base"> Base</label>
+          <label><input type="checkbox" data-f="cat" value="cheek"> Cheeks</label>
+          <label><input type="checkbox" data-f="cat" value="lip"> Lips</label>
+          <label><input type="checkbox" data-f="cat" value="skin"> Skincare</label>
+        </fieldset>
+        <fieldset><legend>Finish</legend>
+          <label><input type="checkbox" data-f="fin" value="dewy"> Dewy</label>
+          <label><input type="checkbox" data-f="fin" value="natural"> Natural</label>
+          <label><input type="checkbox" data-f="fin" value="matte"> Matte</label>
+        </fieldset>
+        <fieldset><legend>Price</legend>
+          <label><input type="checkbox" data-f="price" value="u20"> Under $20</label>
+          <label><input type="checkbox" data-f="price" value="o20"> $20 and over</label>
+        </fieldset>
+      </aside>
+      <div>
+        <div class="toolbar"><button class="btn" type="button" id="filterToggle" aria-expanded="false" aria-controls="filters">Filters</button><span class="muted"><span id="colShown">12</span> products</span><label class="sr" for="sort">Sort</label><select id="sort"><option value="feat">Featured</option><option value="low">Price, low to high</option><option value="high">Price, high to low</option></select></div>
+        <div class="grid four" id="colGrid"></div>
+      </div>
+    </div>
+  </section>
+  <section class="block tight" data-dawn="Rich text">
+    <div class="wrap narrow" style="margin:0 auto;text-align:center"><h2 class="h">Still choosing?</h2><p class="muted">Start with the shade finder. It matches your skin tint and concealer in one go.</p><a href="#shade" class="btn solid" data-go="home">Find my shade</a></div>
+  </section>
+  <section class="news" data-dawn="Email signup">
+    <div class="wrap"><div><h2>10% off your first order</h2><p>Sign up and we email you a code.</p></div><form data-sub><label class="sr" for="nl2">Email</label><input id="nl2" type="email" placeholder="you@example.com" required><button class="btn solid" type="submit">Get code</button></form></div>
+  </section>
+</main>
+
+<!-- PRODUCT -->
+<main id="view-product" hidden>
+  <div class="wrap"><nav class="crumbs" data-dawn="Custom: Breadcrumbs" aria-label="Breadcrumb"><a href="#" data-go="home">Home</a> / <a href="#" data-go="collection">Face</a> / Skin Tint SPF 30</nav></div>
+  <section data-dawn="Product information">
+    <div class="wrap pdp">
+      <div class="gallery">
+        <div class="g"><svg viewBox="0 0 200 240" id="mainArt" style="color:#D4A07A"><use href="#h-tint"/></svg></div>
+        <div class="g" style="background:#FF3B8B"><svg viewBox="0 0 200 240" style="color:#fff"><use href="#h-tint"/></svg></div>
+        <div class="g" style="background:#0E0F11"><svg viewBox="0 0 200 240" style="color:#D4A07A"><use href="#h-tint"/></svg></div>
+      </div>
+      <div class="buy">
+        <span class="kick">Best seller</span>
+        <h1>Skin Tint SPF 30</h1>
+        <p class="price">$26</p>
+        <p class="note">Sheer to medium coverage with a mineral SPF 30. Blurs without hiding skin. 30 ml, about three months of daily use.</p>
+        <fieldset class="opt"><legend>Shade: <span id="cname">M2N</span></legend>
+          <div class="swatches" id="pdpSw">
+            <button type="button" aria-pressed="false" aria-label="F1N" style="background:#F6DCC8" data-c="F1N"></button>
+            <button type="button" aria-pressed="false" aria-label="L2W" style="background:#EBC4A3" data-c="L2W"></button>
+            <button type="button" aria-pressed="true" aria-label="M2N" style="background:#D4A07A" data-c="M2N"></button>
+            <button type="button" aria-pressed="false" aria-label="T1O" style="background:#B07A52" data-c="T1O"></button>
+            <button type="button" aria-pressed="false" aria-label="D2W" style="background:#7A4E33" data-c="D2W"></button>
+          </div>
+        </fieldset>
+        <fieldset class="opt"><legend>Size</legend>
+          <div class="sizes" id="pdpSize"><button type="button" aria-pressed="true">30 ml</button><button type="button" aria-pressed="false">Mini 10 ml</button><button type="button" disabled aria-label="50 ml, sold out">50 ml</button></div>
+        </fieldset>
+        <div class="buyrow"><div class="qty"><button type="button" id="pqMinus" aria-label="Decrease quantity">−</button><span id="pq">1</span><button type="button" id="pqPlus" aria-label="Increase quantity">+</button></div><button class="btn acc" type="button" data-add="0">Add to bag</button></div>
+        <button class="btn solid full" type="button">Buy it now</button>
+        <ul class="perks"><li>Free shade swap within 30 days</li><li>Free delivery over $40</li><li>Vegan and fragrance free</li></ul>
+      </div>
+    </div>
+  </section>
+  <section class="block" data-dawn="Collapsible content">
+    <div class="wrap narrow" style="margin:0 auto"><div class="faq">
+      <details open><summary>How to apply</summary><p>Dot onto cheeks, forehead and chin, then blend out with fingers or a brush. Add a second layer where you want more coverage.</p></details>
+      <details><summary>Ingredients</summary><p>Aqua, Zinc Oxide, Caprylic/Capric Triglyceride, Glycerin, Squalane, Niacinamide, Iron Oxides.</p></details>
+      <details><summary>Shade swap and returns</summary><p>Wrong shade? Swap free within 30 days, opened or not.</p></details>
+    </div></div>
+  </section>
+  <section class="block tight" data-dawn="Image with text">
+    <div class="wrap"><div class="iwt">
+      <div class="copy"><span class="kick" style="align-self:flex-start">Pair it</span><h2 class="h" style="margin:0 0 12px">Add the <em>concealer</em></h2><p>One shade lighter than your tint brightens under the eyes. The shade finder picks it for you.</p><a href="#shade" class="btn solid" data-go="home" style="align-self:flex-start">Find my pair</a></div>
+      <div class="art" style="background:#0E0F11"><svg viewBox="0 0 200 240" style="color:#D9A07E"><use href="#h-wand"/></svg></div>
+    </div></div>
+  </section>
+  <section class="block" data-dawn="Related products">
+    <div class="wrap"><div class="sec-head"><h2 class="h">Complete <em>the look</em></h2></div><div class="grid" data-grid="1,2,3,5,6"></div></div>
+  </section>
+</main>
+
+<!-- CART -->
+<main id="view-cart" hidden>
+  <div class="wrap" style="padding-top:16px"><h1 class="pageh">Your bag</h1></div>
+  <div class="wrap cart-grid">
+    <section data-dawn="Cart items"><div id="cartLines"></div><p id="cartEmpty" class="muted" hidden>Your bag is empty. <a href="#" data-go="collection">Shop face</a></p></section>
+    <aside class="summary" data-dawn="Subtotal">
+      <p id="shipMsg" style="margin:0;font-weight:700"></p>
+      <div class="ship-bar"><i id="shipBar" style="width:0"></i></div>
+      <label for="note" style="font:800 16px/1 var(--display);text-transform:uppercase">Order note</label>
+      <textarea id="note" placeholder="Gift message or delivery note"></textarea>
+      <div class="row"><span>Subtotal</span><span id="subtotal">$0</span></div>
+      <p class="muted" style="font-size:14px;margin:0 0 16px">Taxes and shipping calculated at checkout.</p>
+      <button class="btn acc full" type="button">Check out</button>
+    </aside>
+  </div>
+  <section class="block" data-dawn="Featured collection"><div class="wrap"><div class="sec-head"><h2 class="h">Last <em>add-ons</em></h2></div><div class="grid" data-grid="3,6,7,9,10"></div></div></section>
+</main>
+
+<!-- SEARCH -->
+<main id="view-search" hidden>
+  <section class="block" style="padding-top:16px" data-dawn="Search results">
+    <div class="wrap">
+      <h1 class="pageh">Search</h1>
+      <form id="searchForm" style="display:flex;max-width:640px;margin-bottom:12px"><label class="sr" for="q">Search products</label><input class="field" id="q" type="search" value="lip" placeholder="Search products"><button class="btn solid" type="submit">Search</button></form>
+      <p class="muted" id="searchCount"></p>
+      <div class="grid" id="searchGrid"></div>
+    </div>
+  </section>
+  <section class="block tight" data-dawn="Featured collection"><div class="wrap"><div class="sec-head"><h2 class="h">Best <em>sellers</em></h2></div><div class="grid" data-grid="0,1,2,3,4"></div></div></section>
+</main>
+
+<!-- BLOG -->
+<main id="view-blog" hidden>
+  <section class="block" style="padding-top:16px" data-dawn="Blog posts">
+    <div class="wrap"><h1 class="pageh">Tutorials</h1><p class="muted" style="margin-top:-6px;max-width:60ch">How-tos, shade guides and five-minute routines.</p><div class="posts" data-posts="0,1,2,3,4,5"></div></div>
+  </section>
+  <section class="news" data-dawn="Email signup">
+    <div class="wrap"><div><h2>New tutorials first</h2><p>Two emails a month.</p></div><form data-sub><label class="sr" for="nl3">Email</label><input id="nl3" type="email" placeholder="you@example.com" required><button class="btn solid" type="submit">Sign up</button></form></div>
+  </section>
+</main>
+
+<!-- ARTICLE -->
+<main id="view-article" hidden>
+  <article class="block" style="padding-top:16px" data-dawn="Blog post">
+    <div class="wrap">
+      <nav class="crumbs" aria-label="Breadcrumb"><a href="#" data-go="home">Home</a> / <a href="#" data-go="blog">Tutorials</a> / Shade guides</nav>
+      <div class="prose" style="max-width:860px"><small class="muted" style="font:700 14px/1 var(--display);text-transform:uppercase;letter-spacing:.08em">15 October 2026 · Shade guides · 4 min</small><h1 class="pageh" style="margin-top:8px">How to find your undertone in 60 seconds</h1></div>
+      <div class="art-hero"><svg viewBox="0 0 200 240"><use href="#h-tint"/></svg></div>
+      <div class="prose">
+        <p>Depth is how light or dark your skin is. Undertone is the colour under the surface. Get both right and a tint disappears into your skin.</p>
+        <h2>Three quick checks</h2>
+        <p>Look at your wrist in daylight. Hold a white and a cream sheet of paper by your face. Think about whether gold or silver jewellery looks better on you.</p>
+        <blockquote>Blue veins and silver: cool. Green veins and gold: warm. Both: neutral.</blockquote>
+        <h2>And olive?</h2>
+        <p>Olive skin has a green-grey cast. Regular warm shades can look orange on it, so we make a separate olive range.</p>
+      </div>
+    </div>
+  </article>
+  <section class="block tight" data-dawn="Featured collection"><div class="wrap"><div class="sec-head"><h2 class="h">Shop the <em>article</em></h2></div><div class="grid" data-grid="0,1,4,5,8"></div></div></section>
+</main>
+
+<!-- ABOUT -->
+<main id="view-about" hidden>
+  <section data-dawn="Image banner">
+    <div class="about-hero"><div class="c"><h1>More shades. <em>Less fuss.</em></h1></div><div class="pk"><svg viewBox="0 0 200 240"><use href="#h-compact"/></svg></div></div>
+  </section>
+  <section class="block" data-dawn="Rich text">
+    <div class="wrap narrow" style="margin:0 auto;text-align:center"><p style="font:800 italic clamp(26px,3vw,36px)/1.15 var(--display);text-transform:uppercase">Swatch makes base and colour products in 40 shades, with skincare in every formula, and lets you swap a shade for free if it is wrong.</p></div>
+  </section>
+  <section class="block tight" data-dawn="Multicolumn">
+    <div class="wrap cols3">
+      <div><i>01</i><h3>Shade range</h3><p>Every base product launches in 40 shades, fair to deep, with an olive range.</p></div>
+      <div><i>02</i><h3>Skincare inside</h3><p>SPF, niacinamide or squalane in every base formula.</p></div>
+      <div><i>03</i><h3>Free swaps</h3><p>Wrong shade? We send the right one first, then you post the old one back.</p></div>
+    </div>
+  </section>
+  <div class="wrap" data-dawn="Custom: Selvedge divider" style="margin-top:36px"><div class="divider"></div></div>
+  <section class="block" data-dawn="Multirow">
+    <div class="wrap mrow">
+      <div><div class="pic pk"><svg viewBox="0 0 200 240" style="color:#0E0F11"><use href="#h-lip"/></svg></div><div class="txt"><h3 class="h" style="font-size:44px">Tested on every skin tone</h3><p>Each shade is checked on testers across the full range before it goes on sale.</p></div></div>
+      <div><div class="pic"><svg viewBox="0 0 200 240" style="color:#D4A07A"><use href="#h-tint"/></svg></div><div class="txt"><h3 class="h" style="font-size:44px">Small batches</h3><p>We make each shade in small runs so nothing sits on a shelf for long.</p></div></div>
+    </div>
+  </section>
+</main>
+
+<!-- CONTACT -->
+<main id="view-contact" hidden>
+  <section class="block" style="padding-top:16px" data-dawn="Page">
+    <div class="wrap narrow"><h1 class="pageh">Contact</h1><p class="muted">Order questions, shade help or a swap. We reply within one working day.</p></div>
+  </section>
+  <section class="block tight" data-dawn="Contact form">
+    <div class="wrap contact">
+      <div class="info"><div><b>Email</b>hello@swatch.example</div><div><b>Hours</b>Monday to Friday, 9am to 5pm</div><div><b>Shade help</b>Send a photo in daylight with no makeup and we will suggest a shade.</div></div>
+      <form id="contactForm"><label for="cn">Name</label><input class="field" id="cn" required><label for="ce">Email</label><input class="field" id="ce" type="email" required><label for="cm">Message</label><textarea class="field" id="cm" required></textarea><button class="btn acc" type="submit">Send message</button></form>
+    </div>
+  </section>
+  <section class="block" data-dawn="Collapsible content">
+    <div class="wrap narrow" style="margin:0 auto"><div class="faq">
+      <details><summary>How do I swap a shade?</summary><p>Reply to your order email with the shade you want. We send it first, with a prepaid label for the old one.</p></details>
+      <details><summary>Where is my order?</summary><p>You get a tracking link as soon as your order leaves us, usually within one working day.</p></details>
+    </div></div>
+  </section>
+</main>
+
+<!-- 404 -->
+<main id="view-404" hidden>
+  <section class="block" data-dawn="404 page">
+    <div class="wrap nf"><p class="big">404</p><h1 class="h">Wrong shade of page</h1><p class="muted">This link is old or the product has moved.</p><form data-search404><label class="sr" for="q404">Search</label><input class="field" id="q404" type="search" placeholder="Search products"><button class="btn solid" type="submit">Search</button></form></div>
+  </section>
+  <section class="block tight" data-dawn="Featured collection"><div class="wrap"><div class="sec-head"><h2 class="h">Try <em>these</em></h2></div><div class="grid" data-grid="0,1,2,3,4"></div></div></section>
+</main>
+
+<footer class="site" data-dawn="Footer">
+  <div class="wrap">
+    <div class="foot">
+      <div><h4>Swat<span style="color:#FF3B8B">ch</span></h4><p style="margin:0;max-width:34ch;color:#C9CACD">Base and colour in 40 shades, with skincare in every formula.</p><div class="pay"><span>Visa</span><span>Mastercard</span><span>PayPal</span><span>Shop Pay</span></div></div>
+      <div><h4>Shop</h4><ul><li><a href="#" data-go="collection">Face</a></li><li><a href="#" data-go="collection">Lips</a></li><li><a href="#" data-go="collection">Cheeks</a></li><li><a href="#" data-go="collection">Kits</a></li></ul></div>
+      <div><h4>Help</h4><ul><li><a href="#" data-go="contact">Contact</a></li><li><a href="#" data-go="contact">Shade swap</a></li><li><a href="#" data-go="contact">Delivery</a></li><li><a href="#shade" data-go="home">Shade finder</a></li></ul></div>
+      <div><h4>About</h4><ul><li><a href="#" data-go="about">Our story</a></li><li><a href="#" data-go="blog">Tutorials</a></li><li><a href="#" data-go="search">Search</a></li></ul></div>
+    </div>
+    <p class="legal">© 2026 Swatch. Demo store design by Shopify Brands SEO.</p>
+  </div>
+</footer>
+
+<div class="overlay" id="ovMenu" data-close hidden></div>
+<aside class="drawer left" id="menuDrawer" aria-label="Menu" hidden data-dawn="Header (menu drawer)">
+  <div class="drawer-head"><h2>Menu</h2><button class="x" type="button" data-close aria-label="Close menu">×</button></div>
+  <nav><a href="#" data-go="collection">Face</a><a href="#" data-go="collection">Lips</a><a href="#" data-go="collection">Cheeks</a><a href="#" data-go="collection">Skincare</a><a href="#" data-go="blog">Tutorials</a><a href="#" data-go="about">About</a><a href="#" data-go="contact">Contact</a></nav>
+</aside>
+<div class="overlay" id="ovCart" data-close hidden></div>
+<aside class="drawer right" id="cartDrawer" aria-label="Bag" hidden data-dawn="Cart drawer">
+  <div class="drawer-head"><h2>Bag</h2><button class="x" type="button" data-close aria-label="Close bag">×</button></div>
+  <div class="body" id="drawerLines"></div>
+  <div class="row" style="margin-top:14px"><span>Subtotal</span><span id="drawerSub">$0</span></div>
+  <button class="btn acc full" type="button">Check out</button>
+  <a href="#" class="btn full" data-go="cart">View bag</a>
+</aside>
+<div class="toast" id="toast" role="status" hidden></div>
+
+<script>
+(function(){
+  var P=[
+    {n:"Skin Tint SPF 30",s:"tint",c:"#D4A07A",p:26,b:"Best seller",cat:"base",fin:"dewy",sz:"M2N",d:["#F6DCC8","#D4A07A","#7A4E33"]},
+    {n:"Bright Concealer",s:"wand",c:"#E2B08A",p:20,b:"New",cat:"base",fin:"natural",sz:"M1N",d:["#F6DCC8","#E2B08A","#8C5B3C"]},
+    {n:"Cream Blush Stick",s:"stick",c:"#E2557A",p:22,b:"",cat:"cheek",fin:"dewy",sz:"Rush",d:["#E2557A","#C9705A","#B5375A"]},
+    {n:"Lip Oil",s:"lip",c:"#B5375A",p:16,b:"3 for 2",cat:"lip",fin:"dewy",sz:"Berry",d:["#B5375A","#E2557A","#D88A7A"]},
+    {n:"Bronzing Balm",s:"compact",c:"#C99266",p:24,b:"",cat:"cheek",fin:"natural",sz:"Sun",d:["#C99266","#9A6B48"]},
+    {n:"Prep Serum",s:"bottle",c:"#F2F2F0",p:28,b:"",cat:"skin",fin:"dewy",sz:"30 ml",d:["#F2F2F0"]},
+    {n:"Matte Lip Colour",s:"lip",c:"#8E2440",p:18,b:"3 for 2",cat:"lip",fin:"matte",sz:"Cherry",d:["#8E2440","#C9705A","#6B2A2A"]},
+    {n:"Brow Gel",s:"wand",c:"#5A3A2A",p:14,b:"",cat:"base",fin:"natural",sz:"Brown",d:["#5A3A2A","#2B1E18","#B08A60"]},
+    {n:"Setting Powder",s:"compact",c:"#EAD3BF",p:22,b:"",cat:"base",fin:"matte",sz:"Light",d:["#EAD3BF","#C99266"]},
+    {n:"Lip Liner",s:"wand",c:"#A8455A",p:12,b:"3 for 2",cat:"lip",fin:"matte",sz:"Rose",d:["#A8455A","#7A3040"]},
+    {n:"Glow Drops",s:"bottle",c:"#F0C9A0",p:26,b:"",cat:"skin",fin:"dewy",sz:"15 ml",d:["#F0C9A0","#E3B080"]},
+    {n:"Mini Cleansing Balm",s:"compact",c:"#FFFFFF",p:15,b:"",cat:"skin",fin:"natural",sz:"30 g",d:["#FFFFFF"]}
+  ];
+  var POSTS=[
+    {t:"Find your undertone in 60 seconds",d:"15 October 2026",k:"Shade guides",e:"Three checks with your wrist, paper and jewellery.",cls:"pk",s:"tint"},
+    {t:"The 5-minute face",d:"3 October 2026",k:"Routines",e:"Tint, concealer, blush and brow gel in that order.",cls:"",s:"stick"},
+    {t:"Cream blush on oily skin",d:"20 September 2026",k:"How-to",e:"Set it with a light dusting of powder, not before.",cls:"dk",s:"compact"},
+    {t:"Lip oil vs gloss",d:"8 September 2026",k:"Lips",e:"Which one lasts, and which one feels sticky.",cls:"pk",s:"lip"},
+    {t:"Concealer one shade lighter",d:"26 August 2026",k:"Shade guides",e:"Why the under-eye needs a brighter shade.",cls:"",s:"wand"},
+    {t:"Skin prep before tint",d:"12 August 2026",k:"Skincare",e:"Thin layers, and give each one a minute.",cls:"dk",s:"bottle"}
+  ];
+  var cart=[{i:0,v:"M2N",q:1},{i:3,v:"Berry",q:1}];
+  function $(s,r){return (r||document).querySelector(s)}
+  function $$(s,r){return Array.prototype.slice.call((r||document).querySelectorAll(s))}
+  function money(v){return "$"+v}
+  function art(p){return '<svg viewBox="0 0 200 240" style="color:'+p.c+'" aria-hidden="true"><use href="#h-'+p.s+'"/></svg>'}
+  function card(i){var p=P[i];return '<a class="p" href="#" data-go="product"><div class="img">'+(p.b?'<span class="badge'+(p.b==="3 for 2"?" pink":"")+'">'+p.b+'</span>':'')+art(p)+'</div><h3>'+p.n+'</h3><div class="dots">'+p.d.map(function(c){return '<i style="background:'+c+'"></i>'}).join("")+'</div><span class="pr">'+money(p.p)+'</span><button class="addp" type="button" data-add="'+i+'">Add to bag</button></a>'}
+  function postCard(i){var p=POSTS[i];return '<a class="post" href="#" data-go="article"><div class="pic '+p.cls+'" role="img" aria-label="'+p.t+'"><svg viewBox="0 0 200 240" style="color:'+(p.cls==="pk"?"#0E0F11":"#FF3B8B")+'"><use href="#h-'+p.s+'"/></svg></div><small>'+p.d+' · '+p.k+'</small><h3>'+p.t+'</h3><p>'+p.e+'</p></a>'}
+  $$("[data-grid]").forEach(function(g){g.innerHTML=g.dataset.grid.split(",").map(Number).map(card).join("")});
+  $$("[data-posts]").forEach(function(g){g.innerHTML=g.dataset.posts.split(",").map(Number).map(postCard).join("")});
+
+  function renderCollection(){
+    var cats=$$('[data-f="cat"]:checked').map(function(x){return x.value}),
+        fins=$$('[data-f="fin"]:checked').map(function(x){return x.value}),
+        prices=$$('[data-f="price"]:checked').map(function(x){return x.value}),
+        idx=P.map(function(_,i){return i}).filter(function(i){var p=P[i];
+          return (!cats.length||cats.indexOf(p.cat)>-1)&&(!fins.length||fins.indexOf(p.fin)>-1)&&
+            (!prices.length||(prices.indexOf("u20")>-1&&p.p<20)||(prices.indexOf("o20")>-1&&p.p>=20));});
+    var s=$("#sort").value; if(s==="low")idx.sort(function(a,b){return P[a].p-P[b].p}); if(s==="high")idx.sort(function(a,b){return P[b].p-P[a].p});
+    $("#colGrid").innerHTML=idx.length?idx.map(card).join(""):'<p class="muted">No products match these filters. Clear a filter to see more.</p>';
+    $("#colShown").textContent=idx.length;
+  }
+  $$(".filters input").forEach(function(x){x.addEventListener("change",renderCollection)});
+  $("#sort").addEventListener("change",renderCollection);
+  $("#filterToggle").addEventListener("click",function(){var f=$("#filters");f.classList.toggle("open");this.setAttribute("aria-expanded",String(f.classList.contains("open")))});
+  renderCollection();
+
+  function runSearch(q){
+    q=(q||"").trim().toLowerCase();
+    var idx=P.map(function(_,i){return i}).filter(function(i){var p=P[i];return !q||(p.n+" "+p.cat+" "+p.fin+" "+p.sz).toLowerCase().indexOf(q)>-1});
+    $("#searchCount").textContent=idx.length+" result"+(idx.length===1?"":"s")+(q?' for "'+q+'"':"");
+    $("#searchGrid").innerHTML=idx.length?idx.map(card).join(""):'<p class="muted">No products found. Try "lip", "tint" or "blush".</p>';
+  }
+  $("#searchForm").addEventListener("submit",function(e){e.preventDefault();runSearch($("#q").value)});
+  $("[data-search404]").addEventListener("submit",function(e){e.preventDefault();$("#q").value=$("#q404").value;runSearch($("#q404").value);show("search")});
+  runSearch("lip");
+
+  function lineHtml(l,k){var p=P[l.i];return '<div class="cl"><div class="thumb">'+art(p)+'</div><div><h3>'+p.n+'</h3><div class="muted" style="font-size:14px">'+l.v+'</div><div class="qty"><button type="button" aria-label="Decrease quantity" data-q="'+k+'" data-d="-1">−</button><span>'+l.q+'</span><button type="button" aria-label="Increase quantity" data-q="'+k+'" data-d="1">+</button></div><button type="button" class="linkbtn" data-rm="'+k+'">Remove</button></div><b style="font:900 italic 22px/1 var(--display)">'+money(p.p*l.q)+'</b></div>'}
+  function renderCart(){
+    var sub=0,count=0,html="";
+    cart.forEach(function(l,k){sub+=P[l.i].p*l.q;count+=l.q;html+=lineHtml(l,k)});
+    $("#cartLines").innerHTML=html; $("#drawerLines").innerHTML=html||'<p class="muted">Your bag is empty.</p>';
+    $("#cartEmpty").hidden=cart.length>0;
+    $("#subtotal").textContent=money(sub); $("#drawerSub").textContent=money(sub);
+    $$(".cart-count").forEach(function(c){c.textContent=count});
+    var left=40-sub; $("#shipMsg").textContent=left>0?"Spend "+money(left)+" more for free delivery":"Free delivery unlocked";
+    $("#shipBar").style.width=Math.min(100,sub/40*100)+"%";
+  }
+  function addToCart(i,v,n){n=n||1;var ex=cart.filter(function(l){return l.i===i&&l.v===v})[0];if(ex)ex.q+=n;else cart.push({i:i,v:v,q:n});}
+  document.addEventListener("click",function(e){
+    var q=e.target.closest("[data-q]"),rm=e.target.closest("[data-rm]"),add=e.target.closest("[data-add]");
+    if(q){var l=cart[+q.dataset.q];l.q=Math.max(1,l.q+(+q.dataset.d));renderCart();}
+    if(rm){cart.splice(+rm.dataset.rm,1);renderCart();}
+    if(add){e.preventDefault();e.stopPropagation();var i=+add.dataset.add,v=P[i].sz,n=1;
+      if(add.closest("#view-product")){v=$("#cname").textContent;n=+$("#pq").textContent;}
+      addToCart(i,v,n);renderCart();openDrawer("cart");}
+  },true);
+  renderCart();
+
+  function openDrawer(w){var d=w==="cart"?$("#cartDrawer"):$("#menuDrawer"),o=w==="cart"?$("#ovCart"):$("#ovMenu");d.hidden=false;o.hidden=false;var b=d.querySelector(".x");if(b)b.focus();}
+  function closeDrawers(){$$(".drawer,.overlay").forEach(function(x){x.hidden=true})}
+  $("[data-open=menu]").addEventListener("click",function(){openDrawer("menu")});
+  $$("[data-close]").forEach(function(x){x.addEventListener("click",closeDrawers)});
+  document.addEventListener("keydown",function(e){if(e.key==="Escape")closeDrawers()});
+
+  // product page
+  $("#pdpSw").addEventListener("click",function(e){var b=e.target.closest("button");if(!b)return;$$("#pdpSw button").forEach(function(x){x.setAttribute("aria-pressed",String(x===b))});$("#cname").textContent=b.dataset.c;$("#mainArt").style.color=b.style.background});
+  $("#pdpSize").addEventListener("click",function(e){var b=e.target.closest("button:not([disabled])");if(!b)return;$$("#pdpSize button").forEach(function(x){x.setAttribute("aria-pressed",String(x===b))})});
+  $("#pqMinus").addEventListener("click",function(){$("#pq").textContent=Math.max(1,+$("#pq").textContent-1)});
+  $("#pqPlus").addEventListener("click",function(){$("#pq").textContent=+$("#pq").textContent+1});
+
+  // Shade finder
+  var DEPTH=["Fair","Light","Medium","Tan","Deep"],DL=["F","L","M","T","D"];
+  var BASE=[[246,220,200],[235,196,163],[212,160,122],[176,122,82],[122,78,51]];
+  var TONE={C:[-6,-2,10],N:[0,0,0],W:[8,2,-12],O:[-4,6,-8]},TN={C:"Cool",N:"Neutral",W:"Warm",O:"Olive"};
+  var FIN={dewy:"Skin Tint gives a dewy finish on its own.",natural:"Set the T-zone with a little powder for a natural finish.",matte:"Add Setting Powder all over for a matte finish."};
+  var sf={d:2,t:"N",f:"dewy"};
+  function rgb(a){return "rgb("+a.map(function(x){return Math.max(0,Math.min(255,Math.round(x)))}).join(",")+")"}
+  function sfRender(){
+    var b=BASE[sf.d],t=TONE[sf.t],c=[b[0]+t[0],b[1]+t[1],b[2]+t[2]];
+    var lvl=sf.t==="W"||sf.t==="O"?1:2,code=DL[sf.d]+lvl+sf.t;
+    var clvl=sf.d===0?1:(lvl===2?1:2),cdl=sf.d===0?0:(lvl===2?sf.d:sf.d-1),ccode=DL[cdl]+clvl+sf.t;
+    $("#sfChip").style.background=rgb(c);$("#sfCode").textContent=code;
+    $("#sfName").textContent=DEPTH[sf.d]+" "+lvl+" "+TN[sf.t];
+    $("#sfNote").textContent=FIN[sf.f];
+    $("#sfTintShade").textContent="Shade "+code;$("#sfConShade").textContent="Shade "+ccode;
+    $("#sfAdd").dataset.tint=code;$("#sfAdd").dataset.con=ccode;
+  }
+  function group(id,key,num){$("#"+id).addEventListener("click",function(e){var b=e.target.closest("button");if(!b)return;$$("#"+id+" button").forEach(function(x){x.setAttribute("aria-pressed",String(x===b))});sf[key]=num?+b.dataset.v:b.dataset.v;sfRender()})}
+  group("sfDepth","d",true);group("sfTone","t");group("sfFinish","f");
+  $("#sfAdd").addEventListener("click",function(){addToCart(0,this.dataset.tint);addToCart(1,this.dataset.con);if(sf.f==="matte")addToCart(8,"Light");renderCart();openDrawer("cart");toast("Shade "+this.dataset.tint+" and concealer added to your bag.")});
+  sfRender();
+
+  function toast(msg){var t=$("#toast");t.textContent=msg;t.hidden=false;clearTimeout(t._t);t._t=setTimeout(function(){t.hidden=true},2400)}
+  $$("[data-sub]").forEach(function(f){f.addEventListener("submit",function(e){e.preventDefault();f.querySelector("button").textContent="Done";toast("Subscribed. Check your inbox to confirm.")})});
+  $("#contactForm").addEventListener("submit",function(e){e.preventDefault();this.reset();toast("Message sent. We reply within one working day.")});
+
+  var VIEWS=[["home","Homepage"],["collection","Collection"],["product","Product"],["cart","Cart"],["search","Search"],["blog","Blog"],["article","Article"],["about","About"],["contact","Contact"],["404","404"]];
+  $("#pageTabs").innerHTML=VIEWS.map(function(v){return '<button type="button" data-view="'+v[0]+'" aria-pressed="false">'+v[1]+'</button>'}).join("");
+  function show(v){
+    VIEWS.forEach(function(x){$("#view-"+x[0]).hidden=x[0]!==v});
+    $$("#pageTabs button").forEach(function(b){b.setAttribute("aria-pressed",String(b.dataset.view===v))});
+    closeDrawers(); window.scrollTo(0,0);
+  }
+  $("#pageTabs").addEventListener("click",function(e){var b=e.target.closest("button");if(b)show(b.dataset.view)});
+  document.addEventListener("click",function(e){var a=e.target.closest("[data-go]");if(a&&!e.defaultPrevented){e.preventDefault();var h=a.getAttribute("href");show(a.dataset.go);if(h&&h.length>1&&h.charAt(0)==="#"){var el=document.querySelector(h);if(el)el.scrollIntoView()}}});
+  $$('a[href^="#"]:not([data-go])').forEach(function(a){a.addEventListener("click",function(e){e.preventDefault();var t=a.getAttribute("href");if(t.length>1){if($("#view-home").hidden)show("home");var el=document.querySelector(t);if(el)el.scrollIntoView({behavior:"smooth"})}})});
+  $("#showSections").addEventListener("change",function(){document.body.classList.toggle("show-sections",this.checked)});
+  show("home");
+})();
+</script>
+</body></html>
