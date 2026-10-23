@@ -1,647 +1,935 @@
-<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
-<title>Gauge Apparel Theme</title>
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Gauge Technical Outerwear Theme</title>
+<meta name="description" content="Gauge: a technical outdoor apparel Shopify theme design. Design by Shopify Brands SEO.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@100..125,400..900&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
-/* Layout: spec-sheet storefront. Grid-paper hero with FIG. card, bento categories, bordered 4-up cards, layer calculator. */
-:root{
-  --grid:#D8D7D1; --paper:#F4F3EF; --ink:#1A1C20; --accent:#FF5A1F; --accent-ink:#1A1C20; --mute:#5E6064; --edge:#1A1C20; --tile:#E9E8E3; --white:#FFFFFF;
-  --display:"Archivo","Arial Black",Impact,sans-serif; --mono:"IBM Plex Mono",ui-monospace,Menlo,monospace;
-  box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)
-}
-@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){--grid:#2A2D33;--paper:#14161A;--ink:#EDEBE5;--mute:#A4A6A9;--edge:#EDEBE5;--tile:#1E2126;--white:#1A1C20;--accent-ink:#14161A;color-scheme:dark}}
-:root[data-theme="dark"]{--grid:#2A2D33;--paper:#14161A;--ink:#EDEBE5;--mute:#A4A6A9;--edge:#EDEBE5;--tile:#1E2126;--white:#1A1C20;--accent-ink:#14161A;color-scheme:dark}
-*,*::before,*::after{box-sizing:inherit}
-body{margin:0;background:var(--paper);color:var(--ink);font:400 16px/1.55 var(--mono);-webkit-font-smoothing:antialiased}
-svg{display:block;max-width:100%}a{color:inherit}button,input,select,textarea{font:inherit;color:inherit}
-:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
-.wrap{max-width:1280px;margin:0 auto;padding:0 clamp(16px,3.5vw,40px)}
-.sr{position:absolute;left:-9999px}
-.disp{font-family:var(--display);font-stretch:125%;font-weight:900;text-transform:uppercase;letter-spacing:-.01em;text-wrap:balance}
-.lab{font:500 12px/1.3 var(--mono);text-transform:uppercase;letter-spacing:.08em}
-.muted{color:var(--mute)}
-
-.pv{background:#0E0F11;color:#fff;font-size:13px;padding:8px 0;position:relative;z-index:30}
-.pv .wrap{display:flex;gap:10px;align-items:center;flex-wrap:wrap}
-.pv .tabs{display:flex;gap:6px;overflow-x:auto;flex:1 1 300px;min-width:0;padding-bottom:2px}
-.pv button{background:transparent;border:1px solid rgba(255,255,255,.4);color:#fff;padding:4px 10px;cursor:pointer;white-space:nowrap}
-.pv button[aria-pressed="true"]{background:#FF5A1F;border-color:#FF5A1F;color:#14161A;font-weight:600}
-.pv label{display:flex;gap:6px;align-items:center;white-space:nowrap;cursor:pointer}
-body.show-sections [data-dawn]{position:relative;outline:2px dashed var(--accent);outline-offset:-2px}
-body.show-sections [data-dawn]::after{content:attr(data-dawn);position:absolute;top:6px;right:6px;background:var(--accent);color:#14161A;font:600 11px/1 var(--mono);padding:5px 7px;z-index:8;pointer-events:none}
-
-.util{background:var(--ink);color:var(--paper);font-size:12px;padding:7px 0;letter-spacing:.06em;text-transform:uppercase}
-.util .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
-header.site{background:var(--white);border-bottom:2px solid var(--edge);position:sticky;top:env(safe-area-inset-top,0px);z-index:20}
-.head{display:grid;grid-template-columns:auto 1fr auto;gap:18px;align-items:center;min-height:68px}
-.logo{display:flex;align-items:center;gap:10px;text-decoration:none;font:900 22px/1 var(--display);font-stretch:125%;text-transform:uppercase}
-.logo i{width:30px;height:30px;background:var(--accent);display:grid;place-items:center;font:700 14px/1 var(--mono);color:#14161A;font-style:normal}
-.srch{display:flex;border:2px solid var(--edge);max-width:420px;justify-self:center;width:100%;background:var(--paper)}
-.srch input{flex:1;min-width:0;border:0;background:transparent;padding:9px 12px;font-size:14px}
-.srch button{border:0;border-left:2px solid var(--edge);background:var(--ink);color:var(--paper);padding:0 14px;cursor:pointer;font-size:12px;text-transform:uppercase}
-.acts{display:flex;gap:8px;align-items:center}
-.pill{border:2px solid var(--edge);padding:7px 12px;text-decoration:none;font-size:12px;text-transform:uppercase;letter-spacing:.06em;background:transparent;cursor:pointer}
-.pill.deal{color:var(--accent);border-color:var(--accent)}.pill.fill{background:var(--ink);color:var(--paper)}
-nav.main{display:flex;gap:22px;padding:10px 0 12px;border-top:1px solid var(--grid);font-size:13px;text-transform:uppercase;letter-spacing:.06em;overflow-x:auto}
-nav.main a{text-decoration:none;white-space:nowrap}nav.main a:hover{color:var(--accent)}
-@media (max-width:820px){.head{grid-template-columns:1fr auto}.srch{display:none}.acts .hide-sm{display:none}}
-
-.btn{display:inline-block;padding:13px 22px;border:2px solid var(--edge);background:transparent;text-decoration:none;font-weight:600;font-size:13px;text-transform:uppercase;letter-spacing:.07em;cursor:pointer;text-align:center}
-.btn.o{background:var(--accent);border-color:var(--accent);color:#14161A}.btn.o:hover{filter:brightness(1.07)}
-.btn.k{background:var(--ink);color:var(--paper)}.btn:not(.o):not(.k):hover{background:var(--tile)}
-.btns{display:flex;gap:10px;flex-wrap:wrap}.full{width:100%;margin-bottom:10px}
-
-section.blk{padding:clamp(40px,6vw,76px) 0}section.tt{padding-top:0}
-.sh{display:flex;justify-content:space-between;align-items:end;gap:14px;flex-wrap:wrap;margin-bottom:24px;border-bottom:2px solid var(--edge);padding-bottom:12px}
-.sh h2{font:900 clamp(28px,4vw,48px)/.95 var(--display);font-stretch:125%;text-transform:uppercase;margin:0;text-wrap:balance}
-.sh a{font-size:13px;text-transform:uppercase}
-
+:root{--fog:#EDF0EE;--fog2:#E2E7E5;--ink:#0F181B;--ink2:#1A262A;--alpine:#1F4E63;--glacier:#9CC3D0;--sulphur:#F2C230;--stone:#C7CCC8;--mute:#56636A;--line:rgba(15,24,27,.12);--disp:'Syne',sans-serif;--sans:'Inter',system-ui,sans-serif;--ease:cubic-bezier(.3,.75,.25,1)}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font:400 16px/1.6 var(--sans);color:var(--ink);background:var(--fog);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+img{display:block;max-width:100%}
+a{color:inherit;text-decoration:none}
+button,input,select,textarea{font:inherit;color:inherit;background:none;border:0}
+button{cursor:pointer}
+:focus-visible{outline:3px solid var(--sulphur);outline-offset:2px}
+.wrap{max-width:1440px;margin:0 auto;padding:0 40px}
+h1,h2,h3,h4{font-family:var(--disp);font-weight:800;line-height:.98;letter-spacing:-.02em;text-transform:uppercase}
+h1 span,h2 span{color:var(--alpine)}
+.dk h1 span,.dk h2 span,.hero h1 span{color:var(--sulphur)}
+.kick{display:inline-flex;align-items:center;gap:10px;font:600 12px/1 var(--sans);letter-spacing:.16em;text-transform:uppercase;color:var(--alpine)}
+.kick::before{content:"";width:10px;height:10px;background:var(--sulphur);border-radius:2px;transform:rotate(45deg)}
+.dk .kick{color:var(--glacier)}
+.dk{background:var(--ink);color:var(--fog)}
+.f2{background:var(--fog2)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;height:52px;padding:0 26px;font:600 14px/1 var(--sans);letter-spacing:.04em;border-radius:4px;transition:background .25s,color .25s,transform .2s}
+.btn:active{transform:scale(.98)}
+.btn-y{background:var(--sulphur);color:var(--ink)}.btn-y:hover{background:#ffd34d}
+.btn-k{background:var(--ink);color:var(--fog)}.btn-k:hover{background:var(--alpine)}
+.btn-o{border:1.5px solid currentColor}.btn-o:hover{background:var(--fog);color:var(--ink)}
+.btn-ok{border:1.5px solid var(--ink)}.btn-ok:hover{background:var(--ink);color:var(--fog)}
+.lnk{font-weight:600;font-size:14px;display:inline-flex;gap:8px;align-items:center}
+.lnk::after{content:"→";transition:transform .25s}.lnk:hover::after{transform:translateX(4px)}
+.sec{padding:100px 0}
+.head{display:flex;justify-content:space-between;align-items:flex-end;gap:32px;margin-bottom:40px}
+.head h2{font-size:clamp(36px,4vw,60px);margin-top:14px}
+.head p{max-width:400px;color:var(--mute)}
+.dk .head p{color:#9fb0b6}
+.topo{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400' viewBox='0 0 400 400'%3E%3Cg fill='none' stroke='%231F4E63' stroke-opacity='.09' stroke-width='1.2'%3E%3Cpath d='M-20 80c60-40 120 30 200-10s140 20 240-20'/%3E%3Cpath d='M-20 130c70-30 130 40 210 0s130 20 230-15'/%3E%3Cpath d='M-20 180c80-25 140 40 220 5s120 25 220-10'/%3E%3Cpath d='M-20 230c60-30 150 30 230 0s120 30 210-5'/%3E%3Cpath d='M-20 280c90-20 140 35 220 0s130 20 220-10'/%3E%3Cpath d='M-20 330c70-25 150 30 230 0s110 25 210-5'/%3E%3C/g%3E%3C/svg%3E")}
+.reveal{opacity:0;transform:translateY(22px);transition:opacity .8s var(--ease),transform .8s var(--ease)}
+.reveal.in{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}.reveal{opacity:1;transform:none}}
+/* toolbar */
+.dt{position:sticky;top:0;z-index:90;background:#000;color:#9fb0b6;font-size:12px}
+.dt .wrap{display:flex;gap:4px;align-items:center;height:44px;overflow-x:auto;scrollbar-width:none}
+.dt b{color:var(--sulphur);margin-right:12px;white-space:nowrap}
+.dt button{padding:6px 12px;border-radius:4px;white-space:nowrap;color:#9fb0b6}
+.dt button.on{background:var(--sulphur);color:#000}
+.dt label{margin-left:auto;display:flex;gap:8px;align-items:center;white-space:nowrap;cursor:pointer}
+body.names [data-dawn]{position:relative;outline:2px dashed rgba(242,194,48,.9);outline-offset:-2px}
+body.names [data-dawn]::before{content:attr(data-dawn);position:absolute;top:6px;left:6px;z-index:60;background:var(--sulphur);color:#000;font:600 10px/1 var(--sans);padding:5px 8px;border-radius:3px;pointer-events:none}
+/* announcement */
+.ann{background:var(--ink);color:#c9d6da;font-size:12px;font-weight:500;letter-spacing:.06em;height:38px;position:relative;overflow:hidden}
+.ann span{position:absolute;inset:0;display:block;line-height:38px;text-align:center;opacity:0;transform:translateY(8px);transition:.5s var(--ease);white-space:nowrap}
+.ann span.on{opacity:1;transform:none}
+.ann b{color:var(--sulphur);font-weight:600}
+/* header */
+.hdr{position:sticky;top:44px;z-index:80;background:var(--fog);border-bottom:1px solid var(--line);transition:background .3s,color .3s}
+.home-on .hdr{position:absolute;left:0;right:0;top:82px;background:transparent;color:#fff;border-color:rgba(255,255,255,.18)}
+.hdr .wrap{display:flex;align-items:center;gap:36px;height:76px}
+.logo{display:flex;align-items:center;gap:10px;font:800 26px/1 var(--disp);letter-spacing:.02em;text-transform:uppercase}
+.logo svg{width:30px;height:30px}
+.nav{display:flex;gap:4px;margin:0 auto;height:100%;align-items:center}
+.nav>div{height:100%;display:flex;align-items:center}
+.nv{font-weight:600;font-size:14px;padding:10px 14px;border-radius:4px;letter-spacing:.02em}
+.nav>div:hover .nv{background:rgba(127,169,190,.18)}
+.mega{position:absolute;left:0;right:0;top:100%;background:var(--fog);color:var(--ink);border-bottom:1px solid var(--line);padding:32px 0 40px;opacity:0;visibility:hidden;transform:translateY(-6px);transition:.3s var(--ease);box-shadow:0 30px 60px -30px rgba(0,0,0,.3)}
+.nav>div:hover .mega,.nav>div:focus-within .mega{opacity:1;visibility:visible;transform:none}
+.mega .wrap{height:auto;display:grid;grid-template-columns:repeat(3,180px) 1fr 1fr;gap:28px}
+.mega h5{font:700 12px/1 var(--sans);letter-spacing:.14em;text-transform:uppercase;color:var(--alpine);margin-bottom:14px}
+.mega ul{list-style:none;display:grid;gap:9px;font-size:15px}
+.mega ul a:hover{color:var(--alpine);text-decoration:underline}
+.mtile{position:relative;display:block;aspect-ratio:4/3;overflow:hidden;border-radius:6px}
+.mtile img{width:100%;height:100%;object-fit:cover;transition:transform .9s var(--ease)}
+.mtile:hover img{transform:scale(1.05)}
+.mtile b{position:absolute;left:16px;bottom:14px;color:#fff;font:800 22px/1 var(--disp);text-transform:uppercase;z-index:1}
+.mtile::after{content:"";position:absolute;inset:0;background:linear-gradient(transparent 50%,rgba(0,0,0,.6))}
+.util{display:flex;align-items:center;gap:6px;font-weight:600;font-size:14px}
+.util a,.util button{display:flex;align-items:center;gap:8px;padding:10px;border-radius:4px}
+.ico{width:21px;height:21px}
+#openCart b{background:var(--sulphur);color:var(--ink);border-radius:3px;min-width:22px;height:22px;display:grid;place-items:center;font-size:12px}
+#openCart.bump b{animation:bump .5s}
+@keyframes bump{40%{transform:scale(1.5)}}
+.burger{display:none!important}
+.mnav{position:fixed;inset:0;z-index:120;background:var(--ink);color:var(--fog);padding:84px 20px 32px;transform:translateX(-100%);transition:transform .45s var(--ease);overflow:auto}
+.mnav.on{transform:none}
+.mnav .x{position:absolute;top:24px;right:20px;font-weight:600}
+.mnav .seg{display:grid;grid-template-columns:1fr 1fr;border:1px solid rgba(255,255,255,.2);border-radius:4px;margin-bottom:20px}
+.mnav .seg button{padding:12px;font-weight:600}
+.mnav .seg button.on{background:var(--sulphur);color:var(--ink)}
+.mnav a.big{display:flex;justify-content:space-between;font:800 30px/1.4 var(--disp);text-transform:uppercase;border-bottom:1px solid rgba(255,255,255,.12);padding:10px 0}
+.mnav a.big::after{content:"→";font-family:var(--sans);font-weight:400}
 /* hero */
-.hero{background:var(--grid);background-image:linear-gradient(var(--paper) 1px,transparent 1px),linear-gradient(90deg,var(--paper) 1px,transparent 1px);background-size:32px 32px;border-bottom:2px solid var(--edge);padding:clamp(28px,5vw,64px) 0}
-.hg{display:grid;grid-template-columns:1.1fr .9fr;gap:clamp(20px,4vw,56px);align-items:center}
-.hero h1{font:900 clamp(40px,7.4vw,108px)/.9 var(--display);font-stretch:125%;text-transform:uppercase;margin:12px 0 18px;overflow-wrap:anywhere}
-.hero h1 em{font-style:normal;color:var(--accent)}
-.hero p{max-width:44ch;margin:0 0 24px}
-.fig{background:var(--white);border:2px solid var(--edge);padding:16px;box-shadow:8px 8px 0 var(--edge)}
-.fig .art{background:var(--tile);aspect-ratio:5/4;display:grid;place-items:center;position:relative;border:1px solid var(--edge)}
-.fig .art svg{width:48%;color:var(--ink)}
-.dim{position:absolute;font:500 11px/1 var(--mono);color:var(--mute)}
-.dim.t{top:8px;left:50%;transform:translateX(-50%)}.dim.l{left:8px;top:50%;transform:rotate(-90deg) translateX(-50%);transform-origin:left top}
-.fig .cap{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;margin-top:12px;font-size:12px;text-transform:uppercase}
-.fig .cap b{font:900 22px/1 var(--display);font-stretch:125%}
-@media (max-width:860px){.hg{grid-template-columns:1fr}}
-
-.trust{background:var(--ink);color:var(--paper)}
-.trust .wrap{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;padding-block:16px;font-size:12px;text-transform:uppercase;letter-spacing:.06em}
-@media (max-width:820px){.trust .wrap{grid-template-columns:1fr 1fr}}
-
-/* bento */
-.bento{display:grid;grid-template-columns:repeat(4,1fr);grid-auto-rows:minmax(150px,auto);gap:0;border:2px solid var(--edge)}
-.bt{border:1px solid var(--edge);padding:16px;text-decoration:none;display:flex;flex-direction:column;justify-content:space-between;cursor:pointer;background:var(--white);position:relative;min-height:150px}
-.bt:hover{background:var(--tile)}
-.bt h3{font:900 clamp(18px,2.2vw,26px)/1 var(--display);font-stretch:125%;text-transform:uppercase;margin:0}
-.bt svg{width:70px;color:var(--ink);align-self:flex-end}
-.bt .ar{font-size:20px}
-.bt.big{grid-column:span 2;grid-row:span 2;background:var(--accent);color:#14161A}.bt.big:hover{background:var(--accent);filter:brightness(1.06)}.bt.big svg{width:46%;color:#14161A}.bt.big h3{font-size:clamp(28px,4vw,52px)}
-@media (max-width:820px){.bento{grid-template-columns:1fr 1fr}.bt.big{grid-column:span 2;grid-row:auto}}
-
-/* product cards */
-.grid{display:grid;grid-template-columns:repeat(4,1fr);border:2px solid var(--edge)}
-.grid.three{grid-template-columns:repeat(3,1fr)}
-.pc{border:1px solid var(--edge);background:var(--white);display:flex;flex-direction:column;min-width:0}
-.pc .im{background:var(--tile);aspect-ratio:1;display:grid;place-items:center;position:relative;border-bottom:1px solid var(--edge);cursor:pointer}
-.pc .im svg{width:62%}
-.pc .bd{position:absolute;top:8px;left:8px;background:var(--ink);color:var(--paper);font-size:11px;padding:3px 7px;text-transform:uppercase}
-.pc .in{padding:12px;display:flex;flex-direction:column;gap:6px;flex:1}
-.pc h3{font:700 15px/1.25 var(--mono);margin:0}
-.pc .sp{font-size:12px;color:var(--mute);text-transform:uppercase}
-.pc .cf{display:flex;flex-direction:column;gap:8px;margin-top:auto}
-.pc .pr{font-weight:600;font-size:18px}
-.pc .add{border:2px solid var(--edge);background:var(--ink);color:var(--paper);padding:9px;cursor:pointer;font-size:12px;text-transform:uppercase;letter-spacing:.06em;width:100%}
-.pc .add:hover{background:var(--accent);color:#14161A;border-color:var(--accent)}
-@media (max-width:980px){.grid,.grid.three{grid-template-columns:repeat(2,1fr)}}
-
-/* layer calculator (niche feature) */
-.calc{background:var(--ink);color:var(--paper)}
-.calc .sh{border-color:var(--paper)}
-.cg{display:grid;grid-template-columns:1fr 1fr;gap:clamp(20px,4vw,48px)}
-.cg>*{min-width:0}
-.cg fieldset{border:0;padding:0;margin:0 0 22px}
-.cg legend{font-size:12px;text-transform:uppercase;letter-spacing:.08em;margin-bottom:10px;color:#BDBFC2}
-.chips{display:flex;gap:8px;flex-wrap:wrap}
-.chips button{border:2px solid var(--paper);background:transparent;color:var(--paper);padding:8px 14px;cursor:pointer;font-size:13px}
-.chips button[aria-pressed="true"]{background:var(--accent);border-color:var(--accent);color:#14161A;font-weight:600}
-.step{display:inline-flex;border:2px solid var(--paper)}
-.step button{width:40px;height:40px;background:transparent;border:0;color:var(--paper);cursor:pointer;font-size:18px}
-.step output{min-width:80px;display:grid;place-items:center;border-inline:2px solid var(--paper);font-weight:600}
-.res{background:var(--paper);color:var(--ink);padding:20px;border:2px solid var(--accent)}
-.res .rl{display:flex;flex-direction:column;gap:0;margin:14px 0}
-.res .rl div{display:flex;justify-content:space-between;gap:12px;padding:10px 0;border-bottom:1px solid var(--grid)}
-.res .tot{font:900 34px/1 var(--display);font-stretch:125%}
-.warmth{display:grid;grid-template-columns:repeat(6,1fr);gap:4px;margin:10px 0 4px}
-.warmth i{height:22px;border:1px solid var(--edge);background:transparent}.warmth i.on{background:var(--accent)}
-@media (max-width:860px){.cg{grid-template-columns:1fr}}
-
-.promo2{display:grid;grid-template-columns:1fr 1fr;border:2px solid var(--edge)}
-.pm{padding:clamp(22px,3vw,40px);border:1px solid var(--edge);min-height:240px;display:flex;flex-direction:column;justify-content:space-between;gap:20px}
-.pm h3{font:900 clamp(26px,3.6vw,44px)/.95 var(--display);font-stretch:125%;text-transform:uppercase;margin:0}
-.pm.a{background:var(--tile)}.pm.b{background:var(--ink);color:var(--paper)}
-@media (max-width:760px){.promo2{grid-template-columns:1fr}}
-
-.stmt{padding:clamp(40px,6vw,80px) 0;text-align:left}
-.stmt p{font:900 clamp(26px,4.4vw,56px)/1.02 var(--display);font-stretch:125%;text-transform:uppercase;margin:0;max-width:22ch;text-wrap:balance}
-.stmt p em{font-style:normal;background:var(--accent);color:#14161A;padding:0 .15em}
-
-.spec{width:100%;border-collapse:collapse;min-width:560px;background:var(--white);border:2px solid var(--edge)}
-.spec th,.spec td{text-align:left;padding:12px 14px;border:1px solid var(--edge);font-size:14px}
-.spec th{background:var(--ink);color:var(--paper);font-weight:500;text-transform:uppercase;font-size:12px;letter-spacing:.06em}
-.tw{overflow-x:auto}
-
-.iwt{display:grid;grid-template-columns:1fr 1fr;gap:clamp(20px,4vw,56px);align-items:center}
-.iwt>*{min-width:0}
-.iwt .pic{aspect-ratio:5/4;border:2px solid var(--edge);display:grid;place-items:center;background:var(--tile)}
-.iwt .pic svg{width:44%;color:var(--ink)}
-.iwt h2{font:900 clamp(28px,4vw,48px)/.95 var(--display);font-stretch:125%;text-transform:uppercase;margin:0 0 14px}
-.iwt.flip .pic{order:2}
-@media (max-width:860px){.iwt{grid-template-columns:1fr}.iwt.flip .pic{order:0}}
-
-.cols3{display:grid;grid-template-columns:repeat(3,1fr);border:2px solid var(--edge)}
-.cols3>div{padding:22px;border:1px solid var(--edge);background:var(--white)}
-.cols3 h3{margin:0 0 6px;font:900 18px/1.1 var(--display);font-stretch:125%;text-transform:uppercase}.cols3 p{margin:0;color:var(--mute)}
-@media (max-width:820px){.cols3{grid-template-columns:1fr}}
-.stars{color:var(--accent);letter-spacing:2px;font-size:20px}
-
-details.acc{border-top:2px solid var(--edge);padding:14px 0}details.acc:last-of-type{border-bottom:2px solid var(--edge)}
-details.acc summary{cursor:pointer;font-weight:600;list-style:none;display:flex;justify-content:space-between;gap:12px}
-details.acc summary::-webkit-details-marker{display:none}details.acc summary::after{content:"+";font-size:20px;line-height:1}details.acc[open] summary::after{content:"–"}
-details.acc p{color:var(--mute);margin:10px 0 0}
-.faq{display:grid;grid-template-columns:.8fr 1.2fr;gap:clamp(20px,4vw,56px)}.faq>*{min-width:0}
-@media (max-width:860px){.faq{grid-template-columns:1fr}}
-
-.news{background:var(--accent);color:#14161A;border-block:2px solid var(--edge)}
-.nin{display:grid;grid-template-columns:1fr 1fr;gap:24px;align-items:center}.nin>*{min-width:0}
-.news h2{font:900 clamp(26px,3.6vw,44px)/.95 var(--display);font-stretch:125%;text-transform:uppercase;margin:0}
-.news form{display:flex;gap:8px;flex-wrap:wrap}
-.fld{padding:13px 14px;border:2px solid var(--edge);background:var(--white);color:var(--ink);width:100%}
-.news .fld{flex:1 1 200px;width:auto}
-.news .btn.k{color:#EDEBE5;background:#1A1C20}
-@media (max-width:820px){.nin{grid-template-columns:1fr}}
-
-.post{text-decoration:none;display:block;cursor:pointer;border:1px solid var(--edge);background:var(--white)}
-.post .pic{aspect-ratio:3/2;background:var(--tile);border-bottom:1px solid var(--edge);display:grid;place-items:center}.post .pic svg{width:30%}
-.post .tx{padding:14px}.post small{display:block;color:var(--mute);text-transform:uppercase;font-size:11px;margin-bottom:6px}.post h3{margin:0 0 6px;font:700 17px/1.3 var(--mono)}.post p{margin:0;color:var(--mute);font-size:14px}
-
-.crumbs{font-size:12px;text-transform:uppercase;letter-spacing:.06em;padding:14px 0;border-bottom:1px solid var(--grid)}.crumbs a{text-decoration:none}.crumbs a:hover{color:var(--accent)}
-.colh{background:var(--grid);border-bottom:2px solid var(--edge);padding:28px 0}
-.colh h1,.ph{font:900 clamp(40px,7vw,96px)/.9 var(--display);font-stretch:125%;text-transform:uppercase;margin:8px 0;overflow-wrap:anywhere}
-.cl{display:grid;grid-template-columns:230px 1fr;gap:clamp(20px,3vw,40px);padding:28px 0 56px}.cl>*{min-width:0}
-.fl fieldset{border:0;border-bottom:1px solid var(--grid);padding:0 0 14px;margin:0 0 14px}.fl legend{font-weight:600;text-transform:uppercase;font-size:12px;letter-spacing:.06em;margin-bottom:8px}
-.fl label{display:flex;gap:8px;align-items:center;margin:6px 0;cursor:pointer;font-size:14px}.fl input{width:17px;height:17px;accent-color:var(--accent)}
-.tb{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-bottom:16px;flex-wrap:wrap;font-size:13px}
-.tb select{padding:8px;border:2px solid var(--edge);background:var(--paper)}
-.ftog{display:none}
-@media (max-width:860px){.cl{grid-template-columns:1fr}.fl{display:none}.fl.open{display:block}.ftog{display:inline-block}}
-.pager{display:flex;gap:6px;justify-content:center;margin-top:30px}.pager a{min-width:38px;padding:7px;text-align:center;border:2px solid var(--edge);text-decoration:none}.pager a[aria-current]{background:var(--ink);color:var(--paper)}
-.note{background:var(--accent);color:#14161A;padding:16px 20px;border:2px solid var(--edge)}
-
-/* product page */
-.pdp{display:grid;grid-template-columns:1.1fr .9fr;gap:clamp(20px,4vw,48px);padding:24px 0 56px}.pdp>*{min-width:0}
-.gal{display:grid;grid-template-columns:1fr 1fr;gap:0;border:2px solid var(--edge)}
-.gal .g{background:var(--tile);aspect-ratio:1;display:grid;place-items:center;border:1px solid var(--edge)}
-.gal .g:first-child{grid-column:1/-1;aspect-ratio:5/4;background:var(--white)}
-.gal svg{width:54%}
-.plate{grid-column:1/-1;background:var(--white);padding:0}
-.plate table{width:100%;border-collapse:collapse}.plate td{padding:9px 12px;border-top:1px solid var(--edge);font-size:13px}.plate td:first-child{color:var(--mute);text-transform:uppercase;width:42%}
-.plate .pt{padding:8px 12px;background:var(--ink);color:var(--paper);font-size:12px;text-transform:uppercase;letter-spacing:.08em}
-.buy{position:sticky;top:130px;align-self:start}
-.buy h1{font:900 clamp(32px,4.4vw,56px)/.92 var(--display);font-stretch:125%;text-transform:uppercase;margin:0 0 10px;overflow-wrap:anywhere}
-.price{font-size:26px;font-weight:600;margin:0 0 6px}
-.opt{border:0;padding:0;margin:0 0 18px}.opt legend{font-weight:600;margin-bottom:8px;text-transform:uppercase;font-size:12px;letter-spacing:.06em}
-.sw,.sz{display:flex;gap:8px;flex-wrap:wrap}
-.sw button{width:36px;height:36px;border:2px solid var(--edge);cursor:pointer}.sw button[aria-pressed="true"]{outline:3px solid var(--accent);outline-offset:2px}
-.sz button{min-width:52px;padding:9px;border:2px solid var(--edge);background:transparent;cursor:pointer}.sz button[aria-pressed="true"]{background:var(--ink);color:var(--paper)}.sz button:disabled{opacity:.35;text-decoration:line-through;cursor:not-allowed}
-.ck{list-style:none;padding:0;margin:14px 0;display:grid;gap:6px;font-size:14px}.ck li::before{content:"▪ ";color:var(--accent)}
-.fbt{background:var(--ink);color:var(--paper)}
-.fbt .bn{display:grid;grid-template-columns:repeat(3,1fr) auto;gap:12px;align-items:stretch}.fbt .bn>*{min-width:0}
-.fbt .it{background:var(--paper);color:var(--ink);padding:12px;display:flex;flex-direction:column;gap:6px;font-size:13px}.fbt .it svg{width:50%;margin:0 auto}.fbt .it label{display:flex;gap:6px;align-items:center}
-.fbt .tt2{border:2px solid var(--accent);padding:14px;display:flex;flex-direction:column;justify-content:space-between;gap:10px}
-@media (max-width:900px){.pdp{grid-template-columns:1fr}.buy{position:static}.fbt .bn{grid-template-columns:1fr}}
-.appbox{border:2px dashed var(--edge);padding:24px;display:grid;grid-template-columns:auto 1fr auto;gap:22px;align-items:center}.appbox>*{min-width:0}
-@media (max-width:900px){.appbox{grid-template-columns:1fr}}
-
+.hero{position:relative;height:calc(100vh - 82px);min-height:660px;max-height:920px;overflow:hidden;color:#fff}
+.hero>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.hero::after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,rgba(8,14,17,.82) 0%,rgba(8,14,17,.15) 55%,rgba(8,14,17,.45) 100%)}
+.hero .wrap{position:relative;z-index:2;height:100%;display:flex;align-items:flex-end;justify-content:space-between;gap:40px;padding-bottom:64px}
+.hero .wrap>div:first-child{max-width:calc(100% - 380px)}.hero h1{font-size:clamp(56px,7.2vw,116px);margin:18px 0 18px}
+.hero p{max-width:460px;font-size:18px;color:#d5e1e5}
+.hero .ctas{display:flex;gap:12px;margin-top:30px;flex-wrap:wrap}
+.cond{width:330px;background:rgba(15,24,27,.62);backdrop-filter:blur(12px);border:1px solid rgba(255,255,255,.18);border-radius:8px;padding:18px;flex:none}
+.cond small{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--glacier);font-weight:600}
+.cond b{display:block;font:800 22px/1.1 var(--disp);text-transform:uppercase;margin:6px 0 14px}
+.cond .row{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:14px}
+.cond .row div{background:rgba(255,255,255,.07);border-radius:4px;padding:10px;font-size:12px;color:#c5d3d8}
+.cond .row strong{display:block;font:700 18px/1.1 var(--disp);color:#fff}
+/* category tiles */
+.gseg{display:inline-grid;grid-template-columns:1fr 1fr;border:1.5px solid var(--ink);border-radius:4px;overflow:hidden}
+.gseg button{padding:10px 22px;font-weight:600;font-size:14px}
+.gseg button.on{background:var(--ink);color:var(--fog)}
+.tiles{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.tile{position:relative;aspect-ratio:3/4;overflow:hidden;border-radius:6px;color:#fff}
+.tile img{width:100%;height:100%;object-fit:cover;transition:transform 1s var(--ease)}
+.tile:hover img{transform:scale(1.05)}
+.tile::after{content:"";position:absolute;inset:0;background:linear-gradient(transparent 55%,rgba(5,10,12,.75))}
+.tile .t{position:absolute;left:20px;right:20px;bottom:20px;z-index:1;display:flex;justify-content:space-between;align-items:flex-end}
+.tile b{font:800 30px/1 var(--disp);text-transform:uppercase}
+.tile small{font-size:13px;color:#d5e1e5}
+.tile .go{width:42px;height:42px;border-radius:4px;background:var(--sulphur);color:var(--ink);display:grid;place-items:center;font-weight:700;transform:translateY(8px);opacity:0;transition:.35s var(--ease)}
+.tile:hover .go{transform:none;opacity:1}
+/* cards */
+.grid{display:grid;grid-template-columns:repeat(4,1fr);gap:36px 18px}
+.row-scroll{display:grid;grid-auto-flow:column;grid-auto-columns:calc((100% - 54px)/4);gap:18px;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;padding-bottom:4px}
+.row-scroll>*{scroll-snap-align:start}
+.arrows{display:flex;gap:8px}
+.arrows button{width:46px;height:46px;border:1.5px solid var(--ink);border-radius:4px;font-size:18px}
+.arrows button:hover{background:var(--ink);color:var(--fog)}
+.card{position:relative}.mw{position:relative;overflow:hidden;border-radius:6px}
+.card .m{position:relative;display:block;aspect-ratio:3/4;overflow:hidden;border-radius:6px;background:var(--fog2)}
+.card .m img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:opacity .45s,transform 1s var(--ease)}
+.card .m .alt{opacity:0}
+.card:hover .m .alt{opacity:1}
+.bdg{position:absolute;top:12px;left:12px;z-index:2;background:var(--ink);color:var(--fog);font:600 11px/1 var(--sans);letter-spacing:.08em;text-transform:uppercase;padding:7px 9px;border-radius:3px}
+.bdg.sale{background:var(--sulphur);color:var(--ink)}
+.bdg.low{background:#fff;color:#B3341F}
+.qa{position:absolute;left:10px;right:10px;bottom:10px;z-index:3;background:rgba(237,240,238,.96);backdrop-filter:blur(6px);border-radius:5px;padding:10px;transform:translateY(calc(100% + 12px));transition:transform .35s var(--ease)}
+.card:hover .qa,.card:focus-within .qa{transform:none}
+.qa p{font-size:11px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--mute);margin-bottom:8px;display:flex;justify-content:space-between}
+.qa .s{display:grid;grid-template-columns:repeat(5,1fr);gap:5px}
+.qa .s button{height:34px;border:1px solid var(--line);border-radius:3px;font-size:12px;font-weight:600;background:#fff}
+.qa .s button:hover{border-color:var(--ink);background:var(--ink);color:var(--fog)}
+.qa .s button:disabled{color:#a9b2b5;text-decoration:line-through;background:transparent;cursor:not-allowed}
+.qa .s button:disabled:hover{border-color:var(--line);color:#a9b2b5}
+.card .meta{padding-top:14px}
+.card .sw{display:flex;gap:6px;align-items:center;font-size:12px;color:var(--mute);margin-bottom:8px}
+.card .sw i{width:14px;height:14px;border-radius:50%;box-shadow:inset 0 0 0 1px rgba(0,0,0,.18)}
+.card h3{font:600 15px/1.35 var(--sans);text-transform:none;letter-spacing:0}
+.card .tags{display:flex;gap:6px;margin:6px 0;flex-wrap:wrap}
+.card .tags span{font-size:11px;font-weight:600;color:var(--alpine);background:rgba(127,169,190,.22);border-radius:3px;padding:3px 6px}
+.card .rt{font-size:12px;color:var(--mute)}
+.card .rt b{color:var(--ink);letter-spacing:1px}
+.card .pr{margin-top:6px;font-weight:600;font-size:15px;display:flex;gap:8px}
+.card .pr s{color:var(--mute);font-weight:400}
+.card .pr .now{color:#B3341F}
+.dk .card .m{background:var(--ink2)}.dk .card .sw,.dk .card .rt,.dk .card .pr s{color:#9fb0b6}.dk .card .rt b{color:var(--fog)}.dk .card .tags span{color:var(--glacier)}
+/* layer builder */
+.lyr{display:grid;grid-template-columns:1.5fr 1fr;gap:40px;align-items:start}
+.lcol{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.lcol h4{font:700 13px/1 var(--sans);letter-spacing:.14em;text-transform:uppercase;color:var(--glacier);margin-bottom:12px;display:flex;justify-content:space-between}
+.lcol h4 span{color:#7f9299;letter-spacing:.04em;text-transform:none;font-weight:500}
+.lopt{display:grid;gap:10px}
+.lopt button{display:grid;grid-template-columns:64px 1fr;gap:12px;align-items:center;text-align:left;background:var(--ink2);border:1.5px solid rgba(237,240,238,.12);border-radius:6px;padding:8px;transition:border-color .25s}
+.lopt button img{width:64px;height:80px;object-fit:cover;border-radius:4px;background:var(--fog2)}
+.lopt button b{display:block;font-size:14px;font-weight:600}
+.lopt button small{color:#9fb0b6;font-size:12px}
+.lopt button.on{border-color:var(--sulphur);box-shadow:inset 0 0 0 1px var(--sulphur)}
+.lopt .none{grid-template-columns:1fr;padding:14px;text-align:center;color:#9fb0b6;font-size:13px}
+.lpanel{background:var(--ink2);border:1px solid rgba(237,240,238,.12);border-radius:8px;padding:26px;position:sticky;top:150px}
+.lpanel h3{font-size:26px;margin-bottom:6px}
+.lpanel .temp{font-size:14px;color:#9fb0b6;margin-bottom:20px}
+.lpanel .temp b{color:var(--sulphur);font-weight:600}
+.meter{display:grid;grid-template-columns:110px 1fr 30px;gap:12px;align-items:center;font-size:13px;margin-bottom:12px}
+.meter i{display:grid;grid-template-columns:repeat(5,1fr);gap:4px}
+.meter i em{height:10px;border-radius:2px;background:rgba(237,240,238,.12)}
+.meter i em.on{background:var(--glacier)}
+.meter i.w em.on{background:var(--sulphur)}
+.lpanel .tot{display:flex;justify-content:space-between;align-items:flex-end;border-top:1px solid rgba(237,240,238,.12);padding-top:18px;margin-top:20px}
+.lpanel .tot b{font:800 34px/1 var(--disp)}
+.lpanel .tot s{color:#7f9299;font-size:14px;margin-left:6px}
+.lpanel .tot small{display:block;color:#9fb0b6;font-size:12px;margin-top:6px}
+.lpanel .btn{width:100%;margin-top:18px}
+/* shop the look */
+.look{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center}
+.look .ph{position:relative;aspect-ratio:4/5;border-radius:8px;overflow:hidden}
+.look .ph img{width:100%;height:100%;object-fit:cover}
+.hot{position:absolute;width:36px;height:36px;border-radius:50%;background:var(--sulphur);color:var(--ink);font-weight:700;display:grid;place-items:center;transform:translate(-50%,-50%);box-shadow:0 0 0 6px rgba(242,194,48,.35);transition:transform .25s}
+.hot:hover,.hot.on{transform:translate(-50%,-50%) scale(1.15);box-shadow:0 0 0 10px rgba(242,194,48,.35)}
+.llist{display:grid;gap:12px;margin:26px 0}
+.litem{display:grid;grid-template-columns:28px 76px 1fr auto;gap:14px;align-items:center;background:#fff;border:1.5px solid transparent;border-radius:6px;padding:10px;transition:border-color .25s}
+.litem.on{border-color:var(--ink)}
+.litem>span{width:28px;height:28px;border-radius:50%;background:var(--ink);color:var(--fog);display:grid;place-items:center;font-size:12px;font-weight:700}
+.litem img{width:76px;height:96px;object-fit:cover;border-radius:4px;background:var(--fog2)}
+.litem b{display:block;font-size:15px;font-weight:600}
+.litem small{color:var(--mute);font-size:13px}
+.litem select{border:1px solid var(--line);border-radius:4px;padding:8px;background:var(--fog);font-size:13px;font-weight:600}
+.look .sum{display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap}
+.look .sum b{font:800 30px/1 var(--disp)}
+/* compare */
+.cmp-tabs{display:flex;gap:8px;margin-bottom:26px;flex-wrap:wrap}
+.cmp-tabs button{border:1.5px solid var(--ink);border-radius:4px;padding:10px 18px;font-weight:600;font-size:14px}
+.cmp-tabs button.on{background:var(--ink);color:var(--fog)}
+.cmp{width:100%;border-collapse:separate;border-spacing:0;background:#fff;border-radius:8px;overflow:hidden}
+.cmp th,.cmp td{padding:16px 20px;text-align:left;border-bottom:1px solid var(--line);font-size:14px;transition:background .3s}
+.cmp thead th{vertical-align:bottom}
+.cmp thead img{width:84px;height:104px;object-fit:cover;border-radius:4px;margin-bottom:10px;background:var(--fog2)}
+.cmp thead b{display:block;font-size:15px}
+.cmp thead small{color:var(--mute);font-weight:500}
+.cmp td:first-child,.cmp th:first-child{color:var(--mute);font-weight:600;width:22%}
+.cmp .hl{background:rgba(242,194,48,.16)}
+.cmp thead .hl{box-shadow:inset 0 4px 0 var(--sulphur)}
+.cmp .bar{display:flex;gap:3px}.cmp .bar em{width:18px;height:8px;border-radius:2px;background:var(--fog2)}.cmp .bar em.on{background:var(--alpine)}
+.cmp .pick{display:inline-block;margin-top:6px;font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;background:var(--sulphur);padding:4px 7px;border-radius:3px;visibility:hidden}
+.cmp .hl .pick{visibility:visible}
+/* story */
+.story{display:grid;grid-template-columns:1.25fr 1fr;gap:0;border-radius:8px;overflow:hidden}
+.story .ph{position:relative;min-height:540px}
+.story .ph img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.story .tx{background:var(--alpine);color:#fff;padding:64px 56px;display:flex;flex-direction:column;justify-content:center}
+.story h2{font-size:clamp(34px,3.4vw,52px);margin:14px 0 18px}
+.story p{color:#cfe0e6}
+.story .kick{color:var(--glacier)}
+.promise{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:30px}
+.promise div{border-top:2px solid var(--sulphur);padding-top:12px;font-size:13px;color:#cfe0e6}
+.promise b{display:block;font:800 22px/1.1 var(--disp);color:#fff;text-transform:uppercase}
+/* ugc */
+.ugc{display:grid;grid-template-columns:repeat(6,1fr);gap:10px}
+.ugc a{position:relative;aspect-ratio:1;overflow:hidden;border-radius:6px}
+.ugc img{width:100%;height:100%;object-fit:cover;transition:transform .8s var(--ease)}
+.ugc a:hover img{transform:scale(1.07)}
+.ugc a::after{content:"@" attr(data-u);position:absolute;left:8px;bottom:8px;font-size:11px;font-weight:600;color:#fff;background:rgba(0,0,0,.45);padding:3px 6px;border-radius:3px}
+/* newsletter */
+.news{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center;background:var(--sulphur);border-radius:8px;padding:56px}
+.news h2{font-size:clamp(34px,3.4vw,54px);margin-top:12px}
+.news .kick{color:var(--ink)}.news .kick::before{background:var(--ink)}
+.news form{display:flex;gap:8px}
+.news input{flex:1;background:#fff;border-radius:4px;padding:0 16px;height:52px}
+.news small{display:block;margin-top:12px;font-size:13px}
+/* footer */
+.ftr{background:var(--ink);color:#9fb0b6;padding:90px 0 28px;font-size:14px}
+.ftr .cols{display:grid;grid-template-columns:1.5fr repeat(3,1fr) 1.2fr;gap:36px}
+.ftr .logo{color:var(--fog)}
+.ftr p{margin-top:16px;max-width:280px}
+.ftr h5{font:700 12px/1 var(--sans);letter-spacing:.14em;text-transform:uppercase;color:var(--fog);margin-bottom:16px}
+.ftr ul{list-style:none;display:grid;gap:9px}
+.ftr ul a:hover{color:var(--sulphur)}
+.ftr form{display:flex;border-bottom:1px solid #3b4a50;margin-top:6px}
+.ftr form input{flex:1;padding:12px 0;color:var(--fog)}
+.ftr .bot{display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap;margin-top:56px;padding-top:22px;border-top:1px solid #23323a;font-size:12px}
+.pay{display:flex;gap:6px}.pay span{border:1px solid #3b4a50;border-radius:3px;padding:4px 8px;font-size:11px;font-weight:600;color:#c9d6da}
+/* pages */
+.page{display:none}.page.on{display:block}
+.crumbs{font-size:13px;color:var(--mute);padding:22px 0}
+.crumbs a:hover{color:var(--alpine);text-decoration:underline}
+/* collection */
+.cban{position:relative;height:340px;overflow:hidden;color:#fff;border-radius:8px;margin-top:8px}
+.cban img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 35%}
+.cban::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(8,14,17,.8),rgba(8,14,17,.1))}
+.cban .in{position:relative;z-index:1;height:100%;display:flex;flex-direction:column;justify-content:flex-end;padding:40px}
+.cban h1{font-size:clamp(54px,6vw,96px);margin:12px 0 8px}
+.cban p{color:#d5e1e5;max-width:460px}
+.fbar{display:flex;gap:8px;flex-wrap:wrap;align-items:center;padding:24px 0;border-bottom:1px solid var(--line);position:relative}
+.fdd{position:relative}
+.fdd>button{display:flex;gap:8px;align-items:center;border:1.5px solid var(--line);border-radius:4px;padding:10px 14px;font-weight:600;font-size:14px;background:#fff}
+.fdd>button::after{content:"▾";font-size:11px}
+.fdd>button.act{border-color:var(--ink)}
+.fdd .pn{position:absolute;top:calc(100% + 6px);left:0;z-index:20;background:#fff;border:1px solid var(--line);border-radius:6px;padding:14px;min-width:220px;box-shadow:0 20px 40px -20px rgba(0,0,0,.3);display:none}
+.fdd.open .pn{display:block}
+.fdd .pn label{display:flex;gap:10px;align-items:center;padding:6px 0;font-size:14px;cursor:pointer}
+.fdd .pn input{accent-color:var(--ink);width:16px;height:16px}
+.fdd .sz{display:grid;grid-template-columns:repeat(5,1fr);gap:6px}
+.fdd .sz label{justify-content:center;border:1px solid var(--line);border-radius:3px;padding:8px 0;font-weight:600;font-size:12px}
+.fdd .sz input{display:none}
+.fdd .sz label:has(input:checked){background:var(--ink);color:var(--fog);border-color:var(--ink)}
+.fbar .sp{margin-left:auto;display:flex;gap:14px;align-items:center;font-size:14px;color:var(--mute)}
+.fbar select{border:1.5px solid var(--line);border-radius:4px;padding:10px 12px;font-weight:600;color:var(--ink);background:#fff}
+.chipsel{display:flex;gap:8px;flex-wrap:wrap;padding-top:14px}
+.chipsel button{background:var(--ink);color:var(--fog);border-radius:3px;padding:6px 10px;font-size:12px;font-weight:600}
+.chipsel button::after{content:" ✕"}
+.cgrid{padding:28px 0 0}
+.promo{position:relative;border-radius:6px;overflow:hidden;background:var(--ink);color:var(--fog);display:flex;flex-direction:column;justify-content:flex-end;padding:24px;min-height:100%}
+.promo img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.5}
+.promo>*{position:relative}
+.promo h3{font-size:30px;margin:10px 0 8px}
+.promo p{font-size:14px;color:#c5d3d8;margin-bottom:16px}
+.pager{display:flex;justify-content:center;gap:6px;padding:56px 0 100px}
+.pager button{width:44px;height:44px;border:1.5px solid var(--line);border-radius:4px;font-weight:600}
+.pager button.on{background:var(--ink);color:var(--fog);border-color:var(--ink)}
+.empty{padding:48px 0;color:var(--mute)}
+/* product */
+.pdp{display:grid;grid-template-columns:1.2fr 1fr;gap:56px;padding-bottom:80px}
+.pmain{position:relative;aspect-ratio:4/5;border-radius:8px;overflow:hidden;background:var(--fog2);cursor:zoom-in}
+.pmain img{width:100%;height:100%;object-fit:cover;transition:transform .5s var(--ease)}
+.pmain.zoom{cursor:zoom-out}.pmain.zoom img{transform:scale(1.8)}
+.pmain .cap{position:absolute;left:14px;bottom:14px;background:rgba(237,240,238,.94);border-radius:4px;padding:8px 10px;font-size:12px;font-weight:600}
+.pmain .nav2{position:absolute;right:14px;bottom:14px;display:flex;gap:6px}
+.pmain .nav2 button{width:40px;height:40px;border-radius:4px;background:rgba(237,240,238,.94);font-weight:700}
+.thumbs{display:grid;grid-template-columns:repeat(5,1fr);gap:10px;margin-top:10px}
+.thumbs button{aspect-ratio:4/5;border-radius:5px;overflow:hidden;border:2px solid transparent;background:var(--fog2)}
+.thumbs button.on{border-color:var(--ink)}
+.thumbs img{width:100%;height:100%;object-fit:cover}
+.info{position:sticky;top:140px;align-self:start}
+.info .bd{display:flex;gap:8px;font-size:12px;font-weight:600;letter-spacing:.06em;text-transform:uppercase}
+.info .bd span{background:var(--ink);color:var(--fog);border-radius:3px;padding:5px 8px}
+.info .bd span+span{background:rgba(127,169,190,.25);color:var(--alpine)}
+.info h1{font-size:clamp(40px,3.8vw,60px);margin:14px 0 10px}
+.info .rt{font-size:14px;color:var(--mute)}
+.info .rt b{color:var(--ink);letter-spacing:1px}
+.info .price{font:800 32px/1 var(--disp);margin:18px 0 6px}
+.info .lede{color:var(--mute);margin-top:12px}
+.specs{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-top:22px}
+.specs div{background:#fff;border-radius:6px;padding:12px;font-size:12px;color:var(--mute)}
+.specs b{display:block;font:800 18px/1.1 var(--disp);color:var(--ink)}
+.optl{display:flex;justify-content:space-between;font-size:13px;font-weight:600;margin:24px 0 10px}
+.optl span{color:var(--mute);font-weight:500}
+.optl a{text-decoration:underline;color:var(--alpine)}
+.pcol{display:flex;gap:10px}
+.pcol button{width:44px;height:44px;border-radius:50%;position:relative;box-shadow:inset 0 0 0 1px rgba(0,0,0,.15)}
+.pcol button.on::after{content:"";position:absolute;inset:-5px;border-radius:50%;border:2px solid var(--ink)}
+.pcol button.so::before{content:"";position:absolute;left:50%;top:-4px;bottom:-4px;width:2px;background:#B3341F;transform:rotate(45deg)}
+.psz{display:grid;grid-template-columns:repeat(5,1fr);gap:8px}
+.psz button{height:50px;border:1.5px solid var(--line);border-radius:4px;font-weight:600;background:#fff}
+.psz button.on{border-color:var(--ink);background:var(--ink);color:var(--fog)}
+.psz button:disabled{color:#a9b2b5;text-decoration:line-through;background:transparent;cursor:not-allowed}
+.fitnote{font-size:13px;color:var(--mute);margin-top:10px}
+.buy{display:grid;grid-template-columns:1fr 54px;gap:10px;margin-top:22px}
+.buy .btn{height:56px}
+.buy .wish{border:1.5px solid var(--ink);border-radius:4px;font-size:20px}
+.buy .wish.on{background:var(--ink);color:var(--sulphur)}
+.perks{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:16px;font-size:12px;color:var(--mute)}
+.perks div{display:flex;gap:8px;align-items:center}
+.perks div::before{content:"";width:8px;height:8px;background:var(--sulphur);border-radius:2px;transform:rotate(45deg);flex:none}
+.acc{margin-top:26px;border-top:1px solid var(--line)}
+.acc details{border-bottom:1px solid var(--line)}
+.acc summary{list-style:none;display:flex;justify-content:space-between;padding:18px 0;cursor:pointer;font-weight:600}
+.acc summary::after{content:"+";font-size:18px}
+.acc details[open] summary::after{content:"−"}
+.acc .b{padding-bottom:18px;color:var(--mute);font-size:15px}
+.acc ul{padding-left:18px;display:grid;gap:4px}
+.ctl{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.ctl .it{background:#fff;border-radius:8px;padding:12px;display:grid;grid-template-columns:90px 1fr;gap:14px;align-items:center}
+.ctl img{width:90px;height:112px;object-fit:cover;border-radius:4px;background:var(--fog2)}
+.ctl b{display:block;font-size:15px;font-weight:600}
+.ctl small{color:var(--mute)}
+.ctl button{margin-top:10px;border:1.5px solid var(--ink);border-radius:4px;padding:7px 12px;font-size:13px;font-weight:600}
+.ctl button:hover{background:var(--ink);color:var(--fog)}
+.rvs-wrap{display:grid;grid-template-columns:320px 1fr;gap:56px}
+.score b{font:800 80px/1 var(--disp)}
+.score .st{letter-spacing:3px;margin:6px 0}
+.score small{color:var(--mute)}
+.fit{margin-top:24px}
+.fit p{font-size:13px;font-weight:600;margin-bottom:8px}
+.fit .tr{position:relative;height:8px;background:var(--fog2);border-radius:4px}
+.fit .tr i{position:absolute;top:-4px;width:16px;height:16px;border-radius:50%;background:var(--ink);left:calc(52% - 8px)}
+.fit .lb{display:flex;justify-content:space-between;font-size:12px;color:var(--mute);margin-top:8px}
+.rvs{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.rv{background:#fff;border-radius:8px;padding:22px}
+.rv .s{letter-spacing:2px}
+.rv p{margin:10px 0 14px;font-size:15px}
+.rv small{color:var(--mute);font-size:12px;display:block}
+.rv .tg{display:inline-block;margin-top:8px;font-size:11px;font-weight:600;background:rgba(127,169,190,.25);color:var(--alpine);padding:3px 6px;border-radius:3px}
+.modal{position:fixed;inset:0;z-index:125;display:grid;place-items:center;background:rgba(5,10,12,.55);opacity:0;visibility:hidden;transition:.3s}
+.modal.on{opacity:1;visibility:visible}
+.modal .bx{background:var(--fog);border-radius:8px;width:min(640px,92vw);padding:28px;position:relative}
+.modal .bx h3{font-size:30px;margin-bottom:6px}
+.modal .x{position:absolute;top:14px;right:14px;font-weight:600}
+.modal table{width:100%;border-collapse:collapse;margin-top:16px;font-size:14px}
+.modal td,.modal th{padding:9px;border-bottom:1px solid var(--line);text-align:left}
+.modal th{background:var(--ink);color:var(--fog);font-weight:600}
+.unit{display:inline-grid;grid-template-columns:1fr 1fr;border:1.5px solid var(--ink);border-radius:4px;overflow:hidden;font-size:13px;font-weight:600}
+.unit button{padding:6px 14px}.unit button.on{background:var(--ink);color:var(--fog)}
+.sticky-atc{position:fixed;left:0;right:0;bottom:0;z-index:70;background:#fff;border-top:1px solid var(--line);transform:translateY(100%);transition:transform .4s var(--ease)}
+.sticky-atc.on{transform:none}
+.sticky-atc .wrap{display:flex;align-items:center;gap:14px;height:78px}
+.sticky-atc img{width:48px;height:60px;object-fit:cover;border-radius:4px}
+.sticky-atc b{display:block;font-size:15px}
+.sticky-atc small{color:var(--mute)}
+.sticky-atc .btn{margin-left:auto}
 /* cart */
-.cg2{display:grid;grid-template-columns:1fr 340px;gap:clamp(20px,4vw,44px);padding:8px 0 56px}.cg2>*{min-width:0}
-.ln{display:grid;grid-template-columns:90px 1fr auto;gap:14px;padding:16px 0;border-bottom:1px solid var(--edge);align-items:start}
-.ln .th{background:var(--tile);aspect-ratio:1;display:grid;place-items:center;border:1px solid var(--edge)}.ln .th svg{width:70%}
-.ln h3{margin:0;font:700 15px/1.3 var(--mono)}
-.qty{display:inline-flex;border:2px solid var(--edge);margin-top:8px}.qty button{background:none;border:0;width:34px;height:34px;cursor:pointer}.qty span{min-width:30px;display:grid;place-items:center}
-.lk{background:none;border:0;padding:0;text-decoration:underline;cursor:pointer;color:var(--mute);font-size:13px;margin-left:12px}
-.sum{background:var(--white);border:2px solid var(--edge);padding:20px;align-self:start}
-.sbar{height:8px;background:var(--grid);margin:8px 0 16px;border:1px solid var(--edge)}.sbar i{display:block;height:100%;background:var(--accent)}
-.sum textarea{width:100%;min-height:70px;padding:10px;border:2px solid var(--edge);background:var(--paper);margin:6px 0 14px}
-.row{display:flex;justify-content:space-between;font-size:18px;font-weight:600;margin-bottom:6px}
-@media (max-width:900px){.cg2{grid-template-columns:1fr}}
-
-.ft{display:grid;grid-template-columns:1.3fr 1fr;gap:clamp(20px,4vw,48px);align-items:center;margin-bottom:36px;text-decoration:none;cursor:pointer;border:2px solid var(--edge);background:var(--white)}.ft>*{min-width:0}
-.ft .pic{aspect-ratio:16/10;background:var(--tile);display:grid;place-items:center;border-right:2px solid var(--edge)}.ft .pic svg{width:32%}
-.ft .tx{padding:20px}.ft h2{font:900 clamp(26px,3.6vw,44px)/.95 var(--display);font-stretch:125%;text-transform:uppercase;margin:8px 0 12px}
-@media (max-width:860px){.ft{grid-template-columns:1fr}.ft .pic{border-right:0;border-bottom:2px solid var(--edge)}}
-.art h1{font:900 clamp(34px,5vw,64px)/.92 var(--display);font-stretch:125%;text-transform:uppercase;margin:0 0 10px}
-.art .by{color:var(--mute);margin-bottom:24px}.art p{font-size:17px;line-height:1.75;margin:0 0 18px}.art h2{font:900 26px/1 var(--display);font-stretch:125%;text-transform:uppercase;margin:32px 0 10px}
-.art-hero{aspect-ratio:21/9;border:2px solid var(--edge);background:var(--tile);display:grid;place-items:center;margin-bottom:28px}.art-hero svg{height:70%;width:auto}
-.nrw{max-width:720px}
-.share{display:flex;gap:14px;border-top:2px solid var(--edge);padding-top:14px;margin-top:28px;color:var(--mute);flex-wrap:wrap}
-.nums{display:grid;grid-template-columns:repeat(4,1fr);border:2px solid var(--edge)}.nums div{padding:22px;border:1px solid var(--edge);background:var(--white)}.nums strong{display:block;font:900 clamp(34px,4.4vw,56px)/1 var(--display);font-stretch:125%;color:var(--accent)}
-@media (max-width:820px){.nums{grid-template-columns:1fr 1fr}}
-.ah{background:var(--grid);border-bottom:2px solid var(--edge);padding:clamp(40px,7vw,96px) 0}.ah h1{font:900 clamp(40px,8vw,112px)/.88 var(--display);font-stretch:125%;text-transform:uppercase;margin:10px 0 0;max-width:12ch;overflow-wrap:anywhere}
-.cf{display:grid;grid-template-columns:1fr 1fr;gap:14px}.cf .sp{grid-column:1/-1}.cf label{display:block;font-weight:600;margin-bottom:6px;font-size:13px;text-transform:uppercase}.cf textarea{min-height:130px}
-@media (max-width:640px){.cf{grid-template-columns:1fr}}
-.nf{padding:clamp(40px,8vw,100px) 0}.nf h1{font:900 clamp(90px,22vw,280px)/.8 var(--display);font-stretch:125%;color:var(--accent);margin:0}
-.nf form{display:flex;gap:8px;max-width:520px;margin:0 0 18px}
-.stx{background:var(--ink);color:var(--paper);height:10px;background:repeating-linear-gradient(90deg,var(--ink) 0 10px,transparent 10px 16px);border-block:2px solid var(--edge)}
-
-footer.site{background:var(--ink);color:var(--paper);padding:44px 0 28px;font-size:14px}
-.fgrid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:24px}.fgrid>*{min-width:0}
-.fgrid h4{margin:0 0 10px;font-size:12px;text-transform:uppercase;letter-spacing:.08em;color:var(--accent)}.fgrid ul{list-style:none;margin:0;padding:0;display:grid;gap:6px;color:#BDBFC2}.fgrid a{text-decoration:none}.fgrid a:hover{text-decoration:underline}
-.legal{border-top:1px solid #3A3D43;margin-top:28px;padding-top:14px;color:#9A9DA1;font-size:12px}
-@media (max-width:820px){.fgrid{grid-template-columns:1fr 1fr}}
-
-.ov{position:fixed;inset:0;background:rgba(10,11,13,.55);z-index:40}
-.dr{position:fixed;top:0;bottom:0;width:min(420px,92vw);background:var(--paper);z-index:41;display:flex;flex-direction:column;padding:calc(18px + env(safe-area-inset-top,0px)) 20px calc(18px + env(safe-area-inset-bottom,0px));border-left:2px solid var(--edge)}
-.dr.r{right:0}.dr.l{left:0;border-left:0;border-right:2px solid var(--edge)}
-.dh{display:flex;justify-content:space-between;align-items:center;margin-bottom:14px}.dh h2{font:900 26px/1 var(--display);font-stretch:125%;text-transform:uppercase;margin:0}
-.x{background:none;border:0;font-size:26px;cursor:pointer;padding:4px 8px}
-.dr nav{display:grid;gap:6px}.dr nav a{font:900 26px/1.2 var(--display);font-stretch:125%;text-transform:uppercase;text-decoration:none}.dr .bdy{flex:1;overflow:auto}
-.toast{position:fixed;left:50%;bottom:calc(18px + env(safe-area-inset-bottom,0px));transform:translateX(-50%);background:var(--ink);color:var(--paper);padding:11px 16px;z-index:50;font-weight:600;max-width:90vw}
-.mb{display:none;background:none;border:2px solid var(--edge);padding:6px;cursor:pointer}
-@media (max-width:820px){.mb{display:block}nav.main{display:none}}
-@media (prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
+.cpage{display:grid;grid-template-columns:1.5fr 1fr;gap:48px;padding-bottom:80px}
+.cpage h1{font-size:clamp(46px,5vw,76px);margin-bottom:22px}
+.prog{font-size:14px}
+.prog .bar{height:8px;background:var(--fog2);border-radius:4px;margin-top:10px;overflow:hidden}
+.prog .bar i{display:block;height:100%;background:var(--alpine);transition:width .6s var(--ease)}
+.li{display:grid;grid-template-columns:96px 1fr auto;gap:16px;padding:20px 0;border-bottom:1px solid var(--line);align-items:start}
+.li img{width:96px;height:120px;object-fit:cover;border-radius:5px;background:var(--fog2)}
+.li b{font-weight:600;display:block}
+.li small{display:block;color:var(--mute);font-size:13px;margin-top:2px}
+.li .q{display:flex;align-items:center;gap:10px;margin-top:12px;font-weight:600}
+.li .q button{width:30px;height:30px;border:1px solid var(--line);border-radius:4px;background:#fff}
+.li .q .rm{width:auto;height:auto;border:0;background:none;text-decoration:underline;font-weight:500;color:var(--mute);font-size:13px}
+.li>span{font-weight:600}
+.note{margin-top:22px}
+.note label{font-weight:600;font-size:14px}
+.note textarea{display:block;width:100%;border:1px solid var(--line);border-radius:6px;padding:12px;margin-top:8px;min-height:80px;background:#fff}
+.summ{background:#fff;border-radius:8px;padding:28px;position:sticky;top:140px;align-self:start}
+.summ h3{font-size:26px;margin-bottom:14px}
+.summ .r{display:flex;justify-content:space-between;padding:8px 0;font-size:15px}
+.summ .t{border-top:1px solid var(--line);margin-top:8px;padding-top:14px;font:800 24px/1 var(--disp)}
+.summ .btn{width:100%;margin-top:18px}
+.summ ul{list-style:none;margin-top:16px;display:grid;gap:6px;font-size:13px;color:var(--mute)}
+.summ ul li::before{content:"✓ ";color:var(--alpine);font-weight:700}
+.scrim{position:fixed;inset:0;z-index:100;background:rgba(5,10,12,.5);opacity:0;visibility:hidden;transition:.3s}
+.scrim.on{opacity:1;visibility:visible}
+.drawer{position:fixed;top:0;right:0;bottom:0;z-index:110;width:420px;max-width:100%;background:var(--fog);transform:translateX(100%);transition:transform .45s var(--ease);display:flex;flex-direction:column}
+.drawer.on{transform:none}
+.drawer .hd{display:flex;justify-content:space-between;align-items:center;padding:20px 22px;border-bottom:1px solid var(--line)}
+.drawer .hd h3{font-size:24px}
+.drawer .hd button{font-weight:600}
+.drawer .pg{padding:16px 22px;border-bottom:1px solid var(--line)}
+.drawer .ls{flex:1;overflow:auto;padding:0 22px}
+.drawer .li{grid-template-columns:72px 1fr auto}
+.drawer .li img{width:72px;height:90px}
+.drawer .ft{padding:18px 22px;border-top:1px solid var(--line);background:#fff}
+.drawer .ft .r{display:flex;justify-content:space-between;font:800 20px/1 var(--disp);margin-bottom:12px}
+.drawer .ft .btn{width:100%}
+.toast{position:fixed;left:50%;bottom:24px;z-index:130;transform:translate(-50%,20px);opacity:0;visibility:hidden;background:var(--ink);color:var(--fog);padding:13px 20px;border-radius:5px;font-weight:600;font-size:14px;transition:.35s var(--ease);border-left:4px solid var(--sulphur)}
+.toast.on{opacity:1;visibility:visible;transform:translate(-50%,0)}
+/* search */
+.sform{display:flex;gap:10px;margin:6px 0 16px;border-bottom:2px solid var(--ink)}
+.sform input{flex:1;min-width:0;width:100%;font:800 clamp(34px,4vw,60px)/1.2 var(--disp);text-transform:uppercase;padding:6px 0}
+.sugg{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:24px;align-items:center;color:var(--mute);font-size:14px}
+.sugg button{border:1.5px solid var(--line);border-radius:4px;padding:7px 12px;font-weight:600;color:var(--ink);background:#fff}
+/* blog/article */
+.bhero{position:relative;height:460px;border-radius:8px;overflow:hidden;color:#fff;margin-bottom:40px}
+.bhero img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.bhero::after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,rgba(8,14,17,.85),transparent 60%)}
+.bhero .in{position:absolute;left:40px;right:40px;bottom:36px;z-index:1;max-width:680px}
+.bhero h2{font-size:clamp(38px,4vw,60px);margin:12px 0 10px}
+.btabs{display:flex;gap:8px;margin-bottom:28px;flex-wrap:wrap}
+.btabs button{border:1.5px solid var(--line);border-radius:4px;padding:8px 14px;font-weight:600;font-size:14px;background:#fff}
+.btabs button.on{background:var(--ink);color:var(--fog);border-color:var(--ink)}
+.jgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.post .ph{aspect-ratio:3/2;border-radius:6px;overflow:hidden;margin-bottom:14px}
+.post .ph img{width:100%;height:100%;object-fit:cover;transition:transform .9s var(--ease)}
+.post:hover .ph img{transform:scale(1.05)}
+.post small{font-size:12px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--alpine)}
+.post h3{font-size:24px;margin:8px 0 6px}
+.post p{color:var(--mute);font-size:14px}
+.dk .post p{color:#9fb0b6}.dk .post small{color:var(--glacier)}
+.art{max-width:780px;margin:0 auto;padding-bottom:70px}
+.art h1{font-size:clamp(44px,5vw,78px);margin:12px 0}
+.art .by{color:var(--mute);font-size:14px}
+.art .big{aspect-ratio:16/9;border-radius:8px;overflow:hidden;margin:36px -90px}
+.art .big img{width:100%;height:100%;object-fit:cover}
+.art p{font-size:18px;line-height:1.75;margin-bottom:20px}
+.art h2{font-size:32px;margin:38px 0 12px}
+.art .callout{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:28px 0}
+.art .callout div{background:#fff;border-radius:6px;padding:16px;font-size:14px;color:var(--mute)}
+.art .callout b{display:block;font:800 26px/1 var(--disp);color:var(--alpine)}
+.art blockquote{border-left:4px solid var(--sulphur);padding:4px 0 4px 22px;margin:30px 0;font:800 30px/1.15 var(--disp);text-transform:uppercase}
+.share{display:flex;gap:8px;flex-wrap:wrap;font-size:13px;font-weight:600}
+.share a{border:1.5px solid var(--line);border-radius:4px;padding:6px 12px}
+/* about */
+.ab{position:relative;height:620px;overflow:hidden;color:#fff}
+.ab img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.ab::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(8,14,17,.85),rgba(8,14,17,.15))}
+.ab .wrap{position:relative;z-index:1;height:100%;display:flex;flex-direction:column;justify-content:center}
+.ab h1{font-size:clamp(56px,6.4vw,104px);margin:14px 0 16px;max-width:780px}
+.ab p{max-width:480px;color:#d5e1e5;font-size:18px}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.stats div{background:#fff;border-radius:8px;padding:30px}
+.stats b{font:800 24px/1.1 var(--disp);text-transform:uppercase;color:var(--alpine)}
+.stats h3{font-size:28px;margin:10px 0 8px}
+.stats p{color:var(--mute)}
+.collage{display:grid;grid-template-columns:2fr 1fr 1fr;gap:10px;height:440px}
+.collage img{width:100%;height:100%;object-fit:cover;border-radius:6px}
+/* contact */
+.ct{display:grid;grid-template-columns:1fr 1fr;gap:56px;padding-bottom:70px}
+.ct h1{font-size:clamp(46px,5vw,78px);margin:12px 0 16px}
+.ct .ways{display:grid;gap:10px;margin-top:22px}
+.ct .ways div{background:#fff;border-radius:6px;padding:16px 18px;color:var(--mute);font-size:14px}
+.ct .ways b{display:block;color:var(--ink);font-size:16px}
+.cform{background:var(--ink);color:var(--fog);border-radius:8px;padding:36px;display:grid;gap:10px;align-content:start}
+.cform h3{font-size:26px;margin-bottom:6px}
+.cform input,.cform select,.cform textarea{width:100%;border-radius:4px;padding:13px;background:var(--ink2);border:1px solid #2c3d44;color:var(--fog)}
+.cform textarea{min-height:120px}
+.cform .ok{display:none;color:var(--sulphur);font-weight:600}.cform .ok.on{display:block}
+.faq{max-width:860px}
+.faq details{border-bottom:1px solid var(--line)}
+.faq summary{list-style:none;display:flex;justify-content:space-between;padding:20px 0;cursor:pointer;font-weight:600;font-size:18px}
+.faq summary::after{content:"+"}
+.faq details[open] summary::after{content:"−"}
+.faq p{padding-bottom:18px;color:var(--mute)}
+/* 404 */
+.nf{position:relative;height:560px;overflow:hidden;color:#fff}
+.nf img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.nf::after{content:"";position:absolute;inset:0;background:rgba(8,14,17,.55)}
+.nf .wrap{position:relative;z-index:1;height:100%;display:flex;flex-direction:column;justify-content:center}
+.nf b{font:800 160px/1 var(--disp);color:var(--sulphur)}
+.nf h1{font-size:clamp(38px,4vw,60px);margin:8px 0 12px}
+.nf p{color:#d5e1e5;margin-bottom:24px;max-width:420px}
+/* responsive */
+@media (max-width:1100px){.wrap{padding:0 26px}.grid{grid-template-columns:repeat(3,1fr)}.row-scroll{grid-auto-columns:calc((100% - 36px)/3)}.cond{display:none}.lyr{grid-template-columns:1fr}.lpanel{position:static}.ugc{grid-template-columns:repeat(3,1fr)}.mega .wrap{grid-template-columns:repeat(3,1fr) 1fr}.mega .wrap>.mtile:last-child{display:none}}
+@media (max-width:900px){
+ .wrap{padding:0 18px}.sec{padding:70px 0}
+ .hdr .wrap{height:64px;gap:10px}.home-on .hdr{top:82px}.nav{display:none}.burger{display:flex!important;font-weight:600;white-space:nowrap}.util .acct,.util .srch span{display:none}.util{margin-left:auto}
+ .logo{font-size:22px}.logo svg{width:24px;height:24px}
+ .hero{height:640px;min-height:0}.hero .wrap>div:first-child{max-width:none;min-width:0;flex:1}.hero h1{font-size:40px}.hero p{font-size:16px}.hero .wrap{padding-bottom:36px}.hero .ctas .btn{flex:1}
+ .head{flex-direction:column;align-items:flex-start;gap:12px}
+ .tiles{grid-template-columns:repeat(4,72%);overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;margin:0 -18px;padding:0 18px}.tile{scroll-snap-align:start}
+ .grid{grid-template-columns:repeat(2,1fr);gap:26px 10px}.row-scroll{grid-auto-columns:46%;margin-right:-18px}.arrows{display:none}
+ .qa{display:none}.card h3{font-size:14px}.card .tags{display:none}
+ .lcol{grid-template-columns:1fr}.lopt{grid-template-columns:repeat(3,1fr);gap:8px}.lopt button{grid-template-columns:1fr;text-align:center;justify-items:center;padding:8px 6px}.lopt button img{width:100%;height:auto;aspect-ratio:4/5}.lopt button b{font-size:12px}.lopt button small{font-size:11px}
+ .look,.story,.news,.cpage,.pdp,.ct,.rvs-wrap{grid-template-columns:1fr;gap:28px}
+ .litem{grid-template-columns:24px 60px 1fr;}.litem select{grid-column:3}.litem img{width:60px;height:76px}
+ .cmp-wrap{overflow-x:auto;margin:0 -18px;padding:0 18px}.cmp{min-width:640px}
+ .story{gap:0}.story .ph{min-height:300px}.story .tx{padding:44px 22px}.promise{grid-template-columns:1fr}
+ .ugc{grid-template-columns:repeat(3,1fr);gap:6px}
+ .news{padding:32px 20px}.news form{flex-direction:column}
+ .ftr .cols{grid-template-columns:1fr 1fr}.ftr .cols>div:first-child,.ftr .cols>div:last-child{grid-column:1/-1}
+ .cban{height:260px}.cban h1{font-size:40px}.cban .in{padding:22px}.fbar{gap:6px}.fbar .sp{width:100%;margin-left:0;justify-content:space-between}
+ .info{position:static}.specs{grid-template-columns:repeat(2,1fr)}.thumbs{grid-template-columns:repeat(5,1fr);gap:6px}
+ .ctl{grid-template-columns:1fr}.rvs{grid-template-columns:1fr}
+ .sticky-atc .wrap{height:70px}.sticky-atc img{display:none}.sticky-atc .btn{padding:0 16px;height:46px}
+ .li{grid-template-columns:76px 1fr}.li img{width:76px;height:96px}.li>span{grid-column:2}
+ .summ{position:static}
+ .bhero{height:380px}.bhero .in{left:20px;right:20px;bottom:22px}.jgrid{grid-template-columns:1fr}
+ .art .big{margin:28px 0}.art .callout{grid-template-columns:1fr}
+ .ab{height:520px}.stats{grid-template-columns:1fr}.collage{grid-template-columns:1fr 1fr;height:auto}.collage img{aspect-ratio:1}.collage img:first-child{grid-column:1/-1;aspect-ratio:4/3}
+ .cform{padding:26px 18px}.nf b{font-size:110px}
+}
 </style>
-<svg width="0" height="0" style="position:absolute" aria-hidden="true">
-  <symbol id="g-jacket" viewBox="0 0 200 240"><path fill="currentColor" d="M62 36 86 26q14 16 28 0l24 10 38 34-12 82-15-6v76H51v-76l-15 6L24 70z"/><path fill="none" stroke="rgba(128,128,128,.6)" stroke-width="2" d="M100 42v166M86 26l14 40 14-40"/><rect x="62" y="130" width="28" height="30" fill="none" stroke="rgba(128,128,128,.6)" stroke-width="2"/><rect x="110" y="130" width="28" height="30" fill="none" stroke="rgba(128,128,128,.6)" stroke-width="2"/></symbol>
-  <symbol id="g-tee" viewBox="0 0 200 240"><path fill="currentColor" d="M56 50 86 38q14 18 28 0l30 12 32 36-24 16-8-11v116H56V91l-8 11-24-16z"/><path fill="none" stroke="rgba(128,128,128,.6)" stroke-width="2" d="M86 38q14 26 28 0"/></symbol>
-  <symbol id="g-trouser" viewBox="0 0 200 240"><path fill="currentColor" d="M62 26h76l12 190h-38l-12-118-12 118H50z"/><path fill="none" stroke="rgba(128,128,128,.6)" stroke-width="2" d="M62 40h76M100 40v58"/></symbol>
-  <symbol id="g-knit" viewBox="0 0 200 240"><path fill="currentColor" d="M60 44 84 34q16 10 32 0l24 10 34 40-2 118-16-4V100l-4 110H56l-4-110v98l-16 4-2-118z"/><path fill="none" stroke="rgba(128,128,128,.6)" stroke-width="2" d="M84 34q16 22 32 0M56 196h88"/></symbol>
-</svg>
+</head>
+<body class="home-on">
+<svg width="0" height="0" style="position:absolute"><defs><symbol id="peak" viewBox="0 0 32 32"><path d="M2 27L12 9l5 8 4-6 9 16z" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linejoin="round"/><path d="M9.5 14l2.5 2 2.5-2" fill="none" stroke="currentColor" stroke-width="2"/></symbol></defs></svg>
+<div class="dt" data-dawn="Design toolbar (preview only)"><div class="wrap"><b>Gauge · Technical outdoor</b>
+<button data-go="home" class="on">Home</button><button data-go="collection">Collection</button><button data-go="product">Product</button><button data-go="cart">Cart</button><button data-go="search">Search</button><button data-go="blog">Blog</button><button data-go="article">Article</button><button data-go="about">About</button><button data-go="contact">Contact</button><button data-go="404">404</button>
+<label><input type="checkbox" id="names"> Show section names</label></div></div>
 
-<div class="pv"><div class="wrap"><div class="tabs" id="tabs" role="group" aria-label="Preview page"></div><label><input type="checkbox" id="showSec"> Show section names</label></div></div>
+<div class="ann" data-dawn="announcement-bar (rotating)"><span class="on">Free shipping over $150 · <b>Free returns for 60 days</b></span><span>Repairs for life on every Gauge shell</span><span>New: Ridgeline 3L in glacier blue</span></div>
 
-<div class="util" data-dawn="Announcement bar"><div class="wrap"><span>Free shipping over $150</span><span>30-day returns · Repairs for life</span></div></div>
-<header class="site" data-dawn="Header">
+<header class="hdr" data-dawn="header (transparent over hero, gender mega menu)"><div class="wrap">
+  <button class="burger" id="burger" aria-label="Menu">☰ Menu</button>
+  <a href="#" class="logo" data-go="home"><svg><use href="#peak"/></svg>Gauge</a>
+  <nav class="nav">
+    <div><a href="#" class="nv" data-go="collection">Women</a>
+      <div class="mega"><div class="wrap">
+        <div><h5>Layers</h5><ul><li><a href="#" data-go="collection">Shells</a></li><li><a href="#" data-go="collection">Insulation</a></li><li><a href="#" data-go="collection">Fleece</a></li><li><a href="#" data-go="collection">Base layers</a></li></ul></div>
+        <div><h5>Bottoms</h5><ul><li><a href="#" data-go="collection">Trail pants</a></li><li><a href="#" data-go="collection">Shell pants</a></li><li><a href="#" data-go="collection">Leggings</a></li></ul></div>
+        <div><h5>Activity</h5><ul><li><a href="#" data-go="collection">Hiking</a></li><li><a href="#" data-go="collection">Alpine</a></li><li><a href="#" data-go="collection">Everyday rain</a></li></ul></div>
+        <a href="#" class="mtile" data-go="collection"><img data-src="mshell" alt=""><b>New shells</b></a>
+        <a href="#" class="mtile" data-go="collection"><img data-src="mdown" alt=""><b>Down season</b></a>
+      </div></div></div>
+    <div><a href="#" class="nv" data-go="collection">Men</a>
+      <div class="mega"><div class="wrap">
+        <div><h5>Layers</h5><ul><li><a href="#" data-go="collection">Shells</a></li><li><a href="#" data-go="collection">Insulation</a></li><li><a href="#" data-go="collection">Fleece</a></li><li><a href="#" data-go="collection">Base layers</a></li></ul></div>
+        <div><h5>Bottoms</h5><ul><li><a href="#" data-go="collection">Trail pants</a></li><li><a href="#" data-go="collection">Shell pants</a></li></ul></div>
+        <div><h5>Activity</h5><ul><li><a href="#" data-go="collection">Hiking</a></li><li><a href="#" data-go="collection">Alpine</a></li></ul></div>
+        <a href="#" class="mtile" data-go="collection"><img data-src="mfleece" alt=""><b>Fleece</b></a>
+        <a href="#" class="mtile" data-go="collection"><img data-src="look" alt=""><b>Trail kit</b></a>
+      </div></div></div>
+    <div><a href="#layers" class="nv" data-go="home">Layer builder</a></div>
+    <div><a href="#" class="nv" data-go="collection">Packs</a></div>
+    <div><a href="#" class="nv" data-go="blog">Field notes</a></div>
+  </nav>
+  <div class="util">
+    <a href="#" class="srch" data-go="search" aria-label="Search"><svg class="ico" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7" fill="none" stroke="currentColor" stroke-width="2"/><path d="M20 20l-4-4" stroke="currentColor" stroke-width="2"/></svg><span>Search</span></a>
+    <a href="#" class="acct" data-go="contact"><svg class="ico" viewBox="0 0 24 24"><circle cx="12" cy="8" r="4" fill="none" stroke="currentColor" stroke-width="2"/><path d="M4 21c1-4 4-6 8-6s7 2 8 6" fill="none" stroke="currentColor" stroke-width="2"/></svg></a>
+    <button id="openCart" aria-label="Cart"><svg class="ico" viewBox="0 0 24 24"><path d="M5 8h14l-1 13H6L5 8zm4 0V6a3 3 0 016 0v2" fill="none" stroke="currentColor" stroke-width="2"/></svg><b id="count">0</b></button>
+  </div>
+</div></header>
+
+<div class="mnav" id="mnav" data-dawn="header (mobile menu)">
+  <button class="x" id="mclose">Close ✕</button>
+  <div class="seg"><button class="on">Women</button><button>Men</button></div>
+  <a href="#" class="big" data-go="collection">Shells</a><a href="#" class="big" data-go="collection">Insulation</a><a href="#" class="big" data-go="collection">Fleece</a><a href="#" class="big" data-go="collection">Base layers</a><a href="#" class="big" data-go="collection">Packs</a><a href="#layers" class="big" data-go="home">Layer builder</a>
+</div>
+
+<!-- ================= HOME ================= -->
+<main class="page on" id="p-home">
+  <section class="hero" data-dawn="image-banner (full-bleed campaign)">
+    <img data-src="hero" alt="Hiker in a blue shell jacket above the clouds">
+    <div class="wrap">
+      <div class="reveal"><span class="kick" style="color:var(--glacier)">Autumn / winter 26</span>
+        <h1>Built for <span>bad weather.</span></h1>
+        <p>Technical shells, down and merino layers, tested in wind and rain. Repaired for life.</p>
+        <div class="ctas"><a href="#" class="btn btn-y" data-go="collection">Shop women</a><a href="#" class="btn btn-o" data-go="collection">Shop men</a></div>
+      </div>
+      <a href="#" class="cond reveal" data-go="product"><small>Worn here</small><b>Ridgeline 3L Shell</b><div class="row"><div><strong>20K</strong>mm waterproof</div><div><strong>380 g</strong>packs to fist size</div></div><span class="lnk">Shop the shell · $420</span></a>
+    </div>
+  </section>
+
+  <section class="sec" data-dawn="collection-list (model tiles + gender switch)"><div class="wrap">
+    <div class="head reveal"><div><span class="kick">Shop by layer</span><h2>Dress for the <span>forecast.</span></h2></div><div class="gseg" id="gseg"><button class="on" data-g="Women">Women</button><button data-g="Men">Men</button></div></div>
+    <div class="tiles reveal" id="tiles">
+      <a href="#" class="tile" data-go="collection"><img data-src="mshell" alt=""><div class="t"><div><b>Shells</b><br><small data-c="12">12 styles</small></div><span class="go">→</span></div></a>
+      <a href="#" class="tile" data-go="collection"><img data-src="mdown" alt=""><div class="t"><div><b>Insulation</b><br><small data-c="9">9 styles</small></div><span class="go">→</span></div></a>
+      <a href="#" class="tile" data-go="collection"><img data-src="mfleece" alt=""><div class="t"><div><b>Fleece &amp; base</b><br><small data-c="16">16 styles</small></div><span class="go">→</span></div></a>
+      <a href="#" class="tile" data-go="collection"><img data-src="mpack" alt=""><div class="t"><div><b>Packs</b><br><small data-c="7">7 styles</small></div><span class="go">→</span></div></a>
+    </div>
+  </div></section>
+
+  <section class="sec f2 topo" data-dawn="featured-collection (new in carousel)"><div class="wrap">
+    <div class="head reveal"><div><span class="kick">New in</span><h2>Fresh from <span>testing.</span></h2></div><div class="arrows"><button id="pv" aria-label="Previous">←</button><button id="nx" aria-label="Next">→</button></div></div>
+    <div class="row-scroll reveal" id="newin"></div>
+  </div></section>
+
+  <section class="sec dk" id="layers" data-dawn="sbs-layer-builder"><div class="wrap">
+    <div class="head reveal"><div><span class="kick">Layer builder</span><h2>Build your <span>system.</span></h2></div><p>Pick a base, a mid layer and a shell. We show how warm, dry and breathable the system is.</p></div>
+    <div class="lyr reveal">
+      <div class="lcol" id="lcol"></div>
+      <aside class="lpanel"><h3 id="lName">Your system</h3><p class="temp" id="lTemp"></p><div id="lMeters"></div>
+        <div class="tot"><div><b id="lPrice"></b><s id="lWas"></s><small>System price · 10% off when you buy all three</small></div></div>
+        <button class="btn btn-y" id="lAdd">Add the system</button></aside>
+    </div>
+  </div></section>
+
+  <section class="sec" data-dawn="sbs-shop-the-look"><div class="wrap">
+    <div class="look reveal">
+      <div class="ph" id="lookPh"><img data-src="look" alt="Two hikers on an alpine trail"><button class="hot" data-k="0" style="left:30%;top:36%" aria-label="Cirrus Down Hoodie">1</button><button class="hot" data-k="1" style="left:31%;top:70%" aria-label="Scree Trail Pant">2</button><button class="hot" data-k="2" style="left:70%;top:40%" aria-label="Ridgeline 3L Shell">3</button></div>
+      <div><span class="kick">Shop the look</span><h2 style="font-size:clamp(36px,3.8vw,58px);margin-top:14px">The <span>ridge</span> kit.</h2><p style="color:var(--mute);margin-top:12px">Everything from this morning on the Col de Balme. Pick your sizes and add the full kit.</p>
+        <div class="llist" id="llist"></div>
+        <div class="sum"><div><small style="color:var(--mute)">Full look</small><br><b id="lookTot"></b></div><button class="btn btn-k" id="lookAdd">Add all to cart</button></div></div>
+    </div>
+  </div></section>
+
+  <section class="sec f2" id="compare" data-dawn="sbs-tech-compare"><div class="wrap">
+    <div class="head reveal"><div><span class="kick">Compare</span><h2>Which jacket <span>for you?</span></h2></div><p>Tell us the weather. We highlight the best fit.</p></div>
+    <div class="cmp-tabs reveal" id="cmpTabs"><button class="on" data-b="0">Heavy rain</button><button data-b="1">Cold and dry</button><button data-b="2">Fast and light</button></div>
+    <div class="cmp-wrap reveal"><table class="cmp" id="cmp"></table></div>
+  </div></section>
+
+  <section class="sec" data-dawn="image-with-text (field notes + repair promise)"><div class="wrap">
+    <div class="story reveal"><div class="ph"><img data-src="camp" alt="Tent on a mountain plateau"></div>
+      <div class="tx"><span class="kick">Field notes</span><h2>Tested where it <span style="color:var(--sulphur)">counts.</span></h2><p>Every Gauge piece spends a season with our test team before it goes on sale. If something wears out, we repair it, for as long as you own it.</p>
+        <div class="promise"><div><b>Lifetime</b>repairs on shells</div><div><b>60 days</b>free returns</div><div><b>Recycled</b>face fabrics</div></div>
+        <a href="#" class="btn btn-y" data-go="about" style="margin-top:28px;align-self:flex-start">How we test</a></div></div>
+  </div></section>
+
+  <section class="sec f2" style="padding-top:0;padding-bottom:90px;background:var(--fog)" data-dawn="sbs-ugc-grid"><div class="wrap">
+    <div class="head reveal"><div><span class="kick">#gaugeoutside</span><h2>Out <span>there.</span></h2></div><a href="#" class="lnk">Follow on Instagram</a></div>
+    <div class="ugc reveal"><a href="#" data-u="ridge.runs"><img data-src="hero" alt=""></a><a href="#" data-u="lena.alps"><img data-src="mshell" alt=""></a><a href="#" data-u="camp.notes"><img data-src="camp" alt=""></a><a href="#" data-u="kai.walks"><img data-src="look" alt=""></a><a href="#" data-u="snowline"><img data-src="mdown" alt=""></a><a href="#" data-u="lakehiker"><img data-src="mpack" alt=""></a></div>
+  </div></section>
+
+  <section class="sec" style="padding-top:0" data-dawn="newsletter"><div class="wrap">
+    <div class="news reveal"><div><span class="kick">Field report</span><h2>Gear news, <span style="color:var(--ink)">first.</span></h2></div>
+      <div><form onsubmit="event.preventDefault();toast('You are on the list.')"><input type="email" placeholder="Email address" aria-label="Email"><button class="btn btn-k">Sign up</button></form><small>New drops, route guides and repair tips. Once a month.</small></div></div>
+  </div></section>
+</main>
+
+<!-- ================= COLLECTION ================= -->
+<main class="page" id="p-collection"><div class="wrap">
+  <div class="crumbs" data-dawn="sbs-breadcrumbs"><a href="#" data-go="home">Home</a> / Women / Shells &amp; insulation</div>
+  <section class="cban" data-dawn="main-collection-banner (photo banner)"><img data-src="mshell" alt=""><div class="in"><span class="kick" style="color:var(--glacier)">Women</span><h1>Shells &amp; <span style="color:var(--sulphur)">layers</span></h1><p>Waterproof shells, down and fleece that work together. Filter by size, colour and activity.</p></div></section>
+  <div data-dawn="main-collection-product-grid (horizontal filter bar)">
+    <div class="fbar" id="fbar">
+      <div class="fdd"><button data-dd>Category</button><div class="pn" id="fcat"></div></div>
+      <div class="fdd"><button data-dd>Size</button><div class="pn"><div class="sz" id="fsz"></div></div></div>
+      <div class="fdd"><button data-dd>Colour</button><div class="pn" id="fcol"></div></div>
+      <div class="fdd"><button data-dd>Activity</button><div class="pn" id="fact"></div></div>
+      <div class="sp"><span id="ccount"></span><select id="sort" aria-label="Sort"><option value="feat">Featured</option><option value="lo">Price, low to high</option><option value="hi">Price, high to low</option><option value="rt">Top rated</option></select></div>
+    </div>
+    <div class="chipsel" id="chipsel"></div>
+    <div class="grid cgrid" id="cgrid"></div>
+    <div class="pager"><button class="on">1</button><button onclick="toast('Demo has one page')">2</button><button onclick="toast('Demo has one page')">3</button><button onclick="toast('Demo has one page')" aria-label="Next">→</button></div>
+  </div>
+</div></main>
+
+<!-- ================= PRODUCT ================= -->
+<main class="page" id="p-product">
   <div class="wrap">
-    <div class="head">
-      <a class="logo" href="#" data-go="home"><i>G</i>Gauge</a>
-      <form class="srch" id="hdrSearch"><label class="sr" for="hq">Search</label><input id="hq" placeholder="Search products"><button type="submit">Go</button></form>
-      <div class="acts"><a class="pill deal hide-sm" href="#" data-go="collection">Deals</a><a class="pill hide-sm" href="#" data-go="contact">Help</a><a class="pill fill" href="#" data-go="cart">Cart (<span class="cc">0</span>)</a><button class="mb" data-open="menu" aria-label="Open menu"><svg width="20" height="20" viewBox="0 0 24 24"><path d="M3 7h18M3 12h18M3 17h18" stroke="currentColor" stroke-width="2"/></svg></button></div>
-    </div>
-    <nav class="main" aria-label="Main"><a href="#" data-go="collection">New in</a><a href="#" data-go="collection">Outerwear</a><a href="#" data-go="collection">Tees</a><a href="#" data-go="collection">Trousers</a><a href="#" data-go="collection">Knitwear</a><a href="#layers" data-go="home">Layer calculator</a><a href="#" data-go="blog">Journal</a><a href="#" data-go="about">About</a></nav>
-  </div>
-</header>
-
-<!-- HOME -->
-<main id="v-home">
-  <section class="hero" data-dawn="Image banner">
-    <div class="wrap hg">
-      <div>
-        <span class="lab">Spec sheet no. 12 · Autumn 2026</span>
-        <h1>Built to <em>spec.</em> Worn to <em>fit.</em></h1>
-        <p>Heavyweight basics with every weight, width and tolerance printed on the page. Pick by the numbers, not the photos.</p>
-        <div class="btns"><a href="#" class="btn o" data-go="collection">Shop new in</a><a href="#layers" class="btn" data-go="home">Open layer calculator</a></div>
-      </div>
-      <div class="fig">
-        <div class="art"><span class="dim t">640 mm</span><span class="dim l">720 mm</span><svg viewBox="0 0 200 240" aria-hidden="true"><use href="#g-jacket"/></svg></div>
-        <div class="cap"><span>FIG. 01 · Chore Jacket<br><span class="muted">14 oz denim · boxy · hip length</span></span><span><b>$168</b><br><a href="#" data-go="product">View spec →</a></span></div>
-      </div>
-    </div>
-  </section>
-  <div class="trust" data-dawn="Multicolumn (trust strip)"><div class="wrap"><span>▪ Free returns 30 days</span><span>▪ Repairs for life</span><span>▪ Ships in 2 days</span><span>▪ Sized by measurement</span></div></div>
-
-  <section class="blk" data-dawn="Collection list">
-    <div class="wrap">
-      <div class="sh"><h2>Shop by category</h2></div>
-      <div class="bento">
-        <a class="bt big" href="#" data-go="collection"><h3>Outerwear</h3><svg viewBox="0 0 200 240" aria-hidden="true"><use href="#g-jacket"/></svg></a>
-        <a class="bt" href="#" data-go="collection"><h3>Tees</h3><span class="lab">12 styles <span class="ar">→</span></span></a>
-        <a class="bt" href="#" data-go="collection"><h3>Trousers</h3><span class="lab">9 styles <span class="ar">→</span></span></a>
-        <a class="bt" href="#" data-go="collection"><h3>Knitwear</h3><span class="lab">7 styles <span class="ar">→</span></span></a>
-        <a class="bt" href="#" data-go="collection"><h3>Layers</h3><span class="lab">18 styles <span class="ar">→</span></span></a>
-        <a class="bt" href="#" data-go="collection"><h3>Workwear</h3><span class="lab">11 styles <span class="ar">→</span></span></a>
-        <a class="bt" href="#" data-go="collection"><h3>Last pairs</h3><span class="lab">Up to 40% off <span class="ar">→</span></span></a>
-      </div>
-    </div>
-  </section>
-
-  <div class="stx" data-dawn="Selvedge: Selvedge divider" aria-hidden="true"></div>
-
-  <section class="blk" data-dawn="Featured collection">
-    <div class="wrap"><div class="sh"><h2>New in</h2><a href="#" data-go="collection">View all</a></div><div class="grid" data-grid="0,1,2,3"></div></div>
-  </section>
-
-  <section class="calc blk" id="layers" data-dawn="Selvedge: Layer calculator">
-    <div class="wrap">
-      <div class="sh"><h2>Layer calculator</h2><span class="lab">Pick the temperature and the pace</span></div>
-      <div class="cg">
-        <div>
-          <fieldset><legend>Temperature</legend><div class="chips" id="cTemp"><button type="button" aria-pressed="false" data-v="1">Under 0°C</button><button type="button" aria-pressed="false" data-v="2">0–8°C</button><button type="button" aria-pressed="true" data-v="3">8–14°C</button><button type="button" aria-pressed="false" data-v="4">14–20°C</button></div></fieldset>
-          <fieldset><legend>Activity</legend><div class="chips" id="cAct"><button type="button" aria-pressed="false" data-v="0">Standing still</button><button type="button" aria-pressed="true" data-v="1">Walking</button><button type="button" aria-pressed="false" data-v="2">Working hard</button></div></fieldset>
-          <fieldset><legend>Hours outside</legend><div class="step"><button type="button" id="hM" aria-label="Fewer hours">−</button><output id="hOut" aria-live="polite">3 h</output><button type="button" id="hP" aria-label="More hours">+</button></div></fieldset>
-        </div>
-        <div class="res" aria-live="polite">
-          <span class="lab">Result</span>
-          <div class="tot" id="rTot">3 layers</div>
-          <div class="warmth" id="rWarm"></div>
-          <div class="rl" id="rList"></div>
-          <button class="btn o full" type="button" id="rAdd">Add the set to cart</button>
+    <div class="crumbs" data-dawn="sbs-breadcrumbs"><a href="#" data-go="home">Home</a> / <a href="#" data-go="collection">Women</a> / <a href="#" data-go="collection">Shells</a> / Ridgeline 3L Shell</div>
+    <div class="pdp" data-dawn="main-product (gallery, colour + size, size guide, specs)">
+      <div><div class="pmain" id="pmain"><img id="pimg" alt="Ridgeline 3L Shell"><span class="cap" id="pcap"></span><div class="nav2"><button id="gp" aria-label="Previous image">←</button><button id="gn" aria-label="Next image">→</button></div></div><div class="thumbs" id="thumbs"></div></div>
+      <div class="info">
+        <div class="bd"><span>New</span><span>Repairs for life</span></div>
+        <h1>Ridgeline 3L Shell</h1>
+        <div class="rt"><b>★★★★★</b> 4.8 · 214 reviews (sample)</div>
+        <div class="price">$420</div>
+        <p class="lede">A three-layer waterproof shell for long days in bad weather. Helmet-ready hood, pit zips and a cut that leaves room for a down layer.</p>
+        <div class="specs" data-dawn="multicolumn (spec tiles)"><div><b>20K</b>mm waterproof</div><div><b>20K</b>g/m² breathable</div><div><b>380 g</b>size M</div><div><b>100%</b>recycled face</div></div>
+        <div class="optl">Colour <span id="pcolT">Glacier blue</span></div><div class="pcol" id="pcol"></div>
+        <div class="optl">Size <a href="#" id="openSG">Size guide</a></div><div class="psz" id="psz"></div>
+        <p class="fitnote">True to size. Model is 175 cm and wears S. Room for a down layer underneath.</p>
+        <div class="buy"><button class="btn btn-k" id="atc">Select a size</button><button class="wish" id="pwish" aria-label="Add to wishlist">♡</button></div>
+        <div class="perks"><div>Free shipping over $150</div><div>60-day returns</div><div>Lifetime repairs</div></div>
+        <div class="acc">
+          <details open><summary>Features</summary><div class="b"><ul><li>Helmet-ready hood with laminated brim</li><li>Two-way pit zips for venting on the climb</li><li>Two chest pockets above a harness</li><li>Fully taped seams and waterproof zips</li></ul></div></details>
+          <details><summary>Materials &amp; care</summary><div class="b">3-layer recycled nylon, PFAS-free water repellent finish. Machine wash cold, tumble dry low to refresh the finish.</div></details>
+          <details><summary>Shipping &amp; returns</summary><div class="b">Free shipping over $150. Free returns within 60 days, unworn with tags.</div></details>
+          <details><summary>Repairs for life</summary><div class="b">If a zip, seam or panel fails, send it to us. We repair it free, for as long as you own it.</div></details>
         </div>
       </div>
     </div>
-  </section>
-
-  <section class="stmt" data-dawn="Rich text"><div class="wrap"><p>We make <em>fewer pieces</em> from heavier cloth, and repair every one for free.</p></div></section>
-
-  <section class="blk tt" data-dawn="Featured product">
-    <div class="wrap iwt">
-      <div class="pic"><svg viewBox="0 0 200 240" aria-hidden="true" style="color:#FF5A1F"><use href="#g-jacket"/></svg></div>
-      <div>
-        <span class="lab muted">Best seller</span>
-        <h2>Chore Jacket</h2>
-        <p class="price">$168</p>
-        <p class="muted">14 oz selvedge denim, woven in Okayama. Unwashed, so it fades to your shape.</p>
-        <fieldset class="opt"><legend>Size</legend><div class="sz"><button type="button" aria-pressed="false">S</button><button type="button" aria-pressed="true">M</button><button type="button" aria-pressed="false">L</button><button type="button" aria-pressed="false">XL</button></div></fieldset>
-        <div class="btns"><button class="btn o" type="button" data-add="0">Add to cart</button><a class="btn" href="#" data-go="product">Full spec</a></div>
-      </div>
-    </div>
-  </section>
-
-  <section class="blk tt" data-dawn="Promo banners">
-    <div class="wrap"><div class="promo2">
-      <div class="pm a"><div><span class="lab">Seasonal</span><h3>Wide trousers, 10 oz twill</h3></div><a class="btn k" href="#" data-go="collection" style="align-self:flex-start">Shop trousers</a></div>
-      <div class="pm b"><div><span class="lab">Free for life</span><h3>Repairs on everything we sell</h3></div><a class="btn o" href="#" data-go="about" style="align-self:flex-start">How it works</a></div>
-    </div></div>
-  </section>
-
-  <section class="blk tt" data-dawn="Fabric table">
-    <div class="wrap">
-      <div class="sh"><h2>Fabric specs</h2></div>
-      <div class="tw"><table class="spec"><thead><tr><th>Fabric</th><th>Weight</th><th>Woven in</th><th>Shrink</th></tr></thead><tbody>
-        <tr><td>Selvedge denim</td><td>14 oz</td><td>Okayama, JP</td><td>&lt; 2%</td></tr>
-        <tr><td>Cotton jersey</td><td>240 gsm</td><td>Porto, PT</td><td>&lt; 3%</td></tr>
-        <tr><td>Brushed twill</td><td>10 oz</td><td>Biella, IT</td><td>&lt; 2%</td></tr>
-        <tr><td>Lambswool</td><td>12 gauge</td><td>Hawick, UK</td><td>&lt; 4%</td></tr></tbody></table></div>
-    </div>
-  </section>
-
-  <section class="blk tt" data-dawn="Multicolumn (reviews)">
-    <div class="wrap"><div class="sh"><h2>Worn by you</h2></div>
-      <div class="cols3">
-        <div><div class="stars" aria-label="5 stars">★★★★★</div><p>Two winters in and the jacket has faded exactly where my phone sits.<br><b>Omar, Leeds</b></p></div>
-        <div><div class="stars" aria-label="5 stars">★★★★★</div><p>First tee that didn't twist at the seams after ten washes.<br><b>Jess, Toronto</b></p></div>
-        <div><div class="stars" aria-label="5 stars">★★★★★</div><p>The measurements were right. Chest 114, and it fits like the chart says.<br><b>Daniel, Melbourne</b></p></div>
-      </div>
-    </div>
-  </section>
-
-  <section class="blk tt" data-dawn="Best sellers">
-    <div class="wrap"><div class="sh"><h2>Best sellers</h2><a href="#" data-go="collection">View all</a></div><div class="grid" data-grid="4,5,6,7"></div></div>
-  </section>
-
-  <section class="blk tt" data-dawn="Collapsible content">
-    <div class="wrap faq"><h2 class="disp" style="font-size:clamp(28px,4vw,48px);margin:0">Questions, answered</h2>
-      <div>
-        <details class="acc"><summary>How do I pick my size?</summary><p>Each product lists chest, length and sleeve in cm. Measure a jacket you like and match it.</p></details>
-        <details class="acc"><summary>Will raw denim shrink?</summary><p>It is sanforized, so expect under 2% on the first cold wash.</p></details>
-        <details class="acc"><summary>How long is shipping?</summary><p>Orders ship in 2 days. Delivery takes 2 to 5 working days in the UK and US.</p></details>
-        <details class="acc"><summary>How do repairs work?</summary><p>Email a photo, we send a prepaid label, and return it fixed within three weeks.</p></details>
-      </div></div>
-  </section>
-
-  <section class="blk tt" data-dawn="Featured blog">
-    <div class="wrap"><div class="sh"><h2>From the journal</h2><a href="#" data-go="blog">All posts</a></div><div class="grid three" data-posts="0,1,2"></div></div>
-  </section>
-
-  <section class="blk news" data-dawn="Email signup"><div class="wrap nin"><h2>First look at new drops</h2><form data-sub><label class="sr" for="em1">Email address</label><input class="fld" id="em1" type="email" placeholder="Your email address" required><button class="btn k" type="submit">Subscribe</button></form></div></section>
-</main>
-
-<!-- COLLECTION -->
-<main id="v-collection" hidden>
-  <section class="colh" data-dawn="Collection banner"><div class="wrap">
-    <nav class="crumbs" style="border:0;padding:0" aria-label="Breadcrumb"><a href="#" data-go="home">Home</a> / New in</nav>
-    <h1>New in</h1><p class="muted" style="margin:0;max-width:56ch">Heavyweight basics in denim, twill, jersey and wool. <span id="colN">12</span> products.</p></div></section>
-  <section data-dawn="Product grid"><div class="wrap cl">
-    <aside class="fl" id="fl" aria-label="Filters">
-      <fieldset><legend>Category</legend><label><input type="checkbox" value="outerwear" data-f="cat"> Outerwear</label><label><input type="checkbox" value="tees" data-f="cat"> Tees</label><label><input type="checkbox" value="trousers" data-f="cat"> Trousers</label><label><input type="checkbox" value="knitwear" data-f="cat"> Knitwear</label></fieldset>
-      <fieldset><legend>Colour</legend><label><input type="checkbox" value="Indigo" data-f="col"> Indigo</label><label><input type="checkbox" value="Ecru" data-f="col"> Ecru</label><label><input type="checkbox" value="Olive" data-f="col"> Olive</label><label><input type="checkbox" value="Slate" data-f="col"> Slate</label></fieldset>
-      <fieldset style="border:0"><legend>Price</legend><label><input type="checkbox" value="u" data-f="price"> Under $100</label><label><input type="checkbox" value="o" data-f="price"> $100 and over</label></fieldset>
-    </aside>
-    <div>
-      <div class="tb"><button class="btn ftog" type="button" id="ftog" aria-controls="fl" aria-expanded="false">Filter</button><span class="muted"><span id="colS">12</span> products</span><label>Sort <select id="sort"><option value="f">Featured</option><option value="l">Price, low to high</option><option value="h">Price, high to low</option></select></label></div>
-      <div class="grid three" id="colGrid"></div>
-      <nav class="pager" aria-label="Pages"><a href="#" aria-current="page">1</a><a href="#">2</a><a href="#">3</a></nav>
-    </div></div></section>
-  <section class="blk tt" data-dawn="Rich text"><div class="wrap"><div class="note"><b>Size note:</b> every product lists measurements in cm. Jackets are boxy, tees true to size, trousers sized by waist.</div></div></section>
-  <section class="blk tt" data-dawn="Collapsible content"><div class="wrap faq"><h2 class="disp" style="font-size:clamp(28px,4vw,48px);margin:0">About new in</h2><div>
-    <details class="acc"><summary>How often do pieces drop?</summary><p>A small run on the first Thursday each month. Subscribers see it a day early.</p></details>
-    <details class="acc"><summary>Do sold-out sizes return?</summary><p>Core pieces restock each season. Limited colours are one run only.</p></details></div></div></section>
-  <section class="blk news" data-dawn="Email signup"><div class="wrap nin"><h2>First look at new drops</h2><form data-sub><label class="sr" for="em2">Email address</label><input class="fld" id="em2" type="email" placeholder="Your email address" required><button class="btn k" type="submit">Subscribe</button></form></div></section>
-</main>
-
-<!-- PRODUCT -->
-<main id="v-product" hidden>
-  <div class="wrap"><nav class="crumbs" data-dawn="Selvedge: Breadcrumbs" aria-label="Breadcrumb"><a href="#" data-go="home">Home</a> / <a href="#" data-go="collection">Outerwear</a> / Chore Jacket</nav></div>
-  <section data-dawn="Product information"><div class="wrap pdp">
-    <div class="gal">
-      <div class="g"><svg viewBox="0 0 200 240" id="mainArt" aria-hidden="true" style="color:#1A1C20"><use href="#g-jacket"/></svg></div>
-      <div class="g"><svg viewBox="0 0 200 240" aria-hidden="true" style="color:#FF5A1F"><use href="#g-jacket"/></svg></div>
-      <div class="g"><svg viewBox="0 0 200 240" aria-hidden="true" style="color:#6B7A8F"><use href="#g-jacket"/></svg></div>
-      <div class="g plate"><div class="pt">Spec plate · Chore Jacket</div><table><tr><td>Fabric</td><td>14 oz selvedge denim</td></tr><tr><td>Chest (M)</td><td>114 cm</td></tr><tr><td>Length (M)</td><td>70 cm</td></tr><tr><td>Sleeve (M)</td><td>64 cm</td></tr><tr><td>Hardware</td><td>Copper rivets, corozo buttons</td></tr><tr><td>Made in</td><td>Porto, Portugal</td></tr></table></div>
-    </div>
-    <div class="buy">
-      <span class="lab muted">FIG. 01 · Outerwear</span>
-      <h1>Chore Jacket</h1>
-      <p class="price">$168</p>
-      <p class="muted">Woven in Okayama. Unwashed, so it fades to your shape.</p>
-      <fieldset class="opt"><legend>Colour: <span id="cn">Ink</span></legend><div class="sw">
-        <button type="button" aria-pressed="true" aria-label="Ink" style="background:#1A1C20" data-c="Ink" data-h="#1A1C20"></button>
-        <button type="button" aria-pressed="false" aria-label="Orange" style="background:#FF5A1F" data-c="Orange" data-h="#FF5A1F"></button>
-        <button type="button" aria-pressed="false" aria-label="Slate" style="background:#6B7A8F" data-c="Slate" data-h="#6B7A8F"></button></div></fieldset>
-      <fieldset class="opt"><legend>Size</legend><div class="sz"><button type="button" aria-pressed="false">S</button><button type="button" aria-pressed="true">M</button><button type="button" aria-pressed="false">L</button><button type="button" aria-pressed="false">XL</button><button type="button" disabled aria-label="XXL, sold out">XXL</button></div></fieldset>
-      <button class="btn o full" type="button" data-add="0">Add to cart</button>
-      <button class="btn full" type="button">Buy it now</button>
-      <ul class="ck"><li>Ships in 2 days</li><li>Free returns for 30 days</li><li>Free repairs for life</li></ul>
-      <details class="acc" open><summary>Fabric</summary><p>100% cotton selvedge denim, 14 oz. Four patch pockets.</p></details>
-      <details class="acc"><summary>Care</summary><p>Wash cold, inside out, as rarely as you can. Hang to dry.</p></details>
-      <details class="acc"><summary>Shipping and returns</summary><p>Ships in 2 days. Free returns for 30 days with the prepaid label.</p></details>
-    </div></div></section>
-  <section class="blk tt" data-dawn="Image with text"><div class="wrap iwt flip"><div class="pic"><svg viewBox="0 0 200 240" aria-hidden="true"><use href="#g-jacket"/></svg></div><div><h2>Look for the orange line</h2><p class="muted">The line on the inside seam is the selvedge: the finished edge of cloth woven on a narrow shuttle loom. It will not fray.</p></div></div></section>
-  <section class="blk fbt tt" style="padding-block:clamp(36px,5vw,60px)" data-dawn="Frequently bought together">
-    <div class="wrap"><div class="sh" style="border-color:var(--paper)"><h2>Bought together</h2></div>
-      <div class="bn">
-        <div class="it"><svg viewBox="0 0 200 240" style="color:#1A1C20" aria-hidden="true"><use href="#g-jacket"/></svg><label><input type="checkbox" checked class="bund" data-p="168"> Chore Jacket $168</label></div>
-        <div class="it"><svg viewBox="0 0 200 240" style="color:#E4DFD3" aria-hidden="true"><use href="#g-tee"/></svg><label><input type="checkbox" checked class="bund" data-p="48"> Heavy Tee $48</label></div>
-        <div class="it"><svg viewBox="0 0 200 240" style="color:#5B6346" aria-hidden="true"><use href="#g-trouser"/></svg><label><input type="checkbox" class="bund" data-p="124"> Work Trouser $124</label></div>
-        <div class="tt2"><span class="lab">Bundle total</span><b class="disp" style="font-size:30px" id="bTot">$216</b><button class="btn o" type="button" id="bAdd">Add selected</button></div>
-      </div></div></section>
-  <section class="blk tt" data-dawn="Apps (reviews)"><div class="wrap"><div class="sh"><h2>Reviews</h2></div>
-    <div class="appbox"><div><div class="stars" aria-label="4.8 out of 5">★★★★★</div><b>4.8 / 5</b><div class="muted">214 reviews</div></div><p style="margin:0">Fits to the measurements. Already fading at the cuffs. <br><span class="muted">Priya, Bristol · Size S · Verified</span></p><button class="btn" type="button">Write a review</button></div></div></section>
-  <section class="blk tt" data-dawn="Related products"><div class="wrap"><div class="sh"><h2>More from outerwear</h2></div><div class="grid" data-grid="4,8,1,6"></div></div></section>
-</main>
-
-<!-- CART -->
-<main id="v-cart" hidden>
-  <div class="wrap" style="padding-top:20px"><h1 class="ph">Your cart</h1></div>
-  <div class="wrap cg2">
-    <section data-dawn="Cart items"><div id="lines"></div><p id="empty" class="muted" hidden>Your cart is empty. <a href="#" data-go="collection">Shop new in</a></p></section>
-    <aside class="sum" data-dawn="Subtotal"><p id="shipMsg" style="margin:0"></p><div class="sbar"><i id="shipBar" style="width:0"></i></div>
-      <label for="note" style="font-weight:600">Order note</label><textarea id="note" placeholder="Gift message or delivery note"></textarea>
-      <div class="row"><span>Subtotal</span><span id="sub">$0</span></div><p class="muted" style="font-size:13px;margin:0 0 14px">Taxes and shipping at checkout.</p><button class="btn o full" type="button">Check out</button></aside>
   </div>
-  <section class="blk tt" data-dawn="Featured collection"><div class="wrap"><div class="sh"><h2>Complete the set</h2></div><div class="grid" data-grid="1,2,3,5"></div></div></section>
+  <section class="sec f2" data-dawn="sbs-complete-the-look"><div class="wrap"><div class="head"><div><span class="kick">Complete the look</span><h2>Layer it <span>up.</span></h2></div></div><div class="ctl" id="ctl"></div></div></section>
+  <section class="sec" data-dawn="sbs-reviews (fit slider + cards)"><div class="wrap"><div class="rvs-wrap">
+    <div class="score"><span class="kick">Reviews</span><div style="margin-top:16px"><b>4.8</b></div><div class="st">★★★★★</div><small>214 reviews (sample)</small>
+      <div class="fit"><p>How it fits</p><div class="tr"><i></i></div><div class="lb"><span>Runs small</span><span>True to size</span><span>Runs large</span></div></div></div>
+    <div class="rvs">
+      <div class="rv"><div class="s">★★★★★</div><p>"Four days of rain in Scotland and I stayed dry. The pit zips are a lifesaver on climbs."</p><small>Sample review · Size M</small><span class="tg">Hiking</span></div>
+      <div class="rv"><div class="s">★★★★★</div><p>"Fits over my down hoodie without feeling bulky. Hood works with a helmet."</p><small>Sample review · Size S</small><span class="tg">Alpine</span></div>
+      <div class="rv"><div class="s">★★★★☆</div><p>"Great shell. A bit stiff at first, softens after a few weeks."</p><small>Sample review · Size L</small><span class="tg">Everyday rain</span></div>
+    </div></div></div></section>
+  <section class="sec f2" data-dawn="sbs-recently-viewed"><div class="wrap"><div class="head"><div><span class="kick">Recently viewed</span><h2>Back to <span>these?</span></h2></div></div><div class="grid" id="recent"></div></div></section>
+  <div class="sticky-atc" id="sticky" data-dawn="main-product (sticky add to cart)"><div class="wrap"><img data-src="shell" alt=""><div><b>Ridgeline 3L Shell</b><small id="stxt"></small></div><button class="btn btn-y" id="satc">Add to cart · $420</button></div></div>
 </main>
 
-<!-- SEARCH -->
-<main id="v-search" hidden>
-  <section class="blk" style="padding-top:20px" data-dawn="Search results"><div class="wrap">
-    <h1 class="ph">Search</h1>
-    <form id="sForm" style="display:flex;gap:8px;max-width:620px;margin-bottom:12px"><label class="sr" for="sq">Search products</label><input class="fld" id="sq" type="search" value="denim"><button class="btn k" type="submit">Search</button></form>
-    <p class="muted" id="sCount"></p><div class="grid" id="sGrid"></div></div></section>
-  <section class="blk tt" data-dawn="Featured collection"><div class="wrap"><div class="sh"><h2>Popular now</h2></div><div class="grid" data-grid="0,4,1,7"></div></div></section>
-</main>
-
-<!-- BLOG -->
-<main id="v-blog" hidden>
-  <section class="blk" style="padding-top:20px" data-dawn="Blog posts"><div class="wrap">
-    <h1 class="ph">Journal</h1>
-    <a class="ft" href="#" data-go="article"><div class="pic"><svg viewBox="0 0 200 240" aria-hidden="true"><use href="#g-jacket"/></svg></div><div class="tx"><span class="lab muted">12 Sep 2026 · Care</span><h2>Three years in the same jacket</h2><p class="muted">A wear diary of one Chore Jacket, from stiff and dark to soft and faded.</p></div></a>
-    <div class="grid three" data-posts="1,2,3,4,5,0"></div></div></section>
-  <section class="blk news" data-dawn="Email signup"><div class="wrap nin"><h2>New posts, first</h2><form data-sub><label class="sr" for="em3">Email address</label><input class="fld" id="em3" type="email" placeholder="Your email address" required><button class="btn k" type="submit">Subscribe</button></form></div></section>
-</main>
-
-<!-- ARTICLE -->
-<main id="v-article" hidden>
-  <article class="blk art" style="padding-top:20px" data-dawn="Blog post">
-    <div class="wrap nrw"><nav class="crumbs" style="border:0;padding:0 0 14px" aria-label="Breadcrumb"><a href="#" data-go="home">Home</a> / <a href="#" data-go="blog">Journal</a></nav>
-      <h1>Three years in the same jacket</h1><p class="by">12 September 2026 · By Sam Hale · 6 min read</p></div>
-    <div class="wrap"><div class="art-hero"><svg viewBox="0 0 200 240" aria-hidden="true"><use href="#g-jacket"/></svg></div></div>
-    <div class="wrap nrw">
-      <p>When the Chore Jacket arrived it could almost stand up on its own. Fourteen ounces of unwashed denim is stiff, dark and a little noisy.</p>
-      <h2>Months one to six</h2><p>The first creases set at the elbows and across the lap. By month four, the phone pocket had a pale rectangle and the cuffs had started to soften.</p>
-      <h2>Year two</h2><p>The first wash, cold and inside out, took the edge off the stiffness without losing contrast. The collar faded to a mid blue.</p>
-      <h2>Year three</h2><p>One small tear at the pocket corner came back from our repair service in eleven days. The jacket now fits like it was made for one person.</p>
-      <div class="share"><span>Share:</span><a href="#">Facebook</a><a href="#">Pinterest</a><a href="#">Copy link</a></div></div>
-  </article>
-  <section class="blk tt" data-dawn="Featured collection"><div class="wrap"><div class="sh"><h2>Shop the story</h2></div><div class="grid" data-grid="0,6,8,1"></div></div></section>
-</main>
-
-<!-- ABOUT -->
-<main id="v-about" hidden>
-  <section class="ah" data-dawn="Image banner"><div class="wrap"><span class="lab">About Gauge</span><h1>Fewer pieces, heavier cloth</h1></div></section>
-  <section class="blk" data-dawn="Rich text"><div class="wrap nrw" style="font-size:18px"><p>Gauge started in 2019 with one jacket and a problem: everything we bought wore out in two winters. So we went looking for mills that still weave slowly, at weights the high street stopped using.</p><p>We cut small runs so nothing ends up in a sale pile, and we repair anything we sell, for free, for as long as you wear it.</p></div></section>
-  <section class="blk tt" data-dawn="Multirow"><div class="wrap" style="display:grid;gap:clamp(28px,5vw,56px)">
-    <div class="iwt"><div class="pic"><svg viewBox="0 0 200 240" aria-hidden="true"><use href="#g-jacket"/></svg></div><div><h2>The cloth</h2><p class="muted">Denim from Okayama, jersey from Porto, twill from Biella. We visit every mill before we buy a metre.</p></div></div>
-    <div class="iwt flip"><div class="pic"><svg viewBox="0 0 200 240" aria-hidden="true"><use href="#g-trouser"/></svg></div><div><h2>The cut</h2><p class="muted">Patterns are cut in runs of 200 or fewer, with every seam on the grain.</p></div></div></div></section>
-  <section class="blk tt" data-dawn="Numbers"><div class="wrap nums"><div><strong>200</strong>pieces per run, at most</div><div><strong>4</strong>mills we work with</div><div><strong>1,340</strong>free repairs</div><div><strong>2019</strong>founded</div></div></section>
-  <div class="stx" data-dawn="Selvedge: Selvedge divider" aria-hidden="true"></div>
-</main>
-
-<!-- CONTACT -->
-<main id="v-contact" hidden>
-  <section class="blk" style="padding-top:20px" data-dawn="Page"><div class="wrap nrw"><h1 class="ph">Contact us</h1><p style="font-size:18px;margin:0">We reply within one working day, Monday to Friday.</p></div></section>
-  <section class="blk tt" data-dawn="Contact form"><div class="wrap nrw"><form class="cf" id="cForm">
-    <div><label for="cn1">Name</label><input class="fld" id="cn1" required></div><div><label for="ce">Email</label><input class="fld" id="ce" type="email" required></div>
-    <div class="sp"><label for="co">Order number (optional)</label><input class="fld" id="co" placeholder="#1042"></div>
-    <div class="sp"><label for="cm">Message</label><textarea class="fld" id="cm" required></textarea></div>
-    <div class="sp"><button class="btn o" type="submit">Send message</button></div></form></div></section>
-  <section class="blk tt" data-dawn="Multicolumn"><div class="wrap cols3"><div><h3>Email</h3><p>hello@gauge.example<br>Replies in one working day</p></div><div><h3>Phone</h3><p>+44 20 7946 0000<br>Mon to Fri, 9 to 5</p></div><div><h3>Returns</h3><p>Gauge Returns, Unit 4, Mill Lane, Leeds LS1 4AB</p></div></div></section>
-  <section class="blk tt" data-dawn="Collapsible content"><div class="wrap faq"><h2 class="disp" style="font-size:clamp(28px,4vw,48px);margin:0">Quick answers</h2><div>
-    <details class="acc"><summary>Where is my order?</summary><p>Your tracking link is in the shipping email. Most orders arrive in 2 to 5 working days.</p></details>
-    <details class="acc"><summary>How do I start a return?</summary><p>Use the prepaid label in the parcel, or email your order number for a new one.</p></details></div></div></section>
-</main>
-
-<!-- 404 -->
-<main id="v-404" hidden>
-  <section class="nf" data-dawn="404 page"><div class="wrap"><h1>404</h1><p style="font-size:19px">Page not found. It may have sold out, or the link is wrong.</p>
-    <form id="f404"><label class="sr" for="q4">Search products</label><input class="fld" id="q4" type="search" placeholder="Search products"><button class="btn k" type="submit">Search</button></form><a class="btn" href="#" data-go="collection">Back to the shop</a></div></section>
-  <section class="blk tt" data-dawn="Featured collection"><div class="wrap"><div class="sh"><h2>Best sellers</h2></div><div class="grid" data-grid="4,5,6,7"></div></div></section>
-</main>
-
-<footer class="site" data-dawn="Footer"><div class="wrap">
-  <div class="fgrid">
-    <div><a class="logo" href="#" data-go="home" style="color:var(--paper)"><i>G</i>Gauge</a><p style="max-width:34ch;color:#BDBFC2">Heavyweight basics made in small runs. Repaired for free for as long as you wear them.</p></div>
-    <div><h4>Shop</h4><ul><li><a href="#" data-go="collection">New in</a></li><li><a href="#" data-go="collection">Outerwear</a></li><li><a href="#" data-go="collection">Tees</a></li><li><a href="#" data-go="collection">Trousers</a></li></ul></div>
-    <div><h4>Help</h4><ul><li><a href="#" data-go="contact">Contact</a></li><li><a href="#" data-go="contact">Shipping</a></li><li><a href="#" data-go="contact">Returns</a></li><li><a href="#" data-go="404">Size guide</a></li></ul></div>
-    <div><h4>Company</h4><ul><li><a href="#" data-go="about">About</a></li><li><a href="#" data-go="blog">Journal</a></li><li><a href="#" data-go="search">Search</a></li></ul></div>
+<!-- ================= CART ================= -->
+<main class="page" id="p-cart">
+  <div class="wrap">
+    <div class="crumbs" data-dawn="sbs-breadcrumbs"><a href="#" data-go="home">Home</a> / Cart</div>
+    <div class="cpage" data-dawn="main-cart-items + main-cart-footer">
+      <div><h1>Your <span>cart</span></h1><div class="prog" id="cprog"></div><div id="clines"></div>
+        <div class="note"><label for="cnote">Order note</label><textarea id="cnote" placeholder="Gift message or delivery notes"></textarea></div></div>
+      <aside class="summ"><h3>Summary</h3><div class="r"><span>Subtotal</span><span id="csub">$0</span></div><div class="r"><span>Shipping</span><span id="cship">—</span></div><div class="r t"><span>Total</span><span id="ctot">$0</span></div><button class="btn btn-y" onclick="toast('Checkout is off in the demo')">Checkout</button>
+        <ul><li>Secure checkout</li><li>Free returns for 60 days</li><li>Repairs for life on shells</li></ul></aside>
+    </div>
   </div>
-  <div class="legal">© 2026 Gauge · Sample content for theme preview</div></div></footer>
+  <section class="sec f2" data-dawn="featured-collection (finish your kit)"><div class="wrap"><div class="head"><div><span class="kick">Finish your kit</span><h2>Small but <span>vital.</span></h2></div></div><div class="grid" id="cartup"></div></div></section>
+</main>
 
-<div class="ov" id="ovM" data-close hidden></div>
-<aside class="dr l" id="dM" hidden aria-label="Menu" data-dawn="Header (menu drawer)"><div class="dh"><h2>Menu</h2><button class="x" data-close aria-label="Close menu">×</button></div><nav><a href="#" data-go="collection">New in</a><a href="#" data-go="collection">Outerwear</a><a href="#" data-go="collection">Trousers</a><a href="#" data-go="blog">Journal</a><a href="#" data-go="about">About</a><a href="#" data-go="contact">Contact</a></nav></aside>
-<div class="ov" id="ovC" data-close hidden></div>
-<aside class="dr r" id="dC" hidden aria-label="Cart" data-dawn="Cart drawer"><div class="dh"><h2>Cart</h2><button class="x" data-close aria-label="Close cart">×</button></div><div class="bdy" id="dLines"></div><div class="row" style="margin-top:12px"><span>Subtotal</span><span id="dSub">$0</span></div><button class="btn o full" type="button">Check out</button><a href="#" class="btn full" data-go="cart">View cart</a></aside>
-<div class="toast" id="toast" role="status" hidden></div>
+<!-- ================= SEARCH ================= -->
+<main class="page" id="p-search"><div class="wrap" style="padding-bottom:100px" data-dawn="main-search">
+  <div class="crumbs"><a href="#" data-go="home">Home</a> / Search</div>
+  <form class="sform" onsubmit="event.preventDefault()"><input id="q" value="down" aria-label="Search"></form>
+  <div class="sugg">Popular: <button>shell</button><button>merino</button><button>fleece</button><button>pack</button><button>women</button></div>
+  <p id="sres" style="color:var(--mute);margin-bottom:24px"></p><div class="grid" id="sgrid"></div>
+</div></main>
+
+<!-- ================= BLOG ================= -->
+<main class="page" id="p-blog"><div class="wrap" style="padding-bottom:100px" data-dawn="main-blog">
+  <div class="crumbs"><a href="#" data-go="home">Home</a> / Field notes</div>
+  <a href="#" class="bhero" data-go="article" style="display:block"><img data-src="camp" alt=""><div class="in"><span class="kick" style="color:var(--glacier)">Guides</span><h2>The three-layer <span style="color:var(--sulphur)">system</span>, explained</h2><p style="color:#d5e1e5">Base, mid and shell. What each one does and how to choose.</p></div></a>
+  <div class="btabs" id="btabs"><button class="on">All</button><button>Guides</button><button>Routes</button><button>Repairs</button></div>
+  <div class="jgrid">
+    <a href="#" class="post" data-go="article"><div class="ph"><img data-src="hero" alt=""></div><small>Routes</small><h3>Sunrise on the ridge</h3><p>A two-day loop with a high camp.</p></a>
+    <a href="#" class="post" data-go="article"><div class="ph"><img data-src="detail" alt=""></div><small>Repairs</small><h3>How to re-proof a shell</h3><p>Wash, dry and restore the water beading.</p></a>
+    <a href="#" class="post" data-go="article"><div class="ph"><img data-src="mdown" alt=""></div><small>Guides</small><h3>Down or synthetic?</h3><p>The honest answer depends on rain.</p></a>
+    <a href="#" class="post" data-go="article"><div class="ph"><img data-src="mpack" alt=""></div><small>Guides</small><h3>Packing a 30 litre bag</h3><p>Everything for a day in the hills.</p></a>
+    <a href="#" class="post" data-go="article"><div class="ph"><img data-src="look" alt=""></div><small>Routes</small><h3>Five easy alpine walks</h3><p>Big views, no ropes needed.</p></a>
+    <a href="#" class="post" data-go="article"><div class="ph"><img data-src="mfleece" alt=""></div><small>Guides</small><h3>Why grid fleece breathes</h3><p>The science of the little squares.</p></a>
+  </div>
+</div></main>
+
+<!-- ================= ARTICLE ================= -->
+<main class="page" id="p-article"><div class="wrap">
+  <div class="crumbs" data-dawn="sbs-breadcrumbs"><a href="#" data-go="home">Home</a> / <a href="#" data-go="blog">Field notes</a> / Guides</div>
+  <article class="art" data-dawn="main-article"><span class="kick">Guides</span><h1>The three-layer <span>system</span>, explained</h1><p class="by">By the Gauge test team · 7 min read</p>
+    <div class="big"><img data-src="camp" alt=""></div>
+    <p>The secret to staying comfortable outside is not one warm jacket. It is three thin layers that you can add and remove as the day changes.</p>
+    <div class="callout"><div><b>Base</b>Moves sweat away from skin</div><div><b>Mid</b>Traps warm air</div><div><b>Shell</b>Blocks wind and rain</div></div>
+    <h2>Start with merino</h2>
+    <p>A merino base layer keeps you warm when damp and does not smell after a long day. Choose 150 for summer, 200 for most of the year.</p>
+    <blockquote>"Be bold, start cold. You will warm up in ten minutes."</blockquote>
+    <p>Add fleece or down as your mid layer, then a shell when the wind picks up or the rain starts.</p>
+    <div class="share"><a href="#">Copy link</a><a href="#">Email</a><a href="#">Pinterest</a></div>
+  </article></div>
+  <section class="sec f2" data-dawn="featured-collection (shop the story)"><div class="wrap"><div class="head"><div><span class="kick">Shop the story</span><h2>The <span>system.</span></h2></div></div><div class="grid" id="artgrid"></div></div></section>
+</main>
+
+<!-- ================= ABOUT ================= -->
+<main class="page" id="p-about">
+  <section class="ab" data-dawn="image-banner (story)"><img data-src="hero" alt=""><div class="wrap"><span class="kick" style="color:var(--glacier)">About Gauge</span><h1>Made for the <span style="color:var(--sulphur)">long way round.</span></h1><p>We started Gauge after one too many soaked jackets. Today we design, test and repair technical layers built to last a decade, not a season.</p></div></section>
+  <section class="sec" data-dawn="multicolumn (values)"><div class="wrap"><div class="stats">
+    <div><b>Tested</b><h3>One season in the field</h3><p>Every piece is worn by our test team for a full season before it goes on sale.</p></div>
+    <div><b>Repaired</b><h3>For as long as you own it</h3><p>Send us a broken zip or a torn seam. We fix shells free, for life.</p></div>
+    <div><b>Recycled</b><h3>Better fabrics</h3><p>Recycled face fabrics and PFAS-free water repellents across the range.</p></div>
+  </div></div></section>
+  <section class="sec f2" data-dawn="collage"><div class="wrap"><div class="head"><div><span class="kick">In the field</span><h2>Where we <span>test.</span></h2></div></div><div class="collage"><img data-src="camp" alt=""><img data-src="look" alt=""><img data-src="detail" alt=""></div></div></section>
+</main>
+
+<!-- ================= CONTACT ================= -->
+<main class="page" id="p-contact"><div class="wrap">
+  <div class="crumbs" data-dawn="sbs-breadcrumbs"><a href="#" data-go="home">Home</a> / Contact</div>
+  <div class="ct" data-dawn="contact-form + multicolumn (ways to reach us)">
+    <div><span class="kick">Contact</span><h1>Talk to a <span>gear nerd.</span></h1><p style="color:var(--mute)">Fit questions, repairs or an order. We answer within one working day.</p>
+      <div class="ways"><div><b>Repairs</b>Start a repair and get a free label.</div><div><b>Fit help</b>Tell us your height and usual size.</div><div><b>Email</b>help@gauge-demo.com</div></div></div>
+    <form class="cform" onsubmit="event.preventDefault();document.getElementById('cok').classList.add('on')"><h3>Send a message</h3><input placeholder="Name" aria-label="Name"><input placeholder="Email" aria-label="Email"><select aria-label="Topic"><option>Fit and sizing</option><option>Repairs</option><option>An order</option><option>Returns</option></select><textarea placeholder="Message" aria-label="Message"></textarea><button class="btn btn-y">Send</button><p class="ok" id="cok">Thanks. We will reply within one working day.</p></form>
+  </div>
+  <section style="padding-bottom:100px" data-dawn="collapsible-content (FAQ)"><span class="kick">FAQ</span><h2 style="font-size:44px;margin:12px 0 18px">Good to <span>know.</span></h2><div class="faq">
+    <details open><summary>How do lifetime repairs work?</summary><p>Start a repair online, print the free label and send the item. We fix it and send it back, free on all shells.</p></details>
+    <details><summary>How do I choose a size?</summary><p>Most styles are true to size with room for a layer. Each product shows what the model wears.</p></details>
+    <details><summary>Can I return worn gear?</summary><p>Unworn items with tags can be returned free within 60 days.</p></details>
+  </div></section>
+</div></main>
+
+<!-- ================= 404 ================= -->
+<main class="page" id="p-404">
+  <section class="nf" data-dawn="main-404"><img data-src="mpack" alt=""><div class="wrap"><b>404</b><h1>Off the <span style="color:var(--sulphur)">trail.</span></h1><p>This page took a wrong turn. Let us get you back on route.</p><a href="#" class="btn btn-y" data-go="home" style="align-self:flex-start">Back to home</a></div></section>
+  <section class="sec" data-dawn="featured-collection (best sellers)"><div class="wrap"><div class="head"><div><span class="kick">Best sellers</span><h2>Start <span>here.</span></h2></div></div><div class="grid" id="nfgrid"></div></div></section>
+</main>
+
+<footer class="ftr" data-dawn="footer"><div class="wrap">
+  <div class="cols">
+    <div><span class="logo"><svg><use href="#peak"/></svg>Gauge</span><p>Technical outdoor layers, tested in bad weather and repaired for life.</p></div>
+    <div><h5>Shop</h5><ul><li><a href="#" data-go="collection">Women</a></li><li><a href="#" data-go="collection">Men</a></li><li><a href="#" data-go="collection">Packs</a></li><li><a href="#layers" data-go="home">Layer builder</a></li></ul></div>
+    <div><h5>Help</h5><ul><li><a href="#" data-go="contact">Size guide</a></li><li><a href="#" data-go="contact">Repairs</a></li><li><a href="#" data-go="contact">Returns</a></li><li><a href="#" data-go="contact">Contact</a></li></ul></div>
+    <div><h5>Gauge</h5><ul><li><a href="#" data-go="about">About</a></li><li><a href="#" data-go="blog">Field notes</a></li><li><a href="#" data-go="about">How we test</a></li><li><a href="#">Instagram</a></li></ul></div>
+    <div><h5>Field report</h5><p style="margin:0 0 8px">Monthly gear news and route guides.</p><form onsubmit="event.preventDefault();toast('Signed up')"><input placeholder="Email address" aria-label="Email"><button style="color:var(--sulphur);font-weight:600">→</button></form></div>
+  </div>
+  <div class="bot"><span>© 2026 Gauge. Demo store.</span><div class="pay"><span>VISA</span><span>MC</span><span>AMEX</span><span>PAYPAL</span><span>SHOP PAY</span></div></div>
+</div></footer>
+
+<div class="modal" id="sg" data-dawn="sbs-size-guide (modal)"><div class="bx"><button class="x" id="sgx">Close ✕</button><h3>Size guide</h3><p style="color:var(--mute);font-size:14px">Body measurements. If you are between sizes, size up for layering.</p><div style="margin-top:12px" class="unit" id="unit"><button class="on" data-u="cm">cm</button><button data-u="in">in</button></div><table id="sgt"></table></div></div>
+<div class="scrim" id="scrim"></div>
+<aside class="drawer" id="drawer" aria-label="Cart" data-dawn="cart-drawer"><div class="hd"><h3>Cart</h3><button id="closeCart">Close ✕</button></div><div class="pg prog" id="dprog"></div><div class="ls" id="dlines"></div><div class="ft"><div class="r"><span>Subtotal</span><span id="dsub">$0</span></div><a href="#" class="btn btn-y" data-go="cart">View cart &amp; checkout</a></div></aside>
+<div class="toast" id="toast" role="status"></div>
 
 <script>
-(function(){
-var P=[
-{n:"Chore Jacket",s:"jacket",c:"#1A1C20",cn:"Ink",p:168,t:"14 oz denim",cat:"outerwear",b:"Best seller"},
-{n:"Heavy Tee",s:"tee",c:"#E4DFD3",cn:"Ecru",p:48,t:"240 gsm",cat:"tees",b:"New"},
-{n:"Wide Work Trouser",s:"trouser",c:"#5B6346",cn:"Olive",p:124,t:"10 oz twill",cat:"trousers",b:""},
-{n:"Crew Knit",s:"knit",c:"#6B7A8F",cn:"Slate",p:138,t:"Lambswool",cat:"knitwear",b:"New"},
-{n:"Field Coat",s:"jacket",c:"#5B6346",cn:"Olive",p:210,t:"Waxed cotton",cat:"outerwear",b:""},
-{n:"Pocket Tee",s:"tee",c:"#1A1C20",cn:"Ink",p:52,t:"240 gsm",cat:"tees",b:"Best seller"},
-{n:"Straight Jean",s:"trouser",c:"#22306B",cn:"Indigo",p:148,t:"14 oz denim",cat:"trousers",b:""},
-{n:"Fisherman Knit",s:"knit",c:"#E4DFD3",cn:"Ecru",p:164,t:"Aran wool",cat:"knitwear",b:"Low stock"},
-{n:"Denim Overshirt",s:"jacket",c:"#22306B",cn:"Indigo",p:132,t:"10 oz denim",cat:"outerwear",b:""},
-{n:"Long Sleeve Tee",s:"tee",c:"#6B7A8F",cn:"Slate",p:58,t:"240 gsm",cat:"tees",b:""},
-{n:"Painter Pant",s:"trouser",c:"#E4DFD3",cn:"Ecru",p:118,t:"12 oz canvas",cat:"trousers",b:""},
-{n:"Zip Cardigan",s:"knit",c:"#1A1C20",cn:"Ink",p:176,t:"Merino",cat:"knitwear",b:""}];
-var POSTS=[["Three years in the same jacket","12 Sep 2026","Care","A wear diary of one Chore Jacket.","jacket"],["How to wash raw denim","2 Sep 2026","Care","Cold, inside out, less often than you think.","trouser"],["Inside the mill in Porto","20 Aug 2026","Makers","Where our 240 gsm jersey is knitted.","tee"],["Finding your fit in wide trousers","8 Aug 2026","Fit","Rise, break and how to size by waist.","trouser"],["What 1,340 repairs taught us","24 Jul 2026","Repairs","The seams that fail first.","jacket"],["Layering for autumn","10 Jul 2026","Style","Tee, overshirt, knit, coat.","knit"]];
-var cart=[{i:1,sz:"M",col:"Ecru",q:1},{i:2,sz:"32",col:"Olive",q:1}];
-function $(s,r){return (r||document).querySelector(s)}function $$(s,r){return Array.prototype.slice.call((r||document).querySelectorAll(s))}
-function m(v){return "$"+v.toLocaleString("en-US")}
-function card(i){var p=P[i];return '<div class="pc"><div class="im" data-go="product">'+(p.b?'<span class="bd">'+p.b+'</span>':'')+'<svg viewBox="0 0 200 240" style="color:'+p.c+'" aria-hidden="true"><use href="#g-'+p.s+'"/></svg></div><div class="in"><span class="sp">'+p.t+' · '+p.cn+'</span><h3>'+p.n+'</h3><div class="cf"><span class="pr">'+m(p.p)+'</span><button class="add" type="button" data-add="'+i+'">Add to cart</button></div></div></div>'}
-function post(i){var p=POSTS[i];return '<a class="post" href="#" data-go="article"><div class="pic"><svg viewBox="0 0 200 240" aria-hidden="true"><use href="#g-'+p[4]+'"/></svg></div><div class="tx"><small>'+p[1]+' · '+p[2]+'</small><h3>'+p[0]+'</h3><p>'+p[3]+'</p></div></a>'}
-$$("[data-grid]").forEach(function(g){g.innerHTML=g.dataset.grid.split(",").map(function(x){return card(+x)}).join("")});
-$$("[data-posts]").forEach(function(g){g.innerHTML=g.dataset.posts.split(",").map(function(x){return post(+x)}).join("")});
+const IMG='https://shopifybrandsseo.com/wp-content/uploads/2026/10/gauge-demo-';
+const src=k=>IMG+k+'.jpg';
+const SZ=['XS','S','M','L','XL'];
+const P=[
+ {n:'Ridgeline 3L Shell',cat:'Shells',act:['Hiking','Alpine','Rain'],img:'shell',alt:'mshell',cols:[['Glacier blue','#7FA9BE'],['Storm black','#15191B',1]],p:420,sold:['XL'],tags:['20K waterproof','380 g'],r:4.8,c:214,b:'New',g:'Women'},
+ {n:'Cirrus Down Hoodie',cat:'Insulation',act:['Alpine','Hiking'],img:'down',alt:'mdown',cols:[['Black','#15191B']],p:340,sold:[],tags:['800 fill down','310 g'],r:4.9,c:168,b:'Best seller',g:'Women'},
+ {n:'Talus Grid Fleece',cat:'Fleece',act:['Hiking'],img:'fleece',alt:'mfleece',cols:[['Stone','#9AA09B']],p:140,sold:['XS'],tags:['Grid fleece','Breathable'],r:4.7,c:121,g:'Men'},
+ {n:'Merino 200 Base Crew',cat:'Base layers',act:['Hiking','Alpine'],img:'base',alt:'mfleece',cols:[['Black','#15191B']],p:95,sold:[],tags:['Merino 200','Odour resistant'],r:4.8,c:302,g:'Men'},
+ {n:'Scree Trail Pant',cat:'Pants',act:['Hiking'],img:'pant',alt:'look',cols:[['Stone','#C9BC9E']],p:160,sold:['XL'],tags:['Stretch','DWR'],r:4.6,c:88,g:'Men'},
+ {n:'Nimbus Insulated Vest',cat:'Insulation',act:['Hiking','Rain'],img:'vest',alt:'mdown',cols:[['Alpine','#1F3F7A']],p:210,was:260,sold:[],tags:['Synthetic fill','Packable'],r:4.7,c:64,b:'Sale',bs:'sale',g:'Women'},
+ {n:'Summit Beanie',cat:'Accessories',act:['Alpine','Hiking'],img:'beanie',alt:'mpack',cols:[['Sulphur','#E8C21E']],p:38,sold:['XS','XL'],tags:['Merino rib'],r:4.9,c:155,b:'Low stock',bs:'low',g:'Women',one:1},
+ {n:'Traverse 30L Pack',cat:'Packs',act:['Hiking','Alpine'],img:'pack',alt:'mpack',cols:[['Black','#15191B']],p:189,sold:[],tags:['30 L','Roll-top'],r:4.8,c:97,b:'New',g:'Men',one:1}
+];
+const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)];
+const money=v=>'$'+(Math.round(v*100)/100).toLocaleString('en-US',{minimumFractionDigits:v%1?2:0,maximumFractionDigits:2});
+function card(p,i){return `<div class="card"><div class="mw"><a href="#" class="m" data-go="product">${p.b?`<span class="bdg ${p.bs||''}">${p.b}</span>`:''}<img src="${src(p.img)}" alt="${p.n}"><img class="alt" src="${src(p.alt)}" alt=""></a>
+ <div class="qa">${p.one?`<button class="btn btn-k" style="width:100%;height:40px" onclick="add(${i},'One size')">Quick add · ${money(p.p)}</button>`:`<p>Quick add <span>Select size</span></p><div class="s">${SZ.map(s=>`<button ${p.sold.includes(s)?'disabled':''} onclick="add(${i},'${s}')">${s}</button>`).join('')}</div>`}</div></div>
+ <div class="meta"><div class="sw">${p.cols.map(c=>`<i style="background:${c[1]}" title="${c[0]}"></i>`).join('')}${p.cols.length>1?`<span>${p.cols.length} colours</span>`:''}</div>
+ <h3><a href="#" data-go="product">${p.n}</a></h3><div class="tags">${p.tags.map(t=>`<span>${t}</span>`).join('')}</div><div class="rt"><b>★★★★★</b> ${p.r.toFixed(1)} (${p.c})</div>
+ <div class="pr">${p.was?`<span class="now">${money(p.p)}</span><s>${money(p.was)}</s>`:money(p.p)}</div></div></div>`}
+const grid=(el,ids)=>$(el).innerHTML=ids.map(i=>card(P[i],i)).join('');
+grid('#newin',[0,1,5,2,3,7,4,6]);grid('#recent',[1,2,4,7]);grid('#cartup',[6,3,7,4]);grid('#artgrid',[3,2,1,0]);grid('#nfgrid',[0,1,2,7]);
+$('#nx').onclick=()=>$('#newin').scrollBy({left:$('#newin').clientWidth/2,behavior:'smooth'});$('#pv').onclick=()=>$('#newin').scrollBy({left:-$('#newin').clientWidth/2,behavior:'smooth'});
+let ai=0;setInterval(()=>{const s=$$('.ann span');s[ai].classList.remove('on');ai=(ai+1)%s.length;s[ai].classList.add('on')},4000);
+$('#gseg').onclick=e=>{const b=e.target.closest('button');if(!b)return;$$('#gseg button').forEach(x=>x.classList.toggle('on',x===b));$$('#tiles small').forEach(s=>{const n=+s.dataset.c+(b.dataset.g==='Men'?-2:0);s.textContent=n+' styles'})};
 
-function col(){var c=$$('[data-f=cat]:checked').map(function(x){return x.value}),k=$$('[data-f=col]:checked').map(function(x){return x.value}),pr=$$('[data-f=price]:checked').map(function(x){return x.value});
- var idx=P.map(function(_,i){return i}).filter(function(i){var p=P[i];return(!c.length||c.indexOf(p.cat)>-1)&&(!k.length||k.indexOf(p.cn)>-1)&&(!pr.length||(pr.indexOf("u")>-1&&p.p<100)||(pr.indexOf("o")>-1&&p.p>=100))});
- var s=$("#sort").value;if(s==="l")idx.sort(function(a,b){return P[a].p-P[b].p});if(s==="h")idx.sort(function(a,b){return P[b].p-P[a].p});
- $("#colGrid").innerHTML=idx.length?idx.map(card).join(""):'<p style="padding:20px" class="muted">No products match. Clear a filter to see more.</p>';$("#colS").textContent=idx.length;$("#colN").textContent=idx.length}
-$$(".fl input").forEach(function(x){x.addEventListener("change",col)});$("#sort").addEventListener("change",col);
-$("#ftog").addEventListener("click",function(){var f=$("#fl");f.classList.toggle("open");this.setAttribute("aria-expanded",f.classList.contains("open"))});col();
+// layer builder
+const L=[{t:'Base',h:'Next to skin',o:[{i:3,n:'Merino 200 Crew',r:[2,0,0,5]},{i:3,n:'Merino 150 Tee',p:75,r:[1,0,0,5]}]},
+ {t:'Mid',h:'Warmth',o:[{i:2,n:'Talus Grid Fleece',r:[2,1,0,4]},{i:5,n:'Nimbus Vest',r:[3,2,1,3]},{i:1,n:'Cirrus Down Hoodie',r:[4,3,1,2]}]},
+ {t:'Shell',h:'Wind and rain',o:[{i:0,n:'Ridgeline 3L Shell',r:[1,5,5,3]},{i:-1,n:'No shell',r:[0,0,0,5]}]}];
+let LS=[0,2,0];
+const lp=o=>o.i<0?0:(o.p||P[o.i].p);
+$('#lcol').innerHTML=L.map((l,k)=>`<div><h4>${k+1}. ${l.t}<span>${l.h}</span></h4><div class="lopt" data-l="${k}">${l.o.map((o,j)=>o.i<0?`<button class="none" data-j="${j}">${o.n}</button>`:`<button data-j="${j}"><img src="${src(P[o.i].img)}" alt=""><span><b>${o.n}</b><small>${money(lp(o))}</small></span></button>`).join('')}</div></div>`).join('');
+function lb(){$$('.lopt').forEach(c=>{const k=+c.dataset.l;$$(`.lopt[data-l="${k}"] button`).forEach(b=>b.classList.toggle('on',+b.dataset.j===LS[k]))});
+ const sel=LS.map((j,k)=>L[k].o[j]),r=[0,1,2].map(m=>Math.min(5,sel.reduce((a,o)=>a+o.r[m],0))),br=Math.min(...sel.map(o=>o.r[3]));
+ const names=['Warmth','Wind','Rain','Breathability'],vals=[...r,br];
+ $('#lMeters').innerHTML=names.map((n,m)=>`<div class="meter"><span>${n}</span><i class="${m?'':'w'}">${[1,2,3,4,5].map(x=>`<em class="${x<=vals[m]?'on':''}"></em>`).join('')}</i><span>${vals[m]}/5</span></div>`).join('');
+ const lo=14-r[0]*4;$('#lTemp').innerHTML=`Comfortable from <b>${lo}°C</b> to <b>${lo+12}°C</b>${r[2]>=4?' · ready for heavy rain':r[2]?' · light showers only':' · dry days only'}`;
+ const full=sel.reduce((a,o)=>a+lp(o),0),all=sel.every(o=>o.i>=0),tot=all?full*.9:full;$('#lPrice').textContent=money(tot);$('#lWas').textContent=all?money(full):'';
+ $('#lName').textContent=sel.filter(o=>o.i>=0).length+'-layer system'}
+$('#lcol').onclick=e=>{const b=e.target.closest('button');if(!b)return;const k=+b.closest('.lopt').dataset.l;LS[k]=+b.dataset.j;lb()};
+$('#lAdd').onclick=()=>{LS.forEach((j,k)=>{const o=L[k].o[j];if(o.i>=0)add(o.i,'M',true,o.n,LS.every((jj,kk)=>L[kk].o[jj].i>=0))});toast('Layer system added · size M');bump();openCart()};lb();
 
-function srch(q){q=(q||"").trim().toLowerCase();var idx=P.map(function(_,i){return i}).filter(function(i){var p=P[i];return !q||(p.n+" "+p.t+" "+p.cat+" "+p.cn).toLowerCase().indexOf(q)>-1});
- $("#sCount").textContent=idx.length+" result"+(idx.length===1?"":"s")+(q?' for "'+q+'"':"");$("#sGrid").innerHTML=idx.length?idx.map(card).join(""):'<p style="padding:20px" class="muted">No products found. Try "denim", "tee" or "knit".</p>'}
-$("#sForm").addEventListener("submit",function(e){e.preventDefault();srch($("#sq").value)});
-$("#hdrSearch").addEventListener("submit",function(e){e.preventDefault();$("#sq").value=$("#hq").value;srch($("#hq").value);show("search")});
-$("#f404").addEventListener("submit",function(e){e.preventDefault();$("#sq").value=$("#q4").value;srch($("#q4").value);show("search")});srch("denim");
+// shop the look
+const LK=[1,4,0];let lkSz=['M','M','M'];
+function lk(){$('#llist').innerHTML=LK.map((i,k)=>`<div class="litem" data-k="${k}"><span>${k+1}</span><img src="${src(P[i].img)}" alt=""><div><b>${P[i].n}</b><small>${money(P[i].p)}</small></div><select aria-label="Size for ${P[i].n}" data-k="${k}">${SZ.map(s=>`<option ${s===lkSz[k]?'selected':''} ${P[i].sold.includes(s)?'disabled':''}>${s}</option>`).join('')}</select></div>`).join('');$('#lookTot').textContent=money(LK.reduce((a,i)=>a+P[i].p,0))}
+$('#llist').addEventListener('change',e=>{const s=e.target.closest('select');if(s)lkSz[+s.dataset.k]=s.value});
+function hl(k){$$('.hot').forEach(h=>h.classList.toggle('on',+h.dataset.k===k));$$('.litem').forEach(l=>l.classList.toggle('on',+l.dataset.k===k))}
+$('#lookPh').addEventListener('mouseover',e=>{const h=e.target.closest('.hot');if(h)hl(+h.dataset.k)});$('#lookPh').addEventListener('click',e=>{const h=e.target.closest('.hot');if(h)hl(+h.dataset.k)});
+$('#llist').addEventListener('mouseover',e=>{const l=e.target.closest('.litem');if(l)hl(+l.dataset.k)});
+$('#lookAdd').onclick=()=>{LK.forEach((i,k)=>add(i,lkSz[k],true));toast('Full look added');bump();openCart()};lk();
 
-function rc(){var s=0,n=0,h="";cart.forEach(function(l,k){var p=P[l.i];s+=p.p*l.q;n+=l.q;
- h+='<div class="ln"><div class="th"><svg viewBox="0 0 200 240" style="color:'+p.c+'" aria-hidden="true"><use href="#g-'+p.s+'"/></svg></div><div><h3>'+p.n+'</h3><div class="muted" style="font-size:13px">'+l.col+' · '+l.sz+'</div><div class="qty"><button type="button" aria-label="Decrease" data-q="'+k+'" data-d="-1">−</button><span>'+l.q+'</span><button type="button" aria-label="Increase" data-q="'+k+'" data-d="1">+</button></div><button type="button" class="lk" data-rm="'+k+'">Remove</button></div><b>'+m(p.p*l.q)+'</b></div>'});
- $("#lines").innerHTML=h;$("#dLines").innerHTML=h||'<p class="muted">Your cart is empty.</p>';$("#empty").hidden=cart.length>0;$("#sub").textContent=m(s);$("#dSub").textContent=m(s);
- $$(".cc").forEach(function(c){c.textContent=n});var left=150-s;$("#shipMsg").textContent=left>0?"Spend "+m(left)+" more for free shipping":"You have free shipping";$("#shipBar").style.width=Math.min(100,s/150*100)+"%"}
-document.addEventListener("click",function(e){var q=e.target.closest("[data-q]"),r=e.target.closest("[data-rm]"),a=e.target.closest("[data-add]");
- if(q){var l=cart[+q.dataset.q];l.q=Math.max(1,l.q+(+q.dataset.d));rc()}
- if(r){cart.splice(+r.dataset.rm,1);rc()}
- if(a){var i=+a.dataset.add,sz=$('.sz button[aria-pressed="true"]',a.closest("section")),c=(a.closest("#v-product")&&$("#cn"))?$("#cn").textContent:P[i].cn;cart.push({i:i,sz:sz?sz.textContent:"M",col:c,q:1});rc();dr("c")}
- var sw=e.target.closest(".sw button");if(sw){$$(".sw button").forEach(function(x){x.setAttribute("aria-pressed","false")});sw.setAttribute("aria-pressed","true");$("#cn").textContent=sw.dataset.c;$("#mainArt").style.color=sw.dataset.h}
- var sb=e.target.closest(".sz button:not([disabled])");if(sb){$$(".sz button",sb.parentNode).forEach(function(x){x.setAttribute("aria-pressed","false")});sb.setAttribute("aria-pressed","true")}});
-rc();
-function dr(w){var d=$(w==="c"?"#dC":"#dM"),o=$(w==="c"?"#ovC":"#ovM");d.hidden=false;o.hidden=false;var b=d.querySelector(".x");if(b)b.focus()}
-function cl(){$$(".dr,.ov").forEach(function(x){x.hidden=true})}
-$("[data-open=menu]").addEventListener("click",function(){dr("m")});$$("[data-close]").forEach(function(x){x.addEventListener("click",cl)});document.addEventListener("keydown",function(e){if(e.key==="Escape")cl()});
+// compare
+const CM=[0,1,5],ROWS=[['Waterproof','20,000 mm','Water resistant','Water resistant'],['Warmth',3,5,4],['Weight','380 g','310 g','290 g'],['Packs into','Own hood','Own pocket','Own pocket'],['Best for','Rain and wind','Cold, dry days','Fast hikes']],BEST=[0,1,2];
+function cmp(b){const hi=BEST[b];$('#cmp').innerHTML=`<thead><tr><th></th>${CM.map((i,k)=>`<th class="${k===hi?'hl':''}"><img src="${src(P[i].img)}" alt=""><b>${P[i].n}</b><small>${money(P[i].p)}</small><br><span class="pick">Our pick</span></th>`).join('')}</tr></thead><tbody>${ROWS.map(r=>`<tr><td>${r[0]}</td>${r.slice(1).map((v,k)=>`<td class="${k===hi?'hl':''}">${typeof v==='number'?`<span class="bar">${[1,2,3,4,5].map(x=>`<em class="${x<=v?'on':''}"></em>`).join('')}</span>`:v}</td>`).join('')}</tr>`).join('')}<tr><td></td>${CM.map((i,k)=>`<td class="${k===hi?'hl':''}"><a href="#" class="lnk" data-go="product">View</a></td>`).join('')}</tr></tbody>`}
+$('#cmpTabs').onclick=e=>{const b=e.target.closest('button');if(!b)return;$$('#cmpTabs button').forEach(x=>x.classList.toggle('on',x===b));cmp(+b.dataset.b)};cmp(0);
 
-// layer calculator
-var T=3,A=1,H=3;
-var LAY=[["Base layer","Heavy Tee",48,1],["Mid layer","Crew Knit",138,3],["Outer layer","Chore Jacket",168,0],["Insulation","Field Coat",210,4],["Legs","Wide Work Trouser",124,2]];
-function calc(){var need=Math.max(1,Math.min(6,(5-T)+1-A+(H>=5?1:0)));var rows=[];
- rows.push(LAY[0]);if(need>=2)rows.push(LAY[1]);if(need>=3)rows.push(LAY[2]);if(need>=5)rows.push(LAY[3]);rows.push(LAY[4]);
- var layers=rows.length-1,tot=rows.reduce(function(s,r){return s+r[2]},0);
- $("#rTot").textContent=layers+" layer"+(layers>1?"s":"")+" + trousers";
- $("#rWarm").innerHTML=[1,2,3,4,5,6].map(function(k){return '<i class="'+(k<=need?"on":"")+'"></i>'}).join("");
- $("#rList").innerHTML=rows.map(function(r){return '<div><span>'+r[0]+': '+r[1]+'</span><b>'+m(r[2])+'</b></div>'}).join("")+'<div><span>Set total</span><b>'+m(tot)+'</b></div>';
- $("#hOut").textContent=H+" h";window._set=rows}
-function chips(id,fn){$$("#"+id+" button").forEach(function(b){b.addEventListener("click",function(){$$("#"+id+" button").forEach(function(x){x.setAttribute("aria-pressed","false")});b.setAttribute("aria-pressed","true");fn(+b.dataset.v);calc()})})}
-chips("cTemp",function(v){T=v});chips("cAct",function(v){A=v});
-$("#hM").addEventListener("click",function(){H=Math.max(1,H-1);calc()});$("#hP").addEventListener("click",function(){H=Math.min(8,H+1);calc()});
-$("#rAdd").addEventListener("click",function(){window._set.forEach(function(r){var i=P.findIndex(function(p){return p.n===r[1]});if(i>-1)cart.push({i:i,sz:"M",col:P[i].cn,q:1})});rc();dr("c")});calc();
-// bundle
-function bund(){var t=0;$$(".bund:checked").forEach(function(x){t+=+x.dataset.p});$("#bTot").textContent=m(t)}
-$$(".bund").forEach(function(x){x.addEventListener("change",bund)});$("#bAdd").addEventListener("click",function(){var map={168:0,48:1,124:2};$$(".bund:checked").forEach(function(x){var i=map[x.dataset.p];cart.push({i:i,sz:"M",col:P[i].cn,q:1})});rc();dr("c")});
+// collection
+const CATS=[...new Set(P.map(p=>p.cat))],ACTS=['Hiking','Alpine','Rain'],COLS=[['Blue','#7FA9BE'],['Black','#15191B'],['Stone','#9AA09B'],['Yellow','#E8C21E']];
+$('#fcat').innerHTML=CATS.map(c=>`<label><input type="checkbox" value="${c}" data-f="cat">${c}</label>`).join('');
+$('#fsz').innerHTML=SZ.map(s=>`<label><input type="checkbox" value="${s}" data-f="sz">${s}</label>`).join('');
+$('#fcol').innerHTML=COLS.map(c=>`<label><input type="checkbox" value="${c[0]}" data-f="col"><i style="width:16px;height:16px;border-radius:50%;background:${c[1]};box-shadow:inset 0 0 0 1px rgba(0,0,0,.2)"></i>${c[0]}</label>`).join('');
+$('#fact').innerHTML=ACTS.map(a=>`<label><input type="checkbox" value="${a}" data-f="act">${a}</label>`).join('');
+const colOf=p=>p.cols.map(c=>({'#7FA9BE':'Blue','#15191B':'Black','#9AA09B':'Stone','#C9BC9E':'Stone','#1F3F7A':'Blue','#E8C21E':'Yellow'})[c[1]]);
+function col(){const f={};$$('#fbar input:checked').forEach(x=>(f[x.dataset.f]=f[x.dataset.f]||[]).push(x.value));
+ $$('.fdd').forEach(d=>d.querySelector('[data-dd]').classList.toggle('act',!!d.querySelector('input:checked')));
+ let ids=P.map((p,i)=>i).filter(i=>{const p=P[i];return(!f.cat||f.cat.includes(p.cat))&&(!f.sz||p.one||f.sz.some(s=>!p.sold.includes(s)))&&(!f.col||colOf(p).some(c=>f.col.includes(c)))&&(!f.act||p.act.some(a=>f.act.includes(a)))});
+ const s=$('#sort').value;if(s==='lo')ids.sort((a,b)=>P[a].p-P[b].p);if(s==='hi')ids.sort((a,b)=>P[b].p-P[a].p);if(s==='rt')ids.sort((a,b)=>P[b].r-P[a].r);
+ const h=ids.map(i=>card(P[i],i));if(h.length>=5)h.splice(5,0,`<a href="#layers" class="promo" data-go="home" data-dawn="sbs-promo-tile"><img src="${src('look')}" alt=""><span class="kick" style="color:var(--sulphur)">Layer builder</span><h3>Build a 3-layer system</h3><p>Save 10% on base, mid and shell together.</p><span class="btn btn-y" style="align-self:flex-start;height:42px">Start building</span></a>`);
+ $('#cgrid').innerHTML=h.join('')||'<p class="empty" style="grid-column:1/-1">Nothing matches. Remove a filter.</p>';$('#ccount').textContent=ids.length+(ids.length===1?' product':' products');
+ $('#chipsel').innerHTML=Object.values(f).flat().map(v=>`<button data-v="${v}">${v}</button>`).join('')}
+$('#fbar').addEventListener('change',col);$('#sort').onchange=col;
+$('#fbar').addEventListener('click',e=>{const b=e.target.closest('[data-dd]');if(!b)return;const d=b.parentNode,o=d.classList.contains('open');$$('.fdd').forEach(x=>x.classList.remove('open'));if(!o)d.classList.add('open')});
+document.addEventListener('click',e=>{if(!e.target.closest('.fdd'))$$('.fdd').forEach(x=>x.classList.remove('open'))});
+$('#chipsel').onclick=e=>{const b=e.target.closest('button');if(!b)return;$$('#fbar input:checked').forEach(x=>{if(x.value===b.dataset.v)x.checked=false});col()};
 
-function toast(t){var e=$("#toast");e.textContent=t;e.hidden=false;clearTimeout(e._t);e._t=setTimeout(function(){e.hidden=true},2200)}
-$$("[data-sub]").forEach(function(f){f.addEventListener("submit",function(e){e.preventDefault();f.querySelector("button").textContent="Subscribed";toast("Subscribed. Look out for the next drop.")})});
-$("#cForm").addEventListener("submit",function(e){e.preventDefault();this.reset();toast("Message sent. We reply within one working day.")});
+// product
+const PP=P[0],GAL=[['shell','Front'],['mshell','Model is 175 cm and wears S'],['detail','3-layer fabric, taped seams'],['hero','On the ridge'],['look','With the down hoodie']];let gi=0,pc=0,ps=null;
+$('#thumbs').innerHTML=GAL.map((g,k)=>`<button class="${k?'':'on'}" data-k="${k}" aria-label="Image ${k+1}"><img src="${src(g[0])}" alt=""></button>`).join('');
+function gshow(k){gi=(k+GAL.length)%GAL.length;$('#pimg').src=src(GAL[gi][0]);$('#pcap').textContent=GAL[gi][1];$$('#thumbs button').forEach((b,j)=>b.classList.toggle('on',j===gi));$('#pmain').classList.remove('zoom')}
+$('#thumbs').onclick=e=>{const b=e.target.closest('button');if(b)gshow(+b.dataset.k)};$('#gp').onclick=e=>{e.stopPropagation();gshow(gi-1)};$('#gn').onclick=e=>{e.stopPropagation();gshow(gi+1)};
+$('#pmain').addEventListener('click',e=>{if(e.target.closest('.nav2'))return;const m=$('#pmain'),r=m.getBoundingClientRect();$('#pimg').style.transformOrigin=`${(e.clientX-r.left)/r.width*100}% ${(e.clientY-r.top)/r.height*100}%`;m.classList.toggle('zoom')});
+$('#pcol').innerHTML=PP.cols.map((c,k)=>`<button class="${k?'':'on'} ${c[2]?'so':''}" data-k="${k}" style="background:${c[1]}" aria-label="${c[0]}${c[2]?' (sold out)':''}"></button>`).join('');
+$('#pcol').onclick=e=>{const b=e.target.closest('button');if(!b)return;const k=+b.dataset.k;if(PP.cols[k][2]){toast(PP.cols[k][0]+' is sold out. We will restock in November.');return}pc=k;$$('#pcol button').forEach(x=>x.classList.toggle('on',x===b));$('#pcolT').textContent=PP.cols[k][0]};
+$('#psz').innerHTML=SZ.map(s=>`<button data-s="${s}" ${PP.sold.includes(s)?'disabled title="Sold out"':''}>${s}</button>`).join('');
+function pup(){const t=ps?'Add to cart · '+money(PP.p):'Select a size';$('#atc').textContent=t;$('#satc').textContent=ps?t:'Choose size';$('#stxt').textContent=PP.cols[pc][0]+(ps?' · '+ps:' · no size yet')}
+$('#psz').onclick=e=>{const b=e.target.closest('button');if(!b||b.disabled)return;ps=b.dataset.s;$$('#psz button').forEach(x=>x.classList.toggle('on',x===b));pup()};
+const padd=()=>{if(!ps){toast('Please choose a size');$('#psz').scrollIntoView({behavior:'smooth',block:'center'});return}add(0,ps,true);toast('Ridgeline 3L Shell added');bump();openCart()};
+$('#atc').onclick=padd;$('#satc').onclick=padd;$('#pwish').onclick=()=>{$('#pwish').classList.toggle('on');toast($('#pwish').classList.contains('on')?'Saved to wishlist':'Removed')};
+const SGD=[['XS','82','66','90'],['S','88','71','95'],['M','94','77','101'],['L','100','83','107'],['XL','107','90','113']];
+function sgt(u){const f=v=>u==='in'?(v/2.54).toFixed(1):v;$('#sgt').innerHTML='<tr><th>Size</th><th>Chest</th><th>Waist</th><th>Hip</th></tr>'+SGD.map(r=>`<tr><td><b>${r[0]}</b></td><td>${f(r[1])}</td><td>${f(r[2])}</td><td>${f(r[3])}</td></tr>`).join('')}
+$('#openSG').onclick=e=>{e.preventDefault();$('#sg').classList.add('on')};$('#sgx').onclick=()=>$('#sg').classList.remove('on');$('#sg').onclick=e=>{if(e.target.id==='sg')$('#sg').classList.remove('on')};
+$('#unit').onclick=e=>{const b=e.target.closest('button');if(!b)return;$$('#unit button').forEach(x=>x.classList.toggle('on',x===b));sgt(b.dataset.u)};sgt('cm');
+$('#ctl').innerHTML=[1,4,6].map(i=>`<div class="it"><img src="${src(P[i].img)}" alt=""><div><b>${P[i].n}</b><small>${money(P[i].p)}</small><br><button onclick="add(${i},'${P[i].one?'One size':'M'}')">Add · ${P[i].one?'One size':'M'}</button></div></div>`).join('');
+addEventListener('scroll',()=>{const on=$('#p-product').classList.contains('on');$('#sticky').classList.toggle('on',on&&$('#atc').getBoundingClientRect().bottom<0)});
 
-var V=[["home","Homepage"],["collection","Collection"],["product","Product"],["cart","Cart"],["search","Search"],["blog","Blog"],["article","Article"],["about","About"],["contact","Contact"],["404","404"]];
-$("#tabs").innerHTML=V.map(function(v){return '<button type="button" data-view="'+v[0]+'" aria-pressed="false">'+v[1]+'</button>'}).join("");
-function show(v){V.forEach(function(x){$("#v-"+x[0]).hidden=x[0]!==v});$$("#tabs button").forEach(function(b){b.setAttribute("aria-pressed",String(b.dataset.view===v))});cl();window.scrollTo(0,0)}
-$("#tabs").addEventListener("click",function(e){var b=e.target.closest("button");if(b)show(b.dataset.view)});
-document.addEventListener("click",function(e){var a=e.target.closest("[data-go]");if(a){e.preventDefault();var h=a.getAttribute("href");show(a.dataset.go);if(h==="#layers"){var t=$("#layers");if(t)t.scrollIntoView()}}});
-$("#showSec").addEventListener("change",function(){document.body.classList.toggle("show-sections",this.checked)});
-show("home");
-})();
+// cart
+let cart=[];
+function add(i,s,silent,label,sys){const key=[i,s,sys?1:0].join('|');const c=cart.find(x=>x.key===key);c?c.q++:cart.push({key,i,s,sys:!!sys,label,q:1});render();if(!silent){toast(P[i].n+' added · '+s);bump()}}
+window.add=add;
+function bump(){const b=$('#openCart');b.classList.remove('bump');void b.offsetWidth;b.classList.add('bump')}
+const price=c=>(c.label==='Merino 150 Tee'?75:P[c.i].p)*(c.sys?.9:1);
+function render(){const sub=cart.reduce((a,c)=>a+price(c)*c.q,0),n=cart.reduce((a,c)=>a+c.q,0);$('#count').textContent=n;
+ const pr=`${sub>=150?'<b>Free shipping unlocked.</b>':money(150-sub)+' to free shipping'}<div class="bar"><i style="width:${Math.min(100,sub/150*100)}%"></i></div>`;$('#dprog').innerHTML=pr;$('#cprog').innerHTML=pr;
+ const line=c=>{const p=P[c.i];return `<div class="li"><img src="${src(p.img)}" alt=""><div><b>${c.label||p.n}</b><small>${p.cols[0][0]} · ${c.s}${c.sys?' · System −10%':''}</small><div class="q"><button onclick="chg('${c.key}',-1)" aria-label="Less">−</button>${c.q}<button onclick="chg('${c.key}',1)" aria-label="More">+</button><button class="rm" onclick="chg('${c.key}',-99)">Remove</button></div></div><span>${money(price(c)*c.q)}</span></div>`};
+ const h=cart.length?cart.map(line).join(''):'<div class="empty">Your cart is empty.</div>';$('#dlines').innerHTML=h;$('#clines').innerHTML=h;
+ $('#dsub').textContent=money(sub);$('#csub').textContent=money(sub);$('#cship').textContent=sub>=150?'Free':sub?'$9':'—';$('#ctot').textContent=money(sub+(sub&&sub<150?9:0))}
+window.chg=(k,d)=>{const c=cart.find(x=>x.key===k);c.q+=d;if(c.q<=0)cart=cart.filter(x=>x!==c);render()};
+const openCart=()=>{$('#drawer').classList.add('on');$('#scrim').classList.add('on')};
+function closeAll(){['#drawer','#scrim','#mnav','#sg'].forEach(s=>$(s).classList.remove('on'))}
+$('#openCart').onclick=openCart;$('#closeCart').onclick=closeAll;$('#scrim').onclick=closeAll;
+$('#burger').onclick=()=>$('#mnav').classList.add('on');$('#mclose').onclick=closeAll;
+$$('.mnav .seg button').forEach(b=>b.onclick=()=>$$('.mnav .seg button').forEach(x=>x.classList.toggle('on',x===b)));
+document.addEventListener('keydown',e=>{if(e.key==='Escape')closeAll()});
+
+// search
+const rs=()=>{const q=$('#q').value.toLowerCase().trim();const ids=P.map((p,i)=>i).filter(i=>(P[i].n+' '+P[i].cat+' '+P[i].g+' '+P[i].tags.join(' ')).toLowerCase().includes(q));$('#sres').textContent=ids.length+(ids.length===1?' result':' results')+' for "'+$('#q').value+'"';grid('#sgrid',ids)};
+$('#q').oninput=rs;$$('.sugg button').forEach(b=>b.onclick=()=>{$('#q').value=b.textContent;rs()});
+$('#btabs').onclick=e=>{const b=e.target.closest('button');if(!b)return;$$('#btabs button').forEach(x=>x.classList.toggle('on',x===b))};
+
+let tt;function toast(t){$('#toast').textContent=t;$('#toast').classList.add('on');clearTimeout(tt);tt=setTimeout(()=>$('#toast').classList.remove('on'),2400)}window.toast=toast;
+let io;function obs(){io?.disconnect();io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.08});$$('.page.on .reveal:not(.in)').forEach(r=>io.observe(r))}
+function go(pg,h){$$('.page').forEach(p=>p.classList.toggle('on',p.id==='p-'+pg));$$('.dt button').forEach(b=>b.classList.toggle('on',b.dataset.go===pg));document.body.classList.toggle('home-on',pg==='home');closeAll();$('#sticky').classList.remove('on');if(h)setTimeout(()=>document.querySelector(h)?.scrollIntoView({behavior:'smooth'}),60);else scrollTo(0,0);obs()}
+window.go=go;
+document.addEventListener('click',e=>{const a=e.target.closest('[data-go]');if(!a)return;e.preventDefault();const h=a.getAttribute('href');go(a.dataset.go,h&&h.length>1&&h[0]==='#'?h:null)});
+$('#names').onchange=e=>document.body.classList.toggle('names',e.target.checked);
+$$('img[data-src]').forEach(i=>i.src=src(i.dataset.src));
+gshow(0);col();render();rs();pup();obs();
 </script>
-
-</body></html>
+</body>
+</html>
