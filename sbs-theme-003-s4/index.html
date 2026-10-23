@@ -1,0 +1,786 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Fernwild Botanical Skincare Theme</title>
+<meta name="description" content="Fernwild: a clean botanical skincare Shopify theme design. Design by Shopify Brands SEO.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Figtree:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--moss:#3E4A34;--moss-d:#2C3526;--sage:#A9B49A;--sage-l:#DDE3D2;--oat:#EFEAE0;--bone:#F8F6F0;--pollen:#E2B547;--bark:#6B4F3A;--ink:#1F241B;--ink-2:#5D6457;--line:rgba(31,36,27,.12);--serif:'Fraunces',Georgia,serif;--sans:'Figtree',system-ui,sans-serif;--r:22px;--max:1380px;--ease:cubic-bezier(.3,.75,.25,1)}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:var(--sans);color:var(--ink);background:var(--bone);font-size:15.5px;line-height:1.6;-webkit-font-smoothing:antialiased}
+img{display:block;max-width:100%}
+a{color:inherit;text-decoration:none}
+button{font:inherit;color:inherit;background:none;border:0;cursor:pointer;text-transform:inherit;letter-spacing:inherit}
+input,select,textarea{font:inherit;color:inherit}
+:focus-visible{outline:2px solid var(--pollen);outline-offset:3px}
+.wrap{max-width:var(--max);margin:0 auto;padding:0 40px}
+h1,h2,h3{font-family:var(--serif);font-weight:500;line-height:1.05;letter-spacing:-.015em}
+h1 i,h2 i,h3 i{font-weight:400;color:var(--moss)}
+h2{font-size:clamp(32px,3.6vw,52px)}
+.sec{padding:96px 0}
+.eyebrow{display:inline-flex;align-items:center;gap:8px;font-size:12.5px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--moss);margin-bottom:16px}
+.eyebrow svg{width:16px;height:16px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;height:50px;padding:0 26px;border-radius:999px;font-weight:600;font-size:14.5px;transition:.3s var(--ease)}
+.btn-moss{background:var(--moss);color:var(--bone)}.btn-moss:hover{background:var(--moss-d)}
+.btn-pollen{background:var(--pollen);color:var(--ink)}.btn-pollen:hover{filter:brightness(1.05)}
+.btn-line{border:1.5px solid currentColor}.btn-line:hover{background:var(--ink);color:var(--bone);border-color:var(--ink)}
+.chip{display:inline-flex;align-items:center;gap:6px;padding:5px 11px;border-radius:999px;background:var(--sage-l);color:var(--moss);font-size:12px;font-weight:600}
+.reveal{opacity:0;transform:translateY(22px);transition:.9s var(--ease)}.reveal.in{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none}}
+
+.dt{position:sticky;top:0;z-index:90;background:var(--ink);color:#b6bfac;font-size:12px}
+.dt .wrap{display:flex;gap:4px;align-items:center;height:44px;overflow-x:auto;scrollbar-width:none}
+.dt b{color:#fff;margin-right:12px;white-space:nowrap}
+.dt button{padding:6px 12px;border-radius:999px;white-space:nowrap;color:#b6bfac}
+.dt button.on{background:var(--sage);color:var(--ink)}
+.dt label{margin-left:auto;display:flex;gap:8px;align-items:center;white-space:nowrap;cursor:pointer}
+body.names [data-dawn]{position:relative;outline:2px dashed rgba(226,181,71,.7);outline-offset:-2px}
+body.names [data-dawn]::before{content:attr(data-dawn);position:absolute;top:6px;left:6px;z-index:60;background:var(--pollen);color:var(--ink);font:600 10px/1 var(--sans);padding:5px 8px;border-radius:4px;pointer-events:none}
+.page{display:none}.page.on{display:block}
+
+/* announcement */
+.ann{background:var(--moss);color:var(--sage-l);font-size:13px;height:40px;position:relative;overflow:hidden}
+.ann span{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;gap:8px;opacity:0;transition:opacity .6s}
+.ann span.on{opacity:1}
+.ann b{color:var(--pollen)}
+
+/* header: logo, wide search pill, icons; chip nav row */
+.hdr{position:sticky;top:44px;z-index:80;background:var(--bone);border-bottom:1px solid var(--line)}
+.hdr .row1{display:grid;grid-template-columns:auto 1fr auto;gap:36px;align-items:center;height:74px}
+.logo{display:flex;align-items:center;gap:8px;font-family:var(--serif);font-size:28px;font-weight:500;font-style:italic;letter-spacing:-.02em;color:var(--moss)}
+.logo svg{width:26px;height:26px}
+.sbar{display:flex;align-items:center;gap:12px;height:48px;background:var(--oat);border-radius:999px;padding:0 8px 0 20px;max-width:620px;width:100%;justify-self:center}
+.sbar svg{width:18px;height:18px;flex:none;opacity:.6}
+.sbar input{flex:1;border:0;background:none;outline:0;min-width:0}
+.sbar button{height:34px;padding:0 16px;border-radius:999px;background:var(--moss);color:var(--bone);font-size:13px;font-weight:600}
+.icons{display:flex;gap:20px;align-items:center;font-size:14px;font-weight:500}
+.icons .bag{position:relative;display:flex;align-items:center;gap:8px}
+.icons .bag svg{width:22px;height:22px}
+.icons .bag b{position:absolute;top:-8px;left:12px;min-width:19px;height:19px;border-radius:999px;background:var(--pollen);font-size:11px;display:grid;place-items:center;padding:0 4px}
+.bump{animation:bp .5s}@keyframes bp{40%{transform:scale(1.15)}}
+.row2{display:flex;justify-content:center;gap:8px;padding:0 0 14px;position:relative}
+.row2>div{position:static}
+.row2 .nv{display:inline-flex;align-items:center;gap:6px;height:36px;padding:0 16px;border-radius:999px;font-size:14px;font-weight:500;transition:background .25s}
+.row2 .nv:hover,.row2>div:hover .nv{background:var(--sage-l)}
+.row2 .nv.hl{background:var(--moss);color:var(--bone)}
+.mega{position:absolute;left:40px;right:40px;top:50px;background:var(--bone);border-radius:var(--r);box-shadow:0 30px 60px -30px rgba(31,36,27,.35);padding:30px;display:grid;grid-template-columns:1fr 1fr 1fr 1.3fr;gap:30px;opacity:0;visibility:hidden;transform:translateY(-6px);transition:.3s var(--ease)}
+.row2>div:hover .mega,.row2>div:focus-within .mega{opacity:1;visibility:visible;transform:none}
+.mega h5{font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-2);margin-bottom:12px}
+.mega ul{list-style:none;display:grid;gap:8px;font-size:14.5px}
+.mega ul a:hover{color:var(--moss);text-decoration:underline}
+.mega .tile{position:relative;border-radius:16px;overflow:hidden;aspect-ratio:16/10}
+.mega .tile img{width:100%;height:100%;object-fit:cover}
+.mega .tile span{position:absolute;left:14px;bottom:14px;background:var(--bone);border-radius:999px;padding:7px 14px;font-size:13px;font-weight:600}
+
+/* hero: moss band with inset rounded photo + botanical labels */
+.hero{background:var(--moss);color:var(--bone);padding:40px 0 56px;border-radius:0 0 40px 40px}
+.hero .wrap{display:grid;grid-template-columns:.85fr 1.15fr;gap:48px;align-items:center}
+.hero h1{font-size:clamp(46px,5.4vw,82px);color:var(--bone)}
+.hero h1 i{color:var(--pollen)}
+.hero p{color:var(--sage-l);font-size:17px;max-width:420px;margin:22px 0 30px}
+.hero .ctas{display:flex;gap:14px;flex-wrap:wrap}
+.hero .ctas .btn-line{color:var(--bone)}
+.hero .proof{display:flex;gap:26px;margin-top:40px;font-size:13px;color:var(--sage-l)}
+.hero .proof b{display:block;font-family:var(--serif);font-size:26px;color:var(--bone);font-weight:500}
+.hpic{position:relative;border-radius:36px;overflow:hidden;aspect-ratio:16/11}
+.hpic img{width:100%;height:100%;object-fit:cover}
+.tag{position:absolute;display:flex;align-items:center;gap:8px;font-size:12.5px;font-weight:600;color:var(--ink)}
+.tag i{width:10px;height:10px;border-radius:50%;background:var(--bone);box-shadow:0 0 0 5px rgba(248,246,240,.35)}
+.tag em{font-style:normal;background:var(--bone);border-radius:999px;padding:6px 12px}
+.tag .ln{width:44px;height:1px;background:var(--bone)}
+
+/* trust */
+.trust{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;padding:34px 0}
+.trust div{display:flex;gap:12px;align-items:center;font-size:14px}
+.trust svg{width:34px;height:34px;flex:none;padding:7px;border-radius:50%;background:var(--sage-l);color:var(--moss)}
+.trust b{display:block}
+
+/* capsule needs */
+.needs{display:grid;grid-template-columns:repeat(6,1fr);gap:16px}
+.need{text-align:center}
+.need .c{border-radius:999px;overflow:hidden;aspect-ratio:1/1.7;background:var(--oat);position:relative;transition:transform .4s var(--ease)}
+.need:hover .c{transform:translateY(-6px)}
+.need img{width:100%;height:100%;object-fit:cover}
+.need h3{font-size:20px;margin-top:14px}
+.need span{font-size:12.5px;color:var(--ink-2)}
+.head{display:flex;justify-content:space-between;align-items:end;gap:24px;margin-bottom:40px;flex-wrap:wrap}
+.head p{color:var(--ink-2);max-width:420px}
+.more{font-weight:600;color:var(--moss);display:inline-flex;gap:8px;align-items:center;border-bottom:1.5px solid var(--moss);padding-bottom:3px}
+
+/* product card: oat card, info inside, add pill */
+.grid4{display:grid;grid-template-columns:repeat(4,1fr);gap:22px}
+.card{background:var(--oat);border-radius:var(--r);padding:12px 12px 16px;display:flex;flex-direction:column;position:relative;transition:box-shadow .3s}
+.card:hover{box-shadow:0 20px 40px -26px rgba(31,36,27,.35)}
+.card .m{position:relative;aspect-ratio:4/5;border-radius:14px;overflow:hidden;display:block;background:#e7e0d2}
+.card .m img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:opacity .6s,transform 1s var(--ease)}
+.card .m .alt{opacity:0}.card:hover .m .alt{opacity:1}.card:hover .m img{transform:scale(1.04)}
+.card .bdg{position:absolute;top:10px;left:10px;z-index:2;background:var(--bone);border-radius:999px;padding:4px 10px;font-size:11.5px;font-weight:600}
+.card .bdg.sale{background:var(--pollen)}
+.card .bdg.sub{background:var(--moss);color:var(--bone)}
+.card .tags{display:flex;gap:6px;flex-wrap:wrap;margin:12px 4px 6px}
+.card h3{font-size:19px;margin:0 4px}
+.card .rt{font-size:12.5px;color:var(--ink-2);margin:4px 4px 0}
+.card .rt b{color:var(--bark);letter-spacing:1px}
+.card .sz{font-size:12.5px;color:var(--ink-2);margin:2px 4px 12px}
+.card .add{margin-top:auto;height:44px;border-radius:999px;background:var(--bone);font-weight:600;font-size:14px;display:flex;justify-content:space-between;align-items:center;padding:0 18px;transition:.25s}
+.card .add:hover{background:var(--moss);color:var(--bone)}
+.card .add s{opacity:.6;margin-left:6px;font-weight:400}
+
+/* before after */
+.ba{display:grid;grid-template-columns:1.3fr 1fr;gap:56px;align-items:center}
+.cmp{position:relative;border-radius:30px;overflow:hidden;aspect-ratio:4/3;user-select:none;touch-action:none;cursor:ew-resize}
+.cmp img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;pointer-events:none}
+.cmp .after{clip-path:inset(0 0 0 var(--x,50%));transition:filter .5s}
+.cmp .bar{position:absolute;top:0;bottom:0;left:var(--x,50%);width:2px;background:var(--bone);transform:translateX(-1px)}
+.cmp .knob{position:absolute;top:50%;left:var(--x,50%);transform:translate(-50%,-50%);width:52px;height:52px;border-radius:50%;background:var(--bone);display:grid;place-items:center;box-shadow:0 8px 24px rgba(0,0,0,.2);font-weight:700;color:var(--moss)}
+.cmp .l{position:absolute;top:18px;padding:6px 12px;border-radius:999px;background:rgba(248,246,240,.92);font-size:12.5px;font-weight:600}
+.cmp .l.b{left:18px}.cmp .l.a{right:18px}
+.cmp .demo{position:absolute;left:18px;bottom:16px;font-size:11.5px;color:#fff;background:rgba(31,36,27,.55);padding:4px 10px;border-radius:999px}
+.weeks{display:flex;gap:8px;margin:24px 0 18px}
+.weeks button{height:40px;padding:0 18px;border-radius:999px;border:1.5px solid var(--line);font-weight:600;font-size:14px}
+.weeks button.on{background:var(--moss);color:var(--bone);border-color:var(--moss)}
+.stat{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:22px}
+.stat div{background:var(--oat);border-radius:16px;padding:16px}
+.stat b{font-family:var(--serif);font-size:30px;font-weight:500;color:var(--moss);display:block}
+.stat span{font-size:12.5px;color:var(--ink-2)}
+
+/* glossary */
+.glo{background:var(--sage-l);border-radius:36px;padding:56px}
+.gtop{display:flex;gap:14px;flex-wrap:wrap;align-items:center;margin:24px 0}
+.gsearch{flex:1;min-width:240px;display:flex;align-items:center;gap:10px;background:var(--bone);border-radius:999px;padding:0 18px;height:48px}
+.gsearch input{flex:1;border:0;background:none;outline:0}
+.gcats{display:flex;gap:8px;flex-wrap:wrap}
+.gcats button{height:40px;padding:0 16px;border-radius:999px;background:var(--bone);font-weight:600;font-size:13.5px}
+.gcats button.on{background:var(--moss);color:var(--bone)}
+.az{display:flex;gap:4px;flex-wrap:wrap;margin-bottom:22px}
+.az button{width:30px;height:30px;border-radius:8px;font-size:13px;font-weight:600;color:var(--moss)}
+.az button:disabled{opacity:.25;cursor:default}
+.az button.on{background:var(--moss);color:var(--bone)}
+.glist{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.gi{background:var(--bone);border-radius:18px;padding:18px 20px;cursor:pointer;transition:.25s}
+.gi:hover{transform:translateY(-2px)}
+.gi .t{display:flex;justify-content:space-between;align-items:center;gap:10px}
+.gi h4{font-family:var(--serif);font-size:20px;font-weight:500}
+.gi small{font-size:11.5px;color:var(--ink-2);font-style:italic;font-family:var(--serif)}
+.gi .tp{font-size:11px;font-weight:600;color:var(--moss);background:var(--sage-l);border-radius:999px;padding:3px 9px}
+.gi p{font-size:13.5px;color:var(--ink-2);margin-top:8px;display:none}
+.gi.open p{display:block}
+.gi .in{font-size:12.5px;margin-top:10px;display:none;color:var(--moss);font-weight:600}
+.gi.open .in{display:block}
+.gempty{grid-column:1/-1;text-align:center;color:var(--ink-2);padding:30px}
+
+/* refill plan */
+.refill{display:grid;grid-template-columns:1fr 1.1fr;gap:0;background:var(--oat);border-radius:36px;overflow:hidden}
+.refill .ph{position:relative;min-height:540px}
+.refill .ph img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.refill .t{padding:52px}
+.rp{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:20px 0}
+.rp button{background:var(--bone);border-radius:16px;padding:10px;text-align:left;border:2px solid transparent;display:flex;gap:10px;align-items:center}
+.rp button img{width:44px;height:54px;object-fit:cover;border-radius:10px}
+.rp button b{font-size:13px;line-height:1.2;display:block}
+.rp button small{font-size:12px;color:var(--ink-2)}
+.rp button.on{border-color:var(--moss)}
+.freq{display:flex;gap:8px;flex-wrap:wrap}
+.freq button{height:40px;padding:0 16px;border-radius:999px;background:var(--bone);font-weight:600;font-size:13.5px;border:2px solid transparent}
+.freq button.on{border-color:var(--moss)}
+.rsum{display:flex;justify-content:space-between;align-items:end;gap:16px;margin-top:26px;padding-top:22px;border-top:1px solid var(--line);flex-wrap:wrap}
+.rsum .p{font-family:var(--serif);font-size:38px;font-weight:500;color:var(--moss);line-height:1}
+.rsum .p s{font-family:var(--sans);font-size:15px;color:var(--ink-2);margin-left:8px}
+.rsum small{display:block;color:var(--ink-2);font-size:13px;margin-top:6px}
+.lbl2{font-size:12.5px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-2);margin-top:22px}
+
+/* farm, reviews, newsletter */
+.farm{display:grid;grid-template-columns:1.2fr 1fr;gap:56px;align-items:center}
+.farm img{width:100%;aspect-ratio:3/2;object-fit:cover;border-radius:30px}
+.farm ul{list-style:none;display:grid;gap:12px;margin:22px 0 28px}
+.farm li{display:flex;gap:12px;align-items:flex-start}
+.farm li::before{content:"";width:22px;height:22px;flex:none;border-radius:50%;background:var(--sage-l) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M6 12l4 4 8-8' fill='none' stroke='%233E4A34' stroke-width='2.5'/%3E%3C/svg%3E") center/14px no-repeat}
+.revw{display:grid;grid-template-columns:300px 1fr;gap:48px}
+.rbox{background:var(--oat);border-radius:24px;padding:28px;align-self:start}
+.rbox .big{font-family:var(--serif);font-size:64px;font-weight:500;line-height:1}
+.rbox .bars{display:grid;gap:7px;margin-top:16px}
+.rbox .bars div{display:grid;grid-template-columns:16px 1fr 30px;gap:8px;align-items:center;font-size:12.5px;color:var(--ink-2)}
+.rbox .bars i{height:6px;border-radius:9px;background:var(--bone);position:relative;overflow:hidden}
+.rbox .bars i b{position:absolute;left:0;top:0;bottom:0;background:var(--moss)}
+.rfil{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:18px}
+.rfil button{height:36px;padding:0 14px;border-radius:999px;border:1.5px solid var(--line);font-size:13.5px;font-weight:600}
+.rfil button.on{background:var(--moss);border-color:var(--moss);color:var(--bone)}
+.rlist{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.rv{border:1.5px solid var(--line);border-radius:20px;padding:20px}
+.rv .s{color:var(--bark);letter-spacing:2px;font-size:13px}
+.rv p{margin:10px 0 12px}
+.rv small{font-size:12.5px;color:var(--ink-2)}
+.news{background:var(--moss);color:var(--bone);border-radius:36px;padding:56px;display:grid;grid-template-columns:1.2fr 1fr;gap:40px;align-items:center}
+.news h2{color:var(--bone)}.news h2 i{color:var(--pollen)}
+.news p{color:var(--sage-l);margin-top:12px}
+.news form{display:flex;background:var(--bone);border-radius:999px;padding:5px}
+.news input{flex:1;border:0;background:none;outline:0;padding:0 18px;min-width:0;color:var(--ink)}
+
+/* footer */
+.ftr{background:var(--moss-d);color:#c9d1bd;padding:72px 0 28px;margin-top:96px}
+.ftr .top{display:grid;grid-template-columns:1.4fr repeat(3,1fr);gap:40px}
+.ftr .logo{color:var(--bone)}
+.ftr p{font-size:14px;margin-top:14px;max-width:300px}
+.ftr h4{font-size:12.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--sage);margin-bottom:14px}
+.ftr ul{list-style:none;display:grid;gap:8px;font-size:14.5px}
+.ftr ul a:hover{color:var(--bone)}
+.ftr .bot{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;border-top:1px solid rgba(255,255,255,.12);margin-top:50px;padding-top:22px;font-size:13px}
+.pay{display:flex;gap:6px}.pay span{background:rgba(255,255,255,.1);border-radius:6px;padding:3px 8px;font-size:10.5px;font-weight:600}
+
+/* collection */
+.crumbs{font-size:13px;color:var(--ink-2);padding:22px 0}
+.crumbs span{margin:0 8px;opacity:.5}
+.cband{background:var(--oat);border-radius:30px;padding:40px 44px;display:grid;grid-template-columns:1fr 280px;gap:30px;align-items:center;margin-bottom:28px;overflow:hidden;position:relative}
+.cband h1{font-size:clamp(42px,4.6vw,66px)}
+.cband p{color:var(--ink-2);max-width:480px;margin-top:10px}
+.cband img{width:280px;height:200px;object-fit:cover;border-radius:22px}
+.cchips{display:flex;gap:8px;flex-wrap:wrap;margin-top:20px}
+.cchips button{height:38px;padding:0 16px;border-radius:999px;background:var(--bone);font-weight:600;font-size:13.5px}
+.cchips button.on{background:var(--moss);color:var(--bone)}
+.ctool{display:flex;justify-content:space-between;align-items:center;margin-bottom:22px;gap:12px;flex-wrap:wrap}
+.ctool .fbtn{height:42px;padding:0 18px;border-radius:999px;border:1.5px solid var(--ink);font-weight:600;display:flex;gap:8px;align-items:center}
+.ctool select{height:42px;border-radius:999px;border:1.5px solid var(--line);background:var(--bone);padding:0 14px}
+.promo{border-radius:var(--r);overflow:hidden;position:relative;background:var(--moss);color:var(--bone);padding:28px;display:flex;flex-direction:column;justify-content:flex-end;min-height:380px}
+.promo img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.5}
+.promo>*{position:relative}
+.promo h3{font-size:28px;margin-bottom:10px}
+.lmore{text-align:center;margin-top:44px}
+.lmore p{font-size:13px;color:var(--ink-2);margin-bottom:12px}
+.fdrawer{position:fixed;top:0;left:0;bottom:0;width:min(380px,100%);background:var(--bone);z-index:96;transform:translateX(-105%);transition:transform .45s var(--ease);padding:26px;overflow:auto}
+.fdrawer.on{transform:none}
+.fdrawer h3{font-size:26px;margin-bottom:16px;display:flex;justify-content:space-between}
+.fdrawer details{border-top:1px solid var(--line);padding:16px 0}
+.fdrawer summary{font-weight:600;cursor:pointer;list-style:none;display:flex;justify-content:space-between}
+.fdrawer summary::after{content:"+"}.fdrawer details[open] summary::after{content:"−"}
+.fdrawer label{display:flex;gap:10px;align-items:center;margin-top:10px;font-size:14.5px;cursor:pointer}
+.fdrawer input{accent-color:var(--moss);width:18px;height:18px}
+
+/* pdp */
+.pdp{display:grid;grid-template-columns:1.1fr 1fr;gap:56px;padding-bottom:50px}
+.gal .main{border-radius:28px;overflow:hidden;aspect-ratio:4/5;background:var(--oat);position:relative;cursor:zoom-in}
+.gal .main img{width:100%;height:100%;object-fit:cover;transition:transform .5s}
+.gal .main.zoom img{transform:scale(1.7)}
+.gal .th{display:grid;grid-template-columns:repeat(5,1fr);gap:10px;margin-top:12px}
+.gal .th button{border-radius:14px;overflow:hidden;aspect-ratio:1;border:2px solid transparent;opacity:.7}
+.gal .th button.on{border-color:var(--moss);opacity:1}
+.gal .th img{width:100%;height:100%;object-fit:cover}
+.pinfo{position:sticky;top:150px;align-self:start}
+.pinfo h1{font-size:clamp(36px,3.6vw,52px);margin:8px 0}
+.pinfo .rt{font-size:13.5px;color:var(--ink-2)}
+.pinfo .rt b{color:var(--bark);letter-spacing:1px}
+.pinfo .lead{margin:16px 0;color:var(--ink-2)}
+.keys{display:flex;gap:8px;flex-wrap:wrap}
+.opt{margin-top:22px}
+.opt h6{font-size:13px;font-weight:600;margin-bottom:10px;display:flex;justify-content:space-between}
+.opt h6 span{font-weight:400;color:var(--ink-2)}
+.szs{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.szs button{border:2px solid var(--line);border-radius:16px;padding:14px;text-align:left}
+.szs button b{display:block;font-size:15px}
+.szs button small{color:var(--ink-2);font-size:12.5px}
+.szs button.on{border-color:var(--moss);background:var(--sage-l)}
+.ptype{display:grid;gap:10px}
+.ptype label{display:flex;gap:12px;align-items:center;border:2px solid var(--line);border-radius:16px;padding:14px 16px;cursor:pointer}
+.ptype label:has(input:checked){border-color:var(--moss);background:var(--sage-l)}
+.ptype input{accent-color:var(--moss);width:18px;height:18px}
+.ptype b{flex:1}
+.ptype small{display:block;font-weight:400;color:var(--ink-2);font-size:12.5px}
+.ptype .pr{font-weight:600}
+.buy{display:flex;gap:10px;margin-top:20px}
+.qty{display:flex;align-items:center;border:1.5px solid var(--line);border-radius:999px;height:52px}
+.qty button{width:42px;height:100%;font-size:18px}
+.qty input{width:28px;text-align:center;border:0;background:none}
+.buy .btn{flex:1;height:52px}
+.note{font-size:13px;color:var(--ink-2);margin-top:12px;display:flex;gap:8px;align-items:center}
+.acc{margin-top:22px}
+.acc details{border-top:1px solid var(--line);padding:15px 0}
+.acc details:last-child{border-bottom:1px solid var(--line)}
+.acc summary{list-style:none;cursor:pointer;font-weight:600;display:flex;justify-content:space-between}
+.acc summary::after{content:"+";font-size:18px}.acc details[open] summary::after{content:"−"}
+.acc p{margin-top:8px;color:var(--ink-2);font-size:14.5px}
+.acc a{color:var(--moss);font-weight:600;text-decoration:underline}
+.icons3{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+.icons3 div{background:var(--oat);border-radius:20px;padding:22px;text-align:center}
+.icons3 .ic{width:84px;height:84px;border-radius:50%;overflow:hidden;margin:0 auto 12px}.icons3 img{width:84px;height:84px;border-radius:50%;object-fit:cover;margin:0 auto 12px}
+.icons3 h4{font-family:var(--serif);font-size:20px;font-weight:500}
+.icons3 p{font-size:13px;color:var(--ink-2);margin-top:4px}
+.sticky{position:fixed;left:0;right:0;bottom:0;z-index:70;background:var(--bone);border-top:1px solid var(--line);transform:translateY(105%);transition:transform .4s var(--ease)}
+.sticky.on{transform:none}
+.sticky .wrap{display:flex;align-items:center;gap:14px;height:72px}
+.sticky img{width:46px;height:56px;object-fit:cover;border-radius:10px}
+.sticky b{font-family:var(--serif);font-weight:500;font-size:18px}
+.sticky .btn{margin-left:auto}
+
+/* quick view modal */
+.modal{position:fixed;inset:0;z-index:97;display:grid;place-items:center;padding:20px;opacity:0;visibility:hidden;transition:.3s}
+.modal.on{opacity:1;visibility:visible}
+.modal .bg{position:absolute;inset:0;background:rgba(31,36,27,.5)}
+.modal .box{position:relative;background:var(--bone);border-radius:28px;width:min(760px,100%);display:grid;grid-template-columns:1fr 1.1fr;overflow:hidden;transform:translateY(16px);transition:.35s var(--ease)}
+.modal.on .box{transform:none}
+.modal .box img{width:100%;height:100%;object-fit:cover;min-height:380px}
+.modal .t{padding:30px}
+.modal h3{font-size:30px}
+.modal .x{position:absolute;right:16px;top:14px;width:36px;height:36px;border-radius:50%;background:var(--oat);z-index:2}
+
+/* cart */
+.scrim{position:fixed;inset:0;background:rgba(31,36,27,.45);z-index:95;opacity:0;visibility:hidden;transition:.35s}
+.scrim.on{opacity:1;visibility:visible}
+.drawer{position:fixed;top:12px;right:12px;bottom:12px;width:min(420px,calc(100% - 24px));background:var(--bone);z-index:96;border-radius:28px;transform:translateX(110%);transition:transform .45s var(--ease);display:flex;flex-direction:column;overflow:hidden}
+.drawer.on{transform:none}
+.drawer .hd{display:flex;justify-content:space-between;align-items:center;padding:22px 24px}
+.drawer .hd h3{font-size:26px}
+.drawer .hd button{width:36px;height:36px;border-radius:50%;background:var(--oat)}
+.drawer .bd{flex:1;overflow:auto;padding:0 24px}
+.drawer .ft{padding:20px 24px;background:var(--oat)}
+.prog{background:var(--sage-l);border-radius:16px;padding:12px 14px;font-size:13px;margin-bottom:8px}
+.prog .bar{height:6px;border-radius:9px;background:var(--bone);margin-top:8px;overflow:hidden}
+.prog .bar i{display:block;height:100%;background:var(--moss);transition:width .6s var(--ease)}
+.li{display:grid;grid-template-columns:70px 1fr auto;gap:14px;padding:14px 0;border-bottom:1px solid var(--line)}
+.li img{width:70px;height:84px;object-fit:cover;border-radius:12px}
+.li b{font-family:var(--serif);font-weight:500;font-size:17px;display:block;line-height:1.2}
+.li small{color:var(--ink-2);font-size:12.5px;display:block}
+.li .q{display:flex;gap:10px;align-items:center;margin-top:8px;font-size:13px}
+.li .q button{width:26px;height:26px;border-radius:50%;background:var(--oat)}
+.li .rm{font-size:12px;text-decoration:underline;color:var(--ink-2)}
+.empty{text-align:center;color:var(--ink-2);padding:40px 0}
+.cartp{display:grid;grid-template-columns:1fr 380px;gap:48px;padding-bottom:20px}
+.cartp h1{font-size:clamp(38px,4vw,56px);margin-bottom:16px}
+.sum{background:var(--oat);border-radius:28px;padding:28px;align-self:start;position:sticky;top:150px}
+.sum h3{font-size:24px;margin-bottom:12px}
+.sum .r{display:flex;justify-content:space-between;padding:6px 0;font-size:14.5px}
+.sum .r.t{border-top:1px solid var(--line);margin-top:8px;padding-top:14px;font-weight:600;font-size:18px}
+.sum .btn{width:100%;margin-top:16px}
+.toast{position:fixed;left:50%;top:130px;transform:translate(-50%,-10px);background:var(--moss);color:var(--bone);padding:12px 20px;border-radius:999px;font-size:14px;font-weight:600;z-index:99;opacity:0;visibility:hidden;transition:.35s}
+.toast.on{opacity:1;visibility:visible;transform:translate(-50%,0)}
+
+/* search, blog, article, about, contact, 404 */
+.shero{background:var(--sage-l);border-radius:30px;padding:44px;margin:20px 0 36px}
+.shero .sbar{max-width:none;height:60px;background:var(--bone)}
+.shero .sbar input{font-size:18px}
+.sugg{display:flex;gap:8px;margin-top:16px;flex-wrap:wrap;align-items:center;font-size:13.5px;color:var(--ink-2)}
+.sugg button{height:34px;padding:0 14px;border-radius:999px;background:var(--bone);font-weight:600;color:var(--ink)}
+.bhead{text-align:center;padding:24px 0 40px}
+.bhead h1{font-size:clamp(44px,5vw,72px)}
+.bhead p{color:var(--ink-2);margin-top:10px}
+.btabs{display:flex;justify-content:center;gap:8px;margin-top:20px}
+.btabs button{height:38px;padding:0 16px;border-radius:999px;background:var(--oat);font-weight:600;font-size:13.5px}
+.btabs button.on{background:var(--moss);color:var(--bone)}
+.bgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.bc{background:var(--oat);border-radius:24px;overflow:hidden;display:flex;flex-direction:column}
+.bc.big{grid-column:span 2;display:grid;grid-template-columns:1.2fr 1fr}
+.bc .m{aspect-ratio:4/3;overflow:hidden}
+.bc.big .m{aspect-ratio:auto}
+.bc img{width:100%;height:100%;object-fit:cover;transition:transform 1s var(--ease)}
+.bc:hover img{transform:scale(1.04)}
+.bc .t{padding:22px 24px 26px;display:flex;flex-direction:column;justify-content:center}
+.bc h3{font-size:24px;margin:10px 0}
+.bc.big h3{font-size:34px}
+.bc p{color:var(--ink-2);font-size:14.5px}
+.ahero{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center;padding:10px 0 50px}
+.ahero h1{font-size:clamp(38px,4.4vw,62px);margin:12px 0}
+.ahero img{width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:30px}
+.abody{max-width:700px;margin:0 auto}
+.abody p{font-size:17.5px;margin-bottom:20px}
+.abody h2{font-size:30px;margin:38px 0 14px}
+.abody .tip{background:var(--sage-l);border-radius:22px;padding:22px 26px;margin:28px 0;font-family:var(--serif);font-size:22px;line-height:1.4;color:var(--moss)}
+.abody .prod{display:flex;gap:14px;align-items:center;background:var(--oat);border-radius:20px;padding:12px;margin:26px 0}
+.abody .prod img{width:64px;height:80px;object-fit:cover;border-radius:12px}
+.about-h{text-align:center;padding:30px 0 50px}
+.about-h h1{font-size:clamp(44px,5.6vw,84px);max-width:900px;margin:0 auto}
+.about-h p{max-width:560px;margin:20px auto 0;color:var(--ink-2);font-size:17px}
+.about-img{display:grid;grid-template-columns:1fr 1.4fr 1fr;gap:16px}
+.about-img img{width:100%;height:440px;object-fit:cover;border-radius:28px}
+.about-img img:nth-child(2){height:520px}
+.vals{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.vals div{background:var(--oat);border-radius:22px;padding:26px}
+.vals b{font-family:var(--serif);font-size:44px;color:var(--moss);font-weight:500}
+.vals h4{font-family:var(--serif);font-size:21px;font-weight:500;margin:6px 0}
+.vals p{font-size:14px;color:var(--ink-2)}
+.cwrap{display:grid;grid-template-columns:1fr 1.1fr;gap:56px;padding:20px 0}
+.cwrap h1{font-size:clamp(40px,4.6vw,64px)}
+.cways{display:grid;gap:12px;margin-top:26px}
+.cways div{background:var(--oat);border-radius:18px;padding:18px 20px}
+.cways b{display:block}
+.cform{background:var(--sage-l);border-radius:30px;padding:36px;display:grid;gap:14px}
+.cform input,.cform select,.cform textarea{width:100%;background:var(--bone);border:0;border-radius:14px;padding:14px 16px;outline:0}
+.nf{text-align:center;padding:40px 0}
+.nf .leaf{font-family:var(--serif);font-size:clamp(100px,16vw,200px);color:var(--sage);line-height:1}
+.nf h1{font-size:clamp(34px,3.6vw,52px);margin:10px 0}
+.nf p{color:var(--ink-2);margin-bottom:24px}
+
+@media (max-width:1100px){.grid4{grid-template-columns:repeat(2,1fr)}.needs{grid-template-columns:repeat(3,1fr)}.glist{grid-template-columns:1fr 1fr}}
+@media (max-width:760px){
+  .wrap{padding:0 16px}.sec{padding:70px 0}
+  .hdr .row1{grid-template-columns:auto 1fr;gap:10px;height:auto;padding-top:10px}.logo{font-size:23px}.sbar{grid-column:1/-1;grid-row:2;height:42px;margin-bottom:10px}.sbar button{display:none}.icons .acct{display:none}.icons{justify-self:end}
+  .row2{justify-content:flex-start;overflow-x:auto;scrollbar-width:none;padding-bottom:10px}.row2 .nv{flex:none}.mega{display:none}
+  .hero{border-radius:0 0 28px 28px;padding:20px 0 40px}.hero .wrap{grid-template-columns:1fr;gap:26px}.hero .wrap>div:first-child{order:2}.hero .proof{gap:16px}.tag .ln{width:20px}.tag em{padding:4px 9px;font-size:11px}
+  .trust{grid-template-columns:1fr 1fr}
+  .needs{grid-template-columns:repeat(6,42%);overflow-x:auto;scrollbar-width:none;padding-bottom:6px}
+  .grid4{grid-template-columns:1fr 1fr;gap:10px}.card{padding:8px 8px 12px;border-radius:18px}.card h3{font-size:16px}.card .tags{display:none}.card .add{height:40px;padding:0 12px;font-size:13px}
+  .ba,.farm,.refill,.revw,.news,.pdp,.cartp,.ahero,.cwrap{grid-template-columns:1fr;gap:26px}
+  .glo{padding:26px 16px;border-radius:26px}.glist{grid-template-columns:1fr}
+  .refill .ph{min-height:260px}.refill .t{padding:26px 18px}.rp{grid-template-columns:1fr}
+  .rlist{grid-template-columns:1fr}.news{padding:30px 22px;border-radius:26px}
+  .ftr .top{grid-template-columns:1fr 1fr}.ftr .top>div:first-child{grid-column:1/-1}
+  .cband{grid-template-columns:1fr;padding:26px}.cband img{display:none}.cchips{flex-wrap:nowrap;overflow-x:auto}.cchips button{flex:none}
+  .pinfo{position:static}.icons3{grid-template-columns:1fr 1fr}
+  .modal .box{grid-template-columns:1fr}.modal .box img{min-height:200px;max-height:220px}
+  .sticky .wrap{height:64px}.sticky .nm{display:none}
+  .sum{position:static}.bgrid{grid-template-columns:1fr}.bc.big{grid-column:auto;grid-template-columns:1fr}
+  .about-img{grid-template-columns:1fr}.about-img img,.about-img img:nth-child(2){height:300px}.vals{grid-template-columns:1fr 1fr}
+  .stat{grid-template-columns:1fr 1fr 1fr;gap:8px}.stat b{font-size:22px}
+}
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute"><defs><symbol id="leaf" viewBox="0 0 24 24"><path d="M5 19c0-8 5-13 14-14-1 9-6 14-14 14zm0 0l7-7" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></symbol></defs></svg>
+<div class="dt" data-dawn="Design toolbar (preview only)"><div class="wrap"><b>Fernwild · Botanical</b>
+<button data-go="home" class="on">Home</button><button data-go="collection">Collection</button><button data-go="product">Product</button><button data-go="cart">Cart</button><button data-go="search">Search</button><button data-go="blog">Blog</button><button data-go="article">Article</button><button data-go="about">About</button><button data-go="contact">Contact</button><button data-go="404">404</button>
+<label><input type="checkbox" id="names"> Show section names</label></div></div>
+
+<div class="ann" data-dawn="announcement-bar (rotating)"><span class="on">Free shipping over $45 · <b>Refills save 20%</b></span><span>Send back 5 empties, get a free balm</span><span>Grown on our own herb farm</span></div>
+
+<header class="hdr" data-dawn="header (search-first + chip menu)"><div class="wrap">
+  <div class="row1">
+    <a href="#" class="logo" data-go="home"><svg><use href="#leaf"/></svg>Fernwild</a>
+    <form class="sbar" onsubmit="event.preventDefault();go('search')"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7" fill="none" stroke="currentColor" stroke-width="2"/><path d="M20 20l-4-4" stroke="currentColor" stroke-width="2"/></svg><input placeholder="Search calendula, face oil, refills…" aria-label="Search"><button>Search</button></form>
+    <div class="icons"><a href="#" class="acct">Account</a><button class="bag" id="openCart" aria-label="Bag"><svg viewBox="0 0 24 24"><path d="M5 8h14l-1 12H6L5 8zm4 0V6a3 3 0 016 0v2" fill="none" stroke="currentColor" stroke-width="1.8"/></svg><b id="count">0</b>Bag</button></div>
+  </div>
+  <nav class="row2">
+    <div><a href="#" class="nv" data-go="collection">Face</a>
+      <div class="mega"><div><h5>By step</h5><ul><li><a href="#" data-go="collection">Cleanse</a></li><li><a href="#" data-go="collection">Tone</a></li><li><a href="#" data-go="collection">Treat</a></li><li><a href="#" data-go="collection">Oils</a></li><li><a href="#" data-go="collection">Masks</a></li></ul></div><div><h5>By need</h5><ul><li><a href="#" data-go="collection">Calm</a></li><li><a href="#" data-go="collection">Hydrate</a></li><li><a href="#" data-go="collection">Clarify</a></li><li><a href="#" data-go="collection">Nourish</a></li></ul></div><div><h5>By botanical</h5><ul><li><a href="#" data-go="collection">Calendula</a></li><li><a href="#" data-go="collection">Rosemary</a></li><li><a href="#" data-go="collection">Nettle</a></li><li><a href="#" data-go="collection">Rosehip</a></li></ul></div><a href="#" class="tile" data-go="product"><img data-src="model" alt=""><span>Meadow Face Oil</span></a></div></div>
+    <div><a href="#" class="nv" data-go="collection">Body</a></div>
+    <div><a href="#" class="nv" data-go="collection">Lips</a></div>
+    <div><a href="#" class="nv" data-go="collection">Sets</a></div>
+    <div><a href="#refill" class="nv" data-go="home">Refills</a></div>
+    <div><a href="#glossary" class="nv hl" data-go="home">Ingredient glossary</a></div>
+    <div><a href="#" class="nv" data-go="blog">Journal</a></div>
+  </nav>
+</div></header>
+
+<!-- ================= HOME ================= -->
+<main class="page on" id="p-home">
+  <section class="hero" data-dawn="image-with-text (botanical hero with labels)"><div class="wrap">
+    <div class="reveal"><span class="eyebrow" style="color:var(--pollen)"><svg><use href="#leaf"/></svg>Grown, pressed, bottled</span>
+      <h1>Skincare that <i>grows</i> wild.</h1>
+      <p>Cold-pressed oils and herbal extracts from our own farm. Short lists, real plants, refillable glass.</p>
+      <div class="ctas"><a href="#" class="btn btn-pollen" data-go="collection">Shop face care</a><a href="#glossary" class="btn btn-line" data-go="home">What's inside</a></div>
+      <div class="proof"><div><b>14</b>plants we grow</div><div><b>100%</b>plastic-free</div><div><b>4.8★</b>sample rating</div></div></div>
+    <div class="hpic"><img data-src="hero" alt="Face oil bottles among ferns and chamomile">
+      <span class="tag" style="left:61%;top:22%"><i></i><span class="ln"></span><em>Fern extract</em></span>
+      <span class="tag" style="left:63%;top:44%"><i></i><span class="ln"></span><em>Meadow Face Oil</em></span>
+      <span class="tag" style="left:30%;top:76%"><em>Chamomile</em><span class="ln"></span><i></i></span>
+    </div>
+  </div></section>
+
+  <div class="wrap"><section class="trust" data-dawn="multicolumn (trust icons)">
+    <div><svg viewBox="0 0 24 24"><use href="#leaf"/></svg><span><b>Farm-grown botanicals</b>Picked by hand</span></div>
+    <div><svg viewBox="0 0 24 24"><path d="M7 4h10v4l-2 2v10H9V10L7 8z" fill="none" stroke="currentColor" stroke-width="1.8"/></svg><span><b>Refillable glass</b>Pouches save 20%</span></div>
+    <div><svg viewBox="0 0 24 24"><path d="M4 12l5 5L20 6" fill="none" stroke="currentColor" stroke-width="2"/></svg><span><b>Vegan, no fragrance oils</b>Only real plant scent</span></div>
+    <div><svg viewBox="0 0 24 24"><path d="M3 7h12v9H3zM15 10h4l2 3v3h-6" fill="none" stroke="currentColor" stroke-width="1.8"/></svg><span><b>Carbon-neutral shipping</b>Free over $45</span></div>
+  </section></div>
+
+  <section class="sec" style="padding-top:40px" data-dawn="collection-list (capsule tiles by need)"><div class="wrap">
+    <div class="head"><div><span class="eyebrow"><svg><use href="#leaf"/></svg>Shop by need</span><h2>What does your skin <i>ask for?</i></h2></div><a href="#" class="more" data-go="collection">All products →</a></div>
+    <div class="needs reveal">
+      <a href="#" class="need" data-go="collection"><div class="c"><img data-src="toner" alt=""></div><h3>Calm</h3><span>6 products</span></a>
+      <a href="#" class="need" data-go="collection"><div class="c"><img data-src="serum" alt=""></div><h3>Hydrate</h3><span>5 products</span></a>
+      <a href="#" class="need" data-go="collection"><div class="c"><img data-src="mask" alt=""></div><h3>Clarify</h3><span>4 products</span></a>
+      <a href="#" class="need" data-go="collection"><div class="c"><img data-src="oil" alt=""></div><h3>Nourish</h3><span>7 products</span></a>
+      <a href="#" class="need" data-go="collection"><div class="c"><img data-src="body" alt=""></div><h3>Body</h3><span>4 products</span></a>
+      <a href="#" class="need" data-go="collection"><div class="c"><img data-src="lip" alt=""></div><h3>Lips</h3><span>3 products</span></a>
+    </div>
+  </div></section>
+
+  <section class="sec" style="padding-top:0" data-dawn="featured-collection (best sellers)"><div class="wrap">
+    <div class="head"><div><span class="eyebrow"><svg><use href="#leaf"/></svg>Best sellers</span><h2>Fresh from the <i>press</i></h2></div><a href="#" class="more" data-go="collection">Shop all →</a></div>
+    <div class="grid4" id="best"></div>
+  </div></section>
+
+  <section class="sec" style="padding-top:0" data-dawn="sbs-before-after"><div class="wrap"><div class="ba reveal">
+    <div class="cmp" id="cmp" style="--x:32%"><img data-src="before" alt="Skin before"><img class="after" id="afterImg" data-src="before" alt="Skin after" style="filter:saturate(.62) brightness(1.05) contrast(.96)"><span class="bar"></span><span class="knob" aria-hidden="true">⇆</span><span class="l b">Day 1</span><span class="l a" id="wk">Week 8</span><span class="demo">Demo image with a filter. Replace with real customer photos.</span><input type="range" min="0" max="100" value="32" id="cmpr" aria-label="Compare before and after" style="position:absolute;inset:0;opacity:0;cursor:ew-resize"></div>
+    <div><span class="eyebrow"><svg><use href="#leaf"/></svg>Before &amp; after</span><h2>Calmer skin, <i>week by week</i></h2><p style="color:var(--ink-2);margin-top:12px">Drag the slider. Pick a week to see the change with the Calendula Calm routine.</p>
+      <div class="weeks" id="weeks"><button data-w="2">Week 2</button><button data-w="4">Week 4</button><button data-w="8" class="on">Week 8</button></div>
+      <div class="stat"><div><b id="s1">71%</b><span>less visible redness</span></div><div><b id="s2">86%</b><span>skin felt calmer</span></div><div><b id="s3">90%</b><span>would buy again</span></div></div>
+      <p style="font-size:12px;color:var(--ink-2);margin-top:10px">Sample figures for preview. Add your own study results.</p>
+      <a href="#" class="btn btn-moss" style="margin-top:22px" data-go="product">Shop the routine</a></div>
+  </div></div></section>
+
+  <section class="sec" style="padding-top:0" id="glossary" data-dawn="sbs-ingredient-glossary"><div class="wrap"><div class="glo">
+    <span class="eyebrow"><svg><use href="#leaf"/></svg>Ingredient glossary</span><h2>Every plant, <i>explained</i></h2>
+    <div class="gtop"><label class="gsearch"><svg width="18" height="18" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7" fill="none" stroke="currentColor" stroke-width="2"/><path d="M20 20l-4-4" stroke="currentColor" stroke-width="2"/></svg><input id="gq" placeholder="Search an ingredient" aria-label="Search ingredients"></label>
+      <div class="gcats" id="gcats"><button class="on" data-c="all">All</button><button data-c="Oil">Oils</button><button data-c="Flower">Flowers</button><button data-c="Herb">Herbs</button><button data-c="Clay">Clays</button></div></div>
+    <div class="az" id="az"></div>
+    <div class="glist" id="glist"></div>
+  </div></div></section>
+
+  <section class="sec" style="padding-top:0" id="refill" data-dawn="sbs-refill-plan"><div class="wrap"><div class="refill reveal">
+    <div class="ph"><img data-src="refill" alt="Refilling amber bottles"></div>
+    <div class="t"><span class="eyebrow"><svg><use href="#leaf"/></svg>Refill plan</span><h2>Refill, don't <i>rebuy</i></h2><p style="color:var(--ink-2);margin-top:10px">Pick your favourites and how often. Refill pouches arrive on time and cost 20% less than a new bottle.</p>
+      <p class="lbl2">1. Choose products</p><div class="rp" id="rp"></div>
+      <p class="lbl2">2. How often?</p><div class="freq" id="freq"><button data-f="4">Every 4 weeks</button><button data-f="6" class="on">Every 6 weeks</button><button data-f="8">Every 8 weeks</button></div>
+      <div class="rsum"><div><div class="p" id="rpr">$0</div><small id="rtxt"></small></div><button class="btn btn-moss" id="radd">Start my refill plan</button></div>
+    </div>
+  </div></div></section>
+
+  <section class="sec" style="padding-top:0" data-dawn="image-with-text (from the farm)"><div class="wrap"><div class="farm">
+    <img data-src="flatlay" alt="Botanicals from the farm">
+    <div><span class="eyebrow"><svg><use href="#leaf"/></svg>From the farm</span><h2>We grow what we <i>bottle</i></h2>
+      <ul><li>14 plants grown without sprays on our farm</li><li>Flowers infused in oil for six weeks</li><li>Small batches, pressed every month</li></ul>
+      <a href="#" class="btn btn-line" data-go="about">Meet the growers</a></div>
+  </div></div></section>
+
+  <section class="sec" style="padding-top:0" data-dawn="sbs-reviews (skin type filter)"><div class="wrap"><div class="revw">
+    <div class="rbox"><span class="eyebrow"><svg><use href="#leaf"/></svg>Reviews</span><div class="big">4.8</div><div style="color:var(--bark);letter-spacing:2px">★★★★★</div><div style="font-size:12.5px;color:var(--ink-2)">Sample rating for preview</div><div class="bars"><div>5<i><b style="width:84%"></b></i>84%</div><div>4<i><b style="width:12%"></b></i>12%</div><div>3<i><b style="width:3%"></b></i>3%</div><div>2<i><b style="width:1%"></b></i>1%</div></div></div>
+    <div><div class="rfil" id="rfil"><button class="on" data-t="all">All</button><button data-t="sensitive">Sensitive</button><button data-t="dry">Dry</button><button data-t="oily">Oily</button></div><div class="rlist" id="rlist"></div></div>
+  </div></div></section>
+
+  <section data-dawn="newsletter (moss)"><div class="wrap"><div class="news"><div><h2>Seasonal notes from <i>the farm</i></h2><p>New harvests, refill reminders and 10% off your first order.</p></div><form onsubmit="event.preventDefault();toast('Welcome to the farm letters')"><input type="email" placeholder="Your email" required aria-label="Email"><button class="btn btn-moss">Sign up</button></form></div></div></section>
+</main>
+
+<!-- ================= COLLECTION ================= -->
+<main class="page" id="p-collection"><div class="wrap">
+  <div class="crumbs" data-dawn="sbs-breadcrumbs">Home<span>/</span>Face</div>
+  <section class="cband" data-dawn="main-collection-banner (oat band + chips)"><div><span class="eyebrow"><svg><use href="#leaf"/></svg>Face care</span><h1>Face, <i>by nature</i></h1><p>Oils, balms, mists and masks made with plants from our farm. Filter by step or by what your skin needs.</p>
+    <div class="cchips" id="cchips"><button class="on" data-s="all">All</button><button data-s="Cleanse">Cleanse</button><button data-s="Tone">Tone</button><button data-s="Treat">Treat</button><button data-s="Oil">Oils</button><button data-s="Mask">Masks</button></div></div><img data-src="flatlay" alt=""></section>
+  <section data-dawn="main-collection-product-grid (filter drawer)">
+    <div class="ctool"><button class="fbtn" id="openF"><svg width="16" height="16" viewBox="0 0 24 24"><path d="M4 6h16M7 12h10M10 18h4" stroke="currentColor" stroke-width="2"/></svg>Filter <span id="fcount"></span></button><span id="ccount" style="color:var(--ink-2)">8 products</span><select id="sort" aria-label="Sort"><option value="feat">Featured</option><option value="lo">Price, low to high</option><option value="hi">Price, high to low</option><option value="rt">Top rated</option></select></div>
+    <div class="grid4" id="cgrid"></div>
+    <div class="lmore"><p>Showing <span id="shown">8</span> of 24 products</p><button class="btn btn-line" onclick="toast('Loading more products')">Load more</button></div>
+  </section>
+</div></main>
+
+<!-- ================= PRODUCT ================= -->
+<main class="page" id="p-product"><div class="wrap">
+  <div class="crumbs" data-dawn="sbs-breadcrumbs">Home<span>/</span>Face<span>/</span>Meadow Face Oil</div>
+  <section class="pdp" data-dawn="main-product (size cards + subscribe)">
+    <div class="gal"><div class="main" id="main"><img id="mainimg" data-src="oil" alt="Meadow Face Oil"></div><div class="th" id="th"></div></div>
+    <div class="pinfo">
+      <span class="chip">Best seller</span>
+      <h1>Meadow Face Oil</h1>
+      <div class="rt"><b>★★★★★</b> 4.9 · 212 reviews (sample)</div>
+      <p class="lead">A light, fast-sinking oil with calendula, rosehip and fern. For dry, tired or sensitive skin.</p>
+      <div class="keys"><span class="chip">Calendula</span><span class="chip">Rosehip</span><span class="chip">Fern extract</span><span class="chip">For sensitive skin</span></div>
+      <div class="opt"><h6>Size</h6><div class="szs" id="szs"><button data-i="0"><b>15 ml</b><small>$26 · 6 weeks</small></button><button data-i="1" class="on"><b>30 ml</b><small>$42 · 12 weeks</small></button></div></div>
+      <div class="opt"><h6>Purchase <span>Cancel any time</span></h6><div class="ptype" id="ptype"><label><input type="radio" name="pt" value="one"><b>One-time</b><span class="pr" id="ponep">$42</span></label><label><input type="radio" name="pt" value="sub" checked><b>Subscribe &amp; save 15%<small>Refill pouch every 6 weeks</small></b><span class="pr" id="psubp">$35.70</span></label></div></div>
+      <div class="buy"><div class="qty"><button id="qm" aria-label="Less">−</button><input id="qtyv" value="1" aria-label="Quantity"><button id="qp" aria-label="More">+</button></div><button class="btn btn-moss" id="atc">Add to bag · $35.70</button></div>
+      <p class="note"><svg width="16" height="16"><use href="#leaf"/></svg>Ships in 1 to 2 days. Free shipping over $45.</p>
+      <div class="acc"><details open><summary>Benefits</summary><p>Softens dry patches, calms redness and leaves a soft glow without shine.</p></details><details><summary>Full ingredients</summary><p>Helianthus annuus seed oil, Rosa canina fruit oil, Calendula officinalis flower extract, Polypodium vulgare extract, tocopherol. <a href="#glossary" data-go="home">See the glossary</a></p></details><details><summary>How to use</summary><p>Warm 3 drops between your palms and press onto damp skin, morning or night.</p></details><details><summary>Shipping &amp; returns</summary><p>Free shipping over $45. Opened products can be returned within 30 days.</p></details></div>
+    </div>
+  </section>
+  <section style="padding-bottom:70px" data-dawn="multicolumn (key botanicals)"><div class="head"><div><span class="eyebrow"><svg><use href="#leaf"/></svg>Inside the bottle</span><h2>Four plants, <i>one oil</i></h2></div></div>
+    <div class="icons3"><div><img data-src="lip" alt="" style="object-position:20% 50%"><h4>Calendula</h4><p>Soothes and softens</p></div><div><img data-src="flatlay" alt="" style="object-position:28% 72%;transform:scale(1.6)"><h4>Rosehip</h4><p>Rich in vitamin A</p></div><div><img data-src="serum" alt="" style="object-position:15% 80%"><h4>Nettle</h4><p>Balances oily zones</p></div><div><img data-src="oil" alt="" style="object-position:10% 15%"><h4>Fern</h4><p>Locks in moisture</p></div></div></section>
+  <section style="padding-bottom:70px" data-dawn="sbs-before-after (product)"><div class="ba"><div class="cmp" id="cmp2" style="--x:30%"><img data-src="before" alt=""><img class="after" data-src="before" alt="" style="filter:saturate(.62) brightness(1.05) contrast(.96)"><span class="bar"></span><span class="knob">⇆</span><span class="l b">Day 1</span><span class="l a">Week 8</span><span class="demo">Demo image with a filter</span><input type="range" min="0" max="100" value="30" style="position:absolute;inset:0;opacity:0;cursor:ew-resize" aria-label="Compare"></div><div><h2>Seen on <i>real skin</i></h2><p style="color:var(--ink-2);margin-top:12px">Results from 8 weeks of daily use. Replace this sample with your own customer photos.</p></div></div></section>
+  <section style="padding-bottom:70px" data-dawn="sbs-reviews (product)"><div class="revw"><div class="rbox"><div class="big">4.9</div><div style="color:var(--bark);letter-spacing:2px">★★★★★</div><div style="font-size:12.5px;color:var(--ink-2)">212 reviews (sample)</div><div class="bars"><div>5<i><b style="width:90%"></b></i>90%</div><div>4<i><b style="width:8%"></b></i>8%</div><div>3<i><b style="width:2%"></b></i>2%</div></div></div><div><div class="rfil" id="rfil2"><button class="on" data-t="all">All</button><button data-t="sensitive">Sensitive</button><button data-t="dry">Dry</button><button data-t="oily">Oily</button></div><div class="rlist" id="rlist2"></div></div></div></section>
+  <section style="padding-bottom:70px" data-dawn="product-recommendations (pairs well)"><div class="head"><div><span class="eyebrow"><svg><use href="#leaf"/></svg>Pairs well with</span><h2>Complete the <i>ritual</i></h2></div></div><div class="grid4" id="pairs"></div></section>
+  <section data-dawn="sbs-recently-viewed"><div class="head"><div><span class="eyebrow">Recently viewed</span></div></div><div class="grid4" id="recent"></div></section>
+</div>
+<div class="sticky" id="sticky" data-dawn="main-product (sticky add to bag)"><div class="wrap"><img data-src="oil" alt=""><div class="nm"><b>Meadow Face Oil</b><div style="font-size:13px;color:var(--ink-2)" id="stxt">30 ml · Subscribe &amp; save</div></div><button class="btn btn-moss" id="satc">Add to bag · $35.70</button></div></div>
+</main>
+
+<!-- ================= CART ================= -->
+<main class="page" id="p-cart"><div class="wrap">
+  <div class="crumbs" data-dawn="sbs-breadcrumbs">Home<span>/</span>Bag</div>
+  <section class="cartp" data-dawn="main-cart-items + main-cart-footer">
+    <div><h1>Your <i>bag</i></h1><div class="prog" id="cprog"></div><div id="clines"></div></div>
+    <aside class="sum"><h3>Summary</h3><div class="r"><span>Subtotal</span><span id="csub">$0</span></div><div class="r"><span>Subscribe savings</span><span id="csave">$0</span></div><div class="r"><span>Shipping</span><span id="cship">Calculated at checkout</span></div><div class="r t"><span>Total</span><span id="ctot">$0</span></div><button class="btn btn-moss" onclick="toast('Checkout is handled by Shopify')">Checkout</button><div class="pay" style="justify-content:center;margin-top:14px"><span style="background:var(--bone)">VISA</span><span style="background:var(--bone)">MC</span><span style="background:var(--bone)">AMEX</span><span style="background:var(--bone)">PAYPAL</span><span style="background:var(--bone)">SHOP PAY</span></div></aside>
+  </section>
+  <section class="sec" style="padding-top:60px" data-dawn="featured-collection (add a little extra)"><div class="head"><div><span class="eyebrow"><svg><use href="#leaf"/></svg>Add a little extra</span><h2>Small things, <i>big care</i></h2></div></div><div class="grid4" id="cartup"></div></section>
+</div></main>
+
+<!-- ================= SEARCH ================= -->
+<main class="page" id="p-search"><div class="wrap">
+  <section class="shero" data-dawn="main-search"><span class="eyebrow"><svg><use href="#leaf"/></svg>Search</span><form class="sbar" onsubmit="event.preventDefault()"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7" fill="none" stroke="currentColor" stroke-width="2"/><path d="M20 20l-4-4" stroke="currentColor" stroke-width="2"/></svg><input id="q" value="calendula" aria-label="Search"></form><div class="sugg"><span>Try:</span><button>oil</button><button>balm</button><button>rosemary</button><button>refill</button></div></section>
+  <p id="sres" style="color:var(--ink-2);margin-bottom:22px"></p><div class="grid4" id="sgrid"></div>
+</div></main>
+
+<!-- ================= BLOG ================= -->
+<main class="page" id="p-blog"><div class="wrap">
+  <div class="crumbs" data-dawn="sbs-breadcrumbs">Home<span>/</span>Journal</div>
+  <section data-dawn="main-blog (farm journal)">
+    <div class="bhead"><span class="eyebrow"><svg><use href="#leaf"/></svg>The farm journal</span><h1>Notes from <i>the field</i></h1><p>Harvest diaries, simple rituals and plant profiles.</p><div class="btabs"><button class="on">All</button><button>Rituals</button><button>Plants</button><button>Farm</button></div></div>
+    <div class="bgrid">
+      <a href="#" class="bc big" data-go="article"><div class="m"><img data-src="model" alt=""></div><div class="t"><span class="chip" style="align-self:flex-start">Rituals · 5 min</span><h3>A 3-drop face oil ritual for dry autumn skin</h3><p>Warm, press, breathe. The slow way to use a face oil.</p></div></a>
+      <a href="#" class="bc" data-go="article"><div class="m"><img data-src="flatlay" alt=""></div><div class="t"><span class="chip" style="align-self:flex-start">Plants</span><h3>Calendula, the farm's busiest flower</h3></div></a>
+      <a href="#" class="bc" data-go="article"><div class="m"><img data-src="texture" alt=""></div><div class="t"><span class="chip" style="align-self:flex-start">Rituals</span><h3>How to use a clay mask without drying out</h3></div></a>
+      <a href="#" class="bc" data-go="article"><div class="m"><img data-src="refill" alt=""></div><div class="t"><span class="chip" style="align-self:flex-start">Farm</span><h3>Inside our refill room</h3></div></a>
+      <a href="#" class="bc" data-go="article"><div class="m"><img data-src="hero" alt=""></div><div class="t"><span class="chip" style="align-self:flex-start">Plants</span><h3>Why ferns belong in skincare</h3></div></a>
+    </div>
+  </section>
+</div></main>
+
+<!-- ================= ARTICLE ================= -->
+<main class="page" id="p-article"><div class="wrap">
+  <div class="crumbs" data-dawn="sbs-breadcrumbs">Home<span>/</span>Journal<span>/</span>Rituals</div>
+  <section class="ahero" data-dawn="main-article (split hero)"><div><span class="chip">Rituals · 5 min read</span><h1>A 3-drop face oil ritual for dry <i>autumn</i> skin</h1><p style="color:var(--ink-2)">By the Fernwild farm team</p></div><img data-src="model" alt=""></section>
+  <article class="abody">
+    <p>When the air turns cold, skin loses water fast. A face oil on damp skin locks it back in. Here is the simple ritual we use on the farm.</p>
+    <h2>1. Mist first</h2><p>Spray Rosemary Mist on clean skin. Oil works best on damp skin.</p>
+    <div class="prod"><img data-src="toner" alt=""><div><b>Rosemary Mist</b><div style="font-size:13px;color:var(--ink-2)">100 ml · $24</div></div><button class="btn btn-moss" style="margin-left:auto;height:40px" onclick="add(2,0,'one')">Add</button></div>
+    <h2>2. Warm three drops</h2><p>Warm three drops of Meadow Face Oil between your palms for a few seconds.</p>
+    <div class="tip">Press, don't rub. Pressing spreads the oil without pulling the skin.</div>
+    <h2>3. Seal the edges</h2><p>Finish with a little balm on dry spots: the sides of the nose and the corners of the mouth.</p>
+  </article>
+  <section class="sec" data-dawn="featured-collection (shop the ritual)"><div class="head"><div><span class="eyebrow"><svg><use href="#leaf"/></svg>Shop the ritual</span><h2>Used in this <i>story</i></h2></div></div><div class="grid4" id="artgrid"></div></section>
+</div></main>
+
+<!-- ================= ABOUT ================= -->
+<main class="page" id="p-about"><div class="wrap">
+  <section class="about-h" data-dawn="rich-text (story)"><span class="eyebrow"><svg><use href="#leaf"/></svg>Our story</span><h1>A herb farm that started <i>making skincare</i></h1><p>We grow calendula, chamomile, rosemary and eleven more plants. Everything we bottle starts in our own field.</p></section>
+  <section class="about-img" data-dawn="collage"><img data-src="flatlay" alt=""><img data-src="hero" alt=""><img data-src="refill" alt=""></section>
+  <section class="sec" data-dawn="multicolumn (values)"><div class="vals"><div><b>01</b><h4>Grown, not bought</h4><p>Our own plants, picked by hand.</p></div><div><b>02</b><h4>Short lists</h4><p>Six ingredients or fewer in most products.</p></div><div><b>03</b><h4>Refill everything</h4><p>Pouches for every bottle and jar.</p></div><div><b>04</b><h4>No fragrance oils</h4><p>The scent comes from the plants.</p></div></div></section>
+</div></main>
+
+<!-- ================= CONTACT ================= -->
+<main class="page" id="p-contact"><div class="wrap">
+  <div class="crumbs" data-dawn="sbs-breadcrumbs">Home<span>/</span>Contact</div>
+  <section class="cwrap" data-dawn="contact-form + multicolumn (ways)"><div><span class="eyebrow"><svg><use href="#leaf"/></svg>Contact</span><h1>Say hello to <i>the farm</i></h1><p style="color:var(--ink-2);margin-top:14px">Skin questions, refills or wholesale. We reply within one working day.</p>
+    <div class="cways"><div><b>Email</b>hello@yourstore.com</div><div><b>Skin advice</b>Free 15-minute video call</div><div><b>Visit</b>Farm shop open Saturdays</div></div></div>
+    <form class="cform" onsubmit="event.preventDefault();toast('Thanks! We will reply soon.')"><input placeholder="Name" required><input type="email" placeholder="Email" required><select><option>Skin advice</option><option>My order</option><option>Refills</option><option>Wholesale</option></select><textarea rows="5" placeholder="Message" required></textarea><button class="btn btn-moss">Send message</button></form></section>
+  <section class="sec" style="padding-top:50px" data-dawn="collapsible-content (FAQ)"><div class="acc" style="max-width:780px"><h2 style="margin-bottom:18px">Questions</h2><details open><summary>How do refills work?</summary><p>Order a refill pouch and pour it into your glass bottle. Pouches are compostable.</p></details><details><summary>Are your products safe for sensitive skin?</summary><p>They contain no fragrance oils. We still suggest a patch test before first use.</p></details><details><summary>Can I pause my refill plan?</summary><p>Yes. Skip, pause or cancel any time from your account.</p></details></div></section>
+</div></main>
+
+<!-- ================= 404 ================= -->
+<main class="page" id="p-404"><div class="wrap"><section class="nf" data-dawn="main-404"><div class="leaf">404</div><h1>This path is <i>overgrown</i></h1><p>The page you looked for has moved. Let's get you back to the garden.</p><a href="#" class="btn btn-moss" data-go="collection">Shop face care</a></section>
+<section class="sec" style="padding-top:20px" data-dawn="featured-collection (popular)"><div class="grid4" id="nfgrid"></div></section></div></main>
+
+<footer class="ftr" data-dawn="footer"><div class="wrap">
+  <div class="top"><div><a href="#" class="logo" data-go="home"><svg><use href="#leaf"/></svg>Fernwild</a><p>Botanical skincare from our own herb farm. Refillable, plastic-free and made in small batches.</p></div>
+  <div><h4>Shop</h4><ul><li><a href="#" data-go="collection">Face</a></li><li><a href="#" data-go="collection">Body</a></li><li><a href="#" data-go="collection">Lips</a></li><li><a href="#refill" data-go="home">Refills</a></li></ul></div>
+  <div><h4>Learn</h4><ul><li><a href="#glossary" data-go="home">Ingredient glossary</a></li><li><a href="#" data-go="blog">Journal</a></li><li><a href="#" data-go="about">Our farm</a></li></ul></div>
+  <div><h4>Help</h4><ul><li><a href="#" data-go="contact">Contact</a></li><li><a href="#" data-go="contact">Shipping</a></li><li><a href="#" data-go="contact">Returns</a></li></ul></div></div>
+  <div class="bot"><span>© 2026 Fernwild. Theme design by Shopify Brands SEO.</span><div class="pay"><span>VISA</span><span>MC</span><span>AMEX</span><span>PAYPAL</span><span>SHOP PAY</span></div></div>
+</div></footer>
+
+<div class="scrim" id="scrim"></div>
+<aside class="fdrawer" id="fdrawer" data-dawn="main-collection-product-grid (filter drawer)"><h3>Filter <button id="closeF" aria-label="Close">✕</button></h3>
+  <details open><summary>Skin need</summary><label><input type="checkbox" data-f="need" value="Calm">Calm</label><label><input type="checkbox" data-f="need" value="Hydrate">Hydrate</label><label><input type="checkbox" data-f="need" value="Clarify">Clarify</label><label><input type="checkbox" data-f="need" value="Nourish">Nourish</label></details>
+  <details open><summary>Key botanical</summary><label><input type="checkbox" data-f="bot" value="Calendula">Calendula</label><label><input type="checkbox" data-f="bot" value="Rosemary">Rosemary</label><label><input type="checkbox" data-f="bot" value="Nettle">Nettle</label><label><input type="checkbox" data-f="bot" value="Lavender">Lavender</label></details>
+  <details><summary>Refill available</summary><label><input type="checkbox" data-f="refill" value="yes">Yes</label></details>
+  <button class="btn btn-moss" style="width:100%;margin-top:18px" id="applyF">Show results</button></aside>
+<aside class="drawer" id="drawer" data-dawn="cart-drawer"><div class="hd"><h3>Your bag</h3><button id="closeCart" aria-label="Close">✕</button></div><div class="bd"><div class="prog" id="dprog"></div><div id="dlines"></div></div><div class="ft"><div style="display:flex;justify-content:space-between;font-weight:600;margin-bottom:12px"><span>Subtotal</span><span id="dsub">$0</span></div><button class="btn btn-moss" style="width:100%" data-go="cart">View bag &amp; checkout</button></div></aside>
+<div class="modal" id="qv" data-dawn="quick-view (choose size)"><div class="bg" data-close></div><div class="box"><button class="x" data-close aria-label="Close">✕</button><img id="qvimg" alt=""><div class="t"><span class="chip" id="qvtag"></span><h3 id="qvname" style="margin:10px 0 6px"></h3><div style="font-size:13px;color:var(--ink-2)" id="qvrt"></div><div class="opt"><h6>Size</h6><div class="szs" id="qvsz"></div></div><button class="btn btn-moss" style="width:100%;margin-top:20px" id="qvadd">Add to bag</button><a href="#" data-go="product" style="display:block;text-align:center;margin-top:12px;font-weight:600;color:var(--moss)">Full details →</a></div></div></div>
+<div class="toast" id="toast"></div>
+
+<script>
+const IMG='https://shopifybrandsseo.com/wp-content/uploads/2026/10/fernwild-demo-';
+const src=k=>IMG+k+'.jpg';
+const P=[
+ {n:'Meadow Face Oil',st:'Oil',need:'Nourish',bot:['Calendula','Rosehip'],img:'oil',alt:'model',sz:[['15 ml',26],['30 ml',42]],r:4.9,c:212,b:'Best seller',refill:1},
+ {n:'Chamomile Cleansing Balm',st:'Cleanse',need:'Calm',bot:['Chamomile'],img:'balm',alt:'flatlay',sz:[['100 ml',34]],r:4.8,c:168,refill:1},
+ {n:'Rosemary Mist',st:'Tone',need:'Clarify',bot:['Rosemary'],img:'toner',alt:'hero',sz:[['100 ml',24]],r:4.7,c:94,b:'New',refill:1},
+ {n:'Green Clay Mask',st:'Mask',need:'Clarify',bot:['Nettle'],img:'mask',alt:'texture',sz:[['60 ml',29]],r:4.8,c:77},
+ {n:'Lavender Body Oil',st:'Oil',need:'Nourish',bot:['Lavender'],img:'body',alt:'refill',sz:[['100 ml',32],['200 ml',52]],r:4.9,c:121,refill:1},
+ {n:'Nettle Hydra Serum',st:'Treat',need:'Hydrate',bot:['Nettle'],img:'serum',alt:'model',sz:[['30 ml',38]],was:44,r:4.7,c:63,b:'Sale',bs:'sale'},
+ {n:'Calendula Lip Balm',st:'Treat',need:'Nourish',bot:['Calendula'],img:'lip',alt:'flatlay',sz:[['15 g',12]],r:4.9,c:201},
+ {n:'Calendula Calm Set',st:'Treat',need:'Calm',bot:['Calendula','Chamomile'],img:'hero',alt:'flatlay',sz:[['3 pieces',84]],was:100,r:5.0,c:38,b:'Save 16%',bs:'sub'}
+];
+const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)];
+const money=v=>'$'+(Math.round(v*100)/100).toFixed(v%1?2:0);
+function card(p,i){const multi=p.sz.length>1;return `<div class="card"><a href="#" class="m" data-go="product">${p.b?`<span class="bdg ${p.bs||''}">${p.b}</span>`:''}<img src="${src(p.img)}" alt="${p.n}"><img class="alt" src="${src(p.alt)}" alt=""></a>
+ <div class="tags">${p.bot.map(b=>`<span class="chip">${b}</span>`).join('')}</div><h3><a href="#" data-go="product">${p.n}</a></h3><div class="rt"><b>★★★★★</b> ${p.r.toFixed(1)} (${p.c})</div><div class="sz">${p.sz.map(s=>s[0]).join(' · ')}${p.refill?' · Refill':''}</div>
+ <button class="add" onclick="${multi?`qv(${i})`:`add(${i},0,'one')`}">${multi?'<span>Choose size</span><span>from '+money(p.sz[0][1])+'</span>':`<span>Add to bag</span><span>${money(p.sz[0][1])}${p.was?`<s>${money(p.was)}</s>`:''}</span>`}</button></div>`}
+const grid=(el,ids)=>$(el).innerHTML=ids.map(i=>card(P[i],i)).join('');
+grid('#best',[0,1,2,5]);grid('#pairs',[1,2,3,6]);grid('#recent',[4,7,5,3]);grid('#cartup',[6,3,2,1]);grid('#artgrid',[2,0,1,6]);grid('#nfgrid',[0,1,4,7]);
+
+// announcement
+let ai=0;setInterval(()=>{const s=$$('.ann span');s[ai].classList.remove('on');ai=(ai+1)%s.length;s[ai].classList.add('on')},3800);
+
+// before/after
+function cmp(el){const r=el.querySelector('input');const set=()=>el.style.setProperty('--x',r.value+'%');r.addEventListener('input',set);set()}
+cmp($('#cmp'));cmp($('#cmp2'));
+const WK={2:['saturate(.88) brightness(1.02)','31%','62%','74%'],4:['saturate(.75) brightness(1.03)','52%','78%','84%'],8:['saturate(.62) brightness(1.05) contrast(.96)','71%','86%','90%']};
+$('#weeks').onclick=e=>{const b=e.target.closest('button');if(!b)return;$$('#weeks button').forEach(x=>x.classList.toggle('on',x===b));const w=WK[b.dataset.w];$('#afterImg').style.filter=w[0];$('#wk').textContent='Week '+b.dataset.w;$('#s1').textContent=w[1];$('#s2').textContent=w[2];$('#s3').textContent=w[3]};
+
+// glossary
+const G=[['Calendula','Calendula officinalis','Flower','Soothes red, irritated skin and helps it heal.','Meadow Face Oil, Lip Balm'],['Chamomile','Matricaria recutita','Flower','Calms sensitive skin and softens.','Cleansing Balm'],['Rosehip','Rosa canina','Oil','Rich in natural vitamin A for even tone.','Meadow Face Oil'],['Rosemary','Rosmarinus officinalis','Herb','Freshens and helps clear oily skin.','Rosemary Mist'],['Nettle','Urtica dioica','Herb','Balances oil and calms breakouts.','Hydra Serum, Clay Mask'],['Lavender','Lavandula angustifolia','Flower','Relaxing scent and gentle soothing.','Body Oil'],['Jojoba','Simmondsia chinensis','Oil','Close to skin\'s own oil, absorbs fast.','Body Oil'],['French green clay','Illite','Clay','Lifts oil and impurities from pores.','Green Clay Mask'],['Fern extract','Polypodium vulgare','Herb','Helps skin hold on to water.','Meadow Face Oil'],['Sunflower','Helianthus annuus','Oil','Light oil that supports the skin barrier.','Meadow Face Oil'],['Kaolin','Kaolin','Clay','A soft white clay for gentle cleansing.','Cleansing Balm'],['Oat','Avena sativa','Herb','Comforts dry and itchy skin.','Cleansing Balm']];
+let gc='all',gl='';
+function gshow(){const q=$('#gq').value.toLowerCase();const list=G.filter(g=>(gc==='all'||g[2]===gc)&&(!gl||g[0][0].toUpperCase()===gl)&&(g[0]+' '+g[1]).toLowerCase().includes(q));
+ $('#glist').innerHTML=list.map(g=>`<div class="gi" tabindex="0"><div class="t"><div><h4>${g[0]}</h4><small>${g[1]}</small></div><span class="tp">${g[2]}</span></div><p>${g[3]}</p><div class="in">Found in: ${g[4]}</div></div>`).join('')||'<div class="gempty">No ingredient found. Try another word.</div>';
+ const letters=new Set(G.filter(g=>gc==='all'||g[2]===gc).map(g=>g[0][0].toUpperCase()));$('#az').innerHTML='<button class="'+(gl?'':'on')+'" data-l="" style="width:auto;padding:0 10px">All</button>'+'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('').map(l=>`<button data-l="${l}" class="${l===gl?'on':''}" ${letters.has(l)?'':'disabled'}>${l}</button>`).join('')}
+$('#gq').oninput=gshow;$('#gcats').onclick=e=>{const b=e.target.closest('button');if(!b)return;gc=b.dataset.c;gl='';$$('#gcats button').forEach(x=>x.classList.toggle('on',x===b));gshow()};
+$('#az').onclick=e=>{const b=e.target.closest('button');if(!b||b.disabled)return;gl=b.dataset.l;gshow()};
+$('#glist').onclick=e=>{const g=e.target.closest('.gi');if(g)g.classList.toggle('open')};gshow();
+
+// refill plan
+const RP=[0,1,4];let rsel=new Set([0,1]),rf=6;
+$('#rp').innerHTML=RP.map(i=>`<button class="${rsel.has(i)?'on':''}" data-i="${i}"><img src="${src(P[i].img)}" alt=""><span><b>${P[i].n}</b><small>Refill ${money(P[i].sz[P[i].sz.length-1][1]*.8)}</small></span></button>`).join('');
+function rcalc(){const full=[...rsel].reduce((a,i)=>a+P[i].sz[P[i].sz.length-1][1],0),r=full*.8;$('#rpr').innerHTML=money(r)+(full?`<s>${money(full)}</s>`:'');$('#rtxt').textContent=rsel.size?`${rsel.size} refill${rsel.size>1?'s':''} every ${rf} weeks · about ${money(r*52/rf/12)} a month`:'Pick at least one product';$('#radd').disabled=!rsel.size}
+$('#rp').onclick=e=>{const b=e.target.closest('button');if(!b)return;const i=+b.dataset.i;rsel.has(i)?rsel.delete(i):rsel.add(i);b.classList.toggle('on');rcalc()};
+$('#freq').onclick=e=>{const b=e.target.closest('button');if(!b)return;rf=+b.dataset.f;$$('#freq button').forEach(x=>x.classList.toggle('on',x===b));rcalc()};
+$('#radd').onclick=()=>{[...rsel].forEach(i=>add(i,P[i].sz.length-1,'sub',true));toast('Refill plan added · every '+rf+' weeks');bump();openCart()};rcalc();
+
+// reviews
+const RV=[['dry','The oil sinks in fast. My dry patches are gone.','Meadow Face Oil'],['sensitive','First balm that does not sting my cheeks.','Cleansing Balm'],['oily','The mist keeps my T-zone fresh all day.','Rosemary Mist'],['sensitive','Calmer skin in two weeks.','Calendula Calm Set'],['dry','Smells like a real garden, not perfume.','Lavender Body Oil'],['oily','The clay mask clears my pores gently.','Green Clay Mask']];
+function rshow(el,t){$(el).innerHTML=RV.filter(r=>t==='all'||r[0]===t).slice(0,3).map(r=>`<div class="rv"><div class="s">★★★★★</div><p>"${r[1]}"</p><small>Sample review · ${r[2]} · ${r[0]} skin</small></div>`).join('')}
+[['#rfil','#rlist'],['#rfil2','#rlist2']].forEach(([f,l])=>{$(f).onclick=e=>{const b=e.target.closest('button');if(!b)return;$$(f+' button').forEach(x=>x.classList.toggle('on',x===b));rshow(l,b.dataset.t)};rshow(l,'all')});
+
+// collection
+let cs='all',cf={need:[],bot:[],refill:[]};
+function col(){let ids=P.map((p,i)=>i).filter(i=>{const p=P[i];return(cs==='all'||p.st===cs)&&(!cf.need.length||cf.need.includes(p.need))&&(!cf.bot.length||p.bot.some(b=>cf.bot.includes(b)))&&(!cf.refill.length||p.refill)});
+ const s=$('#sort').value;if(s==='lo')ids.sort((a,b)=>P[a].sz[0][1]-P[b].sz[0][1]);if(s==='hi')ids.sort((a,b)=>P[b].sz[0][1]-P[a].sz[0][1]);if(s==='rt')ids.sort((a,b)=>P[b].r-P[a].r);
+ const h=ids.map(i=>card(P[i],i));if(h.length>=3)h.splice(3,0,`<a href="#refill" class="promo" data-go="home" data-dawn="sbs-promo-tile"><img src="${src('refill')}" alt=""><span class="chip" style="align-self:flex-start;margin-bottom:12px">Refill plan</span><h3>Refill, save 20%</h3><p style="color:var(--sage-l)">Pouches for every bottle, on your schedule.</p></a>`);
+ $('#cgrid').innerHTML=h.join('')||'<p class="empty" style="grid-column:1/-1">No products match. Clear a filter.</p>';$('#ccount').textContent=ids.length+(ids.length===1?' product':' products');$('#shown').textContent=ids.length;const n=cf.need.length+cf.bot.length+cf.refill.length;$('#fcount').textContent=n?'('+n+')':''}
+$('#cchips').onclick=e=>{const b=e.target.closest('button');if(!b)return;cs=b.dataset.s;$$('#cchips button').forEach(x=>x.classList.toggle('on',x===b));col()};
+$('#sort').onchange=col;
+$('#fdrawer').addEventListener('change',e=>{const c=e.target;if(!c.dataset.f)return;const a=cf[c.dataset.f];c.checked?a.push(c.value):a.splice(a.indexOf(c.value),1);col()});
+$('#openF').onclick=()=>{$('#fdrawer').classList.add('on');$('#scrim').classList.add('on')};
+$('#closeF').onclick=$('#applyF').onclick=()=>closeAll();
+
+// quick view
+let qi=0,qs=0;
+window.qv=i=>{qi=i;qs=P[i].sz.length-1;const p=P[i];$('#qvimg').src=src(p.img);$('#qvname').textContent=p.n;$('#qvtag').textContent=p.bot.join(' · ');$('#qvrt').textContent='★★★★★ '+p.r.toFixed(1)+' ('+p.c+' reviews, sample)';
+ $('#qvsz').innerHTML=p.sz.map((s,k)=>`<button data-k="${k}" class="${k===qs?'on':''}"><b>${s[0]}</b><small>${money(s[1])}</small></button>`).join('');$('#qvadd').textContent='Add to bag · '+money(p.sz[qs][1]);$('#qv').classList.add('on')};
+$('#qvsz').onclick=e=>{const b=e.target.closest('button');if(!b)return;qs=+b.dataset.k;$$('#qvsz button').forEach(x=>x.classList.toggle('on',x===b));$('#qvadd').textContent='Add to bag · '+money(P[qi].sz[qs][1])};
+$('#qvadd').onclick=()=>{add(qi,qs,'one');$('#qv').classList.remove('on')};
+$('#qv').addEventListener('click',e=>{if(e.target.closest('[data-close]'))$('#qv').classList.remove('on')});
+
+// product
+const PP=P[0];let ps=1,pq=1;const gal=['oil','model','hero','texture','flatlay'];
+$('#th').innerHTML=gal.map((g,i)=>`<button class="${i?'':'on'}" data-g="${g}" aria-label="Image ${i+1}"><img src="${src(g)}" alt=""></button>`).join('');
+$('#th').onclick=e=>{const b=e.target.closest('button');if(!b)return;$$('#th button').forEach(x=>x.classList.toggle('on',x===b));$('#mainimg').src=src(b.dataset.g);$('#main').classList.remove('zoom')};
+$('#main').onclick=e=>{const m=$('#main');m.classList.toggle('zoom');const r=m.getBoundingClientRect();$('#mainimg').style.transformOrigin=`${(e.clientX-r.left)/r.width*100}% ${(e.clientY-r.top)/r.height*100}%`};
+const ptype=()=>$('#ptype input:checked').value;
+function pup(){const base=PP.sz[ps][1],sub=base*.85,unit=ptype()==='sub'?sub:base;$('#ponep').textContent=money(base);$('#psubp').textContent=money(sub);const t='Add to bag · '+money(unit*pq);$('#atc').textContent=t;$('#satc').textContent=t;$('#stxt').textContent=PP.sz[ps][0]+' · '+(ptype()==='sub'?'Subscribe & save':'One-time')}
+$('#szs').onclick=e=>{const b=e.target.closest('button');if(!b)return;ps=+b.dataset.i;$$('#szs button').forEach(x=>x.classList.toggle('on',x===b));pup()};
+$('#ptype').onchange=pup;
+$('#qm').onclick=()=>{pq=Math.max(1,pq-1);$('#qtyv').value=pq;pup()};$('#qp').onclick=()=>{pq++;$('#qtyv').value=pq;pup()};
+const padd=()=>{for(let k=0;k<pq;k++)add(0,ps,ptype(),true);toast('Meadow Face Oil added');bump();openCart()};
+$('#atc').onclick=padd;$('#satc').onclick=padd;
+addEventListener('scroll',()=>{const on=$('#p-product').classList.contains('on');$('#sticky').classList.toggle('on',on&&$('#atc').getBoundingClientRect().bottom<0)});
+
+// cart
+let cart=[];
+function add(i,s,t,silent){const key=[i,s,t].join('|');const c=cart.find(x=>x.key===key);c?c.q++:cart.push({key,i,s,t,q:1});render();if(!silent){toast(P[i].n+' added');bump()}}
+window.add=add;
+function bump(){const b=$('#openCart');b.classList.remove('bump');void b.offsetWidth;b.classList.add('bump')}
+const price=c=>P[c.i].sz[c.s][1]*(c.t==='sub'?.85:1);
+function render(){const sub=cart.reduce((a,c)=>a+price(c)*c.q,0),full=cart.reduce((a,c)=>a+P[c.i].sz[c.s][1]*c.q,0),n=cart.reduce((a,c)=>a+c.q,0);$('#count').textContent=n;
+ const pr=`${sub>=45?'You have free shipping. A free sample is on us.':money(45-sub)+' more for free shipping'}<div class="bar"><i style="width:${Math.min(100,sub/45*100)}%"></i></div>`;$('#dprog').innerHTML=pr;$('#cprog').innerHTML=pr;
+ const line=c=>{const p=P[c.i];return `<div class="li"><img src="${src(p.img)}" alt=""><div><b>${p.n}</b><small>${p.sz[c.s][0]} · ${c.t==='sub'?'Subscribe & save 15%':'One-time'}</small><div class="q"><button onclick="chg('${c.key}',-1)" aria-label="Less">−</button>${c.q}<button onclick="chg('${c.key}',1)" aria-label="More">+</button><button class="rm" onclick="chg('${c.key}',-99)">Remove</button></div></div><span>${money(price(c)*c.q)}</span></div>`};
+ const h=cart.length?cart.map(line).join(''):'<div class="empty">Your bag is empty.</div>';$('#dlines').innerHTML=h;$('#clines').innerHTML=h;
+ $('#dsub').textContent=money(sub);$('#csub').textContent=money(full);$('#csave').textContent='−'+money(full-sub);$('#ctot').textContent=money(sub);$('#cship').textContent=sub>=45?'Free':'Calculated at checkout'}
+window.chg=(k,d)=>{const c=cart.find(x=>x.key===k);c.q+=d;if(c.q<=0)cart=cart.filter(x=>x!==c);render()};
+const openCart=()=>{$('#drawer').classList.add('on');$('#scrim').classList.add('on')};
+function closeAll(){['#drawer','#scrim','#fdrawer','#qv'].forEach(s=>$(s).classList.remove('on'))}
+$('#openCart').onclick=openCart;$('#closeCart').onclick=closeAll;$('#scrim').onclick=closeAll;
+document.addEventListener('keydown',e=>{if(e.key==='Escape')closeAll()});
+
+// search
+const rs=()=>{const q=$('#q').value.toLowerCase().trim();const ids=P.map((p,i)=>i).filter(i=>(P[i].n+' '+P[i].bot.join(' ')+' '+P[i].st+' '+P[i].need+(P[i].refill?' refill':'')).toLowerCase().includes(q));$('#sres').textContent=ids.length+(ids.length===1?' result':' results')+' for "'+$('#q').value+'"';grid('#sgrid',ids)};
+$('#q').oninput=rs;$$('.sugg button').forEach(b=>b.onclick=()=>{$('#q').value=b.textContent;rs()});
+
+let tt;function toast(t){$('#toast').textContent=t;$('#toast').classList.add('on');clearTimeout(tt);tt=setTimeout(()=>$('#toast').classList.remove('on'),2300)}window.toast=toast;
+let io;function obs(){io?.disconnect();io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.1});$$('.page.on .reveal:not(.in)').forEach(r=>io.observe(r))}
+function go(pg,h){$$('.page').forEach(p=>p.classList.toggle('on',p.id==='p-'+pg));$$('.dt button').forEach(b=>b.classList.toggle('on',b.dataset.go===pg));closeAll();$('#sticky').classList.remove('on');if(h)setTimeout(()=>document.querySelector(h)?.scrollIntoView({behavior:'smooth'}),60);else scrollTo(0,0);obs()}
+window.go=go;
+document.addEventListener('click',e=>{const a=e.target.closest('[data-go]');if(!a)return;e.preventDefault();const h=a.getAttribute('href');go(a.dataset.go,h&&h.length>1&&h[0]==='#'?h:null)});
+$('#names').onchange=e=>document.body.classList.toggle('names',e.target.checked);
+$$('img[data-src]').forEach(i=>i.src=src(i.dataset.src));
+col();render();rs();pup();obs();
+</script>
+</body>
+</html>
