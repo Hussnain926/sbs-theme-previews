@@ -1,958 +1,880 @@
-<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#faf9f5;color:#141413}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
-
-<title>Northline Theme</title>
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Northline Techwear Theme</title>
+<meta name="description" content="Northline: a dark techwear Shopify theme design. Design by Shopify Brands SEO.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@500;600;700&family=Barlow:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
-:root{
-  --paper:#ECEAE4; --ink:#0F0F10; --indigo:#14181D; --chambray:#D7FF3A;
-  --thread:#D7FF3A; --stone:#5E6166; --line:#CFCCC3; --card:#DEDBD2;
-  --on-brand:#FFFFFF; --on-brand-soft:#D5D8DC; --on-brand-mute:#B4B9BF;
-  --display:"Space Grotesk","Helvetica Neue",Arial,sans-serif;
-  --body:"Inter","Helvetica Neue",Arial,sans-serif;
-  box-sizing:border-box;
-  padding-top:env(safe-area-inset-top,0px);
-  padding-bottom:env(safe-area-inset-bottom,0px);
+:root{--bg:#0A0C0F;--p1:#11151A;--p2:#181D24;--p3:#222831;--ice:#E4EAF0;--mute:#8B95A1;--dim:#5A6470;--cy:#5BE3EA;--cy2:#2BB8C2;--red:#FF4D3D;--line:rgba(228,234,240,.12);--line2:rgba(91,227,234,.35);--disp:'Chakra Petch',system-ui,sans-serif;--sans:'Barlow',system-ui,sans-serif;--mono:'JetBrains Mono',ui-monospace,monospace;--ease:cubic-bezier(.2,.8,.2,1)}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font:400 16px/1.6 var(--sans);color:var(--ice);background:var(--bg);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+body::before{content:"";position:fixed;inset:0;pointer-events:none;z-index:0;background-image:linear-gradient(var(--line) 1px,transparent 1px),linear-gradient(90deg,var(--line) 1px,transparent 1px);background-size:80px 80px;opacity:.25;mask-image:linear-gradient(180deg,#000,transparent 70%)}
+img{display:block;max-width:100%}
+a{color:inherit;text-decoration:none}
+button,input,select,textarea{font:inherit;color:inherit;background:none;border:0}
+button{cursor:pointer}
+:focus-visible{outline:2px solid var(--cy);outline-offset:2px}
+.wrap{max-width:1440px;margin:0 auto;padding:0 36px;position:relative}
+h1,h2,h3{font-family:var(--disp);font-weight:700;text-transform:uppercase;line-height:.95;letter-spacing:-.01em}
+.c{color:var(--cy)}
+.tag{display:inline-flex;align-items:center;gap:8px;font:500 11px/1 var(--mono);letter-spacing:.14em;text-transform:uppercase;color:var(--cy)}
+.tag::before{content:"[";color:var(--dim)}.tag::after{content:"]";color:var(--dim)}
+.br{position:relative}
+.br::before,.br::after{content:"";position:absolute;width:14px;height:14px;border:2px solid var(--cy);pointer-events:none;z-index:3}
+.br::before{left:-1px;top:-1px;border-right:0;border-bottom:0}
+.br::after{right:-1px;bottom:-1px;border-left:0;border-top:0}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:12px;height:52px;padding:0 26px;font:600 14px/1 var(--disp);letter-spacing:.1em;text-transform:uppercase;transition:background .2s,color .2s,box-shadow .2s;white-space:nowrap;clip-path:polygon(12px 0,100% 0,100% calc(100% - 12px),calc(100% - 12px) 100%,0 100%,0 12px)}
+.btn-c{background:var(--cy);color:#041013}.btn-c:hover{background:#8ff0f4}
+.btn-o{background:var(--p3);color:var(--ice);box-shadow:inset 0 0 0 1px var(--line2)}.btn-o:hover{background:var(--ice);color:var(--bg)}
+.btn::after{content:"→";font-family:var(--mono)}
+.sec{padding:110px 0;position:relative}
+.head{display:flex;justify-content:space-between;align-items:flex-end;gap:30px;margin-bottom:40px}
+.head h2{font-size:clamp(46px,5.4vw,88px);margin-top:16px}
+.head p{max-width:400px;color:var(--mute)}
+.reveal{opacity:0;transform:translateY(16px);transition:opacity .8s var(--ease),transform .8s var(--ease)}
+.reveal.in{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}.reveal{opacity:1;transform:none}}
+/* toolbar */
+.dt{position:sticky;top:0;z-index:95;background:#050608;color:#8B95A1;font-size:12px;border-bottom:1px solid var(--line)}
+.dt .wrap{display:flex;gap:4px;align-items:center;height:44px;overflow-x:auto;scrollbar-width:none}
+.dt b{color:var(--cy);margin-right:12px;white-space:nowrap}
+.dt button{padding:6px 12px;white-space:nowrap;color:#8B95A1}
+.dt button.on{background:var(--cy);color:#041013}
+.dt label{margin-left:auto;display:flex;gap:8px;align-items:center;white-space:nowrap;cursor:pointer}
+body.names [data-dawn]{position:relative;outline:2px dashed rgba(91,227,234,.9);outline-offset:-2px}
+body.names [data-dawn]::before{content:attr(data-dawn);position:absolute;top:6px;left:6px;z-index:60;background:var(--cy);color:#000;font:500 10px/1 var(--mono);padding:5px 8px;pointer-events:none}
+/* system bar */
+.sys{background:#07090B;border-bottom:1px solid var(--line);font:400 11px/1 var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--mute);position:relative;z-index:2}
+.sys .wrap{display:flex;justify-content:space-between;align-items:center;height:34px;gap:20px;white-space:nowrap}
+.sys .l{display:flex;gap:26px}
+.sys i{font-style:normal;color:var(--cy)}
+.sys .dot{display:inline-block;width:6px;height:6px;border-radius:50%;background:var(--cy);margin-right:8px;box-shadow:0 0 10px var(--cy);animation:pulse 2s infinite}
+@keyframes pulse{50%{opacity:.3}}
+/* header: glass bar, bracket logo, numbered nav, command search */
+.hdr{position:sticky;top:44px;z-index:80;background:rgba(10,12,15,.82);backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
+.hdr .wrap{display:flex;align-items:center;gap:30px;height:72px}
+.logo{display:flex;align-items:center;gap:10px;font:700 24px/1 var(--disp);letter-spacing:.12em}
+.logo svg{width:28px;height:28px}
+.nav{display:flex;gap:4px;height:100%;align-items:center}
+.nav>div{height:100%;display:flex;align-items:center}
+.nv{display:flex;gap:6px;align-items:baseline;font:600 13px/1 var(--disp);letter-spacing:.1em;text-transform:uppercase;padding:10px 12px;color:var(--mute);transition:color .2s}
+.nv small{font:400 10px var(--mono);color:var(--dim)}
+.nav>div:hover .nv{color:var(--ice)}
+.nav>div:hover .nv small{color:var(--cy)}
+.mega{position:absolute;left:0;right:0;top:100%;background:rgba(13,16,20,.97);backdrop-filter:blur(14px);border-bottom:1px solid var(--line2);padding:30px 0 36px;opacity:0;visibility:hidden;transform:translateY(-6px);transition:.25s var(--ease)}
+.nav>div:hover .mega,.nav>div:focus-within .mega{opacity:1;visibility:visible;transform:none}
+.mega .wrap{height:auto;display:grid;grid-template-columns:repeat(3,1fr) 1.5fr;gap:30px;align-items:start}
+.mega h5{font:500 11px/1 var(--mono);letter-spacing:.14em;text-transform:uppercase;color:var(--cy);margin-bottom:16px}
+.mega ul{list-style:none;display:grid;gap:10px;font:600 18px/1.2 var(--disp);text-transform:uppercase}
+.mega ul a:hover{color:var(--cy)}
+.mega ul small{font:400 10px var(--mono);color:var(--dim);margin-left:6px}
+.mega .ft{display:grid;grid-template-columns:150px 1fr;gap:18px;background:var(--p2);padding:12px;border:1px solid var(--line)}
+.mega .ft img{width:150px;height:180px;object-fit:cover}
+.mega .ft b{display:block;font:700 26px/1 var(--disp);text-transform:uppercase;margin:10px 0}
+.cmd{display:flex;align-items:center;gap:10px;height:40px;padding:0 12px;border:1px solid var(--line);background:var(--p1);color:var(--mute);font:400 12px var(--mono);min-width:230px;margin-left:auto}
+.cmd kbd{margin-left:auto;font:500 10px var(--mono);border:1px solid var(--line);padding:3px 6px;color:var(--ice)}
+.cmd:hover{border-color:var(--line2);color:var(--ice)}
+.util{display:flex;align-items:center;gap:4px}
+.util a,.util button{display:flex;align-items:center;gap:8px;padding:10px;font:600 12px/1 var(--disp);letter-spacing:.1em;text-transform:uppercase}
+.util a:hover,.util>button:hover{color:var(--cy)}
+#openCart i{font-style:normal;background:var(--cy);color:#041013;min-width:24px;height:24px;display:grid;place-items:center;font:500 12px var(--mono)}
+#openCart.bump i{animation:bump .5s}
+@keyframes bump{40%{transform:scale(1.35)}}
+.burger{display:none!important}
+.mnav{position:fixed;inset:0;z-index:120;background:var(--bg);padding:90px 18px 30px;transform:translateX(100%);transition:transform .45s var(--ease);overflow:auto}
+.mnav.on{transform:none}
+.mnav .x{position:absolute;top:24px;right:18px;font:500 12px var(--mono);text-transform:uppercase}
+.mnav a.big{display:flex;justify-content:space-between;align-items:baseline;font:700 40px/1.2 var(--disp);text-transform:uppercase;border-bottom:1px solid var(--line);padding:10px 0}
+.mnav a.big small{font:400 12px var(--mono);color:var(--cy)}
+/* hero: full bleed night photo with HUD overlay */
+.hero{position:relative;height:calc(100vh - 150px);min-height:620px;max-height:900px;overflow:hidden;border-bottom:1px solid var(--line)}
+.hero>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 40%}
+.hero::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(10,12,15,.92),rgba(10,12,15,.35) 50%,rgba(10,12,15,.6)),linear-gradient(0deg,rgba(10,12,15,.9),transparent 40%)}
+.hero .wrap{position:relative;z-index:2;height:100%;display:grid;grid-template-columns:1.1fr 1fr;align-items:end;padding-bottom:56px;gap:40px}
+.hero h1{font-size:clamp(70px,8.4vw,140px);margin:18px 0 22px;line-height:.88}
+.hero h1 span{display:block;color:transparent;-webkit-text-stroke:1.5px var(--ice)}
+.hero p{color:#B8C1CB;font-size:18px;max-width:470px}
+.hero .ctas{display:flex;gap:12px;margin-top:28px;flex-wrap:wrap}
+.hud{justify-self:end;width:min(380px,100%);background:rgba(17,21,26,.78);backdrop-filter:blur(10px);border:1px solid var(--line2);padding:20px;font:400 12px var(--mono);text-transform:uppercase}
+.hud .t{display:flex;justify-content:space-between;color:var(--cy);margin-bottom:14px;letter-spacing:.1em}
+.hud .r{display:grid;grid-template-columns:1fr auto;gap:10px;padding:9px 0;border-top:1px solid var(--line)}
+.hud .r span{color:var(--mute)}
+.hud .bar{grid-column:1/-1;height:4px;background:var(--p3)}
+.hud .bar i{display:block;height:100%;background:var(--cy)}
+.ret{position:absolute;z-index:2;width:120px;height:120px;border:1px solid var(--line2);border-radius:50%;left:56%;top:22%;pointer-events:none}
+.ret::before,.ret::after{content:"";position:absolute;background:var(--cy)}
+.ret::before{left:50%;top:-14px;bottom:-14px;width:1px}
+.ret::after{top:50%;left:-14px;right:-14px;height:1px}
+.ret b{position:absolute;left:calc(100% + 14px);top:10px;white-space:nowrap;font:500 11px/1.4 var(--mono);color:var(--cy);text-transform:uppercase}
+.ret b small{display:block;color:var(--ice)}
+/* ticker strip */
+.strip{border-bottom:1px solid var(--line);background:var(--p1);overflow:hidden}
+.strip .tr{display:flex;gap:56px;white-space:nowrap;padding:16px 0;width:max-content;animation:tick 40s linear infinite;font:500 13px var(--mono);text-transform:uppercase;letter-spacing:.1em;color:var(--mute)}
+.strip .tr b{color:var(--cy);font-weight:500}
+@keyframes tick{to{transform:translateX(-50%)}}
+/* systems: category tiles */
+.sys3{display:grid;grid-template-columns:1.3fr 1fr 1fr;gap:16px}
+.sys3 a{position:relative;overflow:hidden;min-height:420px;background:var(--p1);display:flex;flex-direction:column;justify-content:flex-end;padding:22px;border:1px solid var(--line)}
+.sys3 a img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.75;transition:transform .8s var(--ease),opacity .4s}
+.sys3 a::after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,rgba(10,12,15,.95),transparent 60%)}
+.sys3 a:hover img{transform:scale(1.04);opacity:1}
+.sys3 a>*:not(img){position:relative;z-index:2}
+.sys3 small{font:400 11px var(--mono);color:var(--cy);text-transform:uppercase;letter-spacing:.12em}
+.sys3 b{display:block;font:700 40px/1 var(--disp);text-transform:uppercase;margin:8px 0 6px}
+.sys3 span{color:var(--mute);font-size:14px}
+/* cards: bracket frame, spec chips, spec overlay */
+.grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+.card{position:relative;background:var(--p1);border:1px solid var(--line);transition:border-color .3s;overflow:hidden}
+.card:hover{border-color:var(--line2)}
+.card .m{display:block;aspect-ratio:4/5;position:relative;overflow:hidden;background:var(--p2)}
+.card .m img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:opacity .4s,transform .7s var(--ease)}
+.card .m .alt{opacity:0}
+.card:hover .m .alt{opacity:1}
+.card .id{position:absolute;left:10px;top:10px;z-index:2;font:500 10px var(--mono);color:var(--ice);background:rgba(10,12,15,.7);padding:4px 7px;letter-spacing:.08em}
+.card .badge{position:absolute;right:10px;top:10px;z-index:2;font:500 10px var(--mono);text-transform:uppercase;padding:4px 7px;background:var(--cy);color:#041013}
+.card .badge.r{background:var(--red);color:#fff}
+.card .ov{position:absolute;left:0;right:0;bottom:0;z-index:3;background:rgba(10,12,15,.92);backdrop-filter:blur(6px);border-top:1px solid var(--line2);padding:12px;transform:translateY(101%);transition:transform .35s var(--ease)}
+.card:hover .ov,.card:focus-within .ov{transform:none}
+.card .ov .sp{display:grid;gap:6px;margin-bottom:10px}
+.card .ov .sp div{display:grid;grid-template-columns:76px 1fr 30px;gap:8px;align-items:center;font:400 10px var(--mono);text-transform:uppercase;color:var(--mute)}
+.card .ov .sp i{height:3px;background:var(--p3);position:relative}
+.card .ov .sp i::after{content:"";position:absolute;left:0;top:0;bottom:0;width:var(--w);background:var(--cy)}
+.card .ov .sz{display:grid;grid-template-columns:repeat(5,1fr);gap:4px}
+.card .ov .sz button{height:32px;font:500 11px var(--mono);border:1px solid var(--line)}
+.card .ov .sz button:hover{background:var(--cy);color:#041013;border-color:var(--cy)}
+.card .ov .sz button:disabled{opacity:.3;text-decoration:line-through}
+.card .ov .sz button:disabled:hover{background:none;color:var(--ice);border-color:var(--line)}
+.card .ov .one{width:100%;height:34px;background:var(--cy);color:#041013;font:600 12px var(--disp);text-transform:uppercase;letter-spacing:.1em}
+.card .in{padding:14px}
+.card h3{font:600 16px/1.25 var(--disp);text-transform:uppercase;letter-spacing:.02em}
+.card .chips{display:flex;gap:4px;flex-wrap:wrap;margin:8px 0 10px}
+.card .chips span{font:400 10px var(--mono);border:1px solid var(--line);padding:3px 6px;color:var(--mute);text-transform:uppercase}
+.card .bot{display:flex;justify-content:space-between;align-items:center}
+.card .pr{font:600 20px var(--disp)}
+.card .pr s{font:400 12px var(--mono);color:var(--dim);margin-right:6px}
+.card .sw{display:flex;gap:4px}
+.card .sw i{width:12px;height:12px;border:1px solid rgba(255,255,255,.25)}
+/* condition matcher */
+.cond{display:grid;grid-template-columns:1fr 1.3fr;gap:0;border:1px solid var(--line);background:var(--p1)}
+.cond .ctl{padding:36px;border-right:1px solid var(--line)}
+.cond h2{font-size:clamp(44px,4.6vw,76px);margin:14px 0 14px}
+.cond .ctl>p{color:var(--mute)}
+.dial{margin-top:28px}
+.dial label{display:flex;justify-content:space-between;font:500 11px var(--mono);text-transform:uppercase;letter-spacing:.1em;color:var(--mute);margin-bottom:10px}
+.dial label b{color:var(--cy);font-weight:500;font-size:14px}
+.dial input[type=range]{width:100%;-webkit-appearance:none;height:4px;background:linear-gradient(90deg,#3E7BFF,var(--cy) 50%,var(--red));outline:0}
+.dial input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:20px;height:20px;background:var(--ice);border:3px solid var(--bg);box-shadow:0 0 0 1px var(--cy);cursor:pointer}
+.seg{display:grid;grid-template-columns:repeat(3,1fr);border:1px solid var(--line)}
+.seg button{padding:12px 6px;font:600 12px var(--disp);text-transform:uppercase;letter-spacing:.08em;color:var(--mute);border-right:1px solid var(--line)}
+.seg button:last-child{border-right:0}
+.seg button.on{background:var(--cy);color:#041013}
+.cond .out{padding:36px;display:flex;flex-direction:column;gap:18px}
+.cond .rd{display:flex;justify-content:space-between;align-items:flex-end;gap:14px;flex-wrap:wrap}
+.cond .rd b{font:700 34px/1 var(--disp);text-transform:uppercase}
+.cond .rd small{display:block;font:400 11px var(--mono);color:var(--cy);text-transform:uppercase;letter-spacing:.12em;margin-bottom:6px}
+.stack{display:grid;gap:10px}
+.lay{display:grid;grid-template-columns:44px 84px 1fr auto;gap:16px;align-items:center;background:var(--p2);border:1px solid var(--line);padding:10px;transition:opacity .3s,border-color .3s}
+.lay.off{opacity:.3}
+.lay.on{border-color:var(--line2)}
+.lay>i{font:500 12px var(--mono);font-style:normal;color:var(--cy)}
+.lay img{width:84px;height:100px;object-fit:cover}
+.lay b{display:block;font:600 16px var(--disp);text-transform:uppercase}
+.lay small{font:400 11px var(--mono);color:var(--mute);text-transform:uppercase}
+.lay span{font:600 18px var(--disp)}
+.cond .tot{display:flex;justify-content:space-between;align-items:center;gap:14px;border-top:1px dashed var(--line);padding-top:16px;flex-wrap:wrap}
+.cond .tot b{font:700 34px/1 var(--disp)}
+.cond .tot small{display:block;font:400 11px var(--mono);color:var(--mute);text-transform:uppercase}
+/* rig builder */
+.rig{display:grid;grid-template-columns:1.1fr 1fr;gap:40px;align-items:start}
+.rig .vis{position:relative;aspect-ratio:1/1;background:radial-gradient(circle at 50% 50%,var(--p3),var(--p1) 70%);border:1px solid var(--line);overflow:hidden}
+.rig .vis>img{position:absolute;inset:8%;width:84%;height:84%;object-fit:cover}
+.rig .vis .ring{position:absolute;inset:6%;border:1px dashed var(--line2);border-radius:50%;animation:spin 60s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+.node{position:absolute;z-index:2;display:flex;align-items:center;gap:8px;font:500 11px var(--mono);text-transform:uppercase;transition:opacity .3s}
+.node i{width:14px;height:14px;border:2px solid var(--cy);background:var(--bg);transform:rotate(45deg)}
+.node.on i{background:var(--cy);box-shadow:0 0 14px var(--cy)}
+.node:not(.on){opacity:.45}
+.node b{background:rgba(10,12,15,.85);padding:5px 8px;border:1px solid var(--line);font-weight:500}
+.rig .pick h2{font-size:clamp(44px,4.6vw,76px);margin:14px 0}
+.rig .pick>p{color:var(--mute)}
+.base{display:grid;grid-template-columns:repeat(2,1fr);gap:8px;margin:22px 0 18px}
+.base button{text-align:left;padding:14px;border:1px solid var(--line);background:var(--p1)}
+.base button b{display:block;font:600 15px var(--disp);text-transform:uppercase}
+.base button small{font:400 11px var(--mono);color:var(--mute)}
+.base button.on{border-color:var(--cy);background:var(--p2)}
+.mods{display:grid;gap:8px}
+.mods label{display:grid;grid-template-columns:22px 1fr auto;gap:12px;align-items:center;padding:12px 14px;border:1px solid var(--line);background:var(--p1);cursor:pointer}
+.mods input{appearance:none;width:18px;height:18px;border:1px solid var(--line2);display:grid;place-items:center}
+.mods input:checked{background:var(--cy)}
+.mods input:checked::after{content:"✓";color:#041013;font-size:12px}
+.mods label:has(input:checked){border-color:var(--line2)}
+.mods b{font:600 14px var(--disp);text-transform:uppercase;display:block}
+.mods small{font:400 11px var(--mono);color:var(--mute)}
+.mods span{font:600 16px var(--disp)}
+.rig .sum{display:flex;justify-content:space-between;align-items:center;gap:14px;margin-top:18px;padding:18px;background:var(--p2);border:1px solid var(--line2);flex-wrap:wrap}
+.rig .sum b{font:700 34px/1 var(--disp)}
+.rig .sum small{display:block;font:400 11px var(--mono);color:var(--mute);text-transform:uppercase}
+.rig .sum em{font-style:normal;color:var(--cy)}
+/* spec compare */
+.cmpw{border:1px solid var(--line);background:var(--p1);overflow-x:auto}
+.cmp{width:100%;border-collapse:collapse;min-width:760px}
+.cmp th,.cmp td{padding:14px 18px;border-bottom:1px solid var(--line);text-align:left;vertical-align:middle}
+.cmp thead th{font-weight:400}
+.cmp thead img{width:100%;max-width:160px;aspect-ratio:4/5;object-fit:cover;margin-bottom:10px}
+.cmp thead b{display:block;font:600 16px var(--disp);text-transform:uppercase}
+.cmp thead span{font:600 18px var(--disp);color:var(--cy)}
+.cmp tbody th{font:500 11px var(--mono);color:var(--mute);text-transform:uppercase;letter-spacing:.08em;width:200px}
+.cmp td{font:500 14px var(--mono)}
+.cmp td .gb{display:block;height:4px;background:var(--p3);margin-top:8px;position:relative}
+.cmp td .gb i{position:absolute;left:0;top:0;bottom:0;background:var(--mute)}
+.cmp td.best{color:var(--cy)}
+.cmp td.best .gb i{background:var(--cy)}
+.cmp tr.same{opacity:.35}
+.cmpt{display:flex;justify-content:space-between;align-items:center;gap:14px;margin-bottom:14px;flex-wrap:wrap}
+.tgl{display:flex;align-items:center;gap:10px;font:500 12px var(--mono);text-transform:uppercase;color:var(--mute);cursor:pointer}
+.tgl input{appearance:none;width:40px;height:22px;background:var(--p3);border:1px solid var(--line);position:relative;cursor:pointer}
+.tgl input::after{content:"";position:absolute;left:3px;top:3px;width:14px;height:14px;background:var(--mute);transition:.2s}
+.tgl input:checked{border-color:var(--cy)}
+.tgl input:checked::after{left:21px;background:var(--cy)}
+/* field test */
+.field{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.field .ph{position:relative;min-height:540px;border:1px solid var(--line);overflow:hidden}
+.field .ph img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.field .log{border:1px solid var(--line);background:var(--p1);padding:32px;display:flex;flex-direction:column;justify-content:space-between;gap:20px}
+.field h2{font-size:clamp(44px,4.4vw,72px);margin:14px 0}
+.field .entry{display:grid;grid-template-columns:110px 1fr;gap:16px;padding:14px 0;border-top:1px solid var(--line);font-size:15px;color:#B8C1CB}
+.field .entry b{font:500 11px var(--mono);color:var(--cy);text-transform:uppercase}
+/* reviews */
+.rv{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.rv>div{background:var(--p1);border:1px solid var(--line);padding:26px}
+.rv .s{color:var(--cy);letter-spacing:3px;font-size:14px}
+.rv p{font:500 19px/1.45 var(--sans);margin:14px 0 18px;color:var(--ice)}
+.rv small{display:flex;justify-content:space-between;gap:10px;font:400 11px var(--mono);color:var(--mute);text-transform:uppercase}
+/* newsletter */
+.news{display:grid;grid-template-columns:1.2fr 1fr;gap:40px;align-items:center;border:1px solid var(--line2);background:linear-gradient(120deg,rgba(91,227,234,.08),transparent 60%),var(--p1);padding:48px}
+.news h2{font-size:clamp(44px,4.8vw,78px)}
+.news form{display:flex;border:1px solid var(--line2);background:var(--bg)}
+.news input{flex:1;height:56px;padding:0 16px;min-width:0;font-family:var(--mono);font-size:14px}
+.news form .btn{clip-path:none;height:56px}
+.news small{display:block;margin-top:10px;font:400 11px var(--mono);color:var(--mute);text-transform:uppercase}
+/* footer */
+.ftr{border-top:1px solid var(--line);background:#07090B;color:var(--mute);padding:70px 0 26px;margin-top:110px;font-size:14px;position:relative}
+.ftr .cols{display:grid;grid-template-columns:1.5fr repeat(3,1fr);gap:30px}
+.ftr .logo{color:var(--ice)}
+.ftr p{margin-top:16px;max-width:320px}
+.ftr h5{font:500 11px/1 var(--mono);text-transform:uppercase;letter-spacing:.14em;color:var(--cy);margin-bottom:16px}
+.ftr ul{list-style:none;display:grid;gap:9px}
+.ftr ul a:hover{color:var(--ice)}
+.ftr .big{font:700 clamp(80px,14vw,230px)/.8 var(--disp);color:transparent;-webkit-text-stroke:1px rgba(228,234,240,.18);margin:50px 0 26px;letter-spacing:.04em;white-space:nowrap;overflow:hidden}
+.ftr .bot{display:flex;justify-content:space-between;align-items:center;gap:14px;flex-wrap:wrap;font:400 11px var(--mono);text-transform:uppercase}
+.pay{display:flex;gap:6px}.pay span{border:1px solid var(--line);padding:4px 7px}
+/* pages */
+.page{display:none;position:relative;z-index:1}.page.on{display:block}
+.crumbs{font:400 11px var(--mono);text-transform:uppercase;color:var(--mute);padding:22px 0;letter-spacing:.08em}
+.crumbs a:hover{color:var(--cy)}
+.crumbs b{color:var(--cy);font-weight:400}
+/* collection */
+.chead{position:relative;min-height:340px;border:1px solid var(--line);overflow:hidden;display:flex;align-items:flex-end;padding:36px}
+.chead>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.55}
+.chead::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(10,12,15,.95),rgba(10,12,15,.3))}
+.chead>div{position:relative;z-index:2}
+.chead h1{font-size:clamp(70px,8vw,130px);margin:14px 0 10px}
+.chead p{color:#B8C1CB;max-width:460px}
+.clay{display:grid;grid-template-columns:250px 1fr;gap:30px;margin-top:30px}
+.side{position:sticky;top:134px;align-self:start;display:grid;gap:20px}
+.side h4{font:500 11px var(--mono);text-transform:uppercase;letter-spacing:.12em;color:var(--cy);margin-bottom:10px}
+.side label{display:flex;align-items:center;gap:10px;padding:5px 0;cursor:pointer;font-size:15px;color:#B8C1CB}
+.side input[type=checkbox]{appearance:none;width:16px;height:16px;border:1px solid var(--line2)}
+.side input[type=checkbox]:checked{background:var(--cy)}
+.side .szg{display:grid;grid-template-columns:repeat(5,1fr);gap:4px}
+.side .szg label{justify-content:center;border:1px solid var(--line);padding:8px 0;font:500 12px var(--mono)}
+.side .szg input{display:none}
+.side .szg label:has(input:checked){background:var(--cy);color:#041013;border-color:var(--cy)}
+.side .rng{display:flex;justify-content:space-between;font:400 12px var(--mono);color:var(--mute)}
+.side input[type=range]{width:100%;accent-color:#5BE3EA}
+.ctop{display:flex;justify-content:space-between;align-items:center;gap:14px;padding-bottom:16px;border-bottom:1px solid var(--line);margin-bottom:20px;flex-wrap:wrap}
+.ctop span{font:400 12px var(--mono);color:var(--mute);text-transform:uppercase}
+.ctop select{background:var(--p1);border:1px solid var(--line);padding:9px 12px;font:500 12px var(--mono);text-transform:uppercase}
+.chips2{display:flex;gap:6px;flex-wrap:wrap}
+.chips2 button{border:1px solid var(--line2);padding:5px 9px;font:400 11px var(--mono);text-transform:uppercase;color:var(--cy)}
+.chips2 button::after{content:" ×"}
+.mfilt{display:none!important}
+.cgrid{grid-template-columns:repeat(3,1fr)}
+.promo{border:1px solid var(--line2);background:linear-gradient(160deg,rgba(91,227,234,.14),transparent 60%),var(--p1);padding:26px;display:flex;flex-direction:column;justify-content:space-between;min-height:420px}
+.promo h3{font-size:46px;margin:12px 0}
+.promo p{color:var(--mute)}
+.empty{padding:40px 0;color:var(--mute);font:400 13px var(--mono);text-transform:uppercase}
+.pager{display:flex;justify-content:center;gap:6px;margin-top:50px}
+.pager button{width:46px;height:46px;border:1px solid var(--line);font:500 13px var(--mono)}
+.pager button.on{background:var(--cy);color:#041013;border-color:var(--cy)}
+/* product */
+.pdp{display:grid;grid-template-columns:1.25fr 1fr;gap:50px;padding-bottom:70px}
+.gal{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.gal>div{position:relative;aspect-ratio:4/5;overflow:hidden;border:1px solid var(--line);background:var(--p1)}
+.gal>div:first-child,.gal>div:last-child{grid-column:1/-1;aspect-ratio:5/4}
+.gal img{width:100%;height:100%;object-fit:cover}
+.gal small{position:absolute;left:10px;top:10px;font:400 10px var(--mono);background:rgba(10,12,15,.75);padding:4px 7px;text-transform:uppercase}
+.gal .ret{left:58%;top:30%;width:90px;height:90px}
+.info{position:sticky;top:134px;align-self:start}
+.info .idl{display:flex;justify-content:space-between;font:400 11px var(--mono);color:var(--mute);text-transform:uppercase;margin-bottom:12px}
+.info .idl b{color:var(--cy);font-weight:400}
+.info h1{font-size:clamp(48px,4.4vw,72px)}
+.info .pp{display:flex;align-items:baseline;gap:12px;margin:12px 0 8px}
+.info .pp b{font:700 36px var(--disp)}
+.info .pp span{font:400 12px var(--mono);color:var(--mute)}
+.info .lede{color:#B8C1CB}
+.optl{display:flex;justify-content:space-between;font:500 11px var(--mono);letter-spacing:.1em;text-transform:uppercase;margin:24px 0 10px;color:var(--mute)}
+.optl span{color:var(--ice)}
+.optl a{color:var(--cy);text-decoration:underline;text-underline-offset:3px}
+.pcol{display:flex;gap:8px}
+.pcol button{width:46px;height:46px;border:1px solid var(--line);padding:4px}
+.pcol button i{display:block;width:100%;height:100%}
+.pcol button.on{border-color:var(--cy)}
+.psz{display:grid;grid-template-columns:repeat(5,1fr);gap:6px}
+.psz button{height:52px;border:1px solid var(--line);font:500 14px var(--mono);background:var(--p1)}
+.psz button.on{background:var(--cy);color:#041013;border-color:var(--cy)}
+.psz button:disabled{opacity:.3;text-decoration:line-through;cursor:not-allowed}
+.buy{display:grid;grid-template-columns:1fr 56px;gap:8px;margin-top:20px}
+.buy .btn{height:58px;clip-path:none}
+.buy .wish{border:1px solid var(--line);font-size:18px}
+.buy .wish.on{background:var(--cy);color:#041013}
+.rate{margin-top:20px;border:1px solid var(--line);background:var(--p1)}
+.rate div{display:grid;grid-template-columns:130px 1fr 66px;gap:12px;align-items:center;padding:11px 14px;border-bottom:1px solid var(--line);font:400 11px var(--mono);text-transform:uppercase;color:var(--mute)}
+.rate div:last-child{border-bottom:0}
+.rate i{height:4px;background:var(--p3);position:relative}
+.rate i::after{content:"";position:absolute;left:0;top:0;bottom:0;width:var(--w);background:var(--cy)}
+.rate b{color:var(--ice);font-weight:500;text-align:right}
+.acc{margin-top:20px;border-top:1px solid var(--line)}
+.acc details{border-bottom:1px solid var(--line)}
+.acc summary{list-style:none;display:flex;justify-content:space-between;padding:16px 0;cursor:pointer;font:600 16px var(--disp);text-transform:uppercase;letter-spacing:.06em}
+.acc summary::after{content:"+";font-family:var(--mono);color:var(--cy)}
+.acc details[open] summary::after{content:"−"}
+.acc .b{padding-bottom:16px;color:var(--mute)}
+.sticky-atc{position:fixed;left:0;right:0;bottom:0;z-index:70;background:rgba(10,12,15,.92);backdrop-filter:blur(12px);border-top:1px solid var(--line2);transform:translateY(100%);transition:transform .4s var(--ease)}
+.sticky-atc.on{transform:none}
+.sticky-atc .wrap{display:flex;align-items:center;gap:14px;height:72px}
+.sticky-atc img{width:48px;height:60px;object-fit:cover}
+.sticky-atc b{display:block;font:600 18px/1 var(--disp);text-transform:uppercase}
+.sticky-atc small{font:400 11px var(--mono);color:var(--mute);text-transform:uppercase}
+.sticky-atc .btn{margin-left:auto}
+.modal{position:fixed;inset:0;z-index:125;display:grid;place-items:center;background:rgba(5,6,8,.7);opacity:0;visibility:hidden;transition:.3s}
+.modal.on{opacity:1;visibility:visible}
+.modal .bx{background:var(--p1);border:1px solid var(--line2);width:min(620px,92vw);padding:30px;position:relative}
+.modal .bx h3{font-size:44px;margin-bottom:8px}
+.modal .x{position:absolute;top:18px;right:18px;font:500 12px var(--mono);text-transform:uppercase}
+.modal table{width:100%;border-collapse:collapse;margin-top:14px;font:400 13px var(--mono)}
+.modal td,.modal th{padding:9px;text-align:left;border-bottom:1px solid var(--line)}
+.modal th{color:var(--cy);text-transform:uppercase;font-weight:500}
+.unit{display:inline-flex;border:1px solid var(--line);margin-top:10px}
+.unit button{padding:7px 14px;font:500 12px var(--mono)}.unit button.on{background:var(--cy);color:#041013}
+/* cart */
+.cpage{display:grid;grid-template-columns:1.5fr 1fr;gap:40px;padding-bottom:40px}
+.cpage h1{font-size:clamp(70px,8vw,120px);margin-bottom:18px}
+.prog{font:400 12px var(--mono);text-transform:uppercase;color:var(--mute)}
+.prog b{color:var(--cy);font-weight:400}
+.prog .bar{height:4px;background:var(--p3);margin-top:10px}
+.prog .bar i{display:block;height:100%;background:var(--cy);box-shadow:0 0 10px var(--cy);transition:width .6s var(--ease)}
+.li{display:grid;grid-template-columns:96px 1fr auto;gap:18px;padding:18px 0;border-bottom:1px solid var(--line);align-items:start}
+.li img{width:96px;height:120px;object-fit:cover;border:1px solid var(--line)}
+.li b{font:600 16px var(--disp);text-transform:uppercase;display:block}
+.li small{display:block;color:var(--mute);font:400 11px var(--mono);text-transform:uppercase;margin-top:4px}
+.li .q{display:flex;align-items:center;gap:12px;margin-top:12px;font:500 13px var(--mono)}
+.li .q button{width:30px;height:30px;border:1px solid var(--line)}
+.li .q .rm{width:auto;height:auto;border:0;text-decoration:underline;color:var(--mute);font:400 11px var(--mono);text-transform:uppercase}
+.li>span{font:600 20px var(--disp)}
+.note{margin-top:22px}
+.note label{font:500 11px var(--mono);text-transform:uppercase;color:var(--mute)}
+.note textarea{display:block;width:100%;border:1px solid var(--line);padding:12px;margin-top:8px;min-height:80px;background:var(--p1)}
+.summ{position:sticky;top:134px;align-self:start;display:grid;gap:14px}
+.summ .box{background:var(--p1);border:1px solid var(--line2);padding:28px}
+.summ h3{font-size:40px;margin-bottom:12px}
+.summ .r{display:flex;justify-content:space-between;padding:8px 0;font:400 13px var(--mono);text-transform:uppercase;color:var(--mute)}
+.summ .r span:last-child{color:var(--ice)}
+.summ .t{border-top:1px solid var(--line);margin-top:8px;padding-top:14px;font:700 30px/1 var(--disp);color:var(--ice)}
+.summ .btn{width:100%;margin-top:16px;clip-path:none}
+.summ .po{border:1px solid var(--line);padding:18px;font-size:14px;color:var(--mute)}
+.summ .po b{display:block;color:var(--ice);font:600 16px var(--disp);text-transform:uppercase;margin-bottom:4px}
+.scrim{position:fixed;inset:0;z-index:100;background:rgba(5,6,8,.6);opacity:0;visibility:hidden;transition:.3s}
+.scrim.on{opacity:1;visibility:visible}
+.drawer{position:fixed;top:0;right:0;bottom:0;z-index:110;width:440px;max-width:100%;background:var(--p1);border-left:1px solid var(--line2);transform:translateX(100%);transition:transform .45s var(--ease);display:flex;flex-direction:column}
+.drawer.on{transform:none}
+.drawer .hd{display:flex;justify-content:space-between;align-items:center;padding:22px;border-bottom:1px solid var(--line)}
+.drawer .hd h3{font-size:34px}
+.drawer .hd button{font:500 12px var(--mono);text-transform:uppercase}
+.drawer .pg{padding:14px 22px;border-bottom:1px solid var(--line)}
+.drawer .ls{flex:1;overflow:auto;padding:0 22px}
+.drawer .li{grid-template-columns:72px 1fr auto}
+.drawer .li img{width:72px;height:90px}
+.drawer .ft{padding:18px 22px;border-top:1px solid var(--line)}
+.drawer .ft .r{display:flex;justify-content:space-between;font:700 26px/1 var(--disp);margin-bottom:14px}
+.drawer .ft .btn{width:100%;clip-path:none}
+.toast{position:fixed;left:50%;bottom:24px;z-index:130;transform:translate(-50%,20px);opacity:0;visibility:hidden;background:var(--p2);border:1px solid var(--line2);color:var(--ice);padding:13px 18px;font:400 12px var(--mono);text-transform:uppercase;transition:.35s var(--ease)}
+.toast::before{content:"> ";color:var(--cy)}
+.toast.on{opacity:1;visibility:visible;transform:translate(-50%,0)}
+/* search */
+.sform{display:flex;align-items:center;gap:14px;border:1px solid var(--line2);background:var(--p1);padding:0 20px;margin:6px 0 16px}
+.sform span{font:500 28px var(--mono);color:var(--cy)}
+.sform input{flex:1;font:700 clamp(40px,5vw,80px)/1.3 var(--disp);text-transform:uppercase;min-width:0}
+.sform kbd{font:500 11px var(--mono);border:1px solid var(--line);padding:4px 8px;color:var(--mute)}
+.sugg{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:26px;align-items:center;font:400 12px var(--mono);color:var(--mute);text-transform:uppercase}
+.sugg button{border:1px solid var(--line);padding:6px 12px;font:400 12px var(--mono);text-transform:uppercase;color:var(--ice)}
+.sugg button:hover{border-color:var(--cy);color:var(--cy)}
+/* blog */
+.bhead{display:flex;justify-content:space-between;align-items:flex-end;gap:20px;padding:10px 0 30px;border-bottom:1px solid var(--line);margin-bottom:30px}
+.bhead h1{font-size:clamp(80px,10vw,150px)}
+.bfeat{display:grid;grid-template-columns:1.4fr 1fr;border:1px solid var(--line);background:var(--p1);margin-bottom:20px}
+.bfeat .ph{position:relative;min-height:440px}
+.bfeat .ph img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.bfeat .tx{padding:36px;display:flex;flex-direction:column;justify-content:space-between}
+.bfeat h2{font-size:clamp(40px,4vw,64px);margin:14px 0}
+.bfeat p{color:var(--mute)}
+.jgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.post{display:block;background:var(--p1);border:1px solid var(--line);transition:border-color .3s}
+.post:hover{border-color:var(--line2)}
+.post .ph{aspect-ratio:4/3;overflow:hidden}
+.post .ph img{width:100%;height:100%;object-fit:cover;transition:transform .8s var(--ease)}
+.post:hover .ph img{transform:scale(1.04)}
+.post .b{padding:18px}
+.post h3{font-size:26px;margin:10px 0 6px}
+.post p{color:var(--mute);font-size:14px}
+.post .meta{display:flex;justify-content:space-between;font:400 11px var(--mono);color:var(--dim);text-transform:uppercase;margin-top:12px}
+/* article */
+.art{max-width:800px;margin:0 auto;padding-bottom:40px}
+.art h1{font-size:clamp(56px,6.6vw,104px);margin:14px 0}
+.art .by{display:flex;gap:20px;font:400 12px var(--mono);color:var(--mute);text-transform:uppercase}
+.art .big{margin:34px -110px;border:1px solid var(--line)}
+.art .big img{width:100%;aspect-ratio:16/9;object-fit:cover}
+.art p{font-size:18px;line-height:1.75;margin-bottom:20px;color:#C7CED6}
+.art h2{font-size:46px;margin:40px 0 14px}
+.art .spec{border:1px solid var(--line);background:var(--p1);margin:26px 0;font:400 13px var(--mono)}
+.art .spec div{display:grid;grid-template-columns:1fr 1fr;padding:12px 16px;border-bottom:1px solid var(--line)}
+.art .spec div:last-child{border-bottom:0}
+.art .spec span:first-child{color:var(--mute);text-transform:uppercase}
+.art blockquote{margin:34px 0;padding:24px 0 24px 24px;border-left:2px solid var(--cy);font:700 38px/1.1 var(--disp);text-transform:uppercase}
+.share{display:flex;gap:8px;flex-wrap:wrap;font:400 11px var(--mono);text-transform:uppercase}
+.share a{border:1px solid var(--line);padding:7px 12px}
+.share a:hover{border-color:var(--cy);color:var(--cy)}
+/* about */
+.ab{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:6px}
+.ab .t{padding:40px;border:1px solid var(--line);background:var(--p1)}
+.ab h1{font-size:clamp(60px,6.4vw,104px);margin:14px 0 20px}
+.ab p{font-size:17px;color:#B8C1CB;margin-bottom:12px}
+.ab .ph{position:relative;min-height:540px;border:1px solid var(--line);overflow:hidden}
+.ab .ph img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.vals{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.vals div{border:1px solid var(--line);background:var(--p1);padding:26px}
+.vals b{font:500 12px var(--mono);color:var(--cy)}
+.vals h3{font-size:30px;margin:12px 0 8px}
+.vals p{color:var(--mute)}
+/* contact */
+.ct{display:grid;grid-template-columns:1fr 1fr;gap:40px;padding-bottom:40px}
+.ct h1{font-size:clamp(70px,8vw,124px);margin:14px 0}
+.ct .ways{display:grid;gap:8px;margin-top:22px}
+.ct .ways div{border:1px solid var(--line);background:var(--p1);padding:14px 16px;font-size:14px;color:var(--mute)}
+.ct .ways b{display:block;font:600 18px/1.2 var(--disp);color:var(--ice);text-transform:uppercase}
+.cform{border:1px solid var(--line2);background:var(--p1);padding:30px;display:grid;gap:10px;align-content:start}
+.cform h3{font-size:40px;margin-bottom:6px}
+.cform input,.cform select,.cform textarea{width:100%;border:1px solid var(--line);padding:13px;background:var(--bg);font-family:var(--mono);font-size:14px}
+.cform textarea{min-height:120px}
+.cform .btn{clip-path:none}
+.cform .ok{display:none;color:var(--cy);font:400 12px var(--mono);text-transform:uppercase}.cform .ok.on{display:block}
+.faq{border-top:1px solid var(--line);max-width:980px}
+.faq details{border-bottom:1px solid var(--line)}
+.faq summary{list-style:none;display:flex;justify-content:space-between;padding:22px 0;cursor:pointer;font:600 22px/1.1 var(--disp);text-transform:uppercase}
+.faq summary::after{content:"+";font-family:var(--mono);color:var(--cy)}
+.faq details[open] summary::after{content:"−"}
+.faq p{padding:0 0 22px;color:var(--mute);max-width:720px}
+/* 404 */
+.nf{position:relative;min-height:560px;border:1px solid var(--line);overflow:hidden;display:flex;align-items:center;margin-top:6px}
+.nf>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.4;filter:grayscale(1)}
+.nf::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(10,12,15,.95),rgba(10,12,15,.4))}
+.nf>div{position:relative;z-index:2;padding:46px}
+.nf b{display:block;font:700 clamp(130px,17vw,250px)/.85 var(--disp);color:transparent;-webkit-text-stroke:2px var(--cy)}
+.nf h1{font-size:48px;margin:14px 0}
+.nf p{max-width:420px;margin-bottom:24px;color:#B8C1CB;font-family:var(--mono);font-size:14px}
+/* responsive */
+@media (max-width:1150px){.wrap{padding:0 24px}.grid{grid-template-columns:repeat(3,1fr)}.cmd{min-width:0}.cmd span,.cmd kbd{display:none}.sys .l span:nth-child(n+3){display:none}.art .big{margin:30px 0}.cgrid{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:900px){
+ .wrap{padding:0 14px}.sec{padding:70px 0}
+ .sys .wrap{justify-content:center}.sys .r,.sys .l span:nth-child(n+2){display:none}
+ .hdr .wrap{height:60px;gap:10px}.nav,.cmd,.util .acct{display:none}.burger{display:flex!important}.logo{font-size:20px}.util{margin-left:auto}
+ .hero{height:auto;min-height:0;max-height:none}.hero>img{object-position:46% 30%}.hero .wrap{grid-template-columns:1fr;padding:300px 14px 34px;gap:24px}.hero h1{font-size:64px}.hero p{font-size:16px}.hud{justify-self:stretch}.ret{left:58%;top:12%;width:80px;height:80px}.ret b{display:none}
+ .head{flex-direction:column;align-items:flex-start;gap:10px}.head h2{font-size:48px}
+ .sys3{grid-template-columns:1fr}.sys3 a{min-height:260px}.sys3 b{font-size:32px}
+ .grid{grid-template-columns:repeat(2,1fr);gap:10px}.card .in{padding:10px}.card h3{font-size:13px}.card .chips span:nth-child(n+3){display:none}.card .ov .sz{grid-template-columns:repeat(3,1fr)}.card .ov .sp{display:none}
+ .cond{grid-template-columns:1fr}.cond .ctl{border-right:0;border-bottom:1px solid var(--line);padding:24px 16px}.cond .out{padding:24px 16px}.lay{grid-template-columns:30px 60px 1fr auto;gap:10px}.lay img{width:60px;height:72px}.lay b{font-size:14px}
+ .rig{grid-template-columns:1fr;gap:24px}.node b{font-size:10px;padding:4px 6px}.base{grid-template-columns:1fr 1fr}
+ .field{grid-template-columns:1fr}.field .ph{min-height:320px}.field .log{padding:24px 16px}.field .entry{grid-template-columns:1fr;gap:4px}
+ .rv{grid-template-columns:1fr}
+ .news{grid-template-columns:1fr!important;padding:26px 16px;gap:18px}.news>div{min-width:0;justify-content:flex-start!important}.news h2{font-size:40px}.news form .btn{padding:0 16px}
+ .ftr .cols{grid-template-columns:1fr 1fr}.ftr .cols>div:first-child{grid-column:1/-1}
+ .chead{padding:24px 16px;min-height:260px}.chead h1{font-size:68px}
+ .clay{grid-template-columns:1fr}.side{display:none}.mfilt{display:flex!important}.cgrid{grid-template-columns:repeat(2,1fr)}.promo{grid-column:1/-1;min-height:260px}
+ .pdp{grid-template-columns:1fr;gap:20px}.gal{grid-template-columns:1fr 1fr;gap:6px}.info{position:static}.rate div{grid-template-columns:110px 1fr 56px}
+ .sticky-atc .wrap{height:64px}.sticky-atc img{display:none}.sticky-atc b{font-size:15px}
+ .cpage{grid-template-columns:1fr;gap:24px}.cpage h1{font-size:72px}.li{grid-template-columns:80px 1fr}.li img{width:80px;height:100px}.li>span{grid-column:2}.summ{position:static}
+ .sform input{font-size:36px}.sform kbd{display:none}
+ .bhead{flex-direction:column;align-items:flex-start}.bhead h1{font-size:88px}.bfeat{grid-template-columns:1fr}.bfeat .ph{min-height:260px}.bfeat .tx{padding:22px 16px}.jgrid{grid-template-columns:1fr}
+ .art h1{font-size:56px}.art .big{margin:24px -14px}.art blockquote{font-size:28px}
+ .ab{grid-template-columns:1fr}.ab .t{padding:26px 16px}.ab .ph{min-height:300px}.ab h1{font-size:60px}
+ .vals{grid-template-columns:1fr}.ct{grid-template-columns:1fr}.ct h1{font-size:72px}.cform{padding:22px 16px}
+ .nf>div{padding:26px 16px}.nf h1{font-size:38px}
 }
-@media (prefers-color-scheme: dark){
-  :root:not([data-theme="light"]){--paper:#0E0F11;--ink:#ECEAE4;--indigo:#D7FF3A;--chambray:#2A3A08;--stone:#A6A9AE;--line:#2A2D31;--card:#1A1C1F;--on-brand:#0E0F11;--on-brand-soft:#26330A;--on-brand-mute:#33430E;color-scheme:dark}
-}
-:root[data-theme="dark"]{--paper:#0E0F11;--ink:#ECEAE4;--indigo:#D7FF3A;--chambray:#2A3A08;--stone:#A6A9AE;--line:#2A2D31;--card:#1A1C1F;--on-brand:#0E0F11;--on-brand-soft:#26330A;--on-brand-mute:#33430E;color-scheme:dark}
-*,*::before,*::after{box-sizing:inherit}
-html{scroll-padding-top:env(safe-area-inset-top,0px)}
-body{margin:0;background:var(--paper);color:var(--ink);font:400 16px/1.6 var(--body);-webkit-font-smoothing:antialiased}
-img,svg{max-width:100%;display:block}
-a{color:inherit}
-button,input,select,textarea{font:inherit;color:inherit}
-:focus-visible{outline:3px solid var(--ink);outline-offset:2px}
-.wrap{max-width:1240px;margin:0 auto;padding:0 clamp(16px,4vw,40px)}
-.narrow{max-width:720px}
-[hidden]{display:none!important}
-.sr{position:absolute;left:-9999px}
-
-/* ---------- Preview bar (not part of theme) ---------- */
-.preview-bar{background:#0F0F10;color:#fff;font-size:14px;padding:10px 0;position:relative;z-index:30}
-.preview-bar .wrap{display:flex;gap:10px;align-items:center;flex-wrap:wrap}
-.preview-bar .pages{display:flex;gap:6px;overflow-x:auto;flex:1 1 auto;padding-bottom:2px}
-.preview-bar button{background:transparent;border:1px solid rgba(255,255,255,.4);color:#fff;padding:5px 12px;border-radius:999px;cursor:pointer;white-space:nowrap}
-.preview-bar button[aria-pressed="true"]{background:#D7FF3A;border-color:#D7FF3A;color:#0F0F10;font-weight:600}
-.preview-bar label{display:flex;gap:6px;align-items:center;white-space:nowrap;cursor:pointer}
-
-/* Section name overlay */
-body.show-sections [data-dawn]{position:relative;outline:2px dashed #D7FF3A;outline-offset:-2px}
-body.show-sections [data-dawn]::after{content:attr(data-dawn);position:absolute;top:8px;right:8px;background:#D7FF3A;color:#0F0F10;font:600 12px/1 var(--body);padding:6px 8px;z-index:6;pointer-events:none}
-
-/* ---------- Global ---------- */
-.announce{background:var(--ink);color:var(--paper);text-align:center;font-size:14px;padding:9px 16px}
-header.site{position:sticky;top:0;z-index:20;background:var(--paper);border-bottom:1px solid var(--line)}
-.head{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;height:68px}
-.head nav{display:flex;gap:22px;font-size:15px}
-.head nav a,.tools a{text-decoration:none}
-.head nav a:hover,.tools a:hover{text-decoration:underline;text-underline-offset:4px}
-.logo{font:900 30px/1 var(--display);letter-spacing:.02em;text-decoration:none;text-transform:uppercase}
-.tools{display:flex;gap:18px;justify-content:flex-end;font-size:15px}
-.menu-btn{display:none;background:none;border:0;padding:6px;cursor:pointer;justify-self:start}
-@media (max-width:860px){.head nav{display:none}.menu-btn{display:block}.tools .hide-sm{display:none}}
-
-.selvedge{height:10px;border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:linear-gradient(var(--thread),var(--thread)) 0 3px/100% 2px no-repeat}
-
-.overlay{position:fixed;inset:0;background:rgba(15,15,16,.55);z-index:40}
-.drawer{position:fixed;top:0;bottom:0;width:min(420px,92vw);background:var(--paper);z-index:41;display:flex;flex-direction:column;padding:calc(20px + env(safe-area-inset-top,0px)) 22px calc(20px + env(safe-area-inset-bottom,0px));box-shadow:0 0 0 1px var(--line)}
-.drawer.right{right:0}.drawer.left{left:0}
-.drawer-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:16px}
-.drawer-head h2{font:800 30px/1 var(--display);text-transform:uppercase;margin:0}
-.x{background:none;border:0;font-size:26px;line-height:1;cursor:pointer;padding:4px 8px}
-.drawer nav{display:grid;gap:4px}
-.drawer nav a{font:800 34px/1.15 var(--display);text-transform:uppercase;text-decoration:none}
-.drawer .body{flex:1;overflow:auto}
-
-footer.site{padding:48px 0 32px;font-size:15px}
-.foot{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:24px}
-.foot h4{margin:0 0 10px;font-size:15px}
-.foot ul{list-style:none;margin:0;padding:0;display:grid;gap:6px;color:var(--stone)}
-.foot ul a{text-decoration:none}.foot ul a:hover{text-decoration:underline}
-.foot-big{font:900 clamp(56px,10vw,120px)/.85 var(--display);text-transform:uppercase;color:var(--indigo);margin:40px 0 0}
-@media (max-width:820px){.foot{grid-template-columns:1fr 1fr}}
-
-/* ---------- Shared pieces ---------- */
-section.block{padding:clamp(48px,7vw,88px) 0}
-section.tight{padding-top:0}
-.sec-head{display:flex;justify-content:space-between;align-items:end;gap:16px;margin-bottom:28px;flex-wrap:wrap}
-h2.h{font:800 clamp(36px,5vw,60px)/.95 var(--display);text-transform:uppercase;margin:0}
-.sec-head a{font-weight:600}
-.btns{display:flex;gap:12px;flex-wrap:wrap}
-.btn{display:inline-block;padding:14px 26px;border:2px solid var(--ink);text-decoration:none;font-weight:600;border-radius:2px;background:transparent;cursor:pointer;text-align:center}
-.btn.solid{background:var(--ink);color:var(--paper)}
-.btn.solid:hover{background:var(--indigo);border-color:var(--indigo)}
-.btn:not(.solid):hover{background:var(--card)}
-.muted{color:var(--stone)}
-
-.grid{display:grid;grid-template-columns:repeat(4,1fr);gap:clamp(12px,2vw,24px)}
-.grid.three{grid-template-columns:repeat(3,1fr)}
-.p{text-decoration:none;display:block;cursor:pointer}
-.p .img{background:var(--card);aspect-ratio:4/5;display:grid;place-items:center;position:relative}
-.p .img svg{width:66%;transition:transform .3s ease}
-.p:hover .img svg{transform:translateY(-5px)}
-.tag{position:absolute;top:12px;left:12px;background:var(--paper);font-size:13px;padding:3px 8px;border:1px solid var(--line)}
-.p h3{font-size:16px;font-weight:600;margin:12px 0 2px}
-.meta{display:flex;justify-content:space-between;color:var(--stone);font-size:15px}
-.meta b{color:var(--ink);font-weight:600}
-.dots{display:flex;gap:6px;margin-top:8px}
-.dots i{width:14px;height:14px;border-radius:50%;border:1px solid var(--line)}
-@media (max-width:980px){.grid,.grid.three{grid-template-columns:repeat(2,1fr)}}
-@media (max-width:640px){.grid.slide{display:flex;overflow-x:auto;scroll-snap-type:x mandatory}.grid.slide .p{flex:0 0 72%;scroll-snap-align:start}}
-
-/* fabric textures used as image stand-ins */
-.pat-twill{background:repeating-linear-gradient(135deg,#14181D 0 6px,#1F262D 6px 9px,#0D1014 9px 12px)}
-.pat-canvas{background:repeating-linear-gradient(0deg,transparent 0 5px,rgba(0,0,0,.08) 5px 6px),repeating-linear-gradient(90deg,#CBCAC3 0 5px,#B9B8B0 5px 6px),#C4C3BB}
-.pat-knit{background:radial-gradient(circle at 50% 50%,rgba(255,255,255,.25) 0 3px,transparent 4px) 0 0/12px 10px,#8E9AA6}
-.pat-olive{background:repeating-linear-gradient(45deg,#3B4A2A 0 5px,#465835 5px 8px)}
-
-details.acc{border-top:1px solid var(--line);padding:14px 0}
-details.acc:last-of-type{border-bottom:1px solid var(--line)}
-details.acc summary{cursor:pointer;font-weight:600;list-style:none;display:flex;justify-content:space-between;gap:12px}
-details.acc summary::-webkit-details-marker{display:none}
-details.acc summary::after{content:"+";font-size:20px;line-height:1}
-details.acc[open] summary::after{content:"–"}
-details.acc p{color:var(--stone);margin:10px 0 0}
-
-.promises{display:grid;grid-template-columns:repeat(3,1fr);gap:4px}
-.promise{background:var(--card);padding:24px}
-.promise h3{margin:0 0 4px;font-size:18px}
-.promise p{margin:0;color:var(--stone)}
-@media (max-width:820px){.promises{grid-template-columns:1fr}}
-
-.news{border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
-.news-in{display:grid;grid-template-columns:1fr 1fr;gap:24px;align-items:center}
-.news h2{font:800 clamp(32px,4vw,48px)/.95 var(--display);text-transform:uppercase;margin:0}
-.field{padding:14px 16px;border:2px solid var(--ink);background:transparent;border-radius:2px;width:100%}
-.news form{display:flex;gap:8px;flex-wrap:wrap}
-.news .field{flex:1 1 220px;width:auto}
-@media (max-width:820px){.news-in{grid-template-columns:1fr}}
-
-.crumbs{font-size:14px;color:var(--stone);padding:20px 0}
-.crumbs a{text-decoration:none}.crumbs a:hover{text-decoration:underline}
-
-/* ---------- Homepage ---------- */
-.hero{padding:clamp(28px,5vw,56px) 0 clamp(36px,6vw,72px)}
-.hero-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:clamp(20px,4vw,48px);align-items:end}
-.hero h1{font:900 clamp(64px,13vw,188px)/.84 var(--display);text-transform:uppercase;margin:0;color:var(--indigo)}
-.hero p{max-width:34ch;font-size:clamp(17px,1.6vw,20px);margin:24px 0 28px}
-.hero-art{background:var(--indigo);aspect-ratio:4/5;position:relative;display:grid;place-items:center;border-radius:2px}
-.hero-art svg{width:72%;color:var(--chambray)}
-.hero-tag{position:absolute;left:-14px;bottom:28px;background:var(--thread);color:#0F0F10;padding:10px 14px;font-size:14px;line-height:1.35;box-shadow:3px 3px 0 #0F0F10}
-.hero-tag strong{display:block;font:800 22px/1 var(--display)}
-@media (max-width:860px){.hero-grid{grid-template-columns:1fr}.hero-tag{left:12px}}
-
-.cats{display:grid;grid-template-columns:repeat(4,1fr);gap:4px}
-.cat{aspect-ratio:3/4;background:var(--card);text-decoration:none;display:flex;flex-direction:column;justify-content:space-between;padding:18px;overflow:hidden;cursor:pointer}
-.cat svg{width:78%;align-self:center;color:var(--indigo);transition:transform .35s ease}
-.cat:hover svg{transform:translateY(-6px)}
-.cat h3{font:800 28px/1 var(--display);text-transform:uppercase;margin:0}
-.cat small{color:var(--stone)}
-@media (max-width:820px){.cats{grid-template-columns:repeat(2,1fr)}}
-
-.statement{text-align:center}
-.statement p{font:600 clamp(26px,3.4vw,42px)/1.2 var(--body);max-width:30ch;margin:0 auto;letter-spacing:-.01em}
-
-.spot{display:grid;grid-template-columns:1fr 1fr;gap:clamp(20px,4vw,56px);align-items:center}
-.spot .art{aspect-ratio:1;display:grid;place-items:center;background:var(--card)}
-.spot .art svg{width:60%;color:var(--indigo)}
-@media (max-width:860px){.spot{grid-template-columns:1fr}}
-
-.fabric{background:var(--indigo);color:var(--on-brand)}
-.fabric h2.h{color:var(--on-brand)}
-.fabric p.lead{max-width:52ch;color:var(--on-brand-soft);margin:0 0 28px}
-.table-wrap{overflow-x:auto}
-table.fab{width:100%;border-collapse:collapse;min-width:620px}
-table.fab th,table.fab td{text-align:left;padding:16px 12px;border-bottom:1px solid rgba(255,255,255,.18)}
-table.fab th{font-weight:500;color:var(--on-brand-mute);font-size:14px}
-table.fab td:first-child{font:800 24px/1.1 var(--display);text-transform:uppercase}
-.bar{height:6px;background:rgba(255,255,255,.15);width:140px;position:relative}
-.bar::after{content:"";position:absolute;inset:0 auto 0 0;width:var(--w);background:#D7FF3A}
-
-.iwt{display:grid;grid-template-columns:1fr 1fr;gap:clamp(20px,4vw,56px);align-items:center}
-.iwt .pic{aspect-ratio:5/4}
-.iwt h2{font:800 clamp(34px,4.5vw,54px)/.95 var(--display);text-transform:uppercase;margin:0 0 14px}
-.iwt p{max-width:44ch;margin:0 0 22px}
-.iwt.flip .pic{order:2}
-@media (max-width:860px){.iwt{grid-template-columns:1fr}.iwt.flip .pic{order:0}}
-
-.collage{display:grid;grid-template-columns:1.4fr 1fr;grid-template-rows:1fr 1fr;gap:4px;height:clamp(420px,58vw,680px)}
-.collage a{position:relative;display:grid;place-items:center;text-decoration:none;overflow:hidden}
-.collage a:first-child{grid-row:1/3}
-.collage a svg{width:44%;color:rgba(255,255,255,.55)}
-.collage span{position:absolute;left:16px;bottom:14px;background:var(--paper);color:var(--ink);padding:6px 10px;font-weight:600;font-size:15px}
-@media (max-width:700px){.collage{grid-template-columns:1fr;grid-template-rows:auto;height:auto}.collage a{aspect-ratio:4/3}.collage a:first-child{grid-row:auto}}
-
-.reviews{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(16px,3vw,40px)}
-blockquote{margin:0;border-left:3px solid var(--thread);padding-left:18px}
-blockquote p{font-size:19px;line-height:1.5;margin:0 0 12px}
-blockquote cite{font-style:normal;color:var(--stone);font-size:15px}
-@media (max-width:820px){.reviews{grid-template-columns:1fr}}
-
-.video{position:relative;aspect-ratio:16/8;display:grid;place-items:center;cursor:pointer;border:0;width:100%;padding:0;color:#fff}
-.video .play{width:84px;height:84px;border-radius:50%;background:#D7FF3A;display:grid;place-items:center;box-shadow:4px 4px 0 #0F0F10}
-.video .cap{position:absolute;left:20px;bottom:18px;font:800 clamp(26px,4vw,44px)/1 var(--display);text-transform:uppercase;text-align:left}
-
-.faq{display:grid;grid-template-columns:.8fr 1.2fr;gap:clamp(20px,4vw,56px)}
-@media (max-width:860px){.faq{grid-template-columns:1fr}}
-
-.post{text-decoration:none;display:block;cursor:pointer}
-.post .pic{aspect-ratio:3/2}
-.post small{display:block;color:var(--stone);margin:12px 0 4px}
-.post h3{margin:0 0 6px;font-size:20px;line-height:1.3}
-.post p{margin:0;color:var(--stone)}
-
-/* ---------- Collection ---------- */
-.col-banner{padding:clamp(24px,4vw,48px) 0 24px;border-bottom:1px solid var(--line)}
-.col-banner h1{font:900 clamp(56px,9vw,120px)/.86 var(--display);text-transform:uppercase;margin:0;color:var(--indigo)}
-.col-banner p{max-width:56ch;margin:14px 0 0}
-.col-layout{display:grid;grid-template-columns:230px 1fr;gap:clamp(20px,3vw,40px);padding:28px 0 64px}
-.filters fieldset{border:0;border-bottom:1px solid var(--line);padding:0 0 16px;margin:0 0 16px}
-.filters legend{font-weight:600;margin-bottom:8px}
-.filters label{display:flex;gap:8px;align-items:center;margin:6px 0;cursor:pointer}
-.filters input[type=checkbox]{width:18px;height:18px;accent-color:var(--indigo)}
-.swatch-row{display:flex;gap:8px;flex-wrap:wrap}
-.swatch-row label{margin:0}
-.swatch-row input{position:absolute;opacity:0}
-.swatch-row span{width:28px;height:28px;border-radius:50%;border:2px solid var(--line);display:block}
-.swatch-row input:checked+span{outline:2px solid var(--ink);outline-offset:2px}
-.swatch-row input:focus-visible+span{outline:3px solid var(--thread)}
-.toolbar{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-bottom:18px;flex-wrap:wrap}
-.toolbar select{padding:8px 10px;border:1px solid var(--ink);background:var(--paper);border-radius:2px}
-.filter-toggle{display:none}
-.pager{display:flex;gap:6px;justify-content:center;margin-top:36px}
-.pager a{min-width:40px;padding:8px;text-align:center;border:1px solid var(--line);text-decoration:none}
-.pager a[aria-current]{background:var(--ink);color:var(--paper);border-color:var(--ink)}
-.fitnote{background:var(--thread);color:#0F0F10;padding:18px 22px;font-size:17px}
-@media (max-width:860px){.col-layout{grid-template-columns:1fr}.filters{display:none}.filters.open{display:block}.filter-toggle{display:inline-block}}
-
-/* ---------- Product ---------- */
-.pdp{display:grid;grid-template-columns:1.2fr .8fr;gap:clamp(20px,4vw,56px);padding-bottom:64px}
-.gallery{display:grid;grid-template-columns:1fr 1fr;gap:4px}
-.gallery .g{background:var(--card);aspect-ratio:4/5;display:grid;place-items:center}
-.gallery .g:first-child{grid-column:1/-1;aspect-ratio:5/4}
-.gallery svg{width:56%;color:var(--indigo)}
-.buy{position:sticky;top:88px;align-self:start}
-.buy h1{font:900 clamp(44px,5vw,68px)/.9 var(--display);text-transform:uppercase;margin:0 0 10px}
-.price{font-size:22px;font-weight:600;margin:0 0 6px}
-.note{color:var(--stone);margin:0 0 22px}
-.opt{border:0;padding:0;margin:0 0 20px}
-.opt legend{font-weight:600;margin-bottom:10px}
-.swatches,.sizes{display:flex;gap:8px;flex-wrap:wrap}
-.swatches button{width:36px;height:36px;border-radius:50%;border:2px solid var(--line);cursor:pointer}
-.swatches button[aria-pressed="true"]{outline:2px solid var(--ink);outline-offset:2px}
-.sizes button{min-width:52px;padding:10px;border:1px solid var(--ink);background:transparent;cursor:pointer;border-radius:2px}
-.sizes button[aria-pressed="true"]{background:var(--ink);color:var(--paper)}
-.sizes button:disabled{opacity:.35;text-decoration:line-through;cursor:not-allowed}
-.fittip{background:var(--thread);color:#0F0F10;padding:12px 14px;font-size:15px;margin-bottom:22px}
-.full{width:100%;margin:0 0 10px}
-.appbox{border:1px dashed var(--stone);padding:28px;display:grid;grid-template-columns:auto 1fr auto;gap:24px;align-items:center}
-.stars{font-size:22px;letter-spacing:2px;color:var(--indigo)}
-@media (max-width:900px){.pdp{grid-template-columns:1fr}.buy{position:static}.appbox{grid-template-columns:1fr}}
-
-/* ---------- Cart ---------- */
-.cart-grid{display:grid;grid-template-columns:1fr 360px;gap:clamp(20px,4vw,48px);padding:8px 0 56px}
-.line{display:grid;grid-template-columns:96px 1fr auto;gap:16px;padding:18px 0;border-bottom:1px solid var(--line);align-items:start}
-.line .thumb{background:var(--card);aspect-ratio:4/5;display:grid;place-items:center}
-.line .thumb svg{width:70%}
-.line h3{margin:0;font-size:16px}
-.qty{display:inline-flex;border:1px solid var(--ink);margin-top:10px}
-.qty button{background:none;border:0;width:34px;height:34px;cursor:pointer}
-.qty span{min-width:30px;display:grid;place-items:center}
-.linkbtn{background:none;border:0;padding:0;text-decoration:underline;cursor:pointer;color:var(--stone);font-size:14px;margin-left:12px}
-.summary{background:var(--card);padding:24px;align-self:start}
-.ship-bar{height:6px;background:var(--line);margin:8px 0 18px}
-.ship-bar i{display:block;height:100%;background:var(--indigo)}
-.summary textarea{width:100%;min-height:70px;padding:10px;border:1px solid var(--line);background:var(--paper);margin:6px 0 16px}
-.row{display:flex;justify-content:space-between;font-size:18px;font-weight:600;margin-bottom:6px}
-.pageh{font:900 clamp(48px,7vw,96px)/.9 var(--display);text-transform:uppercase;margin:8px 0 18px;color:var(--indigo)}
-@media (max-width:900px){.cart-grid{grid-template-columns:1fr}}
-
-/* ---------- Blog / Article ---------- */
-.feature-post{display:grid;grid-template-columns:1.3fr 1fr;gap:clamp(20px,4vw,48px);align-items:center;margin-bottom:48px;text-decoration:none;cursor:pointer}
-.feature-post .pic{aspect-ratio:16/10}
-.feature-post h2{font:800 clamp(34px,4.5vw,56px)/.95 var(--display);text-transform:uppercase;margin:8px 0 12px}
-@media (max-width:860px){.feature-post{grid-template-columns:1fr}}
-.article-hero{aspect-ratio:21/9;margin-bottom:32px}
-.article h1{font:900 clamp(44px,6vw,80px)/.9 var(--display);text-transform:uppercase;margin:0 0 12px}
-.article .by{color:var(--stone);margin-bottom:28px}
-.article p{font-size:18px;line-height:1.75;margin:0 0 20px}
-.article h2{font:800 32px/1 var(--display);text-transform:uppercase;margin:36px 0 12px}
-.share{display:flex;gap:14px;border-top:1px solid var(--line);padding-top:18px;margin-top:32px;color:var(--stone)}
-
-/* ---------- About / Contact / 404 ---------- */
-.about-hero{min-height:clamp(320px,48vw,560px);display:flex;align-items:flex-end;padding:clamp(24px,4vw,48px) 0;color:#fff}
-.about-hero .wrap{width:100%}
-.about-hero h1{font:900 clamp(56px,11vw,150px)/.85 var(--display);text-transform:uppercase;margin:0;max-width:10ch}
-.story{font-size:19px;line-height:1.7}
-.story p{margin:0 0 18px}
-.mrow{display:grid;gap:clamp(32px,5vw,64px)}
-.nums{display:grid;grid-template-columns:repeat(4,1fr);gap:4px}
-.nums div{background:var(--card);padding:26px 22px}
-.nums strong{display:block;font:900 clamp(44px,5vw,64px)/1 var(--display);color:var(--indigo)}
-@media (max-width:820px){.nums{grid-template-columns:1fr 1fr}}
-.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
-.contact-grid .span{grid-column:1/-1}
-.contact-grid label{display:block;font-weight:600;margin-bottom:6px}
-.contact-grid textarea{min-height:140px}
-@media (max-width:640px){.contact-grid{grid-template-columns:1fr}}
-.nf{padding:clamp(48px,8vw,110px) 0;text-align:center}
-.nf h1{font:900 clamp(90px,20vw,260px)/.8 var(--display);color:var(--indigo);margin:0}
-.nf p{font-size:20px;margin:18px 0 26px}
-.nf form{display:flex;gap:8px;max-width:520px;margin:0 auto 18px}
-
-.toast{position:fixed;left:50%;bottom:calc(20px + env(safe-area-inset-bottom,0px));transform:translateX(-50%);background:var(--ink);color:var(--paper);padding:12px 18px;z-index:50;font-weight:600}
-@media (prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
-
-/* S3 "Northline": street-technical look. Bone, charcoal and acid lime; hard edges and offset shadows; Space Grotesk + Inter. */
-.hero h1,.col-banner h1,.pageh,.nf h1,.about-hero h1,h2.h,.article h1,.buy h1,.logo,.foot-big,.iwt h2,.feature-post h2,.news h2,.nums strong,.cat h3,.drawer nav a,.drawer-head h2{letter-spacing:-.03em;overflow-wrap:break-word;font-weight:700}
-.hero h1{font-size:clamp(40px,7.2vw,104px);line-height:.95}
-.col-banner h1{font-size:clamp(40px,6.4vw,84px);line-height:.98}
-.pageh{font-size:clamp(38px,5.6vw,72px);line-height:1}
-.about-hero h1{font-size:clamp(40px,7.4vw,104px);line-height:.95;max-width:13ch}
-.nf h1{font-size:clamp(90px,17vw,220px);line-height:.9}
-.foot-big{font-size:clamp(40px,9.5vw,120px);line-height:.95}
-h2.h{font-size:clamp(30px,4vw,48px);line-height:1.02}
-.iwt h2,.feature-post h2{font-size:clamp(28px,3.6vw,44px);line-height:1.05}
-.buy h1{font-size:clamp(34px,4vw,54px);line-height:1}
-.article h1{font-size:clamp(34px,4.6vw,60px);line-height:1.02}
-.article h2{font-size:26px;line-height:1.1;text-transform:none}
-.news h2{font-size:clamp(26px,3.2vw,38px);line-height:1.05}
-.nums strong{font-size:clamp(36px,4vw,52px)}
-.cat h3{font-size:22px}
-.logo{font-size:24px}
-.drawer nav a{font-size:28px}
-.drawer-head h2{font-size:26px}
-table.fab td:first-child{font-size:20px}
-.video .cap{font-size:clamp(22px,3.4vw,36px);padding-right:16px}
-.hero-grid>*,.spot>*,.iwt>*,.faq>*,.pdp>*,.col-layout>*,.cart-grid>*,.feature-post>*,.p{min-width:0}
-.btn{border-radius:0;box-shadow:3px 3px 0 var(--ink);transition:transform .1s,box-shadow .1s;letter-spacing:.01em}
-.btn:hover{transform:translate(2px,2px);box-shadow:1px 1px 0 var(--ink)}
-.btn.solid:hover{background:var(--thread);color:#0F0F10;border-color:var(--ink)}
-.field,textarea.field{border-radius:0}
-.p .img,.cat,.promise,.nums div,.summary,.spot .art,.gallery .g,.line .thumb{border:2px solid var(--ink)}
-.hero-art{border:2px solid var(--ink)}
-.tag{border-radius:0;background:var(--thread);color:#0F0F10;border-color:#0F0F10;font-weight:600}
-.selvedge{height:12px;background:repeating-linear-gradient(90deg,var(--ink) 0 10px,transparent 10px 18px) 0 5px/100% 2px no-repeat}
-blockquote{border-left-color:var(--ink);border-left-width:4px}
-.pager a,.qty,.sizes button{border-radius:0}
-.hero-tag{box-shadow:4px 4px 0 #0F0F10}
-:root:not([data-theme="light"]) .fabric .bar::after{background:#0E0F11}
-:root[data-theme="dark"] .fabric .bar::after{background:#0E0F11}
-@media (prefers-color-scheme: dark){
-  :root:not([data-theme="light"]) .fabric table.fab th,:root:not([data-theme="light"]) .fabric table.fab td{border-bottom-color:rgba(0,0,0,.28)}
-  :root:not([data-theme="light"]) .fabric .bar{background:rgba(0,0,0,.2)}
-  :root:not([data-theme="light"]) .hero-tag{background:#ECEAE4}
-  :root:not([data-theme="light"]) .btn{box-shadow:3px 3px 0 #D7FF3A}
-  :root:not([data-theme="light"]) .btn:hover{box-shadow:1px 1px 0 #D7FF3A}
-  :root:not([data-theme="light"]) .p .img,:root:not([data-theme="light"]) .cat,:root:not([data-theme="light"]) .promise,:root:not([data-theme="light"]) .nums div,:root:not([data-theme="light"]) .summary,:root:not([data-theme="light"]) .spot .art,:root:not([data-theme="light"]) .gallery .g,:root:not([data-theme="light"]) .line .thumb,:root:not([data-theme="light"]) .hero-art{border-color:#2A2D31}
-}
-:root[data-theme="dark"] .fabric table.fab th,:root[data-theme="dark"] .fabric table.fab td{border-bottom-color:rgba(0,0,0,.28)}
-:root[data-theme="dark"] .fabric .bar{background:rgba(0,0,0,.2)}
-:root[data-theme="dark"] .hero-tag{background:#ECEAE4}
-:root[data-theme="dark"] .btn{box-shadow:3px 3px 0 #D7FF3A}
-:root[data-theme="dark"] .btn:hover{box-shadow:1px 1px 0 #D7FF3A}
-:root[data-theme="dark"] .p .img,:root[data-theme="dark"] .cat,:root[data-theme="dark"] .promise,:root[data-theme="dark"] .nums div,:root[data-theme="dark"] .summary,:root[data-theme="dark"] .spot .art,:root[data-theme="dark"] .gallery .g,:root[data-theme="dark"] .line .thumb,:root[data-theme="dark"] .hero-art{border-color:#2A2D31}
 </style>
-<svg width="0" height="0" style="position:absolute" aria-hidden="true">
-  <symbol id="g-jacket" viewBox="0 0 200 240"><path fill="currentColor" d="M62 36 86 26q14 16 28 0l24 10 38 34-12 82-15-6v76H51v-76l-15 6L24 70z"/><path fill="none" stroke="rgba(0,0,0,.28)" stroke-width="2" d="M100 42v166M86 26l14 40 14-40"/><rect x="62" y="130" width="28" height="30" fill="none" stroke="rgba(0,0,0,.28)" stroke-width="2"/><rect x="110" y="130" width="28" height="30" fill="none" stroke="rgba(0,0,0,.28)" stroke-width="2"/><g fill="rgba(0,0,0,.35)"><circle cx="100" cy="92" r="3"/><circle cx="100" cy="122" r="3"/><circle cx="100" cy="152" r="3"/><circle cx="100" cy="182" r="3"/></g></symbol>
-  <symbol id="g-tee" viewBox="0 0 200 240"><path fill="currentColor" d="M56 50 86 38q14 18 28 0l30 12 32 36-24 16-8-11v116H56V91l-8 11-24-16z"/><path fill="none" stroke="rgba(0,0,0,.25)" stroke-width="2" d="M86 38q14 26 28 0"/></symbol>
-  <symbol id="g-trouser" viewBox="0 0 200 240"><path fill="currentColor" d="M62 26h76l12 190h-38l-12-118-12 118H50z"/><path fill="none" stroke="rgba(0,0,0,.28)" stroke-width="2" d="M62 40h76M100 40v58M72 40q2 26 16 30M128 40q-2 26-16 30"/></symbol>
-  <symbol id="g-knit" viewBox="0 0 200 240"><path fill="currentColor" d="M60 44 84 34q16 10 32 0l24 10 34 40-2 118-16-4V100l-4 110H56l-4-110v98l-16 4-2-118z"/><path fill="none" stroke="rgba(0,0,0,.22)" stroke-width="2" d="M84 34q16 22 32 0M56 196h88M36 196h16M148 196h16"/></symbol>
-</svg>
+</head>
+<body>
+<div class="dt" data-dawn="Design toolbar (preview only)"><div class="wrap"><b>Northline · Techwear dark</b>
+<button data-go="home" class="on">Home</button><button data-go="collection">Collection</button><button data-go="product">Product</button><button data-go="cart">Cart</button><button data-go="search">Search</button><button data-go="blog">Blog</button><button data-go="article">Article</button><button data-go="about">About</button><button data-go="contact">Contact</button><button data-go="404">404</button>
+<label><input type="checkbox" id="names"> Show section names</label></div></div>
 
-<div class="preview-bar">
-  <div class="wrap">
-    <div class="pages" role="group" aria-label="Preview page" id="pageTabs"></div>
-    <label><input type="checkbox" id="showSections"> Show section names</label>
+<div class="sys" data-dawn="announcement-bar (system bar)"><div class="wrap"><div class="l"><span><span class="dot"></span>System online</span><span>Free shipping over <i>$200</i></span><span>3L shells restocked</span></div><span class="r">Lifetime seam-tape warranty · <i>v.26 FW</i></span></div></div>
+
+<header class="hdr" data-dawn="header (glass bar, command search)"><div class="wrap">
+  <button class="burger" id="burger" aria-label="Menu"><svg width="24" height="24" viewBox="0 0 24 24"><path d="M3 7h18M3 12h12M3 17h18" stroke="currentColor" stroke-width="2"/></svg></button>
+  <a href="#" class="logo" data-go="home"><svg viewBox="0 0 28 28" fill="none"><path d="M4 24V4l20 20V4" stroke="#5BE3EA" stroke-width="2.4"/><path d="M1 1h6M1 1v6M27 27h-6M27 27v-6" stroke="#E4EAF0" stroke-width="1.5"/></svg>NORTHLINE</a>
+  <nav class="nav">
+    <div><a href="#" class="nv" data-go="collection"><small>01</small>Shells</a>
+      <div class="mega"><div class="wrap">
+        <div><h5>// Outer</h5><ul><li><a href="#" data-go="collection">3L shells<small>08</small></a></li><li><a href="#" data-go="collection">Insulated<small>05</small></a></li><li><a href="#" data-go="collection">Wind<small>04</small></a></li></ul></div>
+        <div><h5>// Lower</h5><ul><li><a href="#" data-go="collection">Cargo<small>06</small></a></li><li><a href="#" data-go="collection">Softshell<small>03</small></a></li><li><a href="#" data-go="collection">Shorts<small>02</small></a></li></ul></div>
+        <div><h5>// Carry</h5><ul><li><a href="#" data-go="collection">Slings<small>04</small></a></li><li><a href="#" data-go="collection">Modules<small>09</small></a></li><li><a href="#rig" data-go="home">Rig builder<small>→</small></a></li></ul></div>
+        <a href="#" class="ft" data-go="product"><img data-src="shell" alt=""><div><span class="tag">NL-01</span><b>Vector 3L shell</b><span style="font-size:14px;color:var(--mute)">20K/20K membrane, fully taped. $340</span></div></a>
+      </div></div></div>
+    <div><a href="#" class="nv" data-go="collection"><small>02</small>Lower</a></div>
+    <div><a href="#" class="nv" data-go="collection"><small>03</small>Carry</a></div>
+    <div><a href="#cond" class="nv" data-go="home"><small>04</small>Conditions</a></div>
+    <div><a href="#" class="nv" data-go="blog"><small>05</small>Field log</a></div>
+  </nav>
+  <a href="#" class="cmd" data-go="search"><svg width="15" height="15" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7" fill="none" stroke="currentColor" stroke-width="2"/><path d="M20 20l-4-4" stroke="currentColor" stroke-width="2"/></svg><span>Search the system</span><kbd>⌘ K</kbd></a>
+  <div class="util">
+    <a href="#" class="acct" data-go="contact">Account</a>
+    <button id="openCart" aria-label="Cart">Cart <i id="count">0</i></button>
   </div>
-</div>
+</div></header>
 
-<div class="announce" data-dawn="Announcement bar">Free shipping over $150 · Free returns for 30 days</div>
+<div class="mnav" id="mnav" data-dawn="header (mobile menu)"><button class="x" id="mclose">Close ✕</button><a href="#" class="big" data-go="collection">Shells<small>01</small></a><a href="#" class="big" data-go="collection">Lower<small>02</small></a><a href="#" class="big" data-go="collection">Carry<small>03</small></a><a href="#cond" class="big" data-go="home">Conditions<small>04</small></a><a href="#" class="big" data-go="search">Search<small>05</small></a></div>
 
-<header class="site" data-dawn="Header">
-  <div class="wrap head">
-    <button class="menu-btn" aria-label="Open menu" data-open="menu"><svg width="24" height="24" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 7h18M3 12h18M3 17h18" stroke="currentColor" stroke-width="2"/></svg></button>
-    <nav aria-label="Main"><a href="#" data-go="collection">New arrivals</a><a href="#" data-go="collection">Outerwear</a><a href="#" data-go="collection">Trousers</a><a href="#" data-go="blog">Journal</a><a href="#" data-go="about">About</a></nav>
-    <a class="logo" href="#" data-go="home">Northline</a>
-    <div class="tools"><a href="#" data-go="search">Search</a><a href="#" class="hide-sm" data-go="contact">Contact</a><a href="#" data-go="cart">Cart (<span class="cart-count">0</span>)</a></div>
-  </div>
-</header>
+<!-- ================= HOME ================= -->
+<main class="page on" id="p-home">
+  <section class="hero" data-dawn="image-banner (HUD hero)">
+    <img data-src="hero" alt="Model in a black 3L shell jacket in a rainy city underpass at night">
+    <div class="ret" aria-hidden="true"><b><small>NL-01 Vector</small>3L · 20K/20K</b></div>
+    <div class="wrap">
+      <div><span class="tag">FW26 · System 04 · Night ops</span><h1>Built for <span>bad weather</span></h1><p>Three-layer shells, articulated cargo and modular carry. Engineered for the city when the forecast turns.</p><div class="ctas"><a href="#" class="btn btn-c" data-go="collection">Enter the system</a><a href="#cond" class="btn btn-o" data-go="home">Match your conditions</a></div></div>
+      <div class="hud"><div class="t"><span>// NL-01 Vector shell</span><span>Live</span></div>
+        <div class="r"><span>Waterproof</span><b>20,000 mm</b><span class="bar"><i style="width:92%"></i></span></div>
+        <div class="r"><span>Breathability</span><b>20,000 g</b><span class="bar"><i style="width:88%"></i></span></div>
+        <div class="r"><span>Weight</span><b>480 g</b><span class="bar"><i style="width:40%"></i></span></div>
+        <div class="r"><span>Seams</span><b>Fully taped</b></div></div>
+    </div>
+  </section>
 
-<!-- ======================= HOME ======================= -->
-<main id="view-home">
-  <section class="hero" data-dawn="Image banner">
-    <div class="wrap hero-grid">
-      <div>
-        <h1>Cut for the commute.</h1>
-        <p>Technical everyday layers in small runs: weatherproof, packable and built to keep moving.</p>
-        <div class="btns"><a href="#" class="btn solid" data-go="collection">Shop new arrivals</a><a href="#fabrics" class="btn">See our materials</a></div>
+  <div class="strip" aria-hidden="true"><div class="tr"><span><b>//</b> 3-layer membrane</span><span><b>//</b> YKK AquaGuard zips</span><span><b>//</b> Articulated knees</span><span><b>//</b> Modular MOLLE carry</span><span><b>//</b> PFC-free DWR</span><span><b>//</b> Lifetime seam-tape warranty</span><span><b>//</b> 3-layer membrane</span><span><b>//</b> YKK AquaGuard zips</span><span><b>//</b> Articulated knees</span><span><b>//</b> Modular MOLLE carry</span><span><b>//</b> PFC-free DWR</span><span><b>//</b> Lifetime seam-tape warranty</span></div></div>
+
+  <section class="sec" data-dawn="collection-list (systems)"><div class="wrap">
+    <div class="head reveal"><div><span class="tag">Systems</span><h2>Choose your <span class="c">layer</span></h2></div><p>Every piece is built to work with the others: shells over mids, cargos that take the same modules as the slings.</p></div>
+    <div class="sys3 reveal"><a href="#" data-go="collection"><img data-src="shell" alt=""><small>01 / Outer</small><b>Shells</b><span>3L waterproof, insulated, wind</span></a><a href="#" data-go="collection"><img data-src="cargo" alt=""><small>02 / Lower</small><b>Cargo</b><span>Articulated, water resistant</span></a><a href="#" data-go="collection"><img data-src="sling" alt=""><small>03 / Carry</small><b>Carry</b><span>Slings and modules</span></a></div>
+  </div></section>
+
+  <section class="sec" style="padding-top:0" data-dawn="featured-collection (spec cards)"><div class="wrap">
+    <div class="head reveal"><div><span class="tag">New in · FW26</span><h2>Latest <span class="c">issue</span></h2></div><a href="#" class="btn btn-o" data-go="collection">All 32 pieces</a></div>
+    <div class="grid reveal" id="newin"></div>
+  </div></section>
+
+  <section class="sec" style="padding-top:0" id="cond" data-dawn="sbs-condition-matcher"><div class="wrap">
+    <div class="cond br reveal">
+      <div class="ctl"><span class="tag">Condition matcher</span><h2>What's the <span class="c">forecast?</span></h2><p>Set the temperature and the weather. We build the layer stack for it.</p>
+        <div class="dial"><label for="temp">Temperature <b id="tempV">6°C</b></label><input type="range" id="temp" min="-15" max="25" value="6"></div>
+        <div class="dial"><label>Precipitation</label><div class="seg" id="rain"><button data-v="0">Dry</button><button data-v="1" class="on">Rain</button><button data-v="2">Storm</button></div></div>
+        <div class="dial"><label>Wind</label><div class="seg" id="wind"><button data-v="0">Calm</button><button data-v="1" class="on">Breezy</button><button data-v="2">Gusty</button></div></div>
       </div>
-      <div class="hero-art"><svg viewBox="0 0 200 240" aria-hidden="true"><use href="#g-jacket"/></svg><div class="hero-tag"><strong>Transit Shell</strong>3-layer recycled nylon</div></div>
+      <div class="out"><div class="rd"><div><small>Recommended system</small><b id="cName"></b></div><span class="tag" id="cCode"></span></div><div class="stack" id="stack"></div>
+        <div class="tot"><div><small id="cN"></small><b id="cTot"></b></div><button class="btn btn-c" id="cAdd">Add the system</button></div></div>
     </div>
-  </section>
+  </div></section>
 
-  <div class="selvedge" data-dawn="Selvedge: Selvedge divider" aria-hidden="true"></div>
+  <section class="sec" style="padding-top:0" id="rig" data-dawn="sbs-rig-builder"><div class="wrap rig">
+    <div class="vis br reveal"><div class="ring"></div><img id="rigImg" alt="">
+      <div class="node" data-m="0" style="left:6%;top:16%"><i></i><b>Hood module</b></div>
+      <div class="node" data-m="1" style="right:6%;top:30%"><i></i><b>Chest pouch</b></div>
+      <div class="node" data-m="2" style="left:8%;bottom:20%"><i></i><b>Sling</b></div>
+      <div class="node" data-m="3" style="right:8%;bottom:12%"><i></i><b>Thigh panel</b></div></div>
+    <div class="pick reveal"><span class="tag">Rig builder</span><h2>Configure <span class="c">your rig</span></h2><p>Pick a base piece, then clip on modules. Everything shares the same mount, so you can move them later.</p>
+      <div class="base" id="rigBase"></div>
+      <div class="mods" id="rigMods"></div>
+      <div class="sum"><div><small id="rigN"></small><b id="rigT"></b> <em id="rigS"></em></div><button class="btn btn-c" id="rigAdd">Add rig to cart</button></div></div>
+  </div></section>
 
-  <section class="block" data-dawn="Collection list">
-    <div class="wrap">
-      <div class="sec-head"><h2 class="h">Shop by category</h2></div>
-      <div class="cats">
-        <a class="cat" data-go="collection"><h3>Outerwear</h3><svg viewBox="0 0 200 240" aria-hidden="true"><use href="#g-jacket"/></svg><small>18 styles</small></a>
-        <a class="cat" data-go="collection"><h3>Tees</h3><svg viewBox="0 0 200 240" aria-hidden="true"><use href="#g-tee"/></svg><small>12 styles</small></a>
-        <a class="cat" data-go="collection"><h3>Trousers</h3><svg viewBox="0 0 200 240" aria-hidden="true"><use href="#g-trouser"/></svg><small>9 styles</small></a>
-        <a class="cat" data-go="collection"><h3>Knitwear</h3><svg viewBox="0 0 200 240" aria-hidden="true"><use href="#g-knit"/></svg><small>7 styles</small></a>
-      </div>
-    </div>
-  </section>
+  <section class="sec" style="padding-top:0" data-dawn="sbs-spec-compare"><div class="wrap">
+    <div class="head reveal"><div><span class="tag">Spec compare</span><h2>Shell vs <span class="c">shell</span></h2></div><p>Three shells, side by side. Best value in each row is lit.</p></div>
+    <div class="cmpt"><label class="tgl"><input type="checkbox" id="diff"> Highlight differences only</label><span class="tag">Lab tested · sample data</span></div>
+    <div class="cmpw reveal"><table class="cmp" id="cmp"></table></div>
+  </div></section>
 
-  <section class="block tight" data-dawn="Featured collection">
-    <div class="wrap">
-      <div class="sec-head"><h2 class="h">New arrivals</h2><a href="#" data-go="collection">View all</a></div>
-      <div class="grid" data-grid="0,1,2,3"></div>
-    </div>
-  </section>
+  <section class="sec" style="padding-top:0" data-dawn="image-with-text (field log)"><div class="wrap field">
+    <div class="ph br reveal"><img data-src="look" alt="Model in techwear on a wet rooftop"></div>
+    <div class="log reveal"><div><span class="tag">Field log · Entry 112</span><h2>Tested in <span class="c">the wet</span></h2><p style="color:var(--mute)">Every system spends a month in the city before it ships. Here is what we log.</p></div>
+      <div><div class="entry"><b>Day 03</b><span>8 hours in steady rain. No wet-through at the shoulders or the pack straps.</span></div><div class="entry"><b>Day 11</b><span>Cycle commute at 2°C. Pit zips open, no condensation inside.</span></div><div class="entry"><b>Day 27</b><span>Twenty washes. DWR re-activated with low heat, seams intact.</span></div></div>
+      <a href="#" class="btn btn-o" data-go="blog" style="align-self:flex-start">Read the field log</a></div>
+  </div></section>
 
-  <section class="block tight statement" data-dawn="Rich text">
-    <div class="wrap"><p>We make fewer pieces, from better materials, and repair every one for free.</p></div>
-  </section>
+  <section class="sec" style="padding-top:0" data-dawn="multicolumn (reviews)"><div class="wrap">
+    <div class="head reveal"><div><span class="tag">4.8 / 5 · 3,100 reviews (sample)</span><h2>Field <span class="c">reports</span></h2></div></div>
+    <div class="rv reveal"><div><div class="s">★★★★★</div><p>"Wore the Vector through a week of storms. Dry inside, and it packs into its own hood."</p><small><span>Sample review · Commuter</span><span>NL-01 · M</span></small></div><div><div class="s">★★★★★</div><p>"The cargo modules clip onto the sling as well. One system for the bike and the train."</p><small><span>Sample review · Courier</span><span>NL-04 · 32</span></small></div><div><div class="s">★★★★☆</div><p>"Fit is athletic. Size up if you layer a puffer under it."</p><small><span>Sample review · Night shift</span><span>NL-01 · L</span></small></div></div>
+  </div></section>
 
-  <section class="block tight" data-dawn="Featured product">
-    <div class="wrap spot">
-      <div class="art pat-canvas"><svg viewBox="0 0 200 240" aria-hidden="true" style="color:#3A424B"><use href="#g-jacket"/></svg></div>
-      <div>
-        <p class="muted" style="margin:0 0 6px">Best seller</p>
-        <h2 class="h" style="margin-bottom:10px">Transit Shell</h2>
-        <p class="price">$198</p>
-        <p class="note">3-layer recycled nylon with a 20k waterproof rating. Fully taped seams, and it packs into its own pocket.</p>
-        <fieldset class="opt"><legend>Size</legend><div class="sizes"><button type="button" aria-pressed="false">S</button><button type="button" aria-pressed="true">M</button><button type="button" aria-pressed="false">L</button><button type="button" aria-pressed="false">XL</button></div></fieldset>
-        <div class="btns"><button class="btn solid" type="button" data-add="0">Add to cart</button><a href="#" class="btn" data-go="product">See full details</a></div>
-      </div>
-    </div>
-  </section>
-
-  <section class="block fabric" id="fabrics" data-dawn="Selvedge: Fabric library">
-    <div class="wrap">
-      <div class="sec-head"><h2 class="h">The material lab</h2></div>
-      <p class="lead">Every piece starts with the material. Here's what each one weighs, where it's made, and how much weather it handles.</p>
-      <div class="table-wrap"><table class="fab">
-        <thead><tr><th scope="col">Material</th><th scope="col">Weight</th><th scope="col">Made in</th><th scope="col">Weather protection</th></tr></thead>
-        <tbody>
-          <tr><td>Recycled nylon shell</td><td>90 gsm</td><td>Osaka, Japan</td><td><div class="bar" style="--w:90%" role="img" aria-label="High"></div></td></tr>
-          <tr><td>Ripstop nylon</td><td>110 gsm</td><td>Como, Italy</td><td><div class="bar" style="--w:70%" role="img" aria-label="Medium to high"></div></td></tr>
-          <tr><td>Merino jersey</td><td>150 gsm</td><td>Porto, Portugal</td><td><div class="bar" style="--w:35%" role="img" aria-label="Low"></div></td></tr>
-          <tr><td>Polartec fleece</td><td>200 gsm</td><td>Lawrence, USA</td><td><div class="bar" style="--w:50%" role="img" aria-label="Medium"></div></td></tr>
-        </tbody>
-      </table></div>
-    </div>
-  </section>
-
-  <section class="block" data-dawn="Image with text">
-    <div class="wrap iwt">
-      <div class="pic pat-twill" role="img" aria-label="Close-up of charcoal ripstop weave"></div>
-      <div>
-        <h2>One shell, three seasons</h2>
-        <p>A good shell earns its place from the first drizzle to the first snow. Wear it daily and it settles where you move: the shoulders, the hood edge, the pocket zips.</p>
-        <a href="#" class="btn" data-go="article">Read the field log</a>
-      </div>
-    </div>
-  </section>
-
-  <section class="block tight" data-dawn="Collage">
-    <div class="wrap">
-      <div class="sec-head"><h2 class="h">Autumn lookbook</h2></div>
-      <div class="collage">
-        <a class="pat-twill" data-go="collection"><svg viewBox="0 0 200 240" aria-hidden="true"><use href="#g-jacket"/></svg><span>Outerwear</span></a>
-        <a class="pat-olive" data-go="collection"><svg viewBox="0 0 200 240" aria-hidden="true"><use href="#g-trouser"/></svg><span>Cargo trousers</span></a>
-        <a class="pat-knit" data-go="collection"><svg viewBox="0 0 200 240" aria-hidden="true"><use href="#g-knit"/></svg><span>Fleece and knit</span></a>
-      </div>
-    </div>
-  </section>
-
-  <section class="block tight" data-dawn="Multicolumn">
-    <div class="wrap promises">
-      <div class="promise"><h3>Free returns for 30 days</h3><p>Wrong size? Send it back with the prepaid label in the box.</p></div>
-      <div class="promise"><h3>Repairs for life</h3><p>Broken zip or worn elbow, we fix it at no cost.</p></div>
-      <div class="promise"><h3>Ships in 2 days</h3><p>Orders before 2 pm go out the same day, tracked.</p></div>
-    </div>
-  </section>
-
-  <section class="block tight" data-dawn="Multicolumn (reviews)">
-    <div class="wrap">
-      <div class="sec-head"><h2 class="h">Worn by you</h2></div>
-      <div class="reviews">
-        <blockquote><p>Two winters of daily rain and the shell still beads water like day one. Best commute layer I own.</p><cite>Omar, Leeds</cite></blockquote>
-        <blockquote><p>The first merino tee I've owned that didn't lose its shape after ten washes.</p><cite>Jess, Toronto</cite></blockquote>
-        <blockquote><p>The fit notes were spot on. Stayed true to size in the shell and it's perfect.</p><cite>Daniel, Melbourne</cite></blockquote>
-      </div>
-    </div>
-  </section>
-
-  <section class="block tight" data-dawn="Video">
-    <div class="wrap">
-      <button class="video pat-twill" type="button" aria-label="Play video: how our shells are made">
-        <span class="play"><svg width="30" height="30" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z" fill="#0F0F10"/></svg></span>
-        <span class="cap">How our shells are made</span>
-      </button>
-    </div>
-  </section>
-
-  <section class="block" data-dawn="Featured collection">
-    <div class="wrap">
-      <div class="sec-head"><h2 class="h">Best sellers</h2><a href="#" data-go="collection">View all</a></div>
-      <div class="grid slide" data-grid="4,5,6,7"></div>
-    </div>
-  </section>
-
-  <section class="block tight" data-dawn="Collapsible content">
-    <div class="wrap faq">
-      <h2 class="h">Questions, answered</h2>
-      <div>
-        <details class="acc"><summary>How do I pick my size?</summary><p>Every product has a fit tip next to the size buttons. Shells are cut for layering, so stay true to size unless you want extra room.</p></details>
-        <details class="acc"><summary>Is the shell fully waterproof?</summary><p>Yes: a 20k waterproof rating with fully taped seams. Reproof it once a year to keep the water beading.</p></details>
-        <details class="acc"><summary>How long does shipping take?</summary><p>Orders ship within 2 days. Delivery is 2 to 5 working days in the UK and US.</p></details>
-        <details class="acc"><summary>How do free repairs work?</summary><p>Email us a photo, we send a prepaid label, and we return it fixed within three weeks.</p></details>
-        <details class="acc"><summary>Can I return worn items?</summary><p>Unworn items with tags can be returned within 30 days for a full refund.</p></details>
-      </div>
-    </div>
-  </section>
-
-  <section class="block" data-dawn="Featured blog">
-    <div class="wrap">
-      <div class="sec-head"><h2 class="h">From the journal</h2><a href="#" data-go="blog">All posts</a></div>
-      <div class="grid three" data-posts="0,1,2"></div>
-    </div>
-  </section>
-
-  <section class="block news" data-dawn="Email signup"><div class="wrap news-in"><h2>First look at new drops</h2><form data-sub><label class="sr" for="em1">Email address</label><input class="field" id="em1" type="email" placeholder="Your email address" required><button class="btn solid" type="submit">Subscribe</button></form></div></section>
+  <section data-dawn="newsletter"><div class="wrap"><div class="news br reveal"><div><span class="tag">Transmissions</span><h2 style="margin-top:14px">Drops, restocks, <span class="c">field tests</span></h2></div><div><form onsubmit="event.preventDefault();toast('Subscribed. First transmission Friday.')"><input type="email" placeholder="your@email.com" aria-label="Email"><button class="btn btn-c">Subscribe</button></form><small>Twice a month. Unsubscribe anytime.</small></div></div></div></section>
 </main>
 
-<!-- ======================= COLLECTION ======================= -->
-<main id="view-collection" hidden>
-  <section class="col-banner" data-dawn="Collection banner">
-    <div class="wrap">
-      <div class="crumbs" style="padding-top:0"><a href="#" data-go="home">Home</a> / New arrivals</div>
-      <h1>New arrivals</h1>
-      <p class="muted">Technical layers in nylon, merino, fleece and stretch cotton. <span id="colCount">12</span> products.</p>
-    </div>
-  </section>
-  <section data-dawn="Product grid">
-    <div class="wrap col-layout">
-      <aside class="filters" id="filters" aria-label="Filters">
-        <fieldset><legend>Category</legend>
-          <label><input type="checkbox" value="outerwear" data-f="cat"> Outerwear</label>
-          <label><input type="checkbox" value="tees" data-f="cat"> Tees</label>
-          <label><input type="checkbox" value="trousers" data-f="cat"> Trousers</label>
-          <label><input type="checkbox" value="knitwear" data-f="cat"> Knitwear</label>
-        </fieldset>
-        <fieldset><legend>Colour</legend>
-          <div class="swatch-row">
-            <label title="Graphite"><input type="checkbox" value="Graphite" data-f="col" aria-label="Graphite"><span style="background:#3A424B"></span></label>
-            <label title="Bone"><input type="checkbox" value="Bone" data-f="col" aria-label="Bone"><span style="background:#E4E1D8"></span></label>
-            <label title="Moss"><input type="checkbox" value="Moss" data-f="col" aria-label="Moss"><span style="background:#4B5B36"></span></label>
-            <label title="Steel"><input type="checkbox" value="Steel" data-f="col" aria-label="Steel"><span style="background:#8E9AA6"></span></label>
-            <label title="Slate"><input type="checkbox" value="Slate" data-f="col" aria-label="Slate"><span style="background:#2A2F36"></span></label>
-          </div>
-        </fieldset>
-        <fieldset><legend>Size</legend>
-          <label><input type="checkbox"> S</label><label><input type="checkbox"> M</label><label><input type="checkbox"> L</label><label><input type="checkbox"> XL</label>
-        </fieldset>
-        <fieldset style="border:0"><legend>Price</legend>
-          <label><input type="checkbox" value="u100" data-f="price"> Under $100</label>
-          <label><input type="checkbox" value="o100" data-f="price"> $100 and over</label>
-        </fieldset>
-      </aside>
-      <div>
-        <div class="toolbar">
-          <button class="btn filter-toggle" type="button" id="filterToggle" aria-controls="filters" aria-expanded="false">Filter</button>
-          <span class="muted"><span id="colShown">12</span> products</span>
-          <label>Sort by <select id="sort"><option value="feat">Featured</option><option value="low">Price, low to high</option><option value="high">Price, high to low</option></select></label>
-        </div>
-        <div class="grid three" id="colGrid"></div>
-        <nav class="pager" aria-label="Pages"><a href="#" aria-current="page">1</a><a href="#">2</a><a href="#">3</a><a href="#" aria-label="Next page">›</a></nav>
-      </div>
-    </div>
-  </section>
-  <section class="block tight" data-dawn="Rich text"><div class="wrap"><div class="fitnote"><strong>Fit note:</strong> shells are cut for layering, tees are true to size, trousers are sized by waist in inches.</div></div></section>
-  <section class="block tight" data-dawn="Collapsible content">
-    <div class="wrap faq">
-      <h2 class="h">About new arrivals</h2>
-      <div>
-        <details class="acc"><summary>How often do new pieces drop?</summary><p>We release a small run on the first Thursday of each month. Subscribers see it a day early.</p></details>
-        <details class="acc"><summary>Will sold-out sizes come back?</summary><p>Core pieces are restocked every season. Limited colours are one run only.</p></details>
-        <details class="acc"><summary>What makes these technical?</summary><p>Every piece has a measured spec: waterproof rating, weight in gsm and stretch. It's all listed on the product page.</p></details>
-      </div>
-    </div>
-  </section>
-  <section class="block news" data-dawn="Email signup"><div class="wrap news-in"><h2>First look at new drops</h2><form data-sub><label class="sr" for="em2">Email address</label><input class="field" id="em2" type="email" placeholder="Your email address" required><button class="btn solid" type="submit">Subscribe</button></form></div></section>
-</main>
-
-<!-- ======================= PRODUCT ======================= -->
-<main id="view-product" hidden>
-  <div class="wrap"><nav class="crumbs" data-dawn="Selvedge: Breadcrumbs" aria-label="Breadcrumb"><a href="#" data-go="home">Home</a> / <a href="#" data-go="collection">Outerwear</a> / Transit Shell</nav></div>
-  <section data-dawn="Product information">
-    <div class="wrap pdp">
-      <div class="gallery">
-        <div class="g"><svg viewBox="0 0 200 240" aria-hidden="true" id="mainArt" style="color:#3A424B"><use href="#g-jacket"/></svg></div>
-        <div class="g pat-twill"></div>
-        <div class="g"><svg viewBox="0 0 200 240" style="color:#2A2F36" aria-hidden="true"><use href="#g-jacket"/></svg></div>
-      </div>
-      <div class="buy">
-        <h1>Transit Shell</h1>
-        <p class="price">$198</p>
-        <p class="note">3-layer recycled nylon with a 20k waterproof rating. Fully taped seams, and it packs into its own pocket.</p>
-        <fieldset class="opt"><legend>Colour: <span id="cname">Graphite</span></legend>
-          <div class="swatches">
-            <button type="button" aria-pressed="true" aria-label="Graphite" style="background:#3A424B" data-c="Graphite" data-hex="#3A424B"></button>
-            <button type="button" aria-pressed="false" aria-label="Bone" style="background:#E4E1D8" data-c="Bone" data-hex="#E4E1D8"></button>
-            <button type="button" aria-pressed="false" aria-label="Moss" style="background:#4B5B36" data-c="Moss" data-hex="#4B5B36"></button>
-          </div>
-        </fieldset>
-        <fieldset class="opt"><legend>Size</legend>
-          <div class="sizes"><button type="button" aria-pressed="false">S</button><button type="button" aria-pressed="true">M</button><button type="button" aria-pressed="false">L</button><button type="button" aria-pressed="false">XL</button><button type="button" disabled aria-label="XXL, sold out">XXL</button></div>
-        </fieldset>
-        <div class="fittip">Cut for layering. Between sizes, stay true to size.</div>
-        <button class="btn solid full" type="button" data-add="0">Add to cart</button>
-        <button class="btn full" type="button">Buy it now</button>
-        <details class="acc" open><summary>Fabric</summary><p>100% recycled nylon, 3-layer laminate. Taped seams, YKK Aquaguard zips, packs into its own pocket.</p></details>
-        <details class="acc"><summary>Fit and size guide</summary><p>Boxy, hip length. Model is 185 cm and wears M. Chest: S 108 cm, M 114 cm, L 120 cm, XL 126 cm.</p></details>
-        <details class="acc"><summary>Care</summary><p>Wash cold with a tech wash and no softener. Tumble dry low to reactivate the finish.</p></details>
-        <details class="acc"><summary>Shipping and returns</summary><p>Ships in 2 days. Free returns for 30 days with the prepaid label.</p></details>
-      </div>
-    </div>
-  </section>
-  <section class="block" data-dawn="Image with text">
-    <div class="wrap iwt flip">
-      <div class="pic pat-twill" role="img" aria-label="Close-up of ripstop weave"></div>
-      <div><h2>Look for the lime line</h2><p>The lime line inside the hem is our reflective piping. It is bonded during lamination so it stays put through years of washes, and it gives you visibility after dark.</p></div>
-    </div>
-  </section>
-  <section class="block tight" data-dawn="Apps (reviews)">
-    <div class="wrap">
-      <div class="sec-head"><h2 class="h">Reviews</h2></div>
-      <div class="appbox">
-        <div><div class="stars" aria-label="4.8 out of 5">★★★★★</div><strong>4.8 out of 5</strong><div class="muted">from 214 reviews</div></div>
-        <blockquote><p>Stayed true to size as the tip said and it fits perfectly. Kept me dry through a full week of rain.</p><cite>Priya, Bristol · Size S · Verified buyer</cite></blockquote>
-        <button class="btn" type="button">Write a review</button>
-      </div>
-      <p class="muted" style="font-size:14px;margin-top:10px">Reviews app area: Judge.me, Loox or Shopify Product Reviews renders here.</p>
-    </div>
-  </section>
-  <section class="block tight" data-dawn="Related products">
-    <div class="wrap"><div class="sec-head"><h2 class="h">Wear it with</h2></div><div class="grid slide" data-grid="1,6,3,5"></div></div>
-  </section>
-  <section class="block tight" data-dawn="Multicolumn">
-    <div class="wrap promises">
-      <div class="promise"><h3>Free returns for 30 days</h3><p>Wrong size? Send it back with the prepaid label in the box.</p></div>
-      <div class="promise"><h3>Repairs for life</h3><p>Broken zip or worn elbow, we fix it at no cost.</p></div>
-      <div class="promise"><h3>Ships in 2 days</h3><p>Orders before 2 pm go out the same day, tracked.</p></div>
-    </div>
-  </section>
-  <div style="height:56px"></div>
-</main>
-
-<!-- ======================= CART ======================= -->
-<main id="view-cart" hidden>
-  <div class="wrap" style="padding-top:24px"><h1 class="pageh">Your cart</h1></div>
-  <div class="wrap cart-grid">
-    <section data-dawn="Cart items"><div id="cartLines"></div><p id="cartEmpty" class="muted" hidden>Your cart is empty. <a href="#" data-go="collection">Shop new arrivals</a></p></section>
-    <aside class="summary" data-dawn="Subtotal">
-      <p id="shipMsg" style="margin:0"></p>
-      <div class="ship-bar"><i id="shipBar" style="width:0"></i></div>
-      <label for="note" style="font-weight:600">Order note</label>
-      <textarea id="note" placeholder="Gift message or delivery note"></textarea>
-      <div class="row"><span>Subtotal</span><span id="subtotal">$0</span></div>
-      <p class="muted" style="font-size:14px;margin:0 0 16px">Taxes and shipping calculated at checkout.</p>
-      <button class="btn solid full" type="button">Check out</button>
+<!-- ================= COLLECTION ================= -->
+<main class="page" id="p-collection"><div class="wrap">
+  <div class="crumbs" data-dawn="sbs-breadcrumbs"><a href="#" data-go="home">Home</a> / System / <b>Shells</b></div>
+  <section class="chead br" data-dawn="main-collection-banner (photo banner)"><img data-src="look" alt=""><div><span class="tag">32 pieces · FW26</span><h1>All <span class="c">systems</span></h1><p>Shells, cargo and carry, built to layer and to share the same modules.</p></div></section>
+  <div class="clay" data-dawn="main-collection-product-grid (sidebar filters)">
+    <aside class="side" id="side">
+      <div><h4>// Category</h4><div id="fcat"></div></div>
+      <div><h4>// Waterproof</h4><div id="fwp"></div></div>
+      <div><h4>// Size</h4><div class="szg" id="fsz"></div></div>
+      <div><h4>// Max price</h4><input type="range" id="fpr" min="40" max="400" step="10" value="400" aria-label="Max price"><div class="rng"><span>$40</span><span id="fprV">$400</span></div></div>
     </aside>
+    <div>
+      <div class="ctop"><span id="ccount"></span><div class="chips2" id="chips"></div><button class="btn btn-o mfilt" onclick="toast('Filters open in a drawer on mobile')">Filter</button><select id="sort" aria-label="Sort"><option value="feat">Featured</option><option value="wp">Most waterproof</option><option value="lo">Price low-high</option><option value="hi">Price high-low</option></select></div>
+      <div class="grid cgrid" id="cgrid"></div>
+      <div class="pager"><button class="on">1</button><button onclick="toast('The demo has one page')">2</button><button onclick="toast('The demo has one page')">→</button></div>
+    </div>
   </div>
-  <section class="block tight" data-dawn="Featured collection"><div class="wrap"><div class="sec-head"><h2 class="h">Complete the look</h2></div><div class="grid slide" data-grid="1,2,3,5"></div></div></section>
-  <div style="height:56px"></div>
-</main>
+  <div style="height:80px"></div>
+</div></main>
 
-<!-- ======================= SEARCH ======================= -->
-<main id="view-search" hidden>
-  <section class="block" style="padding-top:24px" data-dawn="Search results">
-    <div class="wrap">
-      <h1 class="pageh">Search</h1>
-      <form id="searchForm" style="display:flex;gap:8px;max-width:640px;margin-bottom:12px"><label class="sr" for="q">Search products</label><input class="field" id="q" type="search" value="fleece" placeholder="Search products"><button class="btn solid" type="submit">Search</button></form>
-      <p class="muted" id="searchCount"></p>
-      <div class="grid" id="searchGrid"></div>
-    </div>
-  </section>
-  <section class="block tight" data-dawn="Featured collection"><div class="wrap"><div class="sec-head"><h2 class="h">Popular right now</h2></div><div class="grid slide" data-grid="0,4,1,7"></div></div></section>
-  <div style="height:56px"></div>
-</main>
-
-<!-- ======================= BLOG ======================= -->
-<main id="view-blog" hidden>
-  <section class="block" style="padding-top:24px" data-dawn="Blog posts">
-    <div class="wrap">
-      <h1 class="pageh">Journal</h1>
-      <a class="feature-post" data-go="article">
-        <div class="pic pat-twill" role="img" aria-label="Weathered shell jacket"></div>
-        <div><small class="muted">12 September 2026 · Field test</small><h2>One shell, three seasons</h2><p class="muted">A season-by-season field log of one Transit Shell, from first commute to first snow.</p></div>
-      </a>
-      <div class="grid three" data-posts="1,2,3,4,5,0"></div>
-    </div>
-  </section>
-  <section class="block news" data-dawn="Email signup"><div class="wrap news-in"><h2>New posts, first</h2><form data-sub><label class="sr" for="em3">Email address</label><input class="field" id="em3" type="email" placeholder="Your email address" required><button class="btn solid" type="submit">Subscribe</button></form></div></section>
-</main>
-
-<!-- ======================= ARTICLE ======================= -->
-<main id="view-article" hidden>
-  <article class="block article" style="padding-top:24px" data-dawn="Blog post">
-    <div class="wrap narrow">
-      <nav class="crumbs" style="padding-top:0" aria-label="Breadcrumb"><a href="#" data-go="home">Home</a> / <a href="#" data-go="blog">Journal</a></nav>
-      <h1>One shell, three seasons</h1>
-      <p class="by">12 September 2026 · By Sam Hale · 6 min read</p>
-    </div>
-    <div class="wrap"><div class="article-hero pat-twill" role="img" aria-label="Weathered charcoal shell"></div></div>
-    <div class="wrap narrow">
-      <p>When the Transit Shell arrived it packed down to the size of a grapefruit. Three layers of recycled nylon feel crisp, quiet and lighter than they look. That's the point: it disappears until you need it.</p>
-      <h2>Autumn</h2>
-      <p>The first storms came in week three. Water beaded off the shoulders and the hood held its shape in the wind. By month two it lived in my bag, folded into its own pocket.</p>
-      <h2>Winter</h2>
-      <p>Over a base layer and a fleece it handled sub-zero mornings without bulk. The taped seams stayed dry and the zip pulls worked with gloves on.</p>
-      <h2>Spring</h2>
-      <p>One pocket zip snagged in March. It came back from our repair service in eleven days with a new slider and a fresh bond. The shell now feels broken in, and still sheds rain like the first day.</p>
-      <div class="share"><span>Share:</span><a href="#">Facebook</a><a href="#">Pinterest</a><a href="#">Copy link</a></div>
-    </div>
-  </article>
-  <section class="block tight" data-dawn="Featured collection"><div class="wrap"><div class="sec-head"><h2 class="h">Shop the story</h2></div><div class="grid slide" data-grid="0,6,8,1"></div></div></section>
-  <section class="block news" data-dawn="Email signup"><div class="wrap news-in"><h2>New posts, first</h2><form data-sub><label class="sr" for="em4">Email address</label><input class="field" id="em4" type="email" placeholder="Your email address" required><button class="btn solid" type="submit">Subscribe</button></form></div></section>
-</main>
-
-<!-- ======================= ABOUT ======================= -->
-<main id="view-about" hidden>
-  <section class="about-hero pat-twill" data-dawn="Image banner"><div class="wrap"><h1>Fewer pieces, better materials</h1></div></section>
-  <section class="block" data-dawn="Rich text">
-    <div class="wrap narrow story">
-      <p>Northline started in 2019 with one shell jacket and a problem: everything we bought for the commute leaked, sagged or wore out within two winters. So we went looking for mills making technical fabric properly, with real specs and real testing.</p>
-      <p>We make small runs, so nothing ends up in a landfill sale. And we repair anything we sell, for free, for as long as you wear it.</p>
-    </div>
-  </section>
-  <section class="block tight" data-dawn="Multirow">
-    <div class="wrap mrow">
-      <div class="iwt"><div class="pic pat-twill" role="img" aria-label="Nylon on the loom"></div><div><h2>The material</h2><p>Nylon from Osaka, merino from Porto, ripstop from Como. We visit every mill before we buy a metre.</p></div></div>
-      <div class="iwt flip"><div class="pic pat-canvas" role="img" aria-label="Pattern pieces on a cutting table"></div><div><h2>The cut</h2><p>Patterns are cut in runs of 200 or fewer, so every panel lines up with the grain and every seam sits flat.</p></div></div>
-      <div class="iwt"><div class="pic pat-olive" role="img" aria-label="Finished shell seams"></div><div><h2>The finish</h2><p>Taped seams, bar-tacked stress points and YKK zips. Built so we rarely need to use our repair promise.</p></div></div>
-    </div>
-  </section>
-  <section class="block" data-dawn="Multicolumn">
-    <div class="wrap nums">
-      <div><strong>200</strong>pieces per run, at most</div>
-      <div><strong>4</strong>mills we work with</div>
-      <div><strong>1,340</strong>repairs done for free</div>
-      <div><strong>2019</strong>the year we started</div>
-    </div>
-  </section>
-  <div class="selvedge" data-dawn="Selvedge: Selvedge divider" aria-hidden="true"></div>
-</main>
-
-<!-- ======================= CONTACT ======================= -->
-<main id="view-contact" hidden>
-  <section class="block" style="padding-top:24px" data-dawn="Page">
-    <div class="wrap narrow"><h1 class="pageh">Contact us</h1><p style="font-size:19px;margin:0">We reply within one working day, Monday to Friday.</p></div>
-  </section>
-  <section class="block tight" data-dawn="Contact form">
-    <div class="wrap narrow">
-      <form class="contact-grid" id="contactForm">
-        <div><label for="cn">Name</label><input class="field" id="cn" required></div>
-        <div><label for="ce">Email</label><input class="field" id="ce" type="email" required></div>
-        <div class="span"><label for="co">Order number (optional)</label><input class="field" id="co" placeholder="#1042"></div>
-        <div class="span"><label for="cm">Message</label><textarea class="field" id="cm" required></textarea></div>
-        <div class="span"><button class="btn solid" type="submit">Send message</button></div>
-      </form>
-    </div>
-  </section>
-  <section class="block" data-dawn="Multicolumn">
-    <div class="wrap promises">
-      <div class="promise"><h3>Email</h3><p>hello@northline.co<br>Replies within one working day</p></div>
-      <div class="promise"><h3>Phone</h3><p>+44 20 7946 0000<br>Mon to Fri, 9 am to 5 pm</p></div>
-      <div class="promise"><h3>Returns address</h3><p>Northline Returns, Unit 4, Mill Lane, Leeds LS1 4AB</p></div>
-    </div>
-  </section>
-  <section class="block tight" data-dawn="Collapsible content">
-    <div class="wrap faq">
-      <h2 class="h">Quick answers</h2>
-      <div>
-        <details class="acc"><summary>Where is my order?</summary><p>Your tracking link is in your shipping email. Most orders arrive in 2 to 5 working days.</p></details>
-        <details class="acc"><summary>How do I start a return?</summary><p>Use the prepaid label in your parcel, or email us your order number for a new one.</p></details>
-        <details class="acc"><summary>How do I book a repair?</summary><p>Email a photo of the damage and your order number. We'll send a prepaid label.</p></details>
+<!-- ================= PRODUCT ================= -->
+<main class="page" id="p-product">
+  <div class="wrap">
+    <div class="crumbs" data-dawn="sbs-breadcrumbs"><a href="#" data-go="home">Home</a> / <a href="#" data-go="collection">Shells</a> / <b>Vector 3L Shell</b></div>
+    <div class="pdp" data-dawn="main-product (performance ratings)">
+      <div class="gal" id="gal"></div>
+      <div class="info">
+        <div class="idl"><span>NL-01 · <b>3-layer</b></span><span>In stock · ships in 24 h</span></div>
+        <h1>Vector 3L Shell</h1>
+        <div class="pp"><b>$340</b><span>Or 4 × $85</span></div>
+        <p class="lede">A fully taped three-layer shell with a 20K membrane, a helmet-compatible hood and a front panel that takes our clip-on modules.</p>
+        <div class="optl">Colour <span id="pcolT">Black</span></div><div class="pcol" id="pcol"></div>
+        <div class="optl">Size <a href="#" id="openSG">Size guide</a></div><div class="psz" id="psz"></div>
+        <div class="buy"><button class="btn btn-c" id="atc">Select a size</button><button class="wish" id="pwish" aria-label="Add to wishlist">♡</button></div>
+        <div class="rate" data-dawn="sbs-performance-ratings"><div><span>Waterproof</span><i style="--w:92%"></i><b>20K mm</b></div><div><span>Breathability</span><i style="--w:88%"></i><b>20K g</b></div><div><span>Wind</span><i style="--w:100%"></i><b>100%</b></div><div><span>Packability</span><i style="--w:60%"></i><b>480 g</b></div></div>
+        <div class="acc">
+          <details open><summary>Fit</summary><div class="b">Athletic fit with room for a mid layer. Drop tail. Model is 183 cm and wears M.</div></details>
+          <details><summary>Care</summary><div class="b">Wash at 30°C with tech wash. Tumble low for 20 minutes to re-activate the DWR.</div></details>
+          <details><summary>Shipping &amp; returns</summary><div class="b">Free shipping over $200. Free returns within 30 days, unworn with tags.</div></details>
+        </div>
       </div>
     </div>
-  </section>
-  <div style="height:56px"></div>
-</main>
-
-<!-- ======================= 404 ======================= -->
-<main id="view-404" hidden>
-  <section class="nf" data-dawn="404 page">
-    <div class="wrap">
-      <h1>404</h1>
-      <p>Page not found. It may have sold out, or the link is wrong.</p>
-      <form data-search404><label class="sr" for="q404">Search products</label><input class="field" id="q404" type="search" placeholder="Search products"><button class="btn solid" type="submit">Search</button></form>
-      <a href="#" class="btn" data-go="collection">Back to the shop</a>
-    </div>
-  </section>
-  <section class="block tight" data-dawn="Featured collection"><div class="wrap"><div class="sec-head"><h2 class="h">Best sellers</h2></div><div class="grid slide" data-grid="4,5,6,7"></div></div></section>
-  <div style="height:56px"></div>
-</main>
-
-<div class="selvedge" aria-hidden="true"></div>
-<footer class="site" data-dawn="Footer">
-  <div class="wrap">
-    <div class="foot">
-      <div><h4>Northline</h4><p class="muted" style="margin:0;max-width:34ch">Technical everyday layers made in small runs. Repaired for free, for as long as you wear them.</p></div>
-      <div><h4>Shop</h4><ul><li><a href="#" data-go="collection">New arrivals</a></li><li><a href="#" data-go="collection">Outerwear</a></li><li><a href="#" data-go="collection">Tees</a></li><li><a href="#" data-go="collection">Trousers</a></li></ul></div>
-      <div><h4>Help</h4><ul><li><a href="#" data-go="contact">Contact</a></li><li><a href="#" data-go="contact">Shipping</a></li><li><a href="#" data-go="contact">Returns</a></li><li><a href="#" data-go="404">Size guide</a></li></ul></div>
-      <div><h4>Company</h4><ul><li><a href="#" data-go="about">About</a></li><li><a href="#" data-go="blog">Journal</a></li><li><a href="#" data-go="search">Search</a></li></ul></div>
-    </div>
-    <p class="foot-big" aria-hidden="true">Northline</p>
   </div>
-</footer>
+  <section class="sec" style="padding-top:0" data-dawn="sbs-rig-builder (compact)"><div class="wrap"><div class="news br" style="grid-template-columns:1.3fr 1fr"><div><span class="tag">Modules fit this shell</span><h2 style="margin-top:14px;font-size:clamp(40px,4vw,64px)">Clip on a <span class="c">chest pouch</span></h2></div><div style="display:flex;justify-content:flex-end"><a href="#rig" class="btn btn-c" data-go="home">Open the rig builder</a></div></div></div></section>
+  <section class="sec" style="padding-top:0" data-dawn="related-products"><div class="wrap"><div class="head"><div><span class="tag">Same system</span><h2>Layer <span class="c">with</span></h2></div></div><div class="grid" id="recent"></div></div></section>
+  <div class="sticky-atc" id="sticky" data-dawn="main-product (sticky bar)"><div class="wrap"><img data-src="shell" alt=""><div><b>Vector 3L Shell</b><small id="stxt"></small></div><button class="btn btn-c" id="satc">Add to cart · $340</button></div></div>
+</main>
 
-<!-- Menu drawer (mobile) -->
-<div class="overlay" id="ovMenu" data-close hidden></div>
-<aside class="drawer left" id="menuDrawer" aria-label="Menu" hidden data-dawn="Header (menu drawer)">
-  <div class="drawer-head"><h2>Menu</h2><button class="x" type="button" data-close aria-label="Close menu">×</button></div>
-  <nav><a href="#" data-go="collection">New arrivals</a><a href="#" data-go="collection">Outerwear</a><a href="#" data-go="collection">Trousers</a><a href="#" data-go="blog">Journal</a><a href="#" data-go="about">About</a><a href="#" data-go="contact">Contact</a></nav>
-</aside>
+<!-- ================= CART ================= -->
+<main class="page" id="p-cart">
+  <div class="wrap">
+    <div class="crumbs" data-dawn="sbs-breadcrumbs"><a href="#" data-go="home">Home</a> / <b>Cart</b></div>
+    <div class="cpage" data-dawn="main-cart-items + main-cart-footer">
+      <div><h1>Your <span class="c">loadout</span></h1><div class="prog" id="cprog"></div><div id="clines"></div>
+        <div class="note"><label for="cnote">Order note</label><textarea id="cnote" placeholder="Delivery notes"></textarea></div></div>
+      <aside class="summ"><div class="box"><h3>Summary</h3><div class="r"><span>Subtotal</span><span id="csub">$0</span></div><div class="r"><span>Shipping</span><span id="cship">—</span></div><div class="r t"><span>Total</span><span id="ctot">$0</span></div><button class="btn btn-c" onclick="toast('Checkout is off in the demo')">Checkout</button></div>
+        <div class="po"><b>Lifetime seam-tape warranty</b>If a taped seam ever lifts, we repair or replace the piece.</div></aside>
+    </div>
+  </div>
+  <section class="sec" data-dawn="featured-collection (complete the system)"><div class="wrap"><div class="head"><div><span class="tag">Complete the system</span><h2>Often <span class="c">added</span></h2></div></div><div class="grid" id="cartup"></div></div></section>
+</main>
 
-<!-- Cart drawer -->
-<div class="overlay" id="ovCart" data-close hidden></div>
-<aside class="drawer right" id="cartDrawer" aria-label="Cart" hidden data-dawn="Cart drawer">
-  <div class="drawer-head"><h2>Cart</h2><button class="x" type="button" data-close aria-label="Close cart">×</button></div>
-  <div class="body" id="drawerLines"></div>
-  <div class="row" style="margin-top:14px"><span>Subtotal</span><span id="drawerSub">$0</span></div>
-  <button class="btn solid full" type="button">Check out</button>
-  <a href="#" class="btn full" data-go="cart">View cart</a>
-</aside>
+<!-- ================= SEARCH ================= -->
+<main class="page" id="p-search"><div class="wrap" style="padding-bottom:40px" data-dawn="main-search">
+  <div class="crumbs"><a href="#" data-go="home">Home</a> / <b>Search</b></div>
+  <form class="sform" onsubmit="event.preventDefault()"><span>&gt;</span><input id="q" value="shell" aria-label="Search"><kbd>ESC</kbd></form>
+  <div class="sugg">Try: <button>3L</button><button>cargo</button><button>sling</button><button>module</button><button>black</button></div>
+  <p id="sres" style="font:400 12px var(--mono);text-transform:uppercase;color:var(--mute);margin-bottom:26px"></p><div class="grid" id="sgrid"></div>
+</div></main>
 
-<div class="toast" id="toast" role="status" hidden></div>
+<!-- ================= BLOG ================= -->
+<main class="page" id="p-blog"><div class="wrap" style="padding-bottom:40px" data-dawn="main-blog">
+  <div class="crumbs"><a href="#" data-go="home">Home</a> / <b>Field log</b></div>
+  <div class="bhead"><h1>Field <span class="c">log</span></h1><span class="tag">Tests · guides · systems</span></div>
+  <a href="#" class="bfeat br" data-go="article"><div class="ph"><img data-src="detail" alt=""></div><div class="tx"><div><span class="tag">Guide · 6 min</span><h2>How a 3-layer shell actually works</h2><p>Membrane, face fabric and DWR, explained without the marketing.</p></div><span class="btn btn-c" style="align-self:flex-start">Read entry</span></div></a>
+  <div class="jgrid"><a href="#" class="post" data-go="article"><div class="ph"><img data-src="look" alt=""></div><div class="b"><span class="tag">Test</span><h3>30 days of rain in the city</h3><p>What held up and what we changed.</p><div class="meta"><span>Entry 112</span><span>5 min</span></div></div></a><a href="#" class="post" data-go="article"><div class="ph"><img data-src="sling" alt=""></div><div class="b"><span class="tag">System</span><h3>Building a modular carry</h3><p>One mount, four modules.</p><div class="meta"><span>Entry 109</span><span>4 min</span></div></div></a><a href="#" class="post" data-go="article"><div class="ph"><img data-src="cargo" alt=""></div><div class="b"><span class="tag">Care</span><h3>Bring your DWR back</h3><p>Wash, dry, done.</p><div class="meta"><span>Entry 104</span><span>3 min</span></div></div></a></div>
+</div></main>
+
+<!-- ================= ARTICLE ================= -->
+<main class="page" id="p-article"><div class="wrap">
+  <div class="crumbs" data-dawn="sbs-breadcrumbs"><a href="#" data-go="home">Home</a> / <a href="#" data-go="blog">Field log</a> / <b>Guide</b></div>
+  <article class="art" data-dawn="main-article"><span class="tag">Guide · 6 min read</span><h1>How a 3-layer shell <span class="c">works</span></h1><div class="by"><span>// By Kai, product lead</span><span>Entry 114</span></div>
+    <div class="big br"><img data-src="detail" alt=""></div>
+    <p>A three-layer shell bonds a waterproof membrane between a tough face fabric and a thin inner scrim. No loose lining, no hanging mesh. It is lighter, it dries faster and it lasts longer.</p>
+    <div class="spec"><div><span>Face fabric</span><span>40D nylon ripstop</span></div><div><span>Membrane</span><span>ePE, 20,000 mm</span></div><div><span>Breathability</span><span>20,000 g/m²/24h</span></div><div><span>Finish</span><span>PFC-free DWR</span></div></div>
+    <h2>Why the DWR matters</h2>
+    <p>The outer finish makes water bead and roll off. When it wears out, the face fabric soaks up water and the shell feels damp even though the membrane is still dry.</p>
+    <blockquote>"Dry inside starts with water rolling off outside."</blockquote>
+    <p>Wash it, tumble it low for twenty minutes, and the finish comes back.</p>
+    <div class="share"><a href="#">Copy link</a><a href="#">Email</a><a href="#">Print</a></div>
+  </article></div>
+  <section class="sec" data-dawn="featured-collection (shells)"><div class="wrap"><div class="head"><div><span class="tag">In this guide</span><h2>Shop <span class="c">shells</span></h2></div></div><div class="grid" id="artgrid"></div></div></section>
+</main>
+
+<!-- ================= ABOUT ================= -->
+<main class="page" id="p-about"><div class="wrap">
+  <section class="ab" data-dawn="image-with-text (story)"><div class="t br"><span class="tag">About Northline</span><h1>Designed for <span class="c">the grid</span></h1><p>Northline started with one shell for a rainy commute. Today we build complete systems: shells, cargo and modular carry that work together.</p><p>We design in the city, test in the weather, and only ship what survives the field log.</p></div><div class="ph"><img data-src="look" alt=""></div></section>
+  <section class="sec" data-dawn="multicolumn (values)"><div class="vals"><div><b>01 //</b><h3>Tested in the wet</h3><p>Every system logs a month in real weather before it ships.</p></div><div><b>02 //</b><h3>Built to layer</h3><p>Shells, mids and cargo share one fit block and one module mount.</p></div><div><b>03 //</b><h3>Made to last</h3><p>Lifetime warranty on seam tape, and spare parts for every module.</p></div></div></section>
+</div></main>
+
+<!-- ================= CONTACT ================= -->
+<main class="page" id="p-contact"><div class="wrap">
+  <div class="crumbs" data-dawn="sbs-breadcrumbs"><a href="#" data-go="home">Home</a> / <b>Contact</b></div>
+  <div class="ct" data-dawn="contact-form + multicolumn (help)">
+    <div><span class="tag">Support</span><h1>Open a <span class="c">channel</span></h1><p style="color:var(--mute)">Sizing, warranty, orders or modules. We reply within one working day.</p>
+      <div class="ways"><div><b>Warranty</b>Seam tape and zips, for life</div><div><b>Spare parts</b>Buckles, mounts and cords</div><div><b>Email</b>ops@northline-demo.com</div></div></div>
+    <form class="cform" onsubmit="event.preventDefault();document.getElementById('cok').classList.add('on')"><h3>Message</h3><input placeholder="Name" aria-label="Name"><input placeholder="Email" aria-label="Email"><select aria-label="Topic"><option>Sizing</option><option>Order</option><option>Warranty</option><option>Spare parts</option></select><textarea placeholder="Message" aria-label="Message"></textarea><button class="btn btn-c">Transmit</button><p class="ok" id="cok">Received. We reply within one working day.</p></form>
+  </div>
+  <section style="padding-bottom:40px" data-dawn="collapsible-content (FAQ)"><div class="faq">
+    <details open><summary>How do your shells fit?</summary><p>Athletic, with room for a mid layer. Size up if you wear a puffer under it.</p></details>
+    <details><summary>Do the modules fit every piece?</summary><p>Yes. Every shell, cargo and sling uses the same mount, so modules move between them.</p></details>
+    <details><summary>What does the warranty cover?</summary><p>Seam tape and zips for the life of the garment. Send it in and we repair or replace it.</p></details>
+  </div></section>
+</div></main>
+
+<!-- ================= 404 ================= -->
+<main class="page" id="p-404"><div class="wrap">
+  <section class="nf br" data-dawn="main-404"><img data-src="hero" alt=""><div><b>404</b><h1>Signal lost</h1><p>&gt; route not found. The page moved or never existed.</p><a href="#" class="btn btn-c" data-go="home">Return to base</a></div></section>
+  <section class="sec" data-dawn="featured-collection (bestsellers)"><div class="head"><div><span class="tag">Most requested</span><h2>Start <span class="c">here</span></h2></div></div><div class="grid" id="nfgrid"></div></section>
+</div></main>
+
+<footer class="ftr" data-dawn="footer (outline wordmark)"><div class="wrap">
+  <div class="cols">
+    <div><span class="logo"><svg viewBox="0 0 28 28" fill="none" width="28" height="28"><path d="M4 24V4l20 20V4" stroke="#5BE3EA" stroke-width="2.4"/></svg>NORTHLINE</span><p>Technical outerwear and modular carry for the city. Tested in the wet.</p></div>
+    <div><h5>// System</h5><ul><li><a href="#" data-go="collection">Shells</a></li><li><a href="#" data-go="collection">Lower</a></li><li><a href="#" data-go="collection">Carry</a></li><li><a href="#rig" data-go="home">Rig builder</a></li></ul></div>
+    <div><h5>// Support</h5><ul><li><a href="#" data-go="contact">Warranty</a></li><li><a href="#" data-go="contact">Returns</a></li><li><a href="#" data-go="contact">Spare parts</a></li><li><a href="#" data-go="contact">Contact</a></li></ul></div>
+    <div><h5>// Northline</h5><ul><li><a href="#" data-go="about">About</a></li><li><a href="#" data-go="blog">Field log</a></li><li><a href="#">Instagram</a></li><li><a href="#">Stockists</a></li></ul></div>
+  </div>
+  <div class="big" aria-hidden="true">NORTHLINE</div>
+  <div class="bot"><span>© 2026 Northline Systems. Demo store, sample content.</span><div class="pay"><span>VISA</span><span>MC</span><span>AMEX</span><span>APPLE PAY</span><span>SHOP PAY</span></div></div>
+</div></footer>
+
+<div class="modal" id="sg" data-dawn="sbs-size-guide (modal)"><div class="bx"><button class="x" id="sgx">Close ✕</button><h3>Size guide</h3><p style="color:var(--mute);font-size:14px">Body measurements. Athletic fit with room for a mid layer.</p><div class="unit" id="unit"><button class="on" data-u="cm">cm</button><button data-u="in">in</button></div><table id="sgt"></table></div></div>
+<div class="scrim" id="scrim"></div>
+<aside class="drawer" id="drawer" aria-label="Cart" data-dawn="cart-drawer"><div class="hd"><h3>Loadout</h3><button id="closeCart">Close ✕</button></div><div class="pg prog" id="dprog"></div><div class="ls" id="dlines"></div><div class="ft"><div class="r"><span>Subtotal</span><span id="dsub">$0</span></div><a href="#" class="btn btn-c" data-go="cart">View cart &amp; checkout</a></div></aside>
+<div class="toast" id="toast" role="status"></div>
 
 <script>
-(function(){
-  var P=[
-    {n:"Transit Shell",s:"jacket",c:"#3A424B",cn:"Graphite",p:198,t:"3-layer shell",cat:"outerwear",d:["#3A424B","#E4E1D8","#4B5B36"]},
-    {n:"Merino Tee",s:"tee",c:"#E4E1D8",cn:"Bone",p:68,t:"150 gsm merino",cat:"tees",d:["#E4E1D8","#0F0F10","#8E9AA6"]},
-    {n:"Utility Cargo",s:"trouser",c:"#4B5B36",cn:"Moss",p:128,t:"Ripstop nylon",cat:"trousers",d:["#4B5B36","#3A424B"]},
-    {n:"Grid Fleece",s:"knit",c:"#8E9AA6",cn:"Steel",p:118,t:"Polartec fleece",cat:"knitwear",d:["#8E9AA6","#E4E1D8"]},
-    {n:"Packable Parka",s:"jacket",c:"#4B5B36",cn:"Moss",p:240,t:"Recycled down",cat:"outerwear",d:["#4B5B36","#2A2F36"]},
-    {n:"Pocket Tee",s:"tee",c:"#2A2F36",cn:"Slate",p:52,t:"220 gsm cotton",cat:"tees",d:["#2A2F36","#E4E1D8","#4B5B36"]},
-    {n:"Tapered Tech Pant",s:"trouser",c:"#3A424B",cn:"Graphite",p:148,t:"4-way stretch",cat:"trousers",d:["#3A424B"]},
-    {n:"Ribbed Merino Knit",s:"knit",c:"#E4E1D8",cn:"Bone",p:164,t:"Merino wool",cat:"knitwear",d:["#E4E1D8","#2A2F36"]},
-    {n:"Coach Jacket",s:"jacket",c:"#8E9AA6",cn:"Steel",p:132,t:"Windproof nylon",cat:"outerwear",d:["#8E9AA6","#3A424B"]},
-    {n:"Long Sleeve Tee",s:"tee",c:"#8E9AA6",cn:"Steel",p:58,t:"220 gsm cotton",cat:"tees",d:["#8E9AA6","#E4E1D8"]},
-    {n:"Travel Chino",s:"trouser",c:"#E4E1D8",cn:"Bone",p:118,t:"Stretch cotton",cat:"trousers",d:["#E4E1D8","#4B5B36"]},
-    {n:"Zip Fleece",s:"knit",c:"#2A2F36",cn:"Slate",p:126,t:"Polartec fleece",cat:"knitwear",d:["#2A2F36","#8E9AA6"]}
-  ];
-  var POSTS=[
-    {t:"One shell, three seasons",d:"12 September 2026",k:"Field test",e:"A field log of one Transit Shell, from first commute to first snow.",pat:"pat-twill"},
-    {t:"How to reproof a shell jacket",d:"2 September 2026",k:"Care",e:"Wash it right, restore the finish, and get years more rain.",pat:"pat-knit"},
-    {t:"Inside the mill in Osaka",d:"20 August 2026",k:"Makers",e:"Where our recycled nylon is woven, and why the grid matters.",pat:"pat-canvas"},
-    {t:"Sizing technical trousers",d:"8 August 2026",k:"Fit",e:"Rise, taper and how to size by waist.",pat:"pat-olive"},
-    {t:"What 1,340 repairs taught us",d:"24 July 2026",k:"Repairs",e:"The seams that fail first, and how we changed them.",pat:"pat-twill"},
-    {t:"Packing light for a city break",d:"10 July 2026",k:"Style",e:"Shell, tee, fleece, cargo: four pieces, five days.",pat:"pat-knit"}
-  ];
-  var cart=[{i:1,size:"M",col:"Bone",q:1},{i:2,size:"32",col:"Moss",q:1}];
-  function $(s,r){return (r||document).querySelector(s)}
-  function $$(s,r){return Array.prototype.slice.call((r||document).querySelectorAll(s))}
-  function money(v){return "$"+v.toLocaleString("en-US")}
-  function card(i){var p=P[i];return '<a class="p" href="#" data-go="product"><div class="img"><span class="tag">'+p.t+'</span><svg viewBox="0 0 200 240" style="color:'+p.c+'" aria-hidden="true"><use href="#g-'+p.s+'"/></svg></div><h3>'+p.n+'</h3><div class="meta"><span>'+p.cn+'</span><b>'+money(p.p)+'</b></div><div class="dots">'+p.d.map(function(c){return '<i style="background:'+c+'"></i>'}).join("")+'</div></a>'}
-  function postCard(i){var p=POSTS[i];return '<a class="post" href="#" data-go="article"><div class="pic '+p.pat+'" role="img" aria-label="'+p.t+'"></div><small>'+p.d+' · '+p.k+'</small><h3>'+p.t+'</h3><p>'+p.e+'</p></a>'}
-  $$("[data-grid]").forEach(function(g){g.innerHTML=g.dataset.grid.split(",").map(Number).map(card).join("")});
-  $$("[data-posts]").forEach(function(g){g.innerHTML=g.dataset.posts.split(",").map(Number).map(postCard).join("")});
-
-  // Collection filters
-  function renderCollection(){
-    var cats=$$('[data-f="cat"]:checked').map(function(x){return x.value}),
-        cols=$$('[data-f="col"]:checked').map(function(x){return x.value}),
-        prices=$$('[data-f="price"]:checked').map(function(x){return x.value}),
-        idx=P.map(function(_,i){return i}).filter(function(i){var p=P[i];
-          return (!cats.length||cats.indexOf(p.cat)>-1)&&(!cols.length||cols.indexOf(p.cn)>-1)&&
-            (!prices.length||(prices.indexOf("u100")>-1&&p.p<100)||(prices.indexOf("o100")>-1&&p.p>=100));});
-    var s=$("#sort").value; if(s==="low")idx.sort(function(a,b){return P[a].p-P[b].p}); if(s==="high")idx.sort(function(a,b){return P[b].p-P[a].p});
-    $("#colGrid").innerHTML=idx.length?idx.map(card).join(""):'<p class="muted">No products match these filters. Clear a filter to see more.</p>';
-    $("#colShown").textContent=idx.length;
-  }
-  $$(".filters input").forEach(function(x){x.addEventListener("change",renderCollection)});
-  $("#sort").addEventListener("change",renderCollection);
-  $("#filterToggle").addEventListener("click",function(){var f=$("#filters");f.classList.toggle("open");this.setAttribute("aria-expanded",f.classList.contains("open"))});
-  renderCollection();
-
-  // Search
-  function runSearch(q){
-    q=(q||"").trim().toLowerCase();
-    var idx=P.map(function(_,i){return i}).filter(function(i){var p=P[i];return !q||(p.n+" "+p.t+" "+p.cat+" "+p.cn).toLowerCase().indexOf(q)>-1});
-    $("#searchCount").textContent=idx.length+" result"+(idx.length===1?"":"s")+(q?' for "'+q+'"':"");
-    $("#searchGrid").innerHTML=idx.length?idx.map(card).join(""):'<p class="muted">No products found. Try "fleece", "tee" or "merino", or browse the best sellers below.</p>';
-  }
-  $("#searchForm").addEventListener("submit",function(e){e.preventDefault();runSearch($("#q").value)});
-  $("[data-search404]").addEventListener("submit",function(e){e.preventDefault();$("#q").value=$("#q404").value;runSearch($("#q404").value);show("search")});
-  runSearch("fleece");
-
-  // Cart
-  function renderCart(){
-    var sub=0,count=0,html="";
-    cart.forEach(function(l,k){var p=P[l.i];sub+=p.p*l.q;count+=l.q;
-      html+='<div class="line"><div class="thumb"><svg viewBox="0 0 200 240" style="color:'+p.c+'" aria-hidden="true"><use href="#g-'+p.s+'"/></svg></div><div><h3>'+p.n+'</h3><div class="muted" style="font-size:14px">'+l.col+' · '+l.size+'</div><div class="qty"><button type="button" aria-label="Decrease quantity" data-q="'+k+'" data-d="-1">−</button><span>'+l.q+'</span><button type="button" aria-label="Increase quantity" data-q="'+k+'" data-d="1">+</button></div><button type="button" class="linkbtn" data-rm="'+k+'">Remove</button></div><b>'+money(p.p*l.q)+'</b></div>';});
-    $("#cartLines").innerHTML=html; $("#drawerLines").innerHTML=html||'<p class="muted">Your cart is empty.</p>';
-    $("#cartEmpty").hidden=cart.length>0;
-    $("#subtotal").textContent=money(sub); $("#drawerSub").textContent=money(sub);
-    $$(".cart-count").forEach(function(c){c.textContent=count});
-    var left=150-sub; $("#shipMsg").textContent=left>0?"Spend "+money(left)+" more for free shipping":"You've got free shipping";
-    $("#shipBar").style.width=Math.min(100,sub/150*100)+"%";
-  }
-  document.addEventListener("click",function(e){
-    var q=e.target.closest("[data-q]"),rm=e.target.closest("[data-rm]"),add=e.target.closest("[data-add]");
-    if(q){var l=cart[+q.dataset.q];l.q=Math.max(1,l.q+(+q.dataset.d));renderCart();}
-    if(rm){cart.splice(+rm.dataset.rm,1);renderCart();}
-    if(add){var i=+add.dataset.add,sz=$('.sizes button[aria-pressed="true"]',add.closest("section"));
-      var col=(add.closest("#view-product")&&$("#cname"))?$("#cname").textContent:P[i].cn;
-      cart.push({i:i,size:sz?sz.textContent:"M",col:col,q:1});renderCart();openDrawer("cart");}
-  });
-  renderCart();
-
-  // Drawers
-  function openDrawer(w){var d=w==="cart"?$("#cartDrawer"):$("#menuDrawer"),o=w==="cart"?$("#ovCart"):$("#ovMenu");d.hidden=false;o.hidden=false;var b=d.querySelector(".x");if(b)b.focus();}
-  function closeDrawers(){$$(".drawer,.overlay").forEach(function(x){x.hidden=true})}
-  $("[data-open=menu]").addEventListener("click",function(){openDrawer("menu")});
-  $$("[data-close]").forEach(function(x){x.addEventListener("click",closeDrawers)});
-  document.addEventListener("keydown",function(e){if(e.key==="Escape")closeDrawers()});
-
-  // Variant pickers
-  document.addEventListener("click",function(e){
-    var sw=e.target.closest(".swatches button");
-    if(sw){$$(".swatches button",sw.parentNode).forEach(function(x){x.setAttribute("aria-pressed","false")});sw.setAttribute("aria-pressed","true");$("#cname").textContent=sw.dataset.c;$("#mainArt").style.color=sw.dataset.hex;}
-    var sz=e.target.closest(".sizes button:not([disabled])");
-    if(sz){$$(".sizes button",sz.parentNode).forEach(function(x){x.setAttribute("aria-pressed","false")});sz.setAttribute("aria-pressed","true");}
-  });
-
-  // Forms
-  function toast(msg){var t=$("#toast");t.textContent=msg;t.hidden=false;clearTimeout(t._t);t._t=setTimeout(function(){t.hidden=true},2200)}
-  $$("[data-sub]").forEach(function(f){f.addEventListener("submit",function(e){e.preventDefault();f.querySelector("button").textContent="Subscribed";toast("Subscribed. Look out for the next drop.")})});
-  $("#contactForm").addEventListener("submit",function(e){e.preventDefault();this.reset();toast("Message sent. We'll reply within one working day.")});
-  $(".video").addEventListener("click",function(){toast("Video plays here (YouTube or Vimeo link set in the editor)")});
-
-  // Routing
-  var VIEWS=[["home","Homepage"],["collection","Collection"],["product","Product"],["cart","Cart"],["search","Search"],["blog","Blog"],["article","Article"],["about","About"],["contact","Contact"],["404","404"]];
-  $("#pageTabs").innerHTML=VIEWS.map(function(v){return '<button type="button" data-view="'+v[0]+'" aria-pressed="false">'+v[1]+'</button>'}).join("");
-  function show(v){
-    VIEWS.forEach(function(x){$("#view-"+x[0]).hidden=x[0]!==v});
-    $$("#pageTabs button").forEach(function(b){b.setAttribute("aria-pressed",String(b.dataset.view===v))});
-    closeDrawers(); window.scrollTo(0,0);
-  }
-  $("#pageTabs").addEventListener("click",function(e){var b=e.target.closest("button");if(b)show(b.dataset.view)});
-  document.addEventListener("click",function(e){var a=e.target.closest("[data-go]");if(a){e.preventDefault();show(a.dataset.go)}});
-  $("#showSections").addEventListener("change",function(){document.body.classList.toggle("show-sections",this.checked)});
-  show("home");
-})();
+const IMG='https://shopifybrandsseo.com/wp-content/uploads/2026/10/northline-demo-';
+const src=k=>IMG+k+'.jpg';
+const SZ=['XS','S','M','L','XL'];
+const CL={Black:'#0D0F12',Graphite:'#3A4048',Ice:'#C9D3DC',Olive:'#3D4433'};
+const P=[
+ {n:'Vector 3L Shell',id:'NL-01',cat:'Shells',wp:20,img:'shell',alt:'hero',cols:['Black','Graphite'],p:340,sold:['XS'],chips:['3L','20K/20K','Taped'],sp:[92,88,60],t:'New'},
+ {n:'Grid Articulated Cargo',id:'NL-04',cat:'Lower',wp:10,img:'cargo',alt:'look',cols:['Black','Olive'],p:180,sold:[],chips:['4-way','DWR','8 pockets'],sp:[60,80,70],t:''},
+ {n:'Relay Sling 6L',id:'NL-07',cat:'Carry',wp:10,img:'sling',alt:'look',cols:['Black'],p:120,sold:[],chips:['6L','X-Pac','Modular'],sp:[70,60,90],t:'',one:1},
+ {n:'Thermal Mid Vest',id:'NL-02',cat:'Shells',wp:5,img:'vest',alt:'hero',cols:['Graphite','Black'],p:190,sold:['XL'],chips:['Synthetic','100 g','Packable'],sp:[40,90,85],t:'Low stock',low:1},
+ {n:'Merino Base Layer',id:'NL-09',cat:'Base',wp:0,img:'base',alt:'look',cols:['Black','Ice'],p:85,sold:[],chips:['Merino','190 g','Odour'],sp:[10,95,95],t:''},
+ {n:'MOLLE Chest Pouch',id:'NL-12',cat:'Carry',wp:10,img:'pouch',alt:'sling',cols:['Black'],p:45,sold:[],chips:['Module','1.2L','Clip-on'],sp:[70,60,95],t:'',one:1},
+ {n:'Storm Hood Module',id:'NL-13',cat:'Carry',wp:20,img:'shell',alt:'detail',cols:['Black'],p:60,sold:[],chips:['Module','3L','Helmet fit'],sp:[92,80,90],t:'',one:1},
+ {n:'Strata Insulated Shell',id:'NL-03',cat:'Shells',wp:15,img:'look',alt:'shell',cols:['Black'],p:420,was:480,sold:[],chips:['2L','15K','Insulated'],sp:[80,70,40],t:'-12%'}
+];
+const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)];
+const money=v=>'$'+(Math.round(v*100)/100).toLocaleString('en-US',{minimumFractionDigits:v%1?2:0,maximumFractionDigits:2});
+function card(p,i){return `<div class="card"><a href="#" class="m" data-go="product" aria-label="${p.n}"><span class="id">${p.id}</span>${p.t?`<span class="badge ${p.low||p.was?'r':''}">${p.t}</span>`:''}<img src="${src(p.img)}" alt="${p.n}"><img class="alt" src="${src(p.alt)}" alt=""></a>
+ <div class="ov"><div class="sp">${['Weather','Breathe','Mobility'].map((l,k)=>`<div><span>${l}</span><i style="--w:${p.sp[k]}%"></i><span>${p.sp[k]}</span></div>`).join('')}</div>${p.one?`<button class="one" onclick="add(${i},'One size')">+ Add to cart</button>`:`<div class="sz">${SZ.map(s=>`<button ${p.sold.includes(s)?'disabled':''} onclick="add(${i},'${s}')">${s}</button>`).join('')}</div>`}</div>
+ <div class="in"><h3><a href="#" data-go="product">${p.n}</a></h3><div class="chips">${p.chips.map(c=>`<span>${c}</span>`).join('')}</div><div class="bot"><span class="pr">${p.was?`<s>${money(p.was)}</s>`:''}${money(p.p)}</span><span class="sw">${p.cols.map(c=>`<i style="background:${CL[c]}" title="${c}"></i>`).join('')}</span></div></div></div>`}
+const grid=(el,ids)=>$(el).innerHTML=ids.map(i=>card(P[i],i)).join('');
+grid('#newin',[0,1,3,2]);grid('#recent',[3,1,4,5]);grid('#cartup',[5,6,4,2]);grid('#artgrid',[0,7,3,6]);grid('#nfgrid',[0,1,2,3]);
+// condition matcher
+let rain=1,wind=1;
+function cond(){const t=+$('#temp').value;$('#tempV').textContent=t+'°C';
+ const L=[{k:'Outer',i:t<0?7:0,on:rain>0||wind>1||t<2,why:rain>1?'Storm shell':'Waterproof shell'},{k:'Mid',i:3,on:t<10,why:'Insulation'},{k:'Base',i:4,on:t<18,why:'Moisture control'},{k:'Lower',i:1,on:true,why:rain?'DWR cargo':'Mobility'},{k:'Carry',i:2,on:rain>1||wind>1,why:'Sealed carry'}];
+ const on=L.filter(l=>l.on),tot=on.reduce((a,l)=>a+P[l.i].p,0);
+ const nm=t<0?'Sub-zero':t<10?(rain?'Cold rain':'Cold dry'):t<18?(rain?'Mild wet':'Mild'):(rain?'Warm rain':'Warm');
+ $('#cName').textContent=nm+' system';$('#cCode').textContent='SYS-'+String(Math.abs(t)).padStart(2,'0')+rain+wind;
+ $('#stack').innerHTML=L.map((l,k)=>`<div class="lay ${l.on?'on':'off'}"><i>0${k+1}</i><img src="${src(P[l.i].img)}" alt=""><div><b>${P[l.i].n}</b><small>${l.k} · ${l.on?l.why:'Not needed'}</small></div><span>${money(P[l.i].p)}</span></div>`).join('');
+ $('#cN').textContent=on.length+' layers';$('#cTot').textContent=money(tot);$('#cAdd').dataset.ids=on.map(l=>l.i).join(',')}
+$('#temp').oninput=cond;
+$('#rain').onclick=e=>{const b=e.target.closest('button');if(!b)return;rain=+b.dataset.v;$$('#rain button').forEach(x=>x.classList.toggle('on',x===b));cond()};
+$('#wind').onclick=e=>{const b=e.target.closest('button');if(!b)return;wind=+b.dataset.v;$$('#wind button').forEach(x=>x.classList.toggle('on',x===b));cond()};
+$('#cAdd').onclick=()=>{$('#cAdd').dataset.ids.split(',').forEach(i=>add(+i,P[i].one?'One size':'M',true));toast('System added');bump();openCart()};cond();
+// rig builder
+const BASES=[0,2],MODS=[[6,'Storm hood module','Clips to the collar mount'],[5,'MOLLE chest pouch','1.2L, quick release'],[2,'Relay sling 6L','Carries on the chest or back'],[1,'Grid cargo thigh panel','Swaps onto the cargo']];let rb=0,rm=new Set([1]);
+$('#rigBase').innerHTML=BASES.map((i,k)=>`<button data-k="${k}" class="${k?'':'on'}"><b>${P[i].n}</b><small>${P[i].id} · ${money(P[i].p)}</small></button>`).join('');
+$('#rigMods').innerHTML=MODS.map((m,k)=>`<label><input type="checkbox" data-k="${k}" ${rm.has(k)?'checked':''}><div><b>${m[1]}</b><small>${m[2]}</small></div><span>+${money(P[m[0]].p)}</span></label>`).join('');
+function rig(){const b=P[BASES[rb]];$('#rigImg').src=src(b.img);$$('#rigBase button').forEach((x,k)=>x.classList.toggle('on',k===rb));
+ $$('.node').forEach(n=>n.classList.toggle('on',rm.has(+n.dataset.m)));
+ const sum=b.p+[...rm].reduce((a,k)=>a+P[MODS[k][0]].p,0),save=rm.size>=2?Math.round(sum*.1):0;
+ $('#rigN').textContent='Base + '+rm.size+(rm.size===1?' module':' modules');$('#rigT').textContent=money(sum-save);$('#rigS').textContent=save?'Rig saving '+money(save):'Add 2 modules: save 10%'}
+$('#rigBase').onclick=e=>{const b=e.target.closest('button');if(!b)return;rb=+b.dataset.k;rig()};
+$('#rigMods').onchange=e=>{const k=+e.target.dataset.k;e.target.checked?rm.add(k):rm.delete(k);rig()};
+$('#rigAdd').onclick=()=>{add(BASES[rb],P[BASES[rb]].one?'One size':'M',true,'Rig base');rm.forEach(k=>add(MODS[k][0],'One size',true,'Rig module'));toast('Rig added: '+(rm.size+1)+' pieces');bump();openCart()};rig();
+// spec compare
+const CMP=[0,7,3],ROWS=[['Waterproof (mm)',[20000,15000,5000],1],['Breathability (g)',[20000,12000,25000],1],['Weight (g)',[480,720,310],0],['Layers',['3L','2L','Insulated'],-1],['Seams',['Fully taped','Fully taped','Critical taped'],-1],['Hood','Helmet fit,Fixed,None'.split(','),-1],['Module mount',['Yes','Yes','Yes'],-1]];
+function cmp(){const d=$('#diff').checked;
+ $('#cmp').innerHTML='<thead><tr><th></th>'+CMP.map(i=>`<th><img src="${src(P[i].img)}" alt=""><b>${P[i].n}</b><span>${money(P[i].p)}</span></th>`).join('')+'</tr></thead><tbody>'+ROWS.map(r=>{const same=r[1].every(v=>v===r[1][0]);const num=r[2]>=0,mx=num?Math.max(...r[1]):0,best=num?(r[2]?mx:Math.min(...r[1])):null;
+ return `<tr class="${d&&same?'same':''}"><th>${r[0]}</th>${r[1].map(v=>`<td class="${num&&v===best?'best':''}">${num?v.toLocaleString('en-US'):v}${num?`<span class="gb"><i style="width:${Math.round(v/mx*100)}%"></i></span>`:''}</td>`).join('')}</tr>`}).join('')+'</tbody>'}
+$('#diff').onchange=cmp;cmp();
+// collection
+const CATS=[...new Set(P.map(p=>p.cat))],WPS=[['20K+',20],['10K+',10],['Any',0]];
+$('#fcat').innerHTML=CATS.map(c=>`<label><input type="checkbox" data-f="cat" value="${c}">${c}</label>`).join('');
+$('#fwp').innerHTML=WPS.map(w=>`<label><input type="checkbox" data-f="wp" value="${w[1]}">${w[0]}</label>`).join('');
+$('#fsz').innerHTML=SZ.map(c=>`<label><input type="checkbox" data-f="sz" value="${c}">${c}</label>`).join('');
+function col(){const f={};$$('#side input[type=checkbox]:checked').forEach(x=>(f[x.dataset.f]=f[x.dataset.f]||[]).push(x.value));const mx=+$('#fpr').value;$('#fprV').textContent='$'+mx;
+ let ids=P.map((p,i)=>i).filter(i=>{const p=P[i];return p.p<=mx&&(!f.cat||f.cat.includes(p.cat))&&(!f.wp||f.wp.some(w=>p.wp>=+w))&&(!f.sz||p.one||f.sz.some(s=>!p.sold.includes(s)))});
+ const s=$('#sort').value;if(s==='lo')ids.sort((a,b)=>P[a].p-P[b].p);if(s==='hi')ids.sort((a,b)=>P[b].p-P[a].p);if(s==='wp')ids.sort((a,b)=>P[b].wp-P[a].wp);
+ const h=ids.map(i=>card(P[i],i));if(h.length>=3)h.splice(2,0,`<a href="#cond" class="promo br" data-go="home" data-dawn="sbs-promo-tile"><div><span class="tag">Condition matcher</span><h3>Not sure what to layer?</h3><p>Set the forecast. We build the system.</p></div><span class="btn btn-c" style="align-self:flex-start">Match conditions</span></a>`);
+ $('#cgrid').innerHTML=h.join('')||'<p class="empty" style="grid-column:1/-1">&gt; no matches. clear a filter.</p>';$('#ccount').textContent=ids.length+(ids.length===1?' piece':' pieces');
+ $('#chips').innerHTML=Object.entries(f).flatMap(([k,v])=>v.map(x=>`<button data-f="${k}" data-v="${x}">${k==='wp'?(WPS.find(w=>w[1]==x)||[x])[0]:x}</button>`)).join('')}
+$('#side').addEventListener('change',col);$('#fpr').oninput=col;$('#sort').onchange=col;
+$('#chips').onclick=e=>{const b=e.target.closest('button');if(!b)return;$$(`#side input[data-f="${b.dataset.f}"]`).forEach(x=>{if(x.value===b.dataset.v)x.checked=false});col()};
+// product
+const PP=P[0],GAL=[['hero','01 · On body'],['shell','02 · Front'],['detail','03 · Membrane'],['look','04 · Field']];let pc=0,ps=null;
+$('#gal').innerHTML=GAL.map((g,k)=>`<div><img src="${src(g[0])}" alt="${PP.n} ${g[1]}"><small>${g[1]}</small>${k===0?'<div class="ret" aria-hidden="true"></div>':''}</div>`).join('');
+$('#pcol').innerHTML=PP.cols.map((c,k)=>`<button class="${k?'':'on'}" data-k="${k}" aria-label="${c}"><i style="background:${CL[c]}"></i></button>`).join('');
+$('#pcol').onclick=e=>{const b=e.target.closest('button');if(!b)return;pc=+b.dataset.k;$$('#pcol button').forEach(x=>x.classList.toggle('on',x===b));$('#pcolT').textContent=PP.cols[pc];pup()};
+$('#psz').innerHTML=SZ.map(s=>`<button data-s="${s}" ${PP.sold.includes(s)?'disabled title="Sold out"':''}>${s}</button>`).join('');
+function pup(){const t=ps?'Add to cart · '+money(PP.p):'Select a size';$('#atc').textContent=t;$('#satc').textContent=t;$('#stxt').textContent=PP.cols[pc]+(ps?' · '+ps:'')}
+$('#psz').onclick=e=>{const b=e.target.closest('button');if(!b||b.disabled)return;ps=b.dataset.s;$$('#psz button').forEach(x=>x.classList.toggle('on',x===b));pup()};
+const padd=()=>{if(!ps){toast('Select a size first');$('#psz').scrollIntoView({behavior:'smooth',block:'center'});return}add(0,ps,true,PP.cols[pc]);toast('Added to loadout');bump();openCart()};
+$('#atc').onclick=padd;$('#satc').onclick=padd;$('#pwish').onclick=()=>{$('#pwish').classList.toggle('on');toast($('#pwish').classList.contains('on')?'Saved':'Removed')};
+const SGD=[['XS','86','70','82'],['S','92','72','84'],['M','100','74','86'],['L','108','76','88'],['XL','116','78','90']];
+function sgt(u){const f=v=>u==='in'?(v/2.54).toFixed(1):v;$('#sgt').innerHTML='<tr><th>Size</th><th>Chest</th><th>Back length</th><th>Sleeve</th></tr>'+SGD.map(r=>`<tr><td><b>${r[0]}</b></td><td>${f(r[1])}</td><td>${f(r[2])}</td><td>${f(r[3])}</td></tr>`).join('')}
+$('#openSG').onclick=e=>{e.preventDefault();$('#sg').classList.add('on')};$('#sgx').onclick=()=>$('#sg').classList.remove('on');$('#sg').onclick=e=>{if(e.target.id==='sg')$('#sg').classList.remove('on')};
+$('#unit').onclick=e=>{const b=e.target.closest('button');if(!b)return;$$('#unit button').forEach(x=>x.classList.toggle('on',x===b));sgt(b.dataset.u)};sgt('cm');
+addEventListener('scroll',()=>{const on=$('#p-product').classList.contains('on');$('#sticky').classList.toggle('on',on&&$('#atc').getBoundingClientRect().bottom<0)});
+// cart
+let cart=[];
+function add(i,s,silent,variant){const key=[i,s,variant||''].join('|');const c=cart.find(x=>x.key===key);c?c.q++:cart.push({key,i,s,variant,q:1});render();if(!silent){toast(P[i].n+' · '+s+' added');bump()}}
+window.add=add;
+function bump(){const b=$('#openCart');b.classList.remove('bump');void b.offsetWidth;b.classList.add('bump')}
+function render(){const sub=cart.reduce((a,c)=>a+P[c.i].p*c.q,0),n=cart.reduce((a,c)=>a+c.q,0);$('#count').textContent=n;
+ const pr=`${sub>=200?'<b>&gt;</b> Free shipping unlocked':'<b>&gt;</b> '+money(200-sub)+' to free shipping'}<div class="bar"><i style="width:${Math.min(100,sub/2)}%"></i></div>`;$('#dprog').innerHTML=pr;$('#cprog').innerHTML=pr;
+ const line=c=>{const p=P[c.i],k=c.key.replace(/'/g,"\\'");return `<div class="li"><img src="${src(p.img)}" alt=""><div><b>${p.n}</b><small>${p.id} · ${c.variant||p.cols[0]} · ${c.s}</small><div class="q"><button onclick="chg('${k}',-1)" aria-label="Less">−</button>${c.q}<button onclick="chg('${k}',1)" aria-label="More">+</button><button class="rm" onclick="chg('${k}',-99)">Remove</button></div></div><span>${money(p.p*c.q)}</span></div>`};
+ const h=cart.length?cart.map(line).join(''):'<div class="empty">&gt; loadout empty.</div>';$('#dlines').innerHTML=h;$('#clines').innerHTML=h;
+ $('#dsub').textContent=money(sub);$('#csub').textContent=money(sub);$('#cship').textContent=sub>=200?'Free':sub?'$12':'—';$('#ctot').textContent=money(sub+(sub&&sub<200?12:0))}
+window.chg=(k,d)=>{const c=cart.find(x=>x.key===k);c.q+=d;if(c.q<=0)cart=cart.filter(x=>x!==c);render()};
+const openCart=()=>{$('#drawer').classList.add('on');$('#scrim').classList.add('on')};
+function closeAll(){['#drawer','#scrim','#mnav','#sg'].forEach(s=>$(s).classList.remove('on'))}
+$('#openCart').onclick=openCart;$('#closeCart').onclick=closeAll;$('#scrim').onclick=closeAll;
+$('#burger').onclick=()=>$('#mnav').classList.add('on');$('#mclose').onclick=closeAll;
+document.addEventListener('keydown',e=>{if(e.key==='Escape')closeAll();if((e.metaKey||e.ctrlKey)&&e.key==='k'){e.preventDefault();go('search');setTimeout(()=>$('#q').focus(),50)}});
+// search
+const rs=()=>{const q=$('#q').value.toLowerCase().trim();const ids=P.map((p,i)=>i).filter(i=>(P[i].n+' '+P[i].cat+' '+P[i].id+' '+P[i].chips.join(' ')+' '+P[i].cols.join(' ')).toLowerCase().includes(q));$('#sres').textContent='> '+ids.length+(ids.length===1?' result':' results')+' for "'+$('#q').value+'"';grid('#sgrid',ids)};
+$('#q').oninput=rs;$$('.sugg button').forEach(b=>b.onclick=()=>{$('#q').value=b.textContent;rs()});
+let tt;function toast(t){$('#toast').textContent=t;$('#toast').classList.add('on');clearTimeout(tt);tt=setTimeout(()=>$('#toast').classList.remove('on'),2400)}window.toast=toast;
+let io;function obs(){io?.disconnect();io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.06});$$('.page.on .reveal:not(.in)').forEach(r=>io.observe(r))}
+function go(pg,h){$$('.page').forEach(p=>p.classList.toggle('on',p.id==='p-'+pg));$$('.dt button').forEach(b=>b.classList.toggle('on',b.dataset.go===pg));closeAll();$('#sticky').classList.remove('on');if(h)setTimeout(()=>document.querySelector(h)?.scrollIntoView({behavior:'smooth'}),60);else scrollTo(0,0);obs()}
+window.go=go;
+document.addEventListener('click',e=>{const a=e.target.closest('[data-go]');if(!a)return;e.preventDefault();const h=a.getAttribute('href');go(a.dataset.go,h&&h.length>1&&h[0]==='#'?h:null)});
+$('#names').onchange=e=>document.body.classList.toggle('names',e.target.checked);
+$$('img[data-src]').forEach(i=>i.src=src(i.dataset.src));
+col();render();rs();pup();obs();
 </script>
-
-
-</body></html>
+</body>
+</html>
