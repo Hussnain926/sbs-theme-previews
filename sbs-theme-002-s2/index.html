@@ -1,904 +1,968 @@
-<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
-<title>Kiln Home Theme</title>
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Kiln Modern Luxe Furniture Theme</title>
+<meta name="description" content="Kiln: a modern luxe furniture and lighting Shopify theme design. Design by Shopify Brands SEO.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,600;0,800;1,900&family=Barlow:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Hanken+Grotesk:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
-/* Layout concept: Reference A "Slash / Athletic" applied to home & decor: accent announcement bar, dark caps header, split hero with diagonal cut and rotated price sticker, trust strip, 7-tile category row, 2-up promo banners, 5-up flat product grid with full-width black add buttons, dark feature band with 3 oversized room cards, volt newsletter, dark 4-col footer. */
-:root{
-  --bg:#FFFFFF; --ink:#0E0F11; --volt:#C6FF00; --volt-ink:#0E0F11; --soft:#F1F2EE; --line:#DADCD4; --mute:#5F6358; --dark:#0E0F11; --dark-ink:#FFFFFF; --dark-soft:#1B1D20;
-  --display:"Barlow Condensed","Arial Narrow",Impact,sans-serif;
-  --body:"Barlow","Helvetica Neue",Arial,sans-serif;
-}
-@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){--bg:#121316;--ink:#F3F4EF;--soft:#1C1E22;--line:#2D3035;--mute:#A3A79C;--dark:#07080A;--dark-soft:#17191C;color-scheme:dark}}
-:root[data-theme="dark"]{--bg:#121316;--ink:#F3F4EF;--soft:#1C1E22;--line:#2D3035;--mute:#A3A79C;--dark:#07080A;--dark-soft:#17191C;color-scheme:dark}
-*,*::before,*::after{box-sizing:border-box}
-body{margin:0;background:var(--bg);color:var(--ink);font:400 16px/1.55 var(--body);-webkit-font-smoothing:antialiased;overflow-x:hidden}
-img,svg{max-width:100%;display:block}
-a{color:inherit}
-button,input,select,textarea{font:inherit;color:inherit}
-:focus-visible{outline:3px solid var(--volt);outline-offset:2px;box-shadow:0 0 0 5px var(--ink)}
-.wrap{max-width:1360px;margin:0 auto;padding:0 clamp(16px,3.5vw,40px)}
-.narrow{max-width:760px}
-.sr{position:absolute;left:-9999px}
-.muted{color:var(--mute)}
-.disp{font-family:var(--display);font-weight:900;font-style:italic;text-transform:uppercase;letter-spacing:-.005em}
-
-/* preview bar */
-.pbar{background:#000;color:#fff;font-size:14px;padding:10px 0;position:relative;z-index:30}
-.pbar .wrap{display:flex;gap:10px;align-items:center;flex-wrap:wrap}
-.pbar .pages{display:flex;gap:6px;overflow-x:auto;flex:1 1 auto;padding-bottom:2px;min-width:0}
-.pbar button{background:transparent;border:1px solid rgba(255,255,255,.4);color:#fff;padding:5px 12px;border-radius:0;cursor:pointer;white-space:nowrap}
-.pbar button[aria-pressed="true"]{background:var(--volt);border-color:var(--volt);color:#0E0F11;font-weight:600}
-.pbar label{display:flex;gap:6px;align-items:center;white-space:nowrap;cursor:pointer}
-body.show-sections [data-dawn]{position:relative;outline:2px dashed #FF2E93;outline-offset:-2px}
-body.show-sections [data-dawn]::after{content:attr(data-dawn);position:absolute;top:8px;right:8px;background:#FF2E93;color:#fff;font:600 12px/1 var(--body);padding:6px 8px;z-index:6;pointer-events:none}
-
+:root{--onyx:#16130F;--esp:#211D18;--umber:#2C2620;--marble:#F4F1EB;--trav:#E6DED1;--greige:#D3CBBF;--brass:#B8925A;--brassl:#D6B47E;--brassd:#7E5F2C;--ink:#1B1814;--smoke:#A39A8E;--mute:#5E574E;--line:rgba(244,241,235,.14);--lined:rgba(27,24,20,.13);--serif:'Bodoni Moda',Georgia,serif;--sans:'Hanken Grotesk',system-ui,sans-serif;--ease:cubic-bezier(.3,.75,.25,1)}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font:400 16px/1.6 var(--sans);color:var(--marble);background:var(--onyx);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+img{display:block;max-width:100%}
+a{color:inherit;text-decoration:none}
+button,input,select,textarea{font:inherit;color:inherit;background:none;border:0}
+button{cursor:pointer}
+:focus-visible{outline:2px solid var(--brass);outline-offset:3px}
+.wrap{max-width:1400px;margin:0 auto;padding:0 48px}
+h1,h2,h3,h4{font-family:var(--serif);font-weight:400;line-height:1.05;letter-spacing:-.01em}
+h1 i,h2 i,h3 i{font-style:italic;color:var(--brassl)}
+.light h1 i,.light h2 i,.light h3 i{color:var(--brassd)}
+.eyebrow{display:inline-flex;align-items:center;gap:12px;font:600 11px/1 var(--sans);letter-spacing:.24em;text-transform:uppercase;color:var(--brass)}
+.eyebrow::before{content:"";width:28px;height:1px;background:currentColor}
+.light .eyebrow{color:var(--brassd)}
+.light{background:var(--marble);color:var(--ink)}
+.trav{background:var(--trav);color:var(--ink)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;height:52px;padding:0 30px;font:600 12px/1 var(--sans);letter-spacing:.18em;text-transform:uppercase;border-radius:1px;transition:background .3s,color .3s,border-color .3s,transform .3s}
+.btn-brass{background:var(--brass);color:var(--onyx)}.btn-brass:hover{background:var(--brassl)}
+.btn-line{border:1px solid rgba(244,241,235,.5);color:var(--marble)}.btn-line:hover{border-color:var(--brass);color:var(--brassl)}
+.btn-dark{background:var(--ink);color:var(--marble)}.btn-dark:hover{background:var(--brassd)}
+.btn-ink{border:1px solid var(--ink);color:var(--ink)}.btn-ink:hover{background:var(--ink);color:var(--marble)}
+.lnk{font:600 12px/1 var(--sans);letter-spacing:.16em;text-transform:uppercase;border-bottom:1px solid currentColor;padding-bottom:6px;display:inline-block}
+.sec{padding:120px 0}
+.head{display:flex;justify-content:space-between;align-items:flex-end;gap:32px;margin-bottom:56px}
+.head h2{font-size:clamp(38px,4.2vw,64px);margin-top:18px}
+.head p{max-width:420px;color:var(--smoke)}
+.light .head p,.trav .head p{color:var(--mute)}
+.reveal{opacity:0;transform:translateY(26px);transition:opacity .9s var(--ease),transform .9s var(--ease)}
+.reveal.in{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}.reveal{opacity:1;transform:none}}
+/* design toolbar */
+.dt{position:sticky;top:0;z-index:90;background:#000;color:#bdb3a5;font-size:12px}
+.dt .wrap{display:flex;gap:4px;align-items:center;height:44px;overflow-x:auto;scrollbar-width:none}
+.dt b{color:var(--brassl);margin-right:12px;white-space:nowrap;font-weight:600}
+.dt button{padding:6px 12px;white-space:nowrap;color:#bdb3a5;border-radius:1px}
+.dt button.on{background:var(--brass);color:#000}
+.dt label{margin-left:auto;display:flex;gap:8px;align-items:center;white-space:nowrap;cursor:pointer}
+body.names [data-dawn]{position:relative;outline:2px dashed rgba(184,146,90,.8);outline-offset:-2px}
+body.names [data-dawn]::before{content:attr(data-dawn);position:absolute;top:6px;left:6px;z-index:60;background:var(--brass);color:#000;font:600 10px/1 var(--sans);padding:5px 8px;pointer-events:none}
+/* announcement */
+.ann{background:var(--umber);color:var(--trav);font-size:12px;letter-spacing:.14em;text-transform:uppercase;height:40px;position:relative;overflow:hidden}
+.ann span{position:absolute;inset:0;display:block;line-height:40px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;opacity:0;transform:translateY(8px);transition:.6s var(--ease);padding:0 16px;text-align:center}
+.ann span.on{opacity:1;transform:none}.ann b{color:var(--brassl);font-weight:600}
 /* header */
-.announce{background:var(--volt);color:#0E0F11;text-align:center;font:800 14px/1 var(--display);letter-spacing:.12em;text-transform:uppercase;padding:10px 16px}
-header.site{background:var(--dark);color:var(--dark-ink);position:sticky;top:0;z-index:20}
-.head{display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:24px;height:72px}
-.logo{font:900 34px/1 var(--display);font-style:italic;text-transform:uppercase;text-decoration:none;letter-spacing:.01em;display:flex;align-items:center;gap:8px}
-.logo i{background:var(--volt);color:#0E0F11;padding:2px 8px 2px 6px;transform:skewX(-12deg);display:inline-block}
-.head nav{display:flex;gap:26px;font:800 17px/1 var(--display);letter-spacing:.1em;text-transform:uppercase;justify-content:center}
-.head nav a{text-decoration:none;position:relative;padding:6px 0}
-.head nav a:hover{color:var(--volt)}
-.head nav .new::after{content:"NEW";background:var(--volt);color:#0E0F11;font-size:10px;padding:2px 5px;margin-left:6px;vertical-align:2px}
-.head nav .deals{color:var(--volt)}
-.tools{display:flex;gap:18px;align-items:center;font:800 16px/1 var(--display);letter-spacing:.1em;text-transform:uppercase}
-.tools a{text-decoration:none}
-.cartpill{background:var(--volt);color:#0E0F11;padding:10px 16px;transform:skewX(-10deg)}
-.cartpill span{display:inline-block;transform:skewX(10deg)}
-.menu-btn{display:none;background:none;border:0;color:#fff;padding:6px;cursor:pointer}
-@media (max-width:1180px){.head{grid-template-columns:auto 1fr auto}.head nav{display:none}.menu-btn{display:block}.tools .hide-sm{display:none}.head{gap:12px}.logo{justify-self:center}}
-@media (max-width:520px){.trust{grid-template-columns:1fr}.trust div{border-right:0}.stat{grid-template-columns:1fr 1fr;gap:10px}.stat div{padding:16px;min-width:0}.stat strong{font-size:40px}}
-.trust div,.stat div{min-width:0}
-@media (max-width:420px){.logo{font-size:26px}.tools{gap:10px;font-size:14px}.cartpill{padding:9px 10px}.head{gap:6px}.menu-btn{padding:2px}.hero h1{font-size:54px}.sticker{width:84px;font-size:12px}.sticker strong{font-size:30px}}
-.theme-btn{background:none;border:1px solid rgba(255,255,255,.35);color:#fff;padding:6px 10px;cursor:pointer;font:800 13px/1 var(--display);letter-spacing:.1em;text-transform:uppercase}
-
-/* slash divider (custom) */
-.slash{height:22px;background:repeating-linear-gradient(115deg,var(--volt) 0 14px,var(--dark) 14px 28px)}
-
-/* drawers */
-.overlay{position:fixed;inset:0;background:rgba(0,0,0,.6);z-index:40}
-.drawer{position:fixed;top:0;bottom:0;width:min(440px,92vw);background:var(--bg);z-index:41;display:flex;flex-direction:column;padding:calc(20px + env(safe-area-inset-top,0px)) 22px calc(20px + env(safe-area-inset-bottom,0px));border:0}
-.drawer.right{right:0}.drawer.left{left:0;background:var(--dark);color:var(--dark-ink)}
-.drawer-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:16px}
-.drawer-head h2{font:900 34px/1 var(--display);font-style:italic;text-transform:uppercase;margin:0}
-.x{background:none;border:0;font-size:30px;line-height:1;cursor:pointer;padding:4px 8px}
-.drawer nav{display:grid;gap:2px}
-.drawer nav a{font:900 40px/1.1 var(--display);font-style:italic;text-transform:uppercase;text-decoration:none}
-.drawer .body{flex:1;overflow:auto}
-
-/* shared */
-section.block{padding:clamp(40px,6vw,76px) 0}
-section.tight{padding-top:0}
-.sec-head{display:flex;justify-content:space-between;align-items:end;gap:16px;margin-bottom:24px;flex-wrap:wrap}
-h2.h{font:900 clamp(38px,5.4vw,70px)/.9 var(--display);font-style:italic;text-transform:uppercase;margin:0}
-.sec-head a{font:800 17px/1 var(--display);letter-spacing:.1em;text-transform:uppercase}
-.btns{display:flex;gap:12px;flex-wrap:wrap}
-.btn{display:inline-block;padding:15px 28px;border:2px solid var(--ink);text-decoration:none;font:800 18px/1 var(--display);letter-spacing:.1em;text-transform:uppercase;background:transparent;cursor:pointer;text-align:center;border-radius:0}
-.btn.solid{background:var(--ink);color:var(--bg)}
-.btn.volt{background:var(--volt);border-color:var(--volt);color:#0E0F11}
-.btn.volt:hover{background:#fff}
-.btn.solid:hover{background:var(--volt);color:#0E0F11;border-color:var(--volt)}
-.btn:not(.solid):not(.volt):hover{background:var(--soft)}
-.btn.onDark{border-color:#fff;color:#fff}
-.btn.onDark:hover{background:#fff;color:#0E0F11}
-.full{width:100%;margin:0 0 10px}
-
-/* product cards: flat square, caps badge, full-width black add */
-.grid{display:grid;grid-template-columns:repeat(5,1fr);gap:clamp(10px,1.4vw,18px)}
-.grid.four{grid-template-columns:repeat(4,1fr)}
-.grid.three{grid-template-columns:repeat(3,1fr)}
-.pc{display:flex;flex-direction:column;min-width:0}
-.pc .img{background:var(--soft);aspect-ratio:1;display:grid;place-items:center;position:relative;text-decoration:none;cursor:pointer;overflow:hidden}
-.pc .img svg{width:62%;transition:transform .3s ease}
-.pc:hover .img svg{transform:scale(1.06) rotate(-2deg)}
-.badge{position:absolute;top:0;left:0;background:var(--ink);color:var(--bg);font:800 13px/1 var(--display);letter-spacing:.12em;text-transform:uppercase;padding:7px 10px}
-.badge.v{background:var(--volt);color:#0E0F11}
-.pc h3{font:800 20px/1.1 var(--display);text-transform:uppercase;margin:12px 0 2px;letter-spacing:.02em}
-.pc .sub{color:var(--mute);font-size:14px}
-.pc .cf{margin-top:auto;padding-top:10px}
-.pc .pr{font:800 22px/1 var(--display);margin:6px 0 10px;display:block}
-.pc .pr s{color:var(--mute);font-weight:600;margin-left:6px;font-size:17px}
-.pc .addb{width:100%;background:var(--dark);color:#fff;border:0;padding:13px 10px;font:800 16px/1 var(--display);letter-spacing:.12em;text-transform:uppercase;cursor:pointer}
-.pc .addb:hover{background:var(--volt);color:#0E0F11}
-@media (max-width:1180px){.grid{grid-template-columns:repeat(3,1fr)}.grid.four{grid-template-columns:repeat(3,1fr)}}
-@media (max-width:760px){.grid,.grid.four,.grid.three{grid-template-columns:repeat(2,1fr)}.pc h3{font-size:17px}}
-
-/* textures */
-.t-oak{background:repeating-linear-gradient(90deg,#B98B5A 0 14px,#AD7F50 14px 16px,#C4986A 16px 30px)}
-.t-linen{background:repeating-linear-gradient(0deg,rgba(0,0,0,.05) 0 2px,transparent 2px 5px),#D9D1C0}
-.t-clay{background:radial-gradient(circle at 30% 30%,#D98A5C,#B4562B)}
-.t-sage{background:repeating-linear-gradient(135deg,#7F9279 0 8px,#8DA086 8px 12px)}
-.t-char{background:repeating-linear-gradient(45deg,#2A2D31 0 8px,#33373C 8px 12px)}
-
-/* trust strip */
-.trust{display:grid;grid-template-columns:repeat(4,1fr);border-bottom:1px solid var(--line)}
-.trust div{display:flex;gap:12px;align-items:center;padding:18px 16px;border-right:1px solid var(--line)}
-.trust div:last-child{border-right:0}
-.trust svg{width:30px;height:30px;flex:none}
-.trust b{display:block;font:800 17px/1 var(--display);letter-spacing:.08em;text-transform:uppercase}
-.trust small{color:var(--mute)}
-@media (max-width:860px){.trust{grid-template-columns:1fr 1fr}.trust div:nth-child(2){border-right:0}.trust div{border-bottom:1px solid var(--line)}}
-
-/* hero split with diagonal cut */
-.hero{background:var(--dark);color:#fff;overflow:hidden}
-.hero-in{display:grid;grid-template-columns:1.05fr .95fr;min-height:clamp(440px,48vw,640px)}
-.hero-copy{padding:clamp(32px,5vw,72px) clamp(16px,3.5vw,40px) clamp(32px,5vw,72px) max(16px,calc((100vw - 1360px)/2 + 40px));display:flex;flex-direction:column;justify-content:center;gap:20px;position:relative;z-index:2}
-.hero h1{font:900 clamp(60px,9.6vw,150px)/.84 var(--display);font-style:italic;text-transform:uppercase;margin:0}
-.hero h1 em{color:var(--volt);font-style:italic}
-.hero p{max-width:40ch;font-size:clamp(17px,1.5vw,20px);color:#D4D6CC;margin:0}
-.hero-art{background:var(--volt);position:relative;clip-path:polygon(18% 0,100% 0,100% 100%,0 100%);display:grid;place-items:center;margin-left:-8%}
-.hero-art svg{width:56%;color:#0E0F11;margin-left:8%}
-.sticker{position:absolute;right:clamp(14px,5vw,60px);top:clamp(14px,4vw,44px);width:clamp(96px,11vw,150px);aspect-ratio:1;background:#0E0F11;color:var(--volt);border-radius:50%;display:grid;place-items:center;text-align:center;transform:rotate(12deg);font:800 15px/1 var(--display);letter-spacing:.1em;text-transform:uppercase;box-shadow:0 0 0 4px var(--volt)}
-.sticker strong{display:block;font:900 clamp(34px,4vw,54px)/.9 var(--display);font-style:italic}
-@media (max-width:860px){.hero-in{grid-template-columns:1fr}.hero-copy{padding:36px 16px}.hero-art{clip-path:polygon(0 12%,100% 0,100% 100%,0 100%);margin:0;min-height:340px}.hero-art svg{margin:0;width:48%}}
-
-/* category row */
-.cats{display:grid;grid-template-columns:repeat(7,1fr);gap:10px}
-.cat{text-decoration:none;cursor:pointer;display:block}
-.cat .sq{aspect-ratio:1;background:var(--soft);display:grid;place-items:center;transition:background .2s}
-.cat:hover .sq{background:var(--volt)}
-.cat:hover .sq svg{color:#0E0F11}
-.cat svg{width:58%;color:var(--ink)}
-.cat b{display:block;font:800 18px/1 var(--display);letter-spacing:.08em;text-transform:uppercase;margin-top:10px;text-align:center}
-@media (max-width:1000px){.cats{grid-template-columns:repeat(4,1fr)}}
-@media (max-width:560px){.cats{grid-template-columns:repeat(3,1fr);gap:8px}.cat b{font-size:15px}}
-
-/* promo banners */
-.promos{display:grid;grid-template-columns:1fr 1fr;gap:16px}
-.promo{padding:clamp(24px,3.5vw,48px);min-height:300px;display:flex;flex-direction:column;justify-content:flex-end;gap:12px;position:relative;overflow:hidden}
-.promo.d{background:var(--dark);color:#fff}
-.promo.v{background:var(--volt);color:#0E0F11}
-.promo h3{font:900 clamp(40px,5vw,68px)/.88 var(--display);font-style:italic;text-transform:uppercase;margin:0;position:relative;z-index:2}
-.promo p{margin:0;max-width:30ch;position:relative;z-index:2}
-.promo svg{position:absolute;right:-4%;top:6%;width:44%;opacity:.9}
-.promo.d svg{color:var(--volt)}.promo.v svg{color:#0E0F11}
-@media (max-width:760px){.promos{grid-template-columns:1fr}}
-
-/* dark feature band: shop the room (custom niche section) */
-.band{background:var(--dark);color:#fff}
-.band .h{color:#fff}
-.rooms{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
-.room{position:relative;aspect-ratio:3/4;overflow:hidden;display:block}
-.room>svg.scene{position:absolute;inset:0;width:100%;height:100%;color:rgba(255,255,255,.2)}
-.room .tagp{position:absolute;left:0;bottom:0;right:0;padding:18px;background:linear-gradient(transparent,rgba(0,0,0,.85));z-index:2}
-.room h3{font:900 34px/.95 var(--display);font-style:italic;text-transform:uppercase;margin:0 0 6px;color:#fff}
-.room .price{display:inline-block;background:var(--volt);color:#0E0F11;font:900 22px/1 var(--display);padding:6px 12px;transform:skewX(-8deg)}
-.hot{position:absolute;z-index:3;width:30px;height:30px;border-radius:50%;background:var(--volt);color:#0E0F11;border:3px solid #0E0F11;cursor:pointer;font:900 16px/1 var(--display);display:grid;place-items:center;padding:0}
-.hot:hover,.hot[aria-expanded="true"]{background:#fff}
-.hotcard{position:absolute;z-index:4;background:#fff;color:#0E0F11;padding:10px 12px;width:min(190px,70%);font-size:14px;line-height:1.3}
-.hotcard b{display:block;font:800 18px/1 var(--display);text-transform:uppercase}
-.hotcard button{margin-top:8px;width:100%;background:#0E0F11;color:#fff;border:0;padding:9px;font:800 14px/1 var(--display);letter-spacing:.1em;text-transform:uppercase;cursor:pointer}
-@media (max-width:860px){.rooms{grid-template-columns:1fr}.room{aspect-ratio:4/3}}
-
-.newsb{background:var(--volt);color:#0E0F11}
-.news-in{display:grid;grid-template-columns:1fr 1fr;gap:24px;align-items:center}
-.newsb h2{font:900 clamp(38px,5vw,64px)/.9 var(--display);font-style:italic;text-transform:uppercase;margin:0}
-.newsb form{display:flex;gap:8px;flex-wrap:wrap}
-.field{padding:15px 16px;border:2px solid var(--ink);background:var(--bg);width:100%;border-radius:0}
-.newsb .field{flex:1 1 220px;width:auto;background:#fff;color:#0E0F11;border-color:#0E0F11}
-.newsb .btn.solid{background:#0E0F11;color:#fff;border-color:#0E0F11}
-@media (max-width:820px){.news-in{grid-template-columns:1fr}}
-
-/* misc content */
-.reviews{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
-.rev{background:var(--soft);padding:24px}
-.rev p{font-size:18px;margin:0 0 12px}
-.rev cite{font:800 16px/1 var(--display);letter-spacing:.1em;text-transform:uppercase;font-style:normal}
-.stars{color:var(--ink);letter-spacing:2px;font-size:20px;background:var(--volt);display:inline-block;padding:2px 8px;color:#0E0F11;margin-bottom:10px}
-@media (max-width:820px){.reviews{grid-template-columns:1fr}}
-.stat{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
-.stat div{background:var(--soft);padding:24px;border-top:6px solid var(--volt)}
-.stat strong{display:block;font:900 clamp(44px,5vw,70px)/1 var(--display);font-style:italic}
-@media (max-width:820px){.stat{grid-template-columns:1fr 1fr}}
-details.acc{border-top:1px solid var(--line);padding:14px 0}
-details.acc:last-of-type{border-bottom:1px solid var(--line)}
-details.acc summary{cursor:pointer;font:800 20px/1.2 var(--display);letter-spacing:.04em;text-transform:uppercase;list-style:none;display:flex;justify-content:space-between;gap:12px}
-details.acc summary::-webkit-details-marker{display:none}
-details.acc summary::after{content:"+";font-size:26px;line-height:1}
-details.acc[open] summary::after{content:"–"}
-details.acc p{color:var(--mute);margin:10px 0 0}
-.faq{display:grid;grid-template-columns:.8fr 1.2fr;gap:clamp(20px,4vw,56px)}
-@media (max-width:860px){.faq{grid-template-columns:1fr}}
-.crumbs{font:800 15px/1 var(--display);letter-spacing:.1em;text-transform:uppercase;color:var(--mute);padding:20px 0}
-.crumbs a{text-decoration:none}.crumbs a:hover{color:var(--ink)}
-.crumbbar{background:var(--soft);border-bottom:1px solid var(--line)}
-.crumbbar .crumbs{padding:14px 0}
-.post{text-decoration:none;display:block;cursor:pointer}
-.post .pic{aspect-ratio:3/2}
-.post small{display:block;color:var(--mute);margin:12px 0 4px;text-transform:uppercase;letter-spacing:.08em;font-size:13px}
-.post h3{margin:0 0 6px;font:800 24px/1.05 var(--display);text-transform:uppercase}
-.post p{margin:0;color:var(--mute)}
-.pageh{font:900 clamp(52px,8vw,110px)/.86 var(--display);font-style:italic;text-transform:uppercase;margin:8px 0 18px}
-
-/* collection */
-.col-banner{background:var(--dark);color:#fff;padding:clamp(28px,4vw,56px) 0;position:relative;overflow:hidden}
-.col-banner h1{font:900 clamp(56px,10vw,140px)/.84 var(--display);font-style:italic;text-transform:uppercase;margin:0}
-.col-banner h1 em{color:var(--volt)}
-.col-banner p{max-width:56ch;margin:14px 0 0;color:#CFD1C7}
-.col-banner .crumbs{padding-top:0;color:#9EA194}.col-banner .crumbs a:hover{color:#fff}
-.col-layout{display:grid;grid-template-columns:240px 1fr;gap:clamp(20px,3vw,40px);padding:28px 0 64px}
-.filters fieldset{border:0;border-bottom:1px solid var(--line);padding:0 0 16px;margin:0 0 16px;min-width:0}
-.filters legend{font:800 18px/1 var(--display);letter-spacing:.1em;text-transform:uppercase;margin-bottom:8px;padding:0}
-.filters label{display:flex;gap:8px;align-items:center;margin:6px 0;cursor:pointer}
-.filters input[type=checkbox]{width:18px;height:18px;accent-color:var(--ink)}
-.swatch-row{display:flex;gap:8px;flex-wrap:wrap}
-.swatch-row input{position:absolute;opacity:0}
-.swatch-row span{width:28px;height:28px;border:2px solid var(--line);display:block}
-.swatch-row input:checked+span{outline:3px solid var(--volt);outline-offset:1px;box-shadow:0 0 0 5px var(--ink)}
-.toolbar{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-bottom:18px;flex-wrap:wrap}
-.toolbar select{padding:9px 10px;border:2px solid var(--ink);background:var(--bg);border-radius:0}
-.filter-toggle{display:none}
-.pager{display:flex;gap:6px;justify-content:center;margin-top:36px}
-.pager a{min-width:42px;padding:9px;text-align:center;border:2px solid var(--line);text-decoration:none;font:800 17px/1 var(--display)}
-.pager a[aria-current]{background:var(--ink);color:var(--bg);border-color:var(--ink)}
-.note-v{background:var(--volt);color:#0E0F11;padding:18px 22px;font-size:17px}
-@media (max-width:860px){.col-layout{grid-template-columns:1fr}.filters{display:none}.filters.open{display:block}.filter-toggle{display:inline-block}}
-
-/* product */
-.pdp{display:grid;grid-template-columns:1.2fr .8fr;gap:clamp(20px,4vw,56px);padding:8px 0 64px}
-.gallery{display:grid;grid-template-columns:1fr 1fr;gap:10px;min-width:0}
-.gallery .g{background:var(--soft);aspect-ratio:1;display:grid;place-items:center;min-width:0}
-.gallery .g:first-child{grid-column:1/-1;aspect-ratio:5/4;position:relative}
-.gallery svg{width:56%}
-.buy{position:sticky;top:90px;align-self:start;min-width:0}
-.buy h1{font:900 clamp(46px,5.2vw,76px)/.86 var(--display);font-style:italic;text-transform:uppercase;margin:0 0 10px}
-.price{font:900 34px/1 var(--display);margin:0 0 6px}
-.note{color:var(--mute);margin:0 0 22px}
-.opt{border:0;padding:0;margin:0 0 20px;min-width:0}
-.opt legend{font:800 18px/1 var(--display);letter-spacing:.1em;text-transform:uppercase;margin-bottom:10px;padding:0}
-.swatches,.sizes{display:flex;gap:8px;flex-wrap:wrap}
-.swatches button{width:38px;height:38px;border:2px solid var(--line);cursor:pointer;border-radius:0}
-.swatches button[aria-pressed="true"]{outline:3px solid var(--volt);outline-offset:1px;box-shadow:0 0 0 5px var(--ink)}
-.sizes button{min-width:64px;padding:11px;border:2px solid var(--ink);background:transparent;cursor:pointer;border-radius:0;font:800 16px/1 var(--display);letter-spacing:.06em;text-transform:uppercase}
-.sizes button[aria-pressed="true"]{background:var(--ink);color:var(--bg)}
-.sizes button:disabled{opacity:.35;text-decoration:line-through;cursor:not-allowed}
-.fittip{background:var(--volt);color:#0E0F11;padding:12px 14px;font-size:15px;margin-bottom:22px}
-.iwt{display:grid;grid-template-columns:1fr 1fr;gap:clamp(20px,4vw,56px);align-items:center}
-.iwt .pic{aspect-ratio:5/4;min-width:0}
-.iwt h2{font:900 clamp(36px,4.6vw,60px)/.9 var(--display);font-style:italic;text-transform:uppercase;margin:0 0 14px}
-.iwt p{max-width:44ch;margin:0 0 22px}
-.iwt.flip .pic{order:2}
-@media (max-width:860px){.iwt{grid-template-columns:1fr}.iwt.flip .pic{order:0}}
-.appbox{border:2px dashed var(--mute);padding:28px;display:grid;grid-template-columns:auto 1fr auto;gap:24px;align-items:center}
-@media (max-width:900px){.pdp{grid-template-columns:1fr}.buy{position:static}.appbox{grid-template-columns:1fr}}
-.promises{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
-.promise{background:var(--soft);padding:24px;border-top:6px solid var(--volt)}
-.promise h3{margin:0 0 4px;font:800 22px/1 var(--display);text-transform:uppercase;letter-spacing:.04em}
-.promise p{margin:0;color:var(--mute)}
-@media (max-width:820px){.promises{grid-template-columns:1fr}}
-
-/* cart */
-.cart-grid{display:grid;grid-template-columns:1fr 380px;gap:clamp(20px,4vw,48px);padding:8px 0 56px}
-.cl{display:grid;grid-template-columns:96px 1fr auto;gap:16px;padding:18px 0;border-bottom:1px solid var(--line);align-items:start}
-.cl .thumb{background:var(--soft);aspect-ratio:1;display:grid;place-items:center}
-.cl .thumb svg{width:68%}
-.cl h3{margin:0;font:800 20px/1.1 var(--display);text-transform:uppercase}
-.qty{display:inline-flex;border:2px solid var(--ink);margin-top:10px}
-.qty button{background:none;border:0;width:36px;height:36px;cursor:pointer;font-size:18px}
-.qty span{min-width:32px;display:grid;place-items:center}
-.linkbtn{background:none;border:0;padding:0;text-decoration:underline;cursor:pointer;color:var(--mute);font-size:14px;margin-left:12px}
-.summary{background:var(--soft);padding:24px;align-self:start;min-width:0}
-.ship-bar{height:8px;background:var(--line);margin:8px 0 18px}
-.ship-bar i{display:block;height:100%;background:var(--volt);box-shadow:inset 0 0 0 1px #0E0F11}
-.summary textarea{width:100%;min-height:70px;padding:10px;border:2px solid var(--line);background:var(--bg);margin:6px 0 16px}
-.row{display:flex;justify-content:space-between;font:800 24px/1 var(--display);margin-bottom:8px;text-transform:uppercase}
-@media (max-width:900px){.cart-grid{grid-template-columns:1fr}}
-.cl>b{font:800 22px/1 var(--display)}
-
-/* blog / article */
-.feature-post{display:grid;grid-template-columns:1.3fr 1fr;gap:clamp(20px,4vw,48px);align-items:center;margin-bottom:48px;text-decoration:none;cursor:pointer}
-.feature-post .pic{aspect-ratio:16/10;min-width:0}
-.feature-post h2{font:900 clamp(38px,4.8vw,64px)/.88 var(--display);font-style:italic;text-transform:uppercase;margin:8px 0 12px}
-@media (max-width:860px){.feature-post{grid-template-columns:1fr}}
-.article-hero{aspect-ratio:21/9;margin-bottom:32px}
-.article h1{font:900 clamp(46px,6.4vw,92px)/.86 var(--display);font-style:italic;text-transform:uppercase;margin:0 0 12px}
-.article .by{color:var(--mute);margin-bottom:28px}
-.article p{font-size:18px;line-height:1.75;margin:0 0 20px}
-.article h2{font:900 38px/1 var(--display);font-style:italic;text-transform:uppercase;margin:36px 0 12px}
-.share{display:flex;gap:14px;border-top:1px solid var(--line);padding-top:18px;margin-top:32px;color:var(--mute);flex-wrap:wrap}
-
-/* about / contact / 404 */
-.about-hero{min-height:clamp(320px,46vw,540px);display:flex;align-items:flex-end;padding:clamp(24px,4vw,48px) 0;color:#fff;position:relative}
-.about-hero h1{font:900 clamp(56px,11vw,160px)/.84 var(--display);font-style:italic;text-transform:uppercase;margin:0;max-width:11ch;background:#0E0F11;display:inline;padding:0 .1em;box-decoration-break:clone;-webkit-box-decoration-break:clone}
-.story{font-size:19px;line-height:1.7}.story p{margin:0 0 18px}
-.mrow{display:grid;gap:clamp(32px,5vw,64px)}
-.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
-.contact-grid .span{grid-column:1/-1}
-.contact-grid label{display:block;font:800 17px/1 var(--display);letter-spacing:.1em;text-transform:uppercase;margin-bottom:6px}
-.contact-grid textarea{min-height:140px}
-.contact-grid>div{min-width:0}
-@media (max-width:640px){.contact-grid{grid-template-columns:1fr}}
-.nf{padding:clamp(48px,8vw,110px) 0;text-align:center}
-.nf h1{font:900 clamp(110px,24vw,320px)/.78 var(--display);font-style:italic;margin:0;background:var(--volt);color:#0E0F11;display:inline-block;padding:0 .12em;transform:rotate(-3deg)}
-.nf p{font-size:20px;margin:26px 0}
-.nf form{display:flex;gap:8px;max-width:520px;margin:0 auto 18px}
-.toast{position:fixed;left:50%;bottom:calc(20px + env(safe-area-inset-bottom,0px));transform:translateX(-50%);background:var(--volt);color:#0E0F11;padding:13px 20px;z-index:50;font:800 17px/1.2 var(--display);letter-spacing:.06em;text-transform:uppercase;max-width:92vw;text-align:center}
-
+.hdr{position:sticky;top:44px;z-index:80;background:rgba(22,19,15,.96);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.hdr .wrap{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;height:88px}
+.logo{font:500 30px/1 var(--serif);letter-spacing:.42em;padding-left:.42em;text-align:center;display:block}
+.logo small{display:block;font:500 9px/1 var(--sans);letter-spacing:.5em;color:var(--brass);margin-top:8px}
+.nav{display:flex;gap:34px;align-items:center;height:100%}
+.nav>div{height:100%;display:flex;align-items:center}
+.nv{font:500 13px/1 var(--sans);letter-spacing:.14em;text-transform:uppercase;position:relative;padding:8px 0}
+.nv::after{content:"";position:absolute;left:0;right:0;bottom:0;height:1px;background:var(--brass);transform:scaleX(0);transform-origin:left;transition:transform .4s var(--ease)}
+.nav>div:hover .nv::after,.nv.hl::after{transform:none}
+.mega{position:absolute;left:0;right:0;top:100%;background:var(--esp);border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:40px 0 48px;opacity:0;visibility:hidden;transform:translateY(-6px);transition:.35s var(--ease)}
+.nav>div:hover .mega,.nav>div:focus-within .mega{opacity:1;visibility:visible;transform:none}
+.mega .wrap{display:grid;grid-template-columns:220px repeat(4,1fr);gap:24px;height:auto}
+.mega h5{font:600 11px/1 var(--sans);letter-spacing:.2em;text-transform:uppercase;color:var(--brass);margin-bottom:18px}
+.mega ul{list-style:none;display:grid;gap:12px;font-size:15px;color:var(--trav)}
+.mega ul a:hover{color:var(--brassl)}
+.tile{position:relative;aspect-ratio:4/5;overflow:hidden;display:block}
+.tile img{width:100%;height:100%;object-fit:cover;transition:transform 1.2s var(--ease)}
+.tile:hover img{transform:scale(1.06)}
+.tile span{position:absolute;left:16px;bottom:16px;font:400 22px/1 var(--serif);color:#fff}
+.tile::after{content:"";position:absolute;inset:0;background:linear-gradient(transparent 55%,rgba(0,0,0,.55))}
+.tile span{z-index:1}
+.util{display:flex;justify-content:flex-end;gap:26px;align-items:center;font:500 13px/1 var(--sans);letter-spacing:.12em;text-transform:uppercase}
+.util .visit{border:1px solid var(--brass);color:var(--brassl);padding:12px 16px}
+.util .visit:hover{background:var(--brass);color:var(--onyx)}
+.ico{width:20px;height:20px}
+#openCart{display:flex;gap:6px;align-items:center;letter-spacing:.12em;text-transform:uppercase;font-size:13px;font-weight:500}
+#openCart.bump #count{animation:bump .5s}
+@keyframes bump{40%{transform:scale(1.5);color:var(--brassl)}}
+.burger{display:none}
+/* mobile nav */
+.mnav{position:fixed;inset:0;z-index:120;background:var(--onyx);padding:96px 24px 32px;transform:translateX(-100%);transition:transform .5s var(--ease);overflow:auto}
+.mnav.on{transform:none}
+.mnav a{display:block;font:400 34px/1.3 var(--serif);border-bottom:1px solid var(--line);padding:14px 0}
+.mnav .x{position:absolute;top:24px;right:20px;font-size:13px;letter-spacing:.16em;text-transform:uppercase}
+.mnav .rooms{display:grid;grid-auto-flow:column;grid-auto-columns:46%;gap:12px;overflow-x:auto;margin-top:28px;scrollbar-width:none}
+.mnav .rooms .tile span{font-size:18px}
+/* hero */
+.hero{position:relative;height:calc(100vh - 172px);min-height:640px;max-height:900px;overflow:hidden}
+.hero>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transform:scale(1.06);animation:pan 14s var(--ease) forwards}
+@keyframes pan{to{transform:scale(1)}}
+.hero::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(14,12,9,.82) 0%,rgba(14,12,9,.45) 42%,rgba(14,12,9,0) 70%),linear-gradient(transparent 70%,rgba(14,12,9,.55))}
+.hero .wrap{position:relative;z-index:2;height:100%;display:flex;flex-direction:column;justify-content:center}
+.hero h1{font-size:clamp(56px,7.4vw,118px);max-width:760px;margin:26px 0 24px}
+.hero p{max-width:440px;color:#d9d1c4;font-size:18px}
+.hero .ctas{display:flex;gap:14px;margin-top:38px;flex-wrap:wrap}
+.mats{position:absolute;left:48px;bottom:36px;z-index:2;display:flex;gap:28px;font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:#d9d1c4}
+.mats span{display:flex;align-items:center;gap:10px}
+.mats i{width:14px;height:14px;border-radius:50%;border:1px solid rgba(255,255,255,.5)}
+.inroom{position:absolute;right:48px;bottom:36px;z-index:2;background:rgba(22,19,15,.86);backdrop-filter:blur(8px);border:1px solid var(--line);display:flex;gap:16px;align-items:center;padding:14px 22px 14px 14px;max-width:380px}
+.inroom img{width:84px;height:64px;object-fit:cover}
+.inroom small{display:block;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--brass)}
+.inroom b{display:block;font:400 19px/1.2 var(--serif);margin:6px 0 4px}
+.inroom span{font-size:13px;color:var(--smoke)}
+/* room index */
+.rooms-idx{display:grid;grid-template-columns:1fr 1.25fr;gap:72px;align-items:center}
+.rlist{list-style:none;border-top:1px solid var(--lined)}
+.rlist li{border-bottom:1px solid var(--lined)}
+.rlist button{width:100%;display:flex;align-items:baseline;justify-content:space-between;padding:22px 0;text-align:left;transition:padding .4s var(--ease),color .3s}
+.rlist b{font:400 clamp(30px,3vw,46px)/1 var(--serif)}
+.rlist small{font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--mute)}
+.rlist button.on,.rlist button:hover{padding-left:16px;color:var(--brassd)}
+.rlist button.on b{font-style:italic}
+.rimg{position:relative;aspect-ratio:4/3;overflow:hidden}
+.rimg img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity .7s var(--ease),transform 1.4s var(--ease);transform:scale(1.04)}
+.rimg img.on{opacity:1;transform:none}
+.rimg .imgs{position:absolute;inset:0}
+.rimg .cap{position:absolute;left:0;bottom:0;z-index:2;background:var(--marble);padding:18px 24px;display:flex;gap:24px;align-items:center}
+.rimg .cap p{font-size:14px;color:var(--mute);max-width:260px}
+/* cards */
+.grid{display:grid;grid-template-columns:repeat(4,1fr);gap:40px 28px}
+.card{position:relative}
+.card .m{position:relative;display:block;aspect-ratio:4/3;overflow:hidden;background:var(--greige)}
+.card .m img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:opacity .6s var(--ease),transform 1.2s var(--ease)}
+.card .m .alt{opacity:0}
+.card:hover .m .alt{opacity:1}
+.card:hover .m img:first-of-type{transform:scale(1.05)}
+.bdg{position:absolute;top:14px;left:14px;z-index:2;background:var(--onyx);color:var(--marble);font:600 10px/1 var(--sans);letter-spacing:.16em;text-transform:uppercase;padding:8px 10px}
+.bdg.sale{background:var(--brass);color:var(--onyx)}
+.bdg.mto{background:var(--marble);color:var(--ink)}
+.card .meta{padding-top:18px}
+.card .top{display:flex;justify-content:space-between;align-items:center;gap:12px}
+.dots{display:flex;gap:6px}
+.dots i{width:13px;height:13px;border-radius:50%;box-shadow:inset 0 0 0 1px rgba(0,0,0,.18)}
+.card .rt{font-size:12px;color:var(--smoke)}
+.card .rt b{color:var(--brass);letter-spacing:2px;font-weight:400}
+.card h3{font-size:24px;margin:12px 0 6px}
+.card .dim{font-size:13px;color:var(--smoke)}
+.card .pr{display:flex;justify-content:space-between;align-items:center;margin-top:14px;padding-top:14px;border-top:1px solid var(--line);font-size:15px}
+.card .pr s{color:var(--smoke);margin-left:8px;font-size:13px}
+.card .pr .v{font:600 11px/1 var(--sans);letter-spacing:.18em;text-transform:uppercase;color:var(--brassl);display:flex;gap:8px;align-items:center}
+.card .pr .v::after{content:"→";transition:transform .3s}
+.card:hover .pr .v::after{transform:translateX(4px)}
+.light .card .rt,.light .card .dim,.trav .card .rt,.trav .card .dim{color:var(--mute)}
+.light .card .pr,.trav .card .pr{border-color:var(--lined)}
+.light .card .pr .v,.trav .card .pr .v{color:var(--brassd)}
+.light .card .rt b,.trav .card .rt b{color:var(--brassd)}
+/* configurator */
+.cfg{display:grid;grid-template-columns:1.35fr 1fr;gap:72px;align-items:start}
+.cfg .stage{position:relative;background:var(--greige);aspect-ratio:4/3;overflow:hidden}
+.cfg .stage img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:opacity .6s var(--ease)}
+.cfg .stage img.off{opacity:0}
+.cfg .dimline{position:absolute;left:12%;right:12%;bottom:30px;border-top:1px solid var(--ink);text-align:center;font:600 11px/1 var(--sans);letter-spacing:.18em;color:var(--ink)}
+.cfg .dimline::before,.cfg .dimline::after{content:"";position:absolute;top:-6px;width:1px;height:11px;background:var(--ink)}
+.cfg .dimline::before{left:0}.cfg .dimline::after{right:0}
+.cfg .dimline span{position:relative;top:-7px;background:var(--greige);padding:0 10px}
+.cfg h2{font-size:clamp(38px,3.6vw,54px);margin:18px 0 14px}
+.opt{margin-top:30px}
+.opt>p{display:flex;justify-content:space-between;font:600 11px/1 var(--sans);letter-spacing:.2em;text-transform:uppercase;margin-bottom:14px}
+.opt>p span{color:var(--mute);letter-spacing:.06em;text-transform:none;font-size:14px;font-weight:400}
+.sw{display:flex;gap:12px}
+.sw button{width:52px;height:52px;border-radius:50%;box-shadow:inset 0 0 0 1px rgba(0,0,0,.15);position:relative}
+.sw button.on::after{content:"";position:absolute;inset:-6px;border-radius:50%;border:1px solid var(--ink)}
+.pills{display:flex;gap:10px;flex-wrap:wrap}
+.pills button{min-height:48px;padding:10px 18px;border:1px solid var(--lined);text-align:left;font-size:14px;transition:border-color .3s,background .3s}
+.pills button small{display:block;font-size:12px;color:var(--mute)}
+.pills button.on{border-color:var(--ink);background:#fff}
+.cfg .sum{margin-top:34px;padding-top:26px;border-top:1px solid var(--lined);display:flex;justify-content:space-between;align-items:flex-end;gap:20px;flex-wrap:wrap}
+.cfg .price{font:400 44px/1 var(--serif)}
+.cfg .lead{font-size:14px;color:var(--mute);margin-top:8px}
+/* materials */
+.matx{display:grid;grid-template-columns:1fr 1fr;gap:0}
+.matx .ph{position:relative;min-height:640px}
+.matx .ph img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.matx .tx{padding:96px 80px;display:flex;flex-direction:column;justify-content:center;background:var(--esp)}
+.matx h2{font-size:clamp(36px,3.4vw,52px);margin:18px 0 40px}
+.mrow{display:grid;grid-template-columns:56px 1fr;gap:20px;padding:22px 0;border-top:1px solid var(--line)}
+.mrow i{width:56px;height:56px;border-radius:50%}
+.mrow b{display:block;font:400 22px/1.2 var(--serif);margin-bottom:4px}
+.mrow p{font-size:14px;color:var(--smoke)}
+/* swatches */
+.swr{display:grid;grid-template-columns:.9fr 1.1fr;gap:72px;align-items:center}
+.swr .ph{aspect-ratio:1;overflow:hidden}
+.swr .ph img{width:100%;height:100%;object-fit:cover}
+.swr h2{font-size:clamp(36px,3.4vw,52px);margin:18px 0 14px}
+.swr>div>p{color:var(--mute);max-width:460px}
+.sgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:34px 0 26px}
+.sgrid button{display:flex;gap:14px;align-items:center;padding:10px;border:1px solid var(--lined);background:var(--marble);text-align:left;font-size:14px;transition:border-color .3s}
+.sgrid button i{width:44px;height:44px;flex:none;box-shadow:inset 0 0 0 1px rgba(0,0,0,.12)}
+.sgrid button small{display:block;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--mute)}
+.sgrid button.on{border-color:var(--ink);box-shadow:inset 0 0 0 1px var(--ink)}
+.sgrid button:disabled{opacity:.4;cursor:not-allowed}
+.sbar{display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap}
+.sbar .scount{font-size:14px;color:var(--mute)}
+.sbar .scount b{color:var(--ink);font-weight:600}
+/* appointment */
+.appt{display:grid;grid-template-columns:.85fr 1.15fr;gap:0;border:1px solid var(--line)}
+.appt .ph{position:relative;min-height:720px}
+.appt .ph img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.appt .ph .q{position:absolute;left:32px;right:32px;bottom:32px;font:italic 400 26px/1.3 var(--serif)}
+.appt .ph::after{content:"";position:absolute;inset:0;background:linear-gradient(transparent 50%,rgba(0,0,0,.7))}
+.appt .ph .q{z-index:1}
+.appt .f{padding:64px 64px 56px;background:var(--esp)}
+.appt h2{font-size:clamp(34px,3.2vw,50px);margin:18px 0 10px}
+.appt .f>p{color:var(--smoke)}
+.seg{display:grid;grid-template-columns:1fr 1fr;border:1px solid var(--line);margin-top:30px}
+.seg button{padding:16px;font-size:14px;text-align:left}
+.seg button small{display:block;color:var(--smoke);font-size:12px}
+.seg button.on{background:var(--marble);color:var(--ink)}
+.seg button.on small{color:var(--mute)}
+.lbl{font:600 11px/1 var(--sans);letter-spacing:.2em;text-transform:uppercase;color:var(--brass);margin:28px 0 12px}
+.days{display:grid;grid-template-columns:repeat(7,1fr);gap:8px}
+.days button{border:1px solid var(--line);padding:12px 0;text-align:center;font-size:12px;letter-spacing:.1em;text-transform:uppercase}
+.days button b{display:block;font:400 24px/1.1 var(--serif);letter-spacing:0;text-transform:none;margin-top:4px}
+.days button.on{border-color:var(--brass);background:var(--brass);color:var(--onyx)}
+.days button:disabled{opacity:.3;cursor:not-allowed}
+.slots{display:flex;gap:8px;flex-wrap:wrap}
+.slots button{border:1px solid var(--line);padding:11px 16px;font-size:14px}
+.slots button.on{border-color:var(--brassl);color:var(--brassl)}
+.slots button:disabled{opacity:.3;text-decoration:line-through;cursor:not-allowed}
+.fields{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:28px}
+.fields input,.fields textarea,.fields select{width:100%;border:1px solid var(--line);padding:15px 16px;background:rgba(255,255,255,.03);font-size:15px}
+.fields input::placeholder{color:var(--smoke)}
+.appt .go{margin-top:24px;display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap}
+.appt .go small{color:var(--smoke);font-size:13px}
+.done{display:none;border:1px solid var(--brass);padding:28px;margin-top:28px}
+.done.on{display:block}
+.done h3{font-size:30px;margin-bottom:8px}
+.done p{color:var(--smoke)}
+/* reviews */
+.revs{display:grid;grid-template-columns:320px 1fr;gap:64px}
+.score b{font:400 88px/1 var(--serif)}
+.score .st{color:var(--brassd);letter-spacing:4px;margin:10px 0 6px}
+.score small{color:var(--mute);font-size:14px}
+.bars{margin-top:24px;display:grid;gap:8px;font-size:13px;color:var(--mute)}
+.bars div{display:grid;grid-template-columns:44px 1fr 36px;gap:12px;align-items:center}
+.bars i{height:3px;background:var(--lined);position:relative}
+.bars i::after{content:"";position:absolute;left:0;top:0;bottom:0;width:var(--w);background:var(--ink)}
+.rvs{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.rv{border-top:1px solid var(--ink);padding-top:24px}
+.rv .s{color:var(--brassd);letter-spacing:3px;font-size:14px}
+.rv p{font:400 21px/1.4 var(--serif);margin:14px 0 18px}
+.rv small{font-size:12px;color:var(--mute);letter-spacing:.06em}
+/* journal */
+.jgrid{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:28px;align-items:start}
+.post .ph{aspect-ratio:4/3;overflow:hidden;margin-bottom:20px}
+.post .ph img{width:100%;height:100%;object-fit:cover;transition:transform 1.2s var(--ease)}
+.post:hover .ph img{transform:scale(1.05)}
+.post small{font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--brass)}
+.post h3{font-size:28px;margin:10px 0 8px}
+.post p{color:var(--smoke);font-size:15px}
+/* newsletter */
+.news{display:grid;grid-template-columns:1fr 1fr;gap:72px;align-items:end;border-top:1px solid var(--line);padding-top:72px}
+.news h2{font-size:clamp(36px,3.4vw,54px);margin-top:18px}
+.news form{display:flex;border-bottom:1px solid var(--marble)}
+.news input{flex:1;padding:18px 0;font-size:17px}
+.news input::placeholder{color:var(--smoke)}
+.news small{display:block;color:var(--smoke);font-size:13px;margin-top:14px}
 /* footer */
-footer.site{background:var(--dark);color:#fff;padding:56px 0 32px}
-.foot{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:28px}
-.foot h4{margin:0 0 12px;font:800 19px/1 var(--display);letter-spacing:.12em;text-transform:uppercase;color:var(--volt)}
-.foot ul{list-style:none;margin:0;padding:0;display:grid;gap:8px;color:#B8BBAF}
-.foot ul a{text-decoration:none}.foot ul a:hover{color:#fff}
-.foot-bottom{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;margin-top:40px;padding-top:20px;border-top:1px solid #2D3035;color:#9EA194;font-size:14px}
-@media (max-width:820px){.foot{grid-template-columns:1fr 1fr}}
-@media (prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
+.ftr{background:#0F0D0A;padding:96px 0 32px;color:var(--smoke);font-size:14px}
+.ftr .cols{display:grid;grid-template-columns:1.6fr 1fr 1fr 1fr;gap:48px}
+.ftr .logo{text-align:left;padding-left:0;color:var(--marble)}
+.ftr p{margin-top:20px;max-width:300px}
+.ftr h5{font:600 11px/1 var(--sans);letter-spacing:.2em;text-transform:uppercase;color:var(--brass);margin-bottom:20px}
+.ftr ul{list-style:none;display:grid;gap:10px}
+.ftr ul a:hover{color:var(--marble)}
+.ftr .bot{display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap;margin-top:72px;padding-top:28px;border-top:1px solid var(--line);font-size:12px}
+.pay{display:flex;gap:8px}
+.pay span{border:1px solid var(--line);padding:6px 10px;font-size:11px;letter-spacing:.08em;color:var(--trav)}
+.soc{display:flex;gap:18px;margin-top:24px}
+.soc a{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--trav)}
+/* pages */
+.page{display:none}.page.on{display:block}
+.crumbs{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--smoke);padding:28px 0}
+.crumbs a:hover{color:var(--brassl)}
+.light .crumbs{color:var(--mute)}
+/* collection */
+.cban{position:relative;height:420px;overflow:hidden;color:var(--marble)}
+.cban img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.cban::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(14,12,9,.8),rgba(14,12,9,.2))}
+.cban .wrap{position:relative;z-index:1;height:100%;display:flex;flex-direction:column;justify-content:flex-end;padding-bottom:56px}
+.cban h1{font-size:clamp(56px,6vw,92px);margin:14px 0 12px}
+.cban p{max-width:480px;color:#d9d1c4}
+.rchips{display:flex;gap:10px;flex-wrap:wrap;padding:28px 0;border-bottom:1px solid var(--lined)}
+.rchips button{border:1px solid var(--lined);padding:12px 18px;font-size:13px;letter-spacing:.12em;text-transform:uppercase}
+.rchips button.on{background:var(--ink);color:var(--marble);border-color:var(--ink)}
+.cwrap{display:grid;grid-template-columns:260px 1fr;gap:56px;padding:40px 0 120px}
+.side h4{font:600 11px/1 var(--sans);letter-spacing:.2em;text-transform:uppercase;margin-bottom:16px}
+.fgroup{padding:24px 0;border-top:1px solid var(--lined)}
+.fgroup label{display:flex;align-items:center;gap:12px;padding:6px 0;font-size:15px;cursor:pointer}
+.fgroup input[type=checkbox]{appearance:none;width:18px;height:18px;border:1px solid var(--ink);display:grid;place-items:center;flex:none}
+.fgroup input[type=checkbox]:checked{background:var(--ink)}
+.fgroup input[type=checkbox]:checked::after{content:"";width:8px;height:8px;background:var(--marble)}
+.fgroup label i{width:16px;height:16px;border-radius:50%;box-shadow:inset 0 0 0 1px rgba(0,0,0,.15)}
+.fgroup label small{margin-left:auto;color:var(--mute);font-size:12px}
+.range{display:flex;gap:10px;align-items:center;font-size:14px;color:var(--mute)}
+.range input{width:100%;accent-color:var(--ink)}
+.tbar{display:flex;justify-content:space-between;align-items:center;margin-bottom:32px;font-size:14px;color:var(--mute)}
+.tbar select{border:1px solid var(--lined);padding:12px 14px;color:var(--ink);background:var(--marble)}
+.tbar .ff{display:none;border:1px solid var(--ink);padding:12px 16px;color:var(--ink);font-size:13px;letter-spacing:.12em;text-transform:uppercase}
+.cgrid{grid-template-columns:repeat(3,1fr)}
+.promo{position:relative;background:var(--onyx);color:var(--marble);display:flex;flex-direction:column;justify-content:flex-end;padding:28px;min-height:100%;overflow:hidden}
+.promo img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.55;transition:transform 1.2s var(--ease)}
+.promo:hover img{transform:scale(1.05)}
+.promo>*{position:relative}
+.promo h3{font-size:32px;margin:12px 0 8px}
+.promo p{color:#d9d1c4;font-size:14px}
+.more{text-align:center;margin-top:64px}
+.more p{font-size:13px;color:var(--mute);margin-bottom:16px}
+.more .bar{width:200px;height:2px;background:var(--lined);margin:0 auto 22px;position:relative}
+.more .bar i{position:absolute;inset:0 auto 0 0;background:var(--ink)}
+.empty{padding:48px 0;color:var(--mute)}
+/* product */
+.pdp{display:grid;grid-template-columns:1.25fr 1fr;gap:72px;padding-bottom:96px}
+.gal{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.gal button{position:relative;overflow:hidden;background:var(--greige);aspect-ratio:4/3;cursor:zoom-in}
+.gal button:first-child{grid-column:1/-1}
+.gal img{width:100%;height:100%;object-fit:cover;transition:transform .6s var(--ease)}
+.gal button.zoom{cursor:zoom-out}
+.gal button.zoom img{transform:scale(1.8)}
+.gdots{display:none}
+.info{position:sticky;top:150px;align-self:start}
+.info .tag{display:flex;gap:10px;font:600 10px/1 var(--sans);letter-spacing:.18em;text-transform:uppercase}
+.info .tag span{border:1px solid var(--lined);padding:8px 10px}
+.info h1{font-size:clamp(40px,3.6vw,58px);margin:18px 0 12px}
+.info .rt{font-size:14px;color:var(--mute)}
+.info .rt b{color:var(--brassd);letter-spacing:2px;font-weight:400}
+.info .price{font:400 34px/1 var(--serif);margin:22px 0 4px}
+.info .price small{font:400 14px var(--sans);color:var(--mute);margin-left:8px}
+.info .lede{color:var(--mute);margin-top:16px}
+.deliv{display:flex;gap:14px;align-items:flex-start;background:var(--trav);padding:16px 18px;margin-top:26px;font-size:14px}
+.deliv b{display:block}
+.buy{display:grid;grid-template-columns:120px 1fr;gap:10px;margin-top:26px}
+.qty{display:flex;align-items:center;justify-content:space-between;border:1px solid var(--ink);height:56px;padding:0 14px}
+.qty input{width:30px;text-align:center}
+.buy .btn{height:56px}
+.buy .btn-ink{grid-column:1/-1}
+.trust{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:26px;font-size:12px;color:var(--mute);text-align:center}
+.trust div{border-top:1px solid var(--lined);padding-top:14px}
+.trust b{display:block;font:400 17px/1.2 var(--serif);color:var(--ink);margin-bottom:4px}
+.acc{margin-top:30px;border-top:1px solid var(--lined)}
+.acc details{border-bottom:1px solid var(--lined)}
+.acc summary{list-style:none;display:flex;justify-content:space-between;padding:20px 0;cursor:pointer;font:600 12px/1 var(--sans);letter-spacing:.18em;text-transform:uppercase}
+.acc summary::after{content:"+";font-size:18px;font-weight:400}
+.acc details[open] summary::after{content:"−"}
+.acc .bd{padding-bottom:22px;font-size:15px;color:var(--mute)}
+.acc svg{width:100%;height:auto;margin:6px 0 14px}
+.acc dl{display:grid;grid-template-columns:1fr 1fr;gap:6px 18px}
+.acc dt{color:var(--ink)}
+.room{position:relative;height:640px;overflow:hidden;color:var(--marble)}
+.cban .eyebrow,.room .eyebrow,.promo .eyebrow{color:var(--brassl)}
+.room h2 i{color:var(--brassl)}
+.room img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.room::after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,rgba(14,12,9,.75),transparent 55%)}
+.room .wrap{position:relative;z-index:1;height:100%;display:flex;flex-direction:column;justify-content:flex-end;padding-bottom:64px}
+.room h2{font-size:clamp(40px,4.4vw,66px);margin:16px 0 10px;max-width:640px}
+.room p{color:#d9d1c4;max-width:460px}
+.sticky-atc{position:fixed;left:0;right:0;bottom:0;z-index:70;background:var(--onyx);border-top:1px solid var(--line);transform:translateY(100%);transition:transform .5s var(--ease)}
+.sticky-atc.on{transform:none}
+.sticky-atc .wrap{display:flex;align-items:center;gap:20px;height:84px}
+.sticky-atc img{width:72px;height:54px;object-fit:cover}
+.sticky-atc b{font:400 20px/1.2 var(--serif);display:block}
+.sticky-atc small{color:var(--smoke)}
+.sticky-atc .btn{margin-left:auto}
+/* cart */
+.cpage{display:grid;grid-template-columns:1.5fr 1fr;gap:64px;padding-bottom:96px}
+.cpage h1{font-size:clamp(48px,5vw,76px);margin-bottom:32px}
+.prog{font-size:14px;color:var(--mute)}
+.prog .bar{height:3px;background:var(--lined);margin-top:10px;position:relative}
+.prog .bar i{position:absolute;inset:0 auto 0 0;background:var(--brassd);transition:width .6s var(--ease)}
+.li{display:grid;grid-template-columns:120px 1fr auto;gap:22px;padding:24px 0;border-bottom:1px solid var(--lined);align-items:start}
+.li img{width:120px;height:90px;object-fit:cover;background:var(--greige)}
+.li b{font:400 22px/1.2 var(--serif);display:block}
+.li small{display:block;color:var(--mute);font-size:13px;margin-top:4px}
+.li .q{display:flex;align-items:center;gap:14px;margin-top:14px;font-size:14px}
+.li .q button{width:32px;height:32px;border:1px solid var(--lined)}
+.li .q .rm{width:auto;height:auto;border:0;border-bottom:1px solid currentColor;font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--mute)}
+.li>span{font-size:16px}
+.note{margin-top:28px}
+.note label{font:600 11px/1 var(--sans);letter-spacing:.2em;text-transform:uppercase}
+.note textarea{display:block;width:100%;border:1px solid var(--lined);padding:14px;margin-top:12px;min-height:96px;background:#fff}
+.summ{background:var(--trav);padding:36px;position:sticky;top:150px;align-self:start}
+.summ h3{font-size:30px;margin-bottom:20px}
+.summ .r{display:flex;justify-content:space-between;padding:10px 0;font-size:15px}
+.summ .t{border-top:1px solid var(--lined);margin-top:10px;padding-top:18px;font:400 26px/1 var(--serif)}
+.summ .btn{width:100%;margin-top:22px}
+.summ ul{list-style:none;margin-top:22px;display:grid;gap:8px;font-size:13px;color:var(--mute)}
+.summ ul li::before{content:"— ";color:var(--brassd)}
+/* drawer */
+.scrim{position:fixed;inset:0;z-index:100;background:rgba(0,0,0,.55);opacity:0;visibility:hidden;transition:.4s}
+.scrim.on{opacity:1;visibility:visible}
+.drawer{position:fixed;top:0;right:0;bottom:0;z-index:110;width:440px;max-width:100%;background:var(--marble);color:var(--ink);transform:translateX(100%);transition:transform .55s var(--ease);display:flex;flex-direction:column}
+.drawer.on{transform:none}
+.drawer .hd{display:flex;justify-content:space-between;align-items:center;padding:26px 28px;border-bottom:1px solid var(--lined)}
+.drawer .hd h3{font-size:28px}
+.drawer .hd button{font-size:12px;letter-spacing:.16em;text-transform:uppercase}
+.drawer .pg{padding:18px 28px;border-bottom:1px solid var(--lined)}
+.drawer .ls{flex:1;overflow:auto;padding:0 28px}
+.drawer .li{grid-template-columns:88px 1fr auto;gap:16px}
+.drawer .li img{width:88px;height:66px}
+.drawer .li b{font-size:18px}
+.drawer .ft{padding:22px 28px;border-top:1px solid var(--lined)}
+.drawer .ft .r{display:flex;justify-content:space-between;font:400 22px/1 var(--serif);margin-bottom:16px}
+.drawer .ft .btn{width:100%}
+.toast{position:fixed;left:50%;bottom:28px;z-index:130;transform:translate(-50%,20px);opacity:0;visibility:hidden;background:var(--brass);color:var(--onyx);padding:14px 22px;font-size:14px;font-weight:500;transition:.4s var(--ease)}
+.toast.on{opacity:1;visibility:visible;transform:translate(-50%,0)}
+/* search */
+.sform{display:flex;border-bottom:1px solid var(--ink);margin:12px 0 22px}
+.sform input{flex:1;font:400 clamp(34px,4vw,60px)/1.3 var(--serif);padding:8px 0}
+.sugg{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:28px;font-size:13px;color:var(--mute);align-items:center}
+.sugg button{border:1px solid var(--lined);padding:9px 14px;color:var(--ink)}
+/* blog/article */
+.bhero{display:grid;grid-template-columns:1.3fr 1fr;gap:56px;align-items:center;padding-bottom:72px}
+.bhero .ph{aspect-ratio:4/3;overflow:hidden}
+.bhero .ph img{width:100%;height:100%;object-fit:cover}
+.bhero h2{font-size:clamp(40px,4vw,62px);margin:14px 0 14px}
+.bhero p{color:var(--mute)}
+.btabs{display:flex;gap:28px;border-bottom:1px solid var(--lined);margin-bottom:48px;font-size:13px;letter-spacing:.14em;text-transform:uppercase}
+.btabs button{padding:16px 0;border-bottom:1px solid transparent;margin-bottom:-1px;color:var(--mute)}
+.btabs button.on{border-color:var(--ink);color:var(--ink)}
+.light .post p{color:var(--mute)}
+.light .post small{color:var(--brassd)}
+.art{max-width:760px;margin:0 auto;padding-bottom:96px}
+.art h1{font-size:clamp(44px,5vw,76px);margin:16px 0 18px}
+.art .by{font-size:13px;color:var(--mute);letter-spacing:.06em}
+.art .big{aspect-ratio:16/9;overflow:hidden;margin:44px -120px}
+.art .big img{width:100%;height:100%;object-fit:cover}
+.art p{font-size:18px;line-height:1.75;margin-bottom:22px;color:#3c362f}
+.art h2{font-size:36px;margin:44px 0 16px}
+.art blockquote{border-left:1px solid var(--brassd);padding:6px 0 6px 28px;margin:36px 0;font:italic 400 30px/1.35 var(--serif);color:var(--ink)}
+.art .two{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:36px 0}
+.art .two img{aspect-ratio:4/5;object-fit:cover;width:100%}
+.share{display:flex;gap:18px;border-top:1px solid var(--lined);padding-top:22px;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--mute)}
+/* about */
+.ab-hero{display:grid;grid-template-columns:1fr 1fr;min-height:760px}
+.ab-hero .tx{padding:120px 80px;display:flex;flex-direction:column;justify-content:center}
+.ab-hero h1{font-size:clamp(52px,5.6vw,92px);margin:18px 0 24px}
+.ab-hero p{color:var(--smoke);max-width:460px;font-size:17px}
+.ab-hero .ph{position:relative}
+.ab-hero .ph img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.vals{display:grid;grid-template-columns:repeat(3,1fr);gap:0;border-top:1px solid var(--lined)}
+.vals div{padding:48px 40px 48px 0;border-right:1px solid var(--lined)}
+.vals div+div{padding-left:40px}
+.vals div:last-child{border-right:0}
+.vals b{font:400 64px/1 var(--serif);color:var(--brassd)}
+.vals h3{font-size:28px;margin:18px 0 10px}
+.vals p{color:var(--mute)}
+.collage{display:grid;grid-template-columns:2fr 1fr 1fr;gap:12px}
+.collage img{width:100%;height:520px;object-fit:cover}
+/* contact */
+.ct{display:grid;grid-template-columns:1fr 1fr;gap:72px;padding-bottom:96px}
+.ct h1{font-size:clamp(48px,5vw,80px);margin:16px 0 18px}
+.ct .info2{color:var(--mute)}
+.ct .info2 div{padding:22px 0;border-top:1px solid var(--lined)}
+.ct .info2 b{display:block;font:400 22px/1.3 var(--serif);color:var(--ink);margin-bottom:4px}
+.cform{background:var(--trav);padding:48px;display:grid;gap:14px;align-content:start}
+.cform input,.cform select,.cform textarea{width:100%;border:1px solid var(--lined);padding:15px;background:var(--marble)}
+.cform textarea{min-height:140px}
+.cform .ok{display:none;color:var(--brassd)}.cform .ok.on{display:block}
+.faq{max-width:900px}
+.faq details{border-bottom:1px solid var(--lined)}
+.faq summary{list-style:none;display:flex;justify-content:space-between;padding:24px 0;cursor:pointer;font:400 24px/1.3 var(--serif)}
+.faq summary::after{content:"+";font-family:var(--sans);font-weight:300}
+.faq details[open] summary::after{content:"−"}
+.faq p{padding-bottom:24px;color:var(--mute)}
+/* 404 */
+.nf{position:relative;height:620px;overflow:hidden}
+.nf img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.5}
+.nf .wrap{position:relative;height:100%;display:flex;flex-direction:column;justify-content:center;align-items:flex-start}
+.nf b{font:400 180px/1 var(--serif);color:var(--brassl)}
+.nf h1{font-size:clamp(40px,4vw,60px);margin:8px 0 14px}
+.nf p{color:#d9d1c4;max-width:440px;margin-bottom:28px}
+/* responsive */
+@media (max-width:1100px){.wrap{padding:0 32px}.grid{grid-template-columns:repeat(2,1fr)}.cgrid{grid-template-columns:repeat(2,1fr)}.nav{gap:22px}.util .visit{display:none}.mega .wrap{grid-template-columns:repeat(3,1fr)}.mega .wrap>div:nth-child(n+4){display:none}}
+@media (max-width:900px){
+ .wrap{padding:0 20px}.sec{padding:80px 0}
+ .hdr .wrap{height:68px;grid-template-columns:1fr auto 1fr}.ann{font-size:11px;letter-spacing:.08em}.btn{letter-spacing:.12em;font-size:11px}.buy{grid-template-columns:104px 1fr}.nav{display:none}.burger{display:flex;align-items:center;gap:10px;font-size:12px;letter-spacing:.16em;text-transform:uppercase}
+ .burger i{width:22px;height:10px;border-top:1px solid;border-bottom:1px solid}
+ .util .acct,.util .srch span{display:none}.util{gap:16px}
+ .logo{font-size:22px}.logo small{display:none}
+ .hero{height:auto;min-height:0;max-height:none;display:flex;flex-direction:column}
+ .hero>img{position:relative;height:420px}
+ .hero::after{background:linear-gradient(transparent 30%,rgba(14,12,9,.9) 380px,var(--onyx) 420px)}
+ .hero .wrap{position:absolute;inset:0;justify-content:flex-end;padding-bottom:28px}
+ .hero h1{font-size:48px;margin:16px 0 14px}.hero p{font-size:16px}
+ .hero .ctas{margin-top:24px}.hero .ctas .btn{flex:1;padding:0 14px}
+ .mats,.inroom{display:none}
+ .head{flex-direction:column;align-items:flex-start;gap:14px;margin-bottom:36px}
+ .rooms-idx,.cfg,.swr,.revs,.news,.bhero,.ct,.cpage,.pdp,.ab-hero{grid-template-columns:1fr;gap:36px}
+ .rlist{display:flex;gap:10px;overflow-x:auto;border:0;scrollbar-width:none}
+ .rlist li{border:0;flex:none}
+ .rlist button{border:1px solid var(--lined);padding:12px 16px;gap:10px}
+ .rlist button.on,.rlist button:hover{padding-left:16px;background:var(--ink);color:var(--marble)}
+ .rlist b{font-size:20px}.rlist small{display:none}
+ .rimg .cap{position:relative;flex-direction:column;align-items:flex-start;gap:12px}
+ .rimg{aspect-ratio:auto;display:flex;flex-direction:column}.rimg .imgs{position:relative;aspect-ratio:4/3}
+ .grid{gap:28px 12px}.card h3{font-size:18px}.card .dim{display:none}.card .pr{font-size:14px;flex-wrap:wrap;gap:6px}.card .pr .v{display:none}.dots i{width:10px;height:10px}.card .rt{display:none}
+ .matx{grid-template-columns:1fr}.matx .ph{min-height:320px}.matx .tx{padding:56px 20px}
+ .sgrid{grid-template-columns:1fr 1fr}
+ .appt{grid-template-columns:1fr}.appt .ph{min-height:340px}.appt .f{padding:40px 20px}.days{grid-template-columns:repeat(4,1fr)}.fields{grid-template-columns:1fr}
+ .rvs{grid-template-columns:1fr}.jgrid{grid-template-columns:1fr}
+ .ftr .cols{grid-template-columns:1fr 1fr}.ftr .cols>div:first-child{grid-column:1/-1}
+ .cban{height:340px}.cwrap{grid-template-columns:1fr}.side{display:none}.side.on{display:block;position:fixed;inset:0;z-index:115;background:var(--marble);padding:80px 20px 20px;overflow:auto}.tbar .ff{display:inline-block}
+ .gal{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;margin:0 -20px;gap:0;scrollbar-width:none}.gal button{flex:0 0 100%;scroll-snap-align:start}
+ .gdots{display:flex;justify-content:center;gap:6px;margin-top:12px}.gdots i{width:6px;height:6px;border-radius:50%;background:var(--lined)}.gdots i.on{background:var(--ink)}
+ .info{position:static}.room{height:460px}
+ .sticky-atc .wrap{height:72px;gap:12px}.sticky-atc img{display:none}.sticky-atc b{font-size:16px}.sticky-atc .btn{padding:0 18px;height:46px}
+ .li{grid-template-columns:90px 1fr;gap:14px}.li img{width:90px;height:68px}.li>span{grid-column:2}
+ .summ{position:static;padding:28px 20px}
+ .art .big{margin:32px -20px}.vals{grid-template-columns:1fr}.vals div,.vals div+div{padding:32px 0;border-right:0;border-bottom:1px solid var(--lined)}
+ .collage{grid-template-columns:1fr 1fr}.collage img{aspect-ratio:1;height:auto}.collage img:first-child{grid-column:1/-1;aspect-ratio:4/3}
+ .ab-hero .tx{padding:64px 20px}.ab-hero .ph{min-height:380px}
+ .cform{padding:28px 20px}.nf b{font-size:120px}
+}
 </style>
-<svg width="0" height="0" style="position:absolute" aria-hidden="true">
-  <symbol id="g-lamp" viewBox="0 0 200 200"><path fill="currentColor" d="M70 22h60l22 62H48z"/><rect x="96" y="84" width="8" height="82" fill="currentColor"/><ellipse cx="100" cy="174" rx="40" ry="9" fill="currentColor"/><path d="M70 22h60" stroke="rgba(0,0,0,.25)" stroke-width="3" fill="none"/></symbol>
-  <symbol id="g-vase" viewBox="0 0 200 200"><path fill="currentColor" d="M82 22h36v22c0 14 36 30 36 80 0 40-22 56-54 56s-54-16-54-56c0-50 36-66 36-80z"/><path d="M60 110q40 16 80 0" stroke="rgba(0,0,0,.25)" stroke-width="3" fill="none"/></symbol>
-  <symbol id="g-chair" viewBox="0 0 200 200"><path fill="currentColor" d="M54 20h92l8 84H46z"/><rect x="40" y="104" width="120" height="22" fill="currentColor"/><path fill="currentColor" d="M52 126h14l-6 56H48zM134 126h14l4 56h-12z"/><path d="M72 36v56M100 36v56M128 36v56" stroke="rgba(0,0,0,.2)" stroke-width="3"/></symbol>
-  <symbol id="g-rug" viewBox="0 0 200 200"><rect x="22" y="48" width="156" height="104" fill="currentColor"/><rect x="34" y="60" width="132" height="80" fill="none" stroke="rgba(0,0,0,.3)" stroke-width="3"/><path d="M60 100l20-20 20 20-20 20zM100 100l20-20 20 20-20 20z" fill="none" stroke="rgba(0,0,0,.3)" stroke-width="3"/><path d="M22 56h-10M22 70h-10M22 84h-10M22 116h-10M22 130h-10M22 144h-10M178 56h10M178 70h10M178 84h10M178 116h10M178 130h10M178 144h10" stroke="currentColor" stroke-width="3"/></symbol>
-  <symbol id="g-mirror" viewBox="0 0 200 200"><ellipse cx="100" cy="92" rx="52" ry="68" fill="currentColor"/><ellipse cx="100" cy="92" rx="40" ry="56" fill="none" stroke="rgba(0,0,0,.28)" stroke-width="3"/><path d="M82 70q18-16 40 0" stroke="rgba(255,255,255,.6)" stroke-width="4" fill="none"/><path d="M70 160l-14 30M130 160l14 30" stroke="currentColor" stroke-width="6"/></symbol>
-  <symbol id="g-cushion" viewBox="0 0 200 200"><path fill="currentColor" d="M30 48q70-20 140 0 14 52 0 104-70 20-140 0-14-52 0-104z"/><path d="M30 48q40 52 0 104M170 48q-40 52 0 104" fill="none" stroke="rgba(0,0,0,.25)" stroke-width="3"/><circle cx="100" cy="100" r="5" fill="rgba(0,0,0,.3)"/></symbol>
-  <symbol id="g-shelf" viewBox="0 0 200 200"><rect x="30" y="40" width="140" height="10" fill="currentColor"/><rect x="30" y="100" width="140" height="10" fill="currentColor"/><rect x="30" y="160" width="140" height="10" fill="currentColor"/><rect x="40" y="14" width="22" height="26" fill="currentColor"/><rect x="110" y="74" width="40" height="26" fill="currentColor"/><rect x="56" y="124" width="30" height="36" fill="currentColor"/></symbol>
-  <symbol id="i-truck" viewBox="0 0 24 24"><path d="M2 6h12v10H2zM14 10h5l3 3v3h-8zM6 19a2 2 0 100-4 2 2 0 000 4zM18 19a2 2 0 100-4 2 2 0 000 4z" fill="none" stroke="currentColor" stroke-width="2"/></symbol>
-  <symbol id="i-return" viewBox="0 0 24 24"><path d="M4 12a8 8 0 108-8H7M7 1L4 4l3 3" fill="none" stroke="currentColor" stroke-width="2"/></symbol>
-  <symbol id="i-shield" viewBox="0 0 24 24"><path d="M12 2l8 3v6c0 5-3.5 9-8 11-4.5-2-8-6-8-11V5z" fill="none" stroke="currentColor" stroke-width="2"/></symbol>
-  <symbol id="i-chat" viewBox="0 0 24 24"><path d="M3 4h18v12H9l-5 4V4z" fill="none" stroke="currentColor" stroke-width="2"/></symbol>
-</svg>
+</head>
+<body>
+<div class="dt" data-dawn="Design toolbar (preview only)"><div class="wrap"><b>Kiln · Modern luxe</b>
+<button data-go="home" class="on">Home</button><button data-go="collection">Collection</button><button data-go="product">Product</button><button data-go="cart">Cart</button><button data-go="search">Search</button><button data-go="blog">Blog</button><button data-go="article">Article</button><button data-go="about">About</button><button data-go="contact">Contact</button><button data-go="404">404</button>
+<label><input type="checkbox" id="names"> Show section names</label></div></div>
 
-<div class="pbar">
-  <div class="wrap">
-    <div class="pages" role="group" aria-label="Preview page" id="pageTabs"></div>
-    <label><input type="checkbox" id="showSections"> Show section names</label>
+<div class="ann" data-dawn="announcement-bar (rotating)"><span class="on">Complimentary <b>white-glove delivery</b> over $2,000</span><span>Up to 5 material samples free with every order</span><span>Made to order in our workshop · 6 to 10 weeks</span></div>
+
+<header class="hdr" data-dawn="header (centred logo, split nav, room mega menu)"><div class="wrap">
+  <button class="burger" id="burger" aria-label="Menu"><i></i>Menu</button>
+  <nav class="nav">
+    <div><a href="#" class="nv" data-go="collection">Rooms</a>
+      <div class="mega"><div class="wrap">
+        <div><h5>Shop by room</h5><ul><li><a href="#" data-go="collection">Living room</a></li><li><a href="#" data-go="collection">Dining room</a></li><li><a href="#" data-go="collection">Bedroom</a></li><li><a href="#" data-go="collection">Reading corner</a></li><li><a href="#" data-go="collection">All furniture</a></li></ul></div>
+        <a href="#" class="tile" data-go="collection"><img data-src="hero" alt="Living room"><span>Living</span></a>
+        <a href="#" class="tile" data-go="collection"><img data-src="dining" alt="Dining room"><span>Dining</span></a>
+        <a href="#" class="tile" data-go="collection"><img data-src="bedroom" alt="Bedroom"><span>Bedroom</span></a>
+        <a href="#" class="tile" data-go="collection"><img data-src="lounge" alt="Reading corner"><span>Lounge</span></a>
+      </div></div></div>
+    <div><a href="#" class="nv" data-go="collection">Lighting</a>
+      <div class="mega"><div class="wrap">
+        <div><h5>Lighting</h5><ul><li><a href="#" data-go="collection">Pendants</a></li><li><a href="#" data-go="collection">Floor lamps</a></li><li><a href="#" data-go="collection">Table lamps</a></li><li><a href="#" data-go="collection">Wall lights</a></li></ul></div>
+        <a href="#" class="tile" data-go="product"><img data-src="lighting" alt="Pendant lights"><span>Pendants</span></a>
+        <a href="#" class="tile" data-go="product"><img data-src="lamp" alt="Floor lamp"><span>Floor lamps</span></a>
+        <a href="#" class="tile" data-go="product"><img data-src="pendant" alt="Brass pendant"><span>New: Lune</span></a>
+        <a href="#" class="tile" data-go="about"><img data-src="marble" alt="Brass detail"><span>Our brass</span></a>
+      </div></div></div>
+    <div><a href="#configure" class="nv" data-go="home">Configure</a></div>
+    <div><a href="#samples" class="nv" data-go="home">Samples</a></div>
+  </nav>
+  <a href="#" class="logo" data-go="home">KILN<small>STONE · BRASS · WALNUT</small></a>
+  <div class="util">
+    <a href="#visit" class="visit" data-go="home">Book a visit</a>
+    <a href="#" class="srch" data-go="search" aria-label="Search"><svg class="ico" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="M20 20l-4-4" stroke="currentColor" stroke-width="1.5"/></svg></a>
+    <a href="#" class="acct" data-go="contact">Account</a>
+    <button id="openCart" aria-label="Cart">Cart (<span id="count">0</span>)</button>
   </div>
+</div></header>
+
+<div class="mnav" id="mnav" data-dawn="header (mobile menu drawer)">
+  <button class="x" id="mclose">Close</button>
+  <a href="#" data-go="collection">Living</a><a href="#" data-go="collection">Dining</a><a href="#" data-go="collection">Bedroom</a><a href="#" data-go="collection">Lighting</a><a href="#configure" data-go="home">Configure</a><a href="#samples" data-go="home">Free samples</a><a href="#visit" data-go="home">Book a visit</a>
+  <div class="rooms"><a href="#" class="tile" data-go="collection"><img data-src="dining" alt=""><span>Dining</span></a><a href="#" class="tile" data-go="collection"><img data-src="bedroom" alt=""><span>Bedroom</span></a><a href="#" class="tile" data-go="collection"><img data-src="lighting" alt=""><span>Lighting</span></a></div>
 </div>
 
-<div class="announce" data-dawn="Announcement bar">Free delivery over $150 &nbsp;/&nbsp; 30-day returns &nbsp;/&nbsp; Autumn sale up to 40% off</div>
-
-<header class="site" data-dawn="Header">
-  <div class="wrap head">
-    <button class="menu-btn" aria-label="Open menu" data-open="menu"><svg width="26" height="26" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 7h18M3 12h18M3 17h18" stroke="currentColor" stroke-width="2.5"/></svg></button>
-    <a class="logo" href="#" data-go="home"><i>K</i>ILN</a>
-    <nav aria-label="Main"><a class="new" href="#" data-go="collection">New in</a><a href="#" data-go="collection">Lighting</a><a href="#" data-go="collection">Seating</a><a href="#" data-go="collection">Rugs</a><a href="#" data-go="blog">Journal</a><a class="deals" href="#" data-go="collection">Sale</a></nav>
-    <div class="tools"><a href="#" data-go="search">Search</a><a href="#" class="hide-sm" data-go="contact">Help</a><button class="theme-btn hide-sm" id="themeBtn" type="button" aria-label="Toggle dark mode">Mode</button><a href="#" class="cartpill" data-go="cart"><span>Cart (<span class="cart-count">0</span>)</span></a></div>
-  </div>
-</header>
-
-<!-- HOME -->
-<main id="view-home">
-  <section class="hero" data-dawn="Image banner">
-    <div class="hero-in">
-      <div class="hero-copy">
-        <h1>Rooms with <em>edge.</em></h1>
-        <p>Lamps, seating, rugs and mirrors cut sharp and built heavy. Flat-pack that goes together in minutes and lasts for decades.</p>
-        <div class="btns"><a href="#" class="btn volt" data-go="collection">Shop new in</a><a href="#" class="btn onDark" data-go="collection">Autumn sale</a></div>
-      </div>
-      <div class="hero-art"><div class="sticker"><div>From<strong>$39</strong>Lamps</div></div><svg viewBox="0 0 200 200" aria-hidden="true"><use href="#g-lamp"/></svg></div>
-    </div>
-  </section>
-  <div class="trust wrap" data-dawn="Multicolumn (trust strip)">
-    <div><svg><use href="#i-truck"/></svg><span><b>Free delivery</b><small>Orders over $150</small></span></div>
-    <div><svg><use href="#i-return"/></svg><span><b>30-day returns</b><small>Free, prepaid label</small></span></div>
-    <div><svg><use href="#i-shield"/></svg><span><b>5-year warranty</b><small>On every frame</small></span></div>
-    <div><svg><use href="#i-chat"/></svg><span><b>Real humans</b><small>Mon to Fri support</small></span></div>
-  </div>
-
-  <section class="block" data-dawn="Collection list">
-    <div class="wrap">
-      <div class="sec-head"><h2 class="h">Shop by room piece</h2></div>
-      <div class="cats" data-cats></div>
-    </div>
+<!-- ================= HOME ================= -->
+<main class="page on" id="p-home">
+  <section class="hero" data-dawn="image-banner (full-bleed room, slow pan)">
+    <img data-src="hero" alt="Dark living room with ivory sofa, marble table and brass pendant">
+    <div class="wrap"><div class="reveal">
+      <span class="eyebrow">The evening collection</span>
+      <h1>Stone, brass, <i>quiet light.</i></h1>
+      <p>Furniture and lighting cut from marble, travertine and walnut. Made to order, delivered by hand.</p>
+      <div class="ctas"><a href="#" class="btn btn-brass" data-go="collection">Shop the collection</a><a href="#visit" class="btn btn-line" data-go="home">Book a showroom visit</a></div>
+    </div></div>
+    <div class="mats"><span><i style="background:#EDEAE4"></i>Carrara marble</span><span><i style="background:#B8925A"></i>Brushed brass</span><span><i style="background:#5A3A26"></i>Oiled walnut</span></div>
+    <a href="#" class="inroom" data-go="product"><img data-src="coffee" alt=""><div><small>In this room</small><b>Sola Marble Coffee Table</b><span>From $2,100 · View →</span></div></a>
   </section>
 
-  <section class="block tight" data-dawn="Multicolumn (promo banners)">
-    <div class="wrap promos">
-      <a class="promo d" href="#" data-go="collection"><svg viewBox="0 0 200 200" aria-hidden="true"><use href="#g-chair"/></svg><h3>Seating<br>drop</h3><p>Boucle, oak and steel. Six new chairs, built for real living rooms.</p><span class="btn volt" style="align-self:flex-start;position:relative;z-index:2">Shop seating</span></a>
-      <a class="promo v" href="#" data-go="collection"><svg viewBox="0 0 200 200" aria-hidden="true"><use href="#g-rug"/></svg><h3>Rugs<br>40% off</h3><p>Hand-tufted wool in four weights. Ends Sunday.</p><span class="btn solid" style="align-self:flex-start;position:relative;z-index:2">Shop rugs</span></a>
+  <section class="sec light" data-dawn="collection-list (room index, hover to swap)"><div class="wrap">
+    <div class="head reveal"><div><span class="eyebrow">Shop by room</span><h2>Start with the <i>room.</i></h2></div><p>Each room is styled with pieces that work together. Choose one to see the edit.</p></div>
+    <div class="rooms-idx reveal">
+      <ul class="rlist" id="rlist">
+        <li><button class="on" data-r="0"><b>Living</b><small>24 pieces</small></button></li>
+        <li><button data-r="1"><b>Dining</b><small>16 pieces</small></button></li>
+        <li><button data-r="2"><b>Bedroom</b><small>12 pieces</small></button></li>
+        <li><button data-r="3"><b>Lighting</b><small>18 pieces</small></button></li>
+        <li><button data-r="4"><b>Lounge</b><small>9 pieces</small></button></li>
+      </ul>
+      <div class="rimg"><div class="imgs"><img data-src="hero" class="on" alt="Living room"><img data-src="dining" alt="Dining room"><img data-src="bedroom" alt="Bedroom"><img data-src="lighting" alt="Lighting"><img data-src="lounge" alt="Lounge"></div>
+        <div class="cap"><p id="rcap">Curved bouclé, a marble table and one warm pendant.</p><a href="#" class="lnk" data-go="collection">Shop living</a></div></div>
     </div>
-  </section>
+  </div></section>
 
-  <div class="slash" data-dawn="Slash: Slash divider" aria-hidden="true"></div>
+  <section class="sec" data-dawn="featured-collection (best sellers)"><div class="wrap">
+    <div class="head reveal"><div><span class="eyebrow">Best sellers</span><h2>Pieces built to <i>outlast trends.</i></h2></div><a href="#" class="lnk" data-go="collection">View all furniture</a></div>
+    <div class="grid reveal" id="best"></div>
+  </div></section>
 
-  <section class="block" data-dawn="Featured collection">
-    <div class="wrap">
-      <div class="sec-head"><h2 class="h">Trending now</h2><a href="#" data-go="collection">View all</a></div>
-      <div class="grid" data-grid="0,1,2,3,4"></div>
-    </div>
-  </section>
-
-  <section class="block band" data-dawn="Slash: Shop the room">
-    <div class="wrap">
-      <div class="sec-head"><h2 class="h">Shop the room</h2><a href="#" data-go="collection" style="color:var(--volt)">All room edits</a></div>
-      <p style="color:#CFD1C7;max-width:56ch;margin:0 0 24px">Tap a dot to see the piece and add it to your cart.</p>
-      <div class="rooms" id="rooms"></div>
-    </div>
-  </section>
-
-  <section class="block" data-dawn="Featured product">
-    <div class="wrap iwt">
-      <div class="pic t-oak" role="img" aria-label="Oak finish swatch" style="display:grid;place-items:center"><svg viewBox="0 0 200 200" aria-hidden="true" style="width:56%;color:#0E0F11"><use href="#g-chair"/></svg></div>
+  <section class="sec light" id="configure" data-dawn="sbs-configurator"><div class="wrap">
+    <div class="cfg reveal">
+      <div class="stage"><img id="cfgA" data-src="table" alt="Halden table in Carrara marble"><img id="cfgB" class="off" data-src="tableblack" alt="Halden table in Nero Marquina marble"><div class="dimline"><span id="cfgDim">220 CM</span></div></div>
       <div>
-        <p class="muted" style="margin:0 0 6px;font:800 16px/1 var(--display);letter-spacing:.14em;text-transform:uppercase">Best seller</p>
-        <h2>Slab Lounge Chair</h2>
-        <p class="price">$289</p>
-        <p class="note">Solid oak frame, 80 kg/m3 foam, removable boucle cover. Assembles with one hex key in six minutes.</p>
-        <fieldset class="opt"><legend>Cover</legend><div class="sizes"><button type="button" aria-pressed="true">Oat</button><button type="button" aria-pressed="false">Char</button><button type="button" aria-pressed="false">Moss</button></div></fieldset>
-        <div class="btns"><button class="btn solid" type="button" data-add="2">Add to cart</button><a href="#" class="btn" data-go="product">Full details</a></div>
+        <span class="eyebrow">Configure</span>
+        <h2>Make the Halden <i>yours.</i></h2>
+        <p style="color:var(--mute)">Choose the stone, the length and the edge. We cut each top to order from one slab.</p>
+        <div class="opt"><p>Stone <span id="cfgMat">Carrara marble</span></p><div class="sw" id="cfgSw"><button class="on" style="background:#ECE8E1" data-m="0" aria-label="Carrara marble"></button><button style="background:#1F1D1C" data-m="1" aria-label="Nero Marquina marble"></button></div></div>
+        <div class="opt"><p>Length <span>Seats 6 to 10</span></p><div class="pills" id="cfgSz"><button data-s="0">180 cm<small>Seats 6</small></button><button class="on" data-s="1">220 cm<small>Seats 8</small></button><button data-s="2">260 cm<small>Seats 10</small></button></div></div>
+        <div class="opt"><p>Edge <span id="cfgEdgeT">Eased edge</span></p><div class="pills" id="cfgEdge"><button class="on" data-e="0">Eased edge<small>Included</small></button><button data-e="1">Brass inlay<small>+ $450</small></button></div></div>
+        <div class="sum"><div><div class="price" id="cfgPrice">$3,650</div><div class="lead" id="cfgLead">Made to order · ships in 6 to 8 weeks</div></div><button class="btn btn-dark" id="cfgAdd">Add to cart</button></div>
       </div>
     </div>
-  </section>
+  </div></section>
 
-  <section class="block tight" data-dawn="Multicolumn (reviews)">
-    <div class="wrap">
-      <div class="sec-head"><h2 class="h">Lived in. Loved.</h2></div>
-      <div class="reviews">
-        <div class="rev"><span class="stars" aria-label="5 stars">★★★★★</span><p>The Slab chair is heavy in the best way. Nothing wobbles, and the cover came out clean in one wash.</p><cite>Rhea, Manchester</cite></div>
-        <div class="rev"><span class="stars" aria-label="5 stars">★★★★★</span><p>Ordered the 200 x 300 rug and the size finder guidance was right. Fills the room without touching the walls.</p><cite>Tom, Chicago</cite></div>
-        <div class="rev"><span class="stars" aria-label="4 stars">★★★★☆</span><p>Lamp arrived in two days. Warm light, solid base, and the cable is a proper 3 metres.</p><cite>Aisha, Dubai</cite></div>
+  <section data-dawn="image-with-text + multicolumn (materials story)"><div class="matx">
+    <div class="ph"><img data-src="marble" alt="Marble edge with brass inlay"></div>
+    <div class="tx reveal"><span class="eyebrow">Materials</span><h2>Three materials. <i>No shortcuts.</i></h2>
+      <div class="mrow"><i style="background:#ECE8E1"></i><div><b>Italian marble</b><p>Cut from single slabs and sealed by hand. Wipe with a damp cloth; avoid acids.</p></div></div>
+      <div class="mrow"><i style="background:linear-gradient(135deg,#D6B47E,#8A6A3B)"></i><div><b>Solid brass</b><p>Brushed, never plated. It darkens softly with time; polish once a year if you like it bright.</p></div></div>
+      <div class="mrow"><i style="background:#5A3A26"></i><div><b>Oiled walnut</b><p>FSC certified and finished with natural oil. Re-oil every twelve months.</p></div></div>
+    </div>
+  </div></section>
+
+  <section class="sec trav" id="samples" data-dawn="sbs-swatch-request"><div class="wrap">
+    <div class="swr reveal">
+      <div class="ph"><img data-src="swatches" alt="Material samples"></div>
+      <div><span class="eyebrow">Free samples</span><h2>Touch it before <i>you order.</i></h2>
+        <p>Pick up to five materials. We post the samples free, so you can see them in your own light.</p>
+        <div class="sgrid" id="sgrid"></div>
+        <div class="sbar"><span class="scount" id="sct"><b>0</b> of 5 chosen</span><button class="btn btn-dark" id="sreq" disabled>Request free samples</button></div>
       </div>
     </div>
-  </section>
+  </div></section>
 
-  <section class="block tight" data-dawn="Featured collection">
-    <div class="wrap">
-      <div class="sec-head"><h2 class="h">Sale picks</h2><a href="#" data-go="collection">View all</a></div>
-      <div class="grid" data-grid="5,6,7,8,9"></div>
-    </div>
-  </section>
-
-  <section class="block tight" data-dawn="Collapsible content">
-    <div class="wrap faq">
-      <h2 class="h">Quick answers</h2>
-      <div>
-        <details class="acc"><summary>How long does assembly take?</summary><p>Most pieces take 5 to 15 minutes with the hex key in the box. Rugs and mirrors need none.</p></details>
-        <details class="acc"><summary>Can I return a rug I have unrolled?</summary><p>Yes. Unrolled rugs can be returned within 30 days if they are clean and flat-packed again.</p></details>
-        <details class="acc"><summary>Do you ship outside the US?</summary><p>We ship to the UK, Canada and the UAE. Delivery takes 4 to 9 working days.</p></details>
-        <details class="acc"><summary>What does the warranty cover?</summary><p>Frames and bases for five years. Covers and fabrics for one year of normal home use.</p></details>
+  <section class="sec" id="visit" data-dawn="sbs-appointment"><div class="wrap">
+    <div class="appt reveal">
+      <div class="ph"><img data-src="showroom" alt="Design consultation in the showroom"><p class="q">"Bring a floor plan. We will bring the samples."</p></div>
+      <div class="f">
+        <span class="eyebrow">Design appointment</span>
+        <h2>Plan the room <i>with us.</i></h2>
+        <p>A free 45-minute session with one of our designers, in the showroom or on a video call.</p>
+        <div class="seg" id="aType"><button class="on" data-t="Showroom visit">Showroom visit<small>Mayfair, London</small></button><button data-t="Video call">Video call<small>From anywhere</small></button></div>
+        <p class="lbl">Choose a day</p><div class="days" id="aDays"></div>
+        <p class="lbl">Choose a time</p><div class="slots" id="aSlots"></div>
+        <div class="fields"><input placeholder="Your name" id="aName" aria-label="Your name"><input placeholder="Email" id="aMail" aria-label="Email" type="email"></div>
+        <div class="go"><small id="aSum">Pick a day and a time</small><button class="btn btn-brass" id="aBook">Confirm appointment</button></div>
+        <div class="done" id="aDone"><h3>See you soon.</h3><p id="aDoneT"></p></div>
       </div>
     </div>
-  </section>
+  </div></section>
 
-  <section class="block tight" data-dawn="Featured blog">
-    <div class="wrap">
-      <div class="sec-head"><h2 class="h">From the journal</h2><a href="#" data-go="blog">All posts</a></div>
-      <div class="grid three" data-posts="0,1,2"></div>
+  <section class="sec light" data-dawn="sbs-reviews (rating summary + cards)"><div class="wrap">
+    <div class="revs reveal">
+      <div class="score"><span class="eyebrow">Reviews</span><div style="margin-top:20px"><b>4.9</b></div><div class="st">★★★★★</div><small>Based on 312 reviews (sample)</small>
+        <div class="bars"><div>5 ★<i style="--w:88%"></i>274</div><div>4 ★<i style="--w:9%"></i>29</div><div>3 ★<i style="--w:2%"></i>6</div><div>2 ★<i style="--w:1%"></i>2</div><div>1 ★<i style="--w:0%"></i>1</div></div></div>
+      <div class="rvs">
+        <div class="rv"><div class="s">★★★★★</div><p>"The marble is even better in person. Delivery team set it up and took every box away."</p><small>Sample review · Halden Marble Table</small></div>
+        <div class="rv"><div class="s">★★★★★</div><p>"The samples made the choice easy. The bouclé is soft and very well made."</p><small>Sample review · Orsa Bouclé Sofa</small></div>
+        <div class="rv"><div class="s">★★★★★</div><p>"Our designer call saved us from buying the wrong size. Worth booking."</p><small>Sample review · Design appointment</small></div>
+      </div>
     </div>
-  </section>
+  </div></section>
 
-  <section class="block newsb" data-dawn="Email signup"><div class="wrap news-in"><h2>10% off your first room</h2><form data-sub><label class="sr" for="em1">Email address</label><input class="field" id="em1" type="email" placeholder="Your email address" required><button class="btn solid" type="submit">Get 10% off</button></form></div></section>
+  <section class="sec" data-dawn="featured-blog (journal)"><div class="wrap">
+    <div class="head reveal"><div><span class="eyebrow">Journal</span><h2>Notes on <i>living well.</i></h2></div><a href="#" class="lnk" data-go="blog">Read the journal</a></div>
+    <div class="jgrid reveal">
+      <a href="#" class="post" data-go="article"><div class="ph"><img data-src="lounge" alt=""></div><small>Styling</small><h3>How to light a dark room</h3><p>Layer three heights of light and let the brass do the rest.</p></a>
+      <a href="#" class="post" data-go="article"><div class="ph"><img data-src="bedroom" alt=""></div><small>Materials</small><h3>Living with travertine</h3><p>Why the holes are part of the charm.</p></a>
+      <a href="#" class="post" data-go="article"><div class="ph"><img data-src="craft" alt=""></div><small>Workshop</small><h3>Ten hours in one chair</h3><p>A day with our walnut maker.</p></a>
+    </div>
+  </div></section>
+
+  <section class="sec" style="padding-top:0" data-dawn="newsletter (split)"><div class="wrap">
+    <div class="news reveal"><div><span class="eyebrow">The Kiln letter</span><h2>New pieces, <i>first.</i></h2></div>
+      <div><form onsubmit="event.preventDefault();toast('Thank you. You are on the list.')"><input type="email" placeholder="Your email address" aria-label="Email"><button class="lnk" style="border:0">Subscribe →</button></form><small>One letter a month. Early access to new collections and sample sales.</small></div></div>
+  </div></section>
 </main>
 
-<!-- COLLECTION -->
-<main id="view-collection" hidden>
-  <section class="col-banner" data-dawn="Collection banner">
-    <div class="wrap">
-      <div class="crumbs"><a href="#" data-go="home">Home</a> / New in</div>
-      <h1>New <em>in.</em></h1>
-      <p>Fresh lighting, seating, rugs and mirrors. <span id="colCount">12</span> products.</p>
-    </div>
-  </section>
-  <section data-dawn="Product grid">
-    <div class="wrap col-layout">
-      <aside class="filters" id="filters" aria-label="Filters">
-        <fieldset><legend>Category</legend>
-          <label><input type="checkbox" value="lighting" data-f="cat"> Lighting</label>
-          <label><input type="checkbox" value="seating" data-f="cat"> Seating</label>
-          <label><input type="checkbox" value="rugs" data-f="cat"> Rugs</label>
-          <label><input type="checkbox" value="mirrors" data-f="cat"> Mirrors</label>
-          <label><input type="checkbox" value="decor" data-f="cat"> Decor</label>
-        </fieldset>
-        <fieldset><legend>Colour</legend>
-          <div class="swatch-row">
-            <label title="Oak"><input type="checkbox" value="Oak" data-f="col" aria-label="Oak"><span style="background:#B98B5A"></span></label>
-            <label title="Char"><input type="checkbox" value="Char" data-f="col" aria-label="Char"><span style="background:#2F3237"></span></label>
-            <label title="Oat"><input type="checkbox" value="Oat" data-f="col" aria-label="Oat"><span style="background:#DCD3BF"></span></label>
-            <label title="Moss"><input type="checkbox" value="Moss" data-f="col" aria-label="Moss"><span style="background:#7F9279"></span></label>
-            <label title="Clay"><input type="checkbox" value="Clay" data-f="col" aria-label="Clay"><span style="background:#C2693C"></span></label>
-          </div>
-        </fieldset>
-        <fieldset style="border:0"><legend>Price</legend>
-          <label><input type="checkbox" value="u100" data-f="price"> Under $100</label>
-          <label><input type="checkbox" value="o100" data-f="price"> $100 and over</label>
-        </fieldset>
+<!-- ================= COLLECTION ================= -->
+<main class="page light" id="p-collection">
+  <section class="cban" data-dawn="main-collection-banner (photo banner)"><img data-src="dining" alt=""><div class="wrap"><span class="eyebrow">Collection</span><h1>Dining <i style="color:var(--brassl)">room</i></h1><p>Marble tables, walnut sideboards and the light to dine by.</p></div></section>
+  <div class="wrap">
+    <div class="crumbs" data-dawn="sbs-breadcrumbs"><a href="#" data-go="home">Home</a> / <a href="#" data-go="collection">Furniture</a> / Dining room</div>
+    <div class="rchips" id="rchips" data-dawn="collection-list (room chips)"><button class="on" data-r="all">All</button><button data-r="Living">Living</button><button data-r="Dining">Dining</button><button data-r="Bedroom">Bedroom</button><button data-r="Lighting">Lighting</button></div>
+    <div class="cwrap" data-dawn="main-collection-product-grid (filter sidebar)">
+      <aside class="side" id="side">
+        <button class="btn btn-ink" id="closeF" style="display:none;width:100%;margin-bottom:20px">Close filters</button>
+        <div class="fgroup"><h4>Material</h4><div id="fmat"></div></div>
+        <div class="fgroup"><h4>Price</h4><div class="range"><span>$0</span><input type="range" min="500" max="5000" step="100" value="5000" id="fprice" aria-label="Maximum price"><span id="fpv">$5,000</span></div></div>
+        <div class="fgroup"><h4>Delivery</h4><label><input type="checkbox" id="fstock"> In stock, ships in 2 weeks</label><label><input type="checkbox" id="fmto"> Made to order</label></div>
       </aside>
       <div>
-        <div class="toolbar">
-          <button class="btn filter-toggle" type="button" id="filterToggle" aria-controls="filters" aria-expanded="false">Filter</button>
-          <span class="muted"><span id="colShown">12</span> products</span>
-          <label>Sort by <select id="sort"><option value="feat">Featured</option><option value="low">Price, low to high</option><option value="high">Price, high to low</option></select></label>
-        </div>
-        <div class="grid four" id="colGrid"></div>
-        <nav class="pager" aria-label="Pages"><a href="#" aria-current="page">1</a><a href="#">2</a><a href="#">3</a><a href="#" aria-label="Next page">›</a></nav>
+        <div class="tbar"><button class="ff" id="openF">Filter</button><span id="ccount">8 products</span><select id="sort" aria-label="Sort"><option value="feat">Featured</option><option value="lo">Price, low to high</option><option value="hi">Price, high to low</option><option value="rt">Top rated</option></select></div>
+        <div class="grid cgrid" id="cgrid"></div>
+        <div class="more"><p>Showing <span id="shown">8</span> of <span id="total">8</span> pieces</p><div class="bar"><i id="mbar" style="width:100%"></i></div><button class="btn btn-ink" onclick="toast('You have seen every piece in this room')">Load more</button></div>
       </div>
     </div>
-  </section>
-  <section class="block tight" data-dawn="Rich text"><div class="wrap"><div class="note-v"><strong>Size note:</strong> rugs are listed in centimetres, lamp heights include the shade, chairs have seat height under the dimensions tab.</div></div></section>
-  <section class="block tight" data-dawn="Collapsible content">
-    <div class="wrap faq">
-      <h2 class="h">About new in</h2>
-      <div>
-        <details class="acc"><summary>How often do new pieces land?</summary><p>Every second Thursday. Subscribers see them 24 hours early.</p></details>
-        <details class="acc"><summary>Will sold-out colours return?</summary><p>Core colours restock each season. Limited colours are one run only.</p></details>
-        <details class="acc"><summary>Can I order fabric swatches?</summary><p>Yes. Up to five swatches ship free in 2 days.</p></details>
-      </div>
-    </div>
-  </section>
-  <section class="block newsb" data-dawn="Email signup"><div class="wrap news-in"><h2>First look at new drops</h2><form data-sub><label class="sr" for="em2">Email address</label><input class="field" id="em2" type="email" placeholder="Your email address" required><button class="btn solid" type="submit">Subscribe</button></form></div></section>
-</main>
-
-<!-- PRODUCT -->
-<main id="view-product" hidden>
-  <div class="crumbbar"><div class="wrap"><nav class="crumbs" data-dawn="Slash: Breadcrumbs" aria-label="Breadcrumb"><a href="#" data-go="home">Home</a> / <a href="#" data-go="collection">Seating</a> / Slab Lounge Chair</nav></div></div>
-  <section data-dawn="Product information" style="padding-top:28px">
-    <div class="wrap pdp">
-      <div class="gallery">
-        <div class="g"><span class="badge v">Best seller</span><svg viewBox="0 0 200 200" aria-hidden="true" id="mainArt" style="color:#DCD3BF"><use href="#g-chair"/></svg></div>
-        <div class="g t-oak"></div>
-        <div class="g"><svg viewBox="0 0 200 200" style="color:#2F3237" aria-hidden="true"><use href="#g-chair"/></svg></div>
-      </div>
-      <div class="buy">
-        <h1>Slab Lounge Chair</h1>
-        <p class="price">$289 <s class="muted" style="font-size:22px">$340</s></p>
-        <p class="note">Solid oak frame, high-density foam, removable boucle cover. Assembles in six minutes with one hex key.</p>
-        <fieldset class="opt"><legend>Cover: <span id="cname">Oat</span></legend>
-          <div class="swatches">
-            <button type="button" aria-pressed="true" aria-label="Oat" style="background:#DCD3BF" data-c="Oat" data-hex="#DCD3BF"></button>
-            <button type="button" aria-pressed="false" aria-label="Char" style="background:#2F3237" data-c="Char" data-hex="#2F3237"></button>
-            <button type="button" aria-pressed="false" aria-label="Moss" style="background:#7F9279" data-c="Moss" data-hex="#7F9279"></button>
-          </div>
-        </fieldset>
-        <fieldset class="opt"><legend>Leg finish</legend>
-          <div class="sizes"><button type="button" aria-pressed="true">Oak</button><button type="button" aria-pressed="false">Black</button><button type="button" disabled aria-label="Walnut, sold out">Walnut</button></div>
-        </fieldset>
-        <div class="fittip">Seat height 44 cm, width 78 cm. Fits through a 70 cm doorway flat-packed.</div>
-        <button class="btn solid full" type="button" data-add="2">Add to cart</button>
-        <button class="btn full" type="button">Buy it now</button>
-        <details class="acc" open><summary>Materials</summary><p>Solid European oak legs and rails, 80 kg/m3 foam, 100% recycled polyester boucle cover, zipped for washing.</p></details>
-        <details class="acc"><summary>Dimensions</summary><p>W 78 x D 82 x H 76 cm. Seat height 44 cm. Weight 14 kg.</p></details>
-        <details class="acc"><summary>Care</summary><p>Spot clean. Cover washes at 30 degrees on a gentle cycle. Re-oil legs once a year.</p></details>
-        <details class="acc"><summary>Delivery and returns</summary><p>Ships in 2 days. Free returns for 30 days with the prepaid label.</p></details>
-      </div>
-    </div>
-  </section>
-  <section class="block" data-dawn="Image with text">
-    <div class="wrap iwt flip">
-      <div class="pic t-oak" role="img" aria-label="Oak grain close-up"></div>
-      <div><h2>Joined, not glued</h2><p>Every rail is a dovetail joint cut on a CNC and finished by hand. That is why the frame still feels tight in year five.</p></div>
-    </div>
-  </section>
-  <section class="block tight" data-dawn="Apps (reviews)">
-    <div class="wrap">
-      <div class="sec-head"><h2 class="h">Reviews</h2></div>
-      <div class="appbox">
-        <div><div class="stars" aria-label="4.8 out of 5">★★★★★</div><br><strong>4.8 out of 5</strong><div class="muted">from 312 reviews</div></div>
-        <div><p style="font-size:19px;margin:0 0 8px">Solid, heavy and comfortable. Cover came out of the wash looking new.</p><cite style="font:800 16px/1 var(--display);letter-spacing:.1em;text-transform:uppercase;font-style:normal">Priya, Bristol / Verified buyer</cite></div>
-        <button class="btn" type="button">Write a review</button>
-      </div>
-      <p class="muted" style="font-size:14px;margin-top:10px">Reviews app area: Judge.me, Loox or Shopify Product Reviews renders here.</p>
-    </div>
-  </section>
-  <section class="block tight" data-dawn="Related products">
-    <div class="wrap"><div class="sec-head"><h2 class="h">Pairs well with</h2></div><div class="grid" data-grid="0,3,5,7,9"></div></div>
-  </section>
-  <section class="block tight" data-dawn="Multicolumn">
-    <div class="wrap promises">
-      <div class="promise"><h3>30-day returns</h3><p>Prepaid label in the box.</p></div>
-      <div class="promise"><h3>5-year warranty</h3><p>Frames and bases covered.</p></div>
-      <div class="promise"><h3>Ships in 2 days</h3><p>Tracked, with a delivery window.</p></div>
-    </div>
-  </section>
-  <div style="height:40px"></div>
-</main>
-
-<!-- CART -->
-<main id="view-cart" hidden>
-  <div class="wrap" style="padding-top:24px"><h1 class="pageh">Your cart</h1></div>
-  <div class="wrap cart-grid">
-    <section data-dawn="Cart items"><div id="cartLines"></div><p id="cartEmpty" class="muted" hidden>Your cart is empty. <a href="#" data-go="collection">Shop new in</a></p></section>
-    <aside class="summary" data-dawn="Subtotal">
-      <p id="shipMsg" style="margin:0;font-weight:600"></p>
-      <div class="ship-bar"><i id="shipBar" style="width:0;display:block"></i></div>
-      <label for="note" style="font:800 17px/1 var(--display);letter-spacing:.1em;text-transform:uppercase">Order note</label>
-      <textarea id="note" placeholder="Gift message or delivery note"></textarea>
-      <div class="row"><span>Subtotal</span><span id="subtotal">$0</span></div>
-      <p class="muted" style="font-size:14px;margin:0 0 16px">Taxes and delivery calculated at checkout.</p>
-      <button class="btn volt full" type="button">Check out</button>
-    </aside>
   </div>
-  <section class="block tight" data-dawn="Featured collection"><div class="wrap"><div class="sec-head"><h2 class="h">Complete the room</h2></div><div class="grid" data-grid="1,3,5,7,9"></div></div></section>
-  <div style="height:40px"></div>
 </main>
 
-<!-- SEARCH -->
-<main id="view-search" hidden>
-  <section class="block" style="padding-top:24px" data-dawn="Search results">
-    <div class="wrap">
-      <h1 class="pageh">Search</h1>
-      <form id="searchForm" style="display:flex;gap:8px;max-width:640px;margin-bottom:12px"><label class="sr" for="q">Search products</label><input class="field" id="q" type="search" value="oak" placeholder="Search products"><button class="btn solid" type="submit">Search</button></form>
-      <p class="muted" id="searchCount"></p>
-      <div class="grid" id="searchGrid"></div>
-    </div>
-  </section>
-  <section class="block tight" data-dawn="Featured collection"><div class="wrap"><div class="sec-head"><h2 class="h">Popular right now</h2></div><div class="grid" data-grid="0,4,1,7,3"></div></div></section>
-  <div style="height:40px"></div>
-</main>
-
-<!-- BLOG -->
-<main id="view-blog" hidden>
-  <section class="block" style="padding-top:24px" data-dawn="Blog posts">
-    <div class="wrap">
-      <h1 class="pageh">Journal</h1>
-      <a class="feature-post" data-go="article" href="#">
-        <div class="pic t-oak" role="img" aria-label="Oak room"></div>
-        <div><small class="muted">12 October 2026 / Guides</small><h2>How to size a rug</h2><p class="muted">The 3 rules that stop a rug looking too small, with measurements for every room.</p></div>
-      </a>
-      <div class="grid three" data-posts="1,2,3,4,5,0"></div>
-    </div>
-  </section>
-  <section class="block newsb" data-dawn="Email signup"><div class="wrap news-in"><h2>New posts, first</h2><form data-sub><label class="sr" for="em3">Email address</label><input class="field" id="em3" type="email" placeholder="Your email address" required><button class="btn solid" type="submit">Subscribe</button></form></div></section>
-</main>
-
-<!-- ARTICLE -->
-<main id="view-article" hidden>
-  <article class="block article" style="padding-top:24px" data-dawn="Blog post">
-    <div class="wrap narrow">
-      <nav class="crumbs" style="padding-top:0" aria-label="Breadcrumb"><a href="#" data-go="home">Home</a> / <a href="#" data-go="blog">Journal</a></nav>
-      <h1>How to size a rug</h1>
-      <p class="by">12 October 2026 / By Maya Reed / 5 min read</p>
-    </div>
-    <div class="wrap"><div class="article-hero t-clay" role="img" aria-label="Rug in a living room"></div></div>
-    <div class="wrap narrow">
-      <p>Most rugs are bought too small. The room looks like it is floating on a postage stamp, and the furniture never sits right. Three rules fix it.</p>
-      <h2>Rule one: front legs on</h2>
-      <p>In a living room, at least the front legs of every sofa and chair should sit on the rug. For a 3 m sofa, a 200 x 300 cm rug is the smallest size that works.</p>
-      <h2>Rule two: leave 30 to 50 cm of floor</h2>
-      <p>A border of bare floor frames the rug. Less than 30 cm and the rug looks squeezed. More than 50 cm and it starts to look small again.</p>
-      <h2>Rule three: under the bed, not beside it</h2>
-      <p>For a bed, the rug should extend at least 60 cm past both sides and the foot. A 160 x 230 rug suits a double, a 200 x 300 suits a king.</p>
-      <div class="share"><span>Share:</span><a href="#">Facebook</a><a href="#">Pinterest</a><a href="#">Copy link</a></div>
-    </div>
-  </article>
-  <section class="block tight" data-dawn="Featured collection"><div class="wrap"><div class="sec-head"><h2 class="h">Shop the story</h2></div><div class="grid" data-grid="4,5,6,7,8"></div></div></section>
-  <section class="block newsb" data-dawn="Email signup"><div class="wrap news-in"><h2>New posts, first</h2><form data-sub><label class="sr" for="em4">Email address</label><input class="field" id="em4" type="email" placeholder="Your email address" required><button class="btn solid" type="submit">Subscribe</button></form></div></section>
-</main>
-
-<!-- ABOUT -->
-<main id="view-about" hidden>
-  <section class="about-hero t-char" data-dawn="Image banner"><div class="wrap"><h1>Built heavy. Built to stay.</h1></div></section>
-  <section class="block" data-dawn="Rich text">
-    <div class="wrap narrow story">
-      <p>Kiln began in 2020 in a garage workshop with a simple complaint: flat-pack furniture felt flimsy. We started cutting oak, steel and wool to heavier specs and testing every piece for ten years of use.</p>
-      <p>We sell fewer pieces, ship them flat to cut emissions, and cover every frame for five years.</p>
-    </div>
-  </section>
-  <section class="block tight" data-dawn="Multirow">
-    <div class="wrap mrow">
-      <div class="iwt"><div class="pic t-oak" role="img" aria-label="Oak planks"></div><div><h2>The material</h2><p>European oak from managed forests, wool from mills we visit each year, steel cut within 200 km of our workshop.</p></div></div>
-      <div class="iwt flip"><div class="pic t-sage" role="img" aria-label="Fabric samples"></div><div><h2>The test</h2><p>Chairs take 80,000 sit cycles on our rig. Lamps run 2,000 hours. Rugs get walked on by a machine with a rubber boot.</p></div></div>
-    </div>
-  </section>
-  <section class="block" data-dawn="Multicolumn">
-    <div class="wrap stat">
-      <div><strong>80k</strong>sit cycles per chair</div>
-      <div><strong>5</strong>year frame warranty</div>
-      <div><strong>14kg</strong>lounge chair weight</div>
-      <div><strong>2020</strong>the year we started</div>
-    </div>
-  </section>
-  <div class="slash" data-dawn="Slash: Slash divider" aria-hidden="true"></div>
-</main>
-
-<!-- CONTACT -->
-<main id="view-contact" hidden>
-  <section class="block" style="padding-top:24px" data-dawn="Page">
-    <div class="wrap narrow"><h1 class="pageh">Contact us</h1><p style="font-size:19px;margin:0">We reply within one working day, Monday to Friday.</p></div>
-  </section>
-  <section class="block tight" data-dawn="Contact form">
-    <div class="wrap narrow">
-      <form class="contact-grid" id="contactForm">
-        <div><label for="cn">Name</label><input class="field" id="cn" required></div>
-        <div><label for="ce">Email</label><input class="field" id="ce" type="email" required></div>
-        <div class="span"><label for="co">Order number (optional)</label><input class="field" id="co" placeholder="#2041"></div>
-        <div class="span"><label for="cm">Message</label><textarea class="field" id="cm" required></textarea></div>
-        <div class="span"><button class="btn solid" type="submit">Send message</button></div>
-      </form>
-    </div>
-  </section>
-  <section class="block" data-dawn="Multicolumn">
-    <div class="wrap promises">
-      <div class="promise"><h3>Email</h3><p>hello@kiln.example<br>Replies within one working day</p></div>
-      <div class="promise"><h3>Phone</h3><p>+1 555 010 0199<br>Mon to Fri, 9 am to 5 pm</p></div>
-      <div class="promise"><h3>Returns address</h3><p>Kiln Returns, Unit 9, Foundry Road, Leeds LS1 4AB</p></div>
-    </div>
-  </section>
-  <section class="block tight" data-dawn="Collapsible content">
-    <div class="wrap faq">
-      <h2 class="h">Quick answers</h2>
-      <div>
-        <details class="acc"><summary>Where is my order?</summary><p>Your tracking link is in the shipping email. Most orders arrive in 2 to 5 working days.</p></details>
-        <details class="acc"><summary>How do I start a return?</summary><p>Use the prepaid label in the box, or email your order number for a new one.</p></details>
-        <details class="acc"><summary>A part is missing. What now?</summary><p>Email a photo and your order number. We ship the part free within 2 days.</p></details>
-      </div>
-    </div>
-  </section>
-  <div style="height:40px"></div>
-</main>
-
-<!-- 404 -->
-<main id="view-404" hidden>
-  <section class="nf" data-dawn="404 page">
-    <div class="wrap">
-      <h1>404</h1>
-      <p>Page not found. It may have sold out, or the link is wrong.</p>
-      <form data-search404><label class="sr" for="q404">Search products</label><input class="field" id="q404" type="search" placeholder="Search products"><button class="btn solid" type="submit">Search</button></form>
-      <a href="#" class="btn" data-go="collection">Back to the shop</a>
-    </div>
-  </section>
-  <section class="block tight" data-dawn="Featured collection"><div class="wrap"><div class="sec-head"><h2 class="h">Best sellers</h2></div><div class="grid" data-grid="0,1,2,3,4"></div></div></section>
-  <div style="height:40px"></div>
-</main>
-
-<div class="slash" aria-hidden="true"></div>
-<footer class="site" data-dawn="Footer">
+<!-- ================= PRODUCT ================= -->
+<main class="page light" id="p-product">
   <div class="wrap">
-    <div class="foot">
-      <div><h4>Kiln</h4><p style="margin:0;max-width:34ch;color:#B8BBAF">Heavy-duty home pieces, flat-packed and built to last. Five-year warranty on every frame.</p></div>
-      <div><h4>Shop</h4><ul><li><a href="#" data-go="collection">New in</a></li><li><a href="#" data-go="collection">Lighting</a></li><li><a href="#" data-go="collection">Seating</a></li><li><a href="#" data-go="collection">Rugs</a></li></ul></div>
-      <div><h4>Help</h4><ul><li><a href="#" data-go="contact">Contact</a></li><li><a href="#" data-go="contact">Delivery</a></li><li><a href="#" data-go="contact">Returns</a></li><li><a href="#" data-go="404">Assembly guides</a></li></ul></div>
-      <div><h4>Company</h4><ul><li><a href="#" data-go="about">About</a></li><li><a href="#" data-go="blog">Journal</a></li><li><a href="#" data-go="search">Search</a></li></ul></div>
+    <div class="crumbs" data-dawn="sbs-breadcrumbs"><a href="#" data-go="home">Home</a> / <a href="#" data-go="collection">Dining room</a> / Halden Marble Dining Table</div>
+    <div class="pdp" data-dawn="main-product (image grid, stone swatches, length pills)">
+      <div><div class="gal" id="gal"></div><div class="gdots" id="gdots"></div></div>
+      <div class="info">
+        <div class="tag"><span>Made to order</span><span>Best seller</span></div>
+        <h1>Halden Marble Dining Table</h1>
+        <div class="rt"><b>★★★★★</b> 4.9 · 86 reviews (sample)</div>
+        <div class="price" id="pprice">$3,650<small>incl. white-glove delivery</small></div>
+        <p class="lede">An oval top cut from one slab of marble, resting on a sculpted pedestal. No legs to bump into, room for eight.</p>
+        <div class="opt"><p>Stone <span id="pmat">Carrara marble</span></p><div class="sw" id="psw"><button class="on" style="background:#ECE8E1" data-m="0" aria-label="Carrara marble"></button><button style="background:#1F1D1C" data-m="1" aria-label="Nero Marquina marble"></button></div></div>
+        <div class="opt"><p>Length <span id="pdim">220 × 110 cm</span></p><div class="pills" id="psz"></div></div>
+        <div class="deliv"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M3 7h11v9H3zM14 10h4l3 3v3h-7"/><circle cx="7" cy="17.5" r="1.6"/><circle cx="17" cy="17.5" r="1.6"/></svg><div><b>Made to order · ships in 6 to 8 weeks</b>White-glove delivery and assembly included. We call to book a day.</div></div>
+        <div class="buy"><div class="qty"><button id="qm" aria-label="Less">−</button><input id="qtyv" value="1" aria-label="Quantity" readonly><button id="qp" aria-label="More">+</button></div><button class="btn btn-dark" id="atc">Add to cart · $3,650</button><a href="#visit" class="btn btn-ink" data-go="home">See it in the showroom</a></div>
+        <div class="trust" data-dawn="multicolumn (trust row)"><div><b>White glove</b>Delivered and set up</div><div><b>10 years</b>Frame guarantee</div><div><b>Free samples</b>Up to 5 per order</div></div>
+        <div class="acc">
+          <details open><summary>Dimensions</summary><div class="bd">
+            <svg viewBox="0 -14 400 164" aria-label="Dimension drawing"><ellipse cx="200" cy="34" rx="170" ry="20" fill="none" stroke="#1B1814"/><path d="M168 54c-6 30 6 50 0 80h64c-6-30 6-50 0-80" fill="none" stroke="#1B1814"/><path d="M150 134h100" stroke="#1B1814"/><path d="M30 6h340M30 2v8M370 2v8" stroke="#7E5F2C"/><text x="200" y="-2" font-size="10" text-anchor="middle" fill="#7E5F2C" font-family="sans-serif" id="dimtxt">220 cm</text><path d="M392 14v120M388 14h8M388 134h8" stroke="#7E5F2C"/><text x="384" y="78" font-size="10" text-anchor="end" fill="#7E5F2C" font-family="sans-serif">75 cm</text></svg>
+            <dl><dt>Width</dt><dd id="dW">220 cm</dd><dt>Depth</dt><dd>110 cm</dd><dt>Height</dt><dd>75 cm</dd><dt>Weight</dt><dd>165 kg</dd></dl></div></details>
+          <details><summary>Materials &amp; care</summary><div class="bd">Honed marble top, sealed twice. Pedestal in matching stone. Wipe spills straight away and use coasters for wine and citrus.</div></details>
+          <details><summary>Delivery &amp; returns</summary><div class="bd">Two-person delivery to the room of your choice, unpacked and set up. Returns within 30 days for stock pieces; made-to-order pieces can be changed before cutting.</div></details>
+        </div>
+      </div>
     </div>
-    <div class="foot-bottom"><span>&copy; 2026 Kiln Home</span><span>Visa / Mastercard / PayPal / Apple Pay</span></div>
   </div>
-</footer>
+  <section class="room" data-dawn="image-with-text (see it in a room)"><img data-src="dining" alt="Halden table in a dining room"><div class="wrap"><span class="eyebrow">See it in a room</span><h2>Dinner for eight, <i>under brass light.</i></h2><p>Shown in Carrara marble, 220 cm, with the Lune pendant above.</p></div></section>
+  <section class="sec" style="background:var(--marble)" data-dawn="sbs-reviews (rating bars)"><div class="wrap">
+    <div class="revs">
+      <div class="score"><span class="eyebrow">Reviews</span><div style="margin-top:20px"><b>4.9</b></div><div class="st">★★★★★</div><small>86 reviews (sample)</small><div class="bars"><div>5 ★<i style="--w:91%"></i>78</div><div>4 ★<i style="--w:7%"></i>6</div><div>3 ★<i style="--w:2%"></i>2</div><div>2 ★<i style="--w:0%"></i>0</div><div>1 ★<i style="--w:0%"></i>0</div></div></div>
+      <div class="rvs">
+        <div class="rv"><div class="s">★★★★★</div><p>"Heavy, calm and beautiful. The veining on our slab is lovely."</p><small>Sample review · Carrara, 220 cm</small></div>
+        <div class="rv"><div class="s">★★★★★</div><p>"The pedestal means everyone gets a good seat. No legs in the way."</p><small>Sample review · Nero Marquina, 260 cm</small></div>
+        <div class="rv"><div class="s">★★★★☆</div><p>"Took eight weeks as promised. Worth the wait."</p><small>Sample review · Carrara, 180 cm</small></div>
+      </div>
+    </div>
+  </div></section>
+  <section class="sec trav" data-dawn="product-recommendations (pairs well with)"><div class="wrap"><div class="head"><div><span class="eyebrow">Pairs well with</span><h2>Complete the <i>table.</i></h2></div></div><div class="grid" id="pairs"></div></div></section>
+  <section class="sec light" data-dawn="sbs-recently-viewed"><div class="wrap"><div class="head"><div><span class="eyebrow">Recently viewed</span><h2>Still thinking <i>it over?</i></h2></div></div><div class="grid" id="recent"></div></div></section>
+  <div class="sticky-atc" id="sticky" data-dawn="main-product (sticky add to cart)"><div class="wrap"><img data-src="table" alt=""><div><b>Halden Marble Dining Table</b><small id="stxt">Carrara · 220 cm</small></div><button class="btn btn-brass" id="satc">Add to cart · $3,650</button></div></div>
+</main>
 
-<div class="overlay" id="ovMenu" data-close hidden></div>
-<aside class="drawer left" id="menuDrawer" aria-label="Menu" hidden data-dawn="Header (menu drawer)">
-  <div class="drawer-head"><h2>Menu</h2><button class="x" type="button" data-close aria-label="Close menu" style="color:#fff">×</button></div>
-  <nav><a href="#" data-go="collection">New in</a><a href="#" data-go="collection">Lighting</a><a href="#" data-go="collection">Seating</a><a href="#" data-go="collection">Rugs</a><a href="#" data-go="blog">Journal</a><a href="#" data-go="about">About</a><a href="#" data-go="contact">Contact</a></nav>
-</aside>
-<div class="overlay" id="ovCart" data-close hidden></div>
-<aside class="drawer right" id="cartDrawer" aria-label="Cart" hidden data-dawn="Cart drawer">
-  <div class="drawer-head"><h2>Cart</h2><button class="x" type="button" data-close aria-label="Close cart">×</button></div>
-  <div class="body" id="drawerLines"></div>
-  <div class="row" style="margin-top:14px"><span>Subtotal</span><span id="drawerSub">$0</span></div>
-  <button class="btn volt full" type="button">Check out</button>
-  <a href="#" class="btn full" data-go="cart">View cart</a>
-</aside>
-<div class="toast" id="toast" role="status" hidden></div>
+<!-- ================= CART ================= -->
+<main class="page light" id="p-cart">
+  <div class="wrap">
+    <div class="crumbs" data-dawn="sbs-breadcrumbs"><a href="#" data-go="home">Home</a> / Cart</div>
+    <div class="cpage" data-dawn="main-cart-items + main-cart-footer">
+      <div><h1>Your <i>cart</i></h1><div class="prog" id="cprog"></div><div id="clines"></div>
+        <div class="note"><label for="cnote">Delivery notes</label><textarea id="cnote" placeholder="Stairs, lift size, best days for delivery…"></textarea></div></div>
+      <aside class="summ"><h3>Summary</h3><div class="r"><span>Subtotal</span><span id="csub">$0</span></div><div class="r"><span>White-glove delivery</span><span id="cship">—</span></div><div class="r"><span>Samples</span><span id="csam">Free</span></div><div class="r t"><span>Total</span><span id="ctot">$0</span></div><button class="btn btn-dark" onclick="toast('Checkout is disabled in the demo')">Checkout</button>
+        <ul><li>Secure checkout</li><li>Pay in 3 with Shop Pay</li><li>Changes free until your piece is cut</li></ul></aside>
+    </div>
+  </div>
+  <section class="sec trav" data-dawn="featured-collection (finishing touches)"><div class="wrap"><div class="head"><div><span class="eyebrow">Finishing touches</span><h2>Light it <i>well.</i></h2></div></div><div class="grid" id="cartup"></div></div></section>
+</main>
+
+<!-- ================= SEARCH ================= -->
+<main class="page light" id="p-search"><div class="wrap" style="padding-bottom:120px" data-dawn="main-search">
+  <div class="crumbs"><a href="#" data-go="home">Home</a> / Search</div>
+  <form class="sform" onsubmit="event.preventDefault()"><input id="q" value="marble" aria-label="Search"></form>
+  <div class="sugg">Try <button>brass</button><button>walnut</button><button>travertine</button><button>lamp</button><button>dining</button></div>
+  <p id="sres" style="color:var(--mute);margin-bottom:32px"></p><div class="grid" id="sgrid2"></div>
+</div></main>
+
+<!-- ================= BLOG ================= -->
+<main class="page light" id="p-blog"><div class="wrap" style="padding-bottom:120px" data-dawn="main-blog (editorial)">
+  <div class="crumbs"><a href="#" data-go="home">Home</a> / Journal</div>
+  <div class="bhero"><a href="#" class="ph" data-go="article"><img data-src="lounge" alt=""></a><div><span class="eyebrow">Featured · Styling</span><h2>How to light a <i>dark room</i></h2><p>Dark walls need three heights of light. Our designers explain how to place each one, and why brass makes the room glow.</p><a href="#" class="lnk" data-go="article" style="margin-top:24px">Read the story</a></div></div>
+  <div class="btabs" id="btabs"><button class="on">All</button><button>Styling</button><button>Materials</button><button>Workshop</button></div>
+  <div class="jgrid">
+    <a href="#" class="post" data-go="article"><div class="ph"><img data-src="dining" alt=""></div><small>Styling</small><h3>Setting a table for eight</h3><p>Space, light and the right chair height.</p></a>
+    <a href="#" class="post" data-go="article"><div class="ph"><img data-src="marble" alt=""></div><small>Materials</small><h3>Caring for marble</h3><p>Five habits that keep stone looking new.</p></a>
+    <a href="#" class="post" data-go="article"><div class="ph"><img data-src="craft" alt=""></div><small>Workshop</small><h3>Ten hours in one chair</h3><p>A day with our walnut maker.</p></a>
+    <a href="#" class="post" data-go="article"><div class="ph"><img data-src="bedroom" alt=""></div><small>Materials</small><h3>Living with travertine</h3><p>Why the holes are part of the charm.</p></a>
+    <a href="#" class="post" data-go="article"><div class="ph"><img data-src="lighting" alt=""></div><small>Styling</small><h3>Hanging pendants at the right height</h3><p>A simple rule for every table.</p></a>
+    <a href="#" class="post" data-go="article"><div class="ph"><img data-src="swatches" alt=""></div><small>Materials</small><h3>Choosing from samples</h3><p>See them by day and by lamp light.</p></a>
+  </div>
+</div></main>
+
+<!-- ================= ARTICLE ================= -->
+<main class="page light" id="p-article"><div class="wrap">
+  <div class="crumbs" data-dawn="sbs-breadcrumbs"><a href="#" data-go="home">Home</a> / <a href="#" data-go="blog">Journal</a> / Styling</div>
+  <article class="art" data-dawn="main-article">
+    <span class="eyebrow">Styling</span><h1>How to light a <i>dark room</i></h1><p class="by">By the Kiln design studio · 6 min read</p>
+    <div class="big"><img data-src="lounge" alt="Reading corner with floor lamp"></div>
+    <p>Dark walls make a room feel calm and close. They also swallow light. The answer is not more light but light at more heights.</p>
+    <h2>Three heights of light</h2>
+    <p>Start with a pendant over the table or the centre of the room. Add a floor lamp by the chair you read in. Finish with a small lamp at the level of a sideboard or a bedside table.</p>
+    <blockquote>"Brass does not just hold the light. It gives it back, warmer."</blockquote>
+    <div class="two"><img data-src="lighting" alt=""><img data-src="bedroom" alt=""></div>
+    <p>Choose warm bulbs (2700K) and put every lamp on a dimmer. In the evening, turn the pendant down and let the lower lamps lead.</p>
+    <div class="share"><span>Share</span><a href="#">Pinterest</a><a href="#">Email</a><a href="#">Copy link</a></div>
+  </article>
+</div>
+<section class="sec trav" data-dawn="featured-collection (shop the story)"><div class="wrap"><div class="head"><div><span class="eyebrow">Shop the story</span><h2>The pieces in <i>this room.</i></h2></div></div><div class="grid" id="artgrid"></div></div></section>
+</main>
+
+<!-- ================= ABOUT ================= -->
+<main class="page" id="p-about">
+  <section class="ab-hero" data-dawn="image-with-text (story)"><div class="tx"><span class="eyebrow">Our story</span><h1>Made slowly, <i>to stay.</i></h1><p>Kiln began in a small stone yard with one marble table and a brass lamp. Today a team of twelve makers cuts, joins and finishes every piece by hand, close to the quarries we buy from.</p><a href="#" class="btn btn-brass" data-go="collection" style="margin-top:34px;align-self:flex-start">Shop the collection</a></div><div class="ph"><img data-src="craft" alt="Hands finishing a walnut chair"></div></section>
+  <section class="sec light" data-dawn="multicolumn (values)"><div class="wrap"><div class="vals">
+    <div><b>01</b><h3>One slab, one piece</h3><p>Every marble top comes from a single slab, so the veins run unbroken.</p></div>
+    <div><b>02</b><h3>Made to order</h3><p>We make what you choose. Nothing waits in a warehouse.</p></div>
+    <div><b>03</b><h3>Built for decades</h3><p>Solid materials, a ten-year frame guarantee and parts we can repair.</p></div>
+  </div></div></section>
+  <section class="sec" data-dawn="collage"><div class="wrap"><div class="head"><div><span class="eyebrow">The showroom</span><h2>Come and <i>sit down.</i></h2></div><a href="#visit" class="lnk" data-go="home">Book a visit</a></div><div class="collage"><img data-src="showroom" alt=""><img data-src="swatches" alt=""><img data-src="marble" alt=""></div></div></section>
+</main>
+
+<!-- ================= CONTACT ================= -->
+<main class="page light" id="p-contact"><div class="wrap">
+  <div class="crumbs" data-dawn="sbs-breadcrumbs"><a href="#" data-go="home">Home</a> / Contact</div>
+  <div class="ct" data-dawn="contact-form + multicolumn (showroom details)">
+    <div><span class="eyebrow">Contact</span><h1>Talk to a <i>designer.</i></h1>
+      <div class="info2"><div><b>Showroom</b>12 Mount Street, Mayfair, London<br>Tuesday to Saturday, 10am to 6pm</div><div><b>Phone</b>+44 20 0000 0000 (demo)</div><div><b>Email</b>studio@kiln-demo.com</div></div></div>
+    <form class="cform" onsubmit="event.preventDefault();document.getElementById('cok').classList.add('on')"><input placeholder="Name" aria-label="Name"><input placeholder="Email" aria-label="Email"><select aria-label="Topic"><option>A new order</option><option>An existing order</option><option>Trade and interior designers</option><option>Samples</option></select><textarea placeholder="How can we help?" aria-label="Message"></textarea><button class="btn btn-dark">Send message</button><p class="ok" id="cok">Thank you. We reply within one working day.</p></form>
+  </div>
+  <section style="padding-bottom:120px" data-dawn="collapsible-content (FAQ)"><span class="eyebrow">Good to know</span><div class="faq" style="margin-top:24px">
+    <details open><summary>How long does made to order take?</summary><p>Most pieces ship in 6 to 10 weeks. You will see the exact time on each product page.</p></details>
+    <details><summary>What is white-glove delivery?</summary><p>Two people bring the piece to the room you choose, unpack it, set it up and take the packaging away.</p></details>
+    <details><summary>Can I see the materials first?</summary><p>Yes. Order up to five free samples, or visit the showroom.</p></details>
+    <details><summary>Do you work with interior designers?</summary><p>Yes. Ask about our trade programme through the form above.</p></details>
+  </div></section>
+</div></main>
+
+<!-- ================= 404 ================= -->
+<main class="page" id="p-404">
+  <section class="nf" data-dawn="main-404"><img data-src="lighting" alt=""><div class="wrap"><b>404</b><h1>This room is <i>empty.</i></h1><p>The page you are looking for has moved or no longer exists.</p><a href="#" class="btn btn-brass" data-go="home">Back to home</a></div></section>
+  <section class="sec" data-dawn="featured-collection (best sellers)"><div class="wrap"><div class="head"><div><span class="eyebrow">Best sellers</span><h2>Start <i>here.</i></h2></div></div><div class="grid" id="nfgrid"></div></div></section>
+</main>
+
+<footer class="ftr" data-dawn="footer"><div class="wrap">
+  <div class="cols">
+    <div><span class="logo">KILN</span><p>Furniture and lighting in marble, brass and walnut. Made to order and delivered by hand.</p><div class="soc"><a href="#">Instagram</a><a href="#">Pinterest</a><a href="#">YouTube</a></div></div>
+    <div><h5>Shop</h5><ul><li><a href="#" data-go="collection">Living</a></li><li><a href="#" data-go="collection">Dining</a></li><li><a href="#" data-go="collection">Bedroom</a></li><li><a href="#" data-go="collection">Lighting</a></li></ul></div>
+    <div><h5>Service</h5><ul><li><a href="#visit" data-go="home">Book a visit</a></li><li><a href="#samples" data-go="home">Free samples</a></li><li><a href="#" data-go="contact">Delivery</a></li><li><a href="#" data-go="contact">Contact</a></li></ul></div>
+    <div><h5>Studio</h5><ul><li><a href="#" data-go="about">Our story</a></li><li><a href="#" data-go="blog">Journal</a></li><li><a href="#" data-go="contact">Trade</a></li><li><a href="#" data-go="contact">Care guide</a></li></ul></div>
+  </div>
+  <div class="bot"><span>© 2026 Kiln. Demo store.</span><div class="pay"><span>VISA</span><span>MC</span><span>AMEX</span><span>PAYPAL</span><span>SHOP PAY</span></div></div>
+</div></footer>
+
+<div class="scrim" id="scrim"></div>
+<aside class="drawer" id="drawer" aria-label="Cart" data-dawn="cart-drawer"><div class="hd"><h3>Cart</h3><button id="closeCart">Close</button></div><div class="pg prog" id="dprog"></div><div class="ls" id="dlines"></div><div class="ft"><div class="r"><span>Subtotal</span><span id="dsub">$0</span></div><a href="#" class="btn btn-dark" data-go="cart">View cart &amp; checkout</a></div></aside>
+<div class="toast" id="toast" role="status"></div>
 
 <script>
-(function(){
-  var P=[
-    {n:"Slab Table Lamp",s:"lamp",c:"#C6FF00",cn:"Volt",p:79,t:"Best seller",cat:"lighting",d:["#C6FF00","#2F3237"],ink:1},
-    {n:"Arch Floor Mirror",s:"mirror",c:"#8A8F86",cn:"Char",p:189,t:"New",cat:"mirrors",d:["#2F3237","#B98B5A"]},
-    {n:"Slab Lounge Chair",s:"chair",c:"#DCD3BF",cn:"Oat",p:289,t:"Best seller",cat:"seating",d:["#DCD3BF","#2F3237","#7F9279"]},
-    {n:"Kiln Wool Rug 200",s:"rug",c:"#C2693C",cn:"Clay",p:249,t:"-40%",cat:"rugs",d:["#C2693C","#DCD3BF"]},
-    {n:"Ridge Vase",s:"vase",c:"#7F9279",cn:"Moss",p:44,t:"New",cat:"decor",d:["#7F9279","#DCD3BF"]},
-    {n:"Boucle Cushion",s:"cushion",c:"#DCD3BF",cn:"Oat",p:34,t:"-20%",cat:"decor",d:["#DCD3BF","#C2693C"]},
-    {n:"Ladder Shelf",s:"shelf",c:"#B98B5A",cn:"Oak",p:159,t:"New",cat:"decor",d:["#B98B5A","#2F3237"]},
-    {n:"Bolt Floor Lamp",s:"lamp",c:"#2F3237",cn:"Char",p:129,t:"-25%",cat:"lighting",d:["#2F3237","#DCD3BF"]},
-    {n:"Block Armchair",s:"chair",c:"#7F9279",cn:"Moss",p:319,t:"New",cat:"seating",d:["#7F9279","#2F3237"]},
-    {n:"Pebble Rug 160",s:"rug",c:"#DCD3BF",cn:"Oat",p:139,t:"-40%",cat:"rugs",d:["#DCD3BF","#2F3237"]},
-    {n:"Round Wall Mirror",s:"mirror",c:"#B98B5A",cn:"Oak",p:89,t:"Sale",cat:"mirrors",d:["#B98B5A","#2F3237"]},
-    {n:"Tall Stem Vase",s:"vase",c:"#C2693C",cn:"Clay",p:58,t:"New",cat:"decor",d:["#C2693C","#2F3237"]}
-  ];
-  var POSTS=[
-    {t:"How to size a rug",d:"12 October 2026",k:"Guides",e:"Three rules, with measurements for every room.",pat:"t-clay"},
-    {t:"Lighting a room in layers",d:"2 October 2026",k:"Lighting",e:"Ambient, task and accent: what each one does.",pat:"t-char"},
-    {t:"Inside our oak workshop",d:"20 September 2026",k:"Makers",e:"Where the lounge chair frame is cut and joined.",pat:"t-oak"},
-    {t:"Boucle: care and cleaning",d:"8 September 2026",k:"Care",e:"Stains, spills and washing the cover.",pat:"t-linen"},
-    {t:"Small living rooms, big seating",d:"24 August 2026",k:"Style",e:"Chairs that fit a 3 m wall.",pat:"t-sage"},
-    {t:"What 80,000 sits taught us",d:"10 August 2026",k:"Testing",e:"The rig, the failures and the redesign.",pat:"t-char"}
-  ];
-  var CATS=[["Lighting","lamp"],["Seating","chair"],["Rugs","rug"],["Mirrors","mirror"],["Cushions","cushion"],["Shelving","shelf"],["Vases","vase"]];
-  var ROOMS=[
-    {n:"Living room edit",pr:"$478",pat:"t-char",hs:[{x:22,y:30,i:0},{x:60,y:56,i:2},{x:48,y:64,i:3}]},
-    {n:"Hall edit",pr:"$312",pat:"t-oak",hs:[{x:30,y:28,i:1},{x:66,y:62,i:6},{x:40,y:66,i:4}]},
-    {n:"Bedroom edit",pr:"$286",pat:"t-sage",hs:[{x:70,y:28,i:7},{x:36,y:60,i:9},{x:62,y:68,i:5}]}
-  ];
-  var cart=[{i:1,size:"Std",col:"Char",q:1},{i:5,size:"Std",col:"Oat",q:2}];
-  function $(s,r){return (r||document).querySelector(s)}
-  function $$(s,r){return Array.prototype.slice.call((r||document).querySelectorAll(s))}
-  function money(v){return "$"+v.toLocaleString("en-US")}
-  function card(i){var p=P[i],neg=/^-/.test(p.t);return '<div class="pc"><a class="img" href="#" data-go="product" style="background:'+(p.ink?'#0E0F11':'')+'"><span class="badge'+(neg?' v':'')+'">'+p.t+'</span><svg viewBox="0 0 200 200" style="color:'+p.c+'" aria-hidden="true"><use href="#g-'+p.s+'"/></svg></a><h3>'+p.n+'</h3><span class="sub">'+p.cn+'</span><div class="cf"><span class="pr">'+money(p.p)+'</span><button class="addb" type="button" data-add="'+i+'">Add to cart</button></div></div>'}
-  function postCard(i){var p=POSTS[i];return '<a class="post" href="#" data-go="article"><div class="pic '+p.pat+'" role="img" aria-label="'+p.t+'"></div><small>'+p.d+' / '+p.k+'</small><h3>'+p.t+'</h3><p>'+p.e+'</p></a>'}
-  $$("[data-grid]").forEach(function(g){g.innerHTML=g.dataset.grid.split(",").map(Number).map(card).join("")});
-  $$("[data-posts]").forEach(function(g){g.innerHTML=g.dataset.posts.split(",").map(Number).map(postCard).join("")});
-  $("[data-cats]").innerHTML=CATS.map(function(c){return '<a class="cat" href="#" data-go="collection"><div class="sq"><svg viewBox="0 0 200 200" aria-hidden="true"><use href="#g-'+c[1]+'"/></svg></div><b>'+c[0]+'</b></a>'}).join("");
+const IMG='https://shopifybrandsseo.com/wp-content/uploads/2026/10/kiln-demo-';
+const src=k=>IMG+k+'.jpg';
+const C={carrara:'#ECE8E1',nero:'#1F1D1C',verde:'#2F4A3C',trav:'#D9CBB3',brass:'#B8925A',bronze:'#4A3A2A',boucle:'#EFE9DE',olive:'#5B5A3A',caramel:'#9A5B32',walnut:'#5A3A26'};
+const P=[
+ {n:'Halden Marble Dining Table',room:'Dining',img:'table',alt:'dining',mats:[['Carrara marble','carrara'],['Nero Marquina','nero']],sz:[['180 cm',3200],['220 cm',3650],['260 cm',4100]],dim:'W 220 × D 110 × H 75 cm',r:4.9,c:86,b:'Best seller',mto:1},
+ {n:'Orsa Bouclé Sofa',room:'Living',img:'sofa',alt:'hero',mats:[['Ivory bouclé','boucle'],['Olive velvet','olive']],sz:[['3-seat',4450]],was:4900,dim:'W 240 × D 98 × H 72 cm',r:4.8,c:64,b:'Sale',bs:'sale'},
+ {n:'Lune Brass Pendant',room:'Lighting',img:'pendant',alt:'lighting',mats:[['Brushed brass','brass'],['Dark bronze','bronze']],sz:[['Ø 40 cm',890],['Ø 55 cm',1180]],dim:'Ø 40 × H 28 cm',r:4.9,c:112,b:'New'},
+ {n:'Vero Travertine Side Table',room:'Bedroom',img:'side',alt:'bedroom',mats:[['Travertine','trav']],sz:[['Ø 50 cm',1150]],dim:'Ø 50 × H 45 cm',r:4.7,c:41},
+ {n:'Ambra Lounge Chair',room:'Living',img:'chair',alt:'lounge',mats:[['Caramel leather','caramel'],['Ivory bouclé','boucle']],sz:[['One size',2380]],dim:'W 76 × D 82 × H 78 cm',r:4.9,c:58,b:'Made to order',bs:'mto',mto:1},
+ {n:'Noir Floor Lamp',room:'Lighting',img:'lamp',alt:'lounge',mats:[['Black & brass','brass']],sz:[['H 160 cm',760]],dim:'H 160 × reach 70 cm',r:4.8,c:97},
+ {n:'Calder Walnut Sideboard',room:'Dining',img:'sideboard',alt:'dining',mats:[['Oiled walnut','walnut']],sz:[['200 cm',3600],['240 cm',4100]],dim:'W 200 × D 45 × H 72 cm',r:4.8,c:37,b:'Made to order',bs:'mto',mto:1},
+ {n:'Sola Marble Coffee Table',room:'Living',img:'coffee',alt:'hero',mats:[['Verde Alpi','verde'],['Carrara marble','carrara']],sz:[['Ø 100 cm',2100],['Ø 120 cm',2450]],dim:'Ø 100 × H 35 cm',r:4.9,c:73,b:'New'}
+];
+const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)];
+const money=v=>'$'+Math.round(v).toLocaleString('en-US');
+function card(p,i){return `<div class="card"><a href="#" class="m" data-go="product">${p.b?`<span class="bdg ${p.bs||''}">${p.b}</span>`:''}<img src="${src(p.img)}" alt="${p.n}"><img class="alt" src="${src(p.alt)}" alt=""></a>
+ <div class="meta"><div class="top"><div class="dots">${p.mats.map(m=>`<i style="background:${C[m[1]]}" title="${m[0]}"></i>`).join('')}</div><div class="rt"><b>★★★★★</b> ${p.r.toFixed(1)} (${p.c})</div></div>
+ <h3><a href="#" data-go="product">${p.n}</a></h3><div class="dim">${p.dim}</div>
+ <div class="pr"><span>${p.sz.length>1?'From ':''}${money(p.sz[0][1])}${p.was?`<s>${money(p.was)}</s>`:''}</span><a href="#" class="v" data-go="product">View</a></div></div></div>`}
+const grid=(el,ids)=>$(el).innerHTML=ids.map(i=>card(P[i],i)).join('');
+grid('#best',[0,1,2,7]);grid('#pairs',[6,2,4,5]);grid('#recent',[7,1,3,4]);grid('#cartup',[2,5,3,7]);grid('#artgrid',[4,5,3,2]);grid('#nfgrid',[0,1,2,7]);
 
-  // shop the room
-  $("#rooms").innerHTML=ROOMS.map(function(r,ri){
-    return '<div class="room '+r.pat+'" data-room="'+ri+'"><svg class="scene" viewBox="0 0 100 130" aria-hidden="true"><rect x="0" y="96" width="100" height="34" fill="rgba(0,0,0,.35)"/><path d="M0 96H100" stroke="rgba(255,255,255,.35)" stroke-width="1"/></svg>'+
-    r.hs.map(function(h,hi){return '<button class="hot" type="button" style="left:'+h.x+'%;top:'+h.y+'%" aria-expanded="false" aria-label="Show '+P[h.i].n+'" data-hot="'+ri+'-'+hi+'">+</button>'}).join("")+
-    '<div class="tagp"><h3>'+r.n+'</h3><span class="price">'+r.pr+'</span></div></div>'}).join("");
-  document.addEventListener("click",function(e){
-    var h=e.target.closest("[data-hot]");
-    $$(".hotcard").forEach(function(x){x.remove()});
-    $$("[data-hot]").forEach(function(x){x.setAttribute("aria-expanded","false")});
-    if(!h)return;
-    var k=h.dataset.hot.split("-"),r=ROOMS[+k[0]],pt=r.hs[+k[1]],p=P[pt.i];
-    var wasOpen=h._open;h._open=!wasOpen;
-    if(wasOpen)return;
-    h.setAttribute("aria-expanded","true");
-    var c=document.createElement("div");c.className="hotcard";
-    c.style.left=Math.min(pt.x,55)+"%";c.style.top="calc("+Math.min(pt.y+8,50)+"% + 20px)";
-    c.innerHTML='<b>'+p.n+'</b>'+money(p.p)+'<button type="button" data-add="'+pt.i+'">Add to cart</button>';
-    h.parentNode.appendChild(c);
-  });
+let ai=0;setInterval(()=>{const s=$$('.ann span');s[ai].classList.remove('on');ai=(ai+1)%s.length;s[ai].classList.add('on')},4000);
 
-  function renderCollection(){
-    var cats=$$('[data-f="cat"]:checked').map(function(x){return x.value}),
-        cols=$$('[data-f="col"]:checked').map(function(x){return x.value}),
-        prices=$$('[data-f="price"]:checked').map(function(x){return x.value}),
-        idx=P.map(function(_,i){return i}).filter(function(i){var p=P[i];
-          return (!cats.length||cats.indexOf(p.cat)>-1)&&(!cols.length||cols.indexOf(p.cn)>-1)&&
-            (!prices.length||(prices.indexOf("u100")>-1&&p.p<100)||(prices.indexOf("o100")>-1&&p.p>=100));});
-    var s=$("#sort").value; if(s==="low")idx.sort(function(a,b){return P[a].p-P[b].p}); if(s==="high")idx.sort(function(a,b){return P[b].p-P[a].p});
-    $("#colGrid").innerHTML=idx.length?idx.map(card).join(""):'<p class="muted">No products match these filters. Clear a filter to see more.</p>';
-    $("#colShown").textContent=idx.length;
-  }
-  $$(".filters input").forEach(function(x){x.addEventListener("change",renderCollection)});
-  $("#sort").addEventListener("change",renderCollection);
-  $("#filterToggle").addEventListener("click",function(){var f=$("#filters");f.classList.toggle("open");this.setAttribute("aria-expanded",f.classList.contains("open"))});
-  renderCollection();
+// room index
+const RC=['Curved bouclé, a marble table and one warm pendant.','An oval marble table for eight under linear brass light.','Walnut, linen and a travertine bedside table.','Brass pendants, floor lamps and table lamps.','A leather chair, a reading lamp and a stone side table.'];
+$('#rlist').addEventListener('click',e=>{const b=e.target.closest('button');if(!b)return;rsel(b)});
+$('#rlist').addEventListener('mouseover',e=>{const b=e.target.closest('button');if(b&&matchMedia('(hover:hover)').matches)rsel(b)});
+function rsel(b){const r=+b.dataset.r;$$('#rlist button').forEach(x=>x.classList.toggle('on',x===b));$$('.rimg .imgs img').forEach((im,k)=>im.classList.toggle('on',k===r));$('#rcap').textContent=RC[r];$('.rimg .lnk').textContent='Shop '+b.querySelector('b').textContent.toLowerCase()}
 
-  function runSearch(q){
-    q=(q||"").trim().toLowerCase();
-    var idx=P.map(function(_,i){return i}).filter(function(i){var p=P[i];return !q||(p.n+" "+p.t+" "+p.cat+" "+p.cn).toLowerCase().indexOf(q)>-1});
-    $("#searchCount").textContent=idx.length+" result"+(idx.length===1?"":"s")+(q?' for "'+q+'"':"");
-    $("#searchGrid").innerHTML=idx.length?idx.map(card).join(""):'<p class="muted">No products found. Try "lamp", "rug" or "oak", or browse popular pieces below.</p>';
-  }
-  $("#searchForm").addEventListener("submit",function(e){e.preventDefault();runSearch($("#q").value)});
-  $("[data-search404]").addEventListener("submit",function(e){e.preventDefault();$("#q").value=$("#q404").value;runSearch($("#q404").value);show("search")});
-  runSearch("oak");
+// configurator
+const CFG={m:0,s:1,e:0},CM=['Carrara marble','Nero Marquina'],CS=[[180,3200,'Seats 6'],[220,3650,'Seats 8'],[260,4100,'Seats 10']];
+function cfg(){const p=CS[CFG.s][1]+(CFG.e?450:0);$('#cfgPrice').textContent=money(p);$('#cfgMat').textContent=CM[CFG.m];$('#cfgDim').textContent=CS[CFG.s][0]+' CM';$('#cfgEdgeT').textContent=CFG.e?'Brass inlay':'Eased edge';
+ $('#cfgA').classList.toggle('off',CFG.m===1);$('#cfgB').classList.toggle('off',CFG.m===0);$('#cfgLead').textContent='Made to order · ships in '+(CFG.e||CFG.s===2?'8 to 10':'6 to 8')+' weeks'}
+$('#cfgSw').onclick=e=>{const b=e.target.closest('button');if(!b)return;CFG.m=+b.dataset.m;$$('#cfgSw button').forEach(x=>x.classList.toggle('on',x===b));cfg()};
+$('#cfgSz').onclick=e=>{const b=e.target.closest('button');if(!b)return;CFG.s=+b.dataset.s;$$('#cfgSz button').forEach(x=>x.classList.toggle('on',x===b));cfg()};
+$('#cfgEdge').onclick=e=>{const b=e.target.closest('button');if(!b)return;CFG.e=+b.dataset.e;$$('#cfgEdge button').forEach(x=>x.classList.toggle('on',x===b));cfg()};
+$('#cfgAdd').onclick=()=>{add(0,CFG.s,CFG.m,true,CFG.e);toast('Halden table added · '+CM[CFG.m]+', '+CS[CFG.s][0]+' cm');bump();openCart()};cfg();
 
-  function renderCart(){
-    var sub=0,count=0,html="";
-    cart.forEach(function(l,k){var p=P[l.i];sub+=p.p*l.q;count+=l.q;
-      html+='<div class="cl"><div class="thumb"><svg viewBox="0 0 200 200" style="color:'+p.c+'" aria-hidden="true"><use href="#g-'+p.s+'"/></svg></div><div><h3>'+p.n+'</h3><div class="muted" style="font-size:14px">'+l.col+' / '+l.size+'</div><div class="qty"><button type="button" aria-label="Decrease quantity" data-q="'+k+'" data-d="-1">−</button><span>'+l.q+'</span><button type="button" aria-label="Increase quantity" data-q="'+k+'" data-d="1">+</button></div><button type="button" class="linkbtn" data-rm="'+k+'">Remove</button></div><b>'+money(p.p*l.q)+'</b></div>';});
-    $("#cartLines").innerHTML=html; $("#drawerLines").innerHTML=html||'<p class="muted">Your cart is empty.</p>';
-    $("#cartEmpty").hidden=cart.length>0;
-    $("#subtotal").textContent=money(sub); $("#drawerSub").textContent=money(sub);
-    $$(".cart-count").forEach(function(c){c.textContent=count});
-    var left=150-sub; $("#shipMsg").textContent=left>0?"Spend "+money(left)+" more for free delivery":"You have free delivery";
-    $("#shipBar").style.width=Math.min(100,sub/150*100)+"%";
-  }
-  document.addEventListener("click",function(e){
-    var q=e.target.closest("[data-q]"),rm=e.target.closest("[data-rm]"),add=e.target.closest("[data-add]");
-    if(q){var l=cart[+q.dataset.q];l.q=Math.max(1,l.q+(+q.dataset.d));renderCart();}
-    if(rm){cart.splice(+rm.dataset.rm,1);renderCart();}
-    if(add){var i=+add.dataset.add,sz=$('.sizes button[aria-pressed="true"]',add.closest("section")||document);
-      var col=(add.closest("#view-product")&&$("#cname"))?$("#cname").textContent:P[i].cn;
-      cart.push({i:i,size:sz?sz.textContent:"Std",col:col,q:1});renderCart();$$(".hotcard").forEach(function(x){x.remove()});openDrawer("cart");}
-  });
-  renderCart();
+// samples
+const S=[['Carrara','Marble','carrara'],['Nero Marquina','Marble','nero'],['Verde Alpi','Marble','verde'],['Travertine','Stone','trav'],['Oiled walnut','Wood','walnut'],['Brushed brass','Metal','brass'],['Ivory bouclé','Fabric','boucle'],['Olive velvet','Fabric','olive'],['Caramel leather','Leather','caramel']];
+let ss=new Set([0,4]);
+function sdraw(){$('#sgrid').innerHTML=S.map((s,i)=>`<button class="${ss.has(i)?'on':''}" data-i="${i}" ${!ss.has(i)&&ss.size>=5?'disabled':''} aria-pressed="${ss.has(i)}"><i style="background:${C[s[2]]}"></i><span>${s[0]}<small>${s[1]}</small></span></button>`).join('');$('#sct').innerHTML=`<b>${ss.size}</b> of 5 chosen`;$('#sreq').disabled=!ss.size}
+$('#sgrid').onclick=e=>{const b=e.target.closest('button');if(!b||b.disabled)return;const i=+b.dataset.i;ss.has(i)?ss.delete(i):ss.add(i);sdraw()};
+$('#sreq').onclick=()=>{samples=[...ss].map(i=>S[i][0]);render();toast(samples.length+' free samples added to your cart');bump();openCart()};sdraw();
 
-  function openDrawer(w){var d=w==="cart"?$("#cartDrawer"):$("#menuDrawer"),o=w==="cart"?$("#ovCart"):$("#ovMenu");d.hidden=false;o.hidden=false;var b=d.querySelector(".x");if(b)b.focus();}
-  function closeDrawers(){$$(".drawer,.overlay").forEach(function(x){x.hidden=true})}
-  $("[data-open=menu]").addEventListener("click",function(){openDrawer("menu")});
-  $$("[data-close]").forEach(function(x){x.addEventListener("click",closeDrawers)});
-  document.addEventListener("keydown",function(e){if(e.key==="Escape")closeDrawers()});
+// appointment
+const DN=['Mon','Tue','Wed','Thu','Fri','Sat','Sun'],DM=['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+const base=new Date(2026,9,26);const AD=[...Array(7)].map((_,k)=>{const d=new Date(base);d.setDate(base.getDate()+k);return d});
+let A={t:'Showroom visit',d:1,s:null};const SL=['10:00','11:30','13:00','14:30','16:00','17:30'],FULL={1:[1,4],2:[0],4:[2,3]};
+function adraw(){$('#aDays').innerHTML=AD.map((d,k)=>`<button class="${k===A.d?'on':''}" data-k="${k}" ${A.t==='Showroom visit'&&d.getDay()===0?'disabled':''}>${DN[(d.getDay()+6)%7]}<b>${d.getDate()}</b>${DM[d.getMonth()]}</button>`).join('');
+ $('#aSlots').innerHTML=SL.map((s,k)=>`<button class="${k===A.s?'on':''}" data-s="${k}" ${(FULL[A.d]||[]).includes(k)?'disabled':''}>${s}</button>`).join('');
+ const d=AD[A.d];$('#aSum').textContent=A.s===null?'Pick a time':`${A.t} · ${DN[(d.getDay()+6)%7]} ${d.getDate()} ${DM[d.getMonth()]} at ${SL[A.s]}`}
+$('#aType').onclick=e=>{const b=e.target.closest('button');if(!b)return;A.t=b.dataset.t;$$('#aType button').forEach(x=>x.classList.toggle('on',x===b));if(A.t==='Showroom visit'&&AD[A.d].getDay()===0)A.d=1;adraw()};
+$('#aDays').onclick=e=>{const b=e.target.closest('button');if(!b||b.disabled)return;A.d=+b.dataset.k;A.s=null;adraw()};
+$('#aSlots').onclick=e=>{const b=e.target.closest('button');if(!b||b.disabled)return;A.s=+b.dataset.s;adraw()};
+$('#aBook').onclick=()=>{if(A.s===null){toast('Pick a time first');return}const n=$('#aName').value.trim()||'there';$('#aDoneT').textContent=`Thank you, ${n}. ${$('#aSum').textContent}. A confirmation is on its way to your inbox.`;$('#aDone').classList.add('on')};adraw();
 
-  document.addEventListener("click",function(e){
-    var sw=e.target.closest(".swatches button");
-    if(sw){$$(".swatches button",sw.parentNode).forEach(function(x){x.setAttribute("aria-pressed","false")});sw.setAttribute("aria-pressed","true");$("#cname").textContent=sw.dataset.c;$("#mainArt").style.color=sw.dataset.hex;}
-    var sz=e.target.closest(".sizes button:not([disabled])");
-    if(sz){$$(".sizes button",sz.parentNode).forEach(function(x){x.setAttribute("aria-pressed","false")});sz.setAttribute("aria-pressed","true");}
-  });
+// collection
+const MATS=[['Marble','carrara'],['Travertine','trav'],['Walnut','walnut'],['Brass','brass'],['Fabric','boucle'],['Leather','caramel']];
+const pm=p=>{const s=p.mats.map(m=>m[0]).join(' ');return MATS.filter(m=>s.toLowerCase().includes(m[0].toLowerCase())||(m[0]==='Marble'&&/carrara|nero|verde/i.test(s))||(m[0]==='Fabric'&&/bouclé|velvet/i.test(s))).map(m=>m[0])};
+$('#fmat').innerHTML=MATS.map(m=>`<label><input type="checkbox" value="${m[0]}"><i style="background:${C[m[1]]}"></i>${m[0]}<small>${P.filter(p=>pm(p).includes(m[0])).length}</small></label>`).join('');
+let cr='all';
+function col(){const fm=$$('#fmat input:checked').map(x=>x.value),mx=+$('#fprice').value;$('#fpv').textContent=money(mx);
+ let ids=P.map((p,i)=>i).filter(i=>{const p=P[i];return(cr==='all'||p.room===cr)&&(!fm.length||pm(p).some(m=>fm.includes(m)))&&p.sz[0][1]<=mx&&(!$('#fmto').checked||p.mto)&&(!$('#fstock').checked||!p.mto)});
+ const s=$('#sort').value;if(s==='lo')ids.sort((a,b)=>P[a].sz[0][1]-P[b].sz[0][1]);if(s==='hi')ids.sort((a,b)=>P[b].sz[0][1]-P[a].sz[0][1]);if(s==='rt')ids.sort((a,b)=>P[b].r-P[a].r);
+ const h=ids.map(i=>card(P[i],i));if(h.length>=3)h.splice(4,0,`<a href="#samples" class="promo" data-go="home" data-dawn="sbs-promo-tile"><img src="${src('swatches')}" alt=""><span class="eyebrow">Free samples</span><h3>Feel the stone first.</h3><p>Up to five samples, posted free.</p></a>`);
+ $('#cgrid').innerHTML=h.join('')||'<p class="empty" style="grid-column:1/-1">No pieces match. Clear a filter.</p>';$('#ccount').textContent=ids.length+(ids.length===1?' piece':' pieces');$('#shown').textContent=ids.length;$('#total').textContent=ids.length;}
+$('#rchips').onclick=e=>{const b=e.target.closest('button');if(!b)return;cr=b.dataset.r;$$('#rchips button').forEach(x=>x.classList.toggle('on',x===b));col()};
+$('#side').addEventListener('input',col);$('#sort').onchange=col;
+$('#openF').onclick=()=>{$('#side').classList.add('on');$('#closeF').style.display='flex'};$('#closeF').onclick=()=>{$('#side').classList.remove('on');$('#closeF').style.display='none'};
 
-  function toast(msg){var t=$("#toast");t.textContent=msg;t.hidden=false;clearTimeout(t._t);t._t=setTimeout(function(){t.hidden=true},2200)}
-  $$("[data-sub]").forEach(function(f){f.addEventListener("submit",function(e){e.preventDefault();f.querySelector("button").textContent="Subscribed";toast("Subscribed. Look out for the next drop.")})});
-  $("#contactForm").addEventListener("submit",function(e){e.preventDefault();this.reset();toast("Message sent. We will reply within one working day.")});
-  $("#themeBtn").addEventListener("click",function(){var r=document.documentElement,d=r.getAttribute("data-theme")==="dark"||(!r.getAttribute("data-theme")&&window.matchMedia("(prefers-color-scheme: dark)").matches);r.setAttribute("data-theme",d?"light":"dark")});
+// product
+const PP=P[0];let pmI=0,ps=1,pq=1;const GAL=[['table','tableblack'],['dining','dining'],['marble','marble'],['showroom','showroom'],['swatches','swatches']];
+function gal(){$('#gal').innerHTML=GAL.map((g,k)=>`<button aria-label="Image ${k+1}"><img src="${src(g[pmI])}" alt="Halden table image ${k+1}"></button>`).join('');$('#gdots').innerHTML=GAL.map((_,k)=>`<i class="${k?'':'on'}"></i>`).join('')}
+$('#gal').addEventListener('click',e=>{const b=e.target.closest('button');if(!b)return;const r=b.getBoundingClientRect();b.querySelector('img').style.transformOrigin=`${(e.clientX-r.left)/r.width*100}% ${(e.clientY-r.top)/r.height*100}%`;b.classList.toggle('zoom')});
+$('#gal').addEventListener('scroll',()=>{const g=$('#gal'),k=Math.round(g.scrollLeft/g.clientWidth);$$('#gdots i').forEach((d,j)=>d.classList.toggle('on',j===k))});
+$('#psz').innerHTML=PP.sz.map((s,k)=>`<button data-s="${k}" class="${k===ps?'on':''}">${s[0]}<small>${money(s[1])}</small></button>`).join('');
+function pup(){const v=PP.sz[ps][1]*pq,t='Add to cart · '+money(v);$('#atc').textContent=t;$('#satc').textContent=t;$('#pprice').innerHTML=money(PP.sz[ps][1])+'<small>incl. white-glove delivery</small>';$('#pmat').textContent=CM[pmI];const w=parseInt(PP.sz[ps][0]);$('#pdim').textContent=w+' × 110 cm';$('#dW').textContent=w+' cm';$('#dimtxt').textContent=w+' cm';$('#stxt').textContent=(pmI?'Nero Marquina':'Carrara')+' · '+PP.sz[ps][0]}
+$('#psw').onclick=e=>{const b=e.target.closest('button');if(!b)return;pmI=+b.dataset.m;$$('#psw button').forEach(x=>x.classList.toggle('on',x===b));gal();pup()};
+$('#psz').onclick=e=>{const b=e.target.closest('button');if(!b)return;ps=+b.dataset.s;$$('#psz button').forEach(x=>x.classList.toggle('on',x===b));pup()};
+$('#qm').onclick=()=>{pq=Math.max(1,pq-1);$('#qtyv').value=pq;pup()};$('#qp').onclick=()=>{pq++;$('#qtyv').value=pq;pup()};
+const padd=()=>{for(let k=0;k<pq;k++)add(0,ps,pmI,true);toast('Halden Marble Dining Table added');bump();openCart()};
+$('#atc').onclick=padd;$('#satc').onclick=padd;
+addEventListener('scroll',()=>{const on=$('#p-product').classList.contains('on');$('#sticky').classList.toggle('on',on&&$('#atc').getBoundingClientRect().bottom<0)});
 
-  var VIEWS=[["home","Homepage"],["collection","Collection"],["product","Product"],["cart","Cart"],["search","Search"],["blog","Blog"],["article","Article"],["about","About"],["contact","Contact"],["404","404"]];
-  $("#pageTabs").innerHTML=VIEWS.map(function(v){return '<button type="button" data-view="'+v[0]+'" aria-pressed="false">'+v[1]+'</button>'}).join("");
-  function show(v){
-    VIEWS.forEach(function(x){$("#view-"+x[0]).hidden=x[0]!==v});
-    $$("#pageTabs button").forEach(function(b){b.setAttribute("aria-pressed",String(b.dataset.view===v))});
-    closeDrawers(); $$(".hotcard").forEach(function(x){x.remove()}); window.scrollTo(0,0);
-  }
-  $("#pageTabs").addEventListener("click",function(e){var b=e.target.closest("button");if(b)show(b.dataset.view)});
-  document.addEventListener("click",function(e){var a=e.target.closest("[data-go]");if(a){e.preventDefault();show(a.dataset.go)}});
-  $("#showSections").addEventListener("change",function(){document.body.classList.toggle("show-sections",this.checked)});
-  show("home");
-})();
+// cart
+let cart=[],samples=[];
+function add(i,s,m,silent,e){const key=[i,s,m||0,e||0].join('|');const c=cart.find(x=>x.key===key);c?c.q++:cart.push({key,i,s,m:m||0,e:e||0,q:1});render();if(!silent){toast(P[i].n+' added');bump()}}
+window.add=add;
+function bump(){const b=$('#openCart');b.classList.remove('bump');void b.offsetWidth;b.classList.add('bump')}
+const price=c=>P[c.i].sz[c.s][1]+(c.e?450:0);
+function render(){const sub=cart.reduce((a,c)=>a+price(c)*c.q,0),n=cart.reduce((a,c)=>a+c.q,0)+samples.length;$('#count').textContent=n;
+ const pr=`${sub>=2000?'Your order has complimentary white-glove delivery.':money(2000-sub)+' away from complimentary white-glove delivery'}<div class="bar"><i style="width:${Math.min(100,sub/2000*100)}%"></i></div>`;$('#dprog').innerHTML=pr;$('#cprog').innerHTML=pr;
+ const line=c=>{const p=P[c.i];return `<div class="li"><img src="${src(p.img)}" alt=""><div><b>${p.n}</b><small>${p.mats[c.m]?p.mats[c.m][0]:''} · ${p.sz[c.s][0]}${c.e?' · Brass inlay':''}${p.mto?' · Made to order':''}</small><div class="q"><button onclick="chg('${c.key}',-1)" aria-label="Less">−</button>${c.q}<button onclick="chg('${c.key}',1)" aria-label="More">+</button><button class="rm" onclick="chg('${c.key}',-99)">Remove</button></div></div><span>${money(price(c)*c.q)}</span></div>`};
+ const sam=samples.length?`<div class="li"><img src="${src('swatches')}" alt=""><div><b>Material samples</b><small>${samples.join(', ')}</small><div class="q"><button class="rm" onclick="samples=[];render()">Remove</button></div></div><span>Free</span></div>`:'';
+ const h=cart.length||samples.length?cart.map(line).join('')+sam:'<div class="empty">Your cart is empty.</div>';$('#dlines').innerHTML=h;$('#clines').innerHTML=h;
+ $('#dsub').textContent=money(sub);$('#csub').textContent=money(sub);$('#ctot').textContent=money(sub);$('#cship').textContent=sub>=2000?'Complimentary':sub?'$150':'—';$('#csam').textContent=samples.length?samples.length+' · Free':'—';if(sub&&sub<2000)$('#ctot').textContent=money(sub+150)}
+window.chg=(k,d)=>{const c=cart.find(x=>x.key===k);c.q+=d;if(c.q<=0)cart=cart.filter(x=>x!==c);render()};
+const openCart=()=>{$('#drawer').classList.add('on');$('#scrim').classList.add('on')};
+function closeAll(){['#drawer','#scrim','#mnav'].forEach(s=>$(s).classList.remove('on'));$('#side').classList.remove('on')}
+$('#openCart').onclick=openCart;$('#closeCart').onclick=closeAll;$('#scrim').onclick=closeAll;
+$('#burger').onclick=()=>$('#mnav').classList.add('on');$('#mclose').onclick=closeAll;
+document.addEventListener('keydown',e=>{if(e.key==='Escape')closeAll()});
+
+// search
+const rs=()=>{const q=$('#q').value.toLowerCase().trim();const ids=P.map((p,i)=>i).filter(i=>(P[i].n+' '+P[i].room+' '+P[i].mats.map(m=>m[0]).join(' ')).toLowerCase().includes(q));$('#sres').textContent=ids.length+(ids.length===1?' result':' results')+' for "'+$('#q').value+'"';grid('#sgrid2',ids)};
+$('#q').oninput=rs;$$('.sugg button').forEach(b=>b.onclick=()=>{$('#q').value=b.textContent;rs()});
+$('#btabs').onclick=e=>{const b=e.target.closest('button');if(!b)return;$$('#btabs button').forEach(x=>x.classList.toggle('on',x===b))};
+
+let tt;function toast(t){$('#toast').textContent=t;$('#toast').classList.add('on');clearTimeout(tt);tt=setTimeout(()=>$('#toast').classList.remove('on'),2400)}window.toast=toast;
+let io;function obs(){io?.disconnect();io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.08});$$('.page.on .reveal:not(.in)').forEach(r=>io.observe(r))}
+function go(pg,h){$$('.page').forEach(p=>p.classList.toggle('on',p.id==='p-'+pg));$$('.dt button').forEach(b=>b.classList.toggle('on',b.dataset.go===pg));closeAll();$('#sticky').classList.remove('on');if(h)setTimeout(()=>document.querySelector(h)?.scrollIntoView({behavior:'smooth'}),60);else scrollTo(0,0);obs()}
+window.go=go;
+document.addEventListener('click',e=>{const a=e.target.closest('[data-go]');if(!a)return;e.preventDefault();const h=a.getAttribute('href');go(a.dataset.go,h&&h.length>1&&h[0]==='#'?h:null)});
+$('#names').onchange=e=>document.body.classList.toggle('names',e.target.checked);
+$$('img[data-src]').forEach(i=>i.src=src(i.dataset.src));
+gal();col();render();rs();pup();obs();
 </script>
-
-</body></html>
+</body>
+</html>
