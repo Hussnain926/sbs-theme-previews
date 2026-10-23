@@ -1,482 +1,922 @@
-<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
-<title>Voltline Theme</title>
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Voltline Edge Athleisure Theme</title>
+<meta name="description" content="Voltline Edge: an athleisure studio Shopify theme design. Design by Shopify Brands SEO.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,600;0,800;1,900&family=Barlow:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
-:root{--bg:#fff;--ink:#0E0F11;--volt:#C6FF00;--mute:#5F6368;--line:#E3E4E6;--card:#F2F3F0;--dark:#0E0F11;--ondark:#fff;
---display:"Barlow Condensed","Arial Narrow",Impact,sans-serif;--body:Barlow,"Helvetica Neue",Arial,sans-serif;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
-@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0E0F11;--ink:#F4F5F2;--mute:#A4A8AD;--line:#2A2D31;--card:#1A1C1F;--dark:#000;}}
-:root[data-theme="dark"]{--bg:#0E0F11;--ink:#F4F5F2;--mute:#A4A8AD;--line:#2A2D31;--card:#1A1C1F;--dark:#000}
-*,*::before,*::after{box-sizing:inherit}
-body{margin:0;background:var(--bg);color:var(--ink);font:400 16px/1.55 var(--body);-webkit-font-smoothing:antialiased}
-img,svg{max-width:100%;display:block}a{color:inherit}button,input,select,textarea{font:inherit;color:inherit}
-:focus-visible{outline:3px solid var(--volt);outline-offset:2px}
-.wrap{max-width:1320px;margin:0 auto;padding:0 clamp(16px,3vw,36px)}.narrow{max-width:760px}
-[hidden]{display:none!important}.sr{position:absolute;left:-9999px}
-.preview-bar{background:#2A2D31;color:#fff;font-size:14px;padding:10px 0;position:relative;z-index:30}
-.preview-bar .wrap{display:flex;gap:10px;align-items:center;flex-wrap:wrap}
-.preview-bar .pages{display:flex;gap:6px;overflow-x:auto;flex:1 1 auto;padding-bottom:2px}
-.preview-bar button{background:transparent;border:1px solid rgba(255,255,255,.4);color:#fff;padding:5px 12px;border-radius:999px;cursor:pointer;white-space:nowrap}
-.preview-bar button[aria-pressed="true"]{background:#C6FF00;border-color:#C6FF00;color:#0E0F11;font-weight:600}
-.preview-bar label{display:flex;gap:6px;align-items:center;white-space:nowrap;cursor:pointer}
-body.show-sections [data-dawn]{position:relative;outline:2px dashed #FF2D78;outline-offset:-2px}
-body.show-sections [data-dawn]::after{content:attr(data-dawn);position:absolute;top:8px;right:8px;background:#FF2D78;color:#fff;font:600 12px/1 var(--body);padding:6px 8px;z-index:6;pointer-events:none}
-/* announce + header */
-.announce{background:var(--volt);color:#0E0F11;text-align:center;font:800 14px/1 var(--display);letter-spacing:.12em;text-transform:uppercase;padding:11px 16px}
-header.site{position:sticky;top:0;z-index:20;background:#0E0F11;color:#fff}
-.head{display:flex;align-items:center;gap:28px;height:72px}
-.logo{font:italic 900 34px/1 var(--display);text-transform:uppercase;text-decoration:none;letter-spacing:.01em}.logo b{color:var(--volt)}
-.head nav{display:flex;gap:24px;flex:1;font:800 17px/1 var(--display);text-transform:uppercase;letter-spacing:.08em}
-.head nav a{text-decoration:none;display:flex;gap:6px;align-items:center}.head nav a:hover{color:var(--volt)}
-.pill{background:var(--volt);color:#0E0F11;font-size:11px;padding:3px 6px;letter-spacing:.06em}
-.head nav a.deals{color:var(--volt)}
-.tools{display:flex;gap:18px;font:800 16px/1 var(--display);text-transform:uppercase;letter-spacing:.08em}.tools a{text-decoration:none}.tools a:hover{color:var(--volt)}
-.menu-btn{display:none;background:none;border:0;color:#fff;padding:6px;cursor:pointer}
-@media (max-width:1140px){.head nav{display:none}.menu-btn{display:block}.head{gap:12px}.logo{flex:1}.tools .hide-sm{display:none}}@media (max-width:480px){.trust-in{grid-template-columns:1fr}.tr{border-right:0;border-bottom:1px solid var(--line)}.nums{grid-template-columns:1fr}}@media (max-width:420px){.logo{font-size:28px}.tools{gap:12px;font-size:15px}.hero-l,.preview-bar{min-width:0}}
-/* base */
-section.block{padding:clamp(40px,6vw,76px) 0}section.tight{padding-top:0}
-.sec-head{display:flex;justify-content:space-between;align-items:end;gap:16px;margin-bottom:24px;flex-wrap:wrap}
-h2.h{font:italic 900 clamp(38px,5.4vw,66px)/.9 var(--display);text-transform:uppercase;margin:0}
-.sec-head a{font:800 17px/1 var(--display);text-transform:uppercase;letter-spacing:.08em}
-.btn{display:inline-block;padding:15px 28px;border:2px solid var(--ink);text-decoration:none;font:800 18px/1 var(--display);text-transform:uppercase;letter-spacing:.08em;background:transparent;cursor:pointer;text-align:center;border-radius:0}
-.btn.solid{background:var(--ink);color:var(--bg)}.btn.solid:hover{background:var(--volt);color:#0E0F11;border-color:var(--volt)}
-.btn.volt{background:var(--volt);color:#0E0F11;border-color:var(--volt)}.btn.volt:hover{background:#fff;border-color:#fff}
-.btn.ghost{border-color:#fff;color:#fff}.btn.ghost:hover{background:#fff;color:#0E0F11}
-.btn:not(.solid):not(.volt):not(.ghost):hover{background:var(--card)}
-.btns{display:flex;gap:12px;flex-wrap:wrap}.muted{color:var(--mute)}
+:root{--chalk:#F4F2EE;--chalk2:#EAE6DF;--white:#FFFFFF;--graph:#18181B;--graph2:#2A2A2F;--lilac:#B9A5F0;--lilacl:#E6DEFB;--mint:#BFE6CF;--mintl:#E3F4EA;--oat:#E9E1D3;--mute:#6B6871;--line:rgba(24,24,27,.1);--disp:'Barlow Condensed',sans-serif;--sans:'Manrope',system-ui,sans-serif;--ease:cubic-bezier(.22,.8,.3,1);--r:22px}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font:400 16px/1.6 var(--sans);color:var(--graph);background:var(--chalk);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+img{display:block;max-width:100%}
+a{color:inherit;text-decoration:none}
+button,input,select,textarea{font:inherit;color:inherit;background:none;border:0}
+button{cursor:pointer}
+:focus-visible{outline:3px solid var(--lilac);outline-offset:2px}
+.wrap{max-width:1440px;margin:0 auto;padding:0 32px}
+h1,h2,h3,h4{font-family:var(--disp);font-weight:800;line-height:1.05;letter-spacing:-.005em;text-transform:uppercase}
+h1 i,h2 i,h3 i{font-style:normal;background:var(--lilac);border-radius:.16em;padding:0 .1em;line-height:.9;box-decoration-break:clone;-webkit-box-decoration-break:clone}
+h2 i.m,h1 i.m{background:var(--mint)}
+.tag{display:inline-flex;align-items:center;gap:8px;font:700 12px/1 var(--sans);letter-spacing:.12em;text-transform:uppercase;background:var(--white);border:1px solid var(--line);border-radius:99px;padding:8px 13px}
+.tag::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--lilac);box-shadow:0 0 0 3px var(--lilacl)}
+.tag.dk{background:var(--graph);color:var(--chalk);border-color:var(--graph)}
+.btn{white-space:nowrap;display:inline-flex;align-items:center;justify-content:center;gap:10px;height:54px;padding:0 28px;border-radius:99px;font:700 15px/1 var(--sans);transition:transform .2s,background .25s,color .25s}
+.btn:hover{transform:translateY(-2px)}
+.btn-g{background:var(--graph);color:var(--chalk)}.btn-g:hover{background:#000}
+.btn-l{background:var(--lilac);color:var(--graph)}.btn-l:hover{background:#a993ea}
+.btn-w{background:var(--white);color:var(--graph)}
+.btn-o{border:1.5px solid var(--graph)}.btn-o:hover{background:var(--graph);color:var(--chalk)}
+.btn .ar{width:26px;height:26px;border-radius:50%;background:var(--chalk);color:var(--graph);display:grid;place-items:center;font-size:13px;margin-right:-12px}
+.btn-l .ar,.btn-w .ar{background:var(--graph);color:var(--chalk)}
+.sec{padding:96px 0}
+.head{display:flex;justify-content:space-between;align-items:flex-end;gap:28px;margin-bottom:36px}
+.head h2{font-size:clamp(46px,5.6vw,92px);margin-top:14px}
+.head p{max-width:380px;color:var(--mute)}
+.reveal{opacity:0;transform:translateY(24px) scale(.99);transition:opacity .8s var(--ease),transform .8s var(--ease)}
+.reveal.in{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}.reveal{opacity:1;transform:none}}
+/* toolbar */
+.dt{position:sticky;top:0;z-index:95;background:#000;color:#aaa;font-size:12px}
+.dt .wrap{display:flex;gap:4px;align-items:center;height:44px;overflow-x:auto;scrollbar-width:none}
+.dt b{color:var(--lilac);margin-right:12px;white-space:nowrap}
+.dt button{padding:6px 12px;border-radius:99px;white-space:nowrap;color:#aaa}
+.dt button.on{background:var(--lilac);color:#000}
+.dt label{margin-left:auto;display:flex;gap:8px;align-items:center;white-space:nowrap;cursor:pointer}
+body.names [data-dawn]{position:relative;outline:2px dashed rgba(140,110,230,.9);outline-offset:-2px}
+body.names [data-dawn]::before{content:attr(data-dawn);position:absolute;top:6px;left:6px;z-index:60;background:var(--lilac);color:#000;font:700 10px/1 var(--sans);padding:5px 8px;border-radius:99px;pointer-events:none}
+/* announcement: drop countdown */
+.ann{background:var(--graph);color:#cfcbd6;font-size:13px;font-weight:600}
+.ann .wrap{display:flex;justify-content:center;align-items:center;gap:18px;height:40px;white-space:nowrap}
+.ann b{color:var(--mint)}
+.ann .cd{display:flex;gap:4px}
+.ann .cd span{background:var(--graph2);border-radius:6px;padding:2px 7px;font-variant-numeric:tabular-nums;color:#fff}
+.ann a{text-decoration:underline;color:var(--lilac)}
+/* header: floating pill */
+.hdr{position:sticky;top:44px;z-index:80;padding:12px 0;transition:padding .3s}
+.pill{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;height:64px;background:rgba(255,255,255,.86);backdrop-filter:blur(14px);border:1px solid var(--line);border-radius:99px;padding:0 10px 0 22px;box-shadow:0 10px 30px -18px rgba(24,24,27,.25)}
+.nav{display:flex;gap:2px}
+.nav>div{position:relative}
+.nv{display:block;font-weight:700;font-size:14px;padding:10px 14px;border-radius:99px;transition:background .2s}
+.nav>div:hover .nv,.nv.on{background:var(--chalk2)}
+.dd{position:absolute;top:calc(100% + 14px);left:-10px;width:560px;background:var(--white);border:1px solid var(--line);border-radius:26px;padding:18px;display:grid;grid-template-columns:1fr 1fr 210px;gap:18px;opacity:0;visibility:hidden;transform:translateY(-6px);transition:.25s var(--ease);box-shadow:0 30px 60px -30px rgba(0,0,0,.3)}
+.nav>div:hover .dd,.nav>div:focus-within .dd{opacity:1;visibility:visible;transform:none}
+.dd h5{font:700 11px/1 var(--sans);letter-spacing:.12em;text-transform:uppercase;color:var(--mute);margin:6px 0 12px}
+.dd ul{list-style:none;display:grid;gap:4px}
+.dd ul a{display:block;font-weight:600;font-size:15px;padding:6px 10px;border-radius:10px}
+.dd ul a:hover{background:var(--chalk)}
+.dd .pr{position:relative;border-radius:18px;overflow:hidden;aspect-ratio:3/4}
+.dd .pr img{width:100%;height:100%;object-fit:cover}
+.dd .pr b{position:absolute;left:10px;bottom:10px;background:var(--white);border-radius:99px;padding:6px 12px;font-size:13px}
+.logo{font:800 30px/1 var(--disp);letter-spacing:.02em;text-transform:uppercase;display:flex;align-items:center;gap:8px}
+.logo svg{width:26px;height:26px}
+.logo em{font-style:normal;background:var(--graph);color:var(--lilac);border-radius:8px;padding:2px 7px 1px;font-size:20px;letter-spacing:.06em}
+.util{display:flex;justify-content:flex-end;align-items:center;gap:4px}
+.util a,.util button{display:flex;align-items:center;gap:8px;height:44px;padding:0 13px;border-radius:99px;font-weight:700;font-size:14px}
+.util a:hover,.util button:hover{background:var(--chalk2)}
+.ico{width:20px;height:20px}
+#openCart{background:var(--graph);color:var(--chalk)}
+#openCart:hover{background:#000}
+#openCart b{background:var(--lilac);color:var(--graph);border-radius:99px;min-width:22px;height:22px;display:grid;place-items:center;font-size:12px}
+#openCart.bump{animation:bump .5s}
+@keyframes bump{40%{transform:scale(1.12)}}
+.burger{display:none!important}
+.mnav{position:fixed;inset:0;z-index:120;background:var(--chalk);padding:90px 18px 32px;transform:translateY(-100%);transition:transform .5s var(--ease);overflow:auto}
+.mnav.on{transform:none}
+.mnav .x{position:absolute;top:24px;right:18px;font-weight:700;background:var(--white);border-radius:99px;padding:10px 16px}
+.mnav .chips{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:18px}
+.mnav .chips a{background:var(--white);border:1px solid var(--line);border-radius:99px;padding:10px 16px;font-weight:700}
+.mnav a.big{display:flex;justify-content:space-between;align-items:center;font:800 46px/1.15 var(--disp);text-transform:uppercase;border-bottom:1px solid var(--line);padding:6px 0}
+.mnav a.big span{width:40px;height:40px;border-radius:50%;background:var(--lilac);display:grid;place-items:center;font:700 16px var(--sans)}
 /* hero */
-.hero{background:#0E0F11;color:#fff;overflow:hidden}
-.hero-in{display:grid;grid-template-columns:1.1fr .9fr;min-height:clamp(460px,52vw,640px)}
-.hero-l{padding:clamp(32px,5vw,72px) clamp(16px,3vw,48px) clamp(32px,5vw,72px) max(16px,calc((100vw - 1320px)/2 + 36px));display:flex;flex-direction:column;justify-content:center;gap:22px}
-.hero h1{font:italic 900 clamp(60px,9.5vw,140px)/.84 var(--display);text-transform:uppercase;margin:0}.hero h1 em{color:var(--volt);font-style:inherit}
-.hero p{max-width:40ch;font-size:clamp(17px,1.5vw,20px);color:#D4D6D9;margin:0}
-.hero-r{background:var(--volt);position:relative;clip-path:polygon(18% 0,100% 0,100% 100%,0 100%);display:grid;place-items:center}
-.hero-r svg{width:62%;color:#0E0F11;margin-left:14%}
-.sticker{position:absolute;left:18%;bottom:12%;width:116px;height:116px;border-radius:50%;background:#0E0F11;color:var(--volt);display:grid;place-items:center;text-align:center;transform:rotate(-12deg);font:800 15px/1 var(--display);text-transform:uppercase;letter-spacing:.08em}
-.sticker strong{display:block;font:italic 900 40px/1 var(--display);color:#fff}
-@media (max-width:860px){.hero-in{grid-template-columns:1fr}.hero-l{padding:36px 16px}.hero-r{clip-path:polygon(0 12%,100% 0,100% 100%,0 100%);min-height:340px}.hero-r svg{margin:0;width:48%}.sticker{left:auto;right:6%}}
-/* trust */
-.trust{border-bottom:1px solid var(--line)}.trust-in{display:grid;grid-template-columns:repeat(4,1fr)}
-.tr{display:flex;gap:12px;align-items:center;padding:20px 16px;border-right:1px solid var(--line)}.tr:last-child{border:0}
-.tr i{width:40px;height:40px;background:var(--volt);color:#0E0F11;display:grid;place-items:center;font:italic 900 20px/1 var(--display);flex:none}
-.tr>div{min-width:0}.tr strong{display:block;font:800 18px/1 var(--display);text-transform:uppercase;letter-spacing:.05em}.tr span{font-size:14px;color:var(--mute)}
-@media (max-width:820px){.trust-in{grid-template-columns:1fr 1fr}.tr:nth-child(2){border-right:0}.tr:nth-child(-n+2){border-bottom:1px solid var(--line)}}
-/* categories */
-.cats{display:grid;grid-template-columns:repeat(7,1fr);gap:10px}
-.cat{text-decoration:none;display:block;cursor:pointer;text-align:center}
-.cat .sq{aspect-ratio:1;background:var(--card);display:grid;place-items:center;border-bottom:4px solid transparent;transition:border-color .2s}
-.cat:hover .sq{border-color:var(--volt)}.cat .sq svg{width:62%}
-.cat h3{font:800 18px/1 var(--display);text-transform:uppercase;letter-spacing:.06em;margin:10px 0 0}
-@media (max-width:980px){.cats{grid-template-columns:repeat(4,1fr)}}@media (max-width:560px){.cats{grid-template-columns:repeat(3,1fr);gap:8px}}
-/* promos */
-.promos{display:grid;grid-template-columns:1fr 1fr;gap:12px}
-.promo{min-height:clamp(240px,30vw,360px);padding:clamp(22px,3vw,40px);display:flex;flex-direction:column;justify-content:flex-end;gap:14px;position:relative;overflow:hidden}
-.promo.d{background:#0E0F11;color:#fff}.promo.v{background:var(--volt);color:#0E0F11}
-.promo h3{font:italic 900 clamp(38px,5vw,64px)/.88 var(--display);text-transform:uppercase;margin:0;max-width:11ch;position:relative;z-index:1}
-.promo p{margin:0;max-width:30ch;position:relative;z-index:1}.promo .btn{align-self:flex-start;position:relative;z-index:1}
-.promo svg{position:absolute;right:-4%;top:6%;width:44%;opacity:.9}.promo.d svg{color:var(--volt)}.promo.v svg{color:#0E0F11}
-@media (max-width:700px){.promos{grid-template-columns:1fr}}
-/* product cards */
-.grid{display:grid;grid-template-columns:repeat(5,1fr);gap:clamp(10px,1.4vw,18px)}.grid.four{grid-template-columns:repeat(4,1fr)}.grid.three{grid-template-columns:repeat(3,1fr)}
-.p{display:flex;flex-direction:column;text-decoration:none;cursor:pointer;min-width:0}
-.p .img{background:var(--card);aspect-ratio:1;display:grid;place-items:center;position:relative}.p .img svg{width:64%;transition:transform .3s}.p:hover .img svg{transform:scale(1.06)}
-.tag{position:absolute;top:0;left:0;background:var(--ink);color:var(--bg);font:800 13px/1 var(--display);text-transform:uppercase;letter-spacing:.1em;padding:6px 9px}.tag.new{background:var(--volt);color:#0E0F11}
-.p h3{font:800 20px/1.05 var(--display);text-transform:uppercase;letter-spacing:.03em;margin:12px 0 4px}
-.pm{color:var(--mute);font-size:14px}.cf{margin-top:auto;padding-top:10px;display:grid;gap:8px}.cf b{font:italic 900 24px/1 var(--display)}
-.add{background:#0E0F11;color:#fff;border:0;padding:12px;font:800 16px/1 var(--display);text-transform:uppercase;letter-spacing:.1em;cursor:pointer;width:100%}.add:hover{background:var(--volt);color:#0E0F11}
-@media (max-width:1100px){.grid{grid-template-columns:repeat(3,1fr)}.grid.four{grid-template-columns:repeat(3,1fr)}}
-@media (max-width:760px){.grid,.grid.four,.grid.three{grid-template-columns:repeat(2,1fr)}.grid.slide{display:flex;overflow-x:auto;scroll-snap-type:x mandatory}.grid.slide .p{flex:0 0 62%;scroll-snap-align:start}}
-/* feature band */
-.band{background:#0E0F11;color:#fff}
-.band h2.h em{color:var(--volt);font-style:inherit}
-.fcards{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
-.fc{position:relative;aspect-ratio:3/4;display:flex;align-items:flex-end;padding:20px;overflow:hidden;cursor:pointer;text-decoration:none}
-.fc svg{position:absolute;inset:8% 12% 28% 12%;width:76%;opacity:.9}
-.fc span{position:relative;font:italic 900 clamp(30px,3.6vw,46px)/.9 var(--display);text-transform:uppercase}
-.fc em{position:absolute;top:16px;right:16px;background:var(--volt);color:#0E0F11;font:italic 900 22px/1 var(--display);padding:8px 10px;font-style:italic}
-.fc.a{background:#1E2024}.fc.b{background:var(--volt);color:#0E0F11}.fc.c{background:#2B2F36}.fc.a svg,.fc.c svg{color:var(--volt)}.fc.b svg{color:#0E0F11}.fc.b em{background:#0E0F11;color:var(--volt)}
-@media (max-width:760px){.fcards{grid-template-columns:1fr}.fc{aspect-ratio:4/3}}
-/* fit finder (custom feature) */
-.finder{display:grid;grid-template-columns:.9fr 1.1fr;gap:clamp(20px,4vw,56px);align-items:start}
-.finder p.lead{color:#C9CCD0;max-width:42ch;margin:0 0 24px}
-.fgrp{border:0;padding:0;margin:0 0 20px}.fgrp legend{font:800 16px/1 var(--display);text-transform:uppercase;letter-spacing:.12em;color:var(--volt);margin-bottom:10px}
-.opts{display:flex;gap:8px;flex-wrap:wrap}
-.opts button{background:transparent;border:2px solid #4A4E55;color:#fff;padding:11px 18px;font:800 17px/1 var(--display);text-transform:uppercase;letter-spacing:.06em;cursor:pointer}
-.opts button[aria-pressed="true"]{background:var(--volt);color:#0E0F11;border-color:var(--volt)}
-.fres{background:#1A1C1F;padding:clamp(18px,3vw,32px)}
-.fres .size{font:italic 900 clamp(70px,9vw,120px)/.9 var(--display);color:var(--volt)}
-.fres .sum{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:18px}
-.fres .mini{background:#0E0F11;padding:10px}.fres .mini .im{aspect-ratio:1;display:grid;place-items:center}.fres .mini svg{width:70%}.fres .mini small{display:block;font:800 14px/1.1 var(--display);text-transform:uppercase;letter-spacing:.05em}
-@media (max-width:860px){.finder{grid-template-columns:1fr}}
+.hero{padding:0 0 24px}
+.hpanel{position:relative;height:calc(100vh - 200px);min-height:600px;max-height:820px;border-radius:36px;overflow:hidden;background:var(--lilacl)}
+.hpanel>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:70% 50%}
+.hpanel .tx{position:absolute;left:52px;top:50%;transform:translateY(-50%);max-width:620px}
+.hero h1{font-size:clamp(88px,10.4vw,172px);margin:18px 0 20px;color:var(--graph)}
+.hero p{font-size:18px;max-width:420px;color:#3b3842}
+.hero .ctas{display:flex;gap:10px;margin-top:28px;flex-wrap:wrap}
+.htag{position:absolute;background:var(--white);border-radius:99px;padding:8px 8px 8px 16px;display:flex;align-items:center;gap:12px;font-size:13px;font-weight:700;box-shadow:0 14px 30px -14px rgba(24,24,27,.35);transition:transform .25s}
+.htag:hover{transform:scale(1.04)}
+.htag small{display:block;color:var(--mute);font-weight:600}
+.htag span{width:32px;height:32px;border-radius:50%;background:var(--graph);color:#fff;display:grid;place-items:center}
+.cw{position:absolute;right:28px;bottom:28px;background:rgba(255,255,255,.9);backdrop-filter:blur(10px);border-radius:24px;padding:14px 16px;display:flex;align-items:center;gap:14px}
+.cw p{font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--mute)}
+.cw .sw{display:flex;gap:6px}
+.cw .sw button{width:28px;height:28px;border-radius:50%;box-shadow:inset 0 0 0 1px rgba(0,0,0,.12);position:relative}
+.cw .sw button.on::after{content:"";position:absolute;inset:-4px;border-radius:50%;border:2px solid var(--graph)}
+.hero-strip{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:12px}
+.hero-strip div{background:var(--white);border-radius:20px;padding:16px 18px;display:flex;gap:12px;align-items:center;font-size:14px;font-weight:600}
+.hero-strip i{width:38px;height:38px;border-radius:12px;background:var(--mintl);display:grid;place-items:center;font-style:normal;font-size:18px;flex:none}
+.hero-strip div:nth-child(even) i{background:var(--lilacl)}
+.hero-strip small{display:block;color:var(--mute);font-weight:500;font-size:12px}
+/* activity tabs */
+.act{display:grid;grid-template-columns:420px 1fr;gap:16px}
+.act .ph{position:relative;border-radius:var(--r);overflow:hidden;min-height:560px;background:var(--chalk2)}
+.act .ph img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:opacity .5s}
+.act .ph .lb{position:absolute;left:18px;right:18px;bottom:18px;background:rgba(255,255,255,.92);border-radius:18px;padding:16px 18px}
+.act .ph .lb b{display:block;font:800 34px/1 var(--disp);text-transform:uppercase}
+.act .ph .lb small{color:var(--mute);font-size:13px}
+.tabs{display:flex;gap:6px;background:var(--white);border:1px solid var(--line);border-radius:99px;padding:5px;width:max-content;max-width:100%;overflow-x:auto;scrollbar-width:none}
+.tabs button{padding:10px 20px;border-radius:99px;font-weight:700;font-size:14px;white-space:nowrap;transition:background .25s,color .25s}
+.tabs button.on{background:var(--graph);color:var(--chalk)}
+.act .row{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+/* cards */
+.grid{display:grid;grid-template-columns:repeat(4,1fr);gap:28px 16px}
+.card{position:relative}.mw{position:relative}
+.card .m{position:relative;display:block;aspect-ratio:4/5;border-radius:var(--r);overflow:hidden;background:var(--white)}
+.card .m img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:opacity .45s,transform .9s var(--ease)}
+.card .m .alt{opacity:0}
+.card:hover .m .alt{opacity:1}
+.card:hover .m img{transform:scale(1.03)}
+.bdg{position:absolute;top:12px;left:12px;z-index:2;background:var(--white);font:700 11px/1 var(--sans);letter-spacing:.06em;text-transform:uppercase;padding:7px 10px;border-radius:99px}
+.bdg.set{background:var(--lilac)}.bdg.sale{background:var(--graph);color:var(--mint)}.bdg.new{background:var(--mint)}
+.plus{position:absolute;right:12px;bottom:12px;z-index:3;width:44px;height:44px;border-radius:50%;background:var(--white);display:grid;place-items:center;font-size:22px;font-weight:500;box-shadow:0 8px 20px -10px rgba(0,0,0,.4);transition:transform .3s var(--ease),background .25s}
+.plus:hover{background:var(--graph);color:#fff}
+.card.qo .plus{transform:rotate(45deg);background:var(--graph);color:#fff}
+.qs{position:absolute;left:10px;right:62px;bottom:12px;z-index:3;display:flex;gap:5px;opacity:0;visibility:hidden;transform:translateX(10px);transition:.3s var(--ease)}
+.card.qo .qs{opacity:1;visibility:visible;transform:none}
+.qs button{flex:1;height:44px;border-radius:99px;background:var(--white);font-size:13px;font-weight:700}
+.qs button:hover{background:var(--lilac)}
+.qs button:disabled{opacity:.45;text-decoration:line-through;cursor:not-allowed}
+.qs button:disabled:hover{background:var(--white)}
+.card .meta{padding:14px 4px 0}
+.card .top{display:flex;justify-content:space-between;gap:10px;align-items:flex-start}
+.card h3{font:700 15px/1.35 var(--sans);text-transform:none;letter-spacing:0}
+.card .pr{font-weight:700;font-size:15px;white-space:nowrap;text-align:right}
+.card .pr s{display:block;color:var(--mute);font-weight:500;font-size:13px}
+.card .sub{font-size:13px;color:var(--mute);margin-top:2px}
+.card .sw{display:flex;gap:6px;align-items:center;margin-top:10px}
+.card .sw button{width:20px;height:20px;border-radius:50%;box-shadow:inset 0 0 0 1px rgba(0,0,0,.14);position:relative}
+.card .sw button.on::after{content:"";position:absolute;inset:-3px;border-radius:50%;border:1.5px solid var(--graph)}
+.card .sw span{font-size:12px;color:var(--mute);margin-left:4px}
+/* build a set */
+.bset{background:var(--graph);color:var(--chalk);border-radius:36px;padding:56px}
+.bset .head p{color:#a8a4b0}
+.bset .tag{background:var(--graph2);color:var(--chalk);border-color:transparent}
+.bset-g{display:grid;grid-template-columns:1.1fr 1fr;gap:40px;align-items:start}
+.stage{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.stage .slot{position:relative;aspect-ratio:3/4;border-radius:24px;overflow:hidden;transition:background .4s}
+.stage .slot img{position:absolute;inset:6%;width:88%;height:88%;object-fit:contain;mix-blend-mode:multiply;transition:opacity .35s,transform .45s var(--ease)}
+.stage .slot.sw img{opacity:0;transform:scale(.94)}
+.stage .slot small{position:absolute;left:14px;top:14px;background:rgba(255,255,255,.9);color:var(--graph);border-radius:99px;padding:6px 11px;font-size:12px;font-weight:700}
+.stage .plus2{grid-column:1/-1;display:flex;justify-content:center;margin:-34px 0 -10px;position:relative;z-index:2}
+.stage .plus2 span{width:52px;height:52px;border-radius:50%;background:var(--lilac);color:var(--graph);display:grid;place-items:center;font-size:26px;font-weight:700;border:5px solid var(--graph)}
+.pick h4{font:700 12px/1 var(--sans);letter-spacing:.12em;text-transform:uppercase;color:#a8a4b0;margin:0 0 12px;display:flex;justify-content:space-between}
+.pick h4 span{color:var(--mint);letter-spacing:.02em;text-transform:none}
+.opts{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-bottom:22px}
+.opts button{background:var(--graph2);border:1.5px solid transparent;border-radius:18px;padding:10px;text-align:left;font-size:13px;font-weight:700;transition:border-color .25s}
+.opts button img{width:100%;aspect-ratio:1;object-fit:contain;background:#3a3a40;border-radius:12px;margin-bottom:8px}
+.opts button small{display:block;color:#a8a4b0;font-weight:600}
+.opts button.on{border-color:var(--lilac)}
+.cols{display:flex;gap:8px;margin-bottom:22px;flex-wrap:wrap}
+.cols button{display:flex;align-items:center;gap:8px;background:var(--graph2);border-radius:99px;padding:7px 14px 7px 7px;font-size:13px;font-weight:700;border:1.5px solid transparent}
+.cols button i{width:22px;height:22px;border-radius:50%}
+.cols button.on{border-color:var(--lilac)}
+.sizes{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:22px}
+.sizes label{font-size:12px;font-weight:700;color:#a8a4b0;letter-spacing:.06em;text-transform:uppercase}
+.sizes select{display:block;width:100%;margin-top:6px;background:var(--graph2);border-radius:14px;padding:12px;font-weight:700;color:var(--chalk)}
+.btot{display:flex;justify-content:space-between;align-items:center;gap:16px;border-top:1px solid #34343a;padding-top:20px;flex-wrap:wrap}
+.btot b{font:800 48px/1 var(--disp)}
+.btot s{color:#8c8894;margin-left:8px;font-size:16px}
+.btot small{display:block;color:var(--mint);font-size:13px;font-weight:700;margin-top:4px}
+/* fit finder */
+.fit{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.fitf{background:var(--white);border-radius:30px;padding:36px}
+.fitf h3{font-size:44px;margin-bottom:6px}
+.fitf>p{color:var(--mute);margin-bottom:24px}
+.fq{margin-bottom:20px}
+.fq>b{display:flex;justify-content:space-between;font-size:13px;font-weight:700;margin-bottom:10px}
+.fq>b span{color:var(--mute);font-weight:600}
+.seg{display:flex;gap:6px;flex-wrap:wrap}
+.seg button{padding:10px 16px;border-radius:99px;background:var(--chalk);font-weight:700;font-size:14px;border:1.5px solid transparent}
+.seg button.on{background:var(--graph);color:var(--chalk)}
+input[type=range]{width:100%;accent-color:var(--graph)}
+.fitr{border-radius:30px;background:var(--lilacl);padding:36px;display:flex;flex-direction:column;justify-content:space-between;position:relative;overflow:hidden}
+.fitr img{position:absolute;right:24px;top:24px;bottom:24px;width:40%;height:calc(100% - 48px);object-fit:cover;border-radius:22px}
+.fitr .res{position:relative;z-index:1;max-width:58%}
+.fitr .big{font:800 180px/.8 var(--disp);margin:18px 0 6px}
+.fitr .conf{height:10px;background:rgba(255,255,255,.7);border-radius:99px;overflow:hidden;margin:12px 0 6px}
+.fitr .conf i{display:block;height:100%;background:var(--graph);border-radius:99px;transition:width .5s var(--ease)}
+.fitr small{font-size:13px;color:#4c4756}
+.fitr .why{list-style:none;display:grid;gap:6px;margin-top:16px;font-size:14px;font-weight:600}
+.fitr .why li::before{content:"✓ ";color:#6c55c9}
+/* feature split */
+.feat{display:grid;grid-template-columns:1fr 1fr 1fr;gap:16px}
+.feat .c{border-radius:var(--r);padding:28px;min-height:300px;display:flex;flex-direction:column;justify-content:space-between;background:var(--white)}
+.feat .c.ph{padding:0;overflow:hidden;position:relative}
+.feat .c.ph img{width:100%;height:100%;object-fit:cover;position:absolute;inset:0}
+.feat .c.mi{background:var(--mint)}
+.feat .c b{font:800 64px/.9 var(--disp)}
+.feat .c h3{font-size:30px;margin:14px 0 8px}
+.feat .c p{font-size:14px;color:#3f3c46}
+/* studio band */
+.band{position:relative;border-radius:36px;overflow:hidden;min-height:520px;display:flex;align-items:flex-end}
+.band img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.band::after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,rgba(24,24,27,.65),transparent 60%)}
+.band .in{position:relative;z-index:1;padding:44px;display:flex;justify-content:space-between;align-items:flex-end;gap:28px;width:100%;color:#fff;flex-wrap:wrap}
+.band h2{font-size:clamp(52px,6vw,104px)}
+.band .tag{color:var(--graph)}.band p{max-width:360px;color:#ece8f3}
+/* reviews marquee */
+.rvm{overflow:hidden;padding:4px 0}
+.rvm .tr{display:flex;gap:14px;width:max-content;animation:mq 40s linear infinite}
+.rvm:hover .tr{animation-play-state:paused}
+@keyframes mq{to{transform:translateX(-50%)}}
+.rq{width:360px;background:var(--white);border-radius:22px;padding:22px;flex:none}
+.rq .s{letter-spacing:2px;color:#7a5fd6}
+.rq p{margin:8px 0 12px;font-weight:600}
+.rq small{color:var(--mute);font-size:13px;display:flex;justify-content:space-between}
+.rq small b{background:var(--mintl);color:#2d6b49;border-radius:99px;padding:2px 8px;font-size:11px}
 /* newsletter */
-.news{background:var(--volt);color:#0E0F11}.news-in{display:grid;grid-template-columns:1fr 1fr;gap:24px;align-items:center;padding:clamp(32px,5vw,56px) 0}
-.news h2{font:italic 900 clamp(34px,4.6vw,58px)/.9 var(--display);text-transform:uppercase;margin:0}
-.field{padding:15px 16px;border:2px solid var(--ink);background:var(--bg);border-radius:0;width:100%}
-.news form{display:flex;gap:8px;flex-wrap:wrap}.news .field{flex:1 1 220px;width:auto;background:#fff;color:#0E0F11}
-.news .btn.solid{background:#0E0F11;color:#fff}.news .btn.solid:hover{background:#fff;color:#0E0F11;border-color:#0E0F11}
-@media (max-width:820px){.news-in{grid-template-columns:1fr}}
-/* custom divider */
-.stitch{height:12px;background:repeating-linear-gradient(90deg,var(--ink) 0 14px,transparent 14px 24px) center/100% 3px no-repeat}
-.band .stitch{background:repeating-linear-gradient(90deg,var(--volt) 0 14px,transparent 14px 24px) center/100% 3px no-repeat}
+.news{background:var(--lilac);border-radius:36px;padding:56px;display:grid;grid-template-columns:1.2fr 1fr;gap:40px;align-items:center}
+.news h2{font-size:clamp(46px,5vw,84px)}
+.news h2 i{background:var(--white)}
+.news form{display:flex;background:var(--white);border-radius:99px;padding:6px}
+.news input{flex:1;padding:0 18px;min-width:0}
+.news small{display:block;margin-top:12px;font-size:13px;font-weight:600}
 /* footer */
-footer.site{background:#0E0F11;color:#fff;padding:52px 0 28px}
-.foot{display:grid;grid-template-columns:1.6fr 1fr 1fr 1fr;gap:28px}
-.foot h4{font:800 17px/1 var(--display);text-transform:uppercase;letter-spacing:.14em;color:var(--volt);margin:0 0 14px}
-.foot ul{list-style:none;margin:0;padding:0;display:grid;gap:8px;color:#B7BABE}.foot a{text-decoration:none}.foot a:hover{color:#fff;text-decoration:underline}
-.legal{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;border-top:1px solid #2A2D31;margin-top:36px;padding-top:18px;color:#8A8E94;font-size:14px}
-@media (max-width:820px){.foot{grid-template-columns:1fr 1fr}}
-/* shared */
-.crumbs{font-size:14px;color:var(--mute);padding:18px 0}.crumbs a{text-decoration:none}.crumbs a:hover{text-decoration:underline}
-details.acc{border-top:1px solid var(--line);padding:14px 0}details.acc:last-of-type{border-bottom:1px solid var(--line)}
-details.acc summary{cursor:pointer;font:800 20px/1.1 var(--display);text-transform:uppercase;letter-spacing:.04em;list-style:none;display:flex;justify-content:space-between;gap:12px}
-details.acc summary::-webkit-details-marker{display:none}details.acc summary::after{content:"+";font-size:22px;line-height:1}details.acc[open] summary::after{content:"–"}
-details.acc p{color:var(--mute);margin:10px 0 0}
-.faq{display:grid;grid-template-columns:.8fr 1.2fr;gap:clamp(20px,4vw,56px)}@media (max-width:860px){.faq{grid-template-columns:1fr}}
-.pageh{font:italic 900 clamp(52px,8vw,110px)/.88 var(--display);text-transform:uppercase;margin:6px 0 18px}
-.pic{background:var(--card)}.pat-a{background:repeating-linear-gradient(135deg,#1E2024 0 8px,#2B2F36 8px 12px)}.pat-b{background:repeating-linear-gradient(45deg,#C6FF00 0 10px,#B5EB00 10px 14px)}.pat-c{background:radial-gradient(circle,rgba(255,255,255,.14) 0 3px,transparent 4px) 0 0/14px 12px,#3A3F47}.pat-d{background:repeating-linear-gradient(0deg,#D9DAD4 0 6px,#CBCCC5 6px 7px)}
-.iwt{display:grid;grid-template-columns:1fr 1fr;gap:clamp(20px,4vw,56px);align-items:center}.iwt .pic{aspect-ratio:5/4}.iwt h2{font:italic 900 clamp(34px,4.6vw,56px)/.9 var(--display);text-transform:uppercase;margin:0 0 14px}.iwt p{max-width:44ch;margin:0 0 22px}.iwt.flip .pic{order:2}
-@media (max-width:860px){.iwt{grid-template-columns:1fr}.iwt.flip .pic{order:0}}
-.cols{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}.col{background:var(--card);padding:24px}.col h3{font:800 24px/1 var(--display);text-transform:uppercase;margin:0 0 6px}.col p{margin:0;color:var(--mute)}
-@media (max-width:820px){.cols{grid-template-columns:1fr}}
-.reviews{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(16px,3vw,36px)}blockquote{margin:0;border-left:5px solid var(--volt);padding-left:18px}blockquote p{font-size:19px;line-height:1.45;margin:0 0 10px}blockquote cite{font-style:normal;color:var(--mute);font-size:15px}
-@media (max-width:820px){.reviews{grid-template-columns:1fr}}
-.video{position:relative;aspect-ratio:16/8;display:grid;place-items:center;border:0;width:100%;padding:0;color:#fff;cursor:pointer}
-.video .play{width:84px;height:84px;border-radius:50%;background:var(--volt);display:grid;place-items:center}
-.video .cap{position:absolute;left:20px;bottom:18px;font:italic 900 clamp(26px,4vw,48px)/.9 var(--display);text-transform:uppercase;text-align:left}
-.post{text-decoration:none;display:block;cursor:pointer}.post .pic{aspect-ratio:3/2}.post small{display:block;color:var(--mute);margin:12px 0 4px}.post h3{margin:0 0 6px;font:800 24px/1.05 var(--display);text-transform:uppercase}.post p{margin:0;color:var(--mute)}
+.ftr{padding:24px 0 24px}
+.fbox{background:var(--graph);color:#a8a4b0;border-radius:36px;padding:56px 48px 26px;font-size:14px}
+.ftr .cols4{display:grid;grid-template-columns:1.6fr repeat(3,1fr);gap:32px}
+.ftr .logo{color:var(--chalk)}
+.ftr p{margin-top:16px;max-width:300px}
+.ftr h5{font:700 12px/1 var(--sans);letter-spacing:.12em;text-transform:uppercase;color:var(--chalk);margin-bottom:16px}
+.ftr ul{list-style:none;display:grid;gap:9px}
+.ftr ul a:hover{color:var(--lilac)}
+.ftr .wm{font:800 clamp(80px,15vw,250px)/.8 var(--disp);color:var(--graph2);text-transform:uppercase;margin:40px 0 18px;letter-spacing:-.01em;white-space:nowrap;overflow:hidden}
+.ftr .bot{display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap;font-size:12px}
+.pay{display:flex;gap:6px}.pay span{background:var(--graph2);border-radius:99px;padding:5px 10px;font-size:11px;font-weight:700;color:#d6d2dd}
+/* pages */
+.page{display:none}.page.on{display:block}
+.crumbs{font-size:13px;color:var(--mute);padding:14px 0 18px;font-weight:600}
+.crumbs a:hover{color:var(--graph);text-decoration:underline}
 /* collection */
-.col-banner{background:#0E0F11;color:#fff;padding:clamp(24px,4vw,48px) 0}.col-banner h1{font:italic 900 clamp(56px,9vw,128px)/.84 var(--display);text-transform:uppercase;margin:0}.col-banner h1 em{color:var(--volt);font-style:inherit}
-.col-banner .crumbs{color:#B7BABE;padding-top:0}
-.col-layout{display:grid;grid-template-columns:240px 1fr;gap:clamp(20px,3vw,40px);padding:28px 0 56px}
-.filters fieldset{border:0;border-bottom:1px solid var(--line);padding:0 0 14px;margin:0 0 14px}.filters legend{font:800 18px/1 var(--display);text-transform:uppercase;letter-spacing:.1em;margin-bottom:8px}
-.filters label{display:flex;gap:8px;align-items:center;margin:6px 0;cursor:pointer}.filters input[type=checkbox]{width:18px;height:18px;accent-color:#0E0F11}
-.swatch-row{display:flex;gap:8px;flex-wrap:wrap}.swatch-row label{margin:0}.swatch-row input{position:absolute;opacity:0}.swatch-row span{width:28px;height:28px;border:2px solid var(--line);display:block}
-.swatch-row input:checked+span{outline:2px solid var(--ink);outline-offset:2px}.swatch-row input:focus-visible+span{outline:3px solid var(--volt)}
-.toolbar{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-bottom:18px;flex-wrap:wrap}.toolbar select{padding:9px 10px;border:2px solid var(--ink);background:var(--bg);border-radius:0}
-.filter-toggle{display:none}
-.pager{display:flex;gap:6px;justify-content:center;margin-top:34px}.pager a{min-width:42px;padding:9px;text-align:center;border:2px solid var(--line);text-decoration:none;font:800 17px/1 var(--display)}.pager a[aria-current]{background:var(--ink);color:var(--bg);border-color:var(--ink)}
-.fitnote{background:var(--volt);color:#0E0F11;padding:18px 22px;font-size:17px}
-@media (max-width:860px){.col-layout{grid-template-columns:1fr}.filters{display:none}.filters.open{display:block}.filter-toggle{display:inline-block}}
+.chead{display:grid;grid-template-columns:1fr 440px;gap:16px;margin-bottom:16px}
+.chead .t{background:var(--white);border-radius:30px;padding:40px;display:flex;flex-direction:column;justify-content:space-between}
+.chead h1{font-size:clamp(72px,8vw,136px);margin:16px 0}
+.chead .t p{color:var(--mute);max-width:520px}
+.chead .ph{border-radius:30px;overflow:hidden;position:relative;min-height:300px}
+.chead .ph img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.subc{display:flex;gap:8px;flex-wrap:wrap;margin-top:22px}
+.subc button{display:flex;align-items:center;gap:8px;background:var(--chalk);border-radius:99px;padding:6px 14px 6px 6px;font-weight:700;font-size:14px;border:1.5px solid transparent}
+.subc button img{width:30px;height:30px;border-radius:50%;object-fit:cover;background:#fff}
+.subc button.on{border-color:var(--graph);background:var(--white)}
+.cl{display:grid;grid-template-columns:250px 1fr;gap:28px;padding-bottom:96px}
+.side{position:sticky;top:140px;align-self:start;background:var(--white);border-radius:24px;padding:20px}
+.side h4{font:700 12px/1 var(--sans);letter-spacing:.12em;text-transform:uppercase;color:var(--mute);margin:18px 0 10px}
+.side h4:first-child{margin-top:4px}
+.side .sz{display:grid;grid-template-columns:repeat(3,1fr);gap:6px}
+.side .sz label,.side .ch label{display:flex;justify-content:center;align-items:center;gap:8px;background:var(--chalk);border-radius:99px;padding:8px;font-size:13px;font-weight:700;cursor:pointer;border:1.5px solid transparent}
+.side input{display:none}
+.side label:has(input:checked){background:var(--graph);color:var(--chalk)}
+.side .ch{display:flex;flex-wrap:wrap;gap:6px}
+.side .ch label{padding:8px 12px}
+.side .cc{display:flex;gap:8px;flex-wrap:wrap}
+.side .cc label{width:30px;height:30px;border-radius:50%;cursor:pointer;box-shadow:inset 0 0 0 1px rgba(0,0,0,.14);position:relative;padding:0}
+.side .cc label:has(input:checked)::after{content:"";position:absolute;inset:-4px;border-radius:50%;border:2px solid var(--graph)}
+.side .pr{display:flex;justify-content:space-between;font-size:13px;font-weight:700;margin-top:6px}
+.side .clr{margin-top:18px;font-size:13px;font-weight:700;text-decoration:underline}
+.tb{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-bottom:18px;flex-wrap:wrap}
+.tb .n{font-weight:700}
+.tb select{background:var(--white);border-radius:99px;padding:10px 16px;font-weight:700;border:1px solid var(--line)}
+.tb .vw{display:flex;gap:4px;background:var(--white);border-radius:99px;padding:4px;border:1px solid var(--line)}
+.tb .vw button{padding:6px 12px;border-radius:99px;font-size:13px;font-weight:700}
+.tb .vw button.on{background:var(--graph);color:var(--chalk)}
+.cg.g3{grid-template-columns:repeat(3,1fr)}
+.promo{border-radius:var(--r);background:var(--mint);padding:26px;display:flex;flex-direction:column;justify-content:space-between;min-height:100%}
+.promo h3{font-size:46px;margin:12px 0 8px}
+.promo p{font-size:14px}
+.empty{padding:40px 0;color:var(--mute)}
+.more{display:flex;flex-direction:column;align-items:center;gap:12px;margin-top:44px;font-size:14px;color:var(--mute);font-weight:600}
+.more .bar{width:220px;height:6px;border-radius:99px;background:var(--chalk2);overflow:hidden}.more .bar i{display:block;height:100%;width:50%;background:var(--graph)}
 /* product */
-.pdp>*,.cart-grid>*,.col-layout>*,.finder>*,.hero-in>*{min-width:0}.pdp{display:grid;grid-template-columns:1.2fr .8fr;gap:clamp(20px,4vw,56px);padding-bottom:56px}
-.gallery{display:grid;grid-template-columns:1fr 1fr;gap:10px}.gallery .g{background:var(--card);aspect-ratio:1;display:grid;place-items:center}.gallery .g:first-child{grid-column:1/-1;aspect-ratio:6/5}.gallery svg{width:56%}
-.buy{position:sticky;top:88px;align-self:start}.buy h1{font:italic 900 clamp(44px,5vw,70px)/.88 var(--display);text-transform:uppercase;margin:0 0 10px}
-.price{font:italic 900 32px/1 var(--display);margin:0 0 8px}.note{color:var(--mute);margin:0 0 22px}
-.opt{border:0;padding:0;margin:0 0 20px}.opt legend{font:800 17px/1 var(--display);text-transform:uppercase;letter-spacing:.1em;margin-bottom:10px}
-.swatches,.sizes{display:flex;gap:8px;flex-wrap:wrap}.swatches button{width:38px;height:38px;border:2px solid var(--line);cursor:pointer}.swatches button[aria-pressed="true"]{outline:2px solid var(--ink);outline-offset:2px}
-.sizes button{min-width:54px;padding:11px;border:2px solid var(--ink);background:transparent;cursor:pointer;font:800 17px/1 var(--display)}.sizes button[aria-pressed="true"]{background:var(--ink);color:var(--bg)}.sizes button:disabled{opacity:.35;text-decoration:line-through;cursor:not-allowed}
-.fittip{background:var(--volt);color:#0E0F11;padding:12px 14px;font-size:15px;margin-bottom:22px}.full{width:100%;margin:0 0 10px;display:block}
-.appbox{border:2px dashed var(--mute);padding:26px;display:grid;grid-template-columns:auto 1fr auto;gap:24px;align-items:center}.stars{font-size:22px;letter-spacing:2px}
-@media (max-width:900px){.pdp{grid-template-columns:1fr}.buy{position:static}.appbox{grid-template-columns:1fr}}
+.pdp{display:grid;grid-template-columns:1.25fr 1fr;gap:44px;padding-bottom:80px}
+.gal{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+.gal button{position:relative;border-radius:var(--r);overflow:hidden;background:var(--white);aspect-ratio:4/5;cursor:zoom-in}
+.gal button:first-child{grid-column:1/-1;aspect-ratio:auto;height:760px}
+.gal img{width:100%;height:100%;object-fit:cover}
+.gal button:first-child img{object-fit:cover}
+.gal .cap{position:absolute;left:14px;bottom:14px;background:var(--white);border-radius:99px;padding:6px 12px;font-size:12px;font-weight:700}
+.info{position:sticky;top:140px;align-self:start;background:var(--white);border-radius:30px;padding:30px}
+.info .bd{display:flex;gap:6px;flex-wrap:wrap}
+.info .bd span{background:var(--lilac);border-radius:99px;padding:6px 11px;font-size:12px;font-weight:700}
+.info .bd span+span{background:var(--mint)}
+.info h1{font-size:clamp(52px,4.6vw,76px);margin:14px 0 8px}
+.info .rt{font-size:14px;color:var(--mute);font-weight:600}
+.info .rt b{color:#7a5fd6;letter-spacing:1px}
+.info .pp{display:flex;align-items:baseline;gap:12px;margin:14px 0}
+.info .pp b{font:800 44px/1 var(--disp)}
+.info .pp small{color:var(--mute);font-weight:600}
+.klarna{font-size:13px;background:var(--chalk);border-radius:14px;padding:10px 14px;color:#4c4756}
+.optl{display:flex;justify-content:space-between;font-size:13px;font-weight:700;margin:22px 0 10px}
+.optl span{color:var(--mute);font-weight:600}
+.optl a{text-decoration:underline}
+.pcol{display:flex;gap:10px}
+.pcol button{width:46px;height:46px;border-radius:50%;box-shadow:inset 0 0 0 1px rgba(0,0,0,.14);position:relative}
+.pcol button.on::after{content:"";position:absolute;inset:-5px;border-radius:50%;border:2px solid var(--graph)}
+.psz{display:grid;grid-template-columns:repeat(6,1fr);gap:6px}
+.psz button{height:48px;border-radius:99px;background:var(--chalk);font-weight:700;font-size:14px;border:1.5px solid transparent;position:relative}
+.psz button.on{background:var(--graph);color:var(--chalk)}
+.psz button.rec::after{content:"Your fit";position:absolute;top:-9px;left:50%;transform:translateX(-50%);background:var(--mint);font-size:9px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;padding:2px 6px;border-radius:99px;white-space:nowrap;color:var(--graph)}
+.psz button:disabled{opacity:.4;text-decoration:line-through;cursor:not-allowed}
+.fitbar{display:flex;align-items:center;gap:10px;margin-top:12px;font-size:13px;background:var(--lilacl);border-radius:14px;padding:10px 14px;font-weight:600}
+.fitbar button{margin-left:auto;text-decoration:underline;font-weight:700}
+.lens{display:grid;grid-template-columns:repeat(3,1fr);gap:6px}
+.lens button{background:var(--chalk);border-radius:14px;padding:10px;font-size:13px;font-weight:700;border:1.5px solid transparent;text-align:left}
+.lens button small{display:block;color:var(--mute);font-weight:600;font-size:12px}
+.lens button.on{border-color:var(--graph);background:var(--white)}
+.buy{display:grid;grid-template-columns:1fr 56px;gap:8px;margin-top:22px}
+.buy .btn{height:58px}
+.buy .wish{border-radius:50%;background:var(--chalk);font-size:20px;height:56px}
+.buy .wish.on{background:var(--lilac)}
+.pairw{display:flex;align-items:center;gap:12px;margin-top:14px;background:var(--mintl);border-radius:18px;padding:10px}
+.pairw img{width:56px;height:56px;border-radius:12px;object-fit:contain;background:#fff}
+.pairw div{flex:1;font-size:13px;font-weight:600}
+.pairw div b{display:block;font-size:14px}
+.pairw button{background:var(--graph);color:var(--chalk);border-radius:99px;padding:9px 14px;font-size:13px;font-weight:700}
+.acc{margin-top:18px}
+.acc details{border-top:1px solid var(--line)}
+.acc summary{list-style:none;display:flex;justify-content:space-between;padding:16px 0;cursor:pointer;font-weight:700}
+.acc summary::after{content:"+";width:26px;height:26px;border-radius:50%;background:var(--chalk);display:grid;place-items:center}
+.acc details[open] summary::after{content:"−"}
+.acc .b{padding-bottom:16px;color:var(--mute);font-size:15px}
+.tech{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+.tech div{background:var(--white);border-radius:var(--r);padding:24px}
+.tech b{font:800 52px/1 var(--disp)}
+.tech h4{font:700 15px/1.3 var(--sans);text-transform:none;margin:10px 0 4px}
+.tech p{font-size:13px;color:var(--mute)}
+.tech div:nth-child(1){background:var(--lilac)}.tech div:nth-child(3){background:var(--mint)}
+.rvw{display:grid;grid-template-columns:340px 1fr;gap:44px}
+.score{background:var(--white);border-radius:30px;padding:30px;align-self:start}
+.score b{font:800 110px/.85 var(--disp)}
+.score .s{color:#7a5fd6;letter-spacing:3px;margin:8px 0}
+.bars{display:grid;gap:8px;margin-top:18px;font-size:13px;font-weight:600}
+.bars div{display:grid;grid-template-columns:72px 1fr;gap:10px;align-items:center}
+.bars i{height:8px;background:var(--chalk2);border-radius:99px;overflow:hidden}
+.bars i em{display:block;height:100%;background:var(--graph);border-radius:99px}
+.rvl{display:grid;gap:12px}
+.rvl .r{background:var(--white);border-radius:22px;padding:22px;display:grid;grid-template-columns:1fr 200px;gap:20px}
+.rvl .r .s{color:#7a5fd6;letter-spacing:2px}
+.rvl .r p{margin:8px 0;font-weight:600}
+.rvl .r small{color:var(--mute);font-size:13px}
+.rvl .r aside{font-size:13px;color:var(--mute);border-left:1px solid var(--line);padding-left:18px;display:grid;gap:4px;align-content:start}
+.rvl .r aside b{color:var(--graph)}
+.modal{position:fixed;inset:0;z-index:125;display:grid;place-items:center;background:rgba(24,24,27,.45);opacity:0;visibility:hidden;transition:.3s}
+.modal.on{opacity:1;visibility:visible}
+.modal .bx{background:var(--white);border-radius:30px;width:min(620px,92vw);padding:30px;position:relative}
+.modal .bx h3{font-size:44px;margin-bottom:6px}
+.modal .x{position:absolute;top:18px;right:18px;font-weight:700;background:var(--chalk);border-radius:99px;padding:8px 14px}
+.modal table{width:100%;border-collapse:collapse;margin-top:16px;font-size:14px}
+.modal td,.modal th{padding:10px;text-align:left;border-bottom:1px solid var(--line)}
+.modal th{font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--mute)}
+.unit{display:inline-flex;background:var(--chalk);border-radius:99px;padding:4px;margin-top:10px}
+.unit button{padding:6px 14px;border-radius:99px;font-weight:700;font-size:13px}.unit button.on{background:var(--graph);color:var(--chalk)}
+.sticky-atc{position:fixed;left:50%;bottom:18px;z-index:70;transform:translate(-50%,150%);transition:transform .45s var(--ease);background:var(--graph);color:var(--chalk);border-radius:99px;padding:8px 8px 8px 10px;display:flex;align-items:center;gap:14px;box-shadow:0 20px 40px -20px rgba(0,0,0,.5)}
+.sticky-atc.on{transform:translate(-50%,0)}
+.sticky-atc img{width:44px;height:44px;border-radius:50%;object-fit:cover;background:#fff}
+.sticky-atc b{font-size:14px;display:block}
+.sticky-atc small{font-size:12px;color:#a8a4b0}
+.sticky-atc .btn{height:46px}
 /* cart */
-.cart-grid{display:grid;grid-template-columns:1fr 360px;gap:clamp(20px,4vw,48px);padding:8px 0 56px}
-.cl{display:grid;grid-template-columns:96px 1fr auto;gap:16px;padding:18px 0;border-bottom:1px solid var(--line);align-items:start}.cl .thumb{background:var(--card);aspect-ratio:1;display:grid;place-items:center}.cl .thumb svg{width:70%}
-.cl h3{margin:0;font:800 22px/1 var(--display);text-transform:uppercase}.cl b{font:italic 900 24px/1 var(--display)}
-.qty{display:inline-flex;border:2px solid var(--ink);margin-top:10px}.qty button{background:none;border:0;width:34px;height:34px;cursor:pointer}.qty span{min-width:30px;display:grid;place-items:center}
-.linkbtn{background:none;border:0;padding:0;text-decoration:underline;cursor:pointer;color:var(--mute);font-size:14px;margin-left:12px}
-.summary{background:var(--card);padding:24px;align-self:start}.ship-bar{height:8px;background:var(--line);margin:8px 0 18px}.ship-bar i{display:block;height:100%;background:var(--volt);outline:1px solid #0E0F11}
-.summary textarea{width:100%;min-height:70px;padding:10px;border:2px solid var(--line);background:var(--bg);margin:6px 0 16px}
-.row{display:flex;justify-content:space-between;font:800 22px/1 var(--display);text-transform:uppercase;margin-bottom:8px}
-@media (max-width:900px){.cart-grid{grid-template-columns:1fr}}
-/* overlays */
-.overlay{position:fixed;inset:0;background:rgba(0,0,0,.55);z-index:40}
-.drawer{position:fixed;top:0;bottom:0;width:min(420px,92vw);background:var(--bg);z-index:41;display:flex;flex-direction:column;padding:calc(20px + env(safe-area-inset-top,0px)) 22px calc(20px + env(safe-area-inset-bottom,0px));box-shadow:0 0 0 1px var(--line)}
-.drawer.right{right:0}.drawer.left{left:0}.drawer-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:16px}.drawer-head h2{font:italic 900 36px/1 var(--display);text-transform:uppercase;margin:0}
-.x{background:none;border:0;font-size:28px;line-height:1;cursor:pointer;padding:4px 8px}.drawer nav{display:grid;gap:4px}.drawer nav a{font:italic 900 40px/1.1 var(--display);text-transform:uppercase;text-decoration:none}.drawer .body{flex:1;overflow:auto}
-/* article/about/contact/404 */
-.feature-post{display:grid;grid-template-columns:1.3fr 1fr;gap:clamp(20px,4vw,48px);align-items:center;margin-bottom:44px;text-decoration:none;cursor:pointer}.feature-post .pic{aspect-ratio:16/10}.feature-post h2{font:italic 900 clamp(36px,4.6vw,60px)/.9 var(--display);text-transform:uppercase;margin:8px 0 12px}
-@media (max-width:860px){.feature-post{grid-template-columns:1fr}}
-.article-hero{aspect-ratio:21/9;margin-bottom:30px}.article h1{font:italic 900 clamp(44px,6vw,84px)/.88 var(--display);text-transform:uppercase;margin:0 0 12px}.article .by{color:var(--mute);margin-bottom:26px}
-.article p{font-size:18px;line-height:1.75;margin:0 0 20px}.article h2{font:italic 900 36px/1 var(--display);text-transform:uppercase;margin:34px 0 12px}
-.share{display:flex;gap:14px;border-top:1px solid var(--line);padding-top:18px;margin-top:30px;color:var(--mute)}
-.about-hero{min-height:clamp(320px,46vw,540px);display:flex;align-items:flex-end;padding:clamp(24px,4vw,48px) 0;color:#fff}.about-hero .wrap{width:100%}.about-hero h1{font:italic 900 clamp(56px,11vw,150px)/.84 var(--display);text-transform:uppercase;margin:0;max-width:10ch}.about-hero h1 em{color:var(--volt);font-style:inherit}
-.story{font-size:19px;line-height:1.7}.story p{margin:0 0 18px}.mrow{display:grid;gap:clamp(32px,5vw,64px)}
-.nums{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}.nums div{background:var(--card);padding:26px 22px}.nums strong{display:block;font:italic 900 clamp(46px,5vw,68px)/1 var(--display)}
-@media (max-width:820px){.nums{grid-template-columns:1fr 1fr}}
-.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}.contact-grid .span{grid-column:1/-1}.contact-grid label{display:block;font:800 17px/1 var(--display);text-transform:uppercase;letter-spacing:.08em;margin-bottom:6px}.contact-grid textarea{min-height:140px}
-@media (max-width:640px){.contact-grid{grid-template-columns:1fr}}
-.nf{padding:clamp(48px,8vw,110px) 0;text-align:center}.nf h1{font:italic 900 clamp(100px,22vw,280px)/.8 var(--display);margin:0}.nf h1 em{color:var(--volt);font-style:inherit;-webkit-text-stroke:2px #0E0F11}.nf p{font-size:20px;margin:18px 0 26px}.nf form{display:flex;gap:8px;max-width:520px;margin:0 auto 18px}
-.toast{position:fixed;left:50%;bottom:calc(20px + env(safe-area-inset-bottom,0px));transform:translateX(-50%);background:#0E0F11;color:var(--volt);padding:12px 18px;z-index:50;font:800 18px/1 var(--display);text-transform:uppercase;letter-spacing:.06em}
-@media (prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
-@media (max-width:480px){.trust-in{grid-template-columns:1fr}.tr{border-right:0;border-bottom:1px solid var(--line)}.nums{grid-template-columns:1fr}.tr strong,.tr span{overflow-wrap:anywhere}}
-.cats>*{min-width:0}@media (max-width:400px){.cat h3{font-size:15px;letter-spacing:.02em}}
+.cpage{display:grid;grid-template-columns:1.5fr 1fr;gap:28px;padding-bottom:80px}
+.cpage h1{font-size:clamp(72px,8vw,128px);margin-bottom:16px}
+.prog{font-size:14px;font-weight:600;background:var(--white);border-radius:20px;padding:16px 18px}
+.prog .bar{height:8px;background:var(--chalk2);border-radius:99px;margin-top:10px;overflow:hidden}
+.prog .bar i{display:block;height:100%;background:linear-gradient(90deg,var(--lilac),var(--mint));transition:width .6s var(--ease)}
+.lines{display:grid;gap:10px;margin-top:12px}
+.li{display:grid;grid-template-columns:96px 1fr auto;gap:16px;background:var(--white);border-radius:20px;padding:12px;align-items:center}
+.li img{width:96px;height:110px;object-fit:cover;border-radius:14px;background:var(--chalk)}
+.li b{font-weight:700;display:block}
+.li small{display:block;color:var(--mute);font-size:13px;margin-top:2px}
+.li .q{display:inline-flex;align-items:center;gap:10px;margin-top:10px;background:var(--chalk);border-radius:99px;padding:3px;font-weight:700;font-size:14px}
+.li .q button{width:28px;height:28px;border-radius:50%;background:var(--white)}
+.li .rm{display:block;margin-top:6px;text-decoration:underline;font-size:12px;color:var(--mute);font-weight:600}
+.li>span{font-weight:800;font-family:var(--disp);font-size:24px;padding-right:8px}
+.note{margin-top:12px;background:var(--white);border-radius:20px;padding:16px 18px}
+.note label{font-weight:700;font-size:14px}
+.note textarea{display:block;width:100%;background:var(--chalk);border-radius:14px;padding:12px;margin-top:8px;min-height:70px}
+.summ{background:var(--graph);color:var(--chalk);border-radius:30px;padding:30px;position:sticky;top:140px;align-self:start}
+.summ h3{font-size:40px;margin-bottom:14px}
+.summ .r{display:flex;justify-content:space-between;padding:8px 0;font-size:15px;color:#cfcbd6}
+.summ .t{border-top:1px solid #34343a;margin-top:8px;padding-top:16px;font:800 40px/1 var(--disp);color:var(--chalk)}
+.summ .btn{width:100%;margin-top:18px}
+.summ .cpn{display:flex;background:var(--graph2);border-radius:99px;padding:5px;margin-top:14px}
+.summ .cpn input{flex:1;padding:0 14px;min-width:0;color:var(--chalk)}
+.summ .cpn button{background:var(--chalk);color:var(--graph);border-radius:99px;padding:9px 14px;font-size:13px;font-weight:700}
+.summ ul{list-style:none;margin-top:16px;display:grid;gap:6px;font-size:13px;color:#a8a4b0}
+.summ ul li::before{content:"● ";color:var(--mint)}
+.scrim{position:fixed;inset:0;z-index:100;background:rgba(24,24,27,.4);opacity:0;visibility:hidden;transition:.3s}
+.scrim.on{opacity:1;visibility:visible}
+.drawer{position:fixed;top:12px;right:12px;bottom:12px;z-index:110;width:430px;max-width:calc(100% - 24px);background:var(--chalk);border-radius:30px;transform:translateX(calc(100% + 24px));transition:transform .45s var(--ease);display:flex;flex-direction:column;overflow:hidden}
+.drawer.on{transform:none}
+.drawer .hd{display:flex;justify-content:space-between;align-items:center;padding:20px 22px}
+.drawer .hd h3{font-size:40px}
+.drawer .hd button{font-weight:700;background:var(--white);border-radius:99px;padding:8px 14px}
+.drawer .pg{padding:0 16px}
+.drawer .ls{flex:1;overflow:auto;padding:10px 16px;display:grid;gap:8px;align-content:start}
+.drawer .li{grid-template-columns:72px 1fr auto}
+.drawer .li img{width:72px;height:84px}
+.drawer .ft{padding:16px;background:var(--white)}
+.drawer .ft .r{display:flex;justify-content:space-between;font:800 30px/1 var(--disp);margin-bottom:12px}
+.drawer .ft .btn{width:100%}
+.toast{position:fixed;left:50%;top:130px;z-index:130;transform:translate(-50%,-14px);opacity:0;visibility:hidden;background:var(--graph);color:var(--chalk);padding:12px 20px;border-radius:99px;font-weight:700;font-size:14px;transition:.35s var(--ease)}
+.toast::before{content:"● ";color:var(--mint)}
+.toast.on{opacity:1;visibility:visible;transform:translate(-50%,0)}
+/* search */
+.sform{display:flex;align-items:center;gap:10px;background:var(--white);border-radius:99px;padding:8px 8px 8px 26px;margin:4px 0 16px}
+.sform input{flex:1;font:800 clamp(40px,4.4vw,68px)/1.1 var(--disp);text-transform:uppercase;min-width:0}
+.sugg{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:24px;align-items:center;color:var(--mute);font-size:14px;font-weight:600}
+.sugg button{background:var(--white);border-radius:99px;padding:8px 14px;font-weight:700;color:var(--graph)}
+.sugg button:hover{background:var(--lilac)}
+/* blog */
+.bhero{display:grid;grid-template-columns:1.3fr 1fr;gap:16px;margin-bottom:22px}
+.bhero .ph{border-radius:30px;overflow:hidden;min-height:440px;position:relative}
+.bhero .ph img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.bhero .tx{background:var(--mint);border-radius:30px;padding:40px;display:flex;flex-direction:column;justify-content:space-between}
+.bhero h2{font-size:clamp(52px,5vw,84px);margin:14px 0}
+.jgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.post{background:var(--white);border-radius:var(--r);overflow:hidden;display:block}
+.post .ph{aspect-ratio:3/2;overflow:hidden}
+.post .ph img{width:100%;height:100%;object-fit:cover;transition:transform .9s var(--ease)}
+.post:hover .ph img{transform:scale(1.05)}
+.post .b{padding:18px 20px 22px}
+.post small{font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#7a5fd6}
+.post h3{font-size:32px;margin:8px 0 6px}
+.post p{color:var(--mute);font-size:14px}
+.art{max-width:780px;margin:0 auto;padding-bottom:70px}
+.art h1{font-size:clamp(64px,7vw,116px);margin:16px 0 14px}
+.art .by{display:flex;align-items:center;gap:12px;color:var(--mute);font-size:14px;font-weight:600}
+.art .by i{width:40px;height:40px;border-radius:50%;background:var(--lilac);display:grid;place-items:center;font-style:normal;font-weight:800;color:var(--graph)}
+.art .big{aspect-ratio:16/9;border-radius:30px;overflow:hidden;margin:32px -100px}
+.art .big img{width:100%;height:100%;object-fit:cover}
+.art p{font-size:18px;line-height:1.75;margin-bottom:20px}
+.art h2{font-size:52px;margin:40px 0 14px}
+.art .steps{display:grid;gap:10px;margin:24px 0;counter-reset:s}
+.art .steps div{background:var(--white);border-radius:20px;padding:16px 18px 16px 64px;position:relative;font-weight:600}
+.art .steps div::before{counter-increment:s;content:counter(s);position:absolute;left:16px;top:50%;transform:translateY(-50%);width:34px;height:34px;border-radius:50%;background:var(--lilac);display:grid;place-items:center;font-weight:800}
+.art blockquote{background:var(--graph);color:var(--chalk);border-radius:30px;padding:30px 34px;margin:30px 0;font:800 44px/1 var(--disp);text-transform:uppercase}
+.share{display:flex;gap:8px;flex-wrap:wrap;font-size:13px;font-weight:700}
+.share a{background:var(--white);border-radius:99px;padding:8px 14px}
+/* about */
+.ab{display:grid;grid-template-columns:1fr 1fr;gap:16px;padding-top:4px}
+.ab .t{background:var(--lilac);border-radius:36px;padding:52px;display:flex;flex-direction:column;justify-content:flex-end;min-height:600px}
+.ab h1{font-size:clamp(72px,8vw,140px);margin:16px 0}
+.ab .t p{font-size:18px;max-width:460px}
+.ab .ph{border-radius:36px;overflow:hidden;position:relative}
+.ab .ph img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.nums{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+.nums div{background:var(--white);border-radius:var(--r);padding:26px}
+.nums b{font:800 72px/.9 var(--disp)}
+.nums p{color:var(--mute);font-size:14px;margin-top:8px}
+.vals{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.vals div{border-radius:var(--r);padding:28px;background:var(--white)}
+.vals div:nth-child(2){background:var(--mint)}
+.vals h3{font-size:40px;margin:12px 0 8px}
+.vals p{color:#45424c}
+/* contact */
+.ct{display:grid;grid-template-columns:1fr 1fr;gap:16px;padding-bottom:40px}
+.ct .t{background:var(--white);border-radius:30px;padding:40px}
+.ct h1{font-size:clamp(72px,7.4vw,124px);margin:16px 0}
+.ct .ways{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:24px}
+.ct .ways div{background:var(--chalk);border-radius:20px;padding:16px;font-size:14px;color:var(--mute)}
+.ct .ways b{display:block;color:var(--graph);font-size:15px}
+.cform{background:var(--graph);color:var(--chalk);border-radius:30px;padding:36px;display:grid;gap:10px;align-content:start}
+.cform h3{font-size:44px;margin-bottom:6px}
+.cform .two{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.cform input,.cform select,.cform textarea{width:100%;border-radius:16px;padding:14px 16px;background:var(--graph2);color:var(--chalk)}
+.cform textarea{min-height:130px}
+.cform .ok{display:none;color:var(--mint);font-weight:700}.cform .ok.on{display:block}
+.faq{display:grid;gap:10px;max-width:900px}
+.faq details{background:var(--white);border-radius:20px;padding:0 22px}
+.faq summary{list-style:none;display:flex;justify-content:space-between;align-items:center;padding:20px 0;cursor:pointer;font-weight:700;font-size:17px}
+.faq summary::after{content:"+";width:30px;height:30px;border-radius:50%;background:var(--chalk);display:grid;place-items:center;flex:none}
+.faq details[open] summary::after{content:"−";background:var(--lilac)}
+.faq p{padding-bottom:20px;color:var(--mute)}
+/* 404 */
+.nf{display:grid;grid-template-columns:1.2fr 1fr;gap:16px;padding-top:4px}
+.nf .t{background:var(--mint);border-radius:36px;padding:52px;display:flex;flex-direction:column;justify-content:center;min-height:520px}
+.nf b{font:800 220px/.8 var(--disp)}
+.nf h1{font-size:72px;margin:14px 0}
+.nf p{max-width:420px;margin-bottom:24px}
+.nf .ph{border-radius:36px;overflow:hidden;position:relative}
+.nf .ph img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+/* responsive */
+@media (max-width:1100px){.wrap{padding:0 22px}.grid{grid-template-columns:repeat(3,1fr)}.act{grid-template-columns:1fr}.act .ph{min-height:360px}.hero-strip{grid-template-columns:repeat(2,1fr)}.bset-g,.fit{grid-template-columns:1fr}.cl{grid-template-columns:1fr}.side{position:static}.nav .nv{padding:10px}}
+@media (max-width:900px){
+ .wrap{padding:0 14px}.sec{padding:64px 0}
+ .hdr{padding:8px 0}.pill{height:56px;padding:0 6px 0 8px;grid-template-columns:auto 1fr auto}.nav{display:none}.burger{display:flex!important}.logo{font-size:24px;justify-content:center}.logo em{font-size:15px}.logo svg{display:none}.util .acct,.util .srch span,.util .wl{display:none}.util a,.util button{padding:0 11px;height:42px}
+ .ann .wrap{gap:10px;font-size:12px}.ann .hide-m{display:none}
+ .hpanel{height:auto;min-height:0;max-height:none;border-radius:26px;display:flex;flex-direction:column}
+ .hpanel>img{position:relative;height:420px;object-position:72% 50%;order:2}
+ .hpanel .tx{position:static;transform:none;padding:28px 20px 20px;max-width:none}
+ .hero h1{font-size:78px}.hero .ctas{flex-wrap:nowrap}.hero p{font-size:16px}.hero .ctas .btn{flex:1;padding:0 18px}
+ .htag{display:none}.cw{left:14px;right:14px;bottom:14px;justify-content:space-between}
+ .hero-strip{grid-template-columns:1fr 1fr;gap:8px}.hero-strip div{padding:12px;font-size:13px;flex-direction:column;align-items:flex-start;gap:8px}
+ .head{flex-direction:column;align-items:flex-start;gap:12px}.head h2{font-size:58px}
+ .act .row{grid-template-columns:repeat(3,72%);overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;margin-right:-14px;gap:10px}.act .row>*{scroll-snap-align:start}
+ .grid{grid-template-columns:repeat(2,1fr);gap:22px 10px}.cg.g3{grid-template-columns:repeat(2,1fr)}
+ .card .top{flex-direction:column;gap:2px}.card .pr{text-align:left}.card .pr s{display:inline;margin-left:6px}.plus{width:38px;height:38px;right:8px;bottom:8px}.qs{left:6px;right:50px;bottom:8px;gap:3px}.qs button{height:38px;font-size:11px}
+ .bset{padding:28px 16px;border-radius:28px}.opts{grid-template-columns:repeat(3,1fr)}.btot b{font-size:40px}.btot .btn{width:100%}
+ .fitf,.fitr{padding:24px 18px;border-radius:26px}.fitf h3{font-size:36px}.fitr{min-height:420px}.fitr .big{font-size:130px}.fitr img{width:42%;right:14px;top:auto;bottom:14px;height:62%}
+ .feat{grid-template-columns:1fr}.feat .c{min-height:220px}.feat .c.ph{min-height:300px}
+ .band{min-height:460px;border-radius:26px}.band .in{padding:24px}.band .btn{width:100%}
+ .rq{width:290px}
+ .news{grid-template-columns:1fr;padding:30px 20px;border-radius:28px;gap:20px}
+ .fbox{padding:36px 22px 22px;border-radius:28px}.ftr .wm{font-size:68px;margin:30px 0 14px}.ftr .cols4{grid-template-columns:1fr 1fr}.ftr .cols4>div:first-child{grid-column:1/-1}
+ .chead{grid-template-columns:1fr}.chead .t{padding:24px 18px;border-radius:26px}.chead h1{font-size:76px}.chead .ph{display:none}
+ .side{padding:16px}
+ .pdp{grid-template-columns:1fr;gap:16px}.gal{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;margin:0 -14px;padding:0 14px;scrollbar-width:none;gap:8px}.gal button,.gal button:first-child{flex:0 0 86%;height:auto;aspect-ratio:4/5;scroll-snap-align:start}
+ .info{position:static;padding:22px 16px;border-radius:26px}.psz{grid-template-columns:repeat(3,1fr);row-gap:12px}
+ .tech{grid-template-columns:1fr 1fr}.tech b{font-size:40px}.rvw{grid-template-columns:1fr;gap:16px}.rvl .r{grid-template-columns:1fr}.rvl .r aside{border-left:0;padding-left:0;border-top:1px solid var(--line);padding-top:10px}
+ .sticky-atc{left:12px;right:12px;transform:translateY(150%);border-radius:24px}.sticky-atc.on{transform:none}.sticky-atc img{display:none}.sticky-atc .btn{margin-left:auto;padding:0 16px}
+ .cpage{grid-template-columns:1fr}.cpage h1{font-size:76px}.li{grid-template-columns:76px 1fr;align-items:start}.li img{width:76px;height:90px}.li>span{grid-column:2;font-size:22px}
+ .summ{position:static;border-radius:26px}
+ .bhero{grid-template-columns:1fr}.bhero .ph{min-height:300px;border-radius:26px}.bhero .tx{padding:24px 18px;border-radius:26px}.jgrid{grid-template-columns:1fr}
+ .art .big{margin:24px 0;border-radius:22px}.art blockquote{font-size:34px;padding:22px}
+ .ab,.nf,.ct{grid-template-columns:1fr}.ab .t,.nf .t{padding:28px 18px;min-height:0;border-radius:26px}.ab .ph,.nf .ph{min-height:360px;border-radius:26px}.ab h1{font-size:76px}.nf b{font-size:150px}.nf h1{font-size:54px}
+ .nums{grid-template-columns:1fr 1fr}.nums b{font-size:52px}.vals{grid-template-columns:1fr}
+ .ct .t{padding:24px 18px;border-radius:26px}.ct h1{font-size:72px}.ct .ways{grid-template-columns:1fr}.cform{padding:24px 18px;border-radius:26px}.cform .two{grid-template-columns:1fr}
+}
 </style>
-<svg width="0" height="0" style="position:absolute" aria-hidden="true">
-<symbol id="g-jacket" viewBox="0 0 200 240"><path fill="currentColor" d="M62 36 86 26q14 16 28 0l24 10 38 34-12 82-15-6v76H51v-76l-15 6L24 70z"/><path fill="none" stroke="rgba(0,0,0,.3)" stroke-width="2" d="M100 42v166M86 26l14 40 14-40"/></symbol>
-<symbol id="g-tee" viewBox="0 0 200 240"><path fill="currentColor" d="M56 50 86 38q14 18 28 0l30 12 32 36-24 16-8-11v116H56V91l-8 11-24-16z"/><path fill="none" stroke="rgba(0,0,0,.25)" stroke-width="2" d="M86 38q14 26 28 0"/></symbol>
-<symbol id="g-trouser" viewBox="0 0 200 240"><path fill="currentColor" d="M62 26h76l12 190h-38l-12-118-12 118H50z"/><path fill="none" stroke="rgba(0,0,0,.3)" stroke-width="2" d="M62 40h76M100 40v58"/></symbol>
-<symbol id="g-knit" viewBox="0 0 200 240"><path fill="currentColor" d="M60 44 84 34q16 10 32 0l24 10 34 40-2 118-16-4V100l-4 110H56l-4-110v98l-16 4-2-118z"/><path fill="none" stroke="rgba(0,0,0,.22)" stroke-width="2" d="M84 34q16 22 32 0M56 196h88"/></symbol>
-<symbol id="g-hood" viewBox="0 0 200 240"><path fill="currentColor" d="M70 30q30-18 60 0l30 24 22 120-22 8-6-60v82H46v-82l-6 60-22-8 22-120z"/><path fill="none" stroke="rgba(0,0,0,.3)" stroke-width="2" d="M78 34q22 40 44 0M100 78v34M70 150h60v30H70z"/></symbol>
-<symbol id="g-short" viewBox="0 0 200 240"><path fill="currentColor" d="M54 56h92l14 110h-52l-8-48-8 48H40z"/><path fill="none" stroke="rgba(0,0,0,.3)" stroke-width="2" d="M54 70h92M100 70v48"/></symbol>
-<symbol id="g-cap" viewBox="0 0 200 240"><path fill="currentColor" d="M44 130q0-60 56-60t56 60q30 6 38 22-40-8-94-8-54 0-56-14z"/><circle cx="100" cy="72" r="5" fill="rgba(0,0,0,.3)"/></symbol>
-</svg>
+</head>
+<body>
+<div class="dt" data-dawn="Design toolbar (preview only)"><div class="wrap"><b>Voltline Edge · Athleisure studio</b>
+<button data-go="home" class="on">Home</button><button data-go="collection">Collection</button><button data-go="product">Product</button><button data-go="cart">Cart</button><button data-go="search">Search</button><button data-go="blog">Blog</button><button data-go="article">Article</button><button data-go="about">About</button><button data-go="contact">Contact</button><button data-go="404">404</button>
+<label><input type="checkbox" id="names"> Show section names</label></div></div>
 
-<div class="preview-bar"><div class="wrap"><div class="pages" role="group" aria-label="Preview page" id="pageTabs"></div><label><input type="checkbox" id="showSections"> Show section names</label></div></div>
-<div class="announce" data-dawn="Announcement bar">Free UK delivery over £75 &nbsp;/&nbsp; 30-day free returns</div>
-<header class="site" data-dawn="Header"><div class="wrap head">
-<button class="menu-btn" aria-label="Open menu" data-open="menu"><svg width="26" height="26" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 7h18M3 12h18M3 17h18" stroke="currentColor" stroke-width="2"/></svg></button>
-<a class="logo" href="#" data-go="home">Volt<b>line</b></a>
-<nav aria-label="Main"><a href="#" data-go="collection">New <span class="pill">NEW</span></a><a href="#" data-go="collection">Outerwear</a><a href="#" data-go="collection">Tees</a><a href="#" data-go="collection">Bottoms</a><a href="#" data-go="blog">Journal</a><a href="#" class="deals" data-go="collection">Deals</a></nav>
-<div class="tools"><a href="#" data-go="search">Search</a><a href="#" class="hide-sm" data-go="contact">Help</a><a href="#" data-open="cart">Cart (<span class="cart-count">0</span>)</a></div></div></header>
+<div class="ann" data-dawn="sbs-drop-countdown (announcement)"><div class="wrap"><span><b>Studio Drop 04</b> · Lilac Sculpt</span><span class="cd" aria-label="Time left"><span id="cdh">02</span>:<span id="cdm">14</span>:<span id="cds">33</span></span><span class="hide-m">Free shipping over $100</span><a href="#" data-go="collection">Shop the drop</a></div></div>
 
-<!-- HOME -->
-<main id="view-home">
-<section class="hero" data-dawn="Image banner"><div class="hero-in">
-<div class="hero-l"><h1>Built to <em>move</em>.<br>Cut to last.</h1><p>Heavyweight training and street layers, made in small runs and tested hard before they reach you.</p><div class="btns"><a href="#" class="btn volt" data-go="collection">Shop new drop</a><a href="#" class="btn ghost" data-go="collection">Shop deals</a></div></div>
-<div class="hero-r"><svg viewBox="0 0 200 240" aria-hidden="true"><use href="#g-hood"/></svg><div class="sticker"><div>From<strong>£68</strong>Hoodies</div></div></div></div></section>
-<section class="trust" data-dawn="Multicolumn (trust strip)"><div class="wrap trust-in">
-<div class="tr"><i>£</i><div><strong>Free delivery</strong><span>On orders over £75</span></div></div>
-<div class="tr"><i>30</i><div><strong>Free returns</strong><span>30 days, prepaid label</span></div></div>
-<div class="tr"><i>2D</i><div><strong>Ships in 2 days</strong><span>Tracked, same-day before 2 pm</span></div></div>
-<div class="tr"><i>★</i><div><strong>4.8 rated</strong><span>From 2,100+ reviews</span></div></div></div></section>
-<section class="block" data-dawn="Collection list"><div class="wrap"><div class="sec-head"><h2 class="h">Shop by category</h2></div>
-<div class="cats">
-<a class="cat" data-go="collection"><div class="sq"><svg viewBox="0 0 200 240" style="color:#0E0F11" aria-hidden="true"><use href="#g-jacket"/></svg></div><h3>Jackets</h3></a>
-<a class="cat" data-go="collection"><div class="sq"><svg viewBox="0 0 200 240" style="color:#0E0F11" aria-hidden="true"><use href="#g-hood"/></svg></div><h3>Hoodies</h3></a>
-<a class="cat" data-go="collection"><div class="sq"><svg viewBox="0 0 200 240" style="color:#0E0F11" aria-hidden="true"><use href="#g-tee"/></svg></div><h3>Tees</h3></a>
-<a class="cat" data-go="collection"><div class="sq"><svg viewBox="0 0 200 240" style="color:#0E0F11" aria-hidden="true"><use href="#g-knit"/></svg></div><h3>Knitwear</h3></a>
-<a class="cat" data-go="collection"><div class="sq"><svg viewBox="0 0 200 240" style="color:#0E0F11" aria-hidden="true"><use href="#g-trouser"/></svg></div><h3>Trousers</h3></a>
-<a class="cat" data-go="collection"><div class="sq"><svg viewBox="0 0 200 240" style="color:#0E0F11" aria-hidden="true"><use href="#g-short"/></svg></div><h3>Shorts</h3></a>
-<a class="cat" data-go="collection"><div class="sq"><svg viewBox="0 0 200 240" style="color:#0E0F11" aria-hidden="true"><use href="#g-cap"/></svg></div><h3>Caps</h3></a>
-</div></div></section>
-<section class="block tight" data-dawn="Multicolumn (promo banners)"><div class="wrap promos">
-<div class="promo d"><svg viewBox="0 0 200 240" aria-hidden="true"><use href="#g-jacket"/></svg><h3>Winter layers</h3><p>Insulated shells and heavy fleece, up to 30% off.</p><a href="#" class="btn volt" data-go="collection">Shop winter</a></div>
-<div class="promo v"><svg viewBox="0 0 200 240" aria-hidden="true"><use href="#g-tee"/></svg><h3>Tee bundle</h3><p>Any three heavyweight tees for £120.</p><a href="#" class="btn solid" data-go="collection">Build a bundle</a></div></div></section>
-<section class="block tight" data-dawn="Featured collection"><div class="wrap"><div class="sec-head"><h2 class="h">New drop</h2><a href="#" data-go="collection">View all</a></div><div class="grid" data-grid="0,1,2,3,4"></div></div></section>
-<div class="stitch" data-dawn="Selvedge: Selvedge divider" aria-hidden="true"></div>
-<section class="block band" id="finder" data-dawn="Selvedge: Fit finder"><div class="wrap finder">
-<div><h2 class="h" style="margin-bottom:16px">Find your <em>fit</em></h2><p class="lead">Tell us your height and how you like it to sit. We pick a size and three pieces that match.</p>
-<fieldset class="fgrp"><legend>Height</legend><div class="opts" data-grp="h"><button type="button" aria-pressed="false">Under 5'7"</button><button type="button" aria-pressed="true">5'7" to 6'0"</button><button type="button" aria-pressed="false">Over 6'0"</button></div></fieldset>
-<fieldset class="fgrp"><legend>Fit</legend><div class="opts" data-grp="f"><button type="button" aria-pressed="false">Fitted</button><button type="button" aria-pressed="true">Regular</button><button type="button" aria-pressed="false">Oversized</button></div></fieldset></div>
-<div class="fres" aria-live="polite"><small class="muted" style="color:#A4A8AD">Your size</small><div class="size" id="fsize">M</div><p id="fnote" style="color:#C9CCD0;margin:0">Regular fit, true to size.</p><div class="sum" id="fpicks"></div></div></div></section>
-<section class="block" data-dawn="Featured collection"><div class="wrap"><div class="sec-head"><h2 class="h">Best sellers</h2><a href="#" data-go="collection">View all</a></div><div class="grid slide" data-grid="5,6,7,8,9"></div></div></section>
-<section class="block band tight" style="padding-top:clamp(40px,6vw,76px)" data-dawn="Multicolumn (feature cards)"><div class="wrap"><div class="sec-head"><h2 class="h">Train <em>harder</em></h2></div>
-<div class="fcards"><a class="fc a" data-go="collection"><svg viewBox="0 0 200 240" aria-hidden="true"><use href="#g-hood"/></svg><em>£68</em><span>Heavy<br>hoodies</span></a><a class="fc b" data-go="collection"><svg viewBox="0 0 200 240" aria-hidden="true"><use href="#g-tee"/></svg><em>£36</em><span>Gym<br>tees</span></a><a class="fc c" data-go="collection"><svg viewBox="0 0 200 240" aria-hidden="true"><use href="#g-short"/></svg><em>£44</em><span>Lift<br>shorts</span></a></div></div></section>
-<section class="block" data-dawn="Image with text"><div class="wrap iwt"><div class="pic pat-a" role="img" aria-label="Close-up of heavy fleece"></div><div><h2>Fleece that holds its shape</h2><p>Our 400 gsm loopback is brushed once, washed twice and pre-shrunk, so the fit you try on is the fit you keep.</p><a href="#" class="btn" data-go="article">Read the fabric diary</a></div></div></section>
-<section class="block tight" data-dawn="Multicolumn (reviews)"><div class="wrap"><div class="sec-head"><h2 class="h">Worn hard</h2></div><div class="reviews">
-<blockquote><p>Washed forty times and the hoodie hasn't bobbled once. Best fleece I've owned.</p><cite>Marcus, Manchester</cite></blockquote>
-<blockquote><p>The fit finder nailed my size first go. The tee sits perfectly across the shoulders.</p><cite>Aisha, Glasgow</cite></blockquote>
-<blockquote><p>Shorts survive deadlifts and squats without riding up. Ordered a second pair.</p><cite>Tom, Bristol</cite></blockquote></div></div></section>
-<section class="block tight" data-dawn="Video"><div class="wrap"><button class="video pat-a" type="button" aria-label="Play video: how we test our fleece"><span class="play"><svg width="30" height="30" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z" fill="#0E0F11"/></svg></span><span class="cap">How we test our fleece</span></button></div></section>
-<section class="block tight" data-dawn="Collapsible content"><div class="wrap faq"><h2 class="h">Questions, answered</h2><div>
-<details class="acc"><summary>How do I pick my size?</summary><p>Use the fit finder above, or the size tip next to each size selector. Oversized pieces are cut roomy, so size down for a regular fit.</p></details>
-<details class="acc"><summary>Will fleece shrink?</summary><p>Everything is pre-shrunk. Wash cold and expect under 2%.</p></details>
-<details class="acc"><summary>How long does delivery take?</summary><p>Orders ship within 2 days. UK delivery is 2 to 4 working days.</p></details>
-<details class="acc"><summary>Can I return worn items?</summary><p>Unworn items with tags can be returned within 30 days for a full refund.</p></details></div></div></section>
-<section class="block tight" data-dawn="Featured blog"><div class="wrap"><div class="sec-head"><h2 class="h">From the journal</h2><a href="#" data-go="blog">All posts</a></div><div class="grid three" data-posts="0,1,2"></div></div></section>
-<section class="news" data-dawn="Email signup"><div class="wrap news-in"><h2>Get 10% off your first drop</h2><form data-sub><label class="sr" for="em1">Email address</label><input class="field" id="em1" type="email" placeholder="Your email address" required><button class="btn solid" type="submit">Subscribe</button></form></div></section>
+<header class="hdr" data-dawn="header (floating pill, centred logo)"><div class="wrap"><div class="pill">
+  <nav class="nav">
+    <div><a href="#" class="nv" data-go="collection">Women</a>
+      <div class="dd"><div><h5>Shop</h5><ul><li><a href="#" data-go="collection">Leggings</a></li><li><a href="#" data-go="collection">Sports bras</a></li><li><a href="#" data-go="collection">Matching sets</a></li><li><a href="#" data-go="collection">Hoodies</a></li><li><a href="#" data-go="collection">Joggers</a></li></ul></div>
+      <div><h5>Activity</h5><ul><li><a href="#" data-go="collection">Yoga &amp; pilates</a></li><li><a href="#" data-go="collection">Run</a></li><li><a href="#" data-go="collection">Train</a></li><li><a href="#" data-go="collection">Lounge</a></li></ul></div>
+      <a href="#" class="pr" data-go="collection"><img data-src="mlegging" alt=""><b>Lilac Sculpt drop →</b></a></div></div>
+    <div><a href="#" class="nv" data-go="collection">Men</a>
+      <div class="dd"><div><h5>Shop</h5><ul><li><a href="#" data-go="collection">Hoodies</a></li><li><a href="#" data-go="collection">Joggers</a></li><li><a href="#" data-go="collection">Shorts</a></li><li><a href="#" data-go="collection">Tees &amp; tanks</a></li></ul></div>
+      <div><h5>Activity</h5><ul><li><a href="#" data-go="collection">Run</a></li><li><a href="#" data-go="collection">Train</a></li><li><a href="#" data-go="collection">Lounge</a></li></ul></div>
+      <a href="#" class="pr" data-go="collection"><img data-src="mhoodie" alt=""><b>Cloud Fleece →</b></a></div></div>
+    <div><a href="#sets" class="nv" data-go="home">Build a set</a></div>
+    <div><a href="#fit" class="nv" data-go="home">Fit finder</a></div>
+  </nav>
+  <button class="burger" id="burger" aria-label="Menu"><svg class="ico" viewBox="0 0 24 24"><path d="M4 8h16M4 16h16" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></svg></button>
+  <a href="#" class="logo" data-go="home"><svg viewBox="0 0 26 26"><path d="M14 2L4 15h8l-2 9 10-13h-8z" fill="#B9A5F0" stroke="#18181B" stroke-width="1.6" stroke-linejoin="round"/></svg>Voltline <em>Edge</em></a>
+  <div class="util">
+    <a href="#" class="srch" data-go="search" aria-label="Search"><svg class="ico" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7" fill="none" stroke="currentColor" stroke-width="2"/><path d="M20 20l-4-4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg><span>Search</span></a>
+    <a href="#" class="acct" data-go="contact" aria-label="Account"><svg class="ico" viewBox="0 0 24 24"><circle cx="12" cy="8" r="4" fill="none" stroke="currentColor" stroke-width="2"/><path d="M4 21c1-4 4-6 8-6s7 2 8 6" fill="none" stroke="currentColor" stroke-width="2"/></svg></a>
+    <button id="openCart" aria-label="Cart">Bag <b id="count">0</b></button>
+  </div>
+</div></div></header>
+
+<div class="mnav" id="mnav" data-dawn="header (mobile menu)">
+  <button class="x" id="mclose">Close ✕</button>
+  <div class="chips"><a href="#" data-go="collection">Women</a><a href="#" data-go="collection">Men</a><a href="#" data-go="collection">New in</a><a href="#" data-go="collection">Sale</a></div>
+  <a href="#" class="big" data-go="collection">Leggings<span>→</span></a><a href="#" class="big" data-go="collection">Sports bras<span>→</span></a><a href="#" class="big" data-go="collection">Matching sets<span>→</span></a><a href="#" class="big" data-go="collection">Hoodies<span>→</span></a><a href="#sets" class="big" data-go="home">Build a set<span>→</span></a><a href="#fit" class="big" data-go="home">Fit finder<span>→</span></a>
+</div>
+
+<!-- ================= HOME ================= -->
+<main class="page on" id="p-home">
+  <section class="hero" data-dawn="image-banner (inset rounded panel)"><div class="wrap">
+    <div class="hpanel reveal">
+      <img data-src="hero" alt="Athlete in a lilac seamless set" id="heroImg">
+      <div class="tx"><span class="tag">Studio Drop 04 · Lilac Sculpt</span>
+        <h1>Move in <i>colour.</i></h1>
+        <p>Seamless sets that sculpt, stretch and stay put. From the mat to the street, in five new shades.</p>
+        <div class="ctas"><a href="#" class="btn btn-g" data-go="collection">Shop the drop <span class="ar">→</span></a><a href="#sets" class="btn btn-w" data-go="home">Build a set</a></div></div>
+      <a href="#" class="htag" data-go="product" style="left:60%;top:30%">Sculpt Seamless Bra<small>$48</small><span>+</span></a>
+      <a href="#" class="htag" data-go="product" style="left:64%;top:58%">Sculpt Seamless Legging<small>$78</small><span>+</span></a>
+      <div class="cw"><p>Shop by shade</p><div class="sw" id="heroSw"><button class="on" style="background:#B9A5F0" aria-label="Lilac"></button><button style="background:#BFE6CF" aria-label="Mint"></button><button style="background:#3a3a40" aria-label="Graphite"></button><button style="background:#E9E1D3" aria-label="Oat"></button></div></div>
+    </div>
+    <div class="hero-strip reveal"><div><i>↯</i><span>Squat-proof<small>Tested in 40 moves</small></span></div><div><i>⟲</i><span>4-way stretch<small>Moves with you</small></span></div><div><i>✦</i><span>Free returns<small>For 30 days</small></span></div><div><i>♻</i><span>Recycled nylon<small>In every legging</small></span></div></div>
+  </div></section>
+
+  <section class="sec" style="padding-top:72px" data-dawn="sbs-shop-by-activity"><div class="wrap">
+    <div class="head reveal"><div><span class="tag">Shop by activity</span><h2>What's the <i class="m">plan</i> today?</h2></div><div class="tabs" id="actTabs" role="tablist"><button class="on" data-a="0">Yoga &amp; pilates</button><button data-a="1">Run</button><button data-a="2">Train</button><button data-a="3">Lounge</button></div></div>
+    <div class="act reveal"><div class="ph"><img id="actImg" data-src="studio" alt=""><div class="lb"><b id="actT">Yoga &amp; pilates</b><small id="actS">Buttery seamless layers that move with every flow.</small></div></div><div class="row" id="actRow"></div></div>
+  </div></section>
+
+  <section class="sec" style="padding-top:0" data-dawn="featured-collection (new in, colour swatches)"><div class="wrap">
+    <div class="head reveal"><div><span class="tag">New in</span><h2>Fresh <i>drops.</i></h2></div><a href="#" class="btn btn-o" data-go="collection">View all 48 <span class="ar">→</span></a></div>
+    <div class="grid reveal" id="newin"></div>
+  </div></section>
+
+  <section style="padding-bottom:24px" id="sets" data-dawn="sbs-build-a-set"><div class="wrap"><div class="bset reveal">
+    <div class="head"><div><span class="tag">Build a set</span><h2>Mix it. <i>Match it.</i></h2></div><p>Pick a top and a bottom, choose one shade or clash on purpose. Sets save 15%.</p></div>
+    <div class="bset-g">
+      <div class="stage"><div class="slot" id="slotTop"><small>Top</small><img id="imgTop" alt=""></div><div class="slot" id="slotBot"><small>Bottom</small><img id="imgBot" alt=""></div><div class="plus2"><span>+</span></div></div>
+      <div class="pick">
+        <h4>1. Top <span id="topName"></span></h4><div class="opts" id="optTop"></div>
+        <h4>2. Bottom <span id="botName"></span></h4><div class="opts" id="optBot"></div>
+        <h4>3. Shade <span id="shadeName"></span></h4><div class="cols" id="optShade"></div>
+        <div class="sizes"><label>Top size<select id="szTop"></select></label><label>Bottom size<select id="szBot"></select></label></div>
+        <div class="btot"><div><b id="setPrice"></b><s id="setWas"></s><small id="setSave"></small></div><button class="btn btn-l" id="setAdd">Add the set <span class="ar">→</span></button></div>
+      </div>
+    </div>
+  </div></div></section>
+
+  <section class="sec" id="fit" data-dawn="sbs-fit-finder"><div class="wrap">
+    <div class="fit reveal">
+      <div class="fitf"><span class="tag">Fit finder</span><h3 style="margin-top:14px">Find your <i class="m">size</i> in 20 seconds.</h3><p>Three quick questions. We match you to the size most people like you keep.</p>
+        <div class="fq"><b>Height <span id="hv">168 cm</span></b><input type="range" id="fh" min="150" max="190" value="168" aria-label="Height"></div>
+        <div class="fq"><b>Usual size</b><div class="seg" id="fs"><button data-v="0">XS</button><button data-v="1" class="on">S</button><button data-v="2">M</button><button data-v="3">L</button><button data-v="4">XL</button></div></div>
+        <div class="fq"><b>How do you like it?</b><div class="seg" id="ff"><button data-v="-1">Snug &amp; sculpting</button><button data-v="0" class="on">True to size</button><button data-v="1">Relaxed</button></div></div>
+        <div class="fq"><b>Product</b><div class="seg" id="fp"><button data-v="0" class="on">Leggings</button><button data-v="1">Sports bra</button><button data-v="2">Hoodie</button></div></div>
+      </div>
+      <div class="fitr"><img data-src="mlegging" alt="" id="fitImg"><div class="res"><span class="tag dk">Your best fit</span><div class="big" id="fitSize">S</div><div class="conf"><i id="fitConf" style="width:86%"></i></div><small id="fitTxt">86% of shoppers like you kept size S</small><ul class="why" id="fitWhy"></ul><button class="btn btn-g" style="margin-top:22px" id="fitShop">Shop in size S <span class="ar">→</span></button></div></div>
+    </div>
+  </div></section>
+
+  <section class="sec" style="padding-top:0" data-dawn="multicolumn (fabric tech)"><div class="wrap">
+    <div class="feat reveal"><div class="c"><div><span class="tag">The fabric</span><h3>Feels like nothing. Holds like everything.</h3></div><p>Our Sculpt knit is brushed on the inside, matte on the outside and dense enough to pass every squat test.</p></div><div class="c ph"><img data-src="detail" alt="Seamless knit fabric close up"></div><div class="c mi"><b>4-way</b><div><h3>Stretch and recover</h3><p>Keeps its shape after 100 washes. Recycled nylon, no see-through, no rolling waistband.</p></div></div></div>
+  </div></section>
+
+  <section style="padding-bottom:72px" data-dawn="image-banner (studio band)"><div class="wrap">
+    <div class="band reveal"><img data-src="set" alt="Two friends in graphite matching sets" style="object-position:50% 30%"><div class="in"><div><span class="tag">Matching sets</span><h2 style="margin-top:14px">Better <i>together.</i></h2></div><div><p>Hoodie, jogger, bra and legging in one tone. Wear the set or break it up.</p><a href="#" class="btn btn-w" style="margin-top:16px" data-go="collection">Shop matching sets <span class="ar">→</span></a></div></div></div>
+  </div></section>
+
+  <section style="padding-bottom:72px" data-dawn="sbs-review-marquee"><div class="wrap"><div class="head reveal"><div><span class="tag">4.9 from 3,200 reviews (sample)</span><h2>Wear-tested by <i class="m">you.</i></h2></div></div></div>
+    <div class="rvm"><div class="tr" id="rvTrack"></div></div>
+  </section>
+
+  <section style="padding-bottom:24px" data-dawn="newsletter"><div class="wrap">
+    <div class="news reveal"><div><span class="tag" style="background:#fff">Studio list</span><h2 style="margin-top:14px">First dibs on <i>every drop.</i></h2></div><div><form onsubmit="event.preventDefault();toast('You are on the studio list')"><input type="email" placeholder="Your email" aria-label="Email"><button class="btn btn-g" style="height:48px">Join</button></form><small>Early access, 10% off your first order. No spam.</small></div></div>
+  </div></section>
 </main>
 
-<!-- COLLECTION -->
-<main id="view-collection" hidden>
-<section class="col-banner" data-dawn="Collection banner"><div class="wrap"><div class="crumbs"><a href="#" data-go="home">Home</a> / New drop</div><h1>New <em>drop</em></h1><p style="max-width:56ch;color:#D4D6D9">Heavyweight training and street layers. <span id="colCount">12</span> products.</p></div></section>
-<section data-dawn="Product grid"><div class="wrap col-layout">
-<aside class="filters" id="filters" aria-label="Filters">
-<fieldset><legend>Category</legend><label><input type="checkbox" value="jackets" data-f="cat"> Jackets</label><label><input type="checkbox" value="hoodies" data-f="cat"> Hoodies</label><label><input type="checkbox" value="tees" data-f="cat"> Tees</label><label><input type="checkbox" value="bottoms" data-f="cat"> Bottoms</label><label><input type="checkbox" value="knit" data-f="cat"> Knitwear</label></fieldset>
-<fieldset><legend>Colour</legend><div class="swatch-row">
-<label title="Black"><input type="checkbox" value="Black" data-f="col" aria-label="Black"><span style="background:#0E0F11"></span></label>
-<label title="Volt"><input type="checkbox" value="Volt" data-f="col" aria-label="Volt"><span style="background:#C6FF00"></span></label>
-<label title="Stone"><input type="checkbox" value="Stone" data-f="col" aria-label="Stone"><span style="background:#C9C6BC"></span></label>
-<label title="Slate"><input type="checkbox" value="Slate" data-f="col" aria-label="Slate"><span style="background:#4A5360"></span></label>
-<label title="Ember"><input type="checkbox" value="Ember" data-f="col" aria-label="Ember"><span style="background:#E8501C"></span></label></div></fieldset>
-<fieldset><legend>Size</legend><label><input type="checkbox"> S</label><label><input type="checkbox"> M</label><label><input type="checkbox"> L</label><label><input type="checkbox"> XL</label></fieldset>
-<fieldset style="border:0"><legend>Price</legend><label><input type="checkbox" value="u60" data-f="price"> Under £60</label><label><input type="checkbox" value="o60" data-f="price"> £60 and over</label></fieldset></aside>
-<div><div class="toolbar"><button class="btn filter-toggle" type="button" id="filterToggle" aria-controls="filters" aria-expanded="false">Filter</button><span class="muted"><span id="colShown">12</span> products</span>
-<label>Sort by <select id="sort"><option value="feat">Featured</option><option value="low">Price, low to high</option><option value="high">Price, high to low</option></select></label></div>
-<div class="grid four" id="colGrid"></div>
-<nav class="pager" aria-label="Pages"><a href="#" aria-current="page">1</a><a href="#">2</a><a href="#">3</a><a href="#" aria-label="Next page">›</a></nav></div></div></section>
-<section class="block tight" data-dawn="Rich text"><div class="wrap"><div class="fitnote"><strong>Fit note:</strong> hoodies and jackets run roomy, tees are true to size, bottoms are sized by waist.</div></div></section>
-<section class="block tight" data-dawn="Collapsible content"><div class="wrap faq"><h2 class="h">About the drop</h2><div>
-<details class="acc"><summary>How often do new pieces land?</summary><p>A new drop goes live on the first Thursday of each month. Subscribers get it a day early.</p></details>
-<details class="acc"><summary>Do sold-out sizes come back?</summary><p>Core pieces restock every season. Limited colours are one run only.</p></details></div></div></section>
-<section class="news" data-dawn="Email signup"><div class="wrap news-in"><h2>Get 10% off your first drop</h2><form data-sub><label class="sr" for="em2">Email address</label><input class="field" id="em2" type="email" placeholder="Your email address" required><button class="btn solid" type="submit">Subscribe</button></form></div></section>
+<!-- ================= COLLECTION ================= -->
+<main class="page" id="p-collection"><div class="wrap">
+  <div class="crumbs" data-dawn="sbs-breadcrumbs"><a href="#" data-go="home">Home</a> / Women / Leggings &amp; sets</div>
+  <section class="chead" data-dawn="main-collection-banner (text card + photo)"><div class="t"><div><span class="tag">48 styles · Women</span><h1>Leggings <i>&amp; sets</i></h1><p>Seamless, sculpting and squat-proof. Shop by fit, shade and activity.</p></div>
+    <div class="subc" id="subc"><button class="on" data-c="All"><img data-src="set" alt="">All</button><button data-c="Leggings"><img data-src="legging" alt="">Leggings</button><button data-c="Bras"><img data-src="bra" alt="">Bras</button><button data-c="Hoodies"><img data-src="hoodie" alt="">Hoodies</button><button data-c="Joggers"><img data-src="jogger" alt="">Joggers</button><button data-c="Shorts"><img data-src="short" alt="">Shorts</button></div></div>
+    <div class="ph"><img data-src="mlegging" alt=""></div></section>
+  <div class="cl" data-dawn="main-collection-product-grid (rounded filter card)">
+    <aside class="side" id="side"><h4>Size</h4><div class="sz" id="fsz"></div><h4>Shade</h4><div class="cc" id="fcol"></div><h4>Activity</h4><div class="ch" id="fact"></div><h4>Price</h4><input type="range" id="fprice" min="40" max="120" value="120" aria-label="Max price"><div class="pr"><span>$40</span><span id="fpv">Up to $120</span></div><button class="clr" id="fclr">Clear all</button></aside>
+    <div><div class="tb"><span class="n" id="ccount"></span><div style="display:flex;gap:8px;align-items:center"><div class="vw" id="vw"><button class="on" data-v="4">4</button><button data-v="3">3</button></div><select id="sort" aria-label="Sort"><option value="feat">Featured</option><option value="new">Newest</option><option value="lo">Price, low to high</option><option value="hi">Price, high to low</option></select></div></div>
+      <div class="grid cg" id="cgrid"></div>
+      <div class="more"><span>Showing 8 of 48</span><div class="bar"><i></i></div><button class="btn btn-o" onclick="toast('Demo shows one page')">Load more</button></div></div>
+  </div>
+</div></main>
+
+<!-- ================= PRODUCT ================= -->
+<main class="page" id="p-product">
+  <div class="wrap">
+    <div class="crumbs" data-dawn="sbs-breadcrumbs"><a href="#" data-go="home">Home</a> / <a href="#" data-go="collection">Women</a> / <a href="#" data-go="collection">Leggings</a> / Sculpt Seamless Legging</div>
+    <div class="pdp" data-dawn="main-product (mosaic gallery, fit finder, pair with)">
+      <div class="gal" id="gal"></div>
+      <div class="info">
+        <div class="bd"><span>Drop 04</span><span>Squat-proof</span></div>
+        <h1>Sculpt Seamless Legging</h1>
+        <div class="rt"><b>★★★★★</b> 4.9 · 1,204 reviews (sample)</div>
+        <div class="pp"><b>$78</b><small>Set price $112 with the bra</small></div>
+        <div class="klarna">Or 4 payments of $19.50. Free returns for 30 days.</div>
+        <div class="optl">Shade <span id="pcolT">Lilac</span></div><div class="pcol" id="pcol"></div>
+        <div class="optl">Length</div><div class="lens" id="lens"><button data-l="7/8">7/8<small>63 cm inseam</small></button><button class="on" data-l="Full">Full<small>71 cm inseam</small></button><button data-l="Tall">Tall<small>76 cm inseam</small></button></div>
+        <div class="optl">Size <a href="#" id="openSG">Size guide</a></div><div class="psz" id="psz"></div>
+        <div class="fitbar"><span>Fit finder says <b id="pfit">S</b> for you</span><button id="pfitBtn">Use my size</button></div>
+        <div class="buy"><button class="btn btn-g" id="atc">Select a size</button><button class="wish" id="pwish" aria-label="Add to wishlist">♡</button></div>
+        <div class="pairw"><img data-src="bra" alt=""><div><b>Pair with Rib Racer Bra</b>Make it a set and save 15%</div><button onclick="add(1,'S',false)">Add · $48</button></div>
+        <div class="acc">
+          <details open><summary>Fit &amp; feel</summary><div class="b">High rise, second-skin fit. Light compression through the thigh. Model is 172 cm and wears S.</div></details>
+          <details><summary>Fabric &amp; care</summary><div class="b">78% recycled nylon, 22% elastane seamless knit. Wash cold, hang dry, no fabric softener.</div></details>
+          <details><summary>Shipping &amp; returns</summary><div class="b">Free shipping over $100. Free returns within 30 days.</div></details>
+        </div>
+      </div>
+    </div>
+  </div>
+  <section class="sec" style="padding-top:0" data-dawn="multicolumn (tech tiles)"><div class="wrap"><div class="tech"><div><b>40</b><h4>Squat-tested moves</h4><p>No see-through, no slipping.</p></div><div><b>0</b><h4>Side seams</h4><p>Knitted in one piece for zero chafe.</p></div><div><b>78%</b><h4>Recycled nylon</h4><p>Made from pre-consumer waste.</p></div><div><b>100</b><h4>Washes, same shape</h4><p>Tested in our lab.</p></div></div></div></section>
+  <section class="sec" style="padding-top:0" data-dawn="sbs-reviews (fit bars + review cards)"><div class="wrap"><div class="head"><div><span class="tag">Reviews</span><h2>Real fit, <i class="m">real people.</i></h2></div></div><div class="rvw">
+    <div class="score"><b>4.9</b><div class="s">★★★★★</div><small style="color:var(--mute);font-weight:600">1,204 reviews (sample)</small><div class="bars"><div>Fit<i><em style="width:88%"></em></i></div><div>Comfort<i><em style="width:96%"></em></i></div><div>Squat-proof<i><em style="width:99%"></em></i></div><div>Quality<i><em style="width:94%"></em></i></div></div></div>
+    <div class="rvl"><div class="r"><div><span class="s">★★★★★</span><p>"Finally a legging that doesn't roll down during pilates. The lilac is even prettier in person."</p><small>Sample review · Verified buyer</small></div><aside><span>Size bought <b>S</b></span><span>Height <b>165 cm</b></span><span>Fit <b>True to size</b></span></aside></div>
+      <div class="r"><div><span class="s">★★★★★</span><p>"Did the squat test in front of a mirror. Passed. Bought the bra to match."</p><small>Sample review · Verified buyer</small></div><aside><span>Size bought <b>M</b></span><span>Height <b>172 cm</b></span><span>Fit <b>Snug</b></span></aside></div>
+      <div class="r"><div><span class="s">★★★★☆</span><p>"Super soft. I'm tall and the Tall length is perfect, but it runs slightly small."</p><small>Sample review · Verified buyer</small></div><aside><span>Size bought <b>L</b></span><span>Height <b>181 cm</b></span><span>Fit <b>Runs small</b></span></aside></div></div>
+  </div></div></section>
+  <section class="sec" style="padding-top:0" data-dawn="related-products (complete the set)"><div class="wrap"><div class="head"><div><span class="tag">Complete the set</span><h2>Goes <i>with.</i></h2></div></div><div class="grid" id="recent"></div></div></section>
+  <div class="sticky-atc" id="sticky" data-dawn="main-product (floating add to bag)"><img data-src="legging" alt=""><div><b>Sculpt Seamless Legging</b><small id="stxt"></small></div><button class="btn btn-l" id="satc">Add · $78</button></div>
 </main>
 
-<!-- PRODUCT -->
-<main id="view-product" hidden>
-<div class="wrap"><nav class="crumbs" data-dawn="Selvedge: Breadcrumbs" aria-label="Breadcrumb"><a href="#" data-go="home">Home</a> / <a href="#" data-go="collection">Hoodies</a> / Heavy Hoodie</nav></div>
-<section data-dawn="Product information"><div class="wrap pdp">
-<div class="gallery"><div class="g"><svg viewBox="0 0 200 240" aria-hidden="true" id="mainArt" style="color:#0E0F11"><use href="#g-hood"/></svg></div><div class="g pat-a"></div><div class="g" style="background:var(--volt)"><svg viewBox="0 0 200 240" style="color:#0E0F11" aria-hidden="true"><use href="#g-hood"/></svg></div></div>
-<div class="buy"><h1>Heavy Hoodie</h1><p class="price">£68</p><p class="note">400 gsm loopback fleece, pre-shrunk and brushed once. Boxy fit, drop shoulder.</p>
-<fieldset class="opt"><legend>Colour: <span id="cname">Black</span></legend><div class="swatches"><button type="button" aria-pressed="true" aria-label="Black" style="background:#0E0F11" data-c="Black" data-hex="#0E0F11"></button><button type="button" aria-pressed="false" aria-label="Volt" style="background:#C6FF00" data-c="Volt" data-hex="#C6FF00"></button><button type="button" aria-pressed="false" aria-label="Slate" style="background:#4A5360" data-c="Slate" data-hex="#4A5360"></button></div></fieldset>
-<fieldset class="opt"><legend>Size</legend><div class="sizes"><button type="button" aria-pressed="false">S</button><button type="button" aria-pressed="true">M</button><button type="button" aria-pressed="false">L</button><button type="button" aria-pressed="false">XL</button><button type="button" disabled aria-label="XXL, sold out">XXL</button></div></fieldset>
-<div class="fittip">Roomy through the body. Between sizes, go down one.</div>
-<button class="btn solid full" type="button" data-add="1">Add to cart</button><button class="btn full" type="button">Buy it now</button>
-<details class="acc" open><summary>Fabric</summary><p>80% cotton, 20% recycled polyester. 400 gsm loopback. Double-layer hood, YKK zip pocket.</p></details>
-<details class="acc"><summary>Fit and size guide</summary><p>Boxy, hip length. Model is 183 cm and wears M. Chest: S 108, M 114, L 120, XL 126 cm.</p></details>
-<details class="acc"><summary>Care</summary><p>Wash cold, inside out. Tumble dry low or hang.</p></details>
-<details class="acc"><summary>Shipping and returns</summary><p>Ships in 2 days. Free returns for 30 days.</p></details></div></div></section>
-<section class="block" data-dawn="Image with text"><div class="wrap iwt flip"><div class="pic pat-a" role="img" aria-label="Fleece weave close-up"></div><div><h2>Loopback that lasts</h2><p>Looped yarn on the inside traps heat and resists pilling. It's the same construction used in heavyweight sportswear, in a fit built for the gym and the street.</p></div></div></section>
-<section class="block tight" data-dawn="Apps (reviews)"><div class="wrap"><div class="sec-head"><h2 class="h">Reviews</h2></div><div class="appbox"><div><div class="stars" aria-label="4.8 out of 5">★★★★★</div><strong>4.8 out of 5</strong><div class="muted">from 312 reviews</div></div><blockquote><p>Warm, heavy and it kept its shape after months of washing. Sized down and it's perfect.</p><cite>Priya, Leeds · Size S · Verified buyer</cite></blockquote><button class="btn" type="button">Write a review</button></div><p class="muted" style="font-size:14px;margin-top:10px">Reviews app area: Judge.me, Loox or Shopify Product Reviews renders here.</p></div></section>
-<section class="block tight" data-dawn="Related products"><div class="wrap"><div class="sec-head"><h2 class="h">Wear it with</h2></div><div class="grid slide" data-grid="2,5,10,6,3"></div></div></section>
-<section class="block tight" data-dawn="Multicolumn"><div class="wrap cols"><div class="col"><h3>Free returns</h3><p>30 days, prepaid label in the box.</p></div><div class="col"><h3>Ships in 2 days</h3><p>Tracked, same day before 2 pm.</p></div><div class="col"><h3>Tested hard</h3><p>Every fabric is wash-tested 40 times.</p></div></div></section>
-<div style="height:48px"></div></main>
-
-<!-- CART -->
-<main id="view-cart" hidden>
-<div class="wrap" style="padding-top:24px"><h1 class="pageh">Your cart</h1></div>
-<div class="wrap cart-grid"><section data-dawn="Cart items"><div id="cartLines"></div><p id="cartEmpty" class="muted" hidden>Your cart is empty. <a href="#" data-go="collection">Shop the new drop</a></p></section>
-<aside class="summary" data-dawn="Subtotal"><p id="shipMsg" style="margin:0"></p><div class="ship-bar"><i id="shipBar" style="width:0"></i></div>
-<label for="note" style="font-weight:600">Order note</label><textarea id="note" placeholder="Gift message or delivery note"></textarea>
-<div class="row"><span>Subtotal</span><span id="subtotal">£0</span></div><p class="muted" style="font-size:14px;margin:0 0 16px">Taxes and shipping calculated at checkout.</p><button class="btn solid full" type="button">Check out</button></aside></div>
-<section class="block tight" data-dawn="Featured collection"><div class="wrap"><div class="sec-head"><h2 class="h">Add to your order</h2></div><div class="grid slide" data-grid="2,5,10,11,6"></div></div></section>
-<div style="height:48px"></div></main>
-
-<!-- SEARCH -->
-<main id="view-search" hidden>
-<section class="block" style="padding-top:24px" data-dawn="Search results"><div class="wrap"><h1 class="pageh">Search</h1>
-<form id="searchForm" style="display:flex;gap:8px;max-width:640px;margin-bottom:12px"><label class="sr" for="q">Search products</label><input class="field" id="q" type="search" value="hoodie" placeholder="Search products"><button class="btn solid" type="submit">Search</button></form>
-<p class="muted" id="searchCount"></p><div class="grid four" id="searchGrid"></div></div></section>
-<section class="block tight" data-dawn="Featured collection"><div class="wrap"><div class="sec-head"><h2 class="h">Popular right now</h2></div><div class="grid slide" data-grid="0,4,1,7,9"></div></div></section>
-<div style="height:48px"></div></main>
-
-<!-- BLOG -->
-<main id="view-blog" hidden>
-<section class="block" style="padding-top:24px" data-dawn="Blog posts"><div class="wrap"><h1 class="pageh">Journal</h1>
-<a class="feature-post" data-go="article"><div class="pic pat-a" role="img" aria-label="Fleece close-up"></div><div><small class="muted">12 September 2026 · Fabric</small><h2>Why we test fleece forty times</h2><p class="muted">What wash-testing reveals about pilling, shrink and shape, and how we changed our loopback after round one.</p></div></a>
-<div class="grid three" data-posts="1,2,3,4,5,0"></div></div></section>
-<section class="news" data-dawn="Email signup"><div class="wrap news-in"><h2>New posts, first</h2><form data-sub><label class="sr" for="em3">Email address</label><input class="field" id="em3" type="email" placeholder="Your email address" required><button class="btn solid" type="submit">Subscribe</button></form></div></section>
+<!-- ================= CART ================= -->
+<main class="page" id="p-cart">
+  <div class="wrap">
+    <div class="crumbs" data-dawn="sbs-breadcrumbs"><a href="#" data-go="home">Home</a> / Bag</div>
+    <div class="cpage" data-dawn="main-cart-items + main-cart-footer">
+      <div><h1>Your <i>bag</i></h1><div class="prog" id="cprog"></div><div class="lines" id="clines"></div>
+        <div class="note"><label for="cnote">Order note</label><textarea id="cnote" placeholder="Gift message or delivery notes"></textarea></div></div>
+      <aside class="summ"><h3>Summary</h3><div class="r"><span>Subtotal</span><span id="csub">$0</span></div><div class="r"><span>Set savings</span><span id="csave">$0</span></div><div class="r"><span>Shipping</span><span id="cship">—</span></div><div class="r t"><span>Total</span><span id="ctot">$0</span></div>
+        <div class="cpn"><input placeholder="Discount code" aria-label="Discount code"><button onclick="toast('Codes work at checkout')">Apply</button></div>
+        <button class="btn btn-l" onclick="toast('Checkout is off in the demo')">Checkout <span class="ar">→</span></button>
+        <ul><li>Free returns for 30 days</li><li>Pay in 4 with no interest</li><li>Ships in 1 to 2 days</li></ul></aside>
+    </div>
+  </div>
+  <section class="sec" style="padding-top:0" data-dawn="featured-collection (pairs well)"><div class="wrap"><div class="head"><div><span class="tag">Pairs well</span><h2>Finish the <i class="m">fit.</i></h2></div></div><div class="grid" id="cartup"></div></div></section>
 </main>
 
-<!-- ARTICLE -->
-<main id="view-article" hidden>
-<article class="block article" style="padding-top:24px" data-dawn="Blog post"><div class="wrap narrow"><nav class="crumbs" style="padding-top:0" aria-label="Breadcrumb"><a href="#" data-go="home">Home</a> / <a href="#" data-go="blog">Journal</a></nav>
-<h1>Why we test fleece forty times</h1><p class="by">12 September 2026 · By Sam Hale · 5 min read</p></div>
-<div class="wrap"><div class="article-hero pat-b" role="img" aria-label="Volt fleece swatch"></div></div>
-<div class="wrap narrow"><p>A fleece can feel perfect on day one and fall apart by week six. We wanted to know why, so every new fabric goes through forty home-style washes before we cut a single piece.</p>
-<h2>Washes one to ten</h2><p>This is where shrink shows. Our first loopback lost 6% in length. We pre-shrunk the cloth at the mill and the loss dropped under 2%.</p>
-<h2>Washes ten to thirty</h2><p>Pilling starts here. Tighter yarn twist and a single brushing pass kept the surface flat where a double brush fuzzed up within a dozen washes.</p>
-<h2>Washes thirty to forty</h2><p>By now the cuffs tell the truth. Ours still spring back. If they hadn't, the fabric wouldn't have made the drop.</p>
-<div class="share"><span>Share:</span><a href="#">Facebook</a><a href="#">Pinterest</a><a href="#">Copy link</a></div></div></article>
-<section class="block tight" data-dawn="Featured collection"><div class="wrap"><div class="sec-head"><h2 class="h">Shop the story</h2></div><div class="grid slide" data-grid="1,0,5,6,3"></div></div></section>
-<section class="news" data-dawn="Email signup"><div class="wrap news-in"><h2>New posts, first</h2><form data-sub><label class="sr" for="em4">Email address</label><input class="field" id="em4" type="email" placeholder="Your email address" required><button class="btn solid" type="submit">Subscribe</button></form></div></section>
+<!-- ================= SEARCH ================= -->
+<main class="page" id="p-search"><div class="wrap" style="padding-bottom:96px" data-dawn="main-search">
+  <div class="crumbs"><a href="#" data-go="home">Home</a> / Search</div>
+  <form class="sform" onsubmit="event.preventDefault()"><svg class="ico" viewBox="0 0 24 24" style="width:30px;height:30px"><circle cx="11" cy="11" r="7" fill="none" stroke="currentColor" stroke-width="2"/><path d="M20 20l-4-4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg><input id="q" value="lilac" aria-label="Search"><button class="btn btn-g">Search</button></form>
+  <div class="sugg">Trending: <button>legging</button><button>matching set</button><button>hoodie</button><button>mint</button><button>shorts</button></div>
+  <p id="sres" style="color:var(--mute);margin-bottom:22px;font-weight:600"></p><div class="grid" id="sgrid"></div>
+</div></main>
+
+<!-- ================= BLOG ================= -->
+<main class="page" id="p-blog"><div class="wrap" style="padding-bottom:96px" data-dawn="main-blog">
+  <div class="crumbs"><a href="#" data-go="home">Home</a> / The Studio Journal</div>
+  <a href="#" class="bhero" data-go="article"><div class="ph"><img data-src="studio" alt=""></div><div class="tx"><div><span class="tag">Pilates</span><h2>A 20-minute <i style="background:#fff">mat flow</i> for busy days</h2><p>No reformer, no problem. Six moves you can do in the living room.</p></div><span class="btn btn-g" style="align-self:flex-start">Read the flow <span class="ar">→</span></span></div></a>
+  <div class="tabs" id="btabs" style="margin-bottom:22px"><button class="on">All</button><button>Pilates</button><button>Run</button><button>Strength</button><button>Fit guides</button></div>
+  <div class="jgrid">
+    <a href="#" class="post" data-go="article"><div class="ph"><img data-src="run" alt=""></div><div class="b"><small>Run</small><h3>Your first 5K, week by week</h3><p>An eight-week plan for total beginners.</p></div></a>
+    <a href="#" class="post" data-go="article"><div class="ph"><img data-src="mlegging" alt=""></div><div class="b"><small>Fit guides</small><h3>How to pick legging length</h3><p>7/8, full or tall: the inseam guide.</p></div></a>
+    <a href="#" class="post" data-go="article"><div class="ph"><img data-src="set" alt=""></div><div class="b"><small>Style</small><h3>Three ways to wear a set</h3><p>From the gym to brunch in one outfit.</p></div></a>
+    <a href="#" class="post" data-go="article"><div class="ph"><img data-src="detail" alt=""></div><div class="b"><small>Care</small><h3>Make leggings last longer</h3><p>Wash cold, skip the softener.</p></div></a>
+    <a href="#" class="post" data-go="article"><div class="ph"><img data-src="mbra" alt=""></div><div class="b"><small>Fit guides</small><h3>Find your bra support level</h3><p>Low, medium or high impact?</p></div></a>
+    <a href="#" class="post" data-go="article"><div class="ph"><img data-src="mhoodie" alt=""></div><div class="b"><small>Strength</small><h3>Warm-up in five moves</h3><p>Before any session, every time.</p></div></a>
+  </div>
+</div></main>
+
+<!-- ================= ARTICLE ================= -->
+<main class="page" id="p-article"><div class="wrap">
+  <div class="crumbs" data-dawn="sbs-breadcrumbs"><a href="#" data-go="home">Home</a> / <a href="#" data-go="blog">Journal</a> / Pilates</div>
+  <article class="art" data-dawn="main-article"><span class="tag">Pilates · 6 min read</span><h1>A 20-minute <i>mat flow</i> for busy days</h1><div class="by"><i>MK</i>By Maya, Voltline Edge studio coach</div>
+    <div class="big"><img data-src="studio" alt=""></div>
+    <p>You don't need a studio or an hour. Roll out a mat, set a timer and move through these six exercises twice. Breathe out on the effort.</p>
+    <div class="steps"><div>The hundred · 1 minute</div><div>Roll up · 8 reps</div><div>Single leg circles · 6 each side</div><div>Side stretch · 30 seconds each side</div><div>Glute bridge · 12 reps</div><div>Child's pose · 1 minute</div></div>
+    <h2>Wear something that stays put</h2>
+    <p>A high-rise, seamless legging and a medium-support bra let you roll and stretch without adjusting. Our Sculpt set was made for exactly this.</p>
+    <blockquote>"Consistency beats intensity. Twenty minutes counts."</blockquote>
+    <p>Do this flow three times a week and you will feel stronger in your core in a month.</p>
+    <div class="share"><a href="#">Copy link</a><a href="#">Email</a><a href="#">Pinterest</a></div>
+  </article></div>
+  <section class="sec" style="padding-top:0" data-dawn="featured-collection (shop the story)"><div class="wrap"><div class="head"><div><span class="tag">Shop the flow</span><h2>Mat <i>ready.</i></h2></div></div><div class="grid" id="artgrid"></div></div></section>
 </main>
 
-<!-- ABOUT -->
-<main id="view-about" hidden>
-<section class="about-hero pat-a" data-dawn="Image banner"><div class="wrap"><h1>Made to <em>move</em></h1></div></section>
-<section class="block" data-dawn="Rich text"><div class="wrap narrow story"><p>Voltline started in 2020 in a Sheffield garage with one hoodie and a simple test: wash it forty times and see what's left.</p><p>Most of what we tried fell apart, so we went to the mills directly and asked for heavier cloth, tighter knits and finishes that last. We make small runs and repair what we sell.</p></div></section>
-<section class="block tight" data-dawn="Multirow"><div class="wrap mrow">
-<div class="iwt"><div class="pic pat-a" role="img" aria-label="Fleece on the loom"></div><div><h2>The cloth</h2><p>Loopback from Portugal, jersey from Turkey, shell fabric from Italy. Every mill is audited before we order.</p></div></div>
-<div class="iwt flip"><div class="pic pat-c" role="img" aria-label="Pattern cutting"></div><div><h2>The cut</h2><p>Patterns are cut for movement: gusseted shoulders, longer backs, and room where lifters need it.</p></div></div>
-<div class="iwt"><div class="pic pat-b" role="img" aria-label="Finished seams"></div><div><h2>The finish</h2><p>Flat-lock seams and bar-tacked stress points. Built so the repair promise rarely gets used.</p></div></div></div></section>
-<section class="block" data-dawn="Multicolumn"><div class="wrap nums"><div><strong>40</strong>wash tests per fabric</div><div><strong>300</strong>pieces per run, at most</div><div><strong>2,400</strong>repairs done free</div><div><strong>2020</strong>the year we started</div></div></section>
-<div class="stitch" data-dawn="Selvedge: Selvedge divider" aria-hidden="true"></div>
-</main>
+<!-- ================= ABOUT ================= -->
+<main class="page" id="p-about"><div class="wrap">
+  <section class="ab" data-dawn="image-with-text (story split)"><div class="t"><span class="tag" style="background:#fff">About Voltline Edge</span><h1>Made to <i style="background:#fff">move</i> with you.</h1><p>We started in a tiny pilates studio with one question: why do the best leggings still roll down? Three years and 40 squat tests later, we have an answer.</p></div><div class="ph"><img data-src="studio" alt=""></div></section>
+  <section class="sec" data-dawn="multicolumn (numbers)"><div class="nums"><div><b>40</b><p>Moves in every squat test</p></div><div><b>78%</b><p>Recycled nylon in our knit</p></div><div><b>120K</b><p>Members in the studio list</p></div><div><b>4.9</b><p>Average rating (sample)</p></div></div></section>
+  <section style="padding-bottom:96px" data-dawn="multicolumn (values)"><div class="head"><div><span class="tag">What we believe</span><h2>Our <i class="m">rules.</i></h2></div></div><div class="vals"><div><span class="tag">01</span><h3>Fit first</h3><p>Every style is fitted on six body types before it goes into production.</p></div><div><span class="tag" style="background:#fff">02</span><h3>Small drops</h3><p>We make less, more often. No mountains of unsold stock.</p></div><div><span class="tag">03</span><h3>Better fibres</h3><p>Recycled nylon and organic cotton fleece across the range.</p></div></div></section>
+</div></main>
 
-<!-- CONTACT -->
-<main id="view-contact" hidden>
-<section class="block" style="padding-top:24px" data-dawn="Page"><div class="wrap narrow"><h1 class="pageh">Contact us</h1><p style="font-size:19px;margin:0">We reply within one working day, Monday to Friday.</p></div></section>
-<section class="block tight" data-dawn="Contact form"><div class="wrap narrow"><form class="contact-grid" id="contactForm">
-<div><label for="cn">Name</label><input class="field" id="cn" required></div><div><label for="ce">Email</label><input class="field" id="ce" type="email" required></div>
-<div class="span"><label for="co">Order number (optional)</label><input class="field" id="co" placeholder="#1042"></div>
-<div class="span"><label for="cm">Message</label><textarea class="field" id="cm" required></textarea></div>
-<div class="span"><button class="btn solid" type="submit">Send message</button></div></form></div></section>
-<section class="block" data-dawn="Multicolumn"><div class="wrap cols"><div class="col"><h3>Email</h3><p>hello@voltline.co<br>Replies within one working day</p></div><div class="col"><h3>Phone</h3><p>+44 114 496 0000<br>Mon to Fri, 9 am to 5 pm</p></div><div class="col"><h3>Returns address</h3><p>Voltline Returns, Unit 7, Foundry Road, Sheffield S1 2AB</p></div></div></section>
-<section class="block tight" data-dawn="Collapsible content"><div class="wrap faq"><h2 class="h">Quick answers</h2><div>
-<details class="acc"><summary>Where is my order?</summary><p>Your tracking link is in your shipping email. Most orders arrive in 2 to 4 working days.</p></details>
-<details class="acc"><summary>How do I start a return?</summary><p>Use the prepaid label in your parcel, or email your order number for a new one.</p></details>
-<details class="acc"><summary>How do I book a repair?</summary><p>Email a photo of the damage and your order number and we'll send a label.</p></details></div></div></section>
-<div style="height:48px"></div></main>
+<!-- ================= CONTACT ================= -->
+<main class="page" id="p-contact"><div class="wrap">
+  <div class="crumbs" data-dawn="sbs-breadcrumbs"><a href="#" data-go="home">Home</a> / Contact</div>
+  <div class="ct" data-dawn="contact-form + multicolumn (ways to reach us)">
+    <div class="t"><span class="tag">Contact</span><h1>Talk to <i>us.</i></h1><p style="color:var(--mute)">Questions about fit, an order or a return. Our studio team replies within a day.</p>
+      <div class="ways"><div><b>Live chat</b>Mon to Fri, 9am to 6pm</div><div><b>Email</b>hello@voltline-demo.com</div><div><b>Returns</b>Start a free return online</div><div><b>Fit help</b>Send your height and usual size</div></div></div>
+    <form class="cform" onsubmit="event.preventDefault();document.getElementById('cok').classList.add('on')"><h3>Send a message</h3><div class="two"><input placeholder="Name" aria-label="Name"><input placeholder="Email" aria-label="Email"></div><select aria-label="Topic"><option>Fit and sizing</option><option>My order</option><option>Returns</option><option>Wholesale</option></select><textarea placeholder="Message" aria-label="Message"></textarea><button class="btn btn-l">Send <span class="ar">→</span></button><p class="ok" id="cok">Thanks. We will reply within one working day.</p></form>
+  </div>
+  <section style="padding-bottom:96px" data-dawn="collapsible-content (FAQ)"><div class="head"><div><span class="tag">FAQ</span><h2>Quick <i class="m">answers.</i></h2></div></div><div class="faq">
+    <details open><summary>Are the leggings really squat-proof?</summary><p>Yes. Every legging passes our 40-move test under bright studio lights before it goes on sale.</p></details>
+    <details><summary>How do I choose my size?</summary><p>Use the fit finder on any product page, or check the size guide. Most people take their usual size.</p></details>
+    <details><summary>Can I return worn items?</summary><p>Unworn items with tags can be returned free within 30 days.</p></details>
+  </div></section>
+</div></main>
 
-<!-- 404 -->
-<main id="view-404" hidden>
-<section class="nf" data-dawn="404 page"><div class="wrap"><h1>4<em>0</em>4</h1><p>Page not found. It may have sold out, or the link is wrong.</p>
-<form data-search404><label class="sr" for="q404">Search products</label><input class="field" id="q404" type="search" placeholder="Search products"><button class="btn solid" type="submit">Search</button></form>
-<a href="#" class="btn" data-go="collection">Back to the shop</a></div></section>
-<section class="block tight" data-dawn="Featured collection"><div class="wrap"><div class="sec-head"><h2 class="h">Best sellers</h2></div><div class="grid slide" data-grid="5,6,7,8,9"></div></div></section>
-<div style="height:48px"></div></main>
+<!-- ================= 404 ================= -->
+<main class="page" id="p-404"><div class="wrap">
+  <section class="nf" data-dawn="main-404"><div class="t"><b>404</b><h1>Out of <i style="background:#fff">breath?</i></h1><p>This page took a rest day. Catch your breath and head back to the studio.</p><a href="#" class="btn btn-g" data-go="home" style="align-self:flex-start">Back to home <span class="ar">→</span></a></div><div class="ph"><img data-src="run" alt=""></div></section>
+  <section class="sec" data-dawn="featured-collection (best sellers)"><div class="head"><div><span class="tag">Best sellers</span><h2>Start <i>here.</i></h2></div></div><div class="grid" id="nfgrid"></div></section>
+</div></main>
 
-<footer class="site" data-dawn="Footer"><div class="wrap"><div class="foot">
-<div><a class="logo" href="#" data-go="home">Volt<b>line</b></a><p style="margin:14px 0 0;max-width:34ch;color:#B7BABE">Heavyweight training and street layers, wash-tested forty times and repaired for free.</p></div>
-<div><h4>Shop</h4><ul><li><a href="#" data-go="collection">New drop</a></li><li><a href="#" data-go="collection">Jackets</a></li><li><a href="#" data-go="collection">Hoodies</a></li><li><a href="#" data-go="collection">Tees</a></li></ul></div>
-<div><h4>Help</h4><ul><li><a href="#" data-go="contact">Contact</a></li><li><a href="#" data-go="contact">Delivery</a></li><li><a href="#" data-go="contact">Returns</a></li><li><a href="#" data-go="404">Size guide</a></li></ul></div>
-<div><h4>Company</h4><ul><li><a href="#" data-go="about">About</a></li><li><a href="#" data-go="blog">Journal</a></li><li><a href="#" data-go="search">Search</a></li></ul></div></div>
-<div class="legal"><span>© 2026 Voltline. All rights reserved.</span><span>Privacy · Terms · Refunds</span></div></div></footer>
+<footer class="ftr" data-dawn="footer (rounded graphite card)"><div class="wrap"><div class="fbox">
+  <div class="cols4">
+    <div><span class="logo">Voltline <em>Edge</em></span><p>Athleisure for the mat, the run and everything in between. Small drops, made to move.</p></div>
+    <div><h5>Shop</h5><ul><li><a href="#" data-go="collection">Women</a></li><li><a href="#" data-go="collection">Men</a></li><li><a href="#" data-go="collection">Matching sets</a></li><li><a href="#sets" data-go="home">Build a set</a></li></ul></div>
+    <div><h5>Help</h5><ul><li><a href="#fit" data-go="home">Fit finder</a></li><li><a href="#" data-go="contact">Returns</a></li><li><a href="#" data-go="contact">Shipping</a></li><li><a href="#" data-go="contact">Contact</a></li></ul></div>
+    <div><h5>Studio</h5><ul><li><a href="#" data-go="about">About</a></li><li><a href="#" data-go="blog">Journal</a></li><li><a href="#">Instagram</a></li><li><a href="#">TikTok</a></li></ul></div>
+  </div>
+  <div class="wm">Voltline Edge</div>
+  <div class="bot"><span>© 2026 Voltline Edge. Demo store.</span><div class="pay"><span>VISA</span><span>MC</span><span>AMEX</span><span>PAYPAL</span><span>SHOP PAY</span></div></div>
+</div></div></footer>
 
-<div class="overlay" id="ovMenu" data-close hidden></div>
-<aside class="drawer left" id="menuDrawer" aria-label="Menu" hidden data-dawn="Header (menu drawer)"><div class="drawer-head"><h2>Menu</h2><button class="x" type="button" data-close aria-label="Close menu">×</button></div>
-<nav><a href="#" data-go="collection">New drop</a><a href="#" data-go="collection">Outerwear</a><a href="#" data-go="collection">Tees</a><a href="#" data-go="blog">Journal</a><a href="#" data-go="about">About</a><a href="#" data-go="contact">Contact</a></nav></aside>
-<div class="overlay" id="ovCart" data-close hidden></div>
-<aside class="drawer right" id="cartDrawer" aria-label="Cart" hidden data-dawn="Cart drawer"><div class="drawer-head"><h2>Cart</h2><button class="x" type="button" data-close aria-label="Close cart">×</button></div>
-<div class="body" id="drawerLines"></div><div class="row" style="margin-top:14px"><span>Subtotal</span><span id="drawerSub">£0</span></div>
-<button class="btn solid full" type="button">Check out</button><a href="#" class="btn full" data-go="cart">View cart</a></aside>
-<div class="toast" id="toast" role="status" hidden></div>
+<div class="modal" id="sg" data-dawn="sbs-size-guide (modal)"><div class="bx"><button class="x" id="sgx">Close ✕</button><h3>Size guide</h3><p style="color:var(--mute);font-size:14px">Body measurements. Between sizes? Size down for sculpt, up for relaxed.</p><div class="unit" id="unit"><button class="on" data-u="cm">cm</button><button data-u="in">in</button></div><table id="sgt"></table></div></div>
+<div class="scrim" id="scrim"></div>
+<aside class="drawer" id="drawer" aria-label="Bag" data-dawn="cart-drawer (floating rounded)"><div class="hd"><h3>Your bag</h3><button id="closeCart">Close ✕</button></div><div class="pg"><div class="prog" id="dprog"></div></div><div class="ls" id="dlines"></div><div class="ft"><div class="r"><span>Subtotal</span><span id="dsub">$0</span></div><a href="#" class="btn btn-g" data-go="cart">View bag &amp; checkout <span class="ar">→</span></a></div></aside>
+<div class="toast" id="toast" role="status"></div>
 
 <script>
-(function(){
-var P=[
-{n:"Heavy Hoodie",s:"hood",c:"#0E0F11",cn:"Black",p:68,t:"400 gsm",cat:"hoodies",tag:"New",d:["#0E0F11","#C6FF00","#4A5360"]},
-{n:"Gym Tee",s:"tee",c:"#C6FF00",cn:"Volt",p:36,t:"240 gsm",cat:"tees",tag:"New",d:["#C6FF00","#0E0F11"]},
-{n:"Storm Shell",s:"jacket",c:"#4A5360",cn:"Slate",p:128,t:"Waterproof",cat:"jackets",tag:"New",d:["#4A5360","#0E0F11"]},
-{n:"Lift Short",s:"short",c:"#0E0F11",cn:"Black",p:44,t:"4-way stretch",cat:"bottoms",tag:"New",d:["#0E0F11","#C9C6BC"]},
-{n:"Trail Cap",s:"cap",c:"#E8501C",cn:"Ember",p:28,t:"Cotton twill",cat:"tees",tag:"New",d:["#E8501C","#0E0F11"]},
-{n:"Core Jogger",s:"trouser",c:"#4A5360",cn:"Slate",p:58,t:"Fleece",cat:"bottoms",tag:"Best seller",d:["#4A5360","#0E0F11"]},
-{n:"Quarter-Zip Knit",s:"knit",c:"#C9C6BC",cn:"Stone",p:74,t:"Merino blend",cat:"knit",tag:"Best seller",d:["#C9C6BC","#0E0F11"]},
-{n:"Oversized Tee",s:"tee",c:"#0E0F11",cn:"Black",p:42,t:"280 gsm",cat:"tees",tag:"Best seller",d:["#0E0F11","#C9C6BC","#C6FF00"]},
-{n:"Puffer Vest",s:"jacket",c:"#E8501C",cn:"Ember",p:96,t:"Insulated",cat:"jackets",tag:"Sale",d:["#E8501C","#0E0F11"]},
-{n:"Zip Hoodie",s:"hood",c:"#C9C6BC",cn:"Stone",p:72,t:"400 gsm",cat:"hoodies",tag:"Best seller",d:["#C9C6BC","#4A5360"]},
-{n:"Crew Sweat",s:"knit",c:"#4A5360",cn:"Slate",p:54,t:"Loopback",cat:"knit",tag:"",d:["#4A5360","#0E0F11"]},
-{n:"Track Short",s:"short",c:"#C6FF00",cn:"Volt",p:38,t:"Ripstop",cat:"bottoms",tag:"New",d:["#C6FF00","#0E0F11"]}];
-var POSTS=[{t:"Why we test fleece forty times",d:"12 September 2026",k:"Fabric",e:"What wash-testing reveals about pilling and shape.",pat:"pat-a"},
-{t:"How to size a hoodie",d:"2 September 2026",k:"Fit",e:"Chest, length and drop shoulder, explained.",pat:"pat-c"},
-{t:"Inside the Portuguese mill",d:"20 August 2026",k:"Makers",e:"Where our 400 gsm loopback is knitted.",pat:"pat-b"},
-{t:"Train in the cold",d:"8 August 2026",k:"Training",e:"Layering for a winter session without overheating.",pat:"pat-d"},
-{t:"What 2,400 repairs taught us",d:"24 July 2026",k:"Repairs",e:"The seams that fail first and how we changed them.",pat:"pat-a"},
-{t:"Shorts that survive squats",d:"10 July 2026",k:"Training",e:"Gussets, rise and why length matters.",pat:"pat-c"}];
-var cart=[{i:1,size:"M",col:"Volt",q:1},{i:5,size:"32",col:"Slate",q:1}];
-function $(s,r){return (r||document).querySelector(s)}function $$(s,r){return Array.prototype.slice.call((r||document).querySelectorAll(s))}
-function money(v){return "£"+v.toLocaleString("en-GB")}
-function card(i){var p=P[i];return '<a class="p" href="#" data-go="product"><div class="img">'+(p.tag?'<span class="tag'+(p.tag==="New"?" new":"")+'">'+p.tag+'</span>':'')+'<svg viewBox="0 0 200 240" style="color:'+p.c+'" aria-hidden="true"><use href="#g-'+p.s+'"/></svg></div><h3>'+p.n+'</h3><div class="pm">'+p.cn+' · '+p.t+'</div><div class="cf"><b>'+money(p.p)+'</b><button class="add" type="button" data-add="'+i+'">Add to cart</button></div></a>'}
-function postCard(i){var p=POSTS[i];return '<a class="post" href="#" data-go="article"><div class="pic '+p.pat+'" role="img" aria-label="'+p.t+'"></div><small>'+p.d+' · '+p.k+'</small><h3>'+p.t+'</h3><p>'+p.e+'</p></a>'}
-$$("[data-grid]").forEach(function(g){g.innerHTML=g.dataset.grid.split(",").map(Number).map(card).join("")});
-$$("[data-posts]").forEach(function(g){g.innerHTML=g.dataset.posts.split(",").map(Number).map(postCard).join("")});
-function renderCollection(){var cats=$$('[data-f="cat"]:checked').map(function(x){return x.value}),cols=$$('[data-f="col"]:checked').map(function(x){return x.value}),prices=$$('[data-f="price"]:checked').map(function(x){return x.value}),
-idx=P.map(function(_,i){return i}).filter(function(i){var p=P[i];return (!cats.length||cats.indexOf(p.cat)>-1)&&(!cols.length||cols.indexOf(p.cn)>-1)&&(!prices.length||(prices.indexOf("u60")>-1&&p.p<60)||(prices.indexOf("o60")>-1&&p.p>=60))});
-var s=$("#sort").value;if(s==="low")idx.sort(function(a,b){return P[a].p-P[b].p});if(s==="high")idx.sort(function(a,b){return P[b].p-P[a].p});
-$("#colGrid").innerHTML=idx.length?idx.map(card).join(""):'<p class="muted">No products match these filters. Clear a filter to see more.</p>';$("#colShown").textContent=idx.length}
-$$(".filters input").forEach(function(x){x.addEventListener("change",renderCollection)});$("#sort").addEventListener("change",renderCollection);
-$("#filterToggle").addEventListener("click",function(){var f=$("#filters");f.classList.toggle("open");this.setAttribute("aria-expanded",f.classList.contains("open"))});renderCollection();
-function runSearch(q){q=(q||"").trim().toLowerCase();var idx=P.map(function(_,i){return i}).filter(function(i){var p=P[i];return !q||(p.n+" "+p.t+" "+p.cat+" "+p.cn).toLowerCase().indexOf(q)>-1});
-$("#searchCount").textContent=idx.length+" result"+(idx.length===1?"":"s")+(q?' for "'+q+'"':"");$("#searchGrid").innerHTML=idx.length?idx.map(card).join(""):'<p class="muted">No products found. Try "hoodie", "tee" or "short", or browse the best sellers below.</p>'}
-$("#searchForm").addEventListener("submit",function(e){e.preventDefault();runSearch($("#q").value)});
-$("[data-search404]").addEventListener("submit",function(e){e.preventDefault();$("#q").value=$("#q404").value;runSearch($("#q404").value);show("search")});runSearch("hoodie");
-function renderCart(){var sub=0,count=0,html="";cart.forEach(function(l,k){var p=P[l.i];sub+=p.p*l.q;count+=l.q;
-html+='<div class="cl"><div class="thumb"><svg viewBox="0 0 200 240" style="color:'+p.c+'" aria-hidden="true"><use href="#g-'+p.s+'"/></svg></div><div><h3>'+p.n+'</h3><div class="muted" style="font-size:14px">'+l.col+' · '+l.size+'</div><div class="qty"><button type="button" aria-label="Decrease quantity" data-q="'+k+'" data-d="-1">−</button><span>'+l.q+'</span><button type="button" aria-label="Increase quantity" data-q="'+k+'" data-d="1">+</button></div><button type="button" class="linkbtn" data-rm="'+k+'">Remove</button></div><b>'+money(p.p*l.q)+'</b></div>'});
-$("#cartLines").innerHTML=html;$("#drawerLines").innerHTML=html||'<p class="muted">Your cart is empty.</p>';$("#cartEmpty").hidden=cart.length>0;
-$("#subtotal").textContent=money(sub);$("#drawerSub").textContent=money(sub);$$(".cart-count").forEach(function(c){c.textContent=count});
-var left=75-sub;$("#shipMsg").textContent=left>0?"Spend "+money(left)+" more for free delivery":"You've got free delivery";$("#shipBar").style.width=Math.min(100,sub/75*100)+"%"}
-document.addEventListener("click",function(e){var q=e.target.closest("[data-q]"),rm=e.target.closest("[data-rm]"),add=e.target.closest("[data-add]");
-if(q){var l=cart[+q.dataset.q];l.q=Math.max(1,l.q+(+q.dataset.d));renderCart()}
-if(rm){cart.splice(+rm.dataset.rm,1);renderCart()}
-if(add){e.preventDefault();e.stopPropagation();var i=+add.dataset.add,sz=$('.sizes button[aria-pressed="true"]',add.closest("main"));var col=(add.closest("#view-product")&&$("#cname"))?$("#cname").textContent:P[i].cn;
-cart.push({i:i,size:sz?sz.textContent:"M",col:col,q:1});renderCart();openDrawer("cart")}},true);
-renderCart();
-function openDrawer(w){var d=w==="cart"?$("#cartDrawer"):$("#menuDrawer"),o=w==="cart"?$("#ovCart"):$("#ovMenu");d.hidden=false;o.hidden=false;var b=d.querySelector(".x");if(b)b.focus()}
-function closeDrawers(){$$(".drawer,.overlay").forEach(function(x){x.hidden=true})}
-document.addEventListener("click",function(e){var o=e.target.closest("[data-open]");if(o){e.preventDefault();openDrawer(o.dataset.open)}});
-$$("[data-close]").forEach(function(x){x.addEventListener("click",closeDrawers)});document.addEventListener("keydown",function(e){if(e.key==="Escape")closeDrawers()});
-document.addEventListener("click",function(e){var sw=e.target.closest(".swatches button");if(sw){$$(".swatches button",sw.parentNode).forEach(function(x){x.setAttribute("aria-pressed","false")});sw.setAttribute("aria-pressed","true");$("#cname").textContent=sw.dataset.c;$("#mainArt").style.color=sw.dataset.hex}
-var sz=e.target.closest(".sizes button:not([disabled])");if(sz){$$(".sizes button",sz.parentNode).forEach(function(x){x.setAttribute("aria-pressed","false")});sz.setAttribute("aria-pressed","true")}});
-// Fit finder
-var SIZES=["XS","S","M","L","XL","XXL"],fs={h:1,f:1};
-function renderFit(){var k=fs.h+(fs.f-1);var i=Math.max(0,Math.min(5,k+1));var sz=SIZES[i];$("#fsize").textContent=sz;
-$("#fnote").textContent=["Fitted: cut close to the body, so we sized you up a touch for comfort.","Regular fit, true to size.","Oversized: our cuts are already roomy, so this is the size that gives the boxy look."][fs.f];
-$("#fpicks").innerHTML=[0,1,3].map(function(n){var p=P[n];return '<div class="mini"><div class="im"><svg viewBox="0 0 200 240" style="color:'+p.c+'" aria-hidden="true"><use href="#g-'+p.s+'"/></svg></div><small>'+p.n+'</small></div>'}).join("")}
-$$(".opts").forEach(function(g){g.addEventListener("click",function(e){var b=e.target.closest("button");if(!b)return;$$("button",g).forEach(function(x){x.setAttribute("aria-pressed","false")});b.setAttribute("aria-pressed","true");fs[g.dataset.grp]=$$("button",g).indexOf(b);renderFit()})});renderFit();
-function toast(msg){var t=$("#toast");t.textContent=msg;t.hidden=false;clearTimeout(t._t);t._t=setTimeout(function(){t.hidden=true},2200)}
-$$("[data-sub]").forEach(function(f){f.addEventListener("submit",function(e){e.preventDefault();f.querySelector("button").textContent="Subscribed";toast("Subscribed. Your 10% code is on its way.")})});
-$("#contactForm").addEventListener("submit",function(e){e.preventDefault();this.reset();toast("Message sent. We'll reply within one working day.")});
-$(".video").addEventListener("click",function(){toast("Video plays here (YouTube or Vimeo link set in the editor)")});
-var VIEWS=[["home","Homepage"],["collection","Collection"],["product","Product"],["cart","Cart"],["search","Search"],["blog","Blog"],["article","Article"],["about","About"],["contact","Contact"],["404","404"]];
-$("#pageTabs").innerHTML=VIEWS.map(function(v){return '<button type="button" data-view="'+v[0]+'" aria-pressed="false">'+v[1]+'</button>'}).join("");
-function show(v){VIEWS.forEach(function(x){$("#view-"+x[0]).hidden=x[0]!==v});$$("#pageTabs button").forEach(function(b){b.setAttribute("aria-pressed",String(b.dataset.view===v))});closeDrawers();window.scrollTo(0,0)}
-$("#pageTabs").addEventListener("click",function(e){var b=e.target.closest("button");if(b)show(b.dataset.view)});
-document.addEventListener("click",function(e){var a=e.target.closest("[data-go]");if(a){e.preventDefault();show(a.dataset.go)}});
-$("#showSections").addEventListener("change",function(){document.body.classList.toggle("show-sections",this.checked)});
-show("home");
-})();
+const IMG='https://shopifybrandsseo.com/wp-content/uploads/2026/10/voltline-edge-demo-';
+const src=k=>IMG+k+'.jpg';
+const SZ=['XS','S','M','L','XL'];
+const SH={Lilac:'#B9A5F0',Mint:'#BFE6CF',Graphite:'#3a3a40',Oat:'#E9E1D3'};
+const P=[
+ {n:'Sculpt Seamless Legging',sub:'High rise · Full length',cat:'Leggings',act:['Yoga','Train'],img:'legging',alt:'mlegging',cols:['Lilac','Graphite','Mint'],p:78,sold:['XL'],r:4.9,b:'Drop 04',bs:'new'},
+ {n:'Rib Racer Bra',sub:'Medium support',cat:'Bras',act:['Yoga','Train','Run'],img:'bra',alt:'mbra',cols:['Mint','Lilac'],p:48,sold:[],r:4.8,b:'Set'},
+ {n:'Cloud Fleece Hoodie',sub:'Oversized · Organic cotton',cat:'Hoodies',act:['Lounge'],img:'hoodie',alt:'mhoodie',cols:['Graphite','Oat'],p:98,sold:['XS'],r:4.9,b:'Best seller'},
+ {n:'Off-Duty Jogger',sub:'Relaxed · Tapered',cat:'Joggers',act:['Lounge'],img:'jogger',alt:'mjogger',cols:['Oat','Graphite'],p:84,sold:[],r:4.7},
+ {n:'Stride 2-in-1 Short',sub:'5 in · With liner',cat:'Shorts',act:['Run','Train'],img:'short',alt:'run',cols:['Graphite'],p:58,sold:['XS'],r:4.8,b:'New',bs:'new'},
+ {n:'Airflow Racer Tank',sub:'Lightweight · Mesh back',cat:'Tops',act:['Run','Train'],img:'tank',alt:'run',cols:['Mint'],p:42,was:52,sold:[],r:4.6,b:'−20%',bs:'sale'},
+ {n:'Studio Duffel',sub:'Shoe pocket · 32 L',cat:'Bags',act:['Train','Yoga'],img:'bag',alt:'set',cols:['Lilac'],p:96,sold:[],r:4.9,one:1},
+ {n:'Sculpt Set: Bra + Legging',sub:'Save 15% as a set',cat:'Sets',act:['Yoga','Train'],img:'mlegging',alt:'mbra',cols:['Lilac','Mint','Graphite'],p:107,was:126,sold:[],r:4.9,b:'Matching set',bs:'set'}
+];
+const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)];
+const money=v=>'$'+(Math.round(v*100)/100).toLocaleString('en-US',{minimumFractionDigits:v%1?2:0,maximumFractionDigits:2});
+function card(p,i){return `<div class="card" data-i="${i}"><div class="mw"><a href="#" class="m" data-go="product">${p.b?`<span class="bdg ${p.bs||''}">${p.b}</span>`:''}<img src="${src(p.img)}" alt="${p.n}"><img class="alt" src="${src(p.alt)}" alt=""></a>
+ <div class="qs">${p.one?`<button onclick="add(${i},'One size')">Add · One size</button>`:SZ.map(s=>`<button ${p.sold.includes(s)?'disabled':''} onclick="add(${i},'${s}')">${s}</button>`).join('')}</div>
+ <button class="plus" aria-label="Quick add ${p.n}" onclick="this.closest('.card').classList.toggle('qo')">+</button></div>
+ <div class="meta"><div class="top"><h3><a href="#" data-go="product">${p.n}</a></h3><div class="pr">${p.was?`${money(p.p)}<s>${money(p.was)}</s>`:money(p.p)}</div></div><div class="sub">${p.sub}</div>
+ <div class="sw">${p.cols.map((c,k)=>`<button class="${k?'':'on'}" style="background:${SH[c]}" aria-label="${c}" title="${c}"></button>`).join('')}<span>${p.cols.length>1?p.cols.length+' shades':p.cols[0]}</span></div></div></div>`}
+const grid=(el,ids)=>$(el).innerHTML=ids.map(i=>card(P[i],i)).join('');
+grid('#newin',[0,1,2,3]);grid('#recent',[1,7,6,2]);grid('#cartup',[5,6,4,1]);grid('#artgrid',[0,1,7,6]);grid('#nfgrid',[0,2,7,3]);
+document.addEventListener('click',e=>{const b=e.target.closest('.card .sw button');if(!b)return;b.parentNode.querySelectorAll('button').forEach(x=>x.classList.toggle('on',x===b))});
+// countdown
+let left=2*3600+14*60+33;setInterval(()=>{left=Math.max(0,left-1);const h=Math.floor(left/3600),m=Math.floor(left%3600/60),s=left%60;$('#cdh').textContent=String(h).padStart(2,'0');$('#cdm').textContent=String(m).padStart(2,'0');$('#cds').textContent=String(s).padStart(2,'0')},1000);
+$('#heroSw').onclick=e=>{const b=e.target.closest('button');if(!b)return;$$('#heroSw button').forEach(x=>x.classList.toggle('on',x===b));toast('Showing '+b.getAttribute('aria-label').toLowerCase()+' styles')};
+// activity
+const ACT=[['Yoga &amp; pilates','Buttery seamless layers that move with every flow.','studio',[0,1,7]],['Run','Light, breathable and reflective for early miles.','run',[4,5,1]],['Train','Squat-proof, sweat-wicking, built for reps.','set',[0,4,6]],['Lounge','Heavyweight fleece for rest days and coffee runs.','mjogger',[2,3,6]]];
+function act(k){const a=ACT[k];$$('#actTabs button').forEach(b=>b.classList.toggle('on',+b.dataset.a===k));$('#actImg').src=src(a[2]);$('#actT').innerHTML=a[0];$('#actS').textContent=a[1];grid('#actRow',a[3])}
+$('#actTabs').onclick=e=>{const b=e.target.closest('button');if(b)act(+b.dataset.a)};act(0);
+// build a set
+const TOPS=[[1,'Rib Racer Bra','bra'],[5,'Airflow Tank','tank'],[2,'Cloud Hoodie','hoodie']],BOTS=[[0,'Sculpt Legging','legging'],[4,'Stride Short','short'],[3,'Off-Duty Jogger','jogger']];
+const SHADES=[['Lilac','#B9A5F0','#E6DEFB'],['Mint','#BFE6CF','#E3F4EA'],['Graphite','#3a3a40','#4a4a52'],['Oat','#E9E1D3','#F3EEE6']];let ST=[0,0,0];
+const optHtml=(arr,k)=>arr.map((o,j)=>`<button data-k="${k}" data-j="${j}"><img src="${src(o[2])}" alt="">${o[1]}<small>${money(P[o[0]].p)}</small></button>`).join('');
+$('#optTop').innerHTML=optHtml(TOPS,0);$('#optBot').innerHTML=optHtml(BOTS,1);
+$('#optShade').innerHTML=SHADES.map((s,j)=>`<button data-k="2" data-j="${j}"><i style="background:${s[1]}"></i>${s[0]}</button>`).join('');
+const szo=i=>SZ.map(s=>`<option ${P[i].sold.includes(s)?'disabled':''} ${s==='S'?'selected':''}>${s}</option>`).join('');
+function bset(changed){$$('.pick [data-k]').forEach(b=>b.classList.toggle('on',+b.dataset.j===ST[+b.dataset.k]));
+ const t=TOPS[ST[0]],bt=BOTS[ST[1]],sh=SHADES[ST[2]];
+ [['#slotTop','#imgTop',t],['#slotBot','#imgBot',bt]].forEach(([sl,im,o],k)=>{const s=$(sl);s.style.background=sh[2];if(changed===undefined||changed===k){s.classList.add('sw');setTimeout(()=>{$(im).src=src(o[2]);s.classList.remove('sw')},180)}});
+ $('#topName').textContent=t[1];$('#botName').textContent=bt[1];$('#shadeName').textContent=sh[0];
+ if(changed===undefined||changed===0)$('#szTop').innerHTML=szo(t[0]);if(changed===undefined||changed===1)$('#szBot').innerHTML=szo(bt[0]);
+ const full=P[t[0]].p+P[bt[0]].p,tot=full*.85;$('#setPrice').textContent=money(tot);$('#setWas').textContent=money(full);$('#setSave').textContent='You save '+money(full-tot)+' as a set'}
+$('.pick').onclick=e=>{const b=e.target.closest('[data-k]');if(!b)return;const k=+b.dataset.k;ST[k]=+b.dataset.j;bset(k)};
+$('#setAdd').onclick=()=>{const t=TOPS[ST[0]],bt=BOTS[ST[1]];add(t[0],$('#szTop').value,true,SHADES[ST[2]][0],1);add(bt[0],$('#szBot').value,true,SHADES[ST[2]][0],1);toast('Set added · you save 15%');bump();openCart()};bset();
+// fit finder
+const FP=[['Leggings','mlegging',0],['Sports bra','mbra',1],['Hoodie','mhoodie',2]];let FF={s:1,f:0,p:0};
+function fit(){const h=+$('#fh').value;$('#hv').textContent=h+' cm';let i=FF.s+FF.f+(h>178?1:0)+(FF.p===2&&FF.f>0?0:0);i=Math.max(0,Math.min(4,i));const s=SZ[i];const c=Math.max(62,94-Math.abs(h-168)/2-(FF.f?6:0)-(FF.p===1?4:0));
+ $('#fitSize').textContent=s;$('#fitConf').style.width=c+'%';$('#fitTxt').textContent=Math.round(c)+'% of shoppers like you kept size '+s;$('#fitShop').innerHTML='Shop in size '+s+' <span class="ar">→</span>';
+ $('#fitImg').src=src(FP[FF.p][1]);$('#fitWhy').innerHTML=[FF.f<0?'Snug fit: we sized for sculpting compression':FF.f>0?'Relaxed fit: one size up for room':'True to size: your usual size',h>178?'Tall frame: try our Tall length':'Height '+h+' cm suits the Full length',FP[FF.p][0]+' runs true to size in reviews'].map(x=>`<li>${x}</li>`).join('');window.FIT=s;$('#pfit').textContent=s}
+$('#fh').oninput=fit;
+[['#fs','s'],['#ff','f'],['#fp','p']].forEach(([el,k])=>$(el).onclick=e=>{const b=e.target.closest('button');if(!b)return;$$(el+' button').forEach(x=>x.classList.toggle('on',x===b));FF[k]=+b.dataset.v;fit()});
+$('#fitShop').onclick=()=>{go('product');setTimeout(()=>pickSize(window.FIT),50)};fit();
+// reviews marquee
+const RV=[['"No rolling, no see-through. I own it in three shades now."','Sculpt Legging','Size S'],['"The hoodie is so heavy and soft. Worth every dollar."','Cloud Hoodie','Size M'],['"Build a set saved me $20 and it all matches perfectly."','Sculpt Set','Size S/M'],['"Bra gives real support for HIIT, not just yoga."','Rib Racer Bra','Size M'],['"Fit finder nailed my size first time."','Off-Duty Jogger','Size L']];
+const rq=RV.map(r=>`<div class="rq"><div class="s">★★★★★</div><p>${r[0]}</p><small><span>Sample · ${r[1]}</span><b>${r[2]}</b></small></div>`).join('');$('#rvTrack').innerHTML=rq+rq;
+// collection
+const CATS=['All','Leggings','Bras','Hoodies','Joggers','Shorts'];let CC='All',VW=4;
+$('#fsz').innerHTML=SZ.map(s=>`<label><input type="checkbox" value="${s}" data-f="sz">${s}</label>`).join('');
+$('#fcol').innerHTML=Object.entries(SH).map(([n,c])=>`<label style="background:${c}" title="${n}"><input type="checkbox" value="${n}" data-f="col"><span class="vh" style="position:absolute;clip:rect(0 0 0 0)">${n}</span></label>`).join('');
+$('#fact').innerHTML=['Yoga','Run','Train','Lounge'].map(a=>`<label><input type="checkbox" value="${a}" data-f="act">${a}</label>`).join('');
+function col(){const f={};$$('#side input:checked').forEach(x=>(f[x.dataset.f]=f[x.dataset.f]||[]).push(x.value));const mx=+$('#fprice').value;$('#fpv').textContent='Up to $'+mx;
+ let ids=P.map((p,i)=>i).filter(i=>{const p=P[i];return(CC==='All'||p.cat===CC)&&p.p<=mx&&(!f.sz||p.one||f.sz.some(s=>!p.sold.includes(s)))&&(!f.col||p.cols.some(c=>f.col.includes(c)))&&(!f.act||p.act.some(a=>f.act.includes(a)))});
+ const s=$('#sort').value;if(s==='lo')ids.sort((a,b)=>P[a].p-P[b].p);if(s==='hi')ids.sort((a,b)=>P[b].p-P[a].p);if(s==='new')ids.reverse();
+ const h=ids.map(i=>card(P[i],i));if(h.length>=4&&CC==='All')h.splice(VW===4?4:3,0,`<a href="#sets" class="promo" data-go="home" data-dawn="sbs-promo-tile"><div><span class="tag">Build a set</span><h3>Top + bottom = 15% off</h3><p>Mix any top and bottom in one shade or two.</p></div><span class="btn btn-g" style="align-self:flex-start;height:46px">Start <span class="ar">→</span></span></a>`);
+ $('#cgrid').innerHTML=h.join('')||'<p class="empty" style="grid-column:1/-1">No matches. Try removing a filter.</p>';$('#ccount').textContent=ids.length+(ids.length===1?' product':' products')}
+$('#side').addEventListener('change',col);$('#fprice').oninput=col;$('#sort').onchange=col;
+$('#fclr').onclick=()=>{$$('#side input:checked').forEach(x=>x.checked=false);$('#fprice').value=120;col()};
+$('#subc').onclick=e=>{const b=e.target.closest('button');if(!b)return;$$('#subc button').forEach(x=>x.classList.toggle('on',x===b));CC=b.dataset.c;col()};
+$('#vw').onclick=e=>{const b=e.target.closest('button');if(!b)return;$$('#vw button').forEach(x=>x.classList.toggle('on',x===b));VW=+b.dataset.v;$('#cgrid').classList.toggle('g3',VW===3);col()};
+// product
+const PP=P[0],GAL=[['mlegging','Model is 172 cm and wears S'],['legging','Lilac · Full length'],['detail','Seamless Sculpt knit'],['hero','Matching Sculpt set']];let pc=0,ps=null;
+$('#gal').innerHTML=GAL.map((g,k)=>`<button aria-label="Zoom image ${k+1}"><img src="${src(g[0])}" alt=""><span class="cap">${g[1]}</span></button>`).join('');
+$('#gal').onclick=e=>{if(e.target.closest('button'))toast('Zoom opens full screen in the theme')};
+$('#pcol').innerHTML=PP.cols.map((c,k)=>`<button class="${k?'':'on'}" data-k="${k}" style="background:${SH[c]}" aria-label="${c}"></button>`).join('');
+$('#pcol').onclick=e=>{const b=e.target.closest('button');if(!b)return;pc=+b.dataset.k;$$('#pcol button').forEach(x=>x.classList.toggle('on',x===b));$('#pcolT').textContent=PP.cols[pc];pup()};
+$('#lens').onclick=e=>{const b=e.target.closest('button');if(!b)return;$$('#lens button').forEach(x=>x.classList.toggle('on',x===b));pup()};
+$('#psz').innerHTML=[...SZ,'XXL'].map(s=>`<button data-s="${s}" ${PP.sold.includes(s)||s==='XXL'?'disabled title="Sold out"':''}>${s}</button>`).join('');
+function pup(){const L=$('#lens .on').dataset.l;$('#atc').textContent=ps?'Add to bag · '+money(PP.p):'Select a size';$('#satc').textContent=ps?'Add · '+money(PP.p):'Pick size';$('#stxt').textContent=PP.cols[pc]+' · '+L+(ps?' · '+ps:'');$$('#psz button').forEach(b=>b.classList.toggle('rec',b.dataset.s===window.FIT))}
+function pickSize(s){const b=$(`#psz [data-s="${s}"]`);if(!b||b.disabled)return;ps=s;$$('#psz button').forEach(x=>x.classList.toggle('on',x===b));pup()}
+$('#psz').onclick=e=>{const b=e.target.closest('button');if(b&&!b.disabled)pickSize(b.dataset.s)};
+$('#pfitBtn').onclick=()=>{pickSize(window.FIT);toast('Size '+window.FIT+' selected')};
+const padd=()=>{if(!ps){toast('Choose a size first');$('#psz').scrollIntoView({behavior:'smooth',block:'center'});return}add(0,ps,true,PP.cols[pc]+' · '+$('#lens .on').dataset.l);toast('Added to bag');bump();openCart()};
+$('#atc').onclick=padd;$('#satc').onclick=padd;$('#pwish').onclick=()=>{$('#pwish').classList.toggle('on');toast($('#pwish').classList.contains('on')?'Saved to wishlist':'Removed from wishlist')};
+const SGD=[['XS','60','86','152 to 160'],['S','66','92','158 to 166'],['M','72','98','164 to 172'],['L','78','104','170 to 178'],['XL','86','112','176 to 184']];
+function sgt(u){const f=v=>u==='in'?v.split(' to ').map(x=>(x/2.54).toFixed(1)).join(' to '):v;$('#sgt').innerHTML='<tr><th>Size</th><th>Waist</th><th>Hip</th><th>Height</th></tr>'+SGD.map(r=>`<tr><td><b>${r[0]}</b></td><td>${f(r[1])}</td><td>${f(r[2])}</td><td>${f(r[3])}</td></tr>`).join('')}
+$('#openSG').onclick=e=>{e.preventDefault();$('#sg').classList.add('on')};$('#sgx').onclick=()=>$('#sg').classList.remove('on');$('#sg').onclick=e=>{if(e.target.id==='sg')$('#sg').classList.remove('on')};
+$('#unit').onclick=e=>{const b=e.target.closest('button');if(!b)return;$$('#unit button').forEach(x=>x.classList.toggle('on',x===b));sgt(b.dataset.u)};sgt('cm');
+addEventListener('scroll',()=>{const on=$('#p-product').classList.contains('on');$('#sticky').classList.toggle('on',on&&$('#atc').getBoundingClientRect().bottom<0)});
+// cart
+let cart=[];
+function add(i,s,silent,variant,set){const key=[i,s,variant||'',set?1:0].join('|');const c=cart.find(x=>x.key===key);c?c.q++:cart.push({key,i,s,variant,set:!!set,q:1});render();if(!silent){toast(P[i].n+' · '+s+' added');bump()}}
+window.add=add;
+function bump(){const b=$('#openCart');b.classList.remove('bump');void b.offsetWidth;b.classList.add('bump')}
+const lp=c=>P[c.i].p*(c.set?.85:1);
+function render(){const sub=cart.reduce((a,c)=>a+P[c.i].p*c.q,0),tot=cart.reduce((a,c)=>a+lp(c)*c.q,0),n=cart.reduce((a,c)=>a+c.q,0);$('#count').textContent=n;
+ const pr=`${tot>=100?'<b>Free shipping unlocked</b>':money(100-tot)+' away from free shipping'}<div class="bar"><i style="width:${Math.min(100,tot)}%"></i></div>`;$('#dprog').innerHTML=pr;$('#cprog').innerHTML=pr;
+ const line=c=>{const p=P[c.i];return `<div class="li"><img src="${src(p.img)}" alt=""><div><b>${p.n}</b><small>${c.variant||p.cols[0]} · ${c.s}${c.set?' · Set −15%':''}</small><div class="q"><button onclick="chg('${c.key}',-1)" aria-label="Less">−</button>${c.q}<button onclick="chg('${c.key}',1)" aria-label="More">+</button></div><button class="rm" onclick="chg('${c.key}',-99)">Remove</button></div><span>${money(lp(c)*c.q)}</span></div>`};
+ const h=cart.length?cart.map(line).join(''):'<div class="empty">Your bag is empty.</div>';$('#dlines').innerHTML=h;$('#clines').innerHTML=h;
+ $('#dsub').textContent=money(tot);$('#csub').textContent=money(sub);$('#csave').textContent=sub-tot?'−'+money(sub-tot):'$0';$('#cship').textContent=tot>=100?'Free':tot?'$6':'—';$('#ctot').textContent=money(tot+(tot&&tot<100?6:0))}
+window.chg=(k,d)=>{const c=cart.find(x=>x.key===k);c.q+=d;if(c.q<=0)cart=cart.filter(x=>x!==c);render()};
+const openCart=()=>{$('#drawer').classList.add('on');$('#scrim').classList.add('on')};
+function closeAll(){['#drawer','#scrim','#mnav','#sg'].forEach(s=>$(s).classList.remove('on'))}
+$('#openCart').onclick=openCart;$('#closeCart').onclick=closeAll;$('#scrim').onclick=closeAll;
+$('#burger').onclick=()=>$('#mnav').classList.add('on');$('#mclose').onclick=closeAll;
+document.addEventListener('keydown',e=>{if(e.key==='Escape')closeAll()});
+// search
+const rs=()=>{const q=$('#q').value.toLowerCase().trim();const ids=P.map((p,i)=>i).filter(i=>(P[i].n+' '+P[i].cat+' '+P[i].sub+' '+P[i].cols.join(' ')+' '+(P[i].cat==='Sets'?'matching set':'')).toLowerCase().includes(q));$('#sres').textContent=ids.length+(ids.length===1?' result':' results')+' for "'+$('#q').value+'"';grid('#sgrid',ids)};
+$('#q').oninput=rs;$$('.sugg button').forEach(b=>b.onclick=()=>{$('#q').value=b.textContent;rs()});
+$('#btabs').onclick=e=>{const b=e.target.closest('button');if(!b)return;$$('#btabs button').forEach(x=>x.classList.toggle('on',x===b))};
+let tt;function toast(t){$('#toast').textContent=t;$('#toast').classList.add('on');clearTimeout(tt);tt=setTimeout(()=>$('#toast').classList.remove('on'),2400)}window.toast=toast;
+let io;function obs(){io?.disconnect();io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.06});$$('.page.on .reveal:not(.in)').forEach(r=>io.observe(r))}
+function go(pg,h){$$('.page').forEach(p=>p.classList.toggle('on',p.id==='p-'+pg));$$('.dt button').forEach(b=>b.classList.toggle('on',b.dataset.go===pg));closeAll();$('#sticky').classList.remove('on');if(h)setTimeout(()=>document.querySelector(h)?.scrollIntoView({behavior:'smooth'}),60);else scrollTo(0,0);obs()}
+window.go=go;
+document.addEventListener('click',e=>{const a=e.target.closest('[data-go]');if(!a)return;e.preventDefault();const h=a.getAttribute('href');go(a.dataset.go,h&&h.length>1&&h[0]==='#'?h:null)});
+$('#names').onchange=e=>document.body.classList.toggle('names',e.target.checked);
+$$('img[data-src]').forEach(i=>i.src=src(i.dataset.src));
+col();render();rs();pup();obs();
 </script>
-
-</body></html>
+</body>
+</html>
