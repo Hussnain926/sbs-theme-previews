@@ -1,0 +1,1016 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Assay · Shopify supplement theme preview (SBS-THEME-005-S1)</title>
+<meta name="robots" content="noindex">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700&family=Public+Sans:wght@400;500;600;700&family=Fragment+Mono&display=swap" rel="stylesheet">
+<style>
+:root{--white:#FFFFFF;--ice:#EEF3FA;--ice2:#E2EAF6;--ink:#0E1B33;--ink2:#3A4760;--mute:#6B7891;--line:#D9E1EE;--cobalt:#2B59FF;--cobalt2:#1E43D1;--mint:#DDF3E8;--mintd:#1F7A52;--signal:#FF7A45;--sand:#F6F1E8;
+--disp:"Sora",system-ui,sans-serif;--body:"Public Sans",system-ui,sans-serif;--mono:"Fragment Mono",ui-monospace,monospace;--r:14px;--r2:22px;--sh:0 1px 2px rgba(14,27,51,.06),0 8px 24px rgba(14,27,51,.06)}
+*{box-sizing:border-box}html{scroll-behavior:smooth}
+body{margin:0;font:400 16px/1.6 var(--body);color:var(--ink);background:var(--white);-webkit-font-smoothing:antialiased}
+img{max-width:100%;display:block}a{color:inherit;text-decoration:none}button{font:inherit;color:inherit;cursor:pointer}
+h1,h2,h3,h4{font-family:var(--disp);font-weight:600;letter-spacing:-.025em;line-height:1.08;margin:0}
+.wrap{max-width:1360px;margin:0 auto;padding:0 32px}
+.mono{font-family:var(--mono);font-size:12px;letter-spacing:.06em;text-transform:uppercase}
+.k{display:inline-flex;align-items:center;gap:8px;font:12px/1 var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--cobalt)}
+.k::before{content:"";width:8px;height:8px;border-radius:2px;background:currentColor}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;height:52px;padding:0 26px;border-radius:12px;border:1px solid transparent;font:600 15px var(--body);transition:background .2s,transform .2s,box-shadow .2s;white-space:nowrap}
+.btn-p{background:var(--cobalt);color:#fff}.btn-p:hover{background:var(--cobalt2);box-shadow:0 8px 20px rgba(43,89,255,.28)}
+.btn-d{background:var(--ink);color:#fff}.btn-d:hover{background:#1c2b4a}
+.btn-o{border-color:var(--line);background:#fff}.btn-o:hover{border-color:var(--ink)}
+.btn:focus-visible,a:focus-visible,button:focus-visible,input:focus-visible{outline:2px solid var(--cobalt);outline-offset:2px}
+.ul{background:linear-gradient(currentColor,currentColor) 0 100%/100% 1px no-repeat;padding-bottom:2px;font-weight:600}
+.sec{padding:112px 0}.sec.tight{padding:72px 0}.ice{background:var(--ice)}
+.sh{display:flex;justify-content:space-between;align-items:flex-end;gap:32px;margin-bottom:48px}
+.sh h2{font-size:clamp(32px,3.4vw,48px);margin-top:14px;max-width:760px}
+.sh p{max-width:420px;color:var(--ink2);margin:0}
+.reveal{opacity:0;transform:translateY(18px);transition:opacity .7s ease,transform .7s ease}.reveal.in{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}*{scroll-behavior:auto}}
+/* preview chrome */
+.pv{position:sticky;top:0;z-index:200;background:#0A1426;color:#C9D4EA;font:12px var(--mono)}
+.pv .wrap{display:flex;gap:16px;align-items:center;justify-content:space-between;padding-top:8px;padding-bottom:8px;flex-wrap:wrap}
+.pv .tabs{display:flex;gap:4px;flex-wrap:wrap}.pv .tabs button{background:none;border:1px solid #24324d;color:#C9D4EA;border-radius:6px;padding:5px 10px;font:12px var(--mono)}
+.pv .tabs button.on{background:var(--cobalt);border-color:var(--cobalt);color:#fff}
+.pv label{display:flex;gap:6px;align-items:center;white-space:nowrap}
+body.names [data-dawn]{position:relative;outline:1px dashed rgba(43,89,255,.55);outline-offset:-1px}
+body.names [data-dawn]::after{content:attr(data-dawn);position:absolute;top:0;left:0;z-index:60;background:var(--cobalt);color:#fff;font:11px var(--mono);padding:3px 8px;border-radius:0 0 6px 0;pointer-events:none}
+/* announcement */
+.ann{background:var(--ink);color:#DCE5F5;font:12px/1 var(--mono);letter-spacing:.06em;text-transform:uppercase}
+.ann .wrap{height:38px;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden}
+.ann span{position:absolute;opacity:0;transform:translateY(10px);transition:.45s}.ann span.on{opacity:1;transform:none}
+.ann b{color:#9FB6FF;font-weight:400}
+/* header */
+.hdr{position:sticky;top:33px;z-index:90;background:rgba(255,255,255,.94);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+.hdr .wrap{height:76px;display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:32px}
+.logo{display:flex;align-items:center;gap:10px;font:700 24px var(--disp);letter-spacing:-.04em}
+.logo i{width:30px;height:30px;border-radius:50%;border:2px solid var(--ink);position:relative;overflow:hidden}
+.logo i::after{content:"";position:absolute;left:0;right:0;bottom:0;height:46%;background:var(--cobalt)}
+.logo small{font:11px var(--mono);letter-spacing:.08em;color:var(--mute);text-transform:uppercase;margin-left:2px;align-self:flex-end;padding-bottom:4px}
+.nav{display:flex;gap:4px;justify-content:center}
+.nav>div>a{display:flex;align-items:center;gap:6px;height:76px;padding:0 14px;font-weight:600;font-size:15px;position:relative}
+.nav>div>a::after{content:"";position:absolute;left:14px;right:14px;bottom:22px;height:2px;background:var(--cobalt);transform:scaleX(0);transition:transform .25s;transform-origin:left}
+.nav>div>a:hover::after,.nav>div.open>a::after{transform:scaleX(1)}
+.mega{position:absolute;left:0;right:0;top:76px;background:#fff;border-bottom:1px solid var(--line);box-shadow:0 30px 40px -30px rgba(14,27,51,.25);opacity:0;visibility:hidden;transform:translateY(-6px);transition:.22s}
+.nav>div.open .mega{opacity:1;visibility:visible;transform:none}
+.mega .wrap{display:grid;grid-template-columns:1.3fr 1fr 1fr 1.1fr;gap:40px;padding-top:36px;padding-bottom:40px;height:auto}
+.mega h5{margin:0 0 14px;font:12px var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--mute)}
+.mega .goals{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.mega .goals a{display:flex;align-items:center;gap:10px;padding:10px 12px;border:1px solid var(--line);border-radius:10px;font-weight:600;font-size:14px}
+.mega .goals a:hover{border-color:var(--cobalt);color:var(--cobalt)}
+.mega .goals svg{width:20px;height:20px;flex:none}
+.mega .lst a{display:block;padding:6px 0;color:var(--ink2);font-weight:500}.mega .lst a:hover{color:var(--cobalt)}
+.mtile{border-radius:var(--r);overflow:hidden;background:var(--ice);display:grid;grid-template-rows:170px auto}
+.mtile img{width:100%;height:100%;object-fit:cover}.mtile div{padding:14px 16px}.mtile b{display:block;font-family:var(--disp);font-size:17px}
+.mtile small{color:var(--cobalt);font-weight:600}
+.hr{display:flex;align-items:center;gap:8px}
+.srch{display:flex;align-items:center;gap:8px;height:44px;width:260px;padding:0 14px;border:1px solid var(--line);border-radius:12px;background:var(--ice);color:var(--mute);font-size:14px}
+.srch:hover{border-color:var(--ink2)}
+.ib{width:44px;height:44px;border-radius:12px;display:grid;place-items:center;border:1px solid transparent;position:relative;background:none}
+.ib:hover{border-color:var(--line)}
+.cc{position:absolute;top:4px;right:3px;min-width:18px;height:18px;border-radius:9px;background:var(--cobalt);color:#fff;font:600 11px/18px var(--body);text-align:center;padding:0 4px;transition:transform .3s}
+.cc.bump{transform:scale(1.35)}
+.burger{display:none}
+/* mobile menu */
+.mm{position:fixed;inset:0;z-index:150;background:#fff;transform:translateX(-100%);transition:transform .35s;visibility:hidden;display:flex;flex-direction:column;padding:20px 24px;overflow:auto}
+.mm.on{transform:none;visibility:visible}
+.mm .top{display:flex;justify-content:space-between;align-items:center;margin-bottom:24px}
+.mm a.big{display:flex;justify-content:space-between;padding:16px 0;border-bottom:1px solid var(--line);font:600 22px var(--disp)}
+.mm .goals{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin:20px 0}
+.mm .goals a{padding:12px;border:1px solid var(--line);border-radius:10px;font-weight:600}
+/* hero */
+.hero{padding:40px 0 0}
+.hero .g{display:grid;grid-template-columns:1fr 1.05fr;gap:56px;align-items:center}
+.hero h1{font-size:clamp(44px,5.4vw,80px);letter-spacing:-.045em;margin:20px 0 22px}
+.hero h1 em{font-style:normal;color:var(--cobalt)}
+.hero p.lead{font-size:19px;color:var(--ink2);max-width:520px;margin:0 0 30px}
+.hero .ctas{display:flex;gap:12px;flex-wrap:wrap}
+.trust{display:grid;grid-template-columns:repeat(3,auto);gap:28px;margin-top:40px;padding-top:28px;border-top:1px solid var(--line);justify-content:start}
+.trust div{display:flex;gap:10px;align-items:flex-start;font-size:14px;color:var(--ink2);max-width:190px}
+.trust b{display:block;color:var(--ink);font-weight:600}
+.trust svg{flex:none;margin-top:2px}
+.hmedia{position:relative;border-radius:28px;overflow:hidden;aspect-ratio:1/1.02;background:var(--ice)}
+.hmedia>img{width:100%;height:100%;object-fit:cover}
+.labcard{position:absolute;left:24px;bottom:24px;width:300px;background:rgba(255,255,255,.96);border-radius:16px;padding:18px 18px 14px;box-shadow:0 20px 40px -12px rgba(14,27,51,.3)}
+.labcard .t{display:flex;justify-content:space-between;align-items:center;margin-bottom:12px}
+.labcard .t b{font:600 15px var(--disp)}
+.labcard .row{display:flex;justify-content:space-between;align-items:center;padding:8px 0;border-top:1px solid var(--line);font-size:13px}
+.pass{display:inline-flex;align-items:center;gap:6px;font:11px var(--mono);letter-spacing:.06em;text-transform:uppercase;color:var(--mintd);background:var(--mint);padding:4px 8px;border-radius:6px}
+.hchip{position:absolute;right:20px;top:20px;background:var(--ink);color:#fff;border-radius:12px;padding:12px 14px;font-size:13px;max-width:200px}
+.hchip b{display:block;font:600 15px var(--disp)}
+/* goal pills */
+.goalrow{display:grid;grid-template-columns:repeat(6,1fr);gap:12px}
+.goal{display:flex;flex-direction:column;gap:18px;padding:22px 20px;border:1px solid var(--line);border-radius:var(--r);background:#fff;transition:.25s}
+.goal:hover{border-color:var(--cobalt);transform:translateY(-3px);box-shadow:var(--sh)}
+.goal .ic{width:44px;height:44px;border-radius:12px;display:grid;place-items:center;background:var(--ice);color:var(--cobalt)}
+.goal b{font:600 18px var(--disp)}.goal small{color:var(--mute);font-size:13px;display:block;margin-top:2px}
+/* product cards */
+.grid{display:grid;grid-template-columns:repeat(4,1fr);gap:24px}.grid>*{min-width:0}
+.card{display:flex;flex-direction:column;position:relative}
+.card .im{position:relative;aspect-ratio:1;border-radius:var(--r);overflow:hidden;background:var(--ice)}
+.card .im img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:opacity .45s,transform .7s}
+.card .im img.alt{opacity:0}
+.card:hover .im img.alt{opacity:1}.card:hover .im img{transform:scale(1.03)}
+.badge{position:absolute;left:12px;top:12px;z-index:2;font:11px/1 var(--mono);letter-spacing:.06em;text-transform:uppercase;padding:6px 9px;border-radius:6px;background:#fff;color:var(--ink)}
+.badge.b{background:var(--ink);color:#fff}.badge.s{background:var(--signal);color:#fff}.badge.m{background:var(--mint);color:var(--mintd)}
+.card .meta{padding:16px 2px 0;display:flex;flex-direction:column;gap:6px;flex:1}
+.card .gl{font:11px var(--mono);letter-spacing:.06em;text-transform:uppercase;color:var(--cobalt)}
+.card h3{font-size:19px;letter-spacing:-.02em}
+.card .sub{font-size:13.5px;color:var(--mute)}
+.stars{display:flex;align-items:center;gap:6px;font-size:13px;color:var(--ink2)}
+.stars i{font-style:normal;color:var(--ink);letter-spacing:1px}
+.prow{display:flex;align-items:baseline;gap:4px 8px;margin-top:2px;flex-wrap:wrap}
+.price{font:600 17px var(--disp)}.was{color:var(--mute);text-decoration:line-through;font-size:14px}
+.pps{font:12px var(--mono);color:var(--mute)}
+.packs{display:flex;gap:6px;margin-top:8px}
+.packs button{flex:1;height:34px;border:1px solid var(--line);border-radius:8px;background:#fff;font:600 13px var(--body)}
+.packs button.on{border-color:var(--ink);background:var(--ink);color:#fff}
+.add{margin-top:10px;height:46px;border-radius:10px;border:1px solid var(--ink);background:#fff;font-weight:600;font-size:14px;display:flex;align-items:center;justify-content:center;gap:8px;transition:.2s}
+.add:hover{background:var(--ink);color:#fff}
+.add.done{background:var(--mintd);border-color:var(--mintd);color:#fff}
+/* ingredient lab */
+.lab{display:grid;grid-template-columns:320px 1fr;gap:40px;align-items:start}
+.labtabs{display:flex;flex-direction:column;gap:8px}
+.labtabs button{display:flex;gap:14px;align-items:center;text-align:left;padding:12px;border:1px solid var(--line);border-radius:var(--r);background:#fff;transition:.2s}
+.labtabs button img{width:56px;height:56px;border-radius:10px;object-fit:cover;background:var(--ice)}
+.labtabs button b{display:block;font:600 16px var(--disp)}.labtabs button small{color:var(--mute);font-size:13px}
+.labtabs button[aria-selected=true]{border-color:var(--cobalt);box-shadow:0 0 0 3px rgba(43,89,255,.12)}
+.labpanel{background:#fff;border:1px solid var(--line);border-radius:var(--r2);overflow:hidden;overflow-x:auto}
+.labhead{display:flex;justify-content:space-between;align-items:center;gap:20px;padding:22px 26px;border-bottom:1px solid var(--line);flex-wrap:wrap}
+.labhead h3{font-size:24px}
+.ltable{width:100%;border-collapse:collapse;font-size:14.5px}
+.ltable th{font:11px var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--mute);text-align:left;padding:12px 26px;background:var(--ice);font-weight:400}
+.ltable td{padding:16px 26px;border-top:1px solid var(--line);vertical-align:top}
+.ltable td:first-child b{display:block;font-weight:600}.ltable td:first-child small{color:var(--mute)}
+.dose{font:600 15px var(--disp);white-space:nowrap}
+.dvbar{width:120px;height:6px;border-radius:3px;background:var(--ice2);margin-top:8px;overflow:hidden}.dvbar i{display:block;height:100%;background:var(--cobalt);border-radius:3px}
+.labfoot{display:flex;justify-content:space-between;align-items:center;gap:16px;padding:18px 26px;background:var(--ice);flex-wrap:wrap;font-size:14px;color:var(--ink2)}
+.labfoot b{color:var(--ink)}
+/* quiz */
+.quiz{display:grid;grid-template-columns:1fr 1.1fr;gap:56px;align-items:start}
+.qbox{background:#fff;border-radius:var(--r2);padding:32px;box-shadow:var(--sh)}
+.qprog{display:flex;gap:6px;margin-bottom:24px}.qprog i{flex:1;height:4px;border-radius:2px;background:var(--ice2)}.qprog i.on{background:var(--cobalt)}
+.qstep h3{font-size:24px;margin:8px 0 18px}
+.qopts{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.qopts button{display:flex;align-items:center;gap:12px;text-align:left;padding:14px 16px;border:1px solid var(--line);border-radius:12px;background:#fff;font-weight:600;font-size:15px;transition:.2s}
+.qopts button:hover{border-color:var(--ink)}
+.qopts button[aria-pressed=true]{border-color:var(--cobalt);background:#F3F6FF;color:var(--cobalt2)}
+.qopts svg{flex:none;color:var(--cobalt)}
+.qnav{display:flex;justify-content:space-between;align-items:center;margin-top:24px}
+.qres{display:none}.qres.on{display:block}
+.stack{display:flex;flex-direction:column;gap:10px;margin:18px 0}
+.stack .it{display:grid;grid-template-columns:64px 1fr auto;gap:14px;align-items:center;padding:10px;border:1px solid var(--line);border-radius:12px}
+.stack .it img{width:64px;height:64px;border-radius:10px;object-fit:cover;background:var(--ice)}
+.stack .it b{display:block;font:600 16px var(--disp)}.stack .it small{color:var(--mute);font-size:13px}
+.qsum{display:flex;justify-content:space-between;align-items:center;padding:16px 0;border-top:1px solid var(--line);font-size:15px}
+.qsum b{font:600 22px var(--disp)}
+.qside .k{margin-bottom:10px}.qside h2{font-size:clamp(32px,3.4vw,48px);margin:14px 0 18px}
+.qside ul{list-style:none;padding:0;margin:26px 0 0;display:grid;gap:14px}
+.qside li{display:flex;gap:12px;color:var(--ink2)}.qside li b{color:var(--ink)}
+.qside li span{flex:none;width:28px;height:28px;border-radius:8px;background:var(--ice);display:grid;place-items:center;font:12px var(--mono);color:var(--cobalt)}
+/* steps */
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;counter-reset:s}
+.step{border-top:2px solid var(--ink);padding-top:22px}
+.step .n{font:12px var(--mono);color:var(--cobalt);letter-spacing:.08em}
+.step h3{font-size:24px;margin:12px 0 10px}.step p{color:var(--ink2);margin:0}
+.step .ph{margin-top:22px;aspect-ratio:4/3;border-radius:var(--r);overflow:hidden;background:var(--ice)}.step .ph img{width:100%;height:100%;object-fit:cover}
+/* compare */
+.cmp{border:1px solid var(--line);border-radius:var(--r2);overflow:hidden;background:#fff}
+.cmp table{width:100%;border-collapse:collapse}
+.cmp th,.cmp td{padding:18px 24px;text-align:left;border-top:1px solid var(--line);font-size:15px}
+.cmp thead th{border-top:0;background:var(--ice);font:600 15px var(--disp)}
+.cmp thead th.us{background:var(--ink);color:#fff}
+.cmp td.us{background:#F5F8FF;font-weight:600}
+.cmp .y{color:var(--mintd)}.cmp .n{color:#B4442B}
+.cmp td svg{vertical-align:-4px;margin-right:6px}
+/* bundles */
+.bund{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.bcard{border:1px solid var(--line);border-radius:var(--r2);overflow:hidden;background:#fff;display:flex;flex-direction:column}
+.bcard .im{aspect-ratio:16/10;background:var(--ice);position:relative}.bcard .im img{width:100%;height:100%;object-fit:cover}
+.bcard .bd{padding:22px 24px 24px;display:flex;flex-direction:column;gap:10px;flex:1}
+.bcard h3{font-size:22px}.bcard p{margin:0;color:var(--ink2);font-size:14.5px}
+.bcard .inc{display:flex;flex-wrap:wrap;gap:6px}.bcard .inc span{font:11px var(--mono);letter-spacing:.04em;text-transform:uppercase;padding:5px 8px;border-radius:6px;background:var(--ice);color:var(--ink2)}
+.bcard .ft{display:flex;justify-content:space-between;align-items:center;margin-top:auto;padding-top:12px}
+/* subscription band */
+.subband{background:var(--ink);color:#fff;border-radius:28px;padding:56px;display:grid;grid-template-columns:1.1fr 1fr;gap:48px;align-items:center;overflow:hidden;position:relative}
+.subband h2{font-size:clamp(32px,3.4vw,50px)}.subband p{color:#C2CDE3;font-size:17px}
+.subband .k{color:#9FB6FF}
+.perks{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.perks div{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);border-radius:14px;padding:18px}
+.perks b{display:block;font:600 22px var(--disp);color:#fff}.perks small{color:#C2CDE3}
+/* reviews */
+.revs{display:grid;grid-template-columns:320px 1fr;gap:48px;align-items:start}
+.rsum{position:sticky;top:140px}
+.rsum .big{font:600 72px/1 var(--disp);letter-spacing:-.04em}
+.bars{display:grid;gap:8px;margin:20px 0}
+.bars div{display:grid;grid-template-columns:28px 1fr 36px;gap:10px;align-items:center;font-size:13px;color:var(--ink2)}
+.bars i{height:6px;border-radius:3px;background:var(--ice2);overflow:hidden}.bars i b{display:block;height:100%;background:var(--ink)}
+.rcards{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.rc{border:1px solid var(--line);border-radius:var(--r);padding:22px;display:flex;flex-direction:column;gap:12px;background:#fff}
+.rc p{margin:0;font-size:15px}.rc .who{display:flex;justify-content:space-between;font-size:13px;color:var(--mute);margin-top:auto}
+.rc .ver{font:10px var(--mono);letter-spacing:.06em;text-transform:uppercase;color:var(--mute)}
+/* faq */
+.faq{display:grid;grid-template-columns:1fr 1.4fr;gap:56px}
+.acc details{border-top:1px solid var(--line)}.acc details:last-child{border-bottom:1px solid var(--line)}
+.acc summary{list-style:none;display:flex;justify-content:space-between;align-items:center;gap:16px;padding:22px 0;font:600 18px var(--disp);cursor:pointer}
+.acc summary::-webkit-details-marker{display:none}
+.acc summary::after{content:"+";font:400 26px var(--body);color:var(--cobalt);transition:transform .25s}
+.acc details[open] summary::after{transform:rotate(45deg)}
+.acc .bd2{padding:0 0 22px;color:var(--ink2);max-width:680px}
+/* newsletter + footer */
+.news{border:1px solid var(--line);border-radius:28px;padding:56px;display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center;background:linear-gradient(135deg,#F5F8FF,#EEF3FA)}
+.news h2{font-size:clamp(30px,3vw,44px)}
+.nform{display:flex;gap:10px}.nform input{flex:1;height:56px;border-radius:12px;border:1px solid var(--line);padding:0 18px;font:16px var(--body);background:#fff}
+.nform .btn{height:56px}
+.fine{font-size:12.5px;color:var(--mute);margin-top:10px}
+footer{background:var(--ink);color:#C2CDE3;margin-top:112px;padding:80px 0 32px}
+footer .g{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:40px}
+footer .logo{color:#fff}footer .logo i{border-color:#fff}
+footer h5{margin:0 0 16px;font:12px var(--mono);letter-spacing:.08em;text-transform:uppercase;color:#7F8DAA}
+footer a{display:block;padding:5px 0;font-size:15px}footer a:hover{color:#fff}
+.soc{display:flex;gap:8px;margin-top:20px}.soc a{width:40px;height:40px;border-radius:10px;border:1px solid #2A3A5C;display:grid;place-items:center;padding:0}
+.fb{display:flex;justify-content:space-between;align-items:center;gap:20px;margin-top:64px;padding-top:24px;border-top:1px solid #22314f;font-size:13px;flex-wrap:wrap}
+.pay{display:flex;gap:6px;flex-wrap:wrap}.pay span{font:10px var(--mono);border:1px solid #2A3A5C;border-radius:5px;padding:5px 7px;color:#C2CDE3}
+.disc{font-size:12px;color:#7F8DAA;max-width:760px;margin-top:20px}
+/* pages */
+.page{display:none}.page.on{display:block}
+.crumb{display:flex;gap:8px;align-items:center;font-size:13px;color:var(--mute);padding:22px 0}.crumb a:hover{color:var(--ink)}
+/* collection */
+.cban{background:var(--ice);border-radius:28px;padding:48px 52px;display:grid;grid-template-columns:1.2fr 1fr;gap:40px;align-items:center;overflow:hidden}
+.cban h1{font-size:clamp(40px,4.4vw,64px);margin:14px 0}
+.cban p{color:var(--ink2);margin:0;max-width:520px}
+.cban .ims{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}.cban .ims img{border-radius:14px;aspect-ratio:3/4;object-fit:cover}
+.gpills{display:flex;gap:8px;flex-wrap:wrap;margin:28px 0}
+.gpills button{display:flex;align-items:center;gap:8px;height:42px;padding:0 16px;border-radius:21px;border:1px solid var(--line);background:#fff;font-weight:600;font-size:14px}
+.gpills button.on{background:var(--ink);border-color:var(--ink);color:#fff}
+.coll{display:grid;grid-template-columns:260px 1fr;gap:40px;align-items:start}
+.filters{position:sticky;top:140px}
+.fgrp{border-top:1px solid var(--line);padding:18px 0}
+.fgrp h4{font:12px var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--mute);margin-bottom:12px;font-weight:400}
+.fgrp label{display:flex;align-items:center;gap:10px;padding:5px 0;font-size:15px;cursor:pointer}
+.fgrp label span{margin-left:auto;font:12px var(--mono);color:var(--mute)}
+.fgrp input[type=checkbox]{width:18px;height:18px;accent-color:var(--cobalt)}
+.range{display:flex;justify-content:space-between;font-size:13px;color:var(--ink2);margin-top:8px}
+.fgrp input[type=range]{width:100%;accent-color:var(--cobalt)}
+.ctool{display:flex;justify-content:space-between;align-items:center;margin-bottom:20px;font-size:14px;color:var(--ink2)}
+.ctool select{height:42px;border:1px solid var(--line);border-radius:10px;padding:0 12px;font:500 14px var(--body);background:#fff}
+.grid3{grid-template-columns:repeat(3,1fr)}
+.promo{border-radius:var(--r);background:var(--ink);color:#fff;padding:28px;display:flex;flex-direction:column;justify-content:space-between;gap:20px;position:relative;overflow:hidden;min-height:100%}
+.promo h3{font-size:26px}.promo p{color:#C2CDE3;margin:0}
+.promo img{position:absolute;right:-20px;bottom:-20px;width:60%;opacity:.9;border-radius:14px}
+.loadm{display:flex;flex-direction:column;align-items:center;gap:12px;margin-top:48px;font-size:14px;color:var(--mute)}
+.loadm .pbar{width:220px;height:4px;border-radius:2px;background:var(--ice2);overflow:hidden}.loadm .pbar i{display:block;height:100%;width:60%;background:var(--ink)}
+.mfbtn{display:none}
+/* product */
+.pdp{display:grid;grid-template-columns:1.1fr 1fr;gap:56px;align-items:start}
+.gal{display:grid;grid-template-columns:84px 1fr;gap:14px;position:sticky;top:130px}
+.thumbs{display:flex;flex-direction:column;gap:10px}
+.thumbs button{padding:0;border:1px solid var(--line);border-radius:12px;overflow:hidden;aspect-ratio:1;background:var(--ice)}
+.thumbs button[aria-current=true]{border-color:var(--ink);box-shadow:0 0 0 2px var(--ink) inset}
+.thumbs img{width:100%;height:100%;object-fit:cover}
+.mainim{position:relative;border-radius:var(--r2);overflow:hidden;aspect-ratio:1;background:var(--ice);cursor:zoom-in}
+.mainim img{width:100%;height:100%;object-fit:cover;transition:transform .4s}
+.mainim .zoomh{position:absolute;right:14px;bottom:14px;background:#fff;border-radius:10px;padding:8px 12px;font:11px var(--mono);letter-spacing:.06em;text-transform:uppercase}
+.pinfo .gl{font:12px var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--cobalt)}
+.pinfo h1{font-size:clamp(36px,3.6vw,52px);margin:10px 0 10px}
+.pinfo .lead{color:var(--ink2);font-size:17px;margin:14px 0 20px}
+.ptop{display:flex;align-items:center;gap:14px;flex-wrap:wrap}
+.pprice{display:flex;align-items:baseline;gap:12px;margin:18px 0 6px}.pprice b{font:600 34px var(--disp)}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin:12px 0}
+.chip{display:inline-flex;align-items:center;gap:6px;height:30px;padding:0 12px;border-radius:15px;background:var(--ice);font-size:13px;font-weight:600;color:var(--ink2)}
+.opt{margin:22px 0}
+.opt .lb{display:flex;justify-content:space-between;font-weight:600;margin-bottom:10px;font-size:15px}
+.opt .lb span{color:var(--mute);font-weight:500}
+.flav{display:flex;gap:8px;flex-wrap:wrap}
+.flav button{height:42px;padding:0 16px;border-radius:21px;border:1px solid var(--line);background:#fff;font-weight:600;font-size:14px;display:flex;align-items:center;gap:8px}
+.flav button i{width:12px;height:12px;border-radius:50%}
+.flav button.on{border-color:var(--ink);box-shadow:0 0 0 1px var(--ink) inset}
+.packcards{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+.pc{position:relative;text-align:left;padding:16px 14px;border:1px solid var(--line);border-radius:14px;background:#fff;transition:.2s}
+.pc b{display:block;font:600 16px var(--disp)}.pc small{display:block;color:var(--mute);font-size:13px}
+.pc .pp{display:block;margin-top:8px;font:600 15px var(--disp)}.pc .ps{font:11px var(--mono);color:var(--cobalt)}
+.pc.on{border-color:var(--cobalt);box-shadow:0 0 0 1px var(--cobalt) inset;background:#F7F9FF}
+.pc .save{position:absolute;top:-9px;right:10px;font:10px/1 var(--mono);letter-spacing:.06em;text-transform:uppercase;background:var(--mint);color:var(--mintd);padding:5px 7px;border-radius:5px}
+.plans{display:grid;gap:10px}
+.plan{display:flex;gap:14px;align-items:flex-start;padding:16px;border:1px solid var(--line);border-radius:14px;cursor:pointer;background:#fff}
+.plan input{margin-top:4px;accent-color:var(--cobalt);width:18px;height:18px}
+.plan.on{border-color:var(--cobalt);background:#F7F9FF}
+.plan b{display:block}.plan small{color:var(--mute)}
+.plan .pv2{margin-left:auto;font:600 16px var(--disp);text-align:right}.plan .pv2 s{display:block;font:400 13px var(--body);color:var(--mute)}
+.plan select{margin-top:10px;height:38px;border-radius:8px;border:1px solid var(--line);padding:0 10px;font:500 14px var(--body)}
+.buy{display:grid;grid-template-columns:132px 1fr;gap:10px;margin-top:22px}
+.qty{display:flex;align-items:center;justify-content:space-between;border:1px solid var(--line);border-radius:12px;height:56px;padding:0 6px}
+.qty button{width:40px;height:40px;border:0;background:none;font-size:20px;border-radius:8px}.qty button:hover{background:var(--ice)}
+.buy .btn{height:56px;font-size:16px}
+.ptrust{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:18px}
+.ptrust div{display:flex;gap:8px;align-items:center;font-size:13px;color:var(--ink2);padding:12px;border-radius:12px;background:var(--ice)}
+.facts{margin-top:28px;border:2px solid var(--ink);border-radius:10px;padding:16px 18px;font-size:14px;background:#fff}
+.facts h4{font:700 26px/1 var(--body);letter-spacing:-.02em;border-bottom:1px solid var(--ink);padding-bottom:8px;margin-bottom:6px}
+.facts .r{display:flex;justify-content:space-between;padding:5px 0;border-bottom:1px solid #c9d2e2}
+.facts .r.h{border-bottom:6px solid var(--ink);font-weight:700}
+.facts .r.th{font-size:12px;font-weight:700;border-bottom:3px solid var(--ink)}
+.facts .r span:last-child{display:flex;gap:28px}.facts .r span:last-child em{font-style:normal;width:64px;text-align:right;white-space:nowrap}
+.facts small{display:block;font-size:11.5px;color:var(--ink2);margin-top:8px}
+.pacc{margin-top:28px}
+.stickyatc{position:fixed;left:0;right:0;bottom:0;z-index:80;background:#fff;border-top:1px solid var(--line);box-shadow:0 -10px 30px rgba(14,27,51,.08);transform:translateY(110%);transition:transform .35s}
+.stickyatc.on{transform:none}
+.stickyatc .wrap{display:flex;align-items:center;gap:16px;height:80px}
+.stickyatc img{width:52px;height:52px;border-radius:10px;object-fit:cover;background:var(--ice)}
+.stickyatc .t{flex:1;min-width:0}.stickyatc .t b{display:block;font:600 16px var(--disp)}.stickyatc .t small{color:var(--mute)}
+.fbt{display:grid;grid-template-columns:1.6fr 1fr;gap:32px;align-items:center;border:1px solid var(--line);border-radius:var(--r2);padding:28px}
+.fbt .its{display:flex;align-items:center;gap:14px;flex-wrap:wrap}
+.fbt .its label{display:flex;flex-direction:column;gap:8px;width:150px;cursor:pointer}
+.fbt .its img{width:150px;height:150px;border-radius:14px;object-fit:cover;background:var(--ice)}
+.fbt .its span{font-size:14px;font-weight:600;display:flex;gap:8px;align-items:flex-start}
+.fbt .its input{accent-color:var(--cobalt);margin-top:3px}
+.fbt .plus{font:300 28px var(--body);color:var(--mute)}
+.fbt .tot{font:600 30px var(--disp)}
+.zlb{position:fixed;inset:0;z-index:300;background:rgba(10,20,38,.92);display:none;place-items:center;padding:40px}.zlb.on{display:grid}
+.zlb img{max-height:86vh;border-radius:20px}
+.zlb button{position:absolute;top:20px;right:20px;width:48px;height:48px;border-radius:12px;border:0;background:#fff;font-size:22px}
+/* cart */
+.cartg{display:grid;grid-template-columns:1.5fr 1fr;gap:48px;align-items:start}
+.ship{border:1px solid var(--line);border-radius:var(--r);padding:18px 20px;margin-bottom:20px}
+.ship p{margin:0 0 10px;font-size:15px}.ship .bar{height:8px;border-radius:4px;background:var(--ice2);overflow:hidden}.ship .bar i{display:block;height:100%;background:var(--cobalt);transition:width .5s}
+.line{display:grid;grid-template-columns:96px 1fr auto;gap:18px;padding:20px 0;border-top:1px solid var(--line);align-items:start}
+.line img{width:96px;height:96px;border-radius:12px;object-fit:cover;background:var(--ice)}
+.line b{font:600 17px var(--disp);display:block}.line small{display:block;color:var(--mute);font-size:13.5px}
+.line .q{display:flex;align-items:center;gap:6px;margin-top:10px}
+.line .q button{width:32px;height:32px;border-radius:8px;border:1px solid var(--line);background:#fff}
+.line .rm{background:none;border:0;color:var(--mute);font-size:13px;text-decoration:underline;margin-left:10px}
+.line .lp{text-align:right;font:600 17px var(--disp)}
+.summ{position:sticky;top:130px;background:var(--ice);border-radius:var(--r2);padding:28px}
+.summ .r{display:flex;justify-content:space-between;padding:8px 0;font-size:15px}
+.summ .tot{border-top:1px solid var(--line);margin-top:8px;padding-top:16px;font:600 22px var(--disp)}
+.summ textarea{width:100%;border:1px solid var(--line);border-radius:12px;padding:12px;font:15px var(--body);min-height:84px;margin:14px 0;background:#fff}
+.summ .btn{width:100%}
+.tbadges{display:flex;gap:8px;flex-wrap:wrap;margin-top:16px}.tbadges span{font:11px var(--mono);letter-spacing:.04em;padding:6px 8px;border-radius:6px;background:#fff;color:var(--ink2)}
+.empty{padding:40px 0;text-align:center;color:var(--mute)}
+/* drawer */
+.scrim{position:fixed;inset:0;background:rgba(10,20,38,.45);z-index:180;opacity:0;visibility:hidden;transition:.3s}.scrim.on{opacity:1;visibility:visible}
+.drawer{position:fixed;top:0;right:0;bottom:0;width:440px;max-width:100%;background:#fff;z-index:190;transform:translateX(100%);transition:transform .38s cubic-bezier(.2,.8,.2,1);display:flex;flex-direction:column}
+.drawer.on{transform:none}
+.drawer .dh{display:flex;justify-content:space-between;align-items:center;padding:20px 24px;border-bottom:1px solid var(--line)}
+.drawer .dh h3{font-size:22px}
+.drawer .db{flex:1;overflow:auto;padding:0 24px}
+.drawer .df{padding:20px 24px;border-top:1px solid var(--line)}
+.drawer .ship{margin:18px 0 6px}
+.drawer .line{grid-template-columns:72px 1fr auto}.drawer .line img{width:72px;height:72px}
+.toast{position:fixed;left:50%;bottom:28px;transform:translate(-50%,40px);background:var(--ink);color:#fff;border-radius:12px;padding:12px 18px;font-size:14px;z-index:400;opacity:0;transition:.3s;pointer-events:none}.toast.on{opacity:1;transform:translate(-50%,0)}
+/* search */
+.sbig{display:flex;align-items:center;gap:12px;height:68px;border:1px solid var(--ink);border-radius:16px;padding:0 22px;margin:8px 0 18px}
+.sbig input{flex:1;border:0;font:500 22px var(--disp);outline:none;background:none}
+.sugs{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:40px}.sugs button{height:36px;padding:0 14px;border-radius:18px;border:1px solid var(--line);background:#fff;font-size:14px}
+.sres{display:grid;grid-template-columns:1fr 320px;gap:40px}
+.sart a{display:grid;grid-template-columns:96px 1fr;gap:14px;padding:14px 0;border-top:1px solid var(--line)}
+.sart img{width:96px;height:72px;border-radius:10px;object-fit:cover}
+.sart b{font:600 15px var(--disp);display:block}.sart small{color:var(--mute);font-size:13px}
+/* blog */
+.bfeat{display:grid;grid-template-columns:1.3fr 1fr;gap:48px;align-items:center;padding-bottom:56px;border-bottom:1px solid var(--line)}
+.bfeat .im{aspect-ratio:16/11;border-radius:var(--r2);overflow:hidden}.bfeat .im img{width:100%;height:100%;object-fit:cover}
+.bfeat h2{font-size:clamp(30px,3vw,44px);margin:14px 0}
+.bcats{display:flex;gap:8px;margin:36px 0;flex-wrap:wrap}.bcats button{height:38px;padding:0 16px;border-radius:19px;border:1px solid var(--line);background:#fff;font-weight:600;font-size:14px}.bcats button.on{background:var(--ink);color:#fff;border-color:var(--ink)}
+.posts{display:grid;grid-template-columns:repeat(3,1fr);gap:28px}
+.post .im{aspect-ratio:4/3;border-radius:var(--r);overflow:hidden;background:var(--ice)}.post .im img{width:100%;height:100%;object-fit:cover;transition:transform .6s}.post:hover .im img{transform:scale(1.04)}
+.post h3{font-size:21px;margin:14px 0 8px}.post p{margin:0;color:var(--ink2);font-size:15px}
+.post .m{font:11px var(--mono);letter-spacing:.06em;text-transform:uppercase;color:var(--mute);margin-top:16px;display:block}
+/* article */
+.art{max-width:760px;margin:0 auto}
+.art h1{font-size:clamp(36px,4vw,56px);margin:16px 0 18px}
+.art .by{display:flex;gap:16px;align-items:center;color:var(--mute);font-size:14px;padding-bottom:28px;border-bottom:1px solid var(--line)}
+.art .cover{margin:36px 0;border-radius:var(--r2);overflow:hidden;aspect-ratio:16/9}.art .cover img{width:100%;height:100%;object-fit:cover}
+.art .body p{font-size:18px;line-height:1.75;color:#24314a}
+.art .body h2{font-size:28px;margin:44px 0 14px}
+.art .body blockquote{margin:36px 0;padding:24px 28px;border-left:3px solid var(--cobalt);background:var(--ice);border-radius:0 14px 14px 0;font:500 22px/1.45 var(--disp);color:var(--ink)}
+.art .note{font-size:13px;color:var(--mute);border-top:1px solid var(--line);padding-top:16px;margin-top:40px}
+.art .shop{display:grid;grid-template-columns:120px 1fr auto;gap:18px;align-items:center;border:1px solid var(--line);border-radius:var(--r);padding:14px;margin:36px 0}
+.art .shop img{width:120px;height:120px;border-radius:12px;object-fit:cover}
+/* about */
+.aboutH{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center}
+.aboutH h1{font-size:clamp(40px,4.6vw,68px);margin:16px 0 20px}
+.aboutH .im{border-radius:28px;overflow:hidden;aspect-ratio:4/5}.aboutH .im img{width:100%;height:100%;object-fit:cover}
+.prin{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+.prin div{border:1px solid var(--line);border-radius:var(--r);padding:24px;background:#fff}
+.prin .n{font:12px var(--mono);color:var(--cobalt)}.prin h3{font-size:21px;margin:14px 0 8px}.prin p{margin:0;color:var(--ink2);font-size:15px}
+.tl{display:grid;grid-template-columns:repeat(4,1fr);gap:0;border-top:1px solid var(--line)}
+.tl div{padding:24px 24px 0 0;position:relative}.tl div::before{content:"";position:absolute;top:-6px;left:0;width:11px;height:11px;border-radius:50%;background:var(--cobalt)}
+.tl b{font:600 20px var(--disp);display:block;margin-bottom:6px}.tl p{margin:0;color:var(--ink2);font-size:15px}
+/* contact */
+.cont{display:grid;grid-template-columns:1fr 1.2fr;gap:56px;align-items:start}
+.cform{display:grid;gap:14px;background:var(--ice);border-radius:var(--r2);padding:32px}
+.cform .two{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.cform label{display:grid;gap:6px;font-weight:600;font-size:14px}
+.cform input,.cform select,.cform textarea{height:52px;border:1px solid var(--line);border-radius:12px;padding:0 14px;font:16px var(--body);background:#fff}
+.cform textarea{height:140px;padding:14px;resize:vertical}
+.cinfo div{padding:20px 0;border-top:1px solid var(--line)}.cinfo b{display:block;font:600 18px var(--disp);margin-bottom:4px}.cinfo p{margin:0;color:var(--ink2)}
+/* 404 */
+.nf{text-align:center;padding:96px 0 40px}
+.nf .code{font:600 clamp(120px,16vw,220px)/1 var(--disp);letter-spacing:-.06em;color:var(--ice2);position:relative}
+.nf .code span{color:var(--cobalt)}
+.nf h1{font-size:clamp(30px,3.4vw,44px);margin:10px 0 14px}
+.nf p{color:var(--ink2);max-width:520px;margin:0 auto 28px}
+/* responsive */
+@media (max-width:1180px){.grid{grid-template-columns:repeat(3,1fr)}.goalrow{grid-template-columns:repeat(3,1fr)}.srch{width:200px}}
+@media (max-width:980px){
+ .wrap{padding:0 20px}.sec{padding:72px 0}
+ .nav,.srch,.hide-m{display:none!important}.burger{display:grid}
+ .hdr{top:0}.pv{position:relative}
+ .hdr .wrap{grid-template-columns:auto 1fr auto;height:64px}.logo{justify-self:center;grid-column:2}
+ .hero .g,.lab,.quiz,.subband,.revs,.faq,.news,.pdp,.cartg,.sres,.bfeat,.aboutH,.cont,.coll,.cban{grid-template-columns:1fr}
+ .hero{padding-top:20px}.hero .g{gap:32px}.trust{grid-template-columns:1fr;gap:14px}
+ .grid,.grid3{grid-template-columns:repeat(2,1fr);gap:16px}
+ .goalrow{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;margin:0 -20px;padding:0 20px 6px}.goal{flex:0 0 160px;scroll-snap-align:start}
+ .steps,.bund,.rcards,.posts,.prin,.tl{grid-template-columns:1fr}
+ .sh{flex-direction:column;align-items:flex-start;gap:14px;margin-bottom:32px}
+ .labcard{width:auto;right:16px;left:16px;bottom:16px}.hchip{display:none}
+ .labtabs{flex-direction:row;overflow-x:auto;margin:0 -20px;padding:0 20px}.labtabs button{flex:0 0 230px}
+ .ltable th:nth-child(4),.ltable td:nth-child(4){display:none}.ltable td,.ltable th{padding-left:16px;padding-right:16px}
+ .cmp{overflow-x:auto}.cmp table{min-width:620px}
+ .subband,.news{padding:32px 24px}.perks{grid-template-columns:1fr 1fr}
+ .rsum{position:static}.qopts{grid-template-columns:1fr}.qbox{padding:22px}
+ .filters{display:none}.filters.on{display:block;position:fixed;inset:0;z-index:170;background:#fff;padding:24px;overflow:auto}
+ .mfbtn{display:inline-flex}
+ .gal{position:static;grid-template-columns:1fr}.thumbs{flex-direction:row;order:2}.thumbs button{width:68px}
+ .packcards{grid-template-columns:repeat(3,1fr)}.pc{padding:12px 10px}.pc b{font-size:14px}
+ .ptrust{grid-template-columns:1fr}
+ .fbt{grid-template-columns:1fr}.fbt .its label{width:96px}.fbt .its img{width:96px;height:96px}
+ .stickyatc .wrap{height:72px}.stickyatc .t small{display:none}
+ footer .g{grid-template-columns:1fr 1fr}footer .g>div:first-child{grid-column:1/-1}
+ .cban{padding:28px 22px}.cban .ims{display:none}
+ .art .shop{grid-template-columns:80px 1fr}.art .shop img{width:80px;height:80px}.art .shop .btn{grid-column:1/-1}
+ .cform .two{grid-template-columns:1fr}
+ .nform{flex-direction:column}
+ .pps{flex-basis:100%}
+ .ctool{flex-wrap:wrap;gap:10px}.ctool select{max-width:150px}.packs button{font-size:12px}
+ .ann{font-size:10.5px;letter-spacing:.02em}.ann span{white-space:nowrap}
+ .facts .r span:last-child{gap:12px}
+}
+</style>
+</head>
+<body>
+<div class="pv"><div class="wrap"><div class="tabs" role="tablist" aria-label="Preview pages">
+<button data-go="home" class="on">Home</button><button data-go="collection">Collection</button><button data-go="product">Product</button><button data-go="cart">Cart</button><button data-go="search">Search</button><button data-go="blog">Blog</button><button data-go="article">Article</button><button data-go="about">About</button><button data-go="contact">Contact</button><button data-go="404">404</button></div>
+<label><input type="checkbox" id="names"> Show section names</label></div></div>
+
+<div class="ann" data-dawn="announcement-bar"><div class="wrap">
+<span class="on">Free shipping over $50 · <b>batch certificate on every bottle</b></span>
+<span>Subscribe &amp; save 15% · pause or skip any month</span>
+<span>New: Magnesium Glycinate, the evening routine bottle</span>
+</div></div>
+
+<header class="hdr" data-dawn="header"><div class="wrap">
+<button class="ib burger" id="burger" aria-label="Open menu"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 7h18M3 12h18M3 17h18"/></svg></button>
+<a href="#" class="logo" data-go="home" aria-label="Assay home"><i></i>assay<small>daily</small></a>
+<nav class="nav" aria-label="Main">
+ <div id="shopnav"><a href="#" data-go="collection" aria-haspopup="true">Shop <svg width="10" height="10" viewBox="0 0 10 10"><path d="M1 3l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.6"/></svg></a>
+  <div class="mega"><div class="wrap">
+   <div><h5>Shop by goal</h5><div class="goals" id="megaGoals"></div></div>
+   <div class="lst"><h5>By format</h5><a href="#" data-go="collection">Capsules</a><a href="#" data-go="collection">Powders</a><a href="#" data-go="collection">Liquid drops</a><a href="#" data-go="collection">Bundles</a><a href="#" data-go="collection">All products</a></div>
+   <div class="lst"><h5>Learn</h5><a href="#lab" data-go="home">Ingredient lab</a><a href="#compare" data-go="home">How we compare</a><a href="#" data-go="blog">The Assay journal</a><a href="#quiz" data-go="home" style="color:var(--cobalt);font-weight:600">Take the 60-second quiz →</a></div>
+   <a href="#" class="mtile" data-go="collection"><img data-k="flat" alt="Supplement ingredients in glass lab dishes"><div><span class="k">Bundle</span><b>The Daily Foundations set</b><small>Multi, Omega-3, D3+K2 · save 20%</small></div></a>
+  </div></div></div>
+ <div><a href="#quiz" data-go="home">Find your stack</a></div>
+ <div><a href="#lab" data-go="home">Ingredient lab</a></div>
+ <div><a href="#" data-go="blog">Journal</a></div>
+ <div><a href="#" data-go="about">About</a></div>
+</nav>
+<div class="hr">
+ <a href="#" class="srch" data-go="search"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="M20 20l-4-4"/></svg>Search ingredients, goals…</a>
+ <a href="#" class="ib hide-m" aria-label="Account"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="8" r="4"/><path d="M4 21c1.5-4 4.5-6 8-6s6.5 2 8 6"/></svg></a>
+ <button class="ib" id="cartBtn" aria-label="Open cart"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M6 7h12l-1 13H7z"/><path d="M9 7a3 3 0 0 1 6 0"/></svg><span class="cc" id="cc">0</span></button>
+</div>
+</div></header>
+
+<div class="mm" id="mm" aria-hidden="true">
+ <div class="top"><a href="#" class="logo" data-go="home"><i></i>assay</a><button class="ib" id="mmClose" aria-label="Close menu"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 6l12 12M18 6L6 18"/></svg></button></div>
+ <a href="#" class="big" data-go="search">Search <span>→</span></a>
+ <div class="goals" id="mmGoals"></div>
+ <a href="#" class="big" data-go="collection">Shop all <span>→</span></a>
+ <a href="#quiz" class="big" data-go="home">Find your stack <span>→</span></a>
+ <a href="#lab" class="big" data-go="home">Ingredient lab <span>→</span></a>
+ <a href="#" class="big" data-go="blog">Journal <span>→</span></a>
+ <a href="#" class="big" data-go="about">About <span>→</span></a>
+ <a href="#" class="big" data-go="contact">Contact <span>→</span></a>
+</div>
+
+<!-- HOME -->
+<main class="page on" id="p-home">
+<section class="hero" data-dawn="image-with-text"><div class="wrap g">
+ <div>
+  <span class="k">Daily supplements · batch tested</span>
+  <h1>Supplements you can read like a <em>lab report.</em></h1>
+  <p class="lead">Every Assay formula lists each ingredient, its exact dose and its form. No proprietary blends, no fillers to hide behind, and a test certificate for every batch.</p>
+  <div class="ctas"><a href="#quiz" class="btn btn-p" data-go="home">Find your stack in 60 seconds</a><a href="#" class="btn btn-o" data-go="collection">Shop all</a></div>
+  <div class="trust">
+   <div><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#2B59FF" stroke-width="2"><path d="M9 12l2 2 4-4"/><circle cx="12" cy="12" r="9"/></svg><span><b>Third-party tested</b>Certificate per batch</span></div>
+   <div><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#2B59FF" stroke-width="2"><path d="M4 7h16M4 12h10M4 17h7"/></svg><span><b>Full disclosure</b>Every dose on the label</span></div>
+   <div><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#2B59FF" stroke-width="2"><path d="M3 12a9 9 0 1 0 3-6.7"/><path d="M3 4v5h5"/></svg><span><b>Pause any month</b>Subscribe &amp; save 15%</span></div>
+  </div>
+ </div>
+ <div class="hmedia reveal">
+  <img data-k="hero" alt="Woman taking her morning supplements in a bright kitchen">
+  <div class="hchip"><span class="mono" style="color:#9FB6FF">Batch A-1027</span><b>Released this week</b></div>
+  <div class="labcard"><div class="t"><b>Daily Multi · test panel</b><span class="pass">Pass</span></div>
+   <div class="row"><span>Label claim (potency)</span><span class="pass">Pass</span></div>
+   <div class="row"><span>Heavy metals</span><span class="pass">Pass</span></div>
+   <div class="row"><span>Microbial screen</span><span class="pass">Pass</span></div>
+   <div class="row" style="font-size:12px;color:var(--mute)"><span>Sample data for the demo</span><a href="#lab" class="ul" data-go="home" style="color:var(--cobalt)">View lab</a></div>
+  </div>
+ </div>
+</div></section>
+
+<section class="sec tight" data-dawn="collection-list"><div class="wrap">
+ <div class="sh reveal"><div><span class="k">Shop by goal</span><h2>Start with what you want to feel.</h2></div><p>Six goals, each with a short list of formulas. Every product page shows exactly what is inside and why.</p></div>
+ <div class="goalrow" id="goalRow"></div>
+</div></section>
+
+<section class="sec tight" data-dawn="featured-collection" style="padding-top:24px"><div class="wrap">
+ <div class="sh reveal"><div><span class="k">Best sellers</span><h2>The formulas people reorder.</h2></div><a href="#" class="ul" data-go="collection">Shop all 8 →</a></div>
+ <div class="grid" id="bestGrid"></div>
+</div></section>
+
+<section class="sec ice" id="quiz" data-dawn="sbs-goal-quiz"><div class="wrap quiz">
+ <div class="qside reveal">
+  <span class="k">Goal quiz</span>
+  <h2>Three questions. One stack that makes sense.</h2>
+  <p style="color:var(--ink2);font-size:17px;margin:0">Tell us your goal, your routine and what you already take. We build a short stack with the daily cost, and you can add it in one click.</p>
+  <ul><li><span>01</span><div><b>No guesswork.</b> Each pick shows why it is in your stack.</div></li><li><span>02</span><div><b>No doubling up.</b> We skip what you already take.</div></li><li><span>03</span><div><b>Not medical advice.</b> Check with your doctor if you take medication.</div></li></ul>
+ </div>
+ <div class="qbox" id="quizBox">
+  <div class="qprog"><i class="on"></i><i></i><i></i></div>
+  <div class="qstep" data-s="0"><span class="mono" style="color:var(--mute)">Question 1 of 3</span><h3>What is your main goal right now?</h3><div class="qopts" data-q="goal"></div></div>
+  <div class="qstep" data-s="1" hidden><span class="mono" style="color:var(--mute)">Question 2 of 3</span><h3>When do you prefer to take supplements?</h3><div class="qopts" data-q="time">
+   <button type="button" data-v="am" aria-pressed="false">Morning, with breakfast</button><button type="button" data-v="pm" aria-pressed="false">Evening, before bed</button><button type="button" data-v="both" aria-pressed="false">Split morning and evening</button><button type="button" data-v="any" aria-pressed="false">Whatever is easiest</button></div></div>
+  <div class="qstep" data-s="2" hidden><span class="mono" style="color:var(--mute)">Question 3 of 3</span><h3>Do you already take any of these?</h3><div class="qopts" data-q="have" data-multi="1">
+   <button type="button" data-v="multi" aria-pressed="false">A multivitamin</button><button type="button" data-v="omega" aria-pressed="false">Fish oil / omega-3</button><button type="button" data-v="d3" aria-pressed="false">Vitamin D</button><button type="button" data-v="none" aria-pressed="false">None of these</button></div></div>
+  <div class="qres" id="qres"><span class="pass">Your stack</span><h3 style="font-size:26px;margin:14px 0 4px" id="qTitle">Your energy stack</h3><p style="margin:0;color:var(--ink2);font-size:15px" id="qWhy"></p>
+   <div class="stack" id="qStack"></div>
+   <div class="qsum"><span>Daily cost with subscription</span><b id="qDaily">$0.00</b></div>
+   <div style="display:flex;gap:10px;flex-wrap:wrap"><button class="btn btn-p" id="qAdd" style="flex:1">Add stack to cart</button><button class="btn btn-o" id="qRestart">Start again</button></div></div>
+  <div class="qnav" id="qnav"><button class="btn btn-o" id="qBack" style="height:44px" disabled>Back</button><button class="btn btn-d" id="qNext" style="height:44px" disabled>Next</button></div>
+ </div>
+</div></section>
+
+<section class="sec" id="lab" data-dawn="sbs-ingredient-lab"><div class="wrap">
+ <div class="sh reveal"><div><span class="k">Ingredient lab</span><h2>Every ingredient, every dose, every form.</h2></div><p>Pick a formula to open its lab sheet. This is the same information that is printed on the bottle, with the reason each ingredient is there.</p></div>
+ <div class="lab">
+  <div class="labtabs" role="tablist" id="labTabs"></div>
+  <div class="labpanel" id="labPanel"></div>
+ </div>
+</div></section>
+
+<section class="sec ice" data-dawn="multicolumn"><div class="wrap">
+ <div class="sh reveal"><div><span class="k">How it works</span><h2>From label to routine in three steps.</h2></div></div>
+ <div class="steps">
+  <div class="step reveal"><span class="n">STEP 01</span><h3>Pick a goal or take the quiz</h3><p>Choose from six goals, or answer three questions and get a short stack with the daily cost.</p><div class="ph"><img data-k="caps" alt="Capsules on a pale blue surface"></div></div>
+  <div class="step reveal"><span class="n">STEP 02</span><h3>Read the lab sheet</h3><p>Open any formula to see each dose, the form we use and the batch certificate before you buy.</p><div class="ph"><img data-k="flat" alt="Ingredients in glass lab dishes"></div></div>
+  <div class="step reveal"><span class="n">STEP 03</span><h3>Take it daily, adjust anytime</h3><p>Subscribe to save 15%. Swap formulas, change the rhythm or pause from your account.</p><div class="ph"><img data-k="hand" alt="Hand holding a capsule next to a glass of water"></div></div>
+ </div>
+</div></section>
+
+<section class="sec" id="compare" data-dawn="sbs-compare-table"><div class="wrap">
+ <div class="sh reveal"><div><span class="k">How we compare</span><h2>Assay vs a typical store brand.</h2></div><p>What to look for on any supplement label, and how our formulas answer it.</p></div>
+ <div class="cmp reveal"><table>
+  <thead><tr><th style="width:34%">What to check</th><th class="us">Assay</th><th>Typical store brand</th></tr></thead>
+  <tbody id="cmpBody"></tbody></table></div>
+</div></section>
+
+<section class="sec tight" data-dawn="featured-collection" style="padding-top:0"><div class="wrap">
+ <div class="sh reveal"><div><span class="k">Bundles</span><h2>Three sets that cover the basics.</h2></div><a href="#" class="ul" data-go="collection">All bundles →</a></div>
+ <div class="bund" id="bundles"></div>
+</div></section>
+
+<section class="sec tight" id="subs" data-dawn="rich-text"><div class="wrap"><div class="subband reveal">
+ <div><span class="k">Subscribe &amp; save</span><h2 style="margin:14px 0">Never run out. Never get locked in.</h2><p style="margin:0">Every 30, 60 or 90 days. Change, skip or pause from your account in two taps, with a reminder three days before each order.</p>
+ <div style="display:flex;gap:10px;margin-top:28px;flex-wrap:wrap"><a href="#" class="btn btn-p" data-go="product">Start a subscription</a><a href="#faq" class="btn" style="border-color:rgba(255,255,255,.25);color:#fff" data-go="home">How it works</a></div></div>
+ <div class="perks"><div><b>15%</b><small>off every order</small></div><div><b>Free</b><small>shipping on subscriptions</small></div><div><b>3 days</b><small>reminder before each order</small></div><div><b>Any time</b><small>pause, skip or cancel</small></div></div>
+</div></div></section>
+
+<section class="sec" data-dawn="multicolumn"><div class="wrap revs">
+ <div class="rsum reveal"><span class="k">Reviews</span><div class="big" style="margin-top:16px">4.8</div><div class="stars" style="font-size:15px"><i>★★★★★</i> Sample rating for the demo</div>
+  <div class="bars"><div>5★<i><b style="width:82%"></b></i>82%</div><div>4★<i><b style="width:12%"></b></i>12%</div><div>3★<i><b style="width:4%"></b></i>4%</div><div>2★<i><b style="width:1%"></b></i>1%</div><div>1★<i><b style="width:1%"></b></i>1%</div></div>
+  <a href="#" class="btn btn-o" data-go="product">Read all reviews</a></div>
+ <div class="rcards">
+  <div class="rc reveal"><div class="stars"><i>★★★★★</i></div><p>"I finally know what is in my multivitamin. The lab sheet sold me before I even ordered."</p><div class="who"><span>Sample review · Daily Multi</span><span class="ver">Verified</span></div></div>
+  <div class="rc reveal"><div class="stars"><i>★★★★★</i></div><p>"The evening routine with the magnesium is easy to stick to. Small capsules, no aftertaste."</p><div class="who"><span>Sample review · Magnesium</span><span class="ver">Verified</span></div></div>
+  <div class="rc reveal"><div class="stars"><i>★★★★☆</i></div><p>"The quiz gave me three products instead of ten. Pausing the subscription took ten seconds."</p><div class="who"><span>Sample review · Energy stack</span><span class="ver">Verified</span></div></div>
+ </div>
+</div></section>
+
+<section class="sec ice" id="faq" data-dawn="collapsible-content"><div class="wrap faq">
+ <div class="reveal"><span class="k">FAQ</span><h2 style="font-size:clamp(32px,3.4vw,48px);margin-top:14px">Good questions, plain answers.</h2><p style="color:var(--ink2)">Still curious? <a href="#" class="ul" data-go="contact">Write to us</a> and a real person replies within one working day.</p></div>
+ <div class="acc">
+  <details open><summary>What does "batch tested" mean?</summary><div class="bd2">Each production batch is sent to an independent lab that checks the label claim, heavy metals and microbes. The certificate number is printed on the bottle and the PDF is on the product page.</div></details>
+  <details><summary>Can I take several Assay products together?</summary><div class="bd2">The formulas are designed to stack without doubling up. If you take medication, are pregnant or have a condition, check with your doctor first.</div></details>
+  <details><summary>How does the subscription work?</summary><div class="bd2">Pick 30, 60 or 90 days. You get 15% off and free shipping, a reminder three days before each order, and you can skip, swap or cancel from your account.</div></details>
+  <details><summary>Are the capsules vegan?</summary><div class="bd2">Most formulas use plant-based capsules. Omega-3 uses fish oil in a soft gel. Each product page lists its dietary tags.</div></details>
+ </div>
+</div></section>
+
+<section class="sec" data-dawn="newsletter"><div class="wrap"><div class="news reveal">
+ <div><span class="k">The Assay letter</span><h2 style="margin-top:14px">One clear email a month. 10% off your first order.</h2></div>
+ <div><form class="nform" onsubmit="event.preventDefault();toast('Thanks! Check your inbox for 10% off.')"><input type="email" placeholder="Your email" aria-label="Email" required><button class="btn btn-p">Subscribe</button></form><p class="fine">Plain-language research notes and new batch releases. Unsubscribe anytime.</p></div>
+</div></div></section>
+</main>
+
+<!-- COLLECTION -->
+<main class="page" id="p-collection">
+<div class="wrap">
+ <div class="crumb" data-dawn="sbs-breadcrumbs"><a href="#" data-go="home">Home</a>/<span>All supplements</span></div>
+ <section class="cban" data-dawn="main-collection-banner"><div><span class="k">8 formulas · batch tested</span><h1>All supplements</h1><p>Every formula with its full dose on the label. Filter by goal, format or diet, or take the quiz for a short stack.</p></div>
+  <div class="ims"><img data-k="b1" alt="Daily Multi bottle"><img data-k="b7" alt="Electrolyte powder tub"><img data-k="b5" alt="Amber dropper bottle"></div></section>
+ <div class="gpills" id="cGoals"></div>
+ <section class="coll" data-dawn="main-collection-product-grid">
+  <aside class="filters" id="filters">
+   <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px"><b style="font:600 18px var(--disp)">Filters</b><button class="ib mfbtn" id="fClose" aria-label="Close filters"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 6l12 12M18 6L6 18"/></svg></button></div>
+   <div class="fgrp"><h4>Format</h4><label><input type="checkbox" data-f="form" value="Capsules"> Capsules <span>6</span></label><label><input type="checkbox" data-f="form" value="Powder"> Powder <span>1</span></label><label><input type="checkbox" data-f="form" value="Drops"> Liquid drops <span>1</span></label></div>
+   <div class="fgrp"><h4>Diet</h4><label><input type="checkbox" data-f="diet" value="Vegan"> Vegan <span>7</span></label><label><input type="checkbox" data-f="diet" value="Gluten free"> Gluten free <span>8</span></label><label><input type="checkbox" data-f="diet" value="Sugar free"> Sugar free <span>7</span></label></div>
+   <div class="fgrp"><h4>Price</h4><input type="range" id="fPrice" min="20" max="60" value="60" aria-label="Maximum price"><div class="range"><span>$20</span><span id="fPriceV">up to $60</span></div></div>
+   <div class="fgrp"><label><input type="checkbox" id="fSub"> Subscription eligible</label><label><input type="checkbox" id="fStock" checked> In stock only</label></div>
+   <button class="btn btn-d mfbtn" id="fApply" style="width:100%">Show results</button>
+  </aside>
+  <div>
+   <div class="ctool"><span><button class="btn btn-o mfbtn" id="fOpen" style="height:42px;margin-right:10px">Filters</button><b id="cCount">8</b> products</span><label>Sort <select id="cSort"><option value="feat">Featured</option><option value="low">Price, low to high</option><option value="high">Price, high to low</option><option value="rate">Top rated</option></select></label></div>
+   <div class="grid grid3" id="cGrid"></div>
+   <div class="loadm"><span>Showing <b id="cShown">8</b> of 8</span><div class="pbar"><i style="width:100%"></i></div><button class="btn btn-o" onclick="toast('That is every formula for now. New batches drop monthly.')">Load more</button></div>
+  </div>
+ </section>
+</div>
+<section class="sec" data-dawn="sbs-compare-table"><div class="wrap"><div class="sh"><div><span class="k">Before you choose</span><h2>Read any label like this.</h2></div><a href="#compare" class="ul" data-go="home">See the full comparison →</a></div><div class="cmp"><table><thead><tr><th style="width:34%">What to check</th><th class="us">Assay</th><th>Typical store brand</th></tr></thead><tbody id="cmpBody2"></tbody></table></div></div></section>
+</main>
+
+<!-- PRODUCT -->
+<main class="page" id="p-product">
+<div class="wrap">
+ <div class="crumb" data-dawn="sbs-breadcrumbs"><a href="#" data-go="home">Home</a>/<a href="#" data-go="collection">Supplements</a>/<span>Daily Multi</span></div>
+ <section class="pdp" data-dawn="main-product">
+  <div class="gal"><div class="thumbs" id="thumbs"></div><div class="mainim" id="mainim"><img id="mainImg" data-k="b1" alt="Daily Multi bottle"><span class="zoomh">Click to zoom</span></div></div>
+  <div class="pinfo">
+   <div class="ptop"><span class="gl">Foundation · Capsules</span><span class="badge b" style="position:static">Best seller</span></div>
+   <h1>Daily Multi</h1>
+   <div class="stars"><i>★★★★★</i> 4.8 · <a href="#prev" class="ul">212 sample reviews</a></div>
+   <p class="lead">A complete daily multivitamin with methylated B vitamins, chelated minerals and no iron overload. Two small capsules with breakfast.</p>
+   <div class="chips"><span class="chip">Vegan capsule</span><span class="chip">Gluten free</span><span class="chip">No proprietary blends</span><span class="chip">60 capsules = 30 days</span></div>
+   <div class="pprice"><b id="pPrice">$27.20</b><span class="was" id="pWas">$32.00</span><span class="pps" id="pPer">$0.91 / day</span></div>
+   <div class="opt"><div class="lb">Flavour <span id="flavL">Unflavoured</span></div><div class="flav" id="flav"><button class="on" data-v="Unflavoured"><i style="background:#E8EDF5"></i>Unflavoured</button><button data-v="Citrus coating"><i style="background:#FFC857"></i>Citrus coating</button><button data-v="Mint coating"><i style="background:#9EE0C0"></i>Mint coating</button></div></div>
+   <div class="opt"><div class="lb">Pack size <span>Price per month</span></div><div class="packcards" id="packs">
+    <button class="pc on" data-m="1"><b>1 month</b><small>60 capsules</small><span class="pp">$32.00</span><span class="ps">$1.07 / day</span></button>
+    <button class="pc" data-m="3"><span class="save">Save 10%</span><b>3 months</b><small>180 capsules</small><span class="pp">$86.40</span><span class="ps">$0.96 / day</span></button>
+    <button class="pc" data-m="6"><span class="save">Save 18%</span><b>6 months</b><small>360 capsules</small><span class="pp">$157.40</span><span class="ps">$0.87 / day</span></button></div></div>
+   <div class="opt plans" id="plans">
+    <label class="plan on"><input type="radio" name="pl" value="sub" checked><div><b>Subscribe &amp; save 15%</b><small>Free shipping · skip or pause anytime</small><br><select id="freq" aria-label="Delivery frequency"><option>Every 30 days</option><option>Every 60 days</option><option>Every 90 days</option></select></div><span class="pv2" id="subP">$27.20<s>$32.00</s></span></label>
+    <label class="plan"><input type="radio" name="pl" value="one"><div><b>One-time purchase</b><small>Ships in 1 to 2 days</small></div><span class="pv2" id="oneP">$32.00</span></label>
+   </div>
+   <div class="buy" data-dawn="buy-buttons"><div class="qty"><button id="qm" aria-label="Less">−</button><b id="qv">1</b><button id="qp" aria-label="More">+</button></div><button class="btn btn-p" id="atc">Add to cart · $27.20</button></div>
+   <div class="ptrust"><div><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#2B59FF" stroke-width="2"><path d="M9 12l2 2 4-4"/><circle cx="12" cy="12" r="9"/></svg>Batch A-1027 tested</div><div><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#2B59FF" stroke-width="2"><path d="M3 7h13v10H3zM16 10h4l1 3v4h-5"/></svg>Free shipping over $50</div><div><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#2B59FF" stroke-width="2"><path d="M3 12a9 9 0 1 0 3-6.7"/><path d="M3 4v5h5"/></svg>30-day returns</div></div>
+   <div class="facts" data-dawn="custom-liquid"><h4>Supplement Facts</h4><div style="font-size:13px">Serving size 2 capsules · Servings per container 30</div>
+    <div class="r th" style="margin-top:6px"><span></span><span><em>Amount</em><em>%DV</em></span></div>
+    <div class="r"><span>Vitamin A (as beta-carotene)</span><span><em>900 mcg</em><em>100%</em></span></div>
+    <div class="r"><span>Vitamin C (as ascorbic acid)</span><span><em>90 mg</em><em>100%</em></span></div>
+    <div class="r"><span>Vitamin D3 (as cholecalciferol)</span><span><em>25 mcg</em><em>125%</em></span></div>
+    <div class="r"><span>Vitamin B12 (as methylcobalamin)</span><span><em>12 mcg</em><em>500%</em></span></div>
+    <div class="r"><span>Folate (as methylfolate)</span><span><em>400 mcg</em><em>100%</em></span></div>
+    <div class="r"><span>Zinc (as bisglycinate)</span><span><em>11 mg</em><em>100%</em></span></div>
+    <div class="r"><span>Magnesium (as glycinate)</span><span><em>100 mg</em><em>24%</em></span></div>
+    <small>Demo label for the theme preview. Other ingredients: plant cellulose capsule, rice flour. Not intended to diagnose, treat, cure or prevent any disease.</small></div>
+   <div class="acc pacc">
+    <details open><summary>What it does</summary><div class="bd2">Fills common gaps in a modern diet with forms your body uses well. Designed as the base of a stack: no iron, so it pairs with any routine.</div></details>
+    <details><summary>How to take it</summary><div class="bd2">Two capsules with breakfast. Take with food. Do not exceed the stated dose.</div></details>
+    <details><summary>Ingredients &amp; certificate</summary><div class="bd2">Full ingredient list in the facts panel. Batch certificate A-1027: label claim, heavy metals and microbial screen passed. <a href="#lab" class="ul" data-go="home">Open the lab sheet</a>.</div></details>
+    <details><summary>Shipping &amp; returns</summary><div class="bd2">Ships in 1 to 2 days. Free shipping over $50 and on subscriptions. Opened bottles can be returned within 30 days.</div></details>
+   </div>
+  </div>
+ </section>
+</div>
+<section class="sec" data-dawn="sbs-ingredient-lab"><div class="wrap"><div class="sh"><div><span class="k">Inside this bottle</span><h2>The lab sheet for Daily Multi.</h2></div><a href="#lab" class="ul" data-go="home">Compare other formulas →</a></div><div class="labpanel" id="pdpLab"></div></div></section>
+<section class="sec tight" data-dawn="sbs-frequently-bought"><div class="wrap"><div class="sh"><div><span class="k">Pairs well with</span><h2>Frequently bought together.</h2></div></div>
+ <div class="fbt"><div class="its" id="fbtIts"></div><div><span class="mono" style="color:var(--mute)">Bundle price, 3 items</span><div class="tot" id="fbtTot">$0</div><p style="color:var(--ink2);font-size:14px;margin:6px 0 16px">Save 10% when you add the set.</p><button class="btn btn-p" id="fbtAdd" style="width:100%">Add selected to cart</button></div></div></div></section>
+<section class="sec" id="prev" data-dawn="multicolumn"><div class="wrap revs">
+ <div class="rsum"><span class="k">Reviews</span><div class="big" style="margin-top:16px">4.8</div><div class="stars"><i>★★★★★</i> 212 sample reviews</div>
+  <div class="bars"><div>5★<i><b style="width:84%"></b></i>84%</div><div>4★<i><b style="width:11%"></b></i>11%</div><div>3★<i><b style="width:3%"></b></i>3%</div><div>2★<i><b style="width:1%"></b></i>1%</div><div>1★<i><b style="width:1%"></b></i>1%</div></div>
+  <button class="btn btn-o" onclick="toast('Thanks! The review form opens here in the live theme.')">Write a review</button></div>
+ <div class="rcards">
+  <div class="rc"><div class="stars"><i>★★★★★</i></div><p>"Small capsules and no fishy or vitamin smell. I like that the forms are listed."</p><div class="who"><span>Sample review</span><span class="ver">Verified</span></div></div>
+  <div class="rc"><div class="stars"><i>★★★★★</i></div><p>"Switched from a big-box brand. The facts panel is actually readable."</p><div class="who"><span>Sample review</span><span class="ver">Verified</span></div></div>
+  <div class="rc"><div class="stars"><i>★★★★☆</i></div><p>"Easy with breakfast. Would love a one-a-day version, but two is fine."</p><div class="who"><span>Sample review</span><span class="ver">Verified</span></div></div>
+ </div></div></section>
+<section class="sec tight" data-dawn="sbs-recently-viewed" style="padding-top:0"><div class="wrap"><div class="sh"><div><span class="k">Recently viewed</span><h2>Pick up where you left off.</h2></div></div><div class="grid" id="recent"></div></div></section>
+<div class="stickyatc" id="sticky" data-dawn="sticky add to cart"><div class="wrap"><img data-k="b1" alt=""><div class="t"><b>Daily Multi</b><small id="stx">1 month · subscribe &amp; save 15%</small></div><button class="btn btn-p" id="satc">Add to cart · $27.20</button></div></div>
+</main>
+
+<!-- CART -->
+<main class="page" id="p-cart">
+<div class="wrap">
+ <div class="crumb"><a href="#" data-go="home">Home</a>/<span>Cart</span></div>
+ <h1 style="font-size:clamp(36px,3.6vw,52px);margin:8px 0 32px">Your cart</h1>
+ <section class="cartg" data-dawn="main-cart-items">
+  <div><div class="ship" id="cShip"></div><div id="cLines"></div></div>
+  <aside class="summ" data-dawn="main-cart-footer"><div class="r"><span>Subtotal</span><b id="cSub">$0.00</b></div><div class="r"><span>Subscription savings</span><b id="cSave" style="color:var(--mintd)">−$0.00</b></div><div class="r"><span>Shipping</span><span id="cShipV">Calculated at checkout</span></div><div class="r tot"><span>Total</span><span id="cTot">$0.00</span></div>
+   <label class="mono" for="note" style="display:block;margin-top:18px;color:var(--mute)">Order note</label><textarea id="note" placeholder="Gift message or delivery note"></textarea>
+   <button class="btn btn-p" onclick="toast('Checkout opens here in the live theme.')">Check out securely</button>
+   <div class="tbadges"><span>VISA</span><span>MASTERCARD</span><span>AMEX</span><span>PAYPAL</span><span>APPLE PAY</span><span>SHOP PAY</span></div>
+   <p class="fine">Batch tested · 30-day returns · Pause subscriptions anytime</p></aside>
+ </section>
+</div>
+<section class="sec" data-dawn="featured-collection"><div class="wrap"><div class="sh"><div><span class="k">Complete your stack</span><h2>Often added before checkout.</h2></div></div><div class="grid" id="upsell"></div></div></section>
+</main>
+
+<!-- SEARCH -->
+<main class="page" id="p-search">
+<div class="wrap">
+ <div class="crumb"><a href="#" data-go="home">Home</a>/<span>Search</span></div>
+ <section data-dawn="main-search"><div class="sbig"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="M20 20l-4-4"/></svg><input id="sq" value="magnesium" aria-label="Search"></div>
+ <div class="sugs" id="sugs"><button>magnesium</button><button>sleep</button><button>vitamin d</button><button>omega-3</button><button>electrolytes</button><button>vegan</button></div>
+ <div class="sres"><div><div class="ctool"><span><b id="sCount">0</b> products for "<span id="sTerm">magnesium</span>"</span></div><div class="grid grid3" id="sGrid"></div></div>
+  <aside class="sart"><h3 style="font-size:18px;margin-bottom:8px">From the journal</h3><a href="#" data-go="article"><img data-k="drink" alt="Electrolyte drink"><span><b>Magnesium forms, explained</b><small>Glycinate, citrate, oxide: what the label means</small></span></a><a href="#" data-go="article"><img data-k="hand" alt="Capsule and water"><span><b>How to build an evening routine</b><small>A simple three-step wind-down</small></span></a><a href="#" data-go="article"><img data-k="lab" alt="Lab bench"><span><b>What a batch certificate shows</b><small>Reading the three lines that matter</small></span></a></aside></div></section>
+</div>
+</main>
+
+<!-- BLOG -->
+<main class="page" id="p-blog">
+<div class="wrap">
+ <div class="crumb"><a href="#" data-go="home">Home</a>/<span>Journal</span></div>
+ <section data-dawn="main-blog">
+ <a href="#" class="bfeat" data-go="article"><div class="im"><img data-k="lab" alt="Scientist testing supplement capsules in a lab"></div><div><span class="k">Featured · Label literacy</span><h2>How to read a supplement label in 60 seconds</h2><p style="color:var(--ink2);font-size:17px">Serving size, form, %DV and the one phrase that should make you put a bottle back on the shelf.</p><span class="mono" style="color:var(--mute)">7 min read · Assay research team</span></div></a>
+ <div class="bcats" id="bcats"><button class="on">All</button><button>Label literacy</button><button>Sleep</button><button>Energy</button><button>Routines</button></div>
+ <div class="posts">
+  <a href="#" class="post" data-go="article"><div class="im"><img data-k="drink" alt="Electrolyte drink in a glass"></div><h3>Electrolytes: who actually needs them?</h3><p>Sodium, potassium and magnesium in plain words, and when water alone is enough.</p><span class="m">Energy · 5 min</span></a>
+  <a href="#" class="post" data-go="article"><div class="im"><img data-k="hand" alt="Capsule held next to a water glass"></div><h3>A three-step evening routine</h3><p>Light, screens and a magnesium habit that is easy to keep.</p><span class="m">Sleep · 4 min</span></a>
+  <a href="#" class="post" data-go="article"><div class="im"><img data-k="flat" alt="Ingredients in lab dishes"></div><h3>Why forms matter: glycinate vs oxide</h3><p>Same mineral, very different label. Here is what to look for.</p><span class="m">Label literacy · 6 min</span></a>
+  <a href="#" class="post" data-go="article"><div class="im"><img data-k="caps" alt="Capsules on a pale surface"></div><h3>Proprietary blends, decoded</h3><p>What a blend hides and three questions to ask any brand.</p><span class="m">Label literacy · 5 min</span></a>
+  <a href="#" class="post" data-go="article"><div class="im"><img data-k="hero" alt="Morning supplement routine in a kitchen"></div><h3>Stacking without doubling up</h3><p>How to combine a multi, omega-3 and vitamin D without overlap.</p><span class="m">Routines · 6 min</span></a>
+  <a href="#" class="post" data-go="article"><div class="im"><img data-k="b5" alt="Amber dropper bottle"></div><h3>Drops or capsules?</h3><p>When a liquid makes sense and when a capsule is simpler.</p><span class="m">Routines · 3 min</span></a>
+ </div></section>
+</div>
+</main>
+
+<!-- ARTICLE -->
+<main class="page" id="p-article">
+<div class="wrap"><div class="crumb"><a href="#" data-go="home">Home</a>/<a href="#" data-go="blog">Journal</a>/<span>Label literacy</span></div>
+<article class="art" data-dawn="main-article"><span class="k">Label literacy</span><h1>How to read a supplement label in 60 seconds</h1>
+ <div class="by"><span>Assay research team</span><span>·</span><span>7 min read</span><span>·</span><span>Reviewed for clarity, not medical advice</span></div>
+ <div class="cover"><img data-k="lab" alt="Lab bench with capsules and glassware"></div>
+ <div class="body">
+  <p>Most labels follow the same layout. Once you know where to look, you can compare two bottles in under a minute. Start at the top of the facts panel and work down.</p>
+  <h2>1. Serving size first</h2>
+  <p>Every number below depends on it. A bottle that looks cheap may need four capsules a day, not two. Divide the price by the number of servings to get a real daily cost.</p>
+  <blockquote>If a label lists a "blend" with one total weight, you cannot know how much of each ingredient you are getting.</blockquote>
+  <h2>2. Look at the form, not just the name</h2>
+  <p>Magnesium oxide and magnesium glycinate are both "magnesium", but they behave differently. Good labels name the form in brackets right after the nutrient.</p>
+  <div class="shop"><img data-k="b2" alt="Magnesium Glycinate bottle"><div><b style="font:600 18px var(--disp)">Magnesium Glycinate</b><br><small style="color:var(--mute)">200 mg elemental · evening routine</small></div><button class="btn btn-p" data-add="1">Add · $24</button></div>
+  <h2>3. Check for a test certificate</h2>
+  <p>Third-party testing confirms that what is on the label is in the bottle. Look for a batch number you can match to a certificate.</p>
+ </div>
+ <p class="note">This article is general information, not medical advice. Talk to your doctor before starting supplements, especially if you take medication.</p>
+</article></div>
+<section class="sec" data-dawn="featured-collection"><div class="wrap"><div class="sh"><div><span class="k">Mentioned in this article</span><h2>Shop the formulas.</h2></div></div><div class="grid" id="artGrid"></div></div></section>
+</main>
+
+<!-- ABOUT -->
+<main class="page" id="p-about">
+<section class="sec" data-dawn="image-with-text" style="padding-top:40px"><div class="wrap aboutH">
+ <div><span class="k">Our story</span><h1>We started by reading the labels nobody reads.</h1><p style="font-size:18px;color:var(--ink2)">Assay began with a simple test: could we explain every ingredient in our own supplements to a friend? Most bottles failed. So we built formulas where every dose, every form and every batch result is out in the open.</p><a href="#" class="btn btn-p" data-go="collection" style="margin-top:12px">Shop the formulas</a></div>
+ <div class="im"><img data-k="lab" alt="Scientist in a bright lab checking capsules"></div>
+</div></section>
+<section class="sec ice" data-dawn="multicolumn"><div class="wrap"><div class="sh"><div><span class="k">Principles</span><h2>Four rules for every bottle.</h2></div></div>
+ <div class="prin"><div><span class="n">01</span><h3>Full disclosure</h3><p>Every ingredient, dose and form on the label. No proprietary blends.</p></div><div><span class="n">02</span><h3>Tested batches</h3><p>Independent lab checks on every batch, with the certificate online.</p></div><div><span class="n">03</span><h3>Forms that work</h3><p>We choose the forms your body uses well, even when they cost more.</p></div><div><span class="n">04</span><h3>No big claims</h3><p>We explain what an ingredient is for. We never promise cures.</p></div></div></div></section>
+<section class="sec" data-dawn="multicolumn"><div class="wrap"><div class="sh"><div><span class="k">How a batch is made</span><h2>From raw material to your shelf.</h2></div></div>
+ <div class="tl"><div><b>Source</b><p>Raw materials from suppliers who share their own test results.</p></div><div><b>Make</b><p>Produced in a certified facility in small, numbered batches.</p></div><div><b>Test</b><p>An independent lab checks label claim, metals and microbes.</p></div><div><b>Release</b><p>Only passed batches ship, with the certificate number on the bottle.</p></div></div></div></section>
+<section class="sec ice" id="lab2" data-dawn="sbs-ingredient-lab"><div class="wrap"><div class="sh"><div><span class="k">See for yourself</span><h2>Open any lab sheet.</h2></div></div><div class="lab"><div class="labtabs" id="labTabs2"></div><div class="labpanel" id="labPanel2"></div></div></div></section>
+</main>
+
+<!-- CONTACT -->
+<main class="page" id="p-contact">
+<div class="wrap">
+ <div class="crumb"><a href="#" data-go="home">Home</a>/<span>Contact</span></div>
+ <section class="cont" data-dawn="contact-form"><div><span class="k">Contact</span><h1 style="font-size:clamp(40px,4.4vw,64px);margin:14px 0 18px">Questions about a label? Ask us.</h1><p style="color:var(--ink2);font-size:17px">Orders, subscriptions, ingredients or wholesale. A real person replies within one working day.</p>
+  <div class="cinfo"><div><b>Email</b><p>hello@assay-demo.com</p></div><div><b>Hours</b><p>Monday to Friday, 9:00 to 17:00</p></div><div><b>Ingredient questions</b><p>Include the batch number from your bottle and we will send the certificate.</p></div></div></div>
+  <form class="cform" onsubmit="event.preventDefault();toast('Thanks! We will reply within one working day.')"><div class="two"><label>Name<input required></label><label>Email<input type="email" required></label></div>
+   <label>Topic<select><option>Order or delivery</option><option>Subscription</option><option>Ingredients or batch certificate</option><option>Wholesale</option></select></label>
+   <label>Batch number (optional)<input placeholder="e.g. A-1027"></label><label>Message<textarea required></textarea></label><button class="btn btn-p">Send message</button></form></section>
+</div>
+<section class="sec" data-dawn="collapsible-content"><div class="wrap faq"><div><span class="k">FAQ</span><h2 style="font-size:clamp(32px,3.4vw,44px);margin-top:14px">Quick answers.</h2></div><div class="acc">
+ <details open><summary>Where is my order?</summary><div class="bd2">Orders ship in 1 to 2 working days. You get a tracking link by email as soon as it leaves.</div></details>
+ <details><summary>Can I change my subscription?</summary><div class="bd2">Yes. Skip, swap formulas, change the rhythm or cancel from your account at any time.</div></details>
+ <details><summary>Where do I find the batch certificate?</summary><div class="bd2">Every product page links the latest certificate. Send us the batch number from your bottle for an older one.</div></details></div></div></section>
+</main>
+
+<!-- 404 -->
+<main class="page" id="p-404">
+<section class="nf" data-dawn="main-404"><div class="wrap"><div class="code">4<span>0</span>4</div><h1>This page failed its test.</h1><p>The link may be old or mistyped. Try a search, or start with the formulas most people reorder.</p><div style="display:flex;gap:10px;justify-content:center;flex-wrap:wrap"><a href="#" class="btn btn-p" data-go="collection">Shop all</a><a href="#" class="btn btn-o" data-go="search">Search</a></div></div></section>
+<section class="sec tight" data-dawn="featured-collection"><div class="wrap"><div class="sh"><div><span class="k">Best sellers</span><h2>Start with these.</h2></div></div><div class="grid" id="nfGrid"></div></div></section>
+</main>
+
+<footer data-dawn="footer"><div class="wrap">
+ <div class="g">
+  <div><a href="#" class="logo" data-go="home"><i></i>assay</a><p style="margin:16px 0 0;max-width:340px">Daily supplements with every dose on the label and a test certificate for every batch.</p>
+   <div class="soc"><a href="#" aria-label="Instagram"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/></svg></a><a href="#" aria-label="TikTok"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M14 3v11a4 4 0 1 1-4-4"/><path d="M14 3c1 3 3 4 6 4"/></svg></a><a href="#" aria-label="YouTube"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="5" width="20" height="14" rx="4"/><path d="M10 9l5 3-5 3z"/></svg></a></div></div>
+  <div><h5>Shop</h5><a href="#" data-go="collection">All supplements</a><a href="#" data-go="collection">Bundles</a><a href="#quiz" data-go="home">Goal quiz</a><a href="#subs" data-go="home">Subscribe &amp; save</a></div>
+  <div><h5>Learn</h5><a href="#lab" data-go="home">Ingredient lab</a><a href="#compare" data-go="home">How we compare</a><a href="#" data-go="blog">Journal</a><a href="#" data-go="about">About</a></div>
+  <div><h5>Help</h5><a href="#" data-go="contact">Contact</a><a href="#faq" data-go="home">FAQ</a><a href="#" data-go="contact">Shipping &amp; returns</a><a href="#" data-go="search">Search</a></div>
+ </div>
+ <p class="disc">These statements have not been evaluated by the Food and Drug Administration. These products are not intended to diagnose, treat, cure or prevent any disease. Demo store content for the theme preview.</p>
+ <div class="fb"><span>© 2026 Assay · demo store</span><div class="pay"><span>VISA</span><span>MC</span><span>AMEX</span><span>PAYPAL</span><span>APPLE PAY</span><span>SHOP PAY</span></div></div>
+</div></footer>
+
+<div class="scrim" id="scrim"></div>
+<aside class="drawer" id="drawer" aria-label="Cart" data-dawn="cart-drawer"><div class="dh"><h3>Your cart (<span id="dCount">0</span>)</h3><button class="ib" id="dClose" aria-label="Close cart"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 6l12 12M18 6L6 18"/></svg></button></div>
+ <div class="db"><div class="ship" id="dShip"></div><div id="dLines"></div></div>
+ <div class="df"><div class="summ" style="position:static;padding:0;background:none"><div class="r tot" style="border:0;margin:0;padding:0 0 14px"><span>Subtotal</span><span id="dSub">$0.00</span></div></div><button class="btn btn-p" style="width:100%" data-go="cart" id="dGo">View cart &amp; check out</button></div></aside>
+<div class="zlb" id="lb"><img id="lbImg" alt="Zoomed product image"><button id="lbClose" aria-label="Close zoom">×</button></div>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+<script>
+const IMG='img/assay-demo-';
+const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)];
+const money=n=>'$'+n.toFixed(2);
+const ICON={
+ sleep:'<path d="M20 14.5A8 8 0 1 1 9.5 4a6.5 6.5 0 0 0 10.5 10.5z"/>',
+ energy:'<path d="M13 2L4 14h7l-1 8 9-12h-7z"/>',
+ gut:'<path d="M7 4c0 4 10 2 10 7s-10 3-10 8"/><path d="M17 4v3M7 17v3"/>',
+ immunity:'<path d="M12 3l8 3v6c0 4.5-3.4 8-8 9-4.6-1-8-4.5-8-9V6z"/><path d="M9 12l2 2 4-4"/>',
+ focus:'<circle cx="12" cy="12" r="8"/><circle cx="12" cy="12" r="3"/>',
+ calm:'<path d="M3 12c3-4 6-4 9 0s6 4 9 0"/><path d="M3 17c3-4 6-4 9 0s6 4 9 0"/>'};
+const svg=(k,s=22)=>`<svg width="${s}" height="${s}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">${ICON[k]}</svg>`;
+const GOALS=[['sleep','Sleep','Wind down, rest well'],['energy','Energy','Steady, no crash'],['gut','Gut','Daily digestive support'],['immunity','Immunity','Year-round basics'],['focus','Focus','Clear workdays'],['calm','Calm','Everyday stress']];
+const P=[
+ {n:'Daily Multi',k:'b1',alt:'caps',g:'Foundation',goals:['energy','immunity'],form:'Capsules',diet:['Vegan','Gluten free','Sugar free'],p:32,r:4.8,c:212,b:'Best seller',bc:'b',sv:30,unit:'2 capsules',sub:true},
+ {n:'Magnesium Glycinate',k:'b2',alt:'hand',g:'Sleep',goals:['sleep','calm'],form:'Capsules',diet:['Vegan','Gluten free','Sugar free'],p:24,r:4.9,c:168,b:'New',bc:'m',sv:30,unit:'2 capsules',sub:true},
+ {n:'Omega-3 Triglyceride',k:'b3',alt:'caps',g:'Foundation',goals:['focus','immunity'],form:'Capsules',diet:['Gluten free','Sugar free'],p:29,r:4.7,c:140,sv:30,unit:'2 softgels',sub:true},
+ {n:'D3 + K2',k:'b4',alt:'flat',g:'Immunity',goals:['immunity'],form:'Capsules',diet:['Vegan','Gluten free','Sugar free'],p:19,was:22,r:4.8,c:96,b:'Sale',bc:'s',sv:60,unit:'1 capsule',sub:true},
+ {n:'Ashwagandha Calm Drops',k:'b5',alt:'flat',g:'Calm',goals:['calm','sleep'],form:'Drops',diet:['Vegan','Gluten free','Sugar free'],p:26,r:4.6,c:74,sv:30,unit:'1 ml',sub:true},
+ {n:'Focus Complex',k:'b6',alt:'caps',g:'Focus',goals:['focus','energy'],form:'Capsules',diet:['Vegan','Gluten free','Sugar free'],p:34,r:4.7,c:81,b:'New',bc:'m',sv:30,unit:'2 capsules',sub:true},
+ {n:'Electrolyte Mix',k:'b7',alt:'drink',g:'Energy',goals:['energy'],form:'Powder',diet:['Vegan','Gluten free'],p:28,r:4.8,c:133,sv:30,unit:'1 scoop',sub:true},
+ {n:'Probiotic 20B',k:'b8',alt:'hand',g:'Gut',goals:['gut','immunity'],form:'Capsules',diet:['Vegan','Gluten free','Sugar free'],p:36,r:4.7,c:102,sv:30,unit:'1 capsule',sub:false}];
+const LAB={
+ 0:[['Vitamin D3','cholecalciferol','25 mcg',100,'Supports normal immune function and bones'],['Vitamin B12','methylcobalamin','12 mcg',100,'Active form, no conversion step needed'],['Folate','methylfolate','400 mcg',100,'Active folate instead of folic acid'],['Zinc','bisglycinate','11 mg',100,'Chelated form, gentle on the stomach'],['Magnesium','glycinate','100 mg',24,'Rounds out a typical diet']],
+ 1:[['Magnesium','glycinate','200 mg',48,'Glycinate is the calm, well-tolerated form'],['Glycine','free form','400 mg',0,'Comes bound to the magnesium'],['L-Theanine','Suntheanine®-type','100 mg',0,'Pairs with an evening wind-down']],
+ 2:[['EPA','triglyceride form','500 mg',0,'Triglyceride form, close to whole fish'],['DHA','triglyceride form','250 mg',0,'Supports normal brain function'],['Vitamin E','mixed tocopherols','2 mg',13,'Keeps the oil fresh']],
+ 3:[['Vitamin D3','cholecalciferol','50 mcg',250,'The form your skin makes from sunlight'],['Vitamin K2','MK-7','100 mcg',83,'Long-acting form of K2'],['Olive oil','extra virgin','carrier',0,'Fat helps absorption']],
+ 4:[['Ashwagandha','root extract, 5% withanolides','300 mg',0,'Root only, standardised extract'],['Lemon balm','leaf extract','100 mg',0,'Traditional calming herb'],['Glycerin','vegetable','base',0,'Alcohol-free liquid base']],
+ 5:[["Lion's mane",'fruiting body extract','500 mg',0,'Fruiting body, not mycelium on grain'],['Citicoline','CDP-choline','250 mg',0,'Choline source for focus'],['Vitamin B6','P-5-P','2 mg',118,'Active B6 form']],
+ 6:[['Sodium','sodium citrate','500 mg',22,'Replaces what you lose in sweat'],['Potassium','potassium citrate','200 mg',4,'Balances sodium'],['Magnesium','glycinate','60 mg',14,'Gentle form, no laxative effect']],
+ 7:[['L. rhamnosus GG','probiotic strain','10 B CFU',0,'Strain named on the label'],['B. lactis BB-12','probiotic strain','10 B CFU',0,'Second well-studied strain'],['Inulin','chicory root','100 mg',0,'Prebiotic food for the strains']]};
+const CMP=[['Every ingredient dose listed','All doses on the label','Often hidden in a "blend"'],['Form of each nutrient named','Yes, e.g. magnesium glycinate','Often the cheapest form'],['Independent test per batch','Certificate per batch online','Rarely published'],['Fillers and dyes','None','Common'],['Subscription terms','Pause, skip or cancel anytime','Hard to cancel']];
+const BUN=[['Daily Foundations','The base most people start with.',[0,2,3],'flat'],['Sleep & Calm','An evening routine in two steps.',[1,4],'hand'],['Energy & Focus','Workday support, morning and noon.',[6,5],'drink']];
+const PACK={1:1,3:2.7,6:4.92};
+let cart=[],recent=[0,1,6,3],qState={goal:null,time:null,have:[]},qStep=0,cur={i:0,m:1,sub:true,q:1,flav:'Unflavoured'};
+
+function src(k){return IMG+k+'.jpg'}
+function imgs(){$$('img[data-k]').forEach(i=>{if(!i.getAttribute('src'))i.src=src(i.dataset.k)})}
+function stars(r){const f=Math.round(r);return '★'.repeat(f)+'☆'.repeat(5-f)}
+function per(p,i,m=1,sub=false){return p.p*PACK[m]*(sub?.85:1)/(P[i].sv*m)}
+function card(i){const p=P[i];return `<div class="card reveal">
+ <a href="#" class="im" data-go="product" data-pi="${i}">${p.b?`<span class="badge ${p.bc}">${p.b}</span>`:(p.sub?'<span class="badge">Save 15%</span>':'')}<img src="${src(p.k)}" alt="${p.n} bottle" loading="lazy"><img class="alt" src="${src(p.alt)}" alt="" loading="lazy"></a>
+ <div class="meta"><span class="gl">${p.g} · ${p.form}</span><a href="#" data-go="product" data-pi="${i}"><h3>${p.n}</h3></a>
+ <span class="sub">${p.sv} servings · ${p.unit} a day</span>
+ <div class="stars"><i>${stars(p.r)}</i>${p.r} (${p.c})</div>
+ <div class="prow"><span class="price" data-pr>${money(p.p)}</span>${p.was?`<span class="was">${money(p.was)}</span>`:''}<span class="pps" data-pp>${money(per(p,i))}/serving</span></div>
+ <div class="packs" data-i="${i}"><button class="on" data-m="1">1 mo</button><button data-m="3">3 mo</button><button data-m="6">6 mo</button></div>
+ <button class="add" data-add="${i}">Add to cart</button></div></div>`}
+function fill(id,list){const el=$(id);if(el)el.innerHTML=list.map(card).join('')}
+function goalHTML(){return GOALS.map(([k,n,s])=>`<a href="#" class="goal reveal" data-go="collection" data-goal="${k}"><span class="ic">${svg(k)}</span><span><b>${n}</b><small>${s}</small></span></a>`).join('')}
+
+/* pages */
+function go(pg,hash){$$('.page').forEach(p=>p.classList.toggle('on',p.id==='p-'+pg));$$('.pv .tabs button').forEach(b=>b.classList.toggle('on',b.dataset.go===pg));closeAll();
+ if(pg==='cart')renderCart();if(pg==='search')runSearch();
+ if(hash){const t=document.getElementById(hash);if(t){setTimeout(()=>t.scrollIntoView(),30);return}}window.scrollTo(0,0);obs()}
+document.addEventListener('click',e=>{const a=e.target.closest('[data-go]');if(!a)return;e.preventDefault();
+ if(a.dataset.pi!=null)setProduct(+a.dataset.pi);if(a.dataset.goal)setGoalFilter(a.dataset.goal);
+ const h=(a.getAttribute('href')||'').startsWith('#')&&a.getAttribute('href').length>1?a.getAttribute('href').slice(1):null;go(a.dataset.go,h)});
+$('#names').addEventListener('change',e=>document.body.classList.toggle('names',e.target.checked));
+
+/* header */
+let ai=0;setInterval(()=>{const s=$$('.ann span');s[ai].classList.remove('on');ai=(ai+1)%s.length;s[ai].classList.add('on')},4000);
+const sn=$('#shopnav');let st;sn.addEventListener('mouseenter',()=>{clearTimeout(st);sn.classList.add('open')});sn.addEventListener('mouseleave',()=>{st=setTimeout(()=>sn.classList.remove('open'),150)});
+$('#megaGoals').innerHTML=GOALS.map(([k,n])=>`<a href="#" data-go="collection" data-goal="${k}">${svg(k,20)}${n}</a>`).join('');
+$('#mmGoals').innerHTML=GOALS.map(([k,n])=>`<a href="#" data-go="collection" data-goal="${k}">${n}</a>`).join('');
+$('#burger').onclick=()=>{$('#mm').classList.add('on');$('#mm').setAttribute('aria-hidden','false')};
+$('#mmClose').onclick=()=>{$('#mm').classList.remove('on');$('#mm').setAttribute('aria-hidden','true')};
+function closeAll(){$('#mm').classList.remove('on');sn.classList.remove('open');closeDrawer();$('#filters').classList.remove('on')}
+
+/* toast */
+let tt;function toast(m){const t=$('#toast');t.textContent=m;t.classList.add('on');clearTimeout(tt);tt=setTimeout(()=>t.classList.remove('on'),2600)}
+
+/* cards: pack pills + add */
+document.addEventListener('click',e=>{const b=e.target.closest('.packs button');if(!b)return;const w=b.parentNode,i=+w.dataset.i,m=+b.dataset.m,p=P[i];
+ w.querySelectorAll('button').forEach(x=>x.classList.toggle('on',x===b));const c=w.closest('.card');
+ c.querySelector('[data-pr]').textContent=money(p.p*PACK[m]);c.querySelector('[data-pp]').textContent=money(per(p,i,m))+'/serving';c.querySelector('[data-add]').dataset.m=m});
+document.addEventListener('click',e=>{const b=e.target.closest('[data-add]');if(!b||b.closest('.add')===null&&!b.classList.contains('btn'))return;
+ const i=+b.dataset.add,m=+(b.dataset.m||1);add(i,m,false,1);if(b.classList.contains('add')){b.classList.add('done');b.textContent='✓ Added';setTimeout(()=>{b.classList.remove('done');b.textContent='Add to cart'},1400)}});
+
+/* cart */
+function lp(c){return P[c.i].p*PACK[c.m]*(c.sub?.85:1)}
+function add(i,m=1,sub=false,q=1,quiet){const f=cart.find(c=>c.i===i&&c.m===m&&c.sub===sub);f?f.q+=q:cart.push({i,m,sub,q});render();
+ const cc=$('#cc');cc.classList.add('bump');setTimeout(()=>cc.classList.remove('bump'),300);if(!quiet)openDrawer()}
+function count(){return cart.reduce((s,c)=>s+c.q,0)}
+function sub(){return cart.reduce((s,c)=>s+lp(c)*c.q,0)}
+function saved(){return cart.reduce((s,c)=>s+(c.sub?P[c.i].p*PACK[c.m]*.15*c.q:0),0)}
+function shipHTML(){const s=sub(),left=50-s;return `<p>${left>0?`You are <b>${money(left)}</b> away from free shipping`:'<b>Free shipping</b> unlocked ✓'}</p><div class="bar"><i style="width:${Math.min(100,s/50*100)}%"></i></div>`}
+function lineHTML(c,k){const p=P[c.i];return `<div class="line"><img src="${src(p.k)}" alt="${p.n}"><div><b>${p.n}</b><small>${c.m} month${c.m>1?'s':''} · ${c.sub?'Subscribe & save 15%':'One-time'}</small><div class="q"><button data-cq="${k}" data-d="-1" aria-label="Less">−</button><b>${c.q}</b><button data-cq="${k}" data-d="1" aria-label="More">+</button><button class="rm" data-rm="${k}">Remove</button></div></div><div class="lp">${money(lp(c)*c.q)}</div></div>`}
+function render(){$('#cc').textContent=count();$('#dCount').textContent=count();$('#dShip').innerHTML=shipHTML();
+ $('#dLines').innerHTML=cart.length?cart.map(lineHTML).join(''):'<div class="empty">Your cart is empty.<br><a href="#" class="ul" data-go="collection">Shop all formulas</a></div>';$('#dSub').textContent=money(sub());renderCart()}
+function renderCart(){$('#cShip').innerHTML=shipHTML();$('#cLines').innerHTML=cart.length?cart.map(lineHTML).join(''):'<div class="empty">Your cart is empty.</div>';
+ $('#cSub').textContent=money(sub()+saved());$('#cSave').textContent='−'+money(saved());$('#cShipV').textContent=!cart.length?'Free over $50':sub()>=50?'Free':'$5.90';$('#cTot').textContent=money(sub()+(sub()>=50||!cart.length?0:5.9))}
+document.addEventListener('click',e=>{const q=e.target.closest('[data-cq]'),r=e.target.closest('[data-rm]');
+ if(q){const c=cart[+q.dataset.cq];c.q+=+q.dataset.d;if(c.q<1)cart.splice(+q.dataset.cq,1);render()}if(r){cart.splice(+r.dataset.rm,1);render()}});
+function openDrawer(){$('#drawer').classList.add('on');$('#scrim').classList.add('on')}
+function closeDrawer(){$('#drawer').classList.remove('on');$('#scrim').classList.remove('on')}
+$('#cartBtn').onclick=openDrawer;$('#dClose').onclick=closeDrawer;$('#scrim').onclick=closeDrawer;
+
+/* home sections */
+$('#goalRow').innerHTML=goalHTML();
+fill('#bestGrid',[0,1,6,2]);
+$('#cmpBody').innerHTML=$('#cmpBody2').innerHTML=CMP.map(([a,b,c])=>`<tr><td>${a}</td><td class="us"><span class="y"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12l5 5 9-10"/></svg></span>${b}</td><td><span class="n"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M6 6l12 12M18 6L6 18"/></svg></span>${c}</td></tr>`).join('');
+$('#bundles').innerHTML=BUN.map(([n,d,its,im],k)=>{const full=its.reduce((s,i)=>s+P[i].p,0);return `<div class="bcard reveal"><div class="im"><img src="${src(im)}" alt="${n} bundle"><span class="badge m">Save 20%</span></div><div class="bd"><h3>${n}</h3><p>${d}</p><div class="inc">${its.map(i=>`<span>${P[i].n}</span>`).join('')}</div><div class="ft"><span><span class="price">${money(full*.8)}</span> <span class="was">${money(full)}</span></span><button class="btn btn-d" style="height:44px" data-bundle="${k}">Add set</button></div></div></div>`}).join('');
+document.addEventListener('click',e=>{const b=e.target.closest('[data-bundle]');if(!b)return;BUN[+b.dataset.bundle][2].forEach(i=>add(i,1,false,1,true));openDrawer();toast(BUN[+b.dataset.bundle][0]+' added')});
+
+/* ingredient lab */
+function labPanel(i){const p=P[i],rows=LAB[i];return `<div class="labhead"><div><span class="k">${p.g} · ${p.form}</span><h3 style="margin-top:8px">${p.n}</h3></div><div style="display:flex;gap:8px;align-items:center;flex-wrap:wrap"><span class="pass">Batch A-10${27+i} passed</span><span class="mono" style="color:var(--mute)">Per ${p.unit}</span></div></div>
+ <table class="ltable"><thead><tr><th>Ingredient</th><th>Dose</th><th>%DV</th><th>Why it's here</th></tr></thead><tbody>${rows.map(([n,f,d,dv,w])=>`<tr><td><b>${n}</b><small>as ${f}</small></td><td class="dose">${d}</td><td>${dv?dv+'%':'<span style="color:var(--mute)">n/a</span>'}<div class="dvbar"><i style="width:${Math.min(100,dv)}%"></i></div></td><td style="color:var(--ink2)">${w}</td></tr>`).join('')}</tbody></table>
+ <div class="labfoot"><span>No proprietary blends · no fillers or dyes · <b>${p.sv} servings</b></span><span style="display:flex;gap:10px;align-items:center"><b>${money(p.p)}</b><button class="btn btn-p" style="height:42px" data-add="${i}">Add to cart</button></span></div>`}
+function lab(tabs,panel){const T=$(tabs),Pn=$(panel);if(!T)return;T.innerHTML=[0,1,2,6,7].map((i,k)=>`<button role="tab" aria-selected="${k===0}" data-li="${i}"><img src="${src(P[i].k)}" alt=""><span><b>${P[i].n}</b><small>${LAB[i].length} ingredients · ${P[i].g}</small></span></button>`).join('');
+ Pn.innerHTML=labPanel(0);T.addEventListener('click',e=>{const b=e.target.closest('[data-li]');if(!b)return;T.querySelectorAll('button').forEach(x=>x.setAttribute('aria-selected',x===b));Pn.innerHTML=labPanel(+b.dataset.li)})}
+lab('#labTabs','#labPanel');lab('#labTabs2','#labPanel2');
+
+/* goal quiz */
+const QREC={sleep:[1,4],energy:[6,5,0],gut:[7,0],immunity:[3,0,7],focus:[5,2],calm:[4,1]};
+const HAVE={multi:0,omega:2,d3:3};
+$('[data-q="goal"]').innerHTML=GOALS.map(([k,n])=>`<button type="button" data-v="${k}" aria-pressed="false">${svg(k,20)}${n}</button>`).join('');
+function qShow(){$$('.qstep').forEach(s=>s.hidden=+s.dataset.s!==qStep);$$('.qprog i').forEach((x,k)=>x.classList.toggle('on',k<=qStep));
+ $('#qBack').disabled=qStep===0;const key=['goal','time','have'][qStep];$('#qNext').disabled=key==='have'?!qState.have.length:!qState[key];$('#qNext').textContent=qStep===2?'See my stack':'Next'}
+$('#quizBox').addEventListener('click',e=>{const b=e.target.closest('.qopts button');if(!b)return;const w=b.parentNode,q=w.dataset.q;
+ if(w.dataset.multi){const v=b.dataset.v;if(v==='none'){qState.have=['none']}else{qState.have=qState.have.filter(x=>x!=='none');qState.have.includes(v)?qState.have=qState.have.filter(x=>x!==v):qState.have.push(v)}
+  w.querySelectorAll('button').forEach(x=>x.setAttribute('aria-pressed',qState.have.includes(x.dataset.v)))}
+ else{qState[q]=b.dataset.v;w.querySelectorAll('button').forEach(x=>x.setAttribute('aria-pressed',x===b))}qShow()});
+$('#qBack').onclick=()=>{qStep=Math.max(0,qStep-1);qShow()};
+$('#qNext').onclick=()=>{if(qStep<2){qStep++;qShow();return}qResult()};
+let qPicks=[];
+function qResult(){let picks=[...QREC[qState.goal]];qState.have.forEach(h=>{if(HAVE[h]!=null)picks=picks.filter(i=>i!==HAVE[h])});
+ if(qState.time==='pm'&&!picks.includes(1)&&qState.goal!=='energy')picks.push(1);picks=picks.slice(0,3);if(!picks.length)picks=[QREC[qState.goal][0]];qPicks=picks;
+ const g=GOALS.find(x=>x[0]===qState.goal);$('#qTitle').textContent='Your '+g[1].toLowerCase()+' stack';
+ $('#qWhy').textContent=`${picks.length} formula${picks.length>1?'s':''}, timed for ${({am:'mornings',pm:'evenings',both:'morning and evening',any:'whenever suits you'})[qState.time]}. We left out what you already take.`;
+ $('#qStack').innerHTML=picks.map(i=>`<div class="it"><img src="${src(P[i].k)}" alt=""><div><b>${P[i].n}</b><small>${P[i].unit} a day · ${LAB[i][0][0]} ${LAB[i][0][2]}</small></div><span class="price">${money(P[i].p*.85)}</span></div>`).join('');
+ $('#qDaily').textContent=money(picks.reduce((s,i)=>s+per(P[i],i,1,true),0))+' / day';
+ $$('.qstep').forEach(s=>s.hidden=true);$('#qnav').style.display='none';$('#qres').classList.add('on');$$('.qprog i').forEach(x=>x.classList.add('on'))}
+$('#qAdd').onclick=()=>{qPicks.forEach(i=>add(i,1,true,1,true));openDrawer();toast('Stack added with subscribe & save')};
+$('#qRestart').onclick=()=>{qState={goal:null,time:null,have:[]};qStep=0;$('#qres').classList.remove('on');$('#qnav').style.display='';$$('.qopts button').forEach(b=>b.setAttribute('aria-pressed','false'));qShow()};
+qShow();
+
+/* collection */
+let gf=null;
+function setGoalFilter(g){gf=g;$$('#cGoals button').forEach(b=>b.classList.toggle('on',b.dataset.g===(g||'all')));coll()}
+$('#cGoals').innerHTML='<button class="on" data-g="all">All</button>'+GOALS.map(([k,n])=>`<button data-g="${k}">${svg(k,16)}${n}</button>`).join('');
+$('#cGoals').addEventListener('click',e=>{const b=e.target.closest('button');if(b)setGoalFilter(b.dataset.g==='all'?null:b.dataset.g)});
+function coll(){const forms=$$('[data-f="form"]:checked').map(x=>x.value),diets=$$('[data-f="diet"]:checked').map(x=>x.value),max=+$('#fPrice').value,so=$('#cSort').value,subOnly=$('#fSub').checked;
+ let L=P.map((p,i)=>i).filter(i=>{const p=P[i];return(!gf||p.goals.includes(gf))&&(!forms.length||forms.includes(p.form))&&diets.every(d=>p.diet.includes(d))&&p.p<=max&&(!subOnly||p.sub)});
+ if(so==='low')L.sort((a,b)=>P[a].p-P[b].p);if(so==='high')L.sort((a,b)=>P[b].p-P[a].p);if(so==='rate')L.sort((a,b)=>P[b].r-P[a].r);
+ const html=L.map(card);if(L.length>3)html.splice(3,0,`<a href="#quiz" class="promo reveal" data-go="home"><div><span class="k" style="color:#9FB6FF">Not sure?</span><h3 style="margin-top:12px">Take the 60-second goal quiz</h3><p style="margin-top:8px">Get a short stack with the daily cost.</p></div><span class="btn btn-p" style="align-self:flex-start;height:44px">Start the quiz</span></a>`);
+ $('#cGrid').innerHTML=html.join('')||'<div class="empty" style="grid-column:1/-1">No formulas match. <a href="#" class="ul" onclick="resetF();return false">Clear filters</a></div>';
+ $('#cCount').textContent=L.length;$('#cShown').textContent=L.length;$('#fPriceV').textContent='up to $'+max;obs()}
+function resetF(){$$('.filters input[type=checkbox]').forEach(x=>x.checked=x.id==='fStock');$('#fPrice').value=60;setGoalFilter(null)}
+$$('.filters input').forEach(x=>x.addEventListener('input',coll));$('#cSort').onchange=coll;
+$('#fOpen').onclick=()=>$('#filters').classList.add('on');$('#fClose').onclick=$('#fApply').onclick=()=>$('#filters').classList.remove('on');
+
+/* product */
+function setProduct(i){cur={i,m:1,sub:true,q:1,flav:'Unflavoured'};const p=P[i];
+ $('#p-product .crumb span').textContent=p.n;$('#p-product h1').textContent=p.n;$('#p-product .gl').textContent=p.g+' · '+p.form;
+ const ims=[p.k,p.alt,'caps','flat'];$('#thumbs').innerHTML=ims.map((k,n)=>`<button aria-current="${n===0}" data-k2="${k}" aria-label="Image ${n+1}"><img src="${src(k)}" alt=""></button>`).join('');
+ $('#mainImg').src=src(p.k);$('#mainImg').alt=p.n;$('#sticky img').src=src(p.k);$('#sticky b').textContent=p.n;$('#pdpLab').innerHTML=labPanel(i);
+ $$('#packs .pc').forEach(b=>{const m=+b.dataset.m;b.classList.toggle('on',m===1);b.querySelector('.pp').textContent=money(p.p*PACK[m]);b.querySelector('.ps').textContent=money(per(p,i,m))+' / day'});
+ if(!recent.includes(i)){recent.unshift(i);recent=recent.slice(0,4)}pupd()}
+function pupd(){const p=P[cur.i],base=p.p*PACK[cur.m],pr=base*(cur.sub?.85:1);
+ $('#pPrice').textContent=money(pr);$('#pWas').textContent=cur.sub?money(base):'';$('#pPer').textContent=money(per(p,cur.i,cur.m,cur.sub))+' / day';
+ $('#subP').innerHTML=money(base*.85)+'<s>'+money(base)+'</s>';$('#oneP').textContent=money(base);
+ $('#atc').textContent=$('#satc').textContent='Add to cart · '+money(pr*cur.q);$('#qv').textContent=cur.q;
+ $('#stx').textContent=cur.m+' month'+(cur.m>1?'s':'')+' · '+(cur.sub?'subscribe & save 15%':'one-time')+' · '+cur.flav;
+ $$('.plan').forEach(l=>l.classList.toggle('on',l.querySelector('input').checked));fill('#recent',recent.filter(x=>x!==cur.i).concat([2,7]).filter((v,k,a)=>a.indexOf(v)===k).slice(0,4));fbt()}
+$('#packs').addEventListener('click',e=>{const b=e.target.closest('.pc');if(!b)return;cur.m=+b.dataset.m;$$('#packs .pc').forEach(x=>x.classList.toggle('on',x===b));pupd()});
+$('#flav').addEventListener('click',e=>{const b=e.target.closest('button');if(!b)return;cur.flav=b.dataset.v;$$('#flav button').forEach(x=>x.classList.toggle('on',x===b));$('#flavL').textContent=cur.flav;pupd()});
+$$('#plans input').forEach(r=>r.addEventListener('change',()=>{cur.sub=r.value==='sub'&&r.checked||(!$('#plans input[value=one]').checked);pupd()}));
+$('#qm').onclick=()=>{cur.q=Math.max(1,cur.q-1);pupd()};$('#qp').onclick=()=>{cur.q++;pupd()};
+$('#atc').onclick=$('#satc').onclick=()=>{add(cur.i,cur.m,cur.sub,cur.q);toast(P[cur.i].n+' added')};
+$('#thumbs').addEventListener('click',e=>{const b=e.target.closest('[data-k2]');if(!b)return;$$('#thumbs button').forEach(x=>x.setAttribute('aria-current',x===b));$('#mainImg').src=src(b.dataset.k2)});
+$('#mainim').onclick=()=>{$('#lbImg').src=$('#mainImg').src;$('#lb').classList.add('on')};$('#lbClose').onclick=$('#lb').onclick=e=>{if(e.target.id!=='lbImg')$('#lb').classList.remove('on')};
+function fbt(){const its=[cur.i,cur.i===2?3:2,cur.i===1?4:1];$('#fbtIts').innerHTML=its.map((i,k)=>`${k?'<span class="plus">+</span>':''}<label><img src="${src(P[i].k)}" alt=""><span><input type="checkbox" checked data-fi="${i}" ${k===0?'disabled':''}>${P[i].n} · ${money(P[i].p)}</span></label>`).join('');ftot()}
+function ftot(){const s=$$('#fbtIts input:checked').reduce((t,x)=>t+P[+x.dataset.fi].p,0);$('#fbtTot').textContent=money(s*.9)}
+$('#fbtIts').addEventListener('change',ftot);$('#fbtAdd').onclick=()=>{$$('#fbtIts input:checked').forEach(x=>add(+x.dataset.fi,1,false,1,true));openDrawer()};
+const pdpEl=$('#atc');new IntersectionObserver(([e])=>$('#sticky').classList.toggle('on',!e.isIntersecting&&$('#p-product').classList.contains('on')&&e.boundingClientRect.top<0)).observe(pdpEl);
+
+/* search */
+function runSearch(){const t=$('#sq').value.trim().toLowerCase();$('#sTerm').textContent=t;
+ const L=P.map((p,i)=>i).filter(i=>{const p=P[i];return !t||(p.n+' '+p.g+' '+p.goals.join(' ')+' '+p.diet.join(' ')+' '+LAB[i].map(r=>r[0]+' '+r[1]).join(' ')).toLowerCase().includes(t)});
+ $('#sGrid').innerHTML=L.map(card).join('')||'<div class="empty" style="grid-column:1/-1">No results. Try "sleep" or "vitamin d".</div>';$('#sCount').textContent=L.length;obs()}
+$('#sq').addEventListener('input',runSearch);$('#sugs').addEventListener('click',e=>{const b=e.target.closest('button');if(b){$('#sq').value=b.textContent;runSearch()}});
+$('#bcats').addEventListener('click',e=>{const b=e.target.closest('button');if(b)$$('#bcats button').forEach(x=>x.classList.toggle('on',x===b))});
+
+/* reveal */
+let io;function obs(){if(!io)io=new IntersectionObserver(es=>es.forEach(x=>{if(x.isIntersecting){x.target.classList.add('in');io.unobserve(x.target)}}),{rootMargin:'0px 0px -8% 0px'});$$('.reveal:not(.in)').forEach(r=>io.observe(r))}
+
+/* init */
+imgs();fill('#upsell',[3,4,7,5]);fill('#artGrid',[1,4,0,2]);fill('#nfGrid',[0,1,6,7]);coll();setProduct(0);render();runSearch();obs();
+</script>
+</body>
+</html>
