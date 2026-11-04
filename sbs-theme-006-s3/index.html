@@ -1,0 +1,947 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Stillform · Shopify yoga studio theme preview (SBS-THEME-006-S3)</title>
+<meta name="robots" content="noindex">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Marcellus&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--lime:#F4F0E8;--oat:#E7DED0;--oat2:#EFE8DC;--sage:#8A9A80;--sage2:#DDE3D6;--moss:#3F4A3C;--clay:#C98F6B;--clay2:#F1DFD2;--ink:#24261F;--ink2:#55584E;--mute:#878A80;--line:#DCD3C4;
+--disp:"Marcellus",Georgia,serif;--body:"Outfit",system-ui,sans-serif;--arch:999px 999px 0 0}
+*{box-sizing:border-box}html{scroll-behavior:smooth}
+body{margin:0;font:300 16px/1.65 var(--body);color:var(--ink);background:var(--lime);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+img{max-width:100%;display:block}a{color:inherit;text-decoration:none}button{font:inherit;color:inherit;cursor:pointer;background:none;border:0;padding:0}
+input,select,textarea{font:inherit;color:inherit}
+h1 em,h2 em{font-style:normal;color:var(--clay)}
+h1,h2,h3,h4{font-family:var(--disp);font-weight:400;line-height:1.08;letter-spacing:.005em;margin:0}
+.wrap{max-width:1360px;margin:0 auto;padding:0 48px}
+.k{display:inline-flex;align-items:center;gap:12px;font:500 11px/1 var(--body);letter-spacing:.22em;text-transform:uppercase;color:var(--moss)}
+.k::before{content:"";width:22px;height:1px;background:currentColor}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;height:54px;padding:0 30px;border-radius:40px;font:500 14px/1 var(--body);letter-spacing:.06em;border:1px solid var(--ink);transition:background .3s,color .3s,border-color .3s;white-space:nowrap;background:transparent}
+.btn:hover{background:var(--ink);color:var(--lime)}
+.btn-m{background:var(--moss);border-color:var(--moss);color:#fff}.btn-m:hover{background:var(--ink);border-color:var(--ink)}
+.btn-c{background:var(--clay);border-color:var(--clay);color:#fff}.btn-c:hover{background:var(--moss);border-color:var(--moss)}
+.btn-l{border-color:rgba(255,255,255,.7);color:#fff}.btn-l:hover{background:#fff;color:var(--ink)}
+.btn:focus-visible,a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible{outline:2px solid var(--clay);outline-offset:3px}
+.sec{padding:120px 0}.sec.t{padding:80px 0}
+.sh{display:flex;justify-content:space-between;align-items:flex-end;gap:40px;margin-bottom:52px}
+.sh h2{font-size:clamp(38px,4.2vw,62px);margin-top:18px}
+.sh h2 em{font-style:normal;color:var(--clay)}
+.sh p{max-width:400px;color:var(--ink2);margin:0}
+.lk{font-weight:500;font-size:14px;letter-spacing:.06em;border-bottom:1px solid var(--ink);padding-bottom:4px;white-space:nowrap}
+.reveal{opacity:0;transform:translateY(18px);transition:opacity .9s,transform .9s cubic-bezier(.2,.7,.2,1)}.reveal.in{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}*{scroll-behavior:auto!important;animation:none!important}}
+
+/* preview bar */
+.pv{position:relative;z-index:200;background:var(--ink);color:#d8d6cf;font:400 12px var(--body)}
+.pv .wrap{display:flex;gap:16px;align-items:center;justify-content:space-between;padding-top:8px;padding-bottom:8px;flex-wrap:wrap}
+.pv .tabs{display:flex;gap:4px;flex-wrap:wrap}
+.pv .tabs button{border:1px solid #45473f;color:#d8d6cf;border-radius:20px;padding:5px 11px;font:400 12px var(--body)}
+.pv .tabs button.on{background:var(--oat);border-color:var(--oat);color:var(--ink)}
+.pv label{display:flex;gap:6px;align-items:center;white-space:nowrap}
+body.names [data-dawn]{position:relative;outline:1px dashed rgba(201,143,107,.8);outline-offset:-1px}
+body.names [data-dawn]::after{content:attr(data-dawn);position:absolute;top:0;left:0;z-index:60;background:var(--clay);color:#fff;font:500 11px var(--body);padding:3px 8px;border-radius:0 0 8px 0;pointer-events:none}
+
+/* announcement: slow fade */
+.ann{background:var(--moss);color:#E9EDE4;text-align:center;font:400 12.5px var(--body);letter-spacing:.14em;text-transform:uppercase;height:38px;position:relative;overflow:hidden}
+.ann span{position:absolute;inset:0;display:grid;place-items:center;opacity:0;transition:opacity .8s}
+.ann span.on{opacity:1}
+
+/* header: two-tier, centred logo */
+.hdr{position:sticky;top:0;z-index:100;background:rgba(244,240,232,.94);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.hdr .top{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;height:76px}
+.logo{font:400 30px/1 var(--disp);letter-spacing:.32em;text-transform:uppercase;display:inline-flex;align-items:center;gap:14px;justify-self:center;padding-left:.32em}
+.logo i{width:22px;height:30px;border:1.5px solid var(--moss);border-radius:var(--arch);position:relative}
+.logo i::after{content:"";position:absolute;left:50%;bottom:4px;width:6px;height:6px;margin-left:-3px;border-radius:50%;background:var(--clay)}
+.hl{display:flex;gap:6px;align-items:center}
+.hr{display:flex;gap:6px;align-items:center;justify-content:flex-end}
+.ib{width:42px;height:42px;display:grid;place-items:center;border-radius:50%;position:relative;transition:background .2s}
+.ib:hover{background:var(--oat)}
+.cc{position:absolute;top:2px;right:0;min-width:18px;height:18px;border-radius:10px;background:var(--clay);color:#fff;font:500 10px/18px var(--body);text-align:center;padding:0 5px;transition:transform .3s}
+.cc.bump{transform:scale(1.35)}
+.loc{font-size:13px;color:var(--ink2);letter-spacing:.04em}
+.burger{display:none}
+.nav{display:flex;justify-content:center;gap:34px;height:46px;align-items:center;border-top:1px solid var(--line);font:400 13.5px var(--body);letter-spacing:.12em;text-transform:uppercase}
+.nav a,.nav button{position:relative;padding:4px 0}
+.nav a::after,.nav button::after{content:"";position:absolute;left:0;right:0;bottom:-2px;height:1px;background:var(--clay);transform:scaleX(0);transition:transform .3s}
+.nav a:hover::after,.nav .open>button::after{transform:scaleX(1)}
+.mwrap{position:static}
+.mega{position:absolute;left:0;right:0;top:100%;background:var(--lime);border-bottom:1px solid var(--line);box-shadow:0 30px 60px -40px rgba(36,38,31,.35);opacity:0;visibility:hidden;transform:translateY(-6px);transition:.3s}
+.mwrap.open .mega{opacity:1;visibility:visible;transform:none}
+.mega .wrap{display:grid;grid-template-columns:1fr 1fr 1fr 1.3fr;gap:40px;padding-top:40px;padding-bottom:44px;text-transform:none;letter-spacing:0}
+.mega h5{font:500 11px var(--body);letter-spacing:.22em;text-transform:uppercase;color:var(--mute);margin:0 0 16px}
+.mega .lst a{display:block;padding:6px 0;font:400 22px var(--disp)}
+.mega .lst a:hover{color:var(--clay)}
+.mtile{position:relative;border-radius:var(--arch);overflow:hidden;aspect-ratio:4/5;max-height:340px;justify-self:end;width:100%}
+.mtile img{width:100%;height:100%;object-fit:cover;transition:transform 1s}.mtile:hover img{transform:scale(1.04)}
+.mtile div{position:absolute;left:0;right:0;bottom:0;padding:22px;color:#fff;background:linear-gradient(transparent,rgba(36,38,31,.6))}
+.mtile b{display:block;font:400 26px var(--disp)}.mtile small{letter-spacing:.06em}
+.srch{border-top:1px solid var(--line);display:none}.srch.on{display:block}
+.srch .wrap{display:flex;gap:10px;padding-top:16px;padding-bottom:16px}
+.srch input{flex:1;height:52px;border:1px solid var(--line);border-radius:40px;padding:0 24px;background:#fff;font-size:16px}
+.mm{position:fixed;inset:0;z-index:300;background:var(--lime);transform:translateX(-100%);transition:transform .4s;padding:20px;overflow:auto}
+.mm.on{transform:none}
+.mm .top{display:flex;justify-content:space-between;align-items:center;margin-bottom:28px}
+.mm nav a{display:flex;justify-content:space-between;padding:16px 0;border-bottom:1px solid var(--line);font:400 30px var(--disp)}
+
+/* hero: split with arch photo */
+.hero{padding:56px 0 40px}
+.hgrid{display:grid;grid-template-columns:1.05fr .95fr;gap:64px;align-items:center}
+.htxt h1{font-size:clamp(52px,5.8vw,92px);line-height:1.02;margin:22px 0 26px}
+.htxt h1 em{font-style:normal;color:var(--clay)}
+.htxt p{font-size:19px;max-width:500px;color:var(--ink2);margin:0 0 34px}
+.ctas{display:flex;gap:12px;flex-wrap:wrap}
+.hnote{display:flex;gap:28px;margin-top:48px;padding-top:26px;border-top:1px solid var(--line);flex-wrap:wrap}
+.hnote div{font-size:14px;color:var(--ink2)}.hnote b{display:block;font:400 26px var(--disp);color:var(--ink)}
+.harch{position:relative}
+.harch .ph{border-radius:var(--arch);overflow:hidden;aspect-ratio:4/5;background:var(--oat)}
+.harch .ph img{width:100%;height:100%;object-fit:cover}
+.harch .sun{position:absolute;top:8%;right:-22px;width:120px;height:120px;border-radius:50%;background:var(--clay2);mix-blend-mode:multiply;z-index:-1}
+.harch .hcard{position:absolute;left:-44px;bottom:42px;background:var(--lime);border:1px solid var(--line);border-radius:22px;padding:14px;display:flex;gap:14px;align-items:center;box-shadow:0 30px 60px -30px rgba(36,38,31,.35);max-width:320px}
+.harch .hcard img{width:72px;height:88px;object-fit:cover;border-radius:40px 40px 10px 10px;background:var(--oat)}
+.harch .hcard b{display:block;font:400 18px var(--disp)}.harch .hcard small{display:block;color:var(--mute);font-size:13px}
+.harch .hcard .p{font-weight:500;margin-top:4px}
+.harch .tag{position:absolute;top:28px;left:-18px;background:var(--moss);color:#fff;border-radius:30px;padding:10px 16px;font:500 11px var(--body);letter-spacing:.16em;text-transform:uppercase;transform:rotate(-4deg)}
+
+/* trust strip */
+.strip{border-top:1px solid var(--line);border-bottom:1px solid var(--line);margin-top:40px}
+.strip .wrap{display:grid;grid-template-columns:repeat(4,1fr)}
+.strip div{display:flex;gap:12px;align-items:center;padding:22px 12px;font-size:14.5px;color:var(--ink2);border-left:1px solid var(--line)}
+.strip div:first-child{border-left:0}
+.strip svg{flex:none;color:var(--sage)}
+
+/* practice tiles: arches in a row */
+.pracs{display:grid;grid-template-columns:repeat(4,1fr);gap:24px}
+.pr{display:block;text-align:center}
+.pr .a{border-radius:var(--arch);overflow:hidden;aspect-ratio:3/4;background:var(--oat);position:relative}
+.pr .a img{width:100%;height:100%;object-fit:cover;transition:transform 1.2s}
+.pr:hover .a img{transform:scale(1.05)}
+.pr h3{font-size:30px;margin:20px 0 4px}.pr small{color:var(--mute);letter-spacing:.04em}
+
+/* product cards: framed */
+.grid{display:grid;grid-template-columns:repeat(4,1fr);gap:28px 22px}
+.grid>*{min-width:0}
+.card{border:1px solid var(--line);border-radius:26px;padding:12px;background:var(--oat2);transition:border-color .3s,box-shadow .3s}
+.card:hover{border-color:var(--sage);box-shadow:0 26px 50px -36px rgba(36,38,31,.45)}
+.card .im{position:relative;aspect-ratio:4/5;border-radius:200px 200px 16px 16px;overflow:hidden;background:var(--oat)}
+.card .im img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:opacity .6s,transform 1s}
+.card .im img.h{opacity:0;transform:scale(1.15)}
+.card:hover .im img.h{opacity:1;transform:scale(1.22)}
+.bdg{position:absolute;top:22px;left:50%;transform:translateX(-50%);z-index:2;background:var(--lime);color:var(--moss);border-radius:30px;padding:6px 12px;font:500 10.5px var(--body);letter-spacing:.16em;text-transform:uppercase;white-space:nowrap}
+.bdg.s{background:var(--clay);color:#fff}
+.wish{position:absolute;bottom:12px;right:12px;z-index:2;width:38px;height:38px;border-radius:50%;background:rgba(244,240,232,.92);display:grid;place-items:center;transition:.2s}.wish.on{color:var(--clay)}
+.qa{position:absolute;left:10px;right:10px;bottom:10px;z-index:2;background:rgba(244,240,232,.96);border-radius:14px;padding:10px;transform:translateY(120%);transition:transform .4s}
+.card:hover .qa,.card:focus-within .qa{transform:none}
+.qa small{display:block;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--mute);margin-bottom:6px}
+.qa .sz{display:flex;gap:4px;flex-wrap:wrap}
+.qa .sz button{flex:1;min-width:36px;height:32px;border:1px solid var(--line);border-radius:16px;font-size:12.5px;background:#fff}
+.qa .sz button:hover{background:var(--moss);color:#fff;border-color:var(--moss)}
+.qa .sz button.x{opacity:.35;text-decoration:line-through;pointer-events:none}
+.card .meta{padding:16px 8px 6px;text-align:center}
+.card .ty{font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--mute)}
+.card h4{font:400 20px/1.2 var(--disp);margin:6px 0 6px}
+.card h4 a:hover{color:var(--clay)}
+.card .pr2{font-weight:500}.card .pr2 s{color:var(--mute);font-weight:300;margin-left:6px}.card .pr2 .now{color:var(--clay)}
+.card .sw{display:flex;gap:6px;justify-content:center;margin-top:10px}
+.card .sw i{width:13px;height:13px;border-radius:50%;box-shadow:0 0 0 1px var(--line),inset 0 0 0 1px rgba(0,0,0,.06)}
+.stars{color:var(--clay);font-size:12.5px;letter-spacing:1px}.stars em{font-style:normal;color:var(--mute);margin-left:4px;letter-spacing:0}
+.ftabs{display:flex;gap:6px;flex-wrap:wrap}
+.ftabs button{height:40px;padding:0 18px;border:1px solid var(--line);border-radius:30px;font-size:13.5px;letter-spacing:.04em;transition:.2s}
+.ftabs button.on,.ftabs button:hover{background:var(--ink);color:var(--lime);border-color:var(--ink)}
+
+/* story: material close-up */
+.story{display:grid;grid-template-columns:1fr 1fr;gap:0;background:var(--oat);border-radius:34px;overflow:hidden}
+.story .ph{position:relative;min-height:560px}
+.story .ph img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.story .tx{padding:72px 64px;display:flex;flex-direction:column;justify-content:center}
+.story h2{font-size:clamp(38px,3.8vw,56px);margin:18px 0 20px}
+.story p{color:var(--ink2);margin:0 0 28px;max-width:470px}
+.mats{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-bottom:30px}
+.mats button{border:1px solid var(--line);border-radius:18px;padding:14px;text-align:left;background:var(--lime);transition:.2s}
+.mats button[aria-pressed=true]{border-color:var(--moss);background:#fff}
+.mats b{display:block;font:400 18px var(--disp)}.mats small{color:var(--mute);font-size:12.5px}
+.matd{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-bottom:28px}
+.matd div{border-top:1px solid var(--line);padding-top:12px}.matd strong{display:block;font:400 24px var(--disp)}.matd small{color:var(--mute);font-size:12.5px}
+
+/* practice finder */
+.pf{display:grid;grid-template-columns:.9fr 1.1fr;gap:56px;align-items:start}
+.pf>*{min-width:0}
+.pf h2{font-size:clamp(38px,4vw,58px);margin:18px 0 18px}
+.pf .l{color:var(--ink2);margin:0 0 30px;max-width:440px}
+.q{margin-bottom:26px}
+.q p{display:flex;gap:12px;align-items:center;margin:0 0 12px;font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:var(--mute)}
+.q p b{width:26px;height:26px;border-radius:50%;border:1px solid var(--line);display:grid;place-items:center;font-weight:500;color:var(--ink);letter-spacing:0}
+.chips{display:flex;gap:8px;flex-wrap:wrap}
+.chips button{height:44px;padding:0 20px;border:1px solid var(--line);border-radius:30px;font-size:14.5px;background:transparent;transition:.2s}
+.chips button:hover{border-color:var(--ink)}
+.chips button[aria-pressed=true]{background:var(--moss);border-color:var(--moss);color:#fff}
+.pfr{background:#fff;border:1px solid var(--line);border-radius:30px;padding:32px;position:relative;overflow:hidden}
+.pfr::before{content:"";position:absolute;right:-80px;top:-80px;width:240px;height:240px;border-radius:50%;background:var(--sage2);opacity:.7}
+.pfr .top{position:relative;display:flex;justify-content:space-between;gap:16px;align-items:flex-start;margin-bottom:22px}
+.pfr h3{font-size:36px;margin-top:10px}
+.pfr .why{color:var(--ink2);font-size:15px;margin:8px 0 0;max-width:420px}
+.pfr .lvl{text-align:center;flex:none;width:94px;height:94px;border-radius:50%;border:1px solid var(--sage);display:grid;place-content:center;background:var(--lime)}
+.pfr .lvl strong{font:400 26px var(--disp);display:block}.pfr .lvl small{font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--mute)}
+.pick{position:relative;display:grid;grid-template-columns:76px 1fr auto;gap:16px;align-items:center;padding:14px 0;border-top:1px solid var(--line)}
+.pick img{width:76px;height:92px;object-fit:cover;border-radius:40px 40px 10px 10px;background:var(--oat)}
+.pick small{display:block;color:var(--mute);font-size:13px}.pick b{font:400 19px var(--disp)}
+.pick strong{font-weight:500}
+.pft{position:relative;display:flex;justify-content:space-between;align-items:center;gap:16px;margin-top:18px;padding-top:20px;border-top:1px solid var(--line);flex-wrap:wrap}
+.pft small{color:var(--mute)}.pft strong{display:block;font:400 30px var(--disp)}
+
+/* studio set builder */
+.set{display:grid;grid-template-columns:1.35fr .65fr;gap:28px;align-items:start}
+.set>*{min-width:0}
+.slots{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.slot{border:1px solid var(--line);border-radius:26px;padding:16px;background:var(--lime);transition:border-color .3s}
+.slot.full{border-color:var(--sage)}
+.slot .hd{display:flex;justify-content:space-between;align-items:center;font-size:11.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--mute);margin-bottom:12px}
+.slot .hd i{width:20px;height:20px;border-radius:50%;border:1px solid var(--line);display:grid;place-items:center;font-style:normal;font-size:11px}
+.slot.full .hd i{background:var(--sage);border-color:var(--sage);color:#fff}
+.slot .pic{aspect-ratio:4/5;border-radius:120px 120px 14px 14px;overflow:hidden;background:var(--oat);display:grid;place-items:center;color:var(--mute);font-size:13px;margin-bottom:12px}
+.slot .pic img{width:100%;height:100%;object-fit:cover}
+.slot .opts{display:grid;gap:6px}
+.slot .opts button{display:flex;justify-content:space-between;gap:8px;text-align:left;border:1px solid var(--line);border-radius:12px;padding:9px 11px;font-size:13px;background:#fff;transition:.2s}
+.slot .opts button span{color:var(--mute)}
+.slot .opts button[aria-pressed=true]{border-color:var(--moss);background:var(--sage2)}
+.slot .szs{display:flex;gap:4px;flex-wrap:wrap;margin-top:8px}
+.slot .szs button{flex:1;min-width:30px;height:30px;border:1px solid var(--line);border-radius:14px;font-size:12px;background:#fff}
+.slot .szs button[aria-pressed=true]{background:var(--moss);border-color:var(--moss);color:#fff}
+.ssum{background:var(--moss);color:#EEF0EA;border-radius:30px;padding:30px;position:sticky;top:150px}
+.ssum h3{font-size:34px;margin:10px 0 16px;color:#fff}
+.ssum .ln{display:flex;justify-content:space-between;gap:12px;padding:9px 0;border-bottom:1px solid rgba(255,255,255,.14);font-size:14px}
+.ssum .ln em{font-style:normal;color:#b8bfb2}
+.ssum .bar{height:4px;border-radius:4px;background:rgba(255,255,255,.18);margin:20px 0 10px;overflow:hidden}.ssum .bar i{display:block;height:100%;background:var(--clay);transition:width .5s}
+.ssum .tot{display:flex;justify-content:space-between;align-items:flex-end;margin:18px 0}
+.ssum .tot strong{font:400 40px var(--disp);color:#fff}.ssum .tot s{color:#b8bfb2;margin-right:8px}
+.ssum .btn{width:100%}.ssum .btn[disabled]{opacity:.45;pointer-events:none}
+
+/* breath pacer */
+.bp{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center;background:var(--sage2);border-radius:34px;padding:64px}
+.bp h2{font-size:clamp(36px,3.8vw,56px);margin:18px 0 18px}
+.bp p.l{color:var(--ink2);margin:0 0 28px;max-width:440px}
+.orbw{display:grid;place-items:center;position:relative;aspect-ratio:1;max-width:440px;width:100%;justify-self:center}
+.orbw .ring{position:absolute;inset:0;border-radius:50%;border:1px solid rgba(63,74,60,.25)}
+.orbw .ring:nth-child(2){inset:14%}
+.orb{width:46%;aspect-ratio:1;border-radius:50%;background:radial-gradient(circle at 40% 35%,#fff,var(--sage) 70%);box-shadow:0 30px 70px -20px rgba(63,74,60,.45);transform:scale(.7);transition:transform 4s cubic-bezier(.45,0,.55,1)}
+.orbw .say{position:absolute;text-align:center}
+.orbw .say b{display:block;font:400 30px var(--disp);color:var(--moss)}.orbw .say small{color:var(--ink2);letter-spacing:.1em}
+.bpc{display:flex;gap:14px;align-items:center;flex-wrap:wrap;margin-top:24px}
+.bpc .mins{font-size:14px;color:var(--ink2)}
+
+/* journal, UGC */
+.ugc{display:grid;grid-template-columns:1.2fr 1fr 1fr;grid-template-rows:280px 280px;gap:16px}
+.ugc a{position:relative;border-radius:26px;overflow:hidden;background:var(--oat)}
+.ugc a:first-child{grid-row:span 2;border-radius:var(--arch)}
+.ugc img{width:100%;height:100%;object-fit:cover;transition:transform 1s}.ugc a:hover img{transform:scale(1.04)}
+.ugc span{position:absolute;left:14px;bottom:14px;background:rgba(244,240,232,.92);border-radius:20px;padding:6px 12px;font-size:12px}
+.rv3{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.rcard{border:1px solid var(--line);border-radius:26px;padding:28px;background:var(--lime);display:flex;flex-direction:column;gap:12px}
+.rcard .smp{align-self:flex-start;font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--mute);border:1px solid var(--line);border-radius:20px;padding:4px 10px}
+.rcard p{margin:0;font:400 20px/1.45 var(--disp);color:var(--ink)}
+.rcard .who{margin-top:auto;font-size:13px;color:var(--mute);padding-top:12px;border-top:1px solid var(--line)}
+.nl{background:var(--moss);color:#EEF0EA;border-radius:var(--arch);padding:90px 48px 70px;text-align:center}
+.nl h2{font-size:clamp(36px,4vw,58px);color:#fff;margin:16px 0 12px}
+.nl p{margin:0 auto 28px;max-width:440px;color:#c9cec3}
+.nl form{display:flex;gap:10px;max-width:520px;margin:0 auto;flex-wrap:wrap;justify-content:center}
+.nl input{flex:1;min-width:220px;height:54px;border:1px solid rgba(255,255,255,.3);border-radius:40px;background:transparent;padding:0 24px;color:#fff}
+.nl input::placeholder{color:#b8bfb2}
+.nl .k{color:#d7dcd1}
+
+/* footer */
+.ft{background:var(--oat);padding:90px 0 30px;margin-top:100px}
+.ft .cols{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr 1.3fr;gap:40px}
+.ft h5{font:500 11px var(--body);letter-spacing:.22em;text-transform:uppercase;color:var(--mute);margin:6px 0 18px}
+.ft a{display:block;padding:5px 0;color:var(--ink2)}.ft .logo{display:inline-flex;color:var(--ink)}.ft a:hover{color:var(--clay)}
+.ft p{color:var(--ink2);margin:16px 0 0}
+.ft form{display:flex;border-bottom:1px solid var(--ink);margin-top:14px}
+.ft form input{flex:1;min-width:0;border:0;background:transparent;height:46px}
+.ft form button{font-weight:500;letter-spacing:.06em}
+.soc{display:flex;gap:8px;margin-top:20px}.soc a{width:40px;height:40px;border:1px solid var(--line);border-radius:50%;display:grid;place-items:center;font-size:12px;padding:0}
+.ft .bot{display:flex;justify-content:space-between;align-items:center;gap:20px;margin-top:70px;padding-top:24px;border-top:1px solid var(--line);font-size:13px;color:var(--mute);flex-wrap:wrap}
+.pay{display:flex;gap:6px;flex-wrap:wrap}.pay span{border:1px solid var(--line);background:var(--lime);border-radius:6px;padding:4px 8px;font:500 10.5px var(--body);letter-spacing:.06em;color:var(--ink2)}
+
+/* pages */
+.page{display:none}.page.on{display:block}
+.crumb{display:flex;gap:10px;font-size:13px;color:var(--mute);padding:24px 0;letter-spacing:.04em}.crumb b{font-weight:400;color:var(--ink)}
+.cban{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center;margin-bottom:26px}
+.cban h1{font-size:clamp(52px,6vw,96px);margin:16px 0 14px}
+.cban p{color:var(--ink2);max-width:460px;margin:0}
+.cban .ph{border-radius:var(--arch);overflow:hidden;aspect-ratio:5/4;max-height:420px;width:100%}
+.cban .ph img{width:100%;height:100%;object-fit:cover}
+.ctool{display:flex;justify-content:space-between;align-items:center;gap:16px;padding:20px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line);margin-bottom:30px;flex-wrap:wrap}
+.ctool select{height:42px;border:1px solid var(--line);border-radius:30px;padding:0 16px;background:var(--lime)}
+.cl{display:grid;grid-template-columns:250px 1fr;gap:40px;align-items:start}
+.cl>*{min-width:0}
+.filters{position:sticky;top:150px}
+.fg{border-bottom:1px solid var(--line);padding:18px 0}
+.fg h6{font:500 11px var(--body);letter-spacing:.2em;text-transform:uppercase;color:var(--mute);margin:0 0 12px;display:flex;justify-content:space-between}
+.fg label{display:flex;gap:10px;align-items:center;padding:5px 0;cursor:pointer;font-size:14.5px}
+.fg label em{font-style:normal;color:var(--mute);margin-left:auto;font-size:12.5px}
+.fg input[type=checkbox]{accent-color:var(--moss);width:16px;height:16px}
+.fsz{display:flex;gap:6px;flex-wrap:wrap}.fsz button{min-width:42px;height:36px;border:1px solid var(--line);border-radius:18px;font-size:13px}
+.fsz button[aria-pressed=true]{background:var(--moss);color:#fff;border-color:var(--moss)}
+.fcol{display:flex;gap:10px;flex-wrap:wrap}.fcol button{width:28px;height:28px;border-radius:50%;box-shadow:0 0 0 1px var(--line)}
+.fcol button[aria-pressed=true]{box-shadow:0 0 0 2px var(--lime),0 0 0 3px var(--moss)}
+.range{width:100%;accent-color:var(--moss)}
+.fbtn,.fhd{display:none}
+.promo{grid-column:span 2;border-radius:26px;overflow:hidden;position:relative;min-height:420px;background:var(--moss);color:#fff;display:grid;grid-template-columns:1fr 1fr}
+.promo .t{padding:34px;display:flex;flex-direction:column;justify-content:flex-end}
+.promo h3{font-size:38px;margin:12px 0 18px;color:#fff}
+.promo img{width:100%;height:100%;object-fit:cover;border-radius:200px 200px 0 0;align-self:end;height:92%}
+.promo .k{color:#d7dcd1}
+.more{text-align:center;margin-top:44px}.more small{display:block;color:var(--mute);margin-bottom:14px}
+.pdp{display:grid;grid-template-columns:1.1fr .9fr;gap:60px;align-items:start;padding-bottom:40px}
+.pdp>*{min-width:0}
+.gal{display:grid;grid-template-columns:92px 1fr;gap:16px}
+.thumbs{display:flex;flex-direction:column;gap:10px}
+.thumbs button{border-radius:46px 46px 10px 10px;overflow:hidden;aspect-ratio:4/5;background:var(--oat);opacity:.6;transition:.2s;border:1px solid transparent}
+.thumbs button[aria-current=true]{opacity:1;border-color:var(--moss)}
+.thumbs img{width:100%;height:100%;object-fit:cover}
+.mbox{position:relative;border-radius:var(--arch);overflow:hidden;aspect-ratio:4/5;background:var(--oat);cursor:zoom-in}
+.mbox img{width:100%;height:100%;object-fit:cover;transition:transform .4s}
+.mbox.zm img{transform:scale(1.8);cursor:zoom-out}
+.pinfo{position:sticky;top:150px}
+.pinfo h1{font-size:clamp(38px,3.8vw,56px);margin:14px 0 10px}
+.pinfo .rt{display:flex;gap:12px;align-items:center;font-size:14px}.pinfo .rt a{color:var(--mute);border-bottom:1px solid var(--line)}
+.pp{display:flex;gap:12px;align-items:baseline;margin:20px 0 6px}.pp strong{font:400 34px var(--disp)}.pp s{color:var(--mute)}
+.klarna{font-size:13.5px;color:var(--mute);margin-bottom:22px}
+.opt{margin-top:24px}
+.opt .lb{display:flex;justify-content:space-between;font-size:13px;letter-spacing:.1em;text-transform:uppercase;color:var(--mute);margin-bottom:12px}
+.opt .lb b{font-weight:400;color:var(--ink);letter-spacing:.04em;text-transform:none}
+.opt .lb a{border-bottom:1px solid var(--line);color:var(--ink2);text-transform:none;letter-spacing:0}
+.cols2{display:flex;gap:10px}.cols2 button{width:40px;height:40px;border-radius:50%;box-shadow:0 0 0 1px var(--line)}
+.cols2 button[aria-pressed=true]{box-shadow:0 0 0 3px var(--lime),0 0 0 4px var(--moss)}
+.sizes{display:grid;grid-template-columns:repeat(5,1fr);gap:8px}
+.sizes button{height:48px;border:1px solid var(--line);border-radius:30px;font-size:14.5px;background:var(--lime);position:relative}
+.sizes button[aria-pressed=true]{background:var(--moss);color:#fff;border-color:var(--moss)}
+.sizes button.x{opacity:.35;text-decoration:line-through;pointer-events:none}
+.sizes button.low::after{content:"";position:absolute;top:7px;right:10px;width:5px;height:5px;border-radius:50%;background:var(--clay)}
+.fitn{display:flex;gap:10px;align-items:center;font-size:14px;color:var(--ink2);background:var(--oat2);border-radius:16px;padding:12px 16px;margin-top:14px}
+.buy{display:grid;grid-template-columns:130px 1fr;gap:10px;margin-top:24px}
+.qty{display:flex;justify-content:space-between;align-items:center;border:1px solid var(--line);border-radius:40px;height:54px;padding:0 8px}
+.qty button{width:36px;height:36px;font-size:20px}
+.buy .btn{width:100%}
+.trust{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:18px 0;font-size:13px;color:var(--ink2);text-align:center}
+.trust div{border:1px solid var(--line);border-radius:16px;padding:12px 6px}
+.acc details{border-top:1px solid var(--line)}.acc details:last-child{border-bottom:1px solid var(--line)}
+.acc summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;align-items:center;padding:18px 0;font:400 19px var(--disp)}
+.acc summary::-webkit-details-marker{display:none}
+.acc summary::after{content:"+";font:300 22px var(--body);transition:transform .3s}.acc details[open] summary::after{transform:rotate(45deg)}
+.acc .in{padding:0 0 18px;color:var(--ink2)}.acc ul{margin:0;padding-left:18px}
+.sticky{position:fixed;left:0;right:0;bottom:0;z-index:90;background:rgba(244,240,232,.97);border-top:1px solid var(--line);transform:translateY(110%);transition:transform .4s;backdrop-filter:blur(8px)}
+.sticky.on{transform:none}
+.sticky .in{display:flex;align-items:center;gap:14px;max-width:1360px;margin:0 auto;padding:12px 48px}
+.sticky img{width:48px;height:58px;object-fit:cover;border-radius:24px 24px 6px 6px;background:var(--oat)}
+.sticky b{display:block;font:400 18px var(--disp)}.sticky small{color:var(--mute)}
+.sticky .sp2{margin-left:auto;font-weight:500}
+.fbt{display:grid;grid-template-columns:1fr 280px;gap:30px;align-items:center;border:1px solid var(--line);border-radius:30px;padding:28px;background:var(--oat2)}
+.fbt .its{display:flex;gap:14px;align-items:center;flex-wrap:wrap}
+.fbt label{width:170px;display:flex;flex-direction:column;gap:8px;font-size:14px;cursor:pointer}
+.fbt label img{aspect-ratio:4/5;object-fit:cover;border-radius:90px 90px 12px 12px;background:var(--oat)}
+.fbt input{accent-color:var(--moss)}
+.fbt .plus{font:300 28px var(--body);color:var(--mute)}
+.fbt .tot strong{display:block;font:400 36px var(--disp);margin:6px 0 14px}
+.rv{display:grid;grid-template-columns:300px 1fr;gap:40px}
+.rsum{border:1px solid var(--line);border-radius:26px;padding:28px;align-self:start;background:var(--lime)}
+.rsum strong{font:400 64px/1 var(--disp)}
+.rbar{display:grid;grid-template-columns:34px 1fr 36px;gap:10px;align-items:center;font-size:12.5px;color:var(--mute);margin:7px 0}
+.rbar i{height:4px;border-radius:4px;background:var(--oat);overflow:hidden}.rbar i::after{content:"";display:block;height:100%;width:var(--w);background:var(--moss)}
+.modal{position:fixed;inset:0;z-index:400;background:rgba(36,38,31,.45);display:none;align-items:center;justify-content:center;padding:20px}
+.modal.on{display:flex}
+.modal .box{background:var(--lime);border-radius:30px;max-width:620px;width:100%;padding:34px;max-height:90vh;overflow:auto}
+.modal table{width:100%;border-collapse:collapse;margin-top:14px;font-size:14px}
+.modal th,.modal td{padding:10px;border-bottom:1px solid var(--line);text-align:left}
+.modal th{font-weight:500;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--mute)}
+.modal tr.hl td{background:var(--sage2)}
+.finder2{display:grid;grid-template-columns:1fr 1fr auto;gap:10px;margin-top:22px;align-items:end}
+.finder2 label{font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--mute)}
+.finder2 select{display:block;width:100%;height:44px;border:1px solid var(--line);border-radius:30px;padding:0 14px;background:#fff;margin-top:6px;text-transform:none;letter-spacing:0}
+.fres{margin:14px 0 0;color:var(--moss);font-weight:500}
+
+/* cart + drawer */
+.cartp{display:grid;grid-template-columns:1fr 380px;gap:50px;align-items:start;padding-bottom:40px}
+.cartp h1{font-size:64px;margin:6px 0 24px}
+.ship{border-radius:20px;padding:16px 20px;background:var(--oat2);margin-bottom:18px}
+.ship p{margin:0 0 10px;font-size:14.5px}
+.ship .bar{height:4px;border-radius:4px;background:var(--oat);overflow:hidden}.ship .bar i{display:block;height:100%;background:var(--moss);transition:width .6s}
+.line{display:grid;grid-template-columns:96px 1fr auto;gap:18px;padding:18px 0;border-bottom:1px solid var(--line);align-items:start}
+.line img{width:96px;height:118px;object-fit:cover;border-radius:48px 48px 12px 12px;background:var(--oat)}
+.line b{display:block;font:400 19px var(--disp)}.line small{display:block;color:var(--mute);font-size:13px;margin-top:2px}
+.line .q{display:flex;gap:6px;align-items:center;margin-top:12px}
+.line .q button{width:30px;height:30px;border:1px solid var(--line);border-radius:50%}
+.line .q b{font:500 14px var(--body);width:26px;text-align:center}
+.line .q .rm{width:auto;border:0;margin-left:10px;font-size:13px;color:var(--mute);border-bottom:1px solid var(--line);border-radius:0;height:auto}
+.line .lp{font-weight:500}
+.csum{border:1px solid var(--line);border-radius:30px;padding:28px;position:sticky;top:150px;background:var(--oat2)}
+.csum .r{display:flex;justify-content:space-between;padding:8px 0;font-size:15px}
+.csum .r.t{border-top:1px solid var(--line);margin-top:8px;padding-top:16px}.csum .r.t b{font:400 30px var(--disp)}
+.csum textarea{width:100%;min-height:80px;border:1px solid var(--line);border-radius:16px;padding:12px;margin:14px 0;resize:vertical;background:var(--lime)}
+.csum .btn{width:100%}
+.empty{padding:34px;border:1px dashed var(--line);border-radius:22px;text-align:center;color:var(--mute)}
+.scrim{position:fixed;inset:0;z-index:340;background:rgba(36,38,31,.35);opacity:0;visibility:hidden;transition:.3s}.scrim.on{opacity:1;visibility:visible}
+.drawer{position:fixed;top:0;right:0;bottom:0;z-index:350;width:430px;max-width:100%;background:var(--lime);transform:translateX(100%);transition:transform .45s cubic-bezier(.2,.8,.2,1);display:flex;flex-direction:column;border-radius:30px 0 0 30px}
+.drawer.on{transform:none}
+.drawer .hd{display:flex;justify-content:space-between;align-items:center;padding:22px 24px;border-bottom:1px solid var(--line)}
+.drawer .hd h3{font-size:28px}
+.drawer .ship{margin:16px 20px 0}
+.drawer .ls{flex:1;overflow:auto;padding:4px 24px}
+.drawer .line{grid-template-columns:72px 1fr auto}.drawer .line img{width:72px;height:88px}
+.drawer .ft2{padding:18px 24px;border-top:1px solid var(--line)}
+.drawer .ft2 .r{display:flex;justify-content:space-between;margin-bottom:12px}.drawer .ft2 .r b{font:400 24px var(--disp)}
+.drawer .ft2 .btn{width:100%;margin-bottom:8px}
+.toast{position:fixed;left:50%;bottom:28px;z-index:500;transform:translate(-50%,180%);background:var(--moss);color:#fff;padding:14px 22px;border-radius:40px;font-size:14.5px;transition:transform .4s}
+.toast.on{transform:translate(-50%,0)}
+.sbig{display:flex;gap:10px;margin:8px 0 16px}
+.sbig input{flex:1;min-width:0;height:72px;border:0;border-bottom:1px solid var(--ink);background:transparent;font:400 38px var(--disp);padding:0 4px}
+.sugs{display:flex;gap:8px;flex-wrap:wrap;align-items:center;margin-bottom:30px;color:var(--mute);font-size:14px}
+.sugs button{border:1px solid var(--line);border-radius:30px;padding:7px 14px;color:var(--ink)}
+.bfeat{display:grid;grid-template-columns:1.1fr 1fr;gap:50px;align-items:center;margin-bottom:60px}
+.bfeat .ph{border-radius:var(--arch);overflow:hidden;aspect-ratio:5/4}
+.bfeat img{width:100%;height:100%;object-fit:cover}
+.bfeat h2{font-size:clamp(36px,3.8vw,54px);margin:16px 0 16px}
+.bfeat p{color:var(--ink2)}
+.posts{display:grid;grid-template-columns:repeat(3,1fr);gap:30px}
+.post .im{border-radius:180px 180px 20px 20px;overflow:hidden;aspect-ratio:4/5;background:var(--oat)}
+.post .im img{width:100%;height:100%;object-fit:cover;transition:transform 1s}.post:hover .im img{transform:scale(1.04)}
+.post .k{margin:18px 0 10px}
+.post h3{font-size:26px}
+.post p{color:var(--ink2);margin:8px 0 0}
+.art{max-width:760px;margin:0 auto}
+.art h1{font-size:clamp(42px,5vw,72px);margin:18px 0 16px;text-align:center}
+.art .by{text-align:center;color:var(--mute);font-size:14px}
+.art .hero2{margin:40px -100px;border-radius:var(--arch);overflow:hidden;aspect-ratio:16/10}
+.art .hero2 img{width:100%;height:100%;object-fit:cover}
+.art .body{font-size:18.5px;line-height:1.8}
+.art .body h2{font-size:34px;margin:44px 0 12px}
+.art blockquote{margin:36px 0;padding:0;text-align:center;font:400 30px/1.35 var(--disp);color:var(--moss)}
+.art blockquote::before{content:"";display:block;width:40px;height:52px;border:1px solid var(--clay);border-radius:var(--arch);margin:0 auto 20px}
+.art .steps{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin:30px 0}
+.art .steps div{border:1px solid var(--line);border-radius:22px;padding:18px;font-size:15px;color:var(--ink2)}
+.art .steps b{display:block;font:400 26px var(--disp);color:var(--ink)}
+.ab{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center}
+.ab h1{font-size:clamp(46px,5.4vw,84px);margin:18px 0 20px}
+.ab p{color:var(--ink2);font-size:18px;max-width:480px}
+.ab .ph{border-radius:var(--arch);overflow:hidden;aspect-ratio:4/5}
+.ab .ph img{width:100%;height:100%;object-fit:cover}
+.prom{display:grid;grid-template-columns:repeat(4,1fr);gap:0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.prom div{padding:34px 26px;border-left:1px solid var(--line)}.prom div:first-child{border-left:0}
+.prom strong{display:block;width:44px;height:56px;border:1px solid var(--clay);border-radius:var(--arch);display:grid;place-items:center;font:400 18px var(--disp);color:var(--clay);margin-bottom:18px}
+.prom h4{font-size:24px;margin-bottom:8px}.prom p{color:var(--ink2);margin:0;font-size:15px}
+.split{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center}
+.split .ph{border-radius:30px;overflow:hidden;aspect-ratio:4/3}.split img{width:100%;height:100%;object-fit:cover}
+.split h2{font-size:clamp(36px,3.8vw,54px);margin:16px 0 18px}.split p{color:var(--ink2)}
+.ct{display:grid;grid-template-columns:.9fr 1.1fr;gap:60px;align-items:start}
+.ct h1{font-size:clamp(46px,5.4vw,80px);margin:16px 0 18px}
+.ct .card2{display:flex;gap:16px;align-items:center;border-top:1px solid var(--line);padding:18px 0}
+.ct .card2 i{width:46px;height:56px;border-radius:var(--arch);background:var(--oat);display:grid;place-items:center;font-style:normal}
+.ct .card2 b{display:block;font:400 19px var(--disp)}.ct .card2 small{color:var(--mute)}
+.cform{border:1px solid var(--line);border-radius:30px;padding:34px;background:var(--oat2);display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.cform label{display:block;font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--mute)}
+.cform input,.cform textarea,.cform select{display:block;width:100%;margin-top:6px;height:50px;border:1px solid var(--line);border-radius:16px;padding:0 16px;background:var(--lime);text-transform:none;letter-spacing:0;font-size:15px}
+.cform textarea{height:130px;padding:14px 16px}
+.cform .w{grid-column:1/-1}
+.nf{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;min-height:540px}
+.nf h1{font-size:clamp(120px,14vw,200px);line-height:.9;color:var(--sage)}
+.nf h2{font-size:40px;margin:10px 0 14px}.nf p{color:var(--ink2);margin:0 0 26px;max-width:420px}
+.nf .ph{border-radius:var(--arch);overflow:hidden;aspect-ratio:4/5;max-height:560px}.nf img{width:100%;height:100%;object-fit:cover}
+
+/* responsive */
+@media (max-width:1100px){
+ .wrap{padding:0 28px}.nav,.loc{display:none}.burger{display:grid}
+ .hgrid,.pf,.set,.bp,.story,.cl,.pdp,.cartp,.bfeat,.ab,.split,.ct,.nf,.cban,.rv,.fbt{grid-template-columns:1fr}
+ .harch{max-width:560px;margin:0 auto;width:100%}
+ .grid,.pracs{grid-template-columns:repeat(2,1fr)}.slots{grid-template-columns:repeat(2,1fr)}
+ .ssum,.filters,.pinfo,.csum{position:static}
+ .filters{display:none}.filters.on{display:block;position:fixed;inset:0;z-index:320;background:var(--lime);overflow:auto;padding:20px}.fbtn{display:inline-flex}.filters.on .fhd{display:flex;justify-content:space-between;align-items:center}
+ .ft .cols{grid-template-columns:1fr 1fr}.prom{grid-template-columns:1fr 1fr}.strip .wrap{grid-template-columns:1fr 1fr}
+ .ugc{grid-template-columns:1fr 1fr;grid-template-rows:260px 200px 200px}.ugc a:first-child{grid-row:auto;grid-column:1/-1}
+ .art .hero2{margin:30px 0}.bp{padding:44px}
+}
+@media (max-width:640px){
+ .wrap{padding:0 16px}.sec{padding:72px 0}.sec.t{padding:52px 0}
+ .hdr .top{height:62px;grid-template-columns:auto 1fr auto}.logo{font-size:20px;letter-spacing:.24em;gap:10px}.logo i{width:16px;height:22px}.hr .acc2{display:none}
+ .hero{padding:28px 0 20px}.hgrid{gap:34px}.htxt h1{font-size:46px}.htxt p{font-size:17px}.hnote{gap:18px;margin-top:30px}.hnote b{font-size:22px}
+ .harch .hcard{left:8px;right:8px;bottom:10px;max-width:none}.harch .sun{right:0}.harch .tag{left:8px}
+ .strip .wrap{grid-template-columns:1fr}.strip div{border-left:0;border-top:1px solid var(--line);padding:14px 4px}.strip div:first-child{border-top:0}
+ .sh{flex-direction:column;align-items:flex-start;gap:14px;margin-bottom:30px}.sh h2{font-size:36px}
+ .pracs{gap:12px}.pr h3{font-size:22px;margin-top:12px}
+ .grid{gap:16px 10px}.card{padding:7px;border-radius:20px}.card .meta{padding:12px 4px 4px}.card h4{font-size:16px}.card .ty{font-size:10px}.bdg{top:12px;font-size:9.5px;padding:5px 9px}
+ .qa{display:none}.card .sw{display:none}
+ .story .ph{min-height:300px}.story .tx{padding:34px 22px}.mats,.matd{grid-template-columns:1fr 1fr 1fr;gap:8px}.mats button{padding:10px}.mats b{font-size:15px}
+ .pfr{padding:22px}.pfr h3{font-size:28px}.pfr .lvl{width:72px;height:72px}.pick{grid-template-columns:60px 1fr;}.pick img{width:60px;height:74px}.pick strong{grid-column:2}
+ .slots{grid-template-columns:1fr 1fr;gap:10px}.slot{padding:10px;border-radius:20px}
+ .bp{padding:30px 20px;border-radius:26px}.orbw{max-width:300px}
+ .ugc{grid-template-rows:220px 160px 160px;gap:10px}
+ .rv3{grid-template-columns:1fr}.nl{padding:60px 22px 50px;border-radius:200px 200px 0 0}
+ .ft .cols{grid-template-columns:1fr 1fr}.ft .cols>div:first-child,.ft .cols>div:last-child{grid-column:1/-1}
+ .cban h1{font-size:52px}.promo{grid-column:1/-1;grid-template-columns:1fr;min-height:0}.promo img{height:220px}
+ .gal{grid-template-columns:1fr}.thumbs{flex-direction:row;order:2}.thumbs button{width:64px}
+ .sizes{grid-template-columns:repeat(4,1fr)}.trust{grid-template-columns:1fr}
+ .sticky .in{padding:10px 16px}.sticky img,.sticky small{display:none}
+ .fbt{padding:18px}.fbt .its{flex-direction:column;align-items:stretch}.fbt label{width:100%;flex-direction:row;align-items:center}.fbt label img{width:60px}.fbt .plus{display:none}
+ .finder2{grid-template-columns:1fr}
+ .cartp h1{font-size:46px}.line{grid-template-columns:76px 1fr}.line img{width:76px;height:94px}.line .lp{grid-column:2}
+ .posts{grid-template-columns:1fr}.art .steps{grid-template-columns:1fr}.art .body{font-size:17px}
+ .prom{grid-template-columns:1fr}.prom div{border-left:0;border-top:1px solid var(--line)}
+ .cform{grid-template-columns:1fr;padding:22px}.sbig input{font-size:28px;height:60px}
+ .drawer{border-radius:0}
+}
+</style>
+</head>
+<body>
+<div class="pv"><div class="wrap"><div class="tabs" role="tablist" aria-label="Preview pages">
+<button data-go="home" class="on">Home</button><button data-go="collection">Collection</button><button data-go="product">Product</button><button data-go="cart">Cart</button><button data-go="search">Search</button><button data-go="blog">Blog</button><button data-go="article">Article</button><button data-go="about">About</button><button data-go="contact">Contact</button><button data-go="404">404</button></div>
+<label><input type="checkbox" id="names"> Show section names</label></div></div>
+
+<div class="ann" data-dawn="announcement-bar"><span class="on">Free shipping over $90 · 60-day returns</span><span>New: the Studio set, save 15% on 4 pieces</span><span>Cork and cotton, made to last</span></div>
+
+<header class="hdr" data-dawn="header">
+ <div class="wrap top">
+  <div class="hl"><button class="ib burger" id="burger" aria-label="Open menu"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M4 8h16M4 16h16"/></svg></button><span class="loc">Studio gear for slow practice</span></div>
+  <a href="#" class="logo" data-go="home" aria-label="Stillform home"><i></i>Stillform</a>
+  <div class="hr">
+   <button class="ib" id="sbtn" aria-label="Search"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="11" cy="11" r="7"/><path d="M20 20l-4-4"/></svg></button>
+   <a href="#" class="ib acc2" aria-label="Account" data-go="contact"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="8" r="4"/><path d="M4 21c1.5-4 4.5-6 8-6s6.5 2 8 6"/></svg></a>
+   <button class="ib" id="cbtn" aria-label="Cart"><svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 8h14l-1.2 12H6.2z"/><path d="M9 8V6a3 3 0 016 0v2"/></svg><span class="cc" id="cc">0</span></button>
+  </div>
+ </div>
+ <nav class="nav" aria-label="Main">
+  <div class="mwrap" id="shopnav"><button data-go="collection" aria-haspopup="true">Shop</button>
+   <div class="mega"><div class="wrap">
+    <div class="lst"><h5>Equipment</h5><a href="#" data-go="collection" data-cat="Mats">Mats</a><a href="#" data-go="collection" data-cat="Props">Blocks and straps</a><a href="#" data-go="collection" data-cat="Props">Bolsters</a><a href="#" data-go="collection">Bottles</a></div>
+    <div class="lst"><h5>Wear</h5><a href="#" data-go="collection" data-cat="Wear">Leggings</a><a href="#" data-go="collection" data-cat="Wear">Bras and tops</a><a href="#" data-go="collection" data-cat="Wear">Wraps and layers</a><a href="#" data-go="collection">Shop all</a></div>
+    <div class="lst"><h5>By practice</h5><a href="#" data-go="collection">Vinyasa</a><a href="#" data-go="collection">Yin and restore</a><a href="#" data-go="collection">Pilates</a><a href="#" data-go="collection">Breathwork</a></div>
+    <a href="#set" data-go="home" class="mtile"><img data-k="home" alt="Home yoga corner"><div><small>New</small><b>The Studio set</b><small>4 pieces, save 15%</small></div></a>
+   </div></div></div>
+  <a href="#" data-go="collection" data-cat="Mats">Mats</a>
+  <a href="#" data-go="collection" data-cat="Props">Props</a>
+  <a href="#" data-go="collection" data-cat="Wear">Wear</a>
+  <a href="#finder" data-go="home">Practice finder</a>
+  <a href="#" data-go="blog">Journal</a>
+ </nav>
+ <div class="srch" id="srch"><div class="wrap"><input id="hq" placeholder="Search mats, blocks, leggings..." aria-label="Search"><button class="btn btn-m" id="hqgo" data-go="search">Search</button></div></div>
+</header>
+
+<div class="mm" id="mm"><div class="top"><a href="#" class="logo" data-go="home"><i></i>Stillform</a><button class="ib" id="mmx" aria-label="Close menu"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M6 6l12 12M18 6L6 18"/></svg></button></div>
+<nav><a href="#" data-go="collection" data-cat="Mats">Mats <span>→</span></a><a href="#" data-go="collection" data-cat="Props">Props <span>→</span></a><a href="#" data-go="collection" data-cat="Wear">Wear <span>→</span></a><a href="#finder" data-go="home">Practice finder <span>→</span></a><a href="#" data-go="blog">Journal <span>→</span></a></nav></div>
+
+<main>
+<!-- HOME -->
+<section class="page on" id="p-home">
+ <section class="hero" data-dawn="image-with-text"><div class="wrap hgrid">
+  <div class="htxt"><span class="k">Studio gear for slow practice</span>
+   <h1>Practice that feels <em>like coming home.</em></h1>
+   <p>Cork, natural rubber and soft cotton. Mats, props and studio wear made for yoga and pilates, at home or in the studio.</p>
+   <div class="ctas"><a href="#" class="btn btn-m" data-go="collection">Shop the studio</a><a href="#finder" class="btn" data-go="home">Find your practice</a></div>
+   <div class="hnote"><div><b>Cork + rubber</b>natural grip, no PVC</div><div><b>60 days</b>to try it at home</div><div><b>4 pieces</b>Studio set, 15% off</div></div>
+  </div>
+  <div class="harch"><span class="sun"></span><div class="ph"><img data-k="hero" alt="Woman in a low lunge in a sunlit studio"></div><span class="tag">Morning flow</span>
+   <a href="#" class="hcard" data-go="product" data-p="0"><img data-k="p1" alt=""><div><b>Ground Mat 5 mm</b><small>Natural rubber · Sage</small><div class="p">$118</div></div></a></div>
+ </div>
+ <div class="strip"><div class="wrap">
+  <div><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 7h11v10H3zM14 10h4l3 3v4h-7"/><circle cx="7" cy="18" r="1.6"/><circle cx="17" cy="18" r="1.6"/></svg>Free shipping over $90</div>
+  <div><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 12a8 8 0 1 0 3-6.2M4 4v4h4"/></svg>60-day home trial</div>
+  <div><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 21c-4-3-7-6.5-7-10.5A7 7 0 0112 3a7 7 0 017 7.5C19 14.5 16 18 12 21z"/></svg>Cork, rubber, organic cotton</div>
+  <div><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 3l8 4v5c0 5-3.5 8-8 9-4.5-1-8-4-8-9V7z"/></svg>Secure checkout</div>
+ </div></div></section>
+
+ <section class="sec" data-dawn="collection-list"><div class="wrap">
+  <div class="sh reveal"><div><span class="k">Shop by practice</span><h2>Begin where <em>you are</em></h2></div><p>Four ways in. Each one comes with the mat and props that suit it.</p></div>
+  <div class="pracs" id="pracs"></div>
+ </div></section>
+
+ <section class="sec t" data-dawn="featured-collection"><div class="wrap">
+  <div class="sh reveal"><div><span class="k">New in the studio</span><h2>Quiet <em>essentials</em></h2></div><div class="ftabs" id="ndTabs"><button class="on" data-c="all">All</button><button data-c="Mats">Mats</button><button data-c="Props">Props</button><button data-c="Wear">Wear</button></div></div>
+  <div class="grid" id="ndGrid"></div>
+ </div></section>
+
+ <section class="sec t" data-dawn="image-with-text"><div class="wrap">
+  <div class="story reveal"><div class="ph"><img data-k="texture" alt="Close-up of cork and cotton"></div>
+   <div class="tx"><span class="k">Made from the ground up</span><h2>Grip you can <em>feel.</em></h2><p>Pick a mat material to see how it compares. Every Stillform mat is free of PVC and made to be used every day.</p>
+    <div class="mats" id="mats"><button aria-pressed="true" data-m="0"><b>Natural rubber</b><small>Grounded, dense</small></button><button aria-pressed="false" data-m="1"><b>Cork top</b><small>Grips when wet</small></button><button aria-pressed="false" data-m="2"><b>Travel</b><small>Light, foldable</small></button></div>
+    <div class="matd" id="matd"></div>
+    <a href="#" class="lk" data-go="product" data-p="0" style="align-self:flex-start">Shop mats</a></div></div>
+ </div></section>
+
+ <section class="sec" data-dawn="sbs-practice-finder" id="finder"><div class="wrap">
+  <div class="pf">
+   <div class="reveal"><span class="k">Practice finder</span><h2>Three questions. <em>Your kit.</em></h2><p class="l">Tell us how you practise. We suggest a mat and two props that suit it.</p>
+    <div class="q"><p><b>1</b>Which practice?</p><div class="chips" data-q="s"><button aria-pressed="true" data-v="vinyasa">Vinyasa</button><button aria-pressed="false" data-v="yin">Yin and restore</button><button aria-pressed="false" data-v="pilates">Mat pilates</button><button aria-pressed="false" data-v="hot">Hot yoga</button></div></div>
+    <div class="q"><p><b>2</b>How long have you practised?</p><div class="chips" data-q="l"><button aria-pressed="false" data-v="new">New to it</button><button aria-pressed="true" data-v="some">A year or two</button><button aria-pressed="false" data-v="deep">Many years</button></div></div>
+    <div class="q"><p><b>3</b>Where?</p><div class="chips" data-q="w"><button aria-pressed="true" data-v="home">At home</button><button aria-pressed="false" data-v="studio">In a studio</button><button aria-pressed="false" data-v="travel">On the go</button></div></div>
+   </div>
+   <div class="pfr reveal" id="pfr"></div>
+  </div>
+ </div></section>
+
+ <section class="sec t" data-dawn="sbs-studio-set" id="set" style="background:var(--oat2)"><div class="wrap">
+  <div class="sh reveal"><div><span class="k">Studio set builder</span><h2>Build your set. <em>Save 15%.</em></h2></div><p>One mat, two props and one piece to wear. The saving shows as soon as all four are chosen.</p></div>
+  <div class="set reveal"><div class="slots" id="slots"></div><aside class="ssum" id="ssum"></aside></div>
+ </div></section>
+
+ <section class="sec" data-dawn="sbs-breath-pacer"><div class="wrap">
+  <div class="bp reveal">
+   <div><span class="k">Breath pacer</span><h2>Two minutes <em>to arrive.</em></h2><p class="l">Pick a pattern, press start and follow the circle. A small pause before practice, or anywhere in your day.</p>
+    <div class="chips" id="bpat"><button aria-pressed="true" data-p="box">Box 4-4-4-4</button><button aria-pressed="false" data-p="calm">Calm 4-6</button><button aria-pressed="false" data-p="sleep">Rest 4-7-8</button></div>
+    <div class="bpc"><button class="btn btn-m" id="bpgo">Start</button><span class="mins" id="bpmins">2:00 · 8 rounds</span></div></div>
+   <div class="orbw"><span class="ring"></span><span class="ring"></span><div class="orb" id="orb"></div><div class="say"><b id="bpsay">Ready</b><small id="bpcount">press start</small></div></div>
+  </div>
+ </div></section>
+
+ <section class="sec t" data-dawn="multicolumn"><div class="wrap">
+  <div class="sh reveal"><div><span class="k">From our community</span><h2>Practised <em>everywhere</em></h2></div><p>Sample photos. Tag your practice space to be featured.</p></div>
+  <div class="ugc" id="ugc"></div>
+ </div></section>
+
+ <section class="sec t" data-dawn="multicolumn"><div class="wrap">
+  <div class="sh reveal"><div><span class="k">Kind words</span><h2>What people <em>notice</em></h2></div></div>
+  <div class="rv3" id="rcHome"></div>
+ </div></section>
+
+ <section class="sec t" data-dawn="newsletter"><div class="wrap">
+  <div class="nl reveal"><span class="k">The Sunday letter</span><h2>One slow email a week.</h2><p>A short sequence, a breath pattern and new pieces. Nothing more.</p>
+   <form onsubmit="event.preventDefault();toast('Thank you. See you on Sunday.')"><input type="email" required placeholder="Your email" aria-label="Email"><button class="btn btn-c">Subscribe</button></form></div>
+ </div></section>
+</section>
+
+<!-- COLLECTION -->
+<section class="page" id="p-collection"><div class="wrap">
+ <div class="crumb" data-dawn="sbs-breadcrumbs"><a href="#" data-go="home">Home</a><span>/</span><b id="cCrumb">Shop all</b></div>
+ <div class="cban" data-dawn="main-collection-banner"><div><span class="k" id="cKick">The studio</span><h1 id="cTitle">Shop all</h1><p id="cDesc">Mats, props and studio wear in cork, natural rubber and soft cotton.</p></div><div class="ph"><img id="cBan" data-k="studio" alt=""></div></div>
+ <div data-dawn="main-collection-product-grid">
+  <div class="ctool"><div style="display:flex;gap:10px;align-items:center;flex-wrap:wrap"><button class="btn fbtn" id="fopen" style="height:42px">Filters</button><div class="ftabs" id="cCats"><button class="on" data-c="all">All</button><button data-c="Mats">Mats</button><button data-c="Props">Props</button><button data-c="Wear">Wear</button></div></div><div style="display:flex;gap:14px;align-items:center"><span style="color:var(--mute);font-size:14px"><b id="cCount" style="color:var(--ink);font-weight:500">8</b> pieces</span><select id="cSort" aria-label="Sort"><option value="feat">Featured</option><option value="lo">Price, low to high</option><option value="hi">Price, high to low</option><option value="rt">Top rated</option></select></div></div>
+  <div class="cl">
+   <aside class="filters" id="filters"><div class="fhd"><b style="font:400 28px var(--disp)">Filters</b><button class="ib" id="fclose" aria-label="Close">✕</button></div>
+    <div class="fg"><h6>Practice</h6><label><input type="checkbox" data-f="p" value="vinyasa">Vinyasa<em>5</em></label><label><input type="checkbox" data-f="p" value="yin">Yin and restore<em>4</em></label><label><input type="checkbox" data-f="p" value="pilates">Pilates<em>5</em></label></div>
+    <div class="fg"><h6>Material</h6><label><input type="checkbox" data-f="m" value="Cork">Cork<em>2</em></label><label><input type="checkbox" data-f="m" value="Rubber">Natural rubber<em>1</em></label><label><input type="checkbox" data-f="m" value="Cotton">Organic cotton<em>3</em></label><label><input type="checkbox" data-f="m" value="Recycled">Recycled knit<em>2</em></label></div>
+    <div class="fg"><h6>Size</h6><div class="fsz" id="fsz"><button aria-pressed="false">XS</button><button aria-pressed="false">S</button><button aria-pressed="false">M</button><button aria-pressed="false">L</button><button aria-pressed="false">XL</button></div></div>
+    <div class="fg"><h6>Colour</h6><div class="fcol"><button aria-pressed="false" style="background:#8A9A80" aria-label="Sage"></button><button aria-pressed="false" style="background:#C98F6B" aria-label="Clay"></button><button aria-pressed="false" style="background:#E7DED0" aria-label="Oat"></button><button aria-pressed="false" style="background:#3F4A3C" aria-label="Moss"></button><button aria-pressed="false" style="background:#24261F" aria-label="Ink"></button></div></div>
+    <div class="fg"><h6>Max price <span id="fPv" style="color:var(--ink)">$140</span></h6><input type="range" class="range" id="fPrice" min="20" max="140" step="5" value="140" aria-label="Maximum price"></div>
+    <div class="fg"><label><input type="checkbox" id="fSale">On sale</label></div>
+    <button class="btn" style="width:100%;height:46px;margin-top:18px" id="freset">Clear all</button>
+   </aside>
+   <div><div class="grid" id="cGrid" style="grid-template-columns:repeat(3,1fr)"></div><div class="more"><small>Showing <span id="cShow">8</span> of 26 pieces</small><button class="btn" onclick="toast('Demo: more pieces load here')">Load more</button></div></div>
+  </div>
+ </div>
+ <section class="sec t" data-dawn="sbs-practice-finder"><div class="nl" style="border-radius:34px;padding:60px 40px"><span class="k">Not sure where to start?</span><h2>Let us suggest a kit.</h2><p>Three questions about how you practise.</p><a href="#finder" data-go="home" class="btn btn-c">Open the practice finder</a></div></section>
+</div></section>
+
+<!-- PRODUCT -->
+<section class="page" id="p-product">
+ <div class="wrap"><div class="crumb" data-dawn="sbs-breadcrumbs"><a href="#" data-go="home">Home</a><span>/</span><a href="#" data-go="collection" id="pCat">Mats</a><span>/</span><b id="pCrumb"></b></div>
+  <div class="pdp" data-dawn="main-product">
+   <div class="gal"><div class="thumbs" id="thumbs"></div><div class="mbox" id="mbox"><img id="mImg" alt=""><span class="bdg" id="pBdg"></span></div></div>
+   <div class="pinfo">
+    <span class="k" id="pKick">Mats · Natural rubber</span>
+    <h1 id="pName"></h1>
+    <div class="rt"><span id="pStars"></span><a href="#reviews">Read reviews</a></div>
+    <div class="pp"><strong id="pPrice"></strong><s id="pWas"></s></div>
+    <div class="klarna">Or 4 payments of <span id="pInst"></span></div>
+    <div class="opt"><div class="lb"><span>Colour: <b id="pColL"></b></span></div><div class="cols2" id="pCols"></div></div>
+    <div class="opt" data-dawn="variant-picker" id="szOpt"><div class="lb"><span>Size: <b id="pSizeL">Choose a size</b></span><a href="#" id="sgOpen">Size guide</a></div><div class="sizes" id="pSizes"></div><div class="fitn" id="pFit"></div></div>
+    <div class="buy" data-dawn="buy-buttons" id="atc"><div class="qty"><button id="qm" aria-label="Less">−</button><b id="qv">1</b><button id="qp" aria-label="More">+</button></div><button class="btn btn-m" id="pAdd">Add to bag</button></div>
+    <div class="trust"><div>Free shipping over $90</div><div>60-day home trial</div><div>Secure checkout</div></div>
+    <div class="acc" data-dawn="collapsible-content">
+     <details open><summary>Details</summary><div class="in" id="pDesc"></div></details>
+     <details><summary>Materials and care</summary><div class="in"><ul id="pTech"></ul></div></details>
+     <details><summary>Shipping and returns</summary><div class="in">Free shipping on orders over $90. Practise with it for 60 days; if it is not right, send it back.</div></details>
+    </div>
+   </div>
+  </div>
+ </div>
+ <section class="sec t" data-dawn="sbs-studio-set"><div class="wrap"><div class="sh"><div><span class="k">Pairs well with</span><h2 style="font-size:46px">Complete the <em>practice</em></h2></div></div>
+  <div class="fbt" data-dawn="sbs-frequently-bought"><div class="its" id="fbtIts"></div><div class="tot"><span style="color:var(--mute)">Together, 15% off</span><strong id="fbtTot"></strong><button class="btn btn-m" style="width:100%" id="fbtAdd">Add all to bag</button></div></div></div></section>
+ <section class="sec t" data-dawn="main-product" id="reviews"><div class="wrap"><div class="rv"><div class="rsum"><span class="k">Reviews</span><div style="margin:16px 0 6px"><strong id="prAvg"></strong></div><div id="prStars"></div><div style="margin-top:16px" id="prbars"></div></div><div class="rv3" id="prcards"></div></div></div></section>
+ <section class="sec t" data-dawn="related-products"><div class="wrap"><div class="sh"><div><span class="k">Also in the studio</span><h2 style="font-size:46px">You may <em>also like</em></h2></div></div><div class="grid" id="relGrid"></div></div></section>
+ <section class="sec t" data-dawn="sbs-recently-viewed"><div class="wrap"><div class="sh"><div><span class="k">Recently viewed</span><h2 style="font-size:40px">Still thinking it over?</h2></div></div><div class="grid" id="rvGrid"></div></div></section>
+ <div class="sticky" id="sticky" data-dawn="sticky add to cart"><div class="in"><img id="stImg" alt=""><div><b id="stName"></b><small id="stOpt"></small></div><span class="sp2" id="stPrice"></span><button class="btn btn-m" id="stAdd" style="height:46px">Add to bag</button></div></div>
+</section>
+
+<!-- CART -->
+<section class="page" id="p-cart"><div class="wrap"><div class="crumb" data-dawn="sbs-breadcrumbs"><a href="#" data-go="home">Home</a><span>/</span><b>Bag</b></div>
+ <div class="cartp"><div data-dawn="main-cart-items"><h1>Your bag</h1><div class="ship" id="cShip"></div><div id="cLines"></div></div>
+  <aside class="csum" data-dawn="main-cart-footer"><div class="r"><span>Subtotal</span><span id="cSub"></span></div><div class="r"><span>Set saving</span><span id="cSave" style="color:var(--moss)"></span></div><div class="r"><span>Shipping</span><span id="cShipT"></span></div><div class="r t"><span>Total</span><b id="cTot"></b></div>
+   <textarea placeholder="Add a note to your order" aria-label="Order note"></textarea><button class="btn btn-m" onclick="toast('Demo checkout')">Checkout</button>
+   <div class="pay" style="margin-top:16px;justify-content:center"><span>VISA</span><span>MC</span><span>AMEX</span><span>PAYPAL</span><span>APPLE PAY</span></div>
+   <p style="font-size:13px;color:var(--mute);margin:14px 0 0;text-align:center">60-day home trial on every piece.</p></aside></div>
+ <section class="sec t" data-dawn="featured-collection"><div class="sh"><div><span class="k">Before you go</span><h2 style="font-size:46px">Small things that <em>help</em></h2></div></div><div class="grid" id="upsell"></div></section>
+</div></section>
+
+<!-- SEARCH -->
+<section class="page" id="p-search"><div class="wrap" data-dawn="main-search" style="padding-bottom:90px"><div class="crumb"><a href="#" data-go="home">Home</a><span>/</span><b>Search</b></div>
+ <div class="sbig"><input id="sq" value="mat" aria-label="Search"><button class="btn btn-m" style="height:56px;align-self:center" onclick="runSearch()">Search</button></div>
+ <div class="sugs" id="sugs">Try: <button>cork</button><button>leggings</button><button>bolster</button><button>bottle</button></div>
+ <p style="margin:0 0 26px;color:var(--mute)"><span id="sCount">0</span> results for "<span id="sTerm" style="color:var(--ink)"></span>"</p><div class="grid" id="sGrid"></div></div></section>
+
+<!-- BLOG -->
+<section class="page" id="p-blog"><div class="wrap" data-dawn="main-blog" style="padding-bottom:90px"><div class="crumb"><a href="#" data-go="home">Home</a><span>/</span><b>Journal</b></div>
+ <div class="sh"><div><span class="k">The journal</span><h2>Notes on <em>slow practice</em></h2></div><div class="ftabs" id="bcats"><button class="on">All</button><button>Practice</button><button>Breath</button><button>Care</button></div></div>
+ <a href="#" class="bfeat" data-go="article"><div class="ph"><img data-k="home" alt="A calm home practice corner"></div><div><span class="k">Practice · 6 min read</span><h2>Setting up a home practice corner you will actually use</h2><p>Light, space, one good mat and a few props. A simple guide to making room for practice.</p><span class="lk">Read the guide</span></div></a>
+ <div class="posts" id="posts"></div></div></section>
+
+<!-- ARTICLE -->
+<section class="page" id="p-article"><div class="wrap" data-dawn="main-article" style="padding-bottom:30px"><div class="crumb"><a href="#" data-go="home">Home</a><span>/</span><a href="#" data-go="blog">Journal</a><span>/</span><b>Home practice corner</b></div>
+ <div class="art"><div style="text-align:center"><span class="k">Practice · 6 min read</span></div><h1>Setting up a home practice corner you will actually use</h1><div class="by">By the Stillform team · Sample article</div>
+  <div class="hero2"><img data-k="home" alt="Home practice corner with mat and plants"></div>
+  <div class="body"><p>The best practice space is the one you walk past every day. It does not need to be big. It needs a little light, enough floor for your mat and a place to keep your props so that starting takes ten seconds, not ten minutes.</p>
+   <h2>Start with the floor</h2><p>Wood or a low rug works best. Leave room for your arms out to the side and a step in front of the mat.</p>
+   <div class="steps"><div><b>2 m</b>of clear floor length</div><div><b>1</b>good mat that stays out</div><div><b>2</b>props within reach</div></div>
+   <blockquote>Make starting easier than skipping.</blockquote>
+   <h2>Keep props close</h2><p>A basket for a block and a strap, a bolster by the wall. When the props are visible, you use them.</p>
+   <h2>Light and quiet</h2><p>Morning light is best for waking practice. For evening, use a warm lamp and put your phone in another room.</p></div>
+ </div>
+ <section class="sec t" data-dawn="featured-collection"><div class="sh"><div><span class="k">From this guide</span><h2 style="font-size:46px">Build the <em>corner</em></h2></div></div><div class="grid" id="artGrid"></div></section>
+</div></section>
+
+<!-- ABOUT -->
+<section class="page" id="p-about"><div class="wrap">
+ <section class="sec t" data-dawn="image-with-text" style="padding-top:30px"><div class="ab"><div><span class="k">About Stillform</span><h1>Made for the quiet part of your day.</h1><p>We make mats, props and studio wear from cork, natural rubber and organic cotton. Simple pieces that last, so practice can stay simple too.</p><a href="#" data-go="collection" class="btn btn-m" style="margin-top:14px">Shop the studio</a></div><div class="ph"><img data-k="calm" alt="Seated meditation in soft light"></div></div></section>
+ <section class="sec t" data-dawn="multicolumn"><div class="prom reveal"><div><strong>1</strong><h4>Natural materials</h4><p>Cork, natural rubber and organic cotton. No PVC.</p></div><div><strong>2</strong><h4>Made to last</h4><p>Pieces you will use every day for years.</p></div><div><strong>3</strong><h4>60-day trial</h4><p>Practise at home. Not right? Send it back.</p></div><div><strong>4</strong><h4>Plastic-free post</h4><p>Paper and card packaging only.</p></div></div></section>
+ <section class="sec t" data-dawn="image-with-text"><div class="split"><div class="ph reveal"><img data-k="studio" alt="Calm studio with mats"></div><div class="reveal"><span class="k">Our story</span><h2>It started with one mat that did not slip.</h2><p>We searched for a mat that gripped in a warm room, felt good under bare feet and did not smell of plastic. When we could not find it, we made it.</p><p>This is sample brand copy. Replace it with your own story in the theme editor.</p></div></div></section>
+ <section class="sec t" data-dawn="sbs-breath-pacer"><div class="nl" style="border-radius:34px;padding:60px 40px"><span class="k">Take a breath</span><h2>Two minutes to arrive.</h2><p>Try the breath pacer on the home page.</p><a href="#" data-go="home" class="btn btn-c">Open the breath pacer</a></div></section>
+</div></section>
+
+<!-- CONTACT -->
+<section class="page" id="p-contact"><div class="wrap" style="padding-bottom:100px"><div class="crumb"><a href="#" data-go="home">Home</a><span>/</span><b>Contact</b></div>
+ <div class="ct"><div data-dawn="rich-text"><span class="k">Get in touch</span><h1>We are here to help.</h1><p style="color:var(--ink2);max-width:440px">Questions about a mat, a size or your order. A real person replies within one working day.</p>
+  <div class="card2"><i>✉</i><div><b>hello@yourstore.com</b><small>Monday to Friday, 9 to 5</small></div></div>
+  <div class="card2"><i>↺</i><div><b>60-day home trial</b><small>Start a return from your account</small></div></div>
+  <div class="card2"><i>◌</i><div><b>Studio orders</b><small>Kitting out a studio? Ask about trade pricing</small></div></div></div>
+  <form class="cform" data-dawn="contact-form" onsubmit="event.preventDefault();toast('Message sent. We will reply soon.')"><label class="w">Topic<select><option>A product question</option><option>My order</option><option>Returns</option><option>Studio orders</option></select></label>
+   <label>Name<input required></label><label>Email<input type="email" required></label><label class="w">Order number (optional)<input></label><label class="w">Message<textarea required></textarea></label><button class="btn btn-m w">Send message</button></form></div>
+</div></section>
+
+<!-- 404 -->
+<section class="page" id="p-404"><div class="wrap" style="padding-top:30px"><div class="nf" data-dawn="main-404"><div><h1>404</h1><h2>This page has wandered off.</h2><p>Take a breath. The page you were looking for is not here, but your practice is.</p><div style="display:flex;gap:10px;flex-wrap:wrap"><a href="#" class="btn btn-m" data-go="home">Back to home</a><a href="#" class="btn" data-go="collection">Shop the studio</a></div></div><div class="ph"><img data-k="calm" alt=""></div></div>
+ <section class="sec t" data-dawn="featured-collection"><div class="sh"><div><span class="k">Popular</span><h2 style="font-size:46px">Start <em>here</em></h2></div></div><div class="grid" id="nfGrid"></div></section>
+</div></section>
+</main>
+
+<footer class="ft" data-dawn="footer"><div class="wrap"><div class="cols">
+ <div><a href="#" class="logo" data-go="home" style="justify-self:start;font-size:24px;padding-left:0"><i></i>Stillform</a><p>Mats, props and studio wear in cork, natural rubber and organic cotton.</p><div class="soc"><a href="#" aria-label="Instagram">IG</a><a href="#" aria-label="Pinterest">PI</a><a href="#" aria-label="YouTube">YT</a><a href="#" aria-label="Spotify">SP</a></div></div>
+ <div><h5>Shop</h5><a href="#" data-go="collection">Mats</a><a href="#" data-go="collection">Props</a><a href="#" data-go="collection">Wear</a><a href="#set" data-go="home">Studio set</a></div>
+ <div><h5>Practice</h5><a href="#finder" data-go="home">Practice finder</a><a href="#" data-go="home">Breath pacer</a><a href="#" data-go="blog">Journal</a><a href="#" data-go="about">About</a></div>
+ <div><h5>Help</h5><a href="#" data-go="contact">Contact</a><a href="#" data-go="contact">Shipping</a><a href="#" data-go="contact">60-day trial</a><a href="#" id="sgOpen2">Size guide</a></div>
+ <div><h5>The Sunday letter</h5><p style="margin:0">One slow email a week.</p><form onsubmit="event.preventDefault();toast('Subscribed')"><input type="email" placeholder="Email address" aria-label="Email" required><button>Join</button></form></div>
+</div><div class="bot"><span>© 2026 Stillform. Demo store for the Stillform Shopify theme.</span><div class="pay"><span>VISA</span><span>MC</span><span>AMEX</span><span>PAYPAL</span><span>SHOP PAY</span></div></div></div></footer>
+
+<div class="scrim" id="scrim"></div>
+<aside class="drawer" id="drawer" data-dawn="cart-drawer" aria-label="Bag"><div class="hd"><h3>Your bag (<span id="dCount">0</span>)</h3><button class="ib" id="dx" aria-label="Close bag">✕</button></div><div class="ship" id="dShip"></div><div class="ls" id="dLines"></div><div class="ft2"><div class="r"><span>Subtotal</span><b id="dSub"></b></div><button class="btn btn-m" data-go="cart">View bag</button><button class="btn" style="width:100%" onclick="toast('Demo checkout')">Checkout</button></div></aside>
+<div class="modal" id="sg" role="dialog" aria-label="Size guide"><div class="box"><div style="display:flex;justify-content:space-between;align-items:center"><h3 style="font-size:34px">Size guide</h3><button class="ib" id="sgx" aria-label="Close">✕</button></div><table><thead><tr><th>Size</th><th>Waist (cm)</th><th>Hip (cm)</th><th>Height (cm)</th></tr></thead><tbody id="sgT"></tbody></table>
+ <div class="finder2"><label>Height<select id="fh"><option value="158">Under 162</option><option value="166" selected>162 to 170</option><option value="174">170 to 178</option><option value="182">Over 178</option></select></label><label>Fit you like<select id="ff"><option value="0">Close</option><option value="1" selected>True to size</option><option value="2">Relaxed</option></select></label><button class="btn btn-m" id="fgo" style="height:44px">Find my size</button></div><p class="fres" id="fres"></p></div></div>
+<div class="toast" id="toast"><span id="tmsg"></span></div>
+<script>
+const IMG='img/stillform-demo-';
+const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)];
+const money=n=>'$'+(Math.round(n*100)/100).toFixed(2).replace(/\.00$/,'');
+const SZW=['XS','S','M','L','XL'],ONE=['One size'];
+/* products */
+const P=[
+ {k:'p1',n:'Ground Mat 5 mm',c:'Mats',m:'Rubber',p:118,b:'Best seller',r:4.9,rc:312,pr:['vinyasa','pilates','yin'],sz:['Standard','Long'],x:[],sub:'Natural rubber · 183 x 66 cm',sw:[['Sage','#8A9A80'],['Clay','#C98F6B'],['Moss','#3F4A3C']],tech:['Natural tree rubber base, no PVC','Open-cell top for grip','5 mm cushion for knees','Wipe with a damp cloth, dry flat'],fit:'Standard is 183 cm long. Choose Long if you are over 180 cm tall.'},
+ {k:'p2',n:'Cork Block Pair',c:'Props',m:'Cork',p:38,r:4.8,rc:204,pr:['vinyasa','yin','pilates'],sz:ONE,x:[],sub:'Solid cork · set of two',sw:[['Cork','#C9A27A']],tech:['Solid natural cork','Rounded edges','23 x 15 x 7.5 cm each','Wipe clean'],fit:'One size. Use one or both for support in seated and standing poses.'},
+ {k:'p3',n:'Cotton Strap',c:'Props',m:'Cotton',p:22,r:4.7,rc:118,pr:['yin','vinyasa','pilates'],sz:ONE,x:[],sub:'Organic cotton · 2.4 m',sw:[['Oat','#E7DED0'],['Moss','#3F4A3C']],tech:['Organic cotton webbing','Brushed metal D-ring','2.4 m long','Machine wash cold'],fit:'One size. 2.4 m fits most heights.'},
+ {k:'p4',n:'Round Bolster',c:'Props',m:'Cotton',p:84,w:96,b:'Sale',r:4.9,rc:96,pr:['yin'],sz:ONE,x:[],sub:'Buckwheat filled · clay cotton',sw:[['Clay','#C98F6B'],['Sage','#8A9A80']],tech:['Organic cotton cover, removable','Buckwheat hull fill','Carry handle','Cover machine wash cold'],fit:'One size. Add or remove fill through the inner zip.'},
+ {k:'p5',n:'Still Legging',c:'Wear',m:'Recycled',p:88,b:'New',r:4.8,rc:241,pr:['vinyasa','pilates','hot'],sz:SZW,x:['XS'],low:['L'],sub:'High rise · 25" inseam',sw:[['Sage','#8A9A80'],['Moss','#3F4A3C'],['Ink','#24261F']],tech:['Brushed recycled knit','High, soft waistband','No front seam','Machine wash cold, hang dry'],fit:'Fits true to size. Model is 172 cm and wears S.'},
+ {k:'p6',n:'Soft Support Bra',c:'Wear',m:'Recycled',p:58,r:4.7,rc:157,pr:['vinyasa','pilates','hot','yin'],sz:SZW,x:[],low:['M'],sub:'Light support · removable pads',sw:[['Clay','#C98F6B'],['Oat','#E7DED0']],tech:['Brushed recycled knit','Removable pads','Wide soft band','Machine wash cold'],fit:'Fits true to size. Light support for yoga and pilates.'},
+ {k:'p7',n:'Rest Wrap',c:'Wear',m:'Cotton',p:112,b:'New',r:4.9,rc:74,pr:['yin'],sz:['XS/S','M/L','XL'],x:[],sub:'Organic cotton knit · relaxed',sw:[['Oat','#E7DED0'],['Sage','#8A9A80']],tech:['Organic cotton knit','Open front, deep pockets','Relaxed fit','Hand wash or gentle cycle'],fit:'Relaxed fit. Take your usual size.'},
+ {k:'p8',n:'Glass Bottle 600 ml',c:'Props',m:'Glass',p:32,r:4.6,rc:88,pr:['vinyasa','hot','pilates','yin'],sz:ONE,x:[],sub:'Borosilicate glass · sage sleeve',sw:[['Sage','#8A9A80'],['Clay','#C98F6B']],tech:['Borosilicate glass','Silicone sleeve','Bamboo lid','Dishwasher safe (no lid)'],fit:'One size. 600 ml.'}
+];
+const ICON={heart:'<path d="M12 20s-7-4.5-7-10a4 4 0 017-2.5A4 4 0 0119 10c0 5.5-7 10-7 10z"/>'};
+const svg=(k,s=17,w=1.5)=>`<svg width="${s}" height="${s}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="${w}" stroke-linecap="round" stroke-linejoin="round">${ICON[k]}</svg>`;
+function src(k){return IMG+k+'.jpg'}
+function imgs(){$$('img[data-k]').forEach(i=>{i.src=src(i.dataset.k)})}
+function stars(r,c){return `<span class="stars">${'★'.repeat(Math.round(r))}${'☆'.repeat(5-Math.round(r))}${c!=null?`<em>(${c})</em>`:''}</span>`}
+const first=p=>p.sz.find(s=>!(p.x||[]).includes(s))||p.sz[0];
+function card(i){const p=P[i];
+ return `<div class="card reveal"><div class="im">${p.b?`<span class="bdg ${p.b==='Sale'?'s':''}">${p.b}</span>`:''}
+ <a href="#" data-go="product" data-p="${i}" aria-label="${p.n}"><img class="m" src="${src(p.k)}" alt="${p.n}" loading="lazy"><img class="h" src="${src(p.k)}" alt="" loading="lazy"></a>
+ <button class="wish" aria-label="Save ${p.n}">${svg('heart')}</button>
+ <div class="qa"><small>Quick add${p.sz.length>1?' · choose size':''}</small><div class="sz">${p.sz.slice(0,5).map(s=>`<button data-qa="${i}" data-s="${s}" class="${(p.x||[]).includes(s)?'x':''}">${p.sz.length===1?'Add · '+money(p.p):s}</button>`).join('')}</div></div></div>
+ <div class="meta"><div class="ty">${p.c} · ${p.m==='Rubber'?'Natural rubber':p.m}</div><h4><a href="#" data-go="product" data-p="${i}">${p.n}</a></h4>
+ <div class="pr2">${p.w?`<span class="now">${money(p.p)}</span><s>${money(p.w)}</s>`:money(p.p)}</div>${stars(p.r,p.rc)}
+ <div class="sw">${p.sw.map(c=>`<i style="background:${c[1]}" title="${c[0]}"></i>`).join('')}</div></div></div>`}
+function fill(id,list){const el=$(id);if(el)el.innerHTML=list.map(card).join('')}
+
+/* names, routing */
+$('#names').addEventListener('change',e=>document.body.classList.toggle('names',e.target.checked));
+function go(pg,hash){$$('.page').forEach(p=>p.classList.toggle('on',p.id==='p-'+pg));$$('.pv .tabs button').forEach(b=>b.classList.toggle('on',b.dataset.go===pg));closeAll();
+ if(pg==='cart')renderCart();
+ if(hash){const t=$(hash);if(t)setTimeout(()=>t.scrollIntoView({behavior:'smooth'}),30)}else window.scrollTo({top:0});obs()}
+document.addEventListener('click',e=>{const a=e.target.closest('[data-go]');if(!a)return;e.preventDefault();
+ if(a.dataset.p!=null){setProduct(+a.dataset.p);seen(+a.dataset.p)}
+ if(a.dataset.go==='collection')setCat(a.dataset.cat||'all');
+ const h=a.getAttribute('href');go(a.dataset.go,h&&h.length>1?h:null)});
+
+/* header */
+const sn=$('#shopnav');let st;sn.addEventListener('mouseenter',()=>{clearTimeout(st);sn.classList.add('open')});sn.addEventListener('mouseleave',()=>{st=setTimeout(()=>sn.classList.remove('open'),180)});
+sn.addEventListener('focusin',()=>sn.classList.add('open'));sn.addEventListener('focusout',e=>{if(!sn.contains(e.relatedTarget))sn.classList.remove('open')});
+$('#sbtn').onclick=()=>{$('#srch').classList.toggle('on');$('#hq').focus()};
+$('#hq').addEventListener('keydown',e=>{if(e.key==='Enter')$('#hqgo').click()});
+$('#hqgo').addEventListener('click',()=>{$('#sq').value=$('#hq').value||'mat';runSearch()});
+$('#burger').onclick=()=>$('#mm').classList.add('on');$('#mmx').onclick=()=>$('#mm').classList.remove('on');
+function closeAll(){$('#mm').classList.remove('on');sn.classList.remove('open');$('#srch').classList.remove('on');closeDrawer();$('#filters').classList.remove('on');$('#sg').classList.remove('on')}
+document.addEventListener('keydown',e=>{if(e.key==='Escape')closeAll()});
+
+/* announcement */
+let ai=0;setInterval(()=>{const s=$$('.ann span');s[ai].classList.remove('on');ai=(ai+1)%s.length;s[ai].classList.add('on')},4500);
+
+/* practice tiles */
+const PR=[['Vinyasa','hero','Flow and strength'],['Yin and restore','calm','Long holds, soft props'],['Pilates','studio','Core and control'],['Home practice','home','A corner of your own']];
+$('#pracs').innerHTML=PR.map(p=>`<a href="#" class="pr reveal" data-go="collection"><div class="a"><img src="${src(p[1])}" alt="${p[0]}" loading="lazy"></div><h3>${p[0]}</h3><small>${p[2]}</small></a>`).join('');
+
+/* new tabs */
+function nd(c){let L=P.map((p,i)=>i).filter(i=>c==='all'||P[i].c===c);L=L.concat(P.map((p,i)=>i).filter(i=>!L.includes(i))).slice(0,4);fill('#ndGrid',L);obs()}
+$('#ndTabs').addEventListener('click',e=>{const b=e.target.closest('button');if(!b)return;$$('#ndTabs button').forEach(x=>x.classList.toggle('on',x===b));nd(b.dataset.c)});
+
+/* materials */
+const MAT=[[['5 mm','Cushion'],['2.4 kg','Weight'],['High','Dry grip']],[['4 mm','Cushion'],['2.0 kg','Weight'],['Wet grip','Best for hot']],[['1.5 mm','Cushion'],['0.9 kg','Weight'],['Folds','Into a bag']]];
+function mat(n){$$('#mats button').forEach(b=>b.setAttribute('aria-pressed',+b.dataset.m===n));$('#matd').innerHTML=MAT[n].map(d=>`<div><strong>${d[0]}</strong><small>${d[1]}</small></div>`).join('')}
+$('#mats').addEventListener('click',e=>{const b=e.target.closest('[data-m]');if(b)mat(+b.dataset.m)});
+
+/* practice finder */
+const PF={vinyasa:{t:'Vinyasa kit',why:'Grip for flowing sequences and blocks to bring the floor closer.',ids:[0,1,4]},yin:{t:'Yin and restore kit',why:'Soft support for long holds: a bolster to rest on and a strap to reach.',ids:[0,3,2]},pilates:{t:'Mat pilates kit',why:'Cushion for the spine and a strap for leg work.',ids:[0,2,5]},hot:{t:'Hot yoga kit',why:'Grip that holds when you sweat, and water within reach.',ids:[0,7,4]}};
+const LV={new:['New','Start gently'],some:['Steady','Build depth'],deep:['Deep','Refine']};
+const WH={home:'Leave it out by the window.',studio:'Rolls up for the walk to class.',travel:'Pair it with the travel mat.'};
+const pq={s:'vinyasa',l:'some',w:'home'};
+function pfind(){const d=PF[pq.s],tot=d.ids.reduce((s,i)=>s+P[i].p,0);
+ $('#pfr').innerHTML=`<div class="top"><div><span class="k">Your kit · ${LV[pq.l][0]}</span><h3>${d.t}</h3><p class="why">${d.why} ${WH[pq.w]}</p></div><div class="lvl"><strong>${LV[pq.l][0]}</strong><small>${LV[pq.l][1]}</small></div></div>
+ ${d.ids.map(i=>`<div class="pick"><img src="${src(P[i].k)}" alt="${P[i].n}"><div><small>${P[i].c}</small><b>${P[i].n}</b></div><strong>${money(P[i].p)}</strong></div>`).join('')}
+ <div class="pft"><div><small>Kit total, 15% off together</small><strong>${money(tot*.85)} <s style="font:300 16px var(--body);color:var(--mute)">${money(tot)}</s></strong></div><button class="btn btn-m" id="pfAdd">Add the kit</button></div>`}
+document.addEventListener('click',e=>{const b=e.target.closest('.chips[data-q] button');if(!b)return;const w=b.parentNode;w.querySelectorAll('button').forEach(x=>x.setAttribute('aria-pressed',x===b));pq[w.dataset.q]=b.dataset.v;pfind()});
+document.addEventListener('click',e=>{if(!e.target.closest('#pfAdd'))return;PF[pq.s].ids.forEach(i=>add(i,P[i].sz.length>1?(P[i].sz.includes('S')?'S':P[i].sz[0]):P[i].sz[0],1,true,true));openDrawer();toast('Kit added, 15% off together')});
+
+/* studio set builder */
+const SLOTS=[['Mat',[0]],['Prop one',[1,2,3]],['Prop two',[2,3,7]],['Wear',[4,5,6]]];
+const kit=[{i:0,s:'Standard'},{i:1,s:'One size'},{i:null,s:null},{i:null,s:null}];
+function setHTML(){$('#slots').innerHTML=SLOTS.map(([n,ids],k)=>{const c=kit[k],p=c.i!=null?P[c.i]:null;return `<div class="slot ${c.i!=null&&c.s?'full':''}"><div class="hd"><span>${k+1} · ${n}</span><i>${c.i!=null&&c.s?'✓':''}</i></div>
+ <div class="pic">${p?`<img src="${src(p.k)}" alt="${p.n}">`:'Choose one'}</div><div class="opts">${ids.map(i=>`<button aria-pressed="${c.i===i}" data-ks="${k}" data-ki="${i}">${P[i].n.replace(/ (Pair|600 ml|5 mm)$/,'')}<span>${money(P[i].p)}</span></button>`).join('')}</div>
+ ${p&&p.sz.length>1?`<div class="szs">${p.sz.map(s=>`<button aria-pressed="${c.s===s}" data-kz="${k}" data-s="${s}" ${(p.x||[]).includes(s)?'disabled style="opacity:.35"':''}>${s.replace('Standard','Std')}</button>`).join('')}</div>`:''}</div>`}).join('');
+ const full=kit.filter(c=>c.i!=null&&c.s).length,sub=kit.reduce((s,c)=>s+(c.i!=null?P[c.i].p:0),0),disc=full===4?sub*.15:0;
+ $('#ssum').innerHTML=`<span class="k" style="color:#d7dcd1">Your set</span><h3>${full} of 4 chosen</h3>${kit.map((c,k)=>`<div class="ln"><span>${SLOTS[k][0]}</span>${c.i!=null?`<span>${P[c.i].n}${c.s&&c.s!=='One size'?' · '+c.s:''}</span>`:'<em>Choose one</em>'}</div>`).join('')}
+ <div class="bar"><i style="width:${full/4*100}%"></i></div><span style="font-size:13.5px;color:#c9cec3">${full===4?'15% set saving applied':`Choose ${4-full} more to save 15%`}</span>
+ <div class="tot"><span>Set total</span><span>${disc?`<s>${money(sub)}</s>`:''}<strong>${money(sub-disc)}</strong></span></div><button class="btn btn-c" id="kAdd" ${full<4?'disabled':''}>Add the set</button>`}
+document.addEventListener('click',e=>{const b=e.target.closest('[data-ks]');if(b){const k=+b.dataset.ks,i=+b.dataset.ki;kit[k]={i,s:P[i].sz.length===1?P[i].sz[0]:(kit[k].i===i?kit[k].s:null)};setHTML();return}
+ const z=e.target.closest('[data-kz]');if(z){kit[+z.dataset.kz].s=z.dataset.s;setHTML();return}
+ if(e.target.closest('#kAdd')){kit.forEach(c=>add(c.i,c.s,1,true,true));openDrawer();toast('Studio set added, 15% saved')}});
+
+/* breath pacer */
+const PAT={box:[['Breathe in',4,1],['Hold',4,1],['Breathe out',4,.7],['Hold',4,.7]],calm:[['Breathe in',4,1],['Breathe out',6,.7]],sleep:[['Breathe in',4,1],['Hold',7,1],['Breathe out',8,.7]]};
+let bp='box',bpt=null,bpRun=false;
+function bpInfo(){const len=PAT[bp].reduce((s,x)=>s+x[1],0),r=Math.round(120/len);$('#bpmins').textContent=`2:00 · ${r} rounds`}
+function bpStop(){clearTimeout(bpt);bpRun=false;$('#bpgo').textContent='Start';$('#orb').style.transitionDuration='1.2s';$('#orb').style.transform='scale(.7)';$('#bpsay').textContent='Ready';$('#bpcount').textContent='press start'}
+function bpStart(){bpRun=true;$('#bpgo').textContent='Stop';const steps=PAT[bp];let i=0,left=120;
+ (function step(){if(!bpRun)return;const [w,s,sc]=steps[i%steps.length];$('#bpsay').textContent=w;$('#orb').style.transitionDuration=s+'s';$('#orb').style.transform=`scale(${sc})`;let n=s;$('#bpcount').textContent=n;
+  (function tick(){if(!bpRun)return;if(n<=0){i++;left-=s;if(left<=0){bpStop();$('#bpsay').textContent='Well done';$('#bpcount').textContent='take that with you';return}step();return}$('#bpcount').textContent=n;n--;bpt=setTimeout(tick,1000)})()})()}
+$('#bpgo').onclick=()=>bpRun?bpStop():bpStart();
+$('#bpat').addEventListener('click',e=>{const b=e.target.closest('[data-p]');if(!b)return;$$('#bpat button').forEach(x=>x.setAttribute('aria-pressed',x===b));bp=b.dataset.p;bpStop();bpInfo()});
+
+/* ugc + reviews */
+const UG=['home','calm','studio','hero','texture'];
+$('#ugc').innerHTML=UG.map((k,i)=>`<a href="#" class="reveal" data-go="collection"><img src="${src(k)}" alt="Sample community photo" loading="lazy"><span>@sample_practice_${i+1}</span></a>`).join('');
+const RV=[['"The grip is real. I stopped sliding in downward dog the first week."','Vinyasa three times a week','Ground Mat'],['"The bolster changed my evening practice. Firm, but soft in the right way."','Yin and restore at home','Round Bolster'],['"The leggings stay up and do not go see-through. Finally."','Reformer pilates','Still Legging']];
+function rcards(id){$(id).innerHTML=RV.map(r=>`<div class="rcard reveal"><span class="smp">Sample review</span>${stars(5)}<p>${r[0]}</p><div class="who">${r[1]} · on the ${r[2]}</div></div>`).join('')}
+function rbars(){$('#prbars').innerHTML=[[5,84],[4,11],[3,3],[2,1],[1,1]].map(([s,w])=>`<div class="rbar"><span>${s} ★</span><i style="--w:${w}%"></i><span>${w}%</span></div>`).join('')}
+
+/* cart */
+let cart=[];
+function add(i,s,q=1,kitd=false,quiet=false){const f=cart.find(c=>c.i===i&&c.s===s);f?(f.q+=q,f.kit=f.kit||kitd):cart.push({i,s,q,kit:kitd});render();
+ const c=$('#cc');c.classList.remove('bump');c.offsetWidth;c.classList.add('bump');if(!quiet){openDrawer();toast(P[i].n+' added')}}
+const count=()=>cart.reduce((s,c)=>s+c.q,0),sub=()=>cart.reduce((s,c)=>s+P[c.i].p*c.q,0),save=()=>cart.reduce((s,c)=>s+(c.kit?P[c.i].p*.15*c.q:0),0);
+function shipHTML(){const t=sub()-save(),left=90-t;return `<p>${left>0?`Add <b>${money(left)}</b> for free shipping`:'Free shipping unlocked'}</p><div class="bar"><i style="width:${Math.min(100,t/90*100)}%"></i></div>`}
+function lineHTML(c,k){const p=P[c.i];return `<div class="line"><img src="${src(p.k)}" alt="${p.n}"><div><b>${p.n}</b><small>${c.s} · ${p.sw[0][0]}${c.kit?' · <span style="color:var(--moss)">Set −15%</span>':''}</small><div class="q"><button data-cq="${k}" data-d="-1" aria-label="Less">−</button><b>${c.q}</b><button data-cq="${k}" data-d="1" aria-label="More">+</button><button class="rm" data-rm="${k}">Remove</button></div></div><div class="lp">${money(p.p*c.q*(c.kit?.85:1))}</div></div>`}
+function render(){$('#cc').textContent=count();$('#dCount').textContent=count();$('#dShip').innerHTML=shipHTML();$('#dLines').innerHTML=cart.length?cart.map(lineHTML).join(''):'<div class="empty" style="margin-top:18px">Your bag is empty.</div>';$('#dSub').textContent=money(sub()-save());if($('#p-cart').classList.contains('on'))renderCart()}
+function renderCart(){$('#cShip').innerHTML=shipHTML();$('#cLines').innerHTML=cart.length?cart.map(lineHTML).join(''):'<div class="empty">Your bag is empty. <a href="#" data-go="collection" style="border-bottom:1px solid">Shop the studio</a></div>';
+ const t=sub()-save(),free=t>=90||!cart.length;$('#cSub').textContent=money(sub());$('#cSave').textContent=save()?'−'+money(save()):'$0';$('#cShipT').textContent=free?'Free':'$7';$('#cTot').textContent=money(t+(free?0:7))}
+document.addEventListener('click',e=>{const q=e.target.closest('[data-cq]'),r=e.target.closest('[data-rm]');if(q){const c=cart[+q.dataset.cq];c.q+=+q.dataset.d;if(c.q<1)cart.splice(+q.dataset.cq,1);render()}if(r){cart.splice(+r.dataset.rm,1);render()}});
+function openDrawer(){$('#drawer').classList.add('on');$('#scrim').classList.add('on')}
+function closeDrawer(){$('#drawer').classList.remove('on');$('#scrim').classList.remove('on')}
+$('#cbtn').onclick=openDrawer;$('#dx').onclick=closeDrawer;$('#scrim').onclick=closeDrawer;
+document.addEventListener('click',e=>{const b=e.target.closest('[data-qa]');if(!b)return;e.preventDefault();add(+b.dataset.qa,b.dataset.s)});
+document.addEventListener('click',e=>{const w=e.target.closest('.wish');if(w){w.classList.toggle('on');toast(w.classList.contains('on')?'Saved to your list':'Removed from your list')}});
+let tt;function toast(m){$('#tmsg').textContent=m;$('#toast').classList.add('on');clearTimeout(tt);tt=setTimeout(()=>$('#toast').classList.remove('on'),2400)}
+
+/* collection */
+let cc='all',fs=[];
+const CB={Mats:['Mats','Grip and cushion in natural rubber and cork.','hero'],Props:['Props','Blocks, straps, bolsters and bottles for support and ease.','texture'],Wear:['Wear','Soft, quiet layers for yoga and pilates.','studio']};
+function setCat(c){cc=c;$$('#cCats button').forEach(b=>b.classList.toggle('on',b.dataset.c===c));const d=CB[c];
+ $('#cTitle').textContent=d?d[0]:'Shop all';$('#cCrumb').textContent=d?d[0]:'Shop all';$('#cKick').textContent=d?'Collection':'The studio';
+ $('#cDesc').textContent=d?d[1]:'Mats, props and studio wear in cork, natural rubber and soft cotton.';$('#cBan').src=src(d?d[2]:'studio');coll()}
+$('#cCats').addEventListener('click',e=>{const b=e.target.closest('button');if(b)setCat(b.dataset.c)});
+function coll(){const pr=$$('[data-f="p"]:checked').map(x=>x.value),mt=$$('[data-f="m"]:checked').map(x=>x.value),max=+$('#fPrice').value,so=$('#cSort').value,sale=$('#fSale').checked;
+ $('#fPv').textContent='$'+max;
+ let L=P.map((p,i)=>i).filter(i=>{const p=P[i];return (cc==='all'||p.c===cc)&&(!pr.length||pr.some(x=>p.pr.includes(x)))&&(!mt.length||mt.includes(p.m))&&p.p<=max&&(!sale||p.w)&&(!fs.length||fs.some(s=>p.sz.includes(s)))});
+ if(so==='lo')L.sort((a,b)=>P[a].p-P[b].p);if(so==='hi')L.sort((a,b)=>P[b].p-P[a].p);if(so==='rt')L.sort((a,b)=>P[b].r-P[a].r);
+ const h=L.map(card);if(h.length>3)h.splice(3,0,`<a href="#set" data-go="home" class="promo reveal"><div class="t"><span class="k">Studio set</span><h3>Four pieces.<br>Save 15%.</h3><span class="btn btn-c" style="align-self:flex-start">Build your set</span></div><img src="${src('home')}" alt="Home practice corner"></a>`);
+ $('#cGrid').innerHTML=h.join('')||'<div class="empty" style="grid-column:1/-1">Nothing matches yet. <a href="#" id="fr2" style="border-bottom:1px solid">Clear filters</a></div>';$('#cCount').textContent=L.length;$('#cShow').textContent=L.length;obs()}
+$$('.filters input').forEach(x=>x.addEventListener('input',coll));$('#cSort').addEventListener('change',coll);
+$('#fsz').addEventListener('click',e=>{const b=e.target.closest('button');if(!b)return;b.setAttribute('aria-pressed',b.getAttribute('aria-pressed')!=='true');fs=$$('#fsz button[aria-pressed=true]').map(x=>x.textContent);coll()});
+$$('.fcol button').forEach(b=>b.addEventListener('click',()=>b.setAttribute('aria-pressed',b.getAttribute('aria-pressed')!=='true')));
+function resetF(){$$('.filters input[type=checkbox]').forEach(x=>x.checked=false);$('#fPrice').value=140;fs=[];$$('#fsz button,.fcol button').forEach(b=>b.setAttribute('aria-pressed','false'));coll()}
+$('#freset').onclick=resetF;document.addEventListener('click',e=>{if(e.target.id==='fr2'){e.preventDefault();resetF()}});
+$('#fopen').onclick=()=>$('#filters').classList.add('on');$('#fclose').onclick=()=>$('#filters').classList.remove('on');
+
+/* product */
+let cur={i:0,s:null,q:1,c:0};const VIEW=[];
+const ALT={Mats:'texture',Props:'home',Wear:'studio'};
+function setProduct(i){const p=P[i];cur={i,s:p.sz.length===1?p.sz[0]:null,q:1,c:0};
+ $('#pName').textContent=p.n;$('#pCrumb').textContent=p.n;$('#pCat').textContent=p.c;$('#pKick').textContent=p.c+' · '+(p.m==='Rubber'?'Natural rubber':p.m);$('#pStars').innerHTML=stars(p.r,p.rc);
+ $('#pBdg').textContent=p.b||'';$('#pBdg').style.display=p.b?'':'none';$('#pBdg').className='bdg '+(p.b==='Sale'?'s':'');
+ const th=[[p.k,''],[p.k,'transform:scale(1.6)'],[ALT[p.c],''],['calm','']];
+ $('#thumbs').innerHTML=th.map((t,n)=>`<button aria-current="${n===0}" data-th="${n}" aria-label="Image ${n+1}"><img src="${src(t[0])}" alt="" style="${t[1]}"></button>`).join('');
+ $('#thumbs').onclick=e=>{const b=e.target.closest('[data-th]');if(!b)return;$$('#thumbs button').forEach(x=>x.setAttribute('aria-current',x===b));const t=th[+b.dataset.th];$('#mImg').src=src(t[0]);$('#mImg').style.cssText=t[1]};
+ $('#mImg').src=src(p.k);$('#mImg').alt=p.n;$('#mImg').style.cssText='';$('#mbox').classList.remove('zm');
+ $('#pCols').innerHTML=p.sw.map((c,n)=>`<button aria-pressed="${n===0}" data-pc="${n}" aria-label="${c[0]}" title="${c[0]}" style="background:${c[1]}"></button>`).join('');
+ $('#szOpt').style.display=p.sz.length===1?'none':'';
+ $('#pSizes').innerHTML=p.sz.map(s=>`<button aria-pressed="${cur.s===s}" data-ps="${s}" class="${(p.x||[]).includes(s)?'x':''} ${(p.low||[]).includes(s)?'low':''}">${s}</button>`).join('');
+ $('#pSizes').style.gridTemplateColumns=p.sz.length<5?`repeat(${p.sz.length},1fr)`:'';
+ $('#pFit').textContent=p.fit;
+ $('#pDesc').textContent=`The ${p.n} is made for slow, steady practice: ${p.sub.toLowerCase()}. Simple, natural and made to be used every day.`;
+ $('#pTech').innerHTML=p.tech.map(t=>`<li>${t}</li>`).join('');
+ $('#stImg').src=src(p.k);$('#stName').textContent=p.n;fbt();fill('#relGrid',P.map((x,j)=>j).filter(j=>j!==i).sort((a,b)=>(P[b].c===p.c)-(P[a].c===p.c)).slice(0,4));
+ rbars();rcards('#prcards');$('#prStars').innerHTML=stars(p.r,p.rc);$('#prAvg').textContent=p.r;pupd()}
+function pupd(){const p=P[cur.i],pr=p.p*cur.q;$('#pPrice').textContent=money(p.p);$('#pWas').textContent=p.w?money(p.w):'';$('#pInst').textContent=money(p.p/4);
+ $('#qv').textContent=cur.q;$('#pSizeL').textContent=cur.s||'Choose a size';$('#pColL').textContent=p.sw[cur.c][0];
+ $('#stPrice').textContent=money(pr);$('#stOpt').textContent=p.sw[cur.c][0]+' · '+(cur.s||'choose a size');$('#pAdd').textContent=cur.s?'Add to bag · '+money(pr):'Choose a size'}
+$('#pSizes').addEventListener('click',e=>{const b=e.target.closest('[data-ps]');if(!b||b.classList.contains('x'))return;cur.s=b.dataset.ps;$$('#pSizes button').forEach(x=>x.setAttribute('aria-pressed',x===b));pupd()});
+$('#pCols').addEventListener('click',e=>{const b=e.target.closest('[data-pc]');if(!b)return;cur.c=+b.dataset.pc;$$('#pCols button').forEach(x=>x.setAttribute('aria-pressed',x===b));pupd()});
+$('#qm').onclick=()=>{cur.q=Math.max(1,cur.q-1);pupd()};$('#qp').onclick=()=>{cur.q++;pupd()};
+$('#mbox').addEventListener('click',()=>$('#mbox').classList.toggle('zm'));
+$('#mbox').addEventListener('mousemove',e=>{if(!$('#mbox').classList.contains('zm'))return;const r=e.currentTarget.getBoundingClientRect();$('#mImg').style.transformOrigin=`${(e.clientX-r.left)/r.width*100}% ${(e.clientY-r.top)/r.height*100}%`});
+function padd(btn){if(!cur.s){$('#pSizes').animate([{transform:'translateX(0)'},{transform:'translateX(-6px)'},{transform:'translateX(6px)'},{transform:'translateX(0)'}],{duration:300});$('#pSizeL').textContent='Please choose a size';toast('Choose a size first');window.scrollTo({top:$('#pSizes').getBoundingClientRect().top+scrollY-220,behavior:'smooth'});return}
+ add(cur.i,cur.s,cur.q);btn.textContent='Added ✓';setTimeout(()=>{pupd();$('#stAdd').textContent='Add to bag'},1200)}
+$('#pAdd').onclick=e=>padd(e.currentTarget);$('#stAdd').onclick=e=>padd(e.currentTarget);
+function fbt(){const i=cur.i,its=[i,...[1,2,3,7,0].filter(x=>x!==i).slice(0,2)];$('#fbtIts').innerHTML=its.map((j,k)=>`${k?'<span class="plus">+</span>':''}<label><img src="${src(P[j].k)}" alt=""><span><input type="checkbox" checked data-fi="${j}" ${k===0?'disabled':''}> ${P[j].n} · ${money(P[j].p)}</span></label>`).join('');ftot()}
+function ftot(){const s=$$('#fbtIts input:checked').reduce((t,x)=>t+P[+x.dataset.fi].p,0);$('#fbtTot').textContent=money(s*.85)}
+$('#fbtIts').addEventListener('change',ftot);$('#fbtAdd').onclick=()=>{$$('#fbtIts input:checked').forEach(x=>{const j=+x.dataset.fi;add(j,j===cur.i&&cur.s?cur.s:first(P[j]),1,true,true)});openDrawer();toast('Added together, 15% off')};
+new IntersectionObserver(([e])=>$('#sticky').classList.toggle('on',!e.isIntersecting&&$('#p-product').classList.contains('on')&&e.boundingClientRect.top<0)).observe($('#atc'));
+function seen(i){const k=VIEW.indexOf(i);if(k>-1)VIEW.splice(k,1);VIEW.unshift(i);fill('#rvGrid',(VIEW.length>1?VIEW.slice(1):[]).concat([3,6,1,7].filter(x=>!VIEW.includes(x))).slice(0,4))}
+
+/* size guide */
+const SG=[['XS',60,86,'150-158'],['S',66,92,'158-166'],['M',72,98,'166-174'],['L',78,104,'174-182'],['XL',84,110,'182-190']];
+function sgT(h){$('#sgT').innerHTML=SG.map(r=>`<tr class="${r[0]===h?'hl':''}"><td>${r[0]}</td><td>${r[1]}</td><td>${r[2]}</td><td>${r[3]}</td></tr>`).join('')}
+function sgOpen(e){e.preventDefault();$('#sg').classList.add('on');sgT()}$('#sgOpen').onclick=sgOpen;$('#sgOpen2').onclick=sgOpen;$('#sgx').onclick=()=>$('#sg').classList.remove('on');
+$('#sg').addEventListener('click',e=>{if(e.target.id==='sg')$('#sg').classList.remove('on')});
+$('#fgo').onclick=()=>{const h=+$('#fh').value,f=+$('#ff').value;let k=SG.findIndex(r=>{const [a,b]=r[3].split('-').map(Number);return h>=a&&h<b});if(k<0)k=h<150?0:4;k=Math.max(0,Math.min(4,k+(f===0?-1:f===2?1:0)));const s=SG[k][0];$('#fres').textContent='We suggest size '+s+'.';sgT(s);
+ const p=P[cur.i];if(p.sz.includes(s)&&!(p.x||[]).includes(s)){cur.s=s;$$('#pSizes button').forEach(x=>x.setAttribute('aria-pressed',x.dataset.ps===s));pupd()}};
+
+/* search, blog */
+function runSearch(){const t=$('#sq').value.trim().toLowerCase();$('#sTerm').textContent=t;const L=P.map((p,i)=>i).filter(i=>{const p=P[i];return !t||(p.n+' '+p.c+' '+p.m+' '+p.sub+' '+p.tech.join(' ')).toLowerCase().includes(t)});
+ $('#sGrid').innerHTML=L.map(card).join('')||'<div class="empty" style="grid-column:1/-1">No results. Try "cork" or "legging".</div>';$('#sCount').textContent=L.length;obs()}
+$('#sq').addEventListener('input',runSearch);$('#sq').addEventListener('keydown',e=>{if(e.key==='Enter')runSearch()});
+$('#sugs').addEventListener('click',e=>{const b=e.target.closest('button');if(b){$('#sq').value=b.textContent;runSearch()}});
+const POSTS=[['calm','Breath','Box breathing in four steps','A simple pattern to settle before practice.'],['texture','Care','How to care for a cork mat','Wipe, air dry, and keep it out of direct sun.'],['studio','Practice','Mat pilates for beginners','Five moves to build core control.'],['hero','Practice','A ten-minute morning flow','Wake the spine and hips before the day starts.'],['home','Practice','Props for a restful yin practice','Why a bolster and two blocks are worth it.'],['p4','Care','Refilling a buckwheat bolster','Make it firmer or softer in minutes.']];
+$('#posts').innerHTML=POSTS.map(p=>`<a href="#" class="post reveal" data-go="article"><div class="im"><img src="${src(p[0])}" alt="" loading="lazy"></div><span class="k">${p[1]} · 5 min read</span><h3>${p[2]}</h3><p>${p[3]}</p></a>`).join('');
+$('#bcats').addEventListener('click',e=>{const b=e.target.closest('button');if(b)$$('#bcats button').forEach(x=>x.classList.toggle('on',x===b))});
+
+/* reveal */
+let io;function obs(){if(!io)io=new IntersectionObserver(es=>es.forEach(x=>{if(x.isIntersecting){x.target.classList.add('in');io.unobserve(x.target)}}),{rootMargin:'0px 0px -6% 0px'});$$('.reveal:not(.in)').forEach(r=>io.observe(r))}
+
+/* init */
+imgs();nd('all');mat(0);pfind();setHTML();bpInfo();rcards('#rcHome');
+fill('#upsell',[2,7,1,3]);fill('#artGrid',[0,1,3,2]);fill('#nfGrid',[0,4,1,6]);setCat('all');setProduct(0);seen(0);render();runSearch();obs();
+</script>
+</body>
+</html>
