@@ -1,0 +1,868 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Switchback · Shopify outdoor gear theme preview (SBS-THEME-006-S4)</title>
+<meta name="robots" content="noindex">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Zilla+Slab:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{--bone:#EEE8DC;--bone2:#E6DECE;--sand:#D9CDB4;--basalt:#23231F;--ink2:#4A4A42;--mute:#7C7A70;--rust:#B4532A;--rust2:#F0D9CB;--lichen:#5E6640;--lichen2:#DCDFCB;--slate:#7E9297;--line:#CFC6B2;--card:#F6F2EA;
+--disp:"Zilla Slab",Georgia,serif;--body:"IBM Plex Sans",system-ui,sans-serif;--mono:"IBM Plex Mono",ui-monospace,monospace}
+*{box-sizing:border-box}html{scroll-behavior:smooth}
+body{margin:0;font:400 16px/1.6 var(--body);color:var(--basalt);background:var(--bone);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+img{max-width:100%;display:block}a{color:inherit;text-decoration:none}button{font:inherit;color:inherit;cursor:pointer;background:none;border:0;padding:0}
+input,select,textarea{font:inherit;color:inherit}
+h1,h2,h3,h4{font-family:var(--disp);font-weight:700;line-height:1.02;letter-spacing:-.01em;margin:0}
+h1 em,h2 em{font-style:normal;color:var(--rust)}
+.wrap{max-width:1380px;margin:0 auto;padding:0 44px}
+.k{display:inline-flex;align-items:center;gap:10px;font:500 11.5px/1 var(--mono);letter-spacing:.14em;text-transform:uppercase;color:var(--rust)}
+.k::before{content:"";width:9px;height:9px;border:1.5px solid currentColor;transform:rotate(45deg)}
+.mono{font-family:var(--mono)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;height:50px;padding:0 24px;border:1.5px solid var(--basalt);font:600 13.5px var(--body);letter-spacing:.06em;text-transform:uppercase;transition:.2s;border-radius:2px}
+.btn:hover{background:var(--basalt);color:var(--bone)}
+.btn-m{background:var(--rust);border-color:var(--rust);color:#fff}.btn-m:hover{background:#9a4522;border-color:#9a4522}
+.btn-c{background:var(--bone);border-color:var(--bone);color:var(--basalt)}.btn-c:hover{background:#fff;color:var(--basalt)}
+.btn:disabled{opacity:.4;pointer-events:none}
+.lk{font:600 13px var(--body);letter-spacing:.08em;text-transform:uppercase;border-bottom:2px solid var(--rust);padding-bottom:3px}
+.ib{width:42px;height:42px;display:inline-grid;place-items:center;position:relative}
+.reveal{opacity:0;transform:translateY(18px);transition:opacity .7s,transform .7s}.reveal.in{opacity:1;transform:none}
+/* preview bar */
+.pv{position:relative;z-index:200;background:#111110;color:#d6d2c6;font:400 12px var(--body)}
+.pv .wrap{display:flex;gap:16px;align-items:center;justify-content:space-between;padding-top:8px;padding-bottom:8px;flex-wrap:wrap}
+.pv .tabs{display:flex;gap:4px;flex-wrap:wrap}
+.pv .tabs button{border:1px solid #3d3c37;color:#d6d2c6;padding:5px 11px;font:500 11.5px var(--mono);border-radius:2px}
+.pv .tabs button.on{background:var(--rust);border-color:var(--rust);color:#fff}
+.pv label{display:flex;gap:6px;align-items:center;white-space:nowrap}
+body.names [data-dawn]{position:relative;outline:1px dashed rgba(180,83,42,.85);outline-offset:-1px}
+body.names [data-dawn]::after{content:attr(data-dawn);position:absolute;top:0;left:0;z-index:60;background:var(--rust);color:#fff;font:500 11px var(--mono);padding:3px 8px;pointer-events:none}
+/* utility + announcement */
+.util{background:var(--basalt);color:#cfc9ba;font:400 11.5px var(--mono);letter-spacing:.06em}
+.util .wrap{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;height:36px}
+.util .co{opacity:.75}.util .r{justify-self:end;display:flex;gap:18px}
+.ann{position:relative;height:36px;overflow:hidden;text-align:center}
+.ann span{position:absolute;inset:0;display:grid;place-items:center;opacity:0;transform:translateY(8px);transition:.5s;color:#fff}
+.ann span.on{opacity:1;transform:none}
+/* header: transparent over hero, solid on scroll */
+.hdr{position:sticky;top:0;z-index:100;transition:background .3s,color .3s,box-shadow .3s;color:var(--basalt);background:var(--bone)}
+body.ontop .hdr.over{background:transparent;color:#fff}
+.hdr.over{margin-bottom:-78px}
+.hdr.solid{box-shadow:0 1px 0 var(--line)}
+.hdr .top{display:flex;align-items:center;height:78px;gap:36px}
+.logo{display:flex;align-items:center;gap:10px;font:700 26px var(--disp);letter-spacing:-.01em}
+.logo i{width:30px;height:30px;display:inline-block;background:currentColor;-webkit-mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3E%3Cpath d='M2 26 11 9l5 8 4-6 8 15z' fill='black'/%3E%3C/svg%3E") center/contain no-repeat;mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3E%3Cpath d='M2 26 11 9l5 8 4-6 8 15z' fill='black'/%3E%3C/svg%3E") center/contain no-repeat}
+.nav{display:flex;gap:4px;align-items:center;flex:1}
+.nav>a,.mwrap>button{font:600 13.5px var(--body);letter-spacing:.07em;text-transform:uppercase;padding:28px 13px;position:relative}
+.nav>a::after,.mwrap>button::after{content:"";position:absolute;left:13px;right:13px;bottom:22px;height:2px;background:var(--rust);transform:scaleX(0);transform-origin:left;transition:.25s}
+.nav>a:hover::after,.mwrap:hover>button::after{transform:none}
+.mega{position:absolute;left:0;right:0;top:100%;background:var(--bone);color:var(--basalt);border-top:1px solid var(--line);box-shadow:0 30px 50px -30px rgba(0,0,0,.35);opacity:0;visibility:hidden;transform:translateY(-6px);transition:.22s}
+.mwrap.open .mega{opacity:1;visibility:visible;transform:none}
+.mega .wrap{display:grid;grid-template-columns:repeat(3,1fr) 1.5fr;gap:36px;padding-top:34px;padding-bottom:38px}
+.mega h5{font:500 11px var(--mono);letter-spacing:.14em;text-transform:uppercase;color:var(--mute);margin:0 0 14px}
+.mega .lst a{display:block;padding:6px 0;font-weight:500}.mega .lst a:hover{color:var(--rust)}
+.mtile{position:relative;display:block;overflow:hidden;min-height:220px;color:#fff}
+.mtile img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.mtile div{position:absolute;left:0;right:0;bottom:0;padding:22px;background:linear-gradient(transparent,rgba(20,20,18,.8))}
+.mtile b{display:block;font:700 26px var(--disp);margin:4px 0}.mtile small{font:500 11px var(--mono);letter-spacing:.1em;text-transform:uppercase}
+.hr{display:flex;gap:2px;margin-left:auto}
+.cc{position:absolute;top:3px;right:1px;min-width:18px;height:18px;padding:0 4px;background:var(--rust);color:#fff;font:600 10.5px/18px var(--mono);text-align:center}
+.cc.bump{animation:bump .5s}@keyframes bump{40%{transform:scale(1.5)}}
+.burger{display:none}
+.srch{max-height:0;overflow:hidden;transition:.3s;background:var(--bone);color:var(--basalt)}
+.srch.on{max-height:110px;border-top:1px solid var(--line)}
+.srch .wrap{display:flex;gap:10px;padding-top:20px;padding-bottom:20px}
+.srch input{flex:1;height:50px;border:1.5px solid var(--basalt);background:#fff;padding:0 18px;border-radius:2px}
+.mm{position:fixed;inset:0;z-index:300;background:var(--basalt);color:var(--bone);transform:translateX(-100%);transition:.35s;padding:20px}
+.mm.on{transform:none}.mm .top{display:flex;justify-content:space-between;align-items:center}
+.mm nav a{display:flex;justify-content:space-between;padding:18px 0;border-bottom:1px solid #3a3a34;font:700 30px var(--disp)}
+/* hero */
+.hero{position:relative;min-height:860px;color:#fff;display:flex;align-items:flex-end;overflow:hidden}
+.hero>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.hero::before{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(20,20,18,.55) 0,rgba(20,20,18,0) 28%,rgba(20,20,18,0) 45%,rgba(20,20,18,.78) 100%)}
+.hero .wrap{position:relative;width:100%;padding-bottom:64px;display:grid;grid-template-columns:1.5fr 1fr;gap:60px;align-items:end}
+.hero h1{font-size:112px;line-height:.92;letter-spacing:-.025em;margin:20px 0 22px}
+.hero h1 em{color:#fff;box-shadow:inset 0 -.16em 0 var(--rust)}.hero h1,.hero p{text-shadow:0 2px 18px rgba(0,0,0,.35)}
+.hero p{font-size:18.5px;max-width:520px;color:#ece6d8;margin:0 0 30px}
+.hero .k{color:#fff;background:rgba(22,22,19,.62);padding:8px 11px;-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px)}
+.ctas{display:flex;gap:12px;flex-wrap:wrap}
+.hero .btn:not(.btn-m){border-color:#fff;color:#fff}.hero .btn:not(.btn-m):hover{background:#fff;color:var(--basalt)}
+.elev{justify-self:end;width:100%;max-width:400px;background:rgba(22,22,19,.62);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);border-top:3px solid var(--rust);padding:8px 24px 18px;font-family:var(--mono)}
+.elev .row{display:flex;justify-content:space-between;padding:12px 0;border-bottom:1px solid rgba(255,255,255,.22);font-size:13px;letter-spacing:.05em}
+.elev .row b{font-weight:500;color:#fff}.elev .row span{color:#cdc6b6}
+.elev svg{width:100%;height:76px;margin-top:16px}
+.hcoord{position:absolute;right:44px;top:120px;font:400 11.5px var(--mono);letter-spacing:.12em;color:#e8e1d2;writing-mode:vertical-rl;opacity:.8}
+.strip{background:var(--lichen);color:#eceadb}
+.strip .wrap{display:grid;grid-template-columns:repeat(4,1fr)}
+.strip .wrap>div{display:flex;gap:12px;align-items:center;padding:20px 0;font:500 13px var(--mono);letter-spacing:.05em;text-transform:uppercase}
+.strip .wrap>div+div{border-left:1px solid rgba(255,255,255,.18);padding-left:24px}
+/* sections */
+.sec{padding:110px 0}.sec.t{padding-top:0}
+.sh{display:flex;justify-content:space-between;align-items:flex-end;gap:40px;margin-bottom:46px;border-bottom:1.5px solid var(--basalt);padding-bottom:22px}
+.sh h2{font-size:58px;margin-top:14px}.sh p{max-width:400px;margin:0;color:var(--ink2)}
+.ftabs{display:flex;gap:0;border:1.5px solid var(--basalt);border-radius:2px}
+.ftabs button{padding:10px 18px;font:500 12px var(--mono);letter-spacing:.08em;text-transform:uppercase}
+.ftabs button+button{border-left:1.5px solid var(--basalt)}
+.ftabs button.on{background:var(--basalt);color:var(--bone)}
+/* activity tiles */
+.acts{display:grid;grid-template-columns:2fr 1fr 1fr;grid-template-rows:280px 280px;gap:14px}
+.act{position:relative;overflow:hidden;color:#fff;display:block}
+.act:first-child{grid-row:span 2}.act:nth-child(4){grid-column:span 2}
+.act img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .8s}
+.act:hover img{transform:scale(1.05)}
+.act::after{content:"";position:absolute;inset:0;background:linear-gradient(transparent 45%,rgba(18,18,16,.82))}
+.act .t{position:absolute;left:24px;right:24px;bottom:22px;z-index:2;display:flex;justify-content:space-between;align-items:flex-end}
+.act h3{font-size:34px}.act:first-child h3{font-size:52px}
+.act small{display:block;font:500 11.5px var(--mono);letter-spacing:.1em;text-transform:uppercase;color:#e9dfcd;margin-top:6px}
+.act .n{font:500 12px var(--mono);border:1px solid rgba(255,255,255,.6);padding:5px 8px}
+/* product cards: borderless, mono tech tags, topo hover */
+.grid{display:grid;grid-template-columns:repeat(4,1fr);gap:40px 22px}
+.card{position:relative}
+.card .im{position:relative;aspect-ratio:4/5;background:var(--card);overflow:hidden}
+.card .im::before{content:"";position:absolute;inset:0;z-index:1;opacity:0;transition:.4s;pointer-events:none;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220' viewBox='0 0 220 220' fill='none' stroke='%23B4532A' stroke-opacity='.35'%3E%3Cpath d='M-10 60c40-30 80 20 120-5s70-30 120 0'/%3E%3Cpath d='M-10 90c40-30 80 20 120-5s70-30 120 0'/%3E%3Cpath d='M-10 120c40-30 80 20 120-5s70-30 120 0'/%3E%3Cpath d='M-10 150c40-30 80 20 120-5s70-30 120 0'/%3E%3Cpath d='M-10 180c40-30 80 20 120-5s70-30 120 0'/%3E%3C/svg%3E")}
+.card:hover .im::before{opacity:1}
+.card .im img{width:100%;height:100%;object-fit:cover;transition:transform .6s,opacity .4s}
+.card .im .h{position:absolute;inset:0;opacity:0;transform:scale(1.18)}
+.card:hover .im .h{opacity:1}.card:hover .im .m{opacity:0}
+.bdg{position:absolute;top:0;left:0;z-index:3;background:var(--basalt);color:var(--bone);font:500 10.5px var(--mono);letter-spacing:.12em;text-transform:uppercase;padding:7px 10px}
+.bdg.s{background:var(--rust)}
+.wish{position:absolute;top:10px;right:10px;z-index:3;width:36px;height:36px;display:grid;place-items:center;background:var(--bone);border-radius:50%;opacity:0;transition:.2s}
+.card:hover .wish,.wish.on{opacity:1}.wish.on svg{fill:var(--rust);stroke:var(--rust)}
+.qa{position:absolute;left:0;right:0;bottom:0;z-index:3;background:var(--basalt);color:var(--bone);padding:12px;transform:translateY(101%);transition:.3s}
+.card:hover .qa,.card:focus-within .qa{transform:none}
+.qa small{display:block;font:500 10.5px var(--mono);letter-spacing:.1em;text-transform:uppercase;color:#bdb6a6;margin-bottom:8px}
+.qa .sz{display:grid;grid-template-columns:repeat(auto-fit,minmax(38px,1fr));gap:4px}
+.qa .sz button{height:34px;border:1px solid #4d4c45;font:500 12px var(--mono)}
+.qa .sz button:hover{background:var(--rust);border-color:var(--rust)}
+.qa .sz button.x{opacity:.3;text-decoration:line-through;pointer-events:none}
+.meta{padding-top:14px}
+.meta .ty{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:8px}
+.meta .ty span{font:500 10.5px var(--mono);letter-spacing:.06em;text-transform:uppercase;background:var(--bone2);padding:3px 7px;color:var(--ink2)}
+.meta .ty span.w{background:var(--lichen2);color:var(--lichen)}
+.meta h4{font:600 17px/1.3 var(--body);margin:0 0 6px}
+.meta .row{display:flex;justify-content:space-between;align-items:center;gap:10px}
+.pr2{font:500 16px var(--mono)}.pr2 .now{color:var(--rust)}.pr2 s{color:var(--mute);margin-left:8px;font-size:13px}
+.stars{color:var(--rust);font-size:13px;letter-spacing:1px}.stars em{font:400 12px var(--mono);color:var(--mute);margin-left:5px;font-style:normal}
+.sw{display:flex;gap:5px;margin-top:9px}.sw i{width:14px;height:14px;border:1px solid rgba(0,0,0,.18);display:inline-block}
+/* story / texture */
+.story{display:grid;grid-template-columns:1.1fr 1fr;background:var(--basalt);color:var(--bone)}
+.story .ph{min-height:620px;position:relative}.story .ph img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.story .tx{padding:70px 64px;display:flex;flex-direction:column;justify-content:center}
+.story h2{font-size:58px;margin:16px 0}.story p{color:#cec8b8}
+.specs{display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid #45443d;margin:26px 0 30px}
+.specs div{padding:20px 0 0}.specs strong{display:block;font:500 30px var(--mono);color:#F2B48F}.specs small{font:500 11px var(--mono);letter-spacing:.1em;text-transform:uppercase;color:#9e998a}
+.story .lk{color:#fff}
+/* layer guide (sbs) */
+.lg{display:grid;grid-template-columns:1fr 1.25fr;gap:60px;align-items:start}
+.lg h2{font-size:58px;margin:14px 0 16px}.lg p.l{color:var(--ink2);max-width:440px}
+.thermo{margin-top:34px;background:var(--card);padding:28px;border:1.5px solid var(--basalt)}
+.thermo .rd{display:flex;justify-content:space-between;align-items:baseline}
+.thermo strong{font:500 64px/1 var(--mono);color:var(--rust)}
+.thermo .cond{font:500 12px var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--ink2)}
+.trng{-webkit-appearance:none;appearance:none;width:100%;height:10px;margin:24px 0 8px;background:linear-gradient(90deg,#7E9297,#DCDFCB 45%,#E8B07F 75%,#B4532A);border-radius:0;outline:none}
+.trng::-webkit-slider-thumb{-webkit-appearance:none;width:26px;height:26px;background:var(--basalt);border:4px solid var(--bone);border-radius:50%;box-shadow:0 0 0 1.5px var(--basalt);cursor:pointer}
+.trng::-moz-range-thumb{width:20px;height:20px;background:var(--basalt);border:4px solid var(--bone);border-radius:50%}
+.tsc{display:flex;justify-content:space-between;font:400 11px var(--mono);color:var(--mute)}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:18px}
+.chips button{padding:9px 14px;border:1.5px solid var(--line);font:500 12.5px var(--mono);letter-spacing:.04em;background:var(--bone)}
+.chips button[aria-pressed=true]{background:var(--basalt);border-color:var(--basalt);color:var(--bone)}
+.layers{display:grid;gap:12px}
+.layer{display:grid;grid-template-columns:62px 92px 1fr auto;gap:18px;align-items:center;background:var(--card);padding:14px 18px 14px 14px;border-left:5px solid var(--lc,var(--lichen));transition:.3s}
+.layer.off{opacity:.38;filter:grayscale(1)}
+.layer .no{font:500 11px var(--mono);letter-spacing:.1em;color:var(--mute);text-transform:uppercase}
+.layer .no b{display:block;font:700 26px var(--disp);color:var(--basalt);letter-spacing:0}
+.layer img{width:92px;height:92px;object-fit:cover}
+.layer h4{font:600 16.5px var(--body)}.layer small{display:block;color:var(--ink2);font-size:13.5px;margin-top:3px}
+.layer .add2{font:600 12px var(--body);letter-spacing:.06em;text-transform:uppercase;border:1.5px solid var(--basalt);padding:9px 12px}
+.layer .add2:hover{background:var(--basalt);color:var(--bone)}
+.lgsum{display:flex;justify-content:space-between;align-items:center;margin-top:16px;padding-top:16px;border-top:1.5px dashed var(--line);font:500 13px var(--mono)}
+/* pack weight builder (sbs) */
+.pk{background:var(--bone2);padding:110px 0}
+.pkg{display:grid;grid-template-columns:1.35fr 1fr;gap:28px}
+.pitems{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
+.pit{display:grid;grid-template-columns:76px 1fr auto;gap:14px;align-items:center;background:var(--bone);padding:12px;border:1.5px solid transparent;text-align:left;transition:.2s}
+.pit[aria-pressed=true]{border-color:var(--basalt);background:#fff}
+.pit img{width:76px;height:76px;object-fit:cover}
+.pit b{display:block;font:600 15px var(--body)}.pit small{font:400 12px var(--mono);color:var(--mute)}
+.pit i{width:24px;height:24px;border:1.5px solid var(--basalt);display:grid;place-items:center;font-style:normal;font-size:13px}
+.pit[aria-pressed=true] i{background:var(--rust);border-color:var(--rust);color:#fff}
+.gauge{background:var(--basalt);color:var(--bone);padding:34px;position:sticky;top:100px}
+.gauge .big{font:500 76px/1 var(--mono);margin:14px 0 6px}.gauge .big small{font-size:22px;color:#a9a393}
+.gbar{position:relative;height:16px;background:#3b3b35;margin:22px 0 10px}
+.gbar i{position:absolute;left:0;top:0;bottom:0;background:var(--lichen);transition:width .4s,background .4s}
+.gbar i.hv{background:var(--rust)}
+.gbar span{position:absolute;top:-6px;bottom:-6px;width:2px;background:var(--bone)}
+.gscale{display:flex;justify-content:space-between;font:400 11px var(--mono);color:#a9a393}
+.gclass{display:inline-block;margin-top:18px;font:500 12px var(--mono);letter-spacing:.1em;text-transform:uppercase;padding:6px 10px;border:1px solid #6a685f}
+.gauge .ln{display:flex;justify-content:space-between;font:400 13px var(--mono);padding:9px 0;border-bottom:1px solid #3d3c36;color:#cbc5b5}
+.gauge .tot{display:flex;justify-content:space-between;align-items:baseline;margin:20px 0}
+.gauge .tot strong{font:500 30px var(--mono)}.gauge .tot s{color:#8f8a7c;margin-right:10px;font:400 15px var(--mono)}
+.gauge .btn{width:100%}
+/* boot fit finder (sbs) */
+.bf{display:grid;grid-template-columns:1fr 1fr;border:1.5px solid var(--basalt)}
+.bf>div{padding:48px}
+.bf>div+div{border-left:1.5px solid var(--basalt);background:var(--card)}
+.bf h2{font-size:52px;margin:14px 0 12px}
+.bfq{margin-top:26px}.bfq p{margin:0;font:600 14px var(--body)}.bfq p b{font:500 12px var(--mono);color:var(--rust);margin-right:8px}
+.foot{display:flex;gap:28px;align-items:center}
+.foot svg{width:120px;flex:none}
+.bfres .sz{font:500 96px/1 var(--mono);color:var(--rust)}
+.bfres .sz small{font-size:20px;color:var(--mute);margin-left:6px}
+.bfres ul{list-style:none;padding:0;margin:20px 0;font-size:14.5px}
+.bfres li{padding:10px 0;border-bottom:1px solid var(--line);display:flex;justify-content:space-between}
+.bfres li span{font-family:var(--mono);color:var(--ink2)}
+.bfpick{display:grid;grid-template-columns:90px 1fr auto;gap:16px;align-items:center;background:var(--bone);padding:12px;margin-bottom:18px}
+.bfpick img{width:90px;height:90px;object-fit:cover}
+/* ugc / journal / reviews */
+.ugc{display:grid;grid-template-columns:repeat(5,1fr);gap:8px}
+.ugc a{position:relative;aspect-ratio:1;overflow:hidden;display:block}
+.ugc img{width:100%;height:100%;object-fit:cover;transition:.6s}.ugc a:hover img{transform:scale(1.06)}
+.ugc span{position:absolute;left:8px;bottom:8px;background:rgba(20,20,18,.75);color:#fff;font:400 11px var(--mono);padding:3px 6px}
+.rv3{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.rcard{border-top:3px solid var(--basalt);padding:24px 0 0;position:relative}
+.rcard p{font:600 22px/1.35 var(--disp);margin:14px 0 18px;letter-spacing:0}
+.rcard .who{font:500 12px var(--mono);letter-spacing:.06em;text-transform:uppercase;color:var(--mute)}
+.smp{position:absolute;top:24px;right:0;font:400 10.5px var(--mono);color:var(--mute);border:1px solid var(--line);padding:2px 6px}
+.nl{background:var(--rust);color:#fff;padding:70px 64px;display:grid;grid-template-columns:1fr 1fr;gap:50px;align-items:center;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300' fill='none' stroke='%23fff' stroke-opacity='.12'%3E%3Cpath d='M-10 80c50-40 100 30 160-6s90-40 160 0'/%3E%3Cpath d='M-10 120c50-40 100 30 160-6s90-40 160 0'/%3E%3Cpath d='M-10 160c50-40 100 30 160-6s90-40 160 0'/%3E%3Cpath d='M-10 200c50-40 100 30 160-6s90-40 160 0'/%3E%3C/svg%3E")}
+.nl .k{color:#fff}.nl h2{font-size:52px;margin:14px 0 10px}.nl p{margin:0;color:#f7e1d4}
+.nl form{display:flex;gap:0}.nl input{flex:1;height:56px;border:0;padding:0 18px;color:var(--basalt);border-radius:2px 0 0 2px}
+.nl .btn{height:56px;border-radius:0 2px 2px 0}
+.nl.solo{display:block;text-align:center}.nl.solo .btn{margin-top:22px;border-radius:2px}
+/* collection */
+.crumb{display:flex;gap:10px;padding:26px 0;font:400 12px var(--mono);letter-spacing:.06em;text-transform:uppercase;color:var(--mute)}.crumb b{color:var(--basalt);font-weight:500}
+.cban{position:relative;min-height:340px;color:#fff;display:flex;align-items:flex-end;padding:44px;margin-bottom:34px;overflow:hidden}
+.cban .ph{position:absolute;inset:0}.cban .ph img{width:100%;height:100%;object-fit:cover}
+.cban::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(20,20,18,.78),rgba(20,20,18,.1))}
+.cban>div:first-child{position:relative;z-index:2;max-width:540px}.cban .k{color:#F2B48F}
+.cban h1{font-size:76px;margin:12px 0 10px}.cban p{margin:0;color:#e7e0d1}
+.ctool{display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap;padding-bottom:22px;border-bottom:1.5px solid var(--basalt);margin-bottom:30px}
+select{height:42px;border:1.5px solid var(--basalt);background:var(--bone);padding:0 12px;font:500 12.5px var(--mono);border-radius:2px}
+.cl{display:grid;grid-template-columns:250px 1fr;gap:40px}
+.fbtn{display:none}
+.filters .fhd{display:none}
+.fg{padding:18px 0;border-bottom:1px solid var(--line)}
+.fg h6{display:flex;justify-content:space-between;margin:0 0 12px;font:500 11.5px var(--mono);letter-spacing:.12em;text-transform:uppercase}
+.fg label{display:flex;gap:10px;align-items:center;padding:5px 0;font-size:14.5px}.fg label em{margin-left:auto;font:400 12px var(--mono);color:var(--mute);font-style:normal}
+.fg input[type=checkbox]{accent-color:var(--rust);width:16px;height:16px}
+.fsz{display:grid;grid-template-columns:repeat(4,1fr);gap:5px}.fsz button{height:36px;border:1.5px solid var(--line);font:500 12px var(--mono)}
+.fsz button[aria-pressed=true]{background:var(--basalt);border-color:var(--basalt);color:var(--bone)}
+.fcol{display:flex;gap:8px;flex-wrap:wrap}.fcol button{width:28px;height:28px;border:2px solid var(--bone);box-shadow:0 0 0 1px var(--line)}
+.fcol button[aria-pressed=true]{box-shadow:0 0 0 2px var(--basalt)}
+.range{width:100%;accent-color:var(--rust)}
+.promo{position:relative;background:var(--lichen);color:#fff;display:flex;flex-direction:column;overflow:hidden;min-height:100%}
+.promo .t{padding:28px;display:flex;flex-direction:column;gap:14px;position:relative;z-index:2}.promo .k{color:#e8e2c6}
+.promo h3{font-size:36px}.promo img{margin-top:auto;height:220px;object-fit:cover;width:100%}
+.more{display:flex;flex-direction:column;align-items:center;gap:12px;margin-top:50px;font:400 12px var(--mono);color:var(--mute)}
+/* product */
+.pdp{display:grid;grid-template-columns:1.25fr 1fr;gap:60px;padding-bottom:90px}
+.gal{display:grid;grid-template-columns:86px 1fr;gap:14px;align-self:start;position:sticky;top:96px}
+.thumbs{display:flex;flex-direction:column;gap:10px}
+.thumbs button{aspect-ratio:4/5;overflow:hidden;border:1.5px solid transparent;background:var(--card)}
+.thumbs button[aria-current=true]{border-color:var(--basalt)}.thumbs img{width:100%;height:100%;object-fit:cover}
+.mbox{position:relative;aspect-ratio:4/5;overflow:hidden;background:var(--card);cursor:zoom-in}
+.mbox img{width:100%;height:100%;object-fit:cover;transition:transform .35s}.mbox.zm{cursor:zoom-out}.mbox.zm img{transform:scale(2)!important}
+.pinfo h1{font-size:54px;margin:14px 0 12px}
+.rt{display:flex;gap:14px;align-items:center;font-size:13.5px}.rt a{border-bottom:1px solid;font-family:var(--mono);font-size:12px}
+.pp{display:flex;gap:12px;align-items:baseline;margin:20px 0 4px}.pp strong{font:500 30px var(--mono)}.pp s{color:var(--mute);font-family:var(--mono)}
+.klarna{font-size:13.5px;color:var(--ink2)}
+.tags{display:flex;gap:6px;flex-wrap:wrap;margin:18px 0 6px}.tags span{font:500 11px var(--mono);letter-spacing:.06em;text-transform:uppercase;background:var(--bone2);padding:5px 8px}
+.opt{margin-top:24px}.opt .lb{display:flex;justify-content:space-between;margin-bottom:10px;font-size:14px}.opt .lb a{font:500 12px var(--mono);border-bottom:1px solid}
+.cols2{display:flex;gap:10px}.cols2 button{width:38px;height:38px;border:3px solid var(--bone);box-shadow:0 0 0 1px var(--line)}
+.cols2 button[aria-pressed=true]{box-shadow:0 0 0 2px var(--basalt)}
+.sizes{display:grid;grid-template-columns:repeat(6,1fr);gap:6px}
+.sizes button{height:46px;border:1.5px solid var(--line);font:500 13.5px var(--mono);position:relative}
+.sizes button[aria-pressed=true]{background:var(--basalt);color:var(--bone);border-color:var(--basalt)}
+.sizes button.x{opacity:.35;text-decoration:line-through;cursor:not-allowed}
+.sizes button.low::after{content:"";position:absolute;top:5px;right:5px;width:6px;height:6px;background:var(--rust);border-radius:50%}
+.fitn{font-size:13.5px;color:var(--ink2);margin-top:10px;padding-left:12px;border-left:3px solid var(--lichen)}
+.buy{display:grid;grid-template-columns:auto 1fr;gap:10px;margin-top:26px}
+.qty{display:flex;align-items:center;border:1.5px solid var(--basalt);height:54px}.qty button{width:44px;height:100%;font-size:18px}.qty b{min-width:30px;text-align:center;font:500 15px var(--mono)}
+.buy .btn{height:54px}
+.trust{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);border:1px solid var(--line);margin-top:18px}
+.trust div{background:var(--bone);padding:12px;font:500 11px var(--mono);text-transform:uppercase;letter-spacing:.05em;text-align:center}
+.acc{margin-top:26px;border-top:1.5px solid var(--basalt)}
+.acc details{border-bottom:1px solid var(--line)}.acc summary{list-style:none;padding:18px 0;font:600 14px var(--body);letter-spacing:.06em;text-transform:uppercase;cursor:pointer;display:flex;justify-content:space-between}
+.acc summary::after{content:"+";font-family:var(--mono)}.acc details[open] summary::after{content:"−"}
+.acc .in{padding:0 0 20px;color:var(--ink2);font-size:15px}.acc ul{margin:0;padding-left:18px}
+.fbt{display:grid;grid-template-columns:1fr 300px;gap:28px;background:var(--card);padding:28px;border:1.5px solid var(--basalt)}
+.fbt .its{display:flex;align-items:center;gap:14px;flex-wrap:wrap}.fbt label{display:flex;flex-direction:column;gap:10px;width:200px;font-size:13.5px}
+.fbt img{width:200px;height:200px;object-fit:cover}.fbt .plus{font:500 24px var(--mono);color:var(--mute)}
+.fbt .tot{display:flex;flex-direction:column;justify-content:center;gap:12px}.fbt .tot strong{font:500 34px var(--mono)}
+.rv{display:grid;grid-template-columns:280px 1fr;gap:50px}
+.rsum strong{font:500 64px var(--mono)}
+.rbar{display:grid;grid-template-columns:36px 1fr 40px;gap:10px;align-items:center;font:400 12px var(--mono);margin:6px 0}
+.rbar i{height:6px;background:var(--bone2);position:relative}.rbar i::after{content:"";position:absolute;inset:0;width:var(--w);background:var(--basalt)}
+.sticky{position:fixed;left:0;right:0;bottom:0;z-index:90;background:var(--basalt);color:var(--bone);transform:translateY(100%);transition:.3s}
+.sticky.on{transform:none}.sticky .in{max-width:1380px;margin:0 auto;padding:12px 44px;display:flex;gap:16px;align-items:center}
+.sticky img{width:52px;height:52px;object-fit:cover}.sticky small{display:block;font:400 12px var(--mono);color:#a9a393}.sticky .sp2{margin-left:auto;font:500 18px var(--mono)}
+/* cart */
+.cartp{display:grid;grid-template-columns:1fr 380px;gap:50px;padding-bottom:80px}
+.cartp h1{font-size:62px;margin-bottom:18px}
+.ship p{margin:0 0 8px;font:500 13px var(--mono)}.ship .bar{height:8px;background:var(--bone2)}.ship .bar i{display:block;height:100%;background:var(--lichen);transition:.4s}
+.line{display:grid;grid-template-columns:96px 1fr auto;gap:18px;padding:20px 0;border-bottom:1px solid var(--line)}
+.line img{width:96px;height:110px;object-fit:cover}.line b{font-weight:600}.line small{display:block;font:400 12px var(--mono);color:var(--mute);margin:3px 0 10px}
+.line .q{display:flex;align-items:center;gap:12px}.line .q button{width:30px;height:30px;border:1.5px solid var(--line);font-family:var(--mono)}.line .q .rm{width:auto;border:0;font-size:12px;text-decoration:underline;color:var(--mute)}
+.lp{font:500 15px var(--mono)}
+.csum{background:var(--card);padding:28px;border:1.5px solid var(--basalt);align-self:start}
+.csum .r{display:flex;justify-content:space-between;padding:9px 0;font-size:14.5px}.csum .r.t{border-top:1.5px solid var(--basalt);margin-top:10px;padding-top:16px}.csum .r.t b{font:500 24px var(--mono)}
+.csum textarea{width:100%;height:80px;border:1px solid var(--line);background:var(--bone);margin:16px 0;padding:12px}.csum .btn{width:100%}
+.pay{display:flex;gap:6px;flex-wrap:wrap}.pay span{font:500 10px var(--mono);border:1px solid var(--line);padding:4px 7px;color:var(--ink2)}
+.empty{padding:40px;text-align:center;background:var(--card);color:var(--ink2)}
+/* search, blog, article */
+.sbig{display:flex;gap:12px;border-bottom:2px solid var(--basalt);margin:14px 0 18px}
+.sbig input{flex:1;border:0;background:none;font:700 64px var(--disp);outline:none;padding:6px 0}
+.sugs{display:flex;gap:8px;align-items:center;margin-bottom:26px;font:400 12px var(--mono);color:var(--mute)}.sugs button{border:1px solid var(--line);padding:5px 10px;font-family:var(--mono)}
+.bfeat{display:grid;grid-template-columns:1.3fr 1fr;gap:44px;align-items:center;margin-bottom:60px;background:var(--basalt);color:var(--bone)}
+.bfeat .ph{aspect-ratio:16/10;overflow:hidden}.bfeat img{width:100%;height:100%;object-fit:cover}
+.bfeat>div:last-child{padding:30px 44px 30px 0}.bfeat h2{font-size:44px;margin:14px 0}.bfeat p{color:#cec8b8}.bfeat .lk{color:#fff}
+.posts{display:grid;grid-template-columns:repeat(3,1fr);gap:40px 24px}
+.post .im{aspect-ratio:3/2;overflow:hidden;margin-bottom:16px}.post img{width:100%;height:100%;object-fit:cover;transition:.6s}.post:hover img{transform:scale(1.05)}
+.post h3{font-size:27px;margin:10px 0 6px}.post p{margin:0;color:var(--ink2);font-size:15px}
+.art{max-width:780px;margin:0 auto}.art h1{font-size:64px;text-align:center;margin:16px 0}
+.by{text-align:center;font:400 12px var(--mono);color:var(--mute);letter-spacing:.06em;text-transform:uppercase}
+.hero2{margin:36px -120px;aspect-ratio:16/8;overflow:hidden}.hero2 img{width:100%;height:100%;object-fit:cover}
+.body{font-size:18px;line-height:1.75}.body h2{font-size:38px;margin:44px 0 12px}
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--basalt);border:1.5px solid var(--basalt);margin:30px 0}
+.steps div{background:var(--bone);padding:20px;font-size:14px}.steps b{display:block;font:500 34px var(--mono);color:var(--rust)}
+blockquote{margin:36px 0;padding:0 0 0 26px;border-left:5px solid var(--rust);font:700 34px/1.2 var(--disp)}
+/* about, contact, 404 */
+.ab{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center}.ab h1{font-size:76px;margin:16px 0}.ab p{font-size:18px;color:var(--ink2)}
+.ab .ph,.split .ph,.nf .ph{aspect-ratio:4/5;overflow:hidden}.ab img,.split img,.nf img{width:100%;height:100%;object-fit:cover}
+.prom{display:grid;grid-template-columns:repeat(4,1fr);border:1.5px solid var(--basalt)}
+.prom div{padding:30px}.prom div+div{border-left:1.5px solid var(--basalt)}
+.prom strong{font:500 13px var(--mono);color:var(--rust)}.prom h4{font-size:26px;margin:14px 0 8px}.prom p{margin:0;color:var(--ink2);font-size:15px}
+.split{display:grid;grid-template-columns:1fr 1.1fr;gap:60px;align-items:center}.split h2{font-size:52px;margin:14px 0}.split p{color:var(--ink2)}
+.ct{display:grid;grid-template-columns:1fr 1.1fr;gap:60px}.ct h1{font-size:70px;margin:14px 0}
+.card2{display:flex;gap:16px;align-items:center;padding:18px 0;border-bottom:1px solid var(--line)}
+.card2 i{width:46px;height:46px;display:grid;place-items:center;background:var(--basalt);color:var(--bone);font-style:normal}
+.card2 small{display:block;color:var(--mute);font-size:13.5px}
+.cform{display:grid;grid-template-columns:1fr 1fr;gap:16px;background:var(--card);padding:34px;border:1.5px solid var(--basalt)}
+.cform label{display:flex;flex-direction:column;gap:6px;font:500 11.5px var(--mono);letter-spacing:.08em;text-transform:uppercase}
+.cform .w{grid-column:1/-1}
+.cform input,.cform select,.cform textarea{height:48px;border:1.5px solid var(--line);background:var(--bone);padding:0 14px;font:400 15px var(--body);text-transform:none;letter-spacing:0;border-radius:2px}
+.cform textarea{height:130px;padding:12px 14px}
+.nf{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;padding-bottom:90px}
+.nf h1{font:500 160px/1 var(--mono);color:var(--rust)}.nf h2{font-size:46px;margin:10px 0}.nf p{color:var(--ink2);font-size:17px}
+/* footer */
+.ft{background:var(--basalt);color:#cbc5b5;padding:80px 0 30px;margin-top:20px}
+.ft .cols{display:grid;grid-template-columns:1.5fr 1fr 1fr 1fr 1.4fr;gap:40px}
+.ft .cols a.logo{color:var(--bone);font-size:28px;display:flex;padding:0 0 10px}.ft p{font-size:14.5px}
+.ft h5{font:500 11px var(--mono);letter-spacing:.14em;text-transform:uppercase;color:#8f8a7c;margin:0 0 16px}
+.ft .cols a{display:block;padding:5px 0;font-size:14.5px}.ft .cols a:hover{color:#fff}
+.soc{display:flex;gap:8px}.soc a{width:38px;height:38px;display:grid!important;place-items:center;border:1px solid #47463f;font:500 11px var(--mono)}
+.ft form{display:flex;margin-top:14px}.ft input{flex:1;height:46px;border:1px solid #47463f;background:transparent;padding:0 14px;color:#fff}
+.ft form button{padding:0 18px;background:var(--rust);color:#fff;font:600 12px var(--body);text-transform:uppercase;letter-spacing:.06em}
+.ft .bot{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;border-top:1px solid #3d3c36;margin-top:60px;padding-top:24px;font:400 12px var(--mono)}
+.ft .pay span{border-color:#47463f;color:#a9a393}
+.ft .coord{font:400 11px var(--mono);color:#77746a;margin-top:18px;letter-spacing:.08em}
+/* drawer, modal, toast */
+.scrim{position:fixed;inset:0;z-index:250;background:rgba(18,18,16,.5);opacity:0;visibility:hidden;transition:.3s}.scrim.on{opacity:1;visibility:visible}
+.drawer{position:fixed;top:0;right:0;bottom:0;z-index:260;width:440px;max-width:100%;background:var(--bone);transform:translateX(100%);transition:.35s;display:flex;flex-direction:column;padding:24px}
+.drawer.on{transform:none}.drawer .hd{display:flex;justify-content:space-between;align-items:center;border-bottom:1.5px solid var(--basalt);padding-bottom:16px;margin-bottom:16px}.drawer h3{font-size:28px}
+.drawer .ls{flex:1;overflow:auto}.drawer .ft2{border-top:1.5px solid var(--basalt);padding-top:16px;display:grid;gap:10px}.drawer .ft2 .r{display:flex;justify-content:space-between}.drawer .ft2 b{font:500 18px var(--mono)}.drawer .btn{width:100%}
+.modal{position:fixed;inset:0;z-index:270;background:rgba(18,18,16,.55);display:none;place-items:center;padding:20px}.modal.on{display:grid}
+.modal .box{background:var(--bone);width:640px;max-width:100%;padding:32px;max-height:90vh;overflow:auto;border:1.5px solid var(--basalt)}
+.modal h3{font-size:34px}
+table{width:100%;border-collapse:collapse;margin:20px 0;font:400 13.5px var(--mono)}th,td{padding:10px;border-bottom:1px solid var(--line);text-align:left}th{font-weight:500;text-transform:uppercase;font-size:11px;letter-spacing:.08em}
+tr.hl td{background:var(--rust2);font-weight:500}
+.finder2{display:grid;grid-template-columns:1fr 1fr auto;gap:10px;align-items:end}.finder2 label{display:flex;flex-direction:column;gap:6px;font:500 11px var(--mono);text-transform:uppercase;letter-spacing:.08em}
+.fres{font:500 14px var(--mono);color:var(--rust)}
+.toast{position:fixed;left:50%;bottom:28px;z-index:300;transform:translate(-50%,30px);opacity:0;transition:.3s;background:var(--basalt);color:var(--bone);padding:14px 22px;font:500 13px var(--mono);border-left:4px solid var(--rust)}
+.toast.on{opacity:1;transform:translate(-50%,0)}
+.page{display:none}.page.on{display:block}
+/* responsive */
+@media(max-width:1100px){.hero h1{font-size:84px}.grid{grid-template-columns:repeat(3,1fr)}.ft .cols{grid-template-columns:1fr 1fr 1fr}.pkg,.lg{grid-template-columns:1fr}.gauge{position:static}}
+@media(max-width:820px){
+.wrap{padding:0 16px}.util .co,.util .r{display:none}.util .wrap{grid-template-columns:1fr}
+.nav,.hr .acc2{display:none}.burger{display:inline-grid}.hdr .top{height:64px;gap:8px}.hdr.over{margin-bottom:-64px}.logo{font-size:22px}
+.hero{min-height:860px}.hero>img{object-position:72% center}.hero::before{background:linear-gradient(180deg,rgba(20,20,18,.55) 0,rgba(20,20,18,.2) 22%,rgba(20,20,18,.55) 48%,rgba(20,20,18,.9) 100%)}.ftabs{max-width:100%;overflow-x:auto}.ftabs button{white-space:nowrap;padding:10px 13px}.hero .wrap{grid-template-columns:1fr;gap:28px;padding-bottom:36px}.hero h1{font-size:58px}.hero p{font-size:16px}.hcoord{display:none}
+.elev .row:nth-child(n+4){display:none}.elev svg{height:48px;margin-top:8px}.elev{max-width:none;padding:4px 16px 12px}
+.strip .wrap{grid-template-columns:1fr 1fr}.strip .wrap>div{padding:14px 0;font-size:11px}.strip .wrap>div:nth-child(3){border-left:0;padding-left:0}
+.sec{padding:70px 0}.sh{flex-direction:column;align-items:flex-start;gap:16px}.sh h2,.story h2,.lg h2,.bf h2,.nl h2{font-size:40px}
+.acts{grid-template-columns:1fr 1fr;grid-template-rows:300px 200px 200px}.act:first-child{grid-column:span 2;grid-row:auto}.act:nth-child(4){grid-column:span 2}.act:first-child h3{font-size:38px}.act h3{font-size:24px}
+.grid,#cGrid{grid-template-columns:1fr 1fr!important;gap:30px 12px}
+.card .wish{opacity:1}.qa{display:none}.meta h4{font-size:15px}
+.story{grid-template-columns:1fr}.story .ph{min-height:340px}.story .tx{padding:40px 22px}
+.layer{grid-template-columns:70px 1fr;gap:12px}.layer .no{display:none}.layer img{width:70px;height:70px}.layer .add2{grid-column:2;justify-self:start}
+.pitems{grid-template-columns:1fr}.gauge{padding:24px}.gauge .big{font-size:56px}
+.bf{grid-template-columns:1fr}.bf>div{padding:26px}.bf>div+div{border-left:0;border-top:1.5px solid var(--basalt)}.foot svg{width:80px}
+.ugc{grid-template-columns:repeat(3,1fr)}.ugc a:nth-child(n+4){display:none}
+.rv3,.posts,.prom{grid-template-columns:1fr}.prom div+div{border-left:0;border-top:1.5px solid var(--basalt)}
+.nl{grid-template-columns:1fr;padding:44px 22px;gap:22px}
+.cban{padding:24px;min-height:280px}.cban h1{font-size:48px}
+.cl{grid-template-columns:1fr}.fbtn{display:inline-flex}
+.filters{position:fixed;inset:0;z-index:280;background:var(--bone);padding:20px;overflow:auto;transform:translateX(-100%);transition:.3s}.filters.on{transform:none}.filters .fhd{display:flex;justify-content:space-between}
+.pdp,.cartp,.ab,.split,.ct,.nf,.bfeat,.rv,.fbt{grid-template-columns:1fr;gap:30px}
+.gal{position:static;grid-template-columns:1fr}.thumbs{flex-direction:row;order:2}.thumbs button{width:70px}.pinfo h1{font-size:40px}
+.sizes{grid-template-columns:repeat(4,1fr)}.trust{grid-template-columns:1fr}
+.fbt label{width:140px}.fbt img{width:140px;height:140px}
+.sticky .in{padding:10px 16px}.sticky img{display:none}
+.cartp h1,.art h1,.ab h1,.ct h1{font-size:42px}.sbig input{font-size:40px}
+.bfeat>div:last-child{padding:0 22px 26px}.hero2{margin:26px 0}
+.cform{grid-template-columns:1fr;padding:22px}.nf h1{font-size:110px}
+.ft .cols{grid-template-columns:1fr 1fr}.ft .cols>div:first-child,.ft .cols>div:last-child{grid-column:1/-1}
+.steps{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body class="ontop">
+<div class="pv"><div class="wrap"><div class="tabs" role="tablist" aria-label="Preview pages">
+<button data-go="home" class="on">Home</button><button data-go="collection">Collection</button><button data-go="product">Product</button><button data-go="cart">Cart</button><button data-go="search">Search</button><button data-go="blog">Blog</button><button data-go="article">Article</button><button data-go="about">About</button><button data-go="contact">Contact</button><button data-go="404">404</button></div>
+<label><input type="checkbox" id="names"> Show section names</label></div></div>
+
+<div class="util" data-dawn="announcement-bar"><div class="wrap"><span class="co">N 46°34′ · E 008°02′ · ALT 2,061 M</span><div class="ann"><span class="on">Free shipping over $90 · 60-day trail returns</span><span>Pack builder: 3 pieces, save 15%</span><span>Field-tested on 1,200 km of trail</span></div><div class="r"><a href="#" data-go="contact">Help</a><a href="#" data-go="contact">Store finder</a><span>USD $</span></div></div></div>
+
+<header class="hdr over" id="hdr" data-dawn="header">
+ <div class="wrap top">
+  <button class="ib burger" id="burger" aria-label="Open menu"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="square"><path d="M3 7h18M3 12h12M3 17h18"/></svg></button>
+  <a href="#" class="logo" data-go="home" aria-label="Switchback home"><i></i>Switchback</a>
+  <nav class="nav" aria-label="Main">
+   <div class="mwrap" id="shopnav"><button data-go="collection" aria-haspopup="true">Shop gear</button>
+    <div class="mega"><div class="wrap">
+     <div class="lst"><h5>01 · Carry</h5><a href="#" data-go="collection" data-cat="Packs">Daypacks</a><a href="#" data-go="collection" data-cat="Packs">Overnight packs</a><a href="#" data-go="collection" data-cat="Gear">Poles</a><a href="#" data-go="collection" data-cat="Gear">Bottles</a></div>
+     <div class="lst"><h5>02 · Wear</h5><a href="#" data-go="collection" data-cat="Apparel">Shells</a><a href="#" data-go="collection" data-cat="Apparel">Base layers</a><a href="#" data-go="collection" data-cat="Footwear">Hiking boots</a><a href="#" data-go="collection" data-cat="Footwear">Trail runners</a></div>
+     <div class="lst"><h5>03 · By activity</h5><a href="#" data-go="collection">Day hiking</a><a href="#" data-go="collection">Trail running</a><a href="#" data-go="collection">Fastpacking</a><a href="#" data-go="collection">Camp</a></div>
+     <a href="#pack" data-go="home" class="mtile"><img data-k="camp" alt="Tent glowing at dusk"><div><small>Pack builder</small><b>Weigh it before you carry it</b><small>3 pieces · save 15%</small></div></a>
+    </div></div></div>
+   <a href="#" data-go="collection" data-cat="Footwear">Footwear</a>
+   <a href="#" data-go="collection" data-cat="Apparel">Apparel</a>
+   <a href="#layers" data-go="home">Layer guide</a>
+   <a href="#" data-go="blog">Field notes</a>
+  </nav>
+  <div class="hr">
+   <button class="ib" id="sbtn" aria-label="Search"><svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="10.5" cy="10.5" r="6.5"/><path d="M20 20l-4.5-4.5"/></svg></button>
+   <a href="#" class="ib acc2" aria-label="Account" data-go="contact"><svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="8" r="4"/><path d="M4 21c1.5-4 4.5-6 8-6s6.5 2 8 6"/></svg></a>
+   <button class="ib" id="cbtn" aria-label="Cart"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M6 8h12l1 13H5z"/><path d="M9 8V5h6v3"/></svg><span class="cc" id="cc">0</span></button>
+  </div>
+ </div>
+ <div class="srch" id="srch"><div class="wrap"><input id="hq" placeholder="Search packs, boots, shells..." aria-label="Search"><button class="btn btn-m" id="hqgo" data-go="search">Search</button></div></div>
+</header>
+
+<div class="mm" id="mm"><div class="top"><a href="#" class="logo" data-go="home"><i></i>Switchback</a><button class="ib" id="mmx" aria-label="Close menu"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M6 6l12 12M18 6L6 18"/></svg></button></div>
+<nav><a href="#" data-go="collection" data-cat="Packs">Packs <span>→</span></a><a href="#" data-go="collection" data-cat="Footwear">Footwear <span>→</span></a><a href="#" data-go="collection" data-cat="Apparel">Apparel <span>→</span></a><a href="#" data-go="collection" data-cat="Gear">Gear <span>→</span></a><a href="#layers" data-go="home">Layer guide <span>→</span></a><a href="#" data-go="blog">Field notes <span>→</span></a></nav></div>
+
+<main>
+<!-- HOME -->
+<section class="page on" id="p-home">
+ <section class="hero" data-dawn="image-banner"><img data-k="hero" alt="Hiker with a pack on a mountain ridge at golden hour"><span class="hcoord">RIDGE TRAIL · STAGE 04 · 18.2 KM</span>
+  <div class="wrap">
+   <div><span class="k">Autumn field kit · 2026</span>
+    <h1>Go further.<br>Carry <em>less.</em></h1>
+    <p>Packs, boots and layers built for long days above the tree line. Light where it counts, tough where it matters.</p>
+    <div class="ctas"><a href="#" class="btn btn-m" data-go="collection">Shop the field kit</a><a href="#pack" class="btn" data-go="home">Build your pack</a></div></div>
+   <div class="elev" aria-label="Sample route profile">
+    <div class="row"><span>Route</span><b>Ridge Trail, stage 04</b></div>
+    <div class="row"><span>Distance</span><b>18.2 km</b></div>
+    <div class="row"><span>Elevation gain</span><b>+1,140 m</b></div>
+    <div class="row"><span>Base weight carried</span><b>6.4 kg</b></div>
+    <svg viewBox="0 0 300 76" preserveAspectRatio="none" aria-hidden="true"><path d="M0 70 L30 60 L55 64 L90 38 L120 44 L150 18 L175 26 L205 8 L235 30 L265 24 L300 50 L300 76 L0 76z" fill="rgba(242,180,143,.22)"/><path d="M0 70 L30 60 L55 64 L90 38 L120 44 L150 18 L175 26 L205 8 L235 30 L265 24 L300 50" fill="none" stroke="#F2B48F" stroke-width="2"/><circle cx="205" cy="8" r="4" fill="#fff"/></svg>
+   </div>
+  </div>
+ </section>
+ <div class="strip" data-dawn="multicolumn"><div class="wrap">
+  <div><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 7h11v10H3zM14 10h4l3 3v4h-7"/><circle cx="7" cy="18" r="1.6"/><circle cx="17" cy="18" r="1.6"/></svg>Free shipping over $90</div>
+  <div><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 12a8 8 0 1 0 3-6.2M4 4v4h4"/></svg>60-day trail returns</div>
+  <div><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 20 10 6l4 7 3-4 4 11z"/></svg>Field-tested gear</div>
+  <div><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M14 7l3 3-8 8H6v-3zM12 5l2-2 7 7-2 2"/></svg>Free lifetime repairs</div>
+ </div></div>
+
+ <section class="sec" data-dawn="collection-list"><div class="wrap">
+  <div class="sh reveal"><div><span class="k">Shop by activity</span><h2>Pick your <em>terrain</em></h2></div><p>Four ways out the door. Each one has the pack, footwear and layers that suit it.</p></div>
+  <div class="acts" id="acts"></div>
+ </div></section>
+
+ <section class="sec t" data-dawn="featured-collection"><div class="wrap">
+  <div class="sh reveal"><div><span class="k">New for the season</span><h2>Fresh off <em>the trail</em></h2></div><div class="ftabs" id="ndTabs"><button class="on" data-c="all">All</button><button data-c="Packs">Packs</button><button data-c="Footwear">Footwear</button><button data-c="Apparel">Apparel</button><button data-c="Gear">Gear</button></div></div>
+  <div class="grid" id="ndGrid"></div>
+ </div></section>
+
+ <section class="sec t" data-dawn="sbs-layer-guide" id="layers"><div class="wrap">
+  <div class="lg">
+   <div class="reveal"><span class="k">Layer guide</span><h2>What to wear <em>at what temperature.</em></h2><p class="l">Set the forecast and how hard you will be moving. We show which layers to wear and which to pack.</p>
+    <div class="thermo"><div class="rd"><strong id="lgT">8°C</strong><span class="cond" id="lgC">Cool, breezy</span></div>
+     <input type="range" class="trng" id="lgR" min="-10" max="30" step="1" value="8" aria-label="Temperature in Celsius">
+     <div class="tsc"><span>−10°</span><span>0°</span><span>10°</span><span>20°</span><span>30°</span></div>
+     <div class="chips" id="lgE"><button aria-pressed="false" data-e="0">Easy walk</button><button aria-pressed="true" data-e="1">Steady hike</button><button aria-pressed="false" data-e="2">Fast and steep</button></div>
+     <div class="chips" id="lgW"><button aria-pressed="false" data-w="0">Dry</button><button aria-pressed="true" data-w="1">Wind</button><button aria-pressed="false" data-w="2">Rain</button></div></div>
+   </div>
+   <div class="reveal"><div class="layers" id="layersL"></div><div class="lgsum" id="lgSum"></div></div>
+  </div>
+ </div></section>
+
+ <section class="sec t" data-dawn="image-with-text"><div class="wrap">
+  <div class="story reveal"><div class="ph"><img data-k="texture" alt="Close-up of ripstop pack fabric and stitching"></div>
+   <div class="tx"><span class="k" style="color:#F2B48F">Built to be used</span><h2>Ripstop, seam-taped, <em>repairable.</em></h2><p>Every Switchback pack is cut from 210D recycled ripstop with a waterproof coating, then bar-tacked at every stress point. If it ever fails, we fix it free.</p>
+    <div class="specs"><div><strong>210D</strong><small>Recycled ripstop</small></div><div><strong>1.28</strong><small>kg, 38 L pack</small></div><div><strong>∞</strong><small>Free repairs</small></div></div>
+    <a href="#" class="lk" data-go="product" data-p="0" style="align-self:flex-start">Shop packs</a></div></div>
+ </div></section>
+
+ <section class="pk" data-dawn="sbs-pack-builder" id="pack"><div class="wrap">
+  <div class="sh reveal"><div><span class="k">Pack weight builder</span><h2>Weigh it <em>before you carry it.</em></h2></div><p>Tap the gear you would take. The gauge shows your carried weight. Choose 3 or more pieces to save 15%.</p></div>
+  <div class="pkg reveal"><div class="pitems" id="pitems"></div><aside class="gauge" id="gauge"></aside></div>
+ </div></section>
+
+ <section class="sec" data-dawn="sbs-boot-fit-finder" id="bootfit"><div class="wrap">
+  <div class="bf reveal">
+   <div><span class="k">Boot fit finder</span><h2>Find your trail size.</h2><p style="color:var(--ink2);margin:0">Hiking boots fit differently from street shoes. Three answers and we suggest a size and a model.</p>
+    <div class="bfq"><p><b>01</b>Your usual street shoe size (US)</p><div class="chips" data-b="s"><button aria-pressed="false" data-v="8">8</button><button aria-pressed="false" data-v="9">9</button><button aria-pressed="true" data-v="10">10</button><button aria-pressed="false" data-v="11">11</button><button aria-pressed="false" data-v="12">12</button></div></div>
+    <div class="bfq"><p><b>02</b>Your foot width</p><div class="foot"><svg viewBox="0 0 120 70" aria-hidden="true"><path id="ftp" d="M20 50c0-20 18-34 44-34s38 10 38 22-10 20-34 22-48 8-48-10z" fill="#D9CDB4" stroke="#23231F" stroke-width="1.5"/></svg><div class="chips" data-b="w" style="margin:0"><button aria-pressed="false" data-v="n">Narrow</button><button aria-pressed="true" data-v="r">Regular</button><button aria-pressed="false" data-v="w">Wide</button></div></div></div>
+    <div class="bfq"><p><b>03</b>Where you will wear them</p><div class="chips" data-b="t"><button aria-pressed="true" data-v="hike">Day hikes</button><button aria-pressed="false" data-v="multi">Multi-day, heavy pack</button><button aria-pressed="false" data-v="run">Fast and light</button></div></div>
+   </div>
+   <div class="bfres" id="bfres"></div>
+  </div>
+ </div></section>
+
+ <section class="sec t" data-dawn="multicolumn"><div class="wrap">
+  <div class="sh reveal"><div><span class="k">#takeitfurther</span><h2>Out <em>there</em></h2></div><p>Sample photos. Tag your trip to be featured.</p></div>
+  <div class="ugc" id="ugc"></div>
+ </div></section>
+
+ <section class="sec t" data-dawn="multicolumn"><div class="wrap">
+  <div class="sh reveal"><div><span class="k">Trail reports</span><h2>What people <em>noticed</em></h2></div></div>
+  <div class="rv3" id="rcHome"></div>
+ </div></section>
+
+ <section class="sec t" data-dawn="newsletter"><div class="wrap">
+  <div class="nl reveal"><div><span class="k">Trailhead letter</span><h2>Routes, kit and conditions.</h2><p>One email every two weeks: a route worth driving for, a gear tip and new arrivals.</p></div>
+   <form onsubmit="event.preventDefault();toast('Subscribed. See you at the trailhead.')"><input type="email" required placeholder="Your email" aria-label="Email"><button class="btn btn-c">Sign up</button></form></div>
+ </div></section>
+</section>
+
+<!-- COLLECTION -->
+<section class="page" id="p-collection"><div class="wrap">
+ <div class="crumb" data-dawn="sbs-breadcrumbs"><a href="#" data-go="home">Home</a><span>/</span><b id="cCrumb">All gear</b></div>
+ <div class="cban" data-dawn="main-collection-banner"><div><span class="k" id="cKick">Field kit</span><h1 id="cTitle">All gear</h1><p id="cDesc">Packs, footwear, layers and trail gear, tested on long days out.</p></div><div class="ph"><img id="cBan" data-k="trail" alt=""></div></div>
+ <div data-dawn="main-collection-product-grid">
+  <div class="ctool"><div style="display:flex;gap:10px;align-items:center;flex-wrap:wrap"><button class="btn fbtn" id="fopen" style="height:42px">Filters</button><div class="ftabs" id="cCats"><button class="on" data-c="all">All</button><button data-c="Packs">Packs</button><button data-c="Footwear">Footwear</button><button data-c="Apparel">Apparel</button><button data-c="Gear">Gear</button></div></div><div style="display:flex;gap:14px;align-items:center"><span style="font:400 12px var(--mono);color:var(--mute)"><b id="cCount" style="color:var(--basalt);font-weight:500">8</b> ITEMS</span><select id="cSort" aria-label="Sort"><option value="feat">Featured</option><option value="lo">Price, low to high</option><option value="hi">Price, high to low</option><option value="wt">Lightest first</option><option value="rt">Top rated</option></select></div></div>
+  <div class="cl">
+   <aside class="filters" id="filters"><div class="fhd"><b style="font:700 28px var(--disp)">Filters</b><button class="ib" id="fclose" aria-label="Close">✕</button></div>
+    <div class="fg"><h6>Activity</h6><label><input type="checkbox" data-f="p" value="hike">Day hiking<em>7</em></label><label><input type="checkbox" data-f="p" value="run">Trail running<em>5</em></label><label><input type="checkbox" data-f="p" value="multi">Multi-day<em>6</em></label><label><input type="checkbox" data-f="p" value="camp">Camp<em>4</em></label></div>
+    <div class="fg"><h6>Material</h6><label><input type="checkbox" data-f="m" value="Ripstop">Recycled ripstop<em>1</em></label><label><input type="checkbox" data-f="m" value="Leather">Nubuck leather<em>1</em></label><label><input type="checkbox" data-f="m" value="Merino">Merino wool<em>1</em></label><label><input type="checkbox" data-f="m" value="Carbon">Carbon<em>1</em></label></div>
+    <div class="fg"><h6>Size</h6><div class="fsz" id="fsz"><button aria-pressed="false">S</button><button aria-pressed="false">M</button><button aria-pressed="false">L</button><button aria-pressed="false">XL</button><button aria-pressed="false">9</button><button aria-pressed="false">10</button><button aria-pressed="false">11</button><button aria-pressed="false">12</button></div></div>
+    <div class="fg"><h6>Colour</h6><div class="fcol"><button aria-pressed="false" style="background:#5E6640" aria-label="Lichen"></button><button aria-pressed="false" style="background:#B4532A" aria-label="Rust"></button><button aria-pressed="false" style="background:#7E9297" aria-label="Slate"></button><button aria-pressed="false" style="background:#6B4A33" aria-label="Bark"></button><button aria-pressed="false" style="background:#23231F" aria-label="Basalt"></button></div></div>
+    <div class="fg"><h6>Max price <span id="fPv" style="color:var(--basalt)">$220</span></h6><input type="range" class="range" id="fPrice" min="30" max="220" step="5" value="220" aria-label="Maximum price"></div>
+    <div class="fg"><label><input type="checkbox" id="fSale">On sale</label></div>
+    <button class="btn" style="width:100%;height:46px;margin-top:18px" id="freset">Clear all</button>
+   </aside>
+   <div><div class="grid" id="cGrid" style="grid-template-columns:repeat(3,1fr)"></div><div class="more"><small>SHOWING <span id="cShow">8</span> OF 42 ITEMS</small><button class="btn" onclick="toast('Demo: more gear loads here')">Load more</button></div></div>
+  </div>
+ </div>
+ <section class="sec t" data-dawn="sbs-pack-builder" style="padding-top:90px"><div class="nl solo"><span class="k">Packing for a trip?</span><h2>Weigh your kit first.</h2><p>Build a pack and save 15% on 3 or more pieces.</p><a href="#pack" data-go="home" class="btn btn-c">Open the pack builder</a></div></section>
+</div></section>
+
+<!-- PRODUCT -->
+<section class="page" id="p-product">
+ <div class="wrap"><div class="crumb" data-dawn="sbs-breadcrumbs"><a href="#" data-go="home">Home</a><span>/</span><a href="#" data-go="collection" id="pCat">Packs</a><span>/</span><b id="pCrumb"></b></div>
+  <div class="pdp" data-dawn="main-product">
+   <div class="gal"><div class="thumbs" id="thumbs"></div><div class="mbox" id="mbox"><img id="mImg" alt=""><span class="bdg" id="pBdg"></span></div></div>
+   <div class="pinfo">
+    <span class="k" id="pKick">Packs · Recycled ripstop</span>
+    <h1 id="pName"></h1>
+    <div class="rt"><span id="pStars"></span><a href="#reviews">Read trail reports</a></div>
+    <div class="pp"><strong id="pPrice"></strong><s id="pWas"></s></div>
+    <div class="klarna">Or 4 payments of <span id="pInst"></span></div>
+    <div class="tags" id="pTags"></div>
+    <div class="opt"><div class="lb"><span>Colour: <b id="pColL"></b></span></div><div class="cols2" id="pCols"></div></div>
+    <div class="opt" data-dawn="variant-picker" id="szOpt"><div class="lb"><span>Size: <b id="pSizeL">Choose a size</b></span><a href="#" id="sgOpen">Size guide</a></div><div class="sizes" id="pSizes"></div><div class="fitn" id="pFit"></div></div>
+    <div class="buy" data-dawn="buy-buttons" id="atc"><div class="qty"><button id="qm" aria-label="Less">−</button><b id="qv">1</b><button id="qp" aria-label="More">+</button></div><button class="btn btn-m" id="pAdd">Add to cart</button></div>
+    <div class="trust"><div>Free ship over $90</div><div>60-day returns</div><div>Lifetime repairs</div></div>
+    <div class="acc" data-dawn="collapsible-content">
+     <details open><summary>Details</summary><div class="in" id="pDesc"></div></details>
+     <details><summary>Specs and materials</summary><div class="in"><ul id="pTech"></ul></div></details>
+     <details><summary>Shipping, returns and repairs</summary><div class="in">Free shipping on orders over $90. Take it out for 60 days; if it is not right, send it back. Free repairs for the life of the product.</div></details>
+    </div>
+   </div>
+  </div>
+ </div>
+ <section class="sec t" data-dawn="sbs-frequently-bought"><div class="wrap"><div class="sh"><div><span class="k">Packs well with</span><h2 style="font-size:46px">Complete the <em>kit</em></h2></div></div>
+  <div class="fbt"><div class="its" id="fbtIts"></div><div class="tot"><span style="font:400 12px var(--mono);color:var(--mute)">TOGETHER, 15% OFF</span><strong id="fbtTot"></strong><button class="btn btn-m" style="width:100%" id="fbtAdd">Add all to cart</button></div></div></div></section>
+ <section class="sec t" data-dawn="main-product" id="reviews"><div class="wrap"><div class="rv"><div class="rsum"><span class="k">Trail reports</span><div style="margin:16px 0 6px"><strong id="prAvg"></strong></div><div id="prStars"></div><div style="margin-top:16px" id="prbars"></div></div><div class="rv3" id="prcards"></div></div></div></section>
+ <section class="sec t" data-dawn="related-products"><div class="wrap"><div class="sh"><div><span class="k">Same trail, different kit</span><h2 style="font-size:46px">You may <em>also need</em></h2></div></div><div class="grid" id="relGrid"></div></div></section>
+ <section class="sec t" data-dawn="sbs-recently-viewed"><div class="wrap"><div class="sh"><div><span class="k">Recently viewed</span><h2 style="font-size:40px">Still deciding?</h2></div></div><div class="grid" id="rvGrid"></div></div></section>
+ <div class="sticky" id="sticky" data-dawn="sticky add to cart"><div class="in"><img id="stImg" alt=""><div><b id="stName"></b><small id="stOpt"></small></div><span class="sp2" id="stPrice"></span><button class="btn btn-m" id="stAdd" style="height:46px">Add to cart</button></div></div>
+</section>
+
+<!-- CART -->
+<section class="page" id="p-cart"><div class="wrap"><div class="crumb" data-dawn="sbs-breadcrumbs"><a href="#" data-go="home">Home</a><span>/</span><b>Cart</b></div>
+ <div class="cartp"><div data-dawn="main-cart-items"><h1>Your cart</h1><div class="ship" id="cShip"></div><div id="cLines"></div></div>
+  <aside class="csum" data-dawn="main-cart-footer"><div class="r"><span>Subtotal</span><span id="cSub" class="mono"></span></div><div class="r"><span>Kit saving</span><span id="cSave" class="mono" style="color:var(--lichen)"></span></div><div class="r"><span>Shipping</span><span id="cShipT" class="mono"></span></div><div class="r t"><span>Total</span><b id="cTot"></b></div>
+   <textarea placeholder="Add a note to your order" aria-label="Order note"></textarea><button class="btn btn-m" onclick="toast('Demo checkout')">Checkout</button>
+   <div class="pay" style="margin-top:16px;justify-content:center"><span>VISA</span><span>MC</span><span>AMEX</span><span>PAYPAL</span><span>APPLE PAY</span></div>
+   <p style="font:400 12px var(--mono);color:var(--mute);margin:14px 0 0;text-align:center">60-DAY RETURNS · LIFETIME REPAIRS</p></aside></div>
+ <section class="sec t" data-dawn="featured-collection"><div class="sh"><div><span class="k">Before you head out</span><h2 style="font-size:46px">Small things that <em>matter</em></h2></div></div><div class="grid" id="upsell"></div></section>
+</div></section>
+
+<!-- SEARCH -->
+<section class="page" id="p-search"><div class="wrap" data-dawn="main-search" style="padding-bottom:90px"><div class="crumb"><a href="#" data-go="home">Home</a><span>/</span><b>Search</b></div>
+ <div class="sbig"><input id="sq" value="trail" aria-label="Search"><button class="btn btn-m" style="height:56px;align-self:center" onclick="runSearch()">Search</button></div>
+ <div class="sugs" id="sugs">TRY: <button>merino</button><button>boot</button><button>waterproof</button><button>bottle</button></div>
+ <p style="margin:0 0 26px;font:400 12px var(--mono);color:var(--mute)"><span id="sCount">0</span> RESULTS FOR "<span id="sTerm" style="color:var(--basalt)"></span>"</p><div class="grid" id="sGrid"></div></div></section>
+
+<!-- BLOG -->
+<section class="page" id="p-blog"><div class="wrap" data-dawn="main-blog" style="padding-bottom:90px"><div class="crumb"><a href="#" data-go="home">Home</a><span>/</span><b>Field notes</b></div>
+ <div class="sh"><div><span class="k">Field notes</span><h2>Routes, kit and <em>know-how</em></h2></div><div class="ftabs" id="bcats"><button class="on">All</button><button>Routes</button><button>Kit</button><button>Skills</button></div></div>
+ <a href="#" class="bfeat" data-go="article"><div class="ph"><img data-k="journal" alt="Trail journal and map by a campfire"></div><div><span class="k" style="color:#F2B48F">Kit · 7 min read</span><h2>How to pack a 38 litre bag for two nights out</h2><p>What goes at the bottom, what stays at the top and how to get your base weight under 7 kg.</p><span class="lk">Read the guide</span></div></a>
+ <div class="posts" id="posts"></div></div></section>
+
+<!-- ARTICLE -->
+<section class="page" id="p-article"><div class="wrap" data-dawn="main-article" style="padding-bottom:30px"><div class="crumb"><a href="#" data-go="home">Home</a><span>/</span><a href="#" data-go="blog">Field notes</a><span>/</span><b>Packing a 38 L bag</b></div>
+ <div class="art"><div style="text-align:center"><span class="k">Kit · 7 min read</span></div><h1>How to pack a 38 litre bag for two nights out</h1><div class="by">By the Switchback team · Sample article</div>
+  <div class="hero2"><img data-k="camp" alt="Tent pitched at dusk below a ridge"></div>
+  <div class="body"><p>A well-packed bag carries lighter than the scale says. Heavy things close to your back, the things you need often at the top, and nothing hanging off the outside that can catch on a branch.</p>
+   <h2>Start with the base weight</h2><p>Base weight is everything except food, water and fuel. Weigh each item once and write it down. It is the fastest way to see where the grams are.</p>
+   <div class="steps"><div><b>&lt;7 kg</b>base weight target</div><div><b>3</b>zones: bottom, core, top</div><div><b>1 L</b>water on the move</div></div>
+   <blockquote>Pack for the weather you will get, not the weather you hope for.</blockquote>
+   <h2>Bottom, core, top</h2><p>Sleeping kit at the bottom. Food and stove in the core, against your spine. Shell, snacks and headlamp at the top where you can reach them in a minute.</p>
+   <h2>Check it on the scale</h2><p>Use the pack weight builder on our home page to add up your kit before you leave.</p></div>
+ </div>
+ <section class="sec t" data-dawn="featured-collection"><div class="sh"><div><span class="k">From this guide</span><h2 style="font-size:46px">Pack <em>list</em></h2></div></div><div class="grid" id="artGrid"></div></section>
+</div></section>
+
+<!-- ABOUT -->
+<section class="page" id="p-about"><div class="wrap">
+ <section class="sec t" data-dawn="image-with-text" style="padding-top:30px"><div class="ab"><div><span class="k">About Switchback</span><h1>Made on the trail, not in a meeting.</h1><p>We design packs, footwear and layers by using them. Every piece is carried for months before it goes on sale, then we keep fixing it for as long as you own it.</p><a href="#" data-go="collection" class="btn btn-m" style="margin-top:14px">Shop the field kit</a></div><div class="ph"><img data-k="trail" alt="Trail runner on a mountain path"></div></div></section>
+ <section class="sec t" data-dawn="multicolumn"><div class="prom reveal"><div><strong>01</strong><h4>Field-tested</h4><p>Months on real trails before anything ships.</p></div><div><strong>02</strong><h4>Recycled fabrics</h4><p>Ripstop and mesh from recycled nylon and polyester.</p></div><div><strong>03</strong><h4>Lifetime repairs</h4><p>Torn, broken or worn through, we fix it free.</p></div><div><strong>04</strong><h4>60-day returns</h4><p>Take it out. Not right? Send it back.</p></div></div></section>
+ <section class="sec t" data-dawn="image-with-text"><div class="split"><div class="ph reveal"><img data-k="camp" alt="Tent glowing at dusk"></div><div class="reveal"><span class="k">Our story</span><h2>It started with one strap that kept slipping.</h2><p>Two friends, one long trail and a pack that would not sit right. We rebuilt it on a kitchen table between sections. That pack became the Ridgeline.</p><p>This is sample brand copy. Replace it with your own story in the theme editor.</p></div></div></section>
+ <section class="sec t" data-dawn="sbs-layer-guide"><div class="nl solo"><span class="k">Check the forecast</span><h2>Know what to wear.</h2><p>Try the layer guide on the home page.</p><a href="#layers" data-go="home" class="btn btn-c">Open the layer guide</a></div></section>
+</div></section>
+
+<!-- CONTACT -->
+<section class="page" id="p-contact"><div class="wrap" style="padding-bottom:100px"><div class="crumb"><a href="#" data-go="home">Home</a><span>/</span><b>Contact</b></div>
+ <div class="ct"><div data-dawn="rich-text"><span class="k">Basecamp support</span><h1>Talk to someone who hikes.</h1><p style="color:var(--ink2);max-width:440px">Sizing, fit, repairs or your order. A real person replies within one working day.</p>
+  <div class="card2"><i>✉</i><div><b>hello@yourstore.com</b><small>Monday to Friday, 8 to 6</small></div></div>
+  <div class="card2"><i>⚒</i><div><b>Repairs</b><small>Start a free repair from your account</small></div></div>
+  <div class="card2"><i>⛺</i><div><b>Clubs and guides</b><small>Ask about group and trade pricing</small></div></div></div>
+  <form class="cform" data-dawn="contact-form" onsubmit="event.preventDefault();toast('Message sent. We will reply soon.')"><label class="w">Topic<select><option>Sizing and fit</option><option>My order</option><option>Returns</option><option>A repair</option></select></label>
+   <label>Name<input required></label><label>Email<input type="email" required></label><label class="w">Order number (optional)<input></label><label class="w">Message<textarea required></textarea></label><button class="btn btn-m w">Send message</button></form></div>
+</div></section>
+
+<!-- 404 -->
+<section class="page" id="p-404"><div class="wrap" style="padding-top:30px"><div class="nf" data-dawn="main-404"><div><h1>404</h1><h2>You have wandered off the trail.</h2><p>No signal, no page. Head back to a known waypoint and try again.</p><div style="display:flex;gap:10px;flex-wrap:wrap"><a href="#" class="btn btn-m" data-go="home">Back to basecamp</a><a href="#" class="btn" data-go="collection">Shop gear</a></div></div><div class="ph"><img data-k="trail" alt=""></div></div>
+ <section class="sec t" data-dawn="featured-collection"><div class="sh"><div><span class="k">Popular</span><h2 style="font-size:46px">Start <em>here</em></h2></div></div><div class="grid" id="nfGrid"></div></section>
+</div></section>
+</main>
+
+<footer class="ft" data-dawn="footer"><div class="wrap"><div class="cols">
+ <div><a href="#" class="logo" data-go="home"><i></i>Switchback</a><p>Packs, footwear and layers for long days above the tree line.</p><div class="soc"><a href="#" aria-label="Instagram">IG</a><a href="#" aria-label="Strava">ST</a><a href="#" aria-label="YouTube">YT</a><a href="#" aria-label="TikTok">TT</a></div><div class="coord">N 46°34′ E 008°02′</div></div>
+ <div><h5>Shop</h5><a href="#" data-go="collection">Packs</a><a href="#" data-go="collection">Footwear</a><a href="#" data-go="collection">Apparel</a><a href="#" data-go="collection">Gear</a></div>
+ <div><h5>Tools</h5><a href="#pack" data-go="home">Pack builder</a><a href="#layers" data-go="home">Layer guide</a><a href="#bootfit" data-go="home">Boot fit finder</a><a href="#" data-go="blog">Field notes</a></div>
+ <div><h5>Help</h5><a href="#" data-go="contact">Contact</a><a href="#" data-go="contact">Shipping</a><a href="#" data-go="contact">Repairs</a><a href="#" id="sgOpen2">Size guide</a></div>
+ <div><h5>Trailhead letter</h5><p style="margin:0">Routes, kit and conditions, every two weeks.</p><form onsubmit="event.preventDefault();toast('Subscribed')"><input type="email" placeholder="Email address" aria-label="Email" required><button>Join</button></form></div>
+</div><div class="bot"><span>© 2026 Switchback. Demo store for the Switchback Shopify theme.</span><div class="pay"><span>VISA</span><span>MC</span><span>AMEX</span><span>PAYPAL</span><span>SHOP PAY</span></div></div></div></footer>
+
+<div class="scrim" id="scrim"></div>
+<aside class="drawer" id="drawer" data-dawn="cart-drawer" aria-label="Cart"><div class="hd"><h3>Cart (<span id="dCount">0</span>)</h3><button class="ib" id="dx" aria-label="Close cart">✕</button></div><div class="ship" id="dShip"></div><div class="ls" id="dLines"></div><div class="ft2"><div class="r"><span>Subtotal</span><b id="dSub"></b></div><button class="btn btn-m" data-go="cart">View cart</button><button class="btn" style="width:100%" onclick="toast('Demo checkout')">Checkout</button></div></aside>
+<div class="modal" id="sg" role="dialog" aria-label="Size guide"><div class="box"><div style="display:flex;justify-content:space-between;align-items:center"><h3>Size guide</h3><button class="ib" id="sgx" aria-label="Close">✕</button></div><table><thead><tr><th>Size</th><th>Chest (cm)</th><th>Waist (cm)</th><th>Height (cm)</th></tr></thead><tbody id="sgT"></tbody></table>
+ <div class="finder2"><label>Height<select id="fh"><option value="166">Under 170</option><option value="174" selected>170 to 178</option><option value="182">178 to 186</option><option value="190">Over 186</option></select></label><label>Fit you like<select id="ff"><option value="0">Trim</option><option value="1" selected>Regular</option><option value="2">Room for layers</option></select></label><button class="btn btn-m" id="fgo" style="height:44px">Find my size</button></div><p class="fres" id="fres"></p></div></div>
+<div class="toast" id="toast"><span id="tmsg"></span></div>
+<script>
+const IMG='img/switchback-demo-';
+const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)];
+const money=n=>'$'+(Math.round(n*100)/100).toFixed(2).replace(/\.00$/,'');
+const kg=g=>(g/1000).toFixed(g<1000?2:1).replace(/^0/,'0')+' kg';
+const SZW=['S','M','L','XL'],ONE=['One size'],BOOT=['8','8.5','9','9.5','10','10.5','11','11.5','12'];
+/* products (g = weight in grams) */
+const P=[
+ {k:'p1',n:'Ridgeline 38 L Pack',c:'Packs',m:'Ripstop',p:189,g:1280,b:'Best seller',r:4.9,rc:418,pr:['hike','multi','camp'],sz:['S/M','M/L'],x:[],sub:'210D recycled ripstop · 38 litres',sw:[['Lichen','#5E6640'],['Basalt','#23231F'],['Rust','#B4532A']],tech:['210D recycled ripstop, PU coated','Ventilated back panel, load lifters','Hip belt pockets, side stretch pockets','Fits torso 41 to 53 cm across two sizes'],fit:'S/M fits torso 41 to 48 cm. M/L fits 46 to 53 cm.'},
+ {k:'p2',n:'Talus Mid WP Boot',c:'Footwear',m:'Leather',p:210,g:1150,b:'New',r:4.8,rc:276,pr:['hike','multi'],sz:BOOT,x:['8'],low:['11.5'],sub:'Nubuck leather · waterproof membrane',sw:[['Bark','#6B4A33'],['Slate','#7E9297']],tech:['Nubuck leather upper','Waterproof, breathable membrane','Lugged rubber outsole, 5 mm lugs','Weight is per pair, size 10'],fit:'Runs true to size. Go half a size up for thick socks or long descents.'},
+ {k:'p3',n:'Crag Softshell Jacket',c:'Apparel',m:'Softshell',p:165,g:420,r:4.8,rc:193,pr:['hike','run','multi'],sz:SZW,x:[],low:['XL'],sub:'Wind-resistant stretch · DWR finish',sw:[['Rust','#B4532A'],['Lichen','#5E6640'],['Basalt','#23231F']],tech:['Four-way stretch softshell','Wind-resistant, DWR finish','Helmet-compatible hood','Machine wash cold'],fit:'Regular fit with room for a base layer. Size up for a warm layer under it.'},
+ {k:'p4',n:'Ascent Carbon Poles',c:'Gear',m:'Carbon',p:129,w:149,g:460,b:'Sale',r:4.7,rc:142,pr:['hike','multi','run'],sz:ONE,x:[],sub:'Carbon shaft · cork grips · pair',sw:[['Basalt','#23231F']],tech:['Carbon fibre shafts','Natural cork grips','Flick-lock, 105 to 135 cm','Weight is per pair'],fit:'One size. Adjusts from 105 to 135 cm.'},
+ {k:'p5',n:'Base Merino 200 Crew',c:'Apparel',m:'Merino',p:85,g:210,b:'New',r:4.9,rc:301,pr:['hike','run','multi','camp'],sz:SZW,x:['S'],low:['L'],sub:'200 gsm merino wool · long sleeve',sw:[['Basalt','#23231F'],['Slate','#7E9297']],tech:['100% merino wool, 200 gsm','Flatlock seams, no chafe','Stays fresh for days','Machine wash cold, dry flat'],fit:'Close fit, made to layer. Take your usual size.'},
+ {k:'p6',n:'Scree Trail Runner',c:'Footwear',m:'Mesh',p:145,g:590,r:4.7,rc:188,pr:['run','hike'],sz:['8','9','10','11','12'],x:['8'],sub:'Recycled mesh · 6 mm drop',sw:[['Slate','#7E9297'],['Rust','#B4532A']],tech:['Recycled engineered mesh','6 mm drop, rock plate','Sticky rubber, 4 mm lugs','Weight is per pair, size 10'],fit:'Runs true to size, with a roomy toe box.'},
+ {k:'p7',n:'Field Bottle 750 ml',c:'Gear',m:'Steel',p:38,g:390,r:4.8,rc:226,pr:['hike','camp','run','multi'],sz:ONE,x:[],sub:'Insulated steel · 24 h cold',sw:[['Lichen','#5E6640'],['Basalt','#23231F']],tech:['Double-wall stainless steel','Cold for 24 h, hot for 12 h','Leak-proof cap with loop','Hand wash'],fit:'One size. 750 ml.'},
+ {k:'p8',n:'Lumen 400 Headlamp',c:'Gear',m:'Alloy',p:49,g:78,r:4.8,rc:164,pr:['hike','camp','run','multi'],sz:ONE,x:[],sub:'400 lumens · USB-C rechargeable',sw:[['Basalt','#23231F']],tech:['400 lumen flood and spot','Red night mode','USB-C, 40 h on low','IPX6 water resistant'],fit:'One size. Adjustable strap.'}
+];
+const ICON={heart:'<path d="M12 20s-7-4.5-7-10a4 4 0 017-2.5A4 4 0 0119 10c0 5.5-7 10-7 10z"/>'};
+const svg=(k,s=17,w=1.6)=>`<svg width="${s}" height="${s}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="${w}" stroke-linecap="round" stroke-linejoin="round">${ICON[k]}</svg>`;
+function src(k){return IMG+k+'.jpg'}
+function imgs(){$$('img[data-k]').forEach(i=>{i.src=src(i.dataset.k)})}
+function stars(r,c){return `<span class="stars">${'★'.repeat(Math.round(r))}${'☆'.repeat(5-Math.round(r))}${c!=null?`<em>(${c})</em>`:''}</span>`}
+const first=p=>p.sz.find(s=>!(p.x||[]).includes(s))||p.sz[0];
+const MN={Ripstop:'Recycled ripstop',Leather:'Nubuck',Softshell:'Softshell',Carbon:'Carbon',Merino:'Merino',Mesh:'Recycled mesh',Steel:'Steel',Alloy:'Alloy'};
+function card(i){const p=P[i],qs=p.sz.length>5?p.sz.filter((s,n)=>n%2===0).slice(0,5):p.sz;
+ return `<div class="card reveal"><div class="im">${p.b?`<span class="bdg ${p.b==='Sale'?'s':''}">${p.b}</span>`:''}
+ <a href="#" data-go="product" data-p="${i}" aria-label="${p.n}"><img class="m" src="${src(p.k)}" alt="${p.n}" loading="lazy"><img class="h" src="${src(p.k)}" alt="" loading="lazy"></a>
+ <button class="wish" aria-label="Save ${p.n}">${svg('heart')}</button>
+ <div class="qa"><small>Quick add${p.sz.length>1?' · size':''}</small><div class="sz">${qs.map(s=>`<button data-qa="${i}" data-s="${s}" class="${(p.x||[]).includes(s)?'x':''}">${p.sz.length===1?'Add · '+money(p.p):s}</button>`).join('')}</div></div></div>
+ <div class="meta"><div class="ty"><span>${p.c}</span><span>${MN[p.m]}</span><span class="w">${kg(p.g)}</span></div><h4><a href="#" data-go="product" data-p="${i}">${p.n}</a></h4>
+ <div class="row"><div class="pr2">${p.w?`<span class="now">${money(p.p)}</span><s>${money(p.w)}</s>`:money(p.p)}</div>${stars(p.r,p.rc)}</div>
+ <div class="sw">${p.sw.map(c=>`<i style="background:${c[1]}" title="${c[0]}"></i>`).join('')}</div></div></div>`}
+function fill(id,list){const el=$(id);if(el)el.innerHTML=list.map(card).join('')}
+
+/* names, routing, header */
+$('#names').addEventListener('change',e=>document.body.classList.toggle('names',e.target.checked));
+const hdr=$('#hdr');
+function hdrState(){const home=$('#p-home').classList.contains('on'),top=scrollY<40;document.body.classList.toggle('ontop',home&&top);hdr.classList.toggle('over',home);hdr.classList.toggle('solid',!(home&&top))}
+addEventListener('scroll',hdrState,{passive:true});
+function go(pg,hash){$$('.page').forEach(p=>p.classList.toggle('on',p.id==='p-'+pg));$$('.pv .tabs button').forEach(b=>b.classList.toggle('on',b.dataset.go===pg));closeAll();
+ if(pg==='cart')renderCart();
+ if(hash){const t=$(hash);if(t)setTimeout(()=>t.scrollIntoView({behavior:'smooth'}),30)}else window.scrollTo({top:0});hdrState();obs()}
+document.addEventListener('click',e=>{const a=e.target.closest('[data-go]');if(!a)return;e.preventDefault();
+ if(a.dataset.p!=null){setProduct(+a.dataset.p);seen(+a.dataset.p)}
+ if(a.dataset.go==='collection')setCat(a.dataset.cat||'all');
+ const h=a.getAttribute('href');go(a.dataset.go,h&&h.length>1?h:null)});
+const sn=$('#shopnav');let st;sn.addEventListener('mouseenter',()=>{clearTimeout(st);sn.classList.add('open')});sn.addEventListener('mouseleave',()=>{st=setTimeout(()=>sn.classList.remove('open'),180)});
+sn.addEventListener('focusin',()=>sn.classList.add('open'));sn.addEventListener('focusout',e=>{if(!sn.contains(e.relatedTarget))sn.classList.remove('open')});
+$('#sbtn').onclick=()=>{$('#srch').classList.toggle('on');$('#hq').focus()};
+$('#hq').addEventListener('keydown',e=>{if(e.key==='Enter')$('#hqgo').click()});
+$('#hqgo').addEventListener('click',()=>{$('#sq').value=$('#hq').value||'trail';runSearch()});
+$('#burger').onclick=()=>$('#mm').classList.add('on');$('#mmx').onclick=()=>$('#mm').classList.remove('on');
+function closeAll(){$('#mm').classList.remove('on');sn.classList.remove('open');$('#srch').classList.remove('on');closeDrawer();$('#filters').classList.remove('on');$('#sg').classList.remove('on')}
+document.addEventListener('keydown',e=>{if(e.key==='Escape')closeAll()});
+let ai=0;setInterval(()=>{const s=$$('.ann span');s[ai].classList.remove('on');ai=(ai+1)%s.length;s[ai].classList.add('on')},4500);
+
+/* activity tiles */
+const AC=[['Day hiking','hero','Packs, boots, shells','01'],['Trail running','trail','Light and fast','02'],['Camp','camp','Overnight kit','03'],['Field notes','journal','Routes and skills','04']];
+$('#acts').innerHTML=AC.map((a,n)=>`<a href="#" class="act reveal" data-go="${n===3?'blog':'collection'}"><img src="${src(a[1])}" alt="${a[0]}" loading="lazy"><div class="t"><div><h3>${a[0]}</h3><small>${a[2]}</small></div><span class="n">${a[3]}</span></div></a>`).join('');
+
+/* new tabs */
+function nd(c){let L=P.map((p,i)=>i).filter(i=>c==='all'||P[i].c===c);L=L.concat(P.map((p,i)=>i).filter(i=>!L.includes(i))).slice(0,4);fill('#ndGrid',L);obs()}
+$('#ndTabs').addEventListener('click',e=>{const b=e.target.closest('button');if(!b)return;$$('#ndTabs button').forEach(x=>x.classList.toggle('on',x===b));nd(b.dataset.c)});
+
+/* layer guide */
+const LY=[['01','Base layer','Merino next to skin, moves sweat away.',4,'#5E6640'],['02','Wind layer','Softshell that blocks wind and stretches.',2,'#B4532A'],['03','Warm layer','Insulated jacket for stops and summits.',null,'#7E9297'],['04','Rain shell','Waterproof shell for wet days.',null,'#23231F']];
+const lgs={t:8,e:1,w:1};
+function lg(){const t=lgs.t,f=t+lgs.e*4,w=lgs.w;
+ const st=[f<24?'Wear':'Skip',(f<12||(w===1&&f<20))?'Wear':f<20?'Pack':'Skip',f<0?'Wear':f<10?'Pack':'Skip',w===2?'Wear':f<26?'Pack':'Skip'];
+ $('#lgT').textContent=t+'°C';$('#lgC').textContent=(t<0?'Freezing':t<8?'Cold':t<15?'Cool':t<22?'Mild':'Warm')+', '+['dry','breezy','wet'][w];
+ $('#layersL').innerHTML=LY.map((l,n)=>{const p=l[3]!=null?P[l[3]]:null;return `<div class="layer ${st[n]==='Skip'?'off':''}" style="--lc:${l[4]}"><div class="no">Layer<b>${l[0]}</b></div><img src="${src(p?p.k:(n===2?'camp':'texture'))}" alt="${l[1]}"><div><h4>${l[1]} · <span style="font:500 12px var(--mono);color:${st[n]==='Wear'?'var(--rust)':'var(--mute)'};text-transform:uppercase">${st[n]}</span></h4><small>${p?p.n+' · '+money(p.p):l[2]}</small></div>${p&&st[n]!=='Skip'?`<button class="add2" data-qa="${l[3]}" data-s="${first(p)}">Add</button>`:''}</div>`}).join('');
+ const wear=st.filter(s=>s==='Wear').length,pack=st.filter(s=>s==='Pack').length;$('#lgSum').innerHTML=`<span>WEAR ${wear} · PACK ${pack}</span><span>FEELS LIKE ${f}°C ON THE MOVE</span>`}
+$('#lgR').addEventListener('input',e=>{lgs.t=+e.target.value;lg()});
+$('#lgE').addEventListener('click',e=>{const b=e.target.closest('[data-e]');if(!b)return;$$('#lgE button').forEach(x=>x.setAttribute('aria-pressed',x===b));lgs.e=+b.dataset.e;lg()});
+$('#lgW').addEventListener('click',e=>{const b=e.target.closest('[data-w]');if(!b)return;$$('#lgW button').forEach(x=>x.setAttribute('aria-pressed',x===b));lgs.w=+b.dataset.w;lg()});
+
+/* pack weight builder */
+const pk=new Set([0,4,6]);
+function pack(){$('#pitems').innerHTML=P.map((p,i)=>`<button class="pit" aria-pressed="${pk.has(i)}" data-pk="${i}"><img src="${src(p.k)}" alt="${p.n}"><span><b>${p.n}</b><small>${kg(p.g)} · ${money(p.p)}</small></span><i>${pk.has(i)?'✓':'+'}</i></button>`).join('');
+ const L=[...pk],g=L.reduce((s,i)=>s+P[i].g,0),sub=L.reduce((s,i)=>s+P[i].p,0),disc=L.length>=3?sub*.15:0,pct=Math.min(100,g/8000*100);
+ const cls=g<3000?['Ultralight','Fast and light. Great for long days.']:g<7000?['Lightweight','Comfortable all day on most trails.']:['Traditional','Heavier, but ready for anything.'];
+ $('#gauge').innerHTML=`<span class="k" style="color:#F2B48F">Carried weight</span><div class="big">${(g/1000).toFixed(2)}<small> kg</small></div><span style="font-size:14px;color:#cbc5b5">${cls[1]}</span>
+ <div class="gbar"><i class="${g>7000?'hv':''}" style="width:${pct}%"></i><span style="left:${7000/8000*100}%" title="7 kg target"></span></div><div class="gscale"><span>0</span><span>2</span><span>4</span><span>6</span><span>7 kg target</span><span>8</span></div>
+ <span class="gclass">${cls[0]} · ${L.length} items</span>
+ <div style="margin-top:18px">${L.length?L.map(i=>`<div class="ln"><span>${P[i].n}</span><span>${kg(P[i].g)}</span></div>`).join(''):'<div class="ln"><span>Tap gear to add it</span><span>0 kg</span></div>'}</div>
+ <div class="tot"><span style="font:400 12px var(--mono);color:#a9a393">${L.length>=3?'15% KIT SAVING ON':`ADD ${3-L.length} MORE TO SAVE 15%`}</span><span>${disc?`<s>${money(sub)}</s>`:''}<strong>${money(sub-disc)}</strong></span></div>
+ <button class="btn btn-m" id="pkAdd" ${L.length?'':'disabled'}>Add kit to cart</button>`}
+document.addEventListener('click',e=>{const b=e.target.closest('[data-pk]');if(b){const i=+b.dataset.pk;pk.has(i)?pk.delete(i):pk.add(i);pack();return}
+ if(e.target.closest('#pkAdd')){const k=pk.size>=3;[...pk].forEach(i=>add(i,first(P[i]),1,k,true));openDrawer();toast(k?'Kit added, 15% saved':'Added to cart')}});
+
+/* boot fit finder */
+const bq={s:'10',w:'r',t:'hike'};
+function boot(){const s=+bq.s,run=bq.t==='run',i=run?5:1,p=P[i];let z=run?s:s+.5;if(bq.t==='multi')z=s+.5;
+ let zs=String(z);if(!p.sz.includes(zs))zs=String(Math.round(z));if(!p.sz.includes(zs))zs=p.sz[p.sz.length-1];
+ $('#ftp').setAttribute('transform',`translate(0 ${bq.w==='n'?4:bq.w==='w'?-4:0}) scale(1 ${bq.w==='n'?.85:bq.w==='w'?1.15:1})`);
+ const wn={n:'Regular last with the thin insole',r:'Regular last',w:'Wide last (W)'}[bq.w],sock={hike:'Midweight merino',multi:'Heavyweight merino',run:'Thin running sock'}[bq.t];
+ $('#bfres').innerHTML=`<span class="k">Your suggested size</span><div class="sz" style="margin:12px 0 4px">${zs}<small>US</small></div><p style="margin:0;color:var(--ink2);font-size:14.5px">${run?'Trail runners fit like your street shoe.':'Half a size up leaves room for socks and swelling on long descents.'}</p>
+ <ul><li>Model<span>${p.n}</span></li><li>Width<span>${wn}</span></li><li>Sock<span>${sock}</span></li><li>Lacing<span>${bq.t==='multi'?'Heel-lock for heavy loads':'Standard'}</span></li></ul>
+ <div class="bfpick"><img src="${src(p.k)}" alt="${p.n}"><div><b>${p.n}</b><div class="pr2" style="font-size:14px">${money(p.p)}</div></div><button class="btn btn-m" style="height:44px;padding:0 16px" data-qa="${i}" data-s="${zs}">Add ${zs}</button></div>
+ <a href="#" class="lk" data-go="product" data-p="${i}">View the boot</a>`}
+document.addEventListener('click',e=>{const b=e.target.closest('.chips[data-b] button');if(!b)return;const w=b.parentNode;w.querySelectorAll('button').forEach(x=>x.setAttribute('aria-pressed',x===b));bq[w.dataset.b]=b.dataset.v;boot()});
+
+/* ugc + reviews */
+const UG=['trail','camp','hero','journal','texture'];
+$('#ugc').innerHTML=UG.map((k,i)=>`<a href="#" class="reveal" data-go="collection"><img src="${src(k)}" alt="Sample community photo" loading="lazy"><span>@sample_trail_${i+1}</span></a>`).join('');
+const RV=[['"Carried it 140 km in a week. The hip belt never moved and nothing rubbed."','Thru-hiker, 6 days','Ridgeline 38 L Pack'],['"Dry feet after two river crossings. Broke in after a single afternoon."','Weekend hiker','Talus Mid WP Boot'],['"Wore it four days straight. Still did not smell. Merino is magic."','Trail runner','Base Merino 200 Crew']];
+function rcards(id){$(id).innerHTML=RV.map(r=>`<div class="rcard reveal"><span class="smp">Sample review</span>${stars(5)}<p>${r[0]}</p><div class="who">${r[1]} · ${r[2]}</div></div>`).join('')}
+function rbars(){$('#prbars').innerHTML=[[5,82],[4,13],[3,3],[2,1],[1,1]].map(([s,w])=>`<div class="rbar"><span>${s} ★</span><i style="--w:${w}%"></i><span>${w}%</span></div>`).join('')}
+
+/* cart */
+let cart=[];
+function add(i,s,q=1,kitd=false,quiet=false){const f=cart.find(c=>c.i===i&&c.s===s);f?(f.q+=q,f.kit=f.kit||kitd):cart.push({i,s,q,kit:kitd});render();
+ const c=$('#cc');c.classList.remove('bump');c.offsetWidth;c.classList.add('bump');if(!quiet){openDrawer();toast(P[i].n+' added')}}
+const count=()=>cart.reduce((s,c)=>s+c.q,0),sub=()=>cart.reduce((s,c)=>s+P[c.i].p*c.q,0),save=()=>cart.reduce((s,c)=>s+(c.kit?P[c.i].p*.15*c.q:0),0);
+function shipHTML(){const t=sub()-save(),left=90-t;return `<p>${left>0?`ADD <b>${money(left)}</b> FOR FREE SHIPPING`:'FREE SHIPPING UNLOCKED'}</p><div class="bar"><i style="width:${Math.min(100,t/90*100)}%"></i></div>`}
+function lineHTML(c,k){const p=P[c.i];return `<div class="line"><img src="${src(p.k)}" alt="${p.n}"><div><b>${p.n}</b><small>${c.s} · ${p.sw[0][0]} · ${kg(p.g)}${c.kit?' · <span style="color:var(--lichen)">KIT −15%</span>':''}</small><div class="q"><button data-cq="${k}" data-d="-1" aria-label="Less">−</button><b class="mono">${c.q}</b><button data-cq="${k}" data-d="1" aria-label="More">+</button><button class="rm" data-rm="${k}">Remove</button></div></div><div class="lp">${money(p.p*c.q*(c.kit?.85:1))}</div></div>`}
+function render(){$('#cc').textContent=count();$('#dCount').textContent=count();$('#dShip').innerHTML=shipHTML();$('#dLines').innerHTML=cart.length?cart.map(lineHTML).join(''):'<div class="empty" style="margin-top:18px">Your cart is empty.</div>';$('#dSub').textContent=money(sub()-save());if($('#p-cart').classList.contains('on'))renderCart()}
+function renderCart(){$('#cShip').innerHTML=shipHTML();$('#cLines').innerHTML=cart.length?cart.map(lineHTML).join(''):'<div class="empty">Your cart is empty. <a href="#" data-go="collection" style="border-bottom:1px solid">Shop gear</a></div>';
+ const t=sub()-save(),free=t>=90||!cart.length;$('#cSub').textContent=money(sub());$('#cSave').textContent=save()?'−'+money(save()):'$0';$('#cShipT').textContent=free?'Free':'$8';$('#cTot').textContent=money(t+(free?0:8))}
+document.addEventListener('click',e=>{const q=e.target.closest('[data-cq]'),r=e.target.closest('[data-rm]');if(q){const c=cart[+q.dataset.cq];c.q+=+q.dataset.d;if(c.q<1)cart.splice(+q.dataset.cq,1);render()}if(r){cart.splice(+r.dataset.rm,1);render()}});
+function openDrawer(){$('#drawer').classList.add('on');$('#scrim').classList.add('on')}
+function closeDrawer(){$('#drawer').classList.remove('on');$('#scrim').classList.remove('on')}
+$('#cbtn').onclick=openDrawer;$('#dx').onclick=closeDrawer;$('#scrim').onclick=closeDrawer;
+document.addEventListener('click',e=>{const b=e.target.closest('[data-qa]');if(!b)return;e.preventDefault();add(+b.dataset.qa,b.dataset.s)});
+document.addEventListener('click',e=>{const w=e.target.closest('.wish');if(w){w.classList.toggle('on');toast(w.classList.contains('on')?'Saved to your list':'Removed from your list')}});
+let tt;function toast(m){$('#tmsg').textContent=m;$('#toast').classList.add('on');clearTimeout(tt);tt=setTimeout(()=>$('#toast').classList.remove('on'),2400)}
+
+/* collection */
+let cc='all',fs=[];
+const CB={Packs:['Packs','Daypacks and overnight packs in recycled ripstop.','camp'],Footwear:['Footwear','Waterproof boots and grippy trail runners.','trail'],Apparel:['Apparel','Merino base layers and softshells that move.','hero'],Gear:['Gear','Poles, bottles and light for the long way round.','journal']};
+function setCat(c){cc=c;$$('#cCats button').forEach(b=>b.classList.toggle('on',b.dataset.c===c));const d=CB[c];
+ $('#cTitle').textContent=d?d[0]:'All gear';$('#cCrumb').textContent=d?d[0]:'All gear';$('#cKick').textContent=d?'Collection':'Field kit';
+ $('#cDesc').textContent=d?d[1]:'Packs, footwear, layers and trail gear, tested on long days out.';$('#cBan').src=src(d?d[2]:'trail');coll()}
+$('#cCats').addEventListener('click',e=>{const b=e.target.closest('button');if(b)setCat(b.dataset.c)});
+$$('[data-f]').forEach(x=>{const n=P.filter(p=>x.dataset.f==='p'?p.pr.includes(x.value):p.m===x.value).length,em=x.parentNode.querySelector('em');if(em)em.textContent=n});
+function coll(){const pr=$$('[data-f="p"]:checked').map(x=>x.value),mt=$$('[data-f="m"]:checked').map(x=>x.value),max=+$('#fPrice').value,so=$('#cSort').value,sale=$('#fSale').checked;
+ $('#fPv').textContent='$'+max;
+ let L=P.map((p,i)=>i).filter(i=>{const p=P[i];return (cc==='all'||p.c===cc)&&(!pr.length||pr.some(x=>p.pr.includes(x)))&&(!mt.length||mt.includes(p.m))&&p.p<=max&&(!sale||p.w)&&(!fs.length||fs.some(s=>p.sz.includes(s)))});
+ if(so==='lo')L.sort((a,b)=>P[a].p-P[b].p);if(so==='hi')L.sort((a,b)=>P[b].p-P[a].p);if(so==='rt')L.sort((a,b)=>P[b].r-P[a].r);if(so==='wt')L.sort((a,b)=>P[a].g-P[b].g);
+ const h=L.map(card);if(h.length>3)h.splice(3,0,`<a href="#pack" data-go="home" class="promo reveal"><div class="t"><span class="k">Pack builder</span><h3>3 pieces.<br>Save 15%.</h3><span class="btn btn-c" style="align-self:flex-start">Build your kit</span></div><img src="${src('camp')}" alt="Tent at dusk"></a>`);
+ $('#cGrid').innerHTML=h.join('')||'<div class="empty" style="grid-column:1/-1">Nothing matches yet. <a href="#" id="fr2" style="border-bottom:1px solid">Clear filters</a></div>';$('#cCount').textContent=L.length;$('#cShow').textContent=L.length;obs()}
+$$('.filters input').forEach(x=>x.addEventListener('input',coll));$('#cSort').addEventListener('change',coll);
+$('#fsz').addEventListener('click',e=>{const b=e.target.closest('button');if(!b)return;b.setAttribute('aria-pressed',b.getAttribute('aria-pressed')!=='true');fs=$$('#fsz button[aria-pressed=true]').map(x=>x.textContent);coll()});
+$$('.fcol button').forEach(b=>b.addEventListener('click',()=>b.setAttribute('aria-pressed',b.getAttribute('aria-pressed')!=='true')));
+function resetF(){$$('.filters input[type=checkbox]').forEach(x=>x.checked=false);$('#fPrice').value=220;fs=[];$$('#fsz button,.fcol button').forEach(b=>b.setAttribute('aria-pressed','false'));coll()}
+$('#freset').onclick=resetF;document.addEventListener('click',e=>{if(e.target.id==='fr2'){e.preventDefault();resetF()}});
+$('#fopen').onclick=()=>$('#filters').classList.add('on');$('#fclose').onclick=()=>$('#filters').classList.remove('on');
+
+/* product */
+let cur={i:0,s:null,q:1,c:0};const VIEW=[];
+const ALT={Packs:'camp',Footwear:'trail',Apparel:'hero',Gear:'journal'};
+function setProduct(i){const p=P[i];cur={i,s:p.sz.length===1?p.sz[0]:null,q:1,c:0};
+ $('#pName').textContent=p.n;$('#pCrumb').textContent=p.n;$('#pCat').textContent=p.c;$('#pKick').textContent=p.c+' · '+MN[p.m];$('#pStars').innerHTML=stars(p.r,p.rc);
+ $('#pBdg').textContent=p.b||'';$('#pBdg').style.display=p.b?'':'none';$('#pBdg').className='bdg '+(p.b==='Sale'?'s':'');
+ $('#pTags').innerHTML=[kg(p.g),...p.pr.map(x=>({hike:'Day hiking',run:'Trail running',multi:'Multi-day',camp:'Camp'})[x])].map(t=>`<span>${t}</span>`).join('');
+ const th=[[p.k,''],[p.k,'transform:scale(1.6)'],[ALT[p.c],''],['texture','']];
+ $('#thumbs').innerHTML=th.map((t,n)=>`<button aria-current="${n===0}" data-th="${n}" aria-label="Image ${n+1}"><img src="${src(t[0])}" alt="" style="${t[1]}"></button>`).join('');
+ $('#thumbs').onclick=e=>{const b=e.target.closest('[data-th]');if(!b)return;$$('#thumbs button').forEach(x=>x.setAttribute('aria-current',x===b));const t=th[+b.dataset.th];$('#mImg').src=src(t[0]);$('#mImg').style.cssText=t[1]};
+ $('#mImg').src=src(p.k);$('#mImg').alt=p.n;$('#mImg').style.cssText='';$('#mbox').classList.remove('zm');
+ $('#pCols').innerHTML=p.sw.map((c,n)=>`<button aria-pressed="${n===0}" data-pc="${n}" aria-label="${c[0]}" title="${c[0]}" style="background:${c[1]}"></button>`).join('');
+ $('#szOpt').style.display=p.sz.length===1?'none':'';
+ $('#pSizes').innerHTML=p.sz.map(s=>`<button aria-pressed="${cur.s===s}" data-ps="${s}" class="${(p.x||[]).includes(s)?'x':''} ${(p.low||[]).includes(s)?'low':''}">${s}</button>`).join('');
+ $('#pSizes').style.gridTemplateColumns=p.sz.length<5?`repeat(${p.sz.length},1fr)`:'';
+ $('#pFit').textContent=p.fit;
+ $('#pDesc').textContent=`The ${p.n} is built for long days out: ${p.sub.toLowerCase()}. Weighs ${kg(p.g)}. Tested on real trails and covered by free lifetime repairs.`;
+ $('#pTech').innerHTML=p.tech.map(t=>`<li>${t}</li>`).join('');
+ $('#stImg').src=src(p.k);$('#stName').textContent=p.n;fbt();fill('#relGrid',P.map((x,j)=>j).filter(j=>j!==i).sort((a,b)=>(P[b].c===p.c)-(P[a].c===p.c)).slice(0,4));
+ rbars();rcards('#prcards');$('#prStars').innerHTML=stars(p.r,p.rc);$('#prAvg').textContent=p.r;pupd()}
+function pupd(){const p=P[cur.i],pr=p.p*cur.q;$('#pPrice').textContent=money(p.p);$('#pWas').textContent=p.w?money(p.w):'';$('#pInst').textContent=money(p.p/4);
+ $('#qv').textContent=cur.q;$('#pSizeL').textContent=cur.s||'Choose a size';$('#pColL').textContent=p.sw[cur.c][0];
+ $('#stPrice').textContent=money(pr);$('#stOpt').textContent=p.sw[cur.c][0]+' · '+(cur.s||'choose a size');$('#pAdd').textContent=cur.s?'Add to cart · '+money(pr):'Choose a size'}
+$('#pSizes').addEventListener('click',e=>{const b=e.target.closest('[data-ps]');if(!b||b.classList.contains('x'))return;cur.s=b.dataset.ps;$$('#pSizes button').forEach(x=>x.setAttribute('aria-pressed',x===b));pupd()});
+$('#pCols').addEventListener('click',e=>{const b=e.target.closest('[data-pc]');if(!b)return;cur.c=+b.dataset.pc;$$('#pCols button').forEach(x=>x.setAttribute('aria-pressed',x===b));pupd()});
+$('#qm').onclick=()=>{cur.q=Math.max(1,cur.q-1);pupd()};$('#qp').onclick=()=>{cur.q++;pupd()};
+$('#mbox').addEventListener('click',()=>$('#mbox').classList.toggle('zm'));
+$('#mbox').addEventListener('mousemove',e=>{if(!$('#mbox').classList.contains('zm'))return;const r=e.currentTarget.getBoundingClientRect();$('#mImg').style.transformOrigin=`${(e.clientX-r.left)/r.width*100}% ${(e.clientY-r.top)/r.height*100}%`});
+function padd(btn){if(!cur.s){$('#pSizes').animate([{transform:'translateX(0)'},{transform:'translateX(-6px)'},{transform:'translateX(6px)'},{transform:'translateX(0)'}],{duration:300});$('#pSizeL').textContent='Please choose a size';toast('Choose a size first');window.scrollTo({top:$('#pSizes').getBoundingClientRect().top+scrollY-220,behavior:'smooth'});return}
+ add(cur.i,cur.s,cur.q);btn.textContent='Added ✓';setTimeout(()=>{pupd();$('#stAdd').textContent='Add to cart'},1200)}
+$('#pAdd').onclick=e=>padd(e.currentTarget);$('#stAdd').onclick=e=>padd(e.currentTarget);
+function fbt(){const i=cur.i,its=[i,...[4,6,7,3,0].filter(x=>x!==i).slice(0,2)];$('#fbtIts').innerHTML=its.map((j,k)=>`${k?'<span class="plus">+</span>':''}<label><img src="${src(P[j].k)}" alt=""><span><input type="checkbox" checked data-fi="${j}" ${k===0?'disabled':''}> ${P[j].n} · ${money(P[j].p)}</span></label>`).join('');ftot()}
+function ftot(){const s=$$('#fbtIts input:checked').reduce((t,x)=>t+P[+x.dataset.fi].p,0);$('#fbtTot').textContent=money(s*.85)}
+$('#fbtIts').addEventListener('change',ftot);$('#fbtAdd').onclick=()=>{$$('#fbtIts input:checked').forEach(x=>{const j=+x.dataset.fi;add(j,j===cur.i&&cur.s?cur.s:first(P[j]),1,true,true)});openDrawer();toast('Added together, 15% off')};
+new IntersectionObserver(([e])=>$('#sticky').classList.toggle('on',!e.isIntersecting&&$('#p-product').classList.contains('on')&&e.boundingClientRect.top<0)).observe($('#atc'));
+function seen(i){const k=VIEW.indexOf(i);if(k>-1)VIEW.splice(k,1);VIEW.unshift(i);fill('#rvGrid',(VIEW.length>1?VIEW.slice(1):[]).concat([1,4,6,7].filter(x=>!VIEW.includes(x))).slice(0,4))}
+
+/* size guide */
+const SG=[['S',88,74,'164-172'],['M',96,82,'172-180'],['L',104,90,'180-188'],['XL',112,98,'188-196']];
+function sgT(h){$('#sgT').innerHTML=SG.map(r=>`<tr class="${r[0]===h?'hl':''}"><td>${r[0]}</td><td>${r[1]}</td><td>${r[2]}</td><td>${r[3]}</td></tr>`).join('')}
+function sgOpen(e){e.preventDefault();$('#sg').classList.add('on');sgT()}$('#sgOpen').onclick=sgOpen;$('#sgOpen2').onclick=sgOpen;$('#sgx').onclick=()=>$('#sg').classList.remove('on');
+$('#sg').addEventListener('click',e=>{if(e.target.id==='sg')$('#sg').classList.remove('on')});
+$('#fgo').onclick=()=>{const h=+$('#fh').value,f=+$('#ff').value;let k=SG.findIndex(r=>{const [a,b]=r[3].split('-').map(Number);return h>=a&&h<b});if(k<0)k=h<164?0:3;k=Math.max(0,Math.min(3,k+(f===0?-1:f===2?1:0)));const s=SG[k][0];$('#fres').textContent='We suggest size '+s+'.';sgT(s);
+ const p=P[cur.i];if(p.sz.includes(s)&&!(p.x||[]).includes(s)){cur.s=s;$$('#pSizes button').forEach(x=>x.setAttribute('aria-pressed',x.dataset.ps===s));pupd()}};
+
+/* search, blog */
+function runSearch(){const t=$('#sq').value.trim().toLowerCase();$('#sTerm').textContent=t;const L=P.map((p,i)=>i).filter(i=>{const p=P[i];return !t||(p.n+' '+p.c+' '+p.m+' '+p.sub+' '+p.tech.join(' ')+' '+p.pr.join(' ')).toLowerCase().includes(t)});
+ $('#sGrid').innerHTML=L.map(card).join('')||'<div class="empty" style="grid-column:1/-1">No results. Try "merino" or "boot".</div>';$('#sCount').textContent=L.length;obs()}
+$('#sq').addEventListener('input',runSearch);$('#sq').addEventListener('keydown',e=>{if(e.key==='Enter')runSearch()});
+$('#sugs').addEventListener('click',e=>{const b=e.target.closest('button');if(b){$('#sq').value=b.textContent;runSearch()}});
+const POSTS=[['trail','Routes','Five ridge runs under 20 km','Big views, short days, no technical climbing.'],['texture','Kit','Caring for a waterproof shell','Wash, re-proof and dry it the right way.'],['p2','Kit','Breaking in leather boots fast','Three short walks and a few tricks.'],['hero','Skills','Reading a contour map','Spot the climbs before your legs do.'],['camp','Skills','Pitching a tent in the wind','Stake order, guy lines and site choice.'],['p5','Kit','Why merino for base layers','Warm when wet, fresh for days.']];
+$('#posts').innerHTML=POSTS.map(p=>`<a href="#" class="post reveal" data-go="article"><div class="im"><img src="${src(p[0])}" alt="" loading="lazy"></div><span class="k">${p[1]} · 5 min</span><h3>${p[2]}</h3><p>${p[3]}</p></a>`).join('');
+$('#bcats').addEventListener('click',e=>{const b=e.target.closest('button');if(b)$$('#bcats button').forEach(x=>x.classList.toggle('on',x===b))});
+
+/* reveal */
+let io;function obs(){if(!io)io=new IntersectionObserver(es=>es.forEach(x=>{if(x.isIntersecting){x.target.classList.add('in');io.unobserve(x.target)}}),{rootMargin:'0px 0px -6% 0px'});$$('.reveal:not(.in)').forEach(r=>io.observe(r))}
+
+/* init */
+imgs();nd('all');lg();pack();boot();rcards('#rcHome');
+fill('#upsell',[7,6,4,3]);fill('#artGrid',[0,4,7,6]);fill('#nfGrid',[0,1,4,2]);setCat('all');setProduct(0);seen(0);render();runSearch();hdrState();obs();
+</script>
+</body>
+</html>
