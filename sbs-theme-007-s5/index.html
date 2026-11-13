@@ -1,0 +1,967 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Aurelle · Shopify pet store theme preview (SBS-THEME-007-S5)</title>
+<meta name="robots" content="noindex">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Gilda+Display&family=Urbanist:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--noir:#15110F;--esp:#221B17;--esp2:#2C241F;--ivory:#F4EEE6;--ivory2:#EAE2D6;--champ:#CDB38B;--champ2:#E3D2B4;--ox:#6E1F2A;--stone:#A99C8C;--mute:#8A7E72;--lineD:rgba(205,179,139,.22);--lineL:#DCD2C3;
+--disp:"Gilda Display",Georgia,serif;--body:"Urbanist",system-ui,sans-serif}
+*{box-sizing:border-box}html{scroll-behavior:smooth}
+body{margin:0;font:400 16px/1.65 var(--body);color:var(--ivory);background:var(--noir);-webkit-font-smoothing:antialiased;overflow-x:hidden;letter-spacing:.01em}
+img{max-width:100%;display:block}a{color:inherit;text-decoration:none}button{font:inherit;color:inherit;cursor:pointer;background:none;border:0;padding:0}
+input,select,textarea{font:inherit;color:inherit}
+h1,h2,h3,h4{font-family:var(--disp);font-weight:400;line-height:1.05;letter-spacing:-.005em;margin:0}
+h2{font-size:clamp(36px,4.2vw,60px)}
+em.i,h1 em,h2 em{font-style:italic;color:var(--champ)}
+.page{display:none}.page.on{display:block}
+.wrap{max-width:1360px;margin:0 auto;padding:0 48px}
+.k{display:inline-flex;align-items:center;gap:12px;font:600 11px var(--body);letter-spacing:.32em;text-transform:uppercase;color:var(--champ)}
+.k::before{content:"";width:28px;height:1px;background:currentColor}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;height:54px;padding:0 34px;font:600 12px var(--body);letter-spacing:.24em;text-transform:uppercase;transition:background .3s,color .3s,border-color .3s;border:1px solid transparent;white-space:nowrap}
+.btn-g{background:var(--champ);color:var(--noir)}.btn-g:hover{background:var(--champ2)}
+.btn-l{border-color:var(--champ);color:var(--champ)}.btn-l:hover{background:var(--champ);color:var(--noir)}
+.btn-d{background:var(--noir);color:var(--ivory)}.btn-d:hover{background:var(--ox)}
+.btn-o{border-color:var(--noir);color:var(--noir)}.btn-o:hover{background:var(--noir);color:var(--ivory)}
+.btn:disabled{opacity:.35;pointer-events:none}
+.lk{font:600 12px var(--body);letter-spacing:.24em;text-transform:uppercase;display:inline-flex;gap:10px;align-items:center;padding-bottom:6px;border-bottom:1px solid var(--champ);color:var(--champ)}
+.lk span{transition:transform .3s}.lk:hover span{transform:translateX(5px)}
+.ib{width:42px;height:42px;display:inline-grid;place-items:center;transition:opacity .2s}.ib:hover{opacity:.7}
+:focus-visible{outline:1px solid var(--champ);outline-offset:3px}
+.reveal{opacity:0;transform:translateY(20px);transition:opacity .9s ease,transform .9s ease}.reveal.in{opacity:1;transform:none}
+@media(prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}*{animation:none!important}}
+.light{background:var(--ivory);color:var(--noir)}.light .k{color:var(--ox)}.light em.i,.light h2 em{color:var(--ox)}.light .lk{color:var(--noir);border-color:var(--noir)}
+/* preview bar */
+.pv{position:relative;z-index:200;background:#000;color:#bbb;font:500 12px var(--body)}
+.pv .wrap{display:flex;gap:16px;align-items:center;justify-content:space-between;padding-top:8px;padding-bottom:8px;flex-wrap:wrap}
+.pv .tabs{display:flex;gap:4px;flex-wrap:wrap}
+.pv .tabs button{border:1px solid #333;color:#ccc;padding:5px 12px;font:600 12px var(--body)}
+.pv .tabs button.on{background:var(--champ);border-color:var(--champ);color:var(--noir)}
+.pv label{display:flex;gap:6px;align-items:center;white-space:nowrap}
+body.names [data-dawn]{position:relative;outline:1px dashed rgba(205,179,139,.9);outline-offset:-1px}
+body.names [data-dawn]::after{content:attr(data-dawn);position:absolute;top:6px;left:6px;z-index:60;background:var(--champ);color:var(--noir);font:600 11px var(--body);padding:3px 9px;pointer-events:none}
+/* announcement */
+.ann{background:var(--ivory);color:var(--noir);font:600 10.5px var(--body);letter-spacing:.3em;text-transform:uppercase;text-align:center}
+.ann .wrap{height:38px;display:flex;align-items:center;justify-content:center;gap:16px}
+.ann i{width:4px;height:4px;background:var(--ox);transform:rotate(45deg);display:inline-block}
+#annTxt{transition:opacity .4s}
+/* header: centred wordmark, menu overlay */
+.hdr{position:sticky;top:0;z-index:100;transition:background .4s,border-color .4s;border-bottom:1px solid transparent}
+.hdr.sc,body:not(.ovr) .hdr{background:rgba(21,17,15,.94);backdrop-filter:blur(10px);border-color:var(--lineD)}
+body.ovr .hero{margin-top:-87px}
+.bagb .mob{display:none}
+.hrow{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;height:86px}
+.menub{display:inline-flex;align-items:center;gap:14px;font:600 11px var(--body);letter-spacing:.3em;text-transform:uppercase}
+.menub .bars{width:26px;height:10px;position:relative}.menub .bars::before,.menub .bars::after{content:"";position:absolute;left:0;right:0;height:1px;background:currentColor;transition:.3s}
+.menub .bars::before{top:0}.menub .bars::after{bottom:0;right:8px}.menub:hover .bars::after{right:0}
+.hl{display:flex;gap:30px;align-items:center}
+.hl a.t{font:600 11px var(--body);letter-spacing:.3em;text-transform:uppercase;opacity:.85}.hl a.t:hover{opacity:1;color:var(--champ)}
+.wm{text-align:center;display:block}
+.wm b{display:block;font:400 30px/1 var(--disp);letter-spacing:.38em;padding-left:.38em}
+.wm small{display:block;font:500 9px var(--body);letter-spacing:.5em;text-transform:uppercase;color:var(--champ);margin-top:7px;padding-left:.5em}
+.hr{display:flex;gap:8px;justify-content:flex-end;align-items:center}
+.bagb{font:600 11px var(--body);letter-spacing:.3em;text-transform:uppercase;display:inline-flex;gap:6px;align-items:center;padding:0 0 0 12px;height:42px}
+.bagb .cc{color:var(--champ)}
+.cc.bump{animation:bump .5s}@keyframes bump{50%{transform:scale(1.4)}}
+/* full-screen menu */
+.ovm{position:fixed;inset:0;z-index:300;background:var(--noir);display:grid;grid-template-columns:1.1fr 1fr;opacity:0;visibility:hidden;transition:opacity .45s,visibility .45s}
+.ovm.on{opacity:1;visibility:visible}
+.ovm .l{padding:40px 64px;display:flex;flex-direction:column}
+.ovm .top{display:flex;justify-content:space-between;align-items:center;margin-bottom:auto}
+.ovm nav{display:grid;gap:4px;margin:40px 0}
+.ovm nav a{display:flex;align-items:baseline;gap:22px;font:400 clamp(40px,5vw,72px)/1.08 var(--disp);color:var(--ivory);transition:color .3s,transform .4s;transform:translateX(0)}
+.ovm nav a small{font:600 11px var(--body);letter-spacing:.24em;color:var(--champ);min-width:28px}
+.ovm nav a:hover{color:var(--champ);transform:translateX(12px)}
+.ovm nav a:hover em{color:var(--champ)}
+.ovm .sub{display:flex;gap:30px;flex-wrap:wrap;font:600 11px var(--body);letter-spacing:.24em;text-transform:uppercase;color:var(--stone);margin-top:auto}
+.ovm .sub a:hover{color:var(--champ)}
+.ovm .r{position:relative;overflow:hidden;background:var(--esp)}
+.ovm .r img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity .6s,transform 1.2s;transform:scale(1.05)}
+.ovm .r img.on{opacity:1;transform:scale(1)}
+.ovm .r .cap{position:absolute;left:36px;bottom:32px;z-index:2;font:400 26px var(--disp);color:var(--ivory)}
+.ovm .r .cap small{display:block;font:600 10px var(--body);letter-spacing:.3em;text-transform:uppercase;color:var(--champ);margin-bottom:6px}
+.srch{position:fixed;inset:0;z-index:310;background:rgba(21,17,15,.97);display:none;align-items:center}
+.srch.on{display:flex}.srch .in{width:100%;display:flex;gap:16px;align-items:center;border-bottom:1px solid var(--champ);padding-bottom:16px}
+.srch input{flex:1;border:0;background:none;font:400 clamp(34px,4vw,56px) var(--disp);outline:0;color:var(--ivory);min-width:0}
+.srch .x{position:absolute;top:30px;right:48px}
+/* hero */
+.hero{position:relative;height:100vh;min-height:680px;max-height:980px;overflow:hidden}
+.hero>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:62% 50%;animation:kb 18s ease-out both}
+@keyframes kb{from{transform:scale(1.08)}to{transform:scale(1)}}
+.hero::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(21,17,15,.82) 0,rgba(21,17,15,.45) 38%,rgba(21,17,15,0) 64%),linear-gradient(0deg,rgba(21,17,15,.7) 0,rgba(21,17,15,0) 30%)}
+.hero .tx{position:absolute;z-index:2;left:0;right:0;bottom:84px}
+.hero h1{font-size:clamp(54px,6.4vw,104px);line-height:1;max-width:760px;margin:22px 0 26px}
+.hero p.l{font:300 18px/1.7 var(--body);max-width:440px;color:var(--ivory2);margin:0 0 34px}
+.hero .ctas{display:flex;gap:28px;align-items:center;flex-wrap:wrap}
+.hero .idx{position:absolute;z-index:2;right:48px;bottom:84px;text-align:right;font:600 10.5px var(--body);letter-spacing:.3em;text-transform:uppercase;color:var(--stone)}
+.hero .idx b{display:block;font:400 64px/1 var(--disp);letter-spacing:0;color:var(--champ);margin-bottom:8px}
+.hero .idx a{display:inline-block;margin-top:14px;color:var(--ivory);border-bottom:1px solid var(--champ);padding-bottom:4px}
+.scroll{position:absolute;z-index:2;left:50%;bottom:26px;width:1px;height:46px;background:linear-gradient(var(--champ),transparent);animation:sc 2.4s infinite}
+@keyframes sc{0%{transform:scaleY(0);transform-origin:top}50%{transform:scaleY(1);transform-origin:top}51%{transform-origin:bottom}100%{transform:scaleY(0);transform-origin:bottom}}
+/* promise strip */
+.prom{border-top:1px solid var(--lineD);border-bottom:1px solid var(--lineD)}
+.prom .wrap{display:grid;grid-template-columns:repeat(4,1fr)}
+.prom div{padding:26px 24px;border-left:1px solid var(--lineD);font:500 12px var(--body);letter-spacing:.2em;text-transform:uppercase;color:var(--stone);text-align:center}
+.prom div:first-child{border-left:0}.prom b{display:block;font:400 22px var(--disp);letter-spacing:0;text-transform:none;color:var(--ivory);margin-bottom:4px}
+/* sections */
+.sec{padding:140px 0}.sec.t{padding-top:0}
+.sh{display:flex;justify-content:space-between;align-items:flex-end;gap:40px;margin-bottom:56px;flex-wrap:wrap}
+.sh h2{margin-top:18px}.sh p{margin:0;max-width:420px;color:var(--stone);font-weight:300;font-size:17px}
+.light .sh p{color:#5e544b}
+.h2s{font-size:clamp(30px,3vw,44px)!important}
+.ctr{text-align:center;justify-content:center}.ctr>div{display:flex;flex-direction:column;align-items:center}
+/* collections index */
+.cidx{border-top:1px solid var(--lineD);position:relative}
+.ci{display:grid;grid-template-columns:90px 1fr auto 60px;align-items:center;gap:30px;padding:30px 8px;border-bottom:1px solid var(--lineD);transition:padding .4s,color .3s}
+.ci small{font:600 11px var(--body);letter-spacing:.24em;color:var(--champ)}
+.ci b{font:400 clamp(40px,5vw,76px)/1 var(--disp);transition:color .3s,transform .5s}
+.ci span{font:500 13px var(--body);letter-spacing:.2em;text-transform:uppercase;color:var(--stone)}
+.ci i{font-style:normal;font-size:22px;color:var(--champ);transition:transform .4s;justify-self:end}
+.ci:hover{padding-left:28px}.ci:hover b{color:var(--champ)}.ci:hover i{transform:translateX(8px)}
+.cfloat{position:fixed;z-index:50;width:280px;aspect-ratio:4/5;pointer-events:none;opacity:0;transition:opacity .35s;overflow:hidden;transform:translate(-50%,-50%) rotate(-3deg);box-shadow:0 30px 60px rgba(0,0,0,.4)}
+.cfloat.on{opacity:1}.cfloat img{width:100%;height:100%;object-fit:cover}
+/* product cards */
+.grid{display:grid;grid-template-columns:repeat(4,1fr);gap:40px 28px}.grid.g3{grid-template-columns:repeat(3,1fr)}
+.card{position:relative;display:flex;flex-direction:column;text-align:center}
+.card .im{position:relative;aspect-ratio:4/5;overflow:hidden;background:var(--esp)}
+.light .card .im{background:var(--ivory2)}
+.card .im img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:opacity .7s,transform 1.2s}
+.card .im img.h{opacity:0}.card:hover .im img.h{opacity:1}.card:hover .im img.m{transform:scale(1.05)}
+.badge{position:absolute;z-index:2;top:16px;left:16px;font:600 9.5px var(--body);letter-spacing:.28em;text-transform:uppercase;color:var(--champ);padding:6px 0;border-bottom:1px solid var(--champ)}
+.badge.s{color:#e9b9c0;border-color:#e9b9c0}
+.light .badge{color:var(--ox);border-color:var(--ox)}
+.wish{position:absolute;z-index:2;top:12px;right:12px;width:36px;height:36px;display:grid;place-items:center;color:var(--ivory);opacity:.8;transition:.2s}
+.wish:hover{opacity:1}.wish.on{color:var(--champ);opacity:1}.wish.on svg{fill:currentColor}
+.qa{position:absolute;z-index:2;left:14px;right:14px;bottom:14px;background:rgba(21,17,15,.88);backdrop-filter:blur(6px);color:var(--ivory);transform:translateY(calc(100% + 16px));transition:transform .45s cubic-bezier(.2,.7,.2,1);padding:14px 14px 12px}
+.card:hover .qa,.card.qo .qa{transform:none}
+.qa small{display:block;font:600 9.5px var(--body);letter-spacing:.28em;text-transform:uppercase;color:var(--champ);margin-bottom:10px}
+.qa .sz{display:flex;gap:6px;justify-content:center;flex-wrap:wrap}
+.qa .sz button{min-width:42px;height:34px;padding:0 10px;border:1px solid var(--lineD);font:600 11.5px var(--body);letter-spacing:.06em;transition:.2s}
+.qa .sz button:hover{border-color:var(--champ);color:var(--champ)}
+.qa .sz button.x{opacity:.35;text-decoration:line-through;pointer-events:none}
+.qa .one{width:100%;height:40px;font:600 11px var(--body);letter-spacing:.24em;text-transform:uppercase;color:var(--champ)}
+.meta{padding:20px 6px 0}
+.meta .ty{font:600 9.5px var(--body);letter-spacing:.28em;text-transform:uppercase;color:var(--stone)}
+.meta h4{font-size:22px;margin:8px 0 6px}
+.meta .pr{font:500 13.5px var(--body);letter-spacing:.14em;color:var(--champ)}
+.light .meta .pr{color:var(--ox)}
+.meta .pr s{color:var(--mute);margin-left:8px}
+.meta .sw{display:flex;gap:8px;justify-content:center;margin-top:12px}
+.meta .sw i{width:12px;height:12px;border-radius:50%;box-shadow:0 0 0 1px rgba(205,179,139,.5)}
+.fade{opacity:.2;transition:opacity .3s}
+/* engraving studio */
+.eng{display:grid;grid-template-columns:1.1fr 1fr;gap:0;background:var(--esp);border:1px solid var(--lineD)}
+.eng>*{min-width:0}
+.engv{position:relative;display:grid;place-items:center;min-height:620px;background:radial-gradient(circle at 50% 40%,#3a2f28 0,#1d1714 70%);overflow:hidden}
+.engv svg{width:min(380px,80%);height:auto;filter:drop-shadow(0 30px 40px rgba(0,0,0,.5));transition:transform .6s}
+.engv .lbl{position:absolute;left:30px;top:28px;font:600 10px var(--body);letter-spacing:.3em;text-transform:uppercase;color:var(--champ)}
+.engv .px{position:absolute;right:30px;top:24px;font:400 26px var(--disp);color:var(--ivory);text-align:right}
+.engv .px small{display:block;font:600 9.5px var(--body);letter-spacing:.28em;text-transform:uppercase;color:var(--stone)}
+.engv .flip{position:absolute;bottom:26px;left:50%;transform:translateX(-50%);font:600 10.5px var(--body);letter-spacing:.28em;text-transform:uppercase;color:var(--stone);border-bottom:1px solid var(--lineD);padding-bottom:4px}
+.engv .flip:hover{color:var(--champ)}
+.engf{padding:56px 54px;display:flex;flex-direction:column;gap:28px}
+.engf h2{margin:16px 0 0}
+.step2{display:grid;gap:12px}
+.step2>span{font:600 10.5px var(--body);letter-spacing:.28em;text-transform:uppercase;color:var(--stone);display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap}
+.step2>span em{font:400 15px var(--disp);letter-spacing:0;text-transform:none;font-style:normal;color:var(--champ)}
+.opts{display:flex;gap:10px;flex-wrap:wrap}
+.opts button{height:46px;padding:0 20px;border:1px solid var(--lineD);font:500 13px var(--body);letter-spacing:.08em;transition:.25s;display:inline-flex;align-items:center;gap:10px}
+.opts button:hover{border-color:var(--champ)}
+.opts button[aria-pressed=true]{border-color:var(--champ);background:rgba(205,179,139,.1);color:var(--champ)}
+.opts button i{width:16px;height:16px;border-radius:50%;display:inline-block}
+.fld{height:52px;border:0;border-bottom:1px solid var(--lineD);background:none;padding:0 2px;font:400 24px var(--disp);color:var(--ivory);outline:0;width:100%;min-width:0;transition:border-color .3s}
+.fld:focus{border-color:var(--champ)}
+.fld::placeholder{color:var(--mute)}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+.tot{display:flex;align-items:center;justify-content:space-between;gap:20px;border-top:1px solid var(--lineD);padding-top:26px;margin-top:auto}
+.tot small{display:block;font:600 10px var(--body);letter-spacing:.28em;text-transform:uppercase;color:var(--stone)}.tot strong{font:400 36px var(--disp)}
+/* gift wrap */
+.gift{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center}
+.gview{position:relative;aspect-ratio:1;display:grid;place-items:center;background:var(--ivory2)}
+.gbox{position:relative;width:62%;aspect-ratio:1.15;transition:background .5s}
+.gbox .lid{position:absolute;left:-4%;right:-4%;top:-2%;height:26%;transition:background .5s;box-shadow:0 8px 16px rgba(0,0,0,.18)}
+.gbox .body{position:absolute;left:0;right:0;top:22%;bottom:0;transition:background .5s;box-shadow:0 30px 50px rgba(0,0,0,.25)}
+.gbox .rv,.gbox .rh{position:absolute;transition:background .5s;z-index:2}
+.gbox .rv{left:50%;top:-2%;bottom:0;width:9%;transform:translateX(-50%)}
+.gbox .rh{left:-4%;right:-4%;top:9%;height:9%}
+.gbox .bow{position:absolute;z-index:3;left:50%;top:-14%;width:42%;transform:translateX(-50%)}
+.gbox .lbl2{position:absolute;z-index:3;left:56%;top:44%;width:38%;background:var(--ivory);padding:10px 12px;font:400 13px/1.35 var(--disp);color:var(--noir);transform:rotate(4deg);box-shadow:0 6px 14px rgba(0,0,0,.18);min-height:54px}
+.gbox .lbl2::before{content:"";position:absolute;left:-14px;top:12px;width:14px;height:1px;background:var(--champ)}
+.gopts{display:grid;gap:30px}
+.gopts textarea{border:1px solid var(--lineL);background:transparent;padding:14px 16px;font:400 18px/1.45 var(--disp);min-height:110px;resize:vertical;outline:0;color:var(--noir)}
+.gopts textarea:focus{border-color:var(--noir)}
+.light .opts button{border-color:var(--lineL);color:var(--noir)}
+.light .opts button[aria-pressed=true]{border-color:var(--noir);background:var(--noir);color:var(--ivory)}
+.light .step2>span{color:#5e544b}.light .step2>span em{color:var(--ox)}
+.light .tot{border-color:var(--lineL)}
+.cnt{font:500 12px var(--body);color:var(--mute);text-align:right}
+/* appointment */
+.appt{display:grid;grid-template-columns:420px 1fr;gap:70px;align-items:start}
+.appt .ph{aspect-ratio:4/5;overflow:hidden}.appt .ph img{width:100%;height:100%;object-fit:cover}
+.svc{display:grid;gap:12px}
+.svc button{display:grid;grid-template-columns:1fr auto;gap:4px 20px;text-align:left;padding:20px 22px;border:1px solid var(--lineD);transition:.25s}
+.svc button b{font:400 24px var(--disp)}.svc button small{grid-column:1;font:400 14px var(--body);color:var(--stone)}
+.svc button em{grid-row:1/3;grid-column:2;align-self:center;font:600 11px var(--body);letter-spacing:.2em;text-transform:uppercase;font-style:normal;color:var(--champ)}
+.svc button:hover{border-color:var(--champ)}
+.svc button[aria-pressed=true]{border-color:var(--champ);background:rgba(205,179,139,.08)}
+.dates{display:grid;grid-template-columns:repeat(7,1fr);gap:8px}
+.dates button{border:1px solid var(--lineD);padding:10px 0;text-align:center;font:600 10px var(--body);letter-spacing:.2em;text-transform:uppercase;color:var(--stone)}
+.dates button b{display:block;font:400 24px var(--disp);letter-spacing:0;color:var(--ivory);margin-top:2px}
+.dates button[aria-pressed=true]{border-color:var(--champ);background:var(--champ);color:var(--noir)}.dates button[aria-pressed=true] b{color:var(--noir)}
+.dates button:disabled{opacity:.3;text-decoration:line-through}
+.slots{display:grid;grid-template-columns:repeat(5,1fr);gap:8px}
+.slots button{height:46px;border:1px solid var(--lineD);font:500 13px var(--body);letter-spacing:.1em}
+.slots button[aria-pressed=true]{border-color:var(--champ);color:var(--champ);background:rgba(205,179,139,.1)}
+.slots button:disabled{opacity:.3;text-decoration:line-through}
+.conf{display:none;border:1px solid var(--champ);padding:30px;text-align:center}
+.conf.on{display:block}
+.conf b{display:block;font:400 30px var(--disp);margin:12px 0 8px}.conf p{margin:0;color:var(--stone)}
+.apf.done{display:none}
+/* story */
+.story{display:grid;grid-template-columns:1fr 1fr;gap:90px;align-items:center}
+.story .ph{position:relative;aspect-ratio:4/5;overflow:hidden}.story .ph img{width:100%;height:100%;object-fit:cover}
+.story .ph .tag2{position:absolute;left:-1px;bottom:40px;background:var(--noir);color:var(--champ);font:600 10px var(--body);letter-spacing:.3em;text-transform:uppercase;padding:14px 20px}
+.story h2{margin:18px 0 22px}.story p.l{font:300 18px/1.75 var(--body);color:#5e544b}
+.steps3{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:40px;border-top:1px solid var(--lineL);padding-top:28px}
+.steps3 b{display:block;font:400 34px var(--disp);color:var(--ox)}.steps3 span{font:500 14px var(--body);color:#5e544b}
+/* materials */
+.mats{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--lineD);border:1px solid var(--lineD)}
+.mats>div{background:var(--noir);padding:44px 38px}
+.mats small{font:600 10.5px var(--body);letter-spacing:.3em;text-transform:uppercase;color:var(--champ)}
+.mats h3{font-size:32px;margin:14px 0 12px}.mats p{margin:0;color:var(--stone);font-weight:300}
+/* reviews */
+.quote{max-width:920px;margin:0 auto;text-align:center}
+.quote .smp{font:600 10px var(--body);letter-spacing:.3em;text-transform:uppercase;color:var(--champ)}
+.quote blockquote{margin:26px 0 24px;font:400 clamp(28px,3.2vw,44px)/1.3 var(--disp)}
+.quote .who{font:500 13px var(--body);letter-spacing:.2em;text-transform:uppercase;color:var(--stone)}
+.qdots{display:flex;gap:10px;justify-content:center;margin-top:34px}
+.qdots button{width:34px;height:1px;background:var(--lineD);transition:.3s}.qdots button[aria-current=true]{background:var(--champ);width:54px}
+.rcard{border:1px solid var(--lineL);padding:30px}
+.rcard .smp{font:600 10px var(--body);letter-spacing:.28em;text-transform:uppercase;color:var(--ox)}
+.rcard p{font:400 21px/1.45 var(--disp);margin:14px 0 18px;color:var(--noir)}
+.rcard .who{font:500 12px var(--body);letter-spacing:.16em;text-transform:uppercase;color:#5e544b}
+.rv3{display:grid;grid-template-columns:repeat(2,1fr);gap:24px}
+/* newsletter */
+.nl{text-align:center;max-width:760px;margin:0 auto}
+.nl h2{margin:18px 0 14px}.nl p{color:var(--stone);margin:0 0 34px;font-weight:300}
+.nl form{display:flex;border-bottom:1px solid var(--champ);max-width:520px;margin:0 auto}
+.nl input{flex:1;border:0;background:none;padding:14px 4px;outline:0;color:var(--ivory);min-width:0;font-size:16px}
+.nl button{font:600 11px var(--body);letter-spacing:.28em;text-transform:uppercase;color:var(--champ);padding:0 6px}
+.solo{display:flex;align-items:center;justify-content:space-between;gap:30px;border:1px solid var(--lineD);padding:46px 52px;flex-wrap:wrap}
+.solo h2{font-size:clamp(30px,3vw,44px)}.solo p{margin:8px 0 0;color:var(--stone)}
+.light .solo{border-color:var(--lineL)}.light .solo p{color:#5e544b}
+/* footer */
+.ft{border-top:1px solid var(--lineD);padding-top:90px;overflow:hidden}
+.ft .big{font:400 clamp(70px,13vw,210px)/.8 var(--disp);letter-spacing:.2em;text-align:center;color:var(--esp2);margin-bottom:70px;user-select:none}
+.ft .cols{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:40px;padding-bottom:60px}
+.ft p{color:var(--stone);max-width:320px;font-weight:300}
+.ft h5{font:600 10.5px var(--body);letter-spacing:.3em;text-transform:uppercase;color:var(--champ);margin:0 0 18px}
+.ft a:not(.wm){display:block;padding:5px 0;color:var(--ivory2);font-weight:300}.ft a:not(.wm):hover{color:var(--champ)}
+.ft form{display:flex;border-bottom:1px solid var(--lineD);margin-top:20px;max-width:320px}.ft form input{flex:1;background:none;border:0;color:var(--ivory);padding:10px 0;outline:0;min-width:0}
+.ft form button{color:var(--champ);font-size:18px}
+.ft .bot{display:flex;justify-content:space-between;gap:20px;border-top:1px solid var(--lineD);padding:26px 0;font:500 11px var(--body);letter-spacing:.16em;text-transform:uppercase;color:var(--mute);flex-wrap:wrap}
+.ft .soc{display:flex;gap:22px}.ft .soc a{display:inline!important;padding:0!important}
+/* collection */
+.crumb{display:flex;gap:12px;font:600 10.5px var(--body);letter-spacing:.24em;text-transform:uppercase;color:var(--stone);padding:34px 0 24px;align-items:center}.crumb b{color:var(--champ);font-weight:600}.crumb a:hover{color:var(--ivory)}
+.light .crumb{color:#5e544b}.light .crumb b{color:var(--ox)}
+.cban{position:relative;height:440px;overflow:hidden;display:flex;align-items:flex-end;margin-bottom:0}
+.cban>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.cban::after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,rgba(21,17,15,.85),rgba(21,17,15,.1) 70%)}
+.cban .wrap{position:relative;z-index:2;width:100%;padding-bottom:50px}
+.cban h1{font-size:clamp(54px,6vw,92px);margin:14px 0 10px}.cban p{margin:0;color:var(--ivory2);font-weight:300;max-width:520px}
+.cchips{display:flex;gap:30px;flex-wrap:wrap;border-bottom:1px solid var(--lineD);margin:34px 0 0}
+.cchips button{font:600 11px var(--body);letter-spacing:.26em;text-transform:uppercase;color:var(--stone);padding:0 0 16px;border-bottom:1px solid transparent;margin-bottom:-1px}
+.cchips button.on{color:var(--champ);border-color:var(--champ)}
+.ctool{display:flex;align-items:center;gap:18px;padding:22px 0 34px}
+.cct{font:500 12px var(--body);letter-spacing:.16em;text-transform:uppercase;color:var(--stone)}.cct b{color:var(--ivory)}
+.sort{margin-left:auto;display:flex;gap:12px;align-items:center;font:600 10.5px var(--body);letter-spacing:.24em;text-transform:uppercase;color:var(--stone)}
+.sort select{height:42px;border:1px solid var(--lineD);background:var(--noir);color:var(--ivory);padding:0 14px;font:500 13px var(--body)}
+.fbtn{display:none;height:42px}
+.cl{display:grid;grid-template-columns:240px 1fr;gap:56px;align-items:start}
+.filters{position:sticky;top:110px}
+.fhd{display:none}
+.fg{border-bottom:1px solid var(--lineD);padding:20px 0}.fg:first-of-type{padding-top:0}
+.fg h6{font:600 10.5px var(--body);letter-spacing:.28em;text-transform:uppercase;color:var(--champ);margin:0 0 14px;display:flex;justify-content:space-between}.fg h6 span{color:var(--stone);letter-spacing:.1em}
+.fg label{display:flex;gap:12px;align-items:center;padding:5px 0;font:400 15px var(--body);cursor:pointer;color:var(--ivory2)}
+.fg label em{margin-left:auto;font-style:normal;color:var(--mute);font-size:12px}
+.fg input[type=checkbox]{appearance:none;width:15px;height:15px;border:1px solid var(--stone);margin:0;display:grid;place-items:center}
+.fg input[type=checkbox]:checked{background:var(--champ);border-color:var(--champ)}
+.fsz{display:flex;flex-wrap:wrap;gap:6px}.fsz button{min-width:40px;height:36px;padding:0 10px;border:1px solid var(--lineD);font:600 11.5px var(--body)}
+.fsz button[aria-pressed=true]{border-color:var(--champ);color:var(--champ)}
+.fcol{display:flex;gap:10px}.fcol button{width:24px;height:24px;border-radius:50%;box-shadow:0 0 0 1px var(--lineD)}.fcol button[aria-pressed=true]{box-shadow:0 0 0 2px var(--noir),0 0 0 3px var(--champ)}
+.range{width:100%;accent-color:var(--champ)}
+.promo{grid-column:span 2;position:relative;overflow:hidden;min-height:420px;display:flex;align-items:flex-end;padding:36px}
+.promo img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.promo::after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,rgba(21,17,15,.85),transparent 60%)}
+.promo>div{position:relative;z-index:2;text-align:left}.promo h3{font-size:36px;margin:12px 0 18px}
+.more{text-align:center;margin-top:60px;display:grid;justify-items:center;gap:16px;font:500 12px var(--body);letter-spacing:.16em;text-transform:uppercase;color:var(--stone)}
+.more .bar{width:200px;height:1px;background:var(--lineD)}.more .bar i{display:block;width:33%;height:100%;background:var(--champ)}
+.empty{padding:40px;text-align:center;color:var(--stone)}
+/* product */
+.pdp{display:grid;grid-template-columns:1.25fr 1fr;gap:70px;align-items:start;padding-bottom:120px}
+.gal{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.gal .g{position:relative;aspect-ratio:4/5;overflow:hidden;background:var(--esp);cursor:zoom-in}
+.gal .g:first-child{grid-column:1/-1;aspect-ratio:1.1}
+.gal .g img{width:100%;height:100%;object-fit:cover;transition:transform .5s}
+.gal .g.zm{cursor:zoom-out}.gal .g.zm img{transform:scale(2)}
+.gal .badge{top:20px;left:20px}
+.pinfo{position:sticky;top:110px}
+.pinfo .ptop{display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap}.pinfo .ptop .k{white-space:nowrap}
+.pinfo .rt{font:500 12px var(--body);letter-spacing:.1em;color:var(--stone)}.pinfo .rt a{border-bottom:1px solid var(--lineD);margin-left:8px}
+.pinfo h1{font-size:clamp(44px,4.4vw,66px);margin:18px 0 12px}
+.pdesc{font:300 17px/1.7 var(--body);color:var(--ivory2);margin:0 0 22px}
+.pp2{display:flex;align-items:baseline;gap:14px;padding:0 0 26px;border-bottom:1px solid var(--lineD);margin-bottom:26px}
+.pp2 strong{font:400 32px var(--disp);color:var(--champ)}.pp2 s{color:var(--mute)}.pp2 small{font:500 12px var(--body);letter-spacing:.14em;color:var(--stone);margin-left:auto}
+.opt{margin-bottom:26px}
+.opt .lb{display:flex;gap:12px;align-items:baseline;font:600 10.5px var(--body);letter-spacing:.28em;text-transform:uppercase;color:var(--stone);margin-bottom:14px}
+.opt .lb b{font:400 16px var(--disp);letter-spacing:0;text-transform:none;color:var(--ivory)}
+.opt .lb a{margin-left:auto;color:var(--champ);border-bottom:1px solid var(--lineD)}
+.sizes{display:flex;gap:8px;flex-wrap:wrap}
+.sizes button{min-width:62px;height:52px;padding:0 16px;border:1px solid var(--lineD);font:600 13px var(--body);letter-spacing:.08em;position:relative;transition:.2s;display:inline-flex;flex-direction:column;justify-content:center;align-items:center}
+.sizes button small{font:500 10px var(--body);letter-spacing:.06em;color:var(--stone)}
+.sizes button:hover{border-color:var(--champ)}
+.sizes button[aria-pressed=true]{border-color:var(--champ);background:var(--champ);color:var(--noir)}.sizes button[aria-pressed=true] small{color:var(--esp)}
+.sizes button.x{opacity:.35;text-decoration:line-through;pointer-events:none}
+.sizes button.low::after{content:"";position:absolute;top:6px;right:6px;width:5px;height:5px;border-radius:50%;background:#e9b9c0}
+.cols2{display:flex;gap:12px}
+.cols2 button{width:34px;height:34px;border-radius:50%;box-shadow:0 0 0 1px var(--lineD);transition:.2s}
+.cols2 button[aria-pressed=true]{box-shadow:0 0 0 2px var(--noir),0 0 0 3px var(--champ)}
+.fitn{font:400 14px var(--body);color:var(--stone);margin-top:12px;display:flex;gap:10px}.fitn i{color:var(--champ);font-style:normal}
+.engopt{border:1px solid var(--lineD);padding:18px 20px;margin-bottom:26px}
+.engopt label{display:flex;gap:12px;align-items:center;font:500 14px var(--body);cursor:pointer}
+.engopt input[type=checkbox]{accent-color:var(--champ);width:16px;height:16px}
+.engopt label em{margin-left:auto;font-style:normal;color:var(--champ);font-size:13px}
+.engopt .ef{display:none;margin-top:14px}.engopt.on .ef{display:block}
+.buy{display:flex;gap:12px;margin-bottom:18px}
+.qty{display:flex;align-items:center;border:1px solid var(--lineD);height:56px}
+.qty button{width:44px;height:54px;font-size:18px}.qty b{min-width:26px;text-align:center;font-weight:500}
+.buy .btn{flex:1;height:56px}
+.pnote{display:flex;gap:22px;flex-wrap:wrap;font:500 12px var(--body);letter-spacing:.1em;color:var(--stone);margin-bottom:30px}
+.pnote span::before{content:"◆";color:var(--champ);font-size:7px;margin-right:8px;vertical-align:2px}
+.acc details{border-top:1px solid var(--lineD)}.acc details:last-child{border-bottom:1px solid var(--lineD)}
+.acc summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;align-items:center;padding:20px 0;font:600 11px var(--body);letter-spacing:.28em;text-transform:uppercase}
+.acc summary::-webkit-details-marker{display:none}
+.acc summary::after{content:"+";font:300 22px var(--body);color:var(--champ);transition:transform .3s}
+.acc details[open] summary::after{transform:rotate(45deg)}
+.acc .in{padding:0 0 22px;font-weight:300;color:var(--ivory2)}.acc ul{margin:0;padding-left:18px}
+.fbt{display:grid;grid-template-columns:1fr 320px;gap:50px;align-items:center;border:1px solid var(--lineD);padding:40px}
+.fbt .its{display:flex;align-items:center;gap:18px;flex-wrap:wrap}
+.fbt label{display:flex;flex-direction:column;gap:10px;width:190px;font:400 14px var(--body);cursor:pointer}
+.fbt label img{aspect-ratio:4/5;object-fit:cover;background:var(--esp)}
+.fbt label span{display:flex;gap:8px;align-items:flex-start}.fbt input{accent-color:var(--champ);margin-top:3px}
+.fbt .plus{font:300 30px var(--body);color:var(--champ)}
+.fbt .tot2{display:grid;gap:10px}
+.fbt .tot2 small{font:600 10px var(--body);letter-spacing:.28em;text-transform:uppercase;color:var(--stone)}.fbt .tot2 strong{font:400 36px var(--disp)}
+.rv{display:grid;grid-template-columns:300px 1fr;gap:60px}
+.rsum .avg{display:flex;align-items:baseline;gap:12px;margin:14px 0 20px}.rsum .avg strong{font:400 72px var(--disp)}
+.stars{color:var(--champ);letter-spacing:.1em;font-size:13px}.stars em{font-style:normal;color:var(--stone);margin-left:6px;letter-spacing:0}
+.light .stars{color:var(--ox)}
+.rbar{display:grid;grid-template-columns:30px 1fr 40px;gap:12px;align-items:center;font:500 12px var(--body);margin:8px 0;color:#5e544b}
+.rbar i{height:2px;background:var(--lineL)}.rbar i::after{content:"";display:block;width:var(--w);height:100%;background:var(--ox)}
+.sticky{position:fixed;left:0;right:0;bottom:0;transform:translateY(110%);z-index:90;transition:transform .45s;background:rgba(21,17,15,.96);backdrop-filter:blur(10px);border-top:1px solid var(--lineD)}
+.sticky.on{transform:none}
+.sticky .in{display:flex;align-items:center;gap:18px;height:78px}
+.sticky img{width:48px;height:60px;object-fit:cover;background:var(--esp)}
+.sticky b{font:400 20px var(--disp);display:block}.sticky small{font:500 12px var(--body);letter-spacing:.1em;color:var(--stone)}
+.sticky .sp2{margin-left:auto;font:400 22px var(--disp);color:var(--champ)}
+.sticky .btn{height:50px}
+/* cart */
+.cartp{display:grid;grid-template-columns:1fr 400px;gap:70px;align-items:start}
+.cartp h1{font-size:64px;margin-bottom:24px}
+.ship{padding:16px 0 18px;margin-bottom:12px;font:500 13px var(--body);letter-spacing:.06em;color:var(--stone);border-bottom:1px solid var(--lineD)}.ship p{margin:0 0 10px}.ship b{color:var(--champ)}
+.ship .bar{height:1px;background:var(--lineD)}.ship .bar i{display:block;height:100%;background:var(--champ);transition:width .5s}
+.line{display:grid;grid-template-columns:96px 1fr auto;gap:20px;padding:22px 0;border-bottom:1px solid var(--lineD);align-items:center}
+.line img{width:96px;height:120px;object-fit:cover;background:var(--esp)}
+.line b{font:400 21px var(--disp)}.line small{display:block;font:400 13px var(--body);color:var(--stone);margin-top:4px}
+.line .q{display:flex;gap:14px;align-items:center;margin-top:12px;font-size:14px}
+.line .q button{width:28px;height:28px;border:1px solid var(--lineD)}.line .q .rm{width:auto;border:0;font:600 10px var(--body);letter-spacing:.24em;text-transform:uppercase;color:var(--stone);margin-left:8px}
+.lp{font:400 20px var(--disp);color:var(--champ)}
+.csum{border:1px solid var(--lineD);padding:32px;position:sticky;top:110px;display:grid;gap:14px}
+.csum .r{display:flex;justify-content:space-between;font:400 15px var(--body);color:var(--ivory2)}.csum .r.t{border-top:1px solid var(--lineD);padding-top:18px}.csum .r.t b{font:400 30px var(--disp);color:var(--champ)}
+.csum .sv{color:var(--champ)}
+.csum textarea{border:1px solid var(--lineD);background:none;padding:12px;min-height:76px;resize:vertical;color:var(--ivory);outline:0}
+.giftl{display:flex;gap:12px;align-items:center;font:400 14px var(--body);border:1px solid var(--lineD);padding:14px 16px}
+.giftl input{accent-color:var(--champ)}
+.pay{display:flex;gap:6px;flex-wrap:wrap;justify-content:center}.pay span{font:600 9.5px var(--body);letter-spacing:.1em;border:1px solid var(--lineD);padding:5px 8px;color:var(--stone)}
+.cnote{text-align:center;font:400 13px var(--body);color:var(--stone);margin:0}
+/* search */
+.sbig{display:flex;gap:16px;border-bottom:1px solid var(--champ);padding-bottom:14px;margin:10px 0 22px}
+.sbig input{flex:1;border:0;background:none;font:400 clamp(40px,5vw,72px) var(--disp);outline:0;min-width:0;color:var(--ivory)}
+.sugs{display:flex;gap:18px;flex-wrap:wrap;align-items:center;font:600 10.5px var(--body);letter-spacing:.24em;text-transform:uppercase;color:var(--stone)}
+.sugs button{color:var(--champ);border-bottom:1px solid var(--lineD);padding-bottom:3px;letter-spacing:.24em}
+.scount{font:500 12px var(--body);letter-spacing:.16em;text-transform:uppercase;color:var(--stone);margin:34px 0}
+/* blog */
+.bfeat{display:grid;grid-template-columns:1.3fr 1fr;gap:70px;align-items:center;margin-bottom:90px}
+.bfeat .ph{aspect-ratio:4/3;overflow:hidden}.bfeat .ph img{width:100%;height:100%;object-fit:cover;transition:transform 1.2s}.bfeat:hover .ph img{transform:scale(1.04)}
+.bfeat h2{margin:18px 0 16px}.bfeat p{color:var(--stone);font-weight:300}
+.posts{display:grid;grid-template-columns:repeat(3,1fr);gap:50px 34px}
+.post .im{aspect-ratio:4/5;overflow:hidden;margin-bottom:20px}.post .im img{width:100%;height:100%;object-fit:cover;transition:transform 1.2s}.post:hover .im img{transform:scale(1.05)}
+.post h3{font-size:28px;margin:12px 0 10px}.post p{margin:0;color:var(--stone);font-weight:300}
+.seg{display:flex;gap:26px}
+.seg button{font:600 10.5px var(--body);letter-spacing:.26em;text-transform:uppercase;color:var(--stone);padding-bottom:8px;border-bottom:1px solid transparent}.seg button[aria-pressed=true]{color:var(--champ);border-color:var(--champ)}
+/* article */
+.art{max-width:800px;margin:0 auto}
+.art .hd{text-align:center}
+.art h1{font-size:clamp(46px,5.4vw,80px);margin:20px 0 34px}
+.art .hero2{aspect-ratio:16/9;overflow:hidden;margin:0 calc(50% - 50vw + 48px) 50px;max-width:none}.art .hero2 img{width:100%;height:100%;object-fit:cover}
+.art .body{font:300 19px/1.85 var(--body);color:var(--ivory2)}
+.art .body p:first-child::first-letter{float:left;font:400 84px/.8 var(--disp);color:var(--champ);margin:8px 14px 0 0}
+.art .body h2{font-size:38px;margin:50px 0 14px;color:var(--ivory)}
+.art blockquote{margin:44px 0;padding:0 0 0 30px;border-left:1px solid var(--champ);font:400 32px/1.3 var(--disp);color:var(--ivory)}
+.care{border:1px solid var(--lineD);padding:30px 34px;margin:40px 0;display:grid;grid-template-columns:1fr 1fr;gap:30px}
+.care h4{font:600 10.5px var(--body);letter-spacing:.28em;text-transform:uppercase;color:var(--champ);margin-bottom:12px}
+.care ul{margin:0;padding-left:18px;font-size:16px}
+/* about */
+.ab{display:grid;grid-template-columns:1fr 1fr;gap:90px;align-items:center}
+.ab h1{font-size:clamp(50px,5.6vw,88px);margin:20px 0 22px}.ab p.l{font:300 19px/1.75 var(--body);color:var(--ivory2);margin-bottom:34px}
+.ab .ph{aspect-ratio:4/5;overflow:hidden}.ab .ph img{width:100%;height:100%;object-fit:cover}
+.pr4{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid var(--lineD);border-bottom:1px solid var(--lineD)}
+.pr4>div{padding:40px 30px;border-left:1px solid var(--lineD)}.pr4>div:first-child{border-left:0}
+.pr4 b{font:400 46px var(--disp);color:var(--champ)}.pr4 h4{font-size:24px;margin:14px 0 8px}.pr4 p{margin:0;color:var(--stone);font-weight:300}
+.split{display:grid;grid-template-columns:1fr 1fr;gap:90px;align-items:center}
+.split .ph{aspect-ratio:4/3;overflow:hidden}.split .ph img{width:100%;height:100%;object-fit:cover}
+.split h2{margin:18px 0 18px}.split p{color:#5e544b;font-weight:300}
+.smp{font:500 13px var(--body);color:var(--mute)}
+/* contact */
+.ct{display:grid;grid-template-columns:1fr 1.1fr;gap:90px}
+.ct h1{font-size:clamp(50px,5vw,80px);margin:20px 0 16px}.ct p.l{font:300 18px var(--body);color:var(--ivory2)}
+.card2{display:flex;justify-content:space-between;gap:16px;padding:20px 0;border-bottom:1px solid var(--lineD);font:400 15px var(--body)}
+.card2 b{font:600 10.5px var(--body);letter-spacing:.26em;text-transform:uppercase;color:var(--champ)}.card2 span{color:var(--ivory2)}
+.cform{display:grid;grid-template-columns:1fr 1fr;gap:26px 22px;border:1px solid var(--lineD);padding:44px}
+.cform label{display:grid;gap:8px;font:600 10px var(--body);letter-spacing:.26em;text-transform:uppercase;color:var(--stone)}
+.cform input,.cform select,.cform textarea{height:48px;border:0;border-bottom:1px solid var(--lineD);background:none;padding:0 2px;outline:0;color:var(--ivory);font:400 17px var(--body);letter-spacing:0;text-transform:none}
+.cform select{background:var(--noir)}
+.cform input:focus,.cform textarea:focus{border-color:var(--champ)}
+.cform textarea{height:120px;padding:10px 2px;resize:vertical}.cform .w{grid-column:1/-1}
+/* 404 */
+.nf{display:grid;grid-template-columns:1fr 1fr;gap:90px;align-items:center;padding:30px 0 120px}
+.nf .big{font:400 clamp(130px,17vw,240px)/.85 var(--disp);color:transparent;-webkit-text-stroke:1px var(--champ);display:block}
+.nf h1{font-size:56px;margin:18px 0 14px}.nf p.l{font:300 18px var(--body);color:var(--ivory2);margin-bottom:34px}
+.nf .ctas{display:flex;gap:16px;flex-wrap:wrap}
+.nf .ph{aspect-ratio:4/5;overflow:hidden}.nf .ph img{width:100%;height:100%;object-fit:cover}
+/* drawer, modal, toast */
+.scrim{position:fixed;inset:0;background:rgba(0,0,0,.55);z-index:290;opacity:0;visibility:hidden;transition:.35s}.scrim.on{opacity:1;visibility:visible}
+.drawer{position:fixed;right:0;top:0;bottom:0;width:min(460px,100%);background:var(--noir);border-left:1px solid var(--lineD);z-index:300;transform:translateX(100%);transition:transform .45s cubic-bezier(.2,.7,.2,1);display:flex;flex-direction:column;padding:28px 30px}
+.drawer.on{transform:none}
+.drawer .hd{display:flex;justify-content:space-between;align-items:center;margin-bottom:10px}.drawer h3{font-size:32px}.drawer h3 span{font:600 11px var(--body);letter-spacing:.2em;color:var(--champ);vertical-align:middle;margin-left:8px}
+.drawer .ls{flex:1;overflow:auto}
+.drawer .ft2{display:grid;gap:12px;padding-top:18px;border-top:1px solid var(--lineD)}.drawer .ft2 .r{display:flex;justify-content:space-between;font:600 10.5px var(--body);letter-spacing:.26em;text-transform:uppercase;align-items:baseline}.drawer .ft2 .r b{font:400 26px var(--disp);letter-spacing:0;color:var(--champ)}
+.modal{position:fixed;inset:0;z-index:320;background:rgba(0,0,0,.65);display:none;place-items:center;padding:20px}.modal.on{display:grid}
+.modal .box{background:var(--noir);border:1px solid var(--lineD);padding:36px;width:min(660px,100%);max-height:90vh;overflow:auto}
+.modal .mh{display:flex;justify-content:space-between;align-items:center;margin-bottom:18px}.modal h3{font-size:34px}
+.modal table{width:100%;border-collapse:collapse;font:400 14px var(--body)}
+.modal th,.modal td{padding:12px 10px;text-align:left;border-bottom:1px solid var(--lineD)}.modal th{font:600 10px var(--body);letter-spacing:.24em;text-transform:uppercase;color:var(--champ)}
+.modal tr.hl td{background:rgba(205,179,139,.12)}
+.finder2{display:flex;gap:14px;align-items:flex-end;margin-top:22px;flex-wrap:wrap}.finder2 label{display:grid;gap:8px;font:600 10px var(--body);letter-spacing:.24em;text-transform:uppercase;color:var(--stone);flex:1;min-width:150px}
+.finder2 select{height:48px;border:1px solid var(--lineD);background:var(--noir);color:var(--ivory);padding:0 12px;font:400 15px var(--body);letter-spacing:0;text-transform:none}
+.fres{font:400 20px var(--disp);margin:18px 0 0;color:var(--champ)}
+.toast{position:fixed;left:50%;bottom:30px;transform:translate(-50%,180%);background:var(--champ);color:var(--noir);padding:14px 26px;font:600 11px var(--body);letter-spacing:.22em;text-transform:uppercase;z-index:400;transition:transform .4s}
+.toast.on{transform:translate(-50%,0)}
+/* responsive */
+@media(max-width:1180px){.grid{grid-template-columns:repeat(3,1fr)}.appt{grid-template-columns:340px 1fr;gap:44px}.eng .engf{padding:44px 36px}}
+@media(max-width:980px){
+ .wrap{padding:0 20px}
+ .ann .wrap{height:34px;font-size:9px;letter-spacing:.2em}
+ .hrow{height:70px}.hl a.t{display:none}.menub .lab{display:none}
+ .wm b{font-size:22px;letter-spacing:.3em}.wm small{font-size:7.5px;letter-spacing:.36em;margin-top:5px}
+ .hr .acc2{display:none}.bagb .lab{display:none}
+ body.ovr .hero{margin-top:-71px}.bagb .mob{display:inline}
+ .ovm{grid-template-columns:1fr}.ovm .r{display:none}.ovm .l{padding:26px 22px}.ovm nav a{font-size:42px}
+ .hero{height:auto;min-height:0;max-height:none;padding-top:0}
+ .hero>img{position:relative;height:560px;object-position:80% 50%}
+ .hero::after{background:linear-gradient(0deg,rgba(21,17,15,1) 0,rgba(21,17,15,.4) 42%,rgba(21,17,15,0) 70%);height:560px;bottom:auto}
+ .hero .tx{position:relative;bottom:auto;margin-top:-170px}
+ .hero h1{font-size:48px;margin:16px 0 18px}.hero p.l{font-size:16px;margin-bottom:26px}
+ .hero .idx{position:relative;right:auto;bottom:auto;text-align:left;margin:40px 20px 0;padding-top:24px;border-top:1px solid var(--lineD)}.hero .idx b{font-size:44px}
+ .scroll{display:none}
+ .prom .wrap{grid-template-columns:1fr 1fr;padding:0}.prom div{padding:20px 12px;font-size:10px}.prom div:nth-child(3){border-left:0}.prom div:nth-child(n+3){border-top:1px solid var(--lineD)}.prom b{font-size:18px}
+ .sec{padding:90px 0}
+ .ci{grid-template-columns:40px 1fr 30px;gap:14px;padding:22px 0}.ci span{display:none}.ci b{font-size:40px}.cfloat{display:none}
+ .grid,.grid.g3{grid-template-columns:1fr 1fr;gap:30px 12px}
+ .meta h4{font-size:18px}.meta .pr{font-size:12px}.qa{display:none}
+ .eng{grid-template-columns:1fr}.engv{min-height:420px}.engf{padding:30px 20px}
+ .two{grid-template-columns:1fr}
+ .gift,.appt,.story,.ab,.split,.ct,.nf,.bfeat,.cartp,.pdp,.rv,.fbt{grid-template-columns:1fr;gap:40px}
+ .appt .ph{display:none}
+ .dates{gap:4px}.dates button{font-size:8.5px;letter-spacing:.1em}.dates button b{font-size:19px}
+ .slots{grid-template-columns:repeat(3,1fr)}
+ .mats{grid-template-columns:1fr}
+ .steps3{grid-template-columns:1fr 1fr 1fr;gap:12px}.steps3 b{font-size:26px}.steps3 span{font-size:12.5px}
+ .rv3{grid-template-columns:1fr}
+ .solo{padding:30px 22px}
+ .ft .big{font-size:15vw;letter-spacing:.12em;margin-bottom:44px}.ft .cols{grid-template-columns:1fr 1fr;gap:34px}.ft .cols>div:first-child{grid-column:1/-1}
+ .cban{height:360px}
+ .cchips{gap:20px;overflow-x:auto;flex-wrap:nowrap}.cchips button{white-space:nowrap}
+ .cl{grid-template-columns:1fr}.fbtn{display:inline-flex}
+ .ctool{flex-wrap:wrap}.sort{margin-left:0}
+ .filters{position:fixed;inset:0;z-index:300;background:var(--noir);padding:24px 22px;overflow:auto;transform:translateX(-100%);transition:.4s;top:0}.filters.on{transform:none}
+ .fhd{display:flex;justify-content:space-between;align-items:center;font:400 28px var(--disp);margin-bottom:20px}
+ .promo{min-height:340px;padding:24px}
+ .pinfo{position:static}.gal .g:first-child{aspect-ratio:1}
+ .posts{grid-template-columns:1fr}.pr4{grid-template-columns:1fr 1fr}.pr4>div:nth-child(3){border-left:0}.pr4>div:nth-child(n+3){border-top:1px solid var(--lineD)}
+ .cform{grid-template-columns:1fr;padding:26px 20px}
+ .care{grid-template-columns:1fr}
+ .art .hero2{margin:0 -20px 40px}
+ .sticky .in{height:70px;gap:12px}.sticky small,.sticky .sp2,.sticky img{display:none}.sticky .btn{flex:1}
+ .fbt{padding:24px}
+}
+</style>
+</head>
+<body class="ovr">
+<div class="pv"><div class="wrap"><div class="tabs" role="tablist" aria-label="Preview pages">
+<button data-go="home" class="on">Home</button><button data-go="collection">Collection</button><button data-go="product">Product</button><button data-go="cart">Cart</button><button data-go="search">Search</button><button data-go="blog">Blog</button><button data-go="article">Article</button><button data-go="about">About</button><button data-go="contact">Contact</button><button data-go="404">404</button></div>
+<label><input type="checkbox" id="names"> Show section names</label></div></div>
+
+<div class="ann" data-dawn="announcement-bar"><div class="wrap"><i></i><span id="annTxt">Complimentary engraving on every collar</span><i></i></div></div>
+
+<header class="hdr" id="hdr" data-dawn="header"><div class="wrap hrow">
+ <div class="hl"><button class="menub" id="menub" aria-label="Open menu"><span class="bars"></span><span class="lab">Menu</span></button><a href="#" class="t" data-go="collection">The Atelier</a><a href="#engrave" class="t" data-go="home">Engraving</a></div>
+ <a href="#" class="wm" data-go="home" aria-label="Aurelle home"><b>AURELLE</b><small>Maison pour chiens</small></a>
+ <div class="hr">
+  <button class="ib" id="sbtn" aria-label="Search"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"><circle cx="11" cy="11" r="6.5"/><path d="M20 20l-4-4"/></svg></button>
+  <a href="#" class="ib acc2" aria-label="Account" data-go="contact"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><circle cx="12" cy="8" r="4"/><path d="M4 21c1.5-4 4.5-6 8-6s6.5 2 8 6"/></svg></a>
+  <button class="bagb" id="cbtn" aria-label="Open bag"><span class="lab">Bag</span><svg class="mob" width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M5 8h14l-1.2 12H6.2z"/><path d="M9 8V6a3 3 0 016 0v2"/></svg><span class="cc" id="cc">(0)</span></button>
+ </div>
+</div></header>
+
+<div class="ovm" id="ovm" role="dialog" aria-label="Menu" data-dawn="header">
+ <div class="l"><div class="top"><span class="wm" style="text-align:left"><b style="padding-left:0">AURELLE</b></span><button class="menub" id="mmx" aria-label="Close menu">Close</button></div>
+  <nav id="ovnav">
+   <a href="#" data-go="collection" data-cat="Sleep" data-img="p1"><small>01</small>Sleep <em class="i">&amp; rest</em></a>
+   <a href="#" data-go="collection" data-cat="Walk" data-img="collar"><small>02</small>Walk</a>
+   <a href="#" data-go="collection" data-cat="Wear" data-img="jumper"><small>03</small>Wear</a>
+   <a href="#" data-go="collection" data-cat="Dine" data-img="bowl"><small>04</small>Dine</a>
+   <a href="#" data-go="collection" data-cat="Travel" data-img="carrier"><small>05</small>Travel</a>
+   <a href="#engrave" data-go="home" data-img="p7"><small>06</small><em class="i">Engraving studio</em></a>
+  </nav>
+  <div class="sub"><a href="#appoint" data-go="home">Private fittings</a><a href="#gift" data-go="home">Gifting</a><a href="#" data-go="blog">Journal</a><a href="#" data-go="about">The Maison</a></div></div>
+ <div class="r"><img data-k="p1" class="on" alt=""><img data-k="collar" alt=""><img data-k="jumper" alt=""><img data-k="bowl" alt=""><img data-k="carrier" alt=""><img data-k="p7" alt=""><div class="cap"><small>The Atelier</small>Autumn collection</div></div>
+</div>
+<div class="srch" id="srch"><button class="menub x" id="sx">Close</button><div class="wrap"><div class="in"><input id="hq" placeholder="Search the atelier" aria-label="Search"><button class="btn btn-l" id="hqgo" data-go="search">Search</button></div></div></div>
+
+<main>
+<!-- HOME -->
+<section class="page on" id="p-home">
+ <section class="hero" data-dawn="image-banner"><img data-k="hero" alt="Grey whippet lying on an oxblood velvet bed in a dark Parisian apartment">
+  <div class="tx"><div class="wrap"><span class="k">The Velvet Collection</span><h1>Quiet luxury, for the one who <em>waits by the door.</em></h1><p class="l">Beds, collars and knitwear made in small runs from velvet, full-grain leather and cashmere blends. Finished by hand.</p>
+   <div class="ctas"><a href="#" class="btn btn-g" data-go="collection">Discover the atelier</a><a href="#engrave" class="lk" data-go="home">Engrave a tag <span>→</span></a></div></div></div>
+  <div class="idx"><b>No. 01</b>Velour bed in oxblood<br><a href="#" data-go="product" data-p="0">From $340</a></div>
+  <span class="scroll" aria-hidden="true"></span>
+ </section>
+ <div class="prom" data-dawn="multicolumn"><div class="wrap">
+  <div><b>Made in small runs</b>Numbered pieces</div><div><b>Engraving included</b>On every collar and tag</div><div><b>Private fittings</b>In studio or by video</div><div><b>Gift wrapped</b>In our signature box</div>
+ </div></div>
+
+ <section class="sec" data-dawn="collection-list"><div class="wrap">
+  <div class="sh reveal"><div><span class="k">The collections</span><h2>Five rooms of the <em>maison.</em></h2></div><p>Each collection is designed around one moment of the day. Hover to see it.</p></div>
+  <div class="cidx" id="cidx"></div>
+ </div></section>
+ <div class="cfloat" id="cfloat"><img alt="" id="cfimg"></div>
+
+ <section class="sec t" data-dawn="featured-collection"><div class="wrap">
+  <div class="sh ctr reveal"><div><span class="k">New in</span><h2>The autumn pieces</h2></div></div>
+  <div class="grid" id="newGrid"></div>
+  <div style="text-align:center;margin-top:60px"><a href="#" class="lk" data-go="collection">View the atelier <span>→</span></a></div>
+ </div></section>
+
+ <section class="sec t" data-dawn="sbs-engraving-studio" id="engrave"><div class="wrap">
+  <div class="eng reveal">
+   <div class="engv"><span class="lbl">Engraving studio</span><div class="px" id="egPx">$48<small>Tag, engraved</small></div><svg id="egSvg" viewBox="0 0 300 340" role="img" aria-label="Tag preview"></svg><button class="flip" id="egFlip">Show the back</button></div>
+   <div class="engf">
+    <div><span class="k">Engraving studio</span><h2>Their name, <em>in brass.</em></h2></div>
+    <div class="step2"><span>Shape <em id="egShN">Round</em></span><div class="opts" id="egShape"><button aria-pressed="true" data-v="round">Round</button><button aria-pressed="false" data-v="bone">Bone</button><button aria-pressed="false" data-v="shield">Shield</button></div></div>
+    <div class="step2"><span>Metal <em id="egMtN">Brass</em></span><div class="opts" id="egMetal"><button aria-pressed="true" data-v="0"><i style="background:linear-gradient(135deg,#E8CF95,#B08A45)"></i>Brass</button><button aria-pressed="false" data-v="1"><i style="background:linear-gradient(135deg,#F2F2F0,#A9AAAD)"></i>Silver</button><button aria-pressed="false" data-v="2"><i style="background:linear-gradient(135deg,#F2C9B4,#B87C67)"></i>Rose gold</button></div></div>
+    <div class="step2"><span>Lettering</span><div class="opts" id="egFont"><button aria-pressed="true" data-v="0" style="font-family:var(--disp)">Serif</button><button aria-pressed="false" data-v="1" style="font-family:var(--disp);font-style:italic">Script</button><button aria-pressed="false" data-v="2" style="letter-spacing:.2em;font-weight:600">BLOCK</button></div></div>
+    <div class="two"><div class="step2"><span>Front <em id="egLeft">12 left</em></span><input class="fld" id="egName" maxlength="12" value="Hugo" aria-label="Name on the front"></div><div class="step2"><span>Back</span><input class="fld" id="egBack" maxlength="18" value="+33 6 12 34 56 78" aria-label="Text on the back"></div></div>
+    <div class="tot"><div><small>Engraved tag, ships in 3 days</small><strong id="egTot">$48</strong></div><button class="btn btn-g" id="egAdd">Add to bag</button></div>
+   </div>
+  </div>
+ </div></section>
+
+ <section class="sec light" data-dawn="image-with-text"><div class="wrap"><div class="story reveal"><div class="ph"><img data-k="artisan" alt="Artisan hand-stitching a leather collar"><span class="tag2">Finished by hand</span></div><div><span class="k">The atelier</span><h2>Every collar passes through <em>four pairs of hands.</em></h2><p class="l">We cut, edge, stitch and burnish each piece in small runs, then number it. Nothing is made in a hurry, and nothing is made to be thrown away.</p>
+  <div class="steps3"><div><b>01</b><span>Cut from full-grain hides</span></div><div><b>02</b><span>Saddle-stitched by hand</span></div><div><b>03</b><span>Edges burnished with beeswax</span></div></div>
+  <a href="#" class="lk" data-go="about" style="margin-top:40px">Inside the maison <span>→</span></a></div></div></div></section>
+
+ <section class="sec light" data-dawn="sbs-gift-wrap" id="gift" style="padding-top:0"><div class="wrap">
+  <div class="gift reveal">
+   <div class="gview" id="gview"><div class="gbox" id="gbox"><div class="body"></div><div class="lid"></div><div class="rv"></div><div class="rh"></div><svg class="bow" viewBox="0 0 120 60" aria-hidden="true"><path id="bowP" d="M60 32C40 10 10 4 8 22s30 22 52 10zM60 32C80 10 110 4 112 22S82 44 60 32z"/><circle id="bowC" cx="60" cy="32" r="8"/></svg><div class="lbl2" id="gNote"></div></div></div>
+   <div class="gopts">
+    <div><span class="k">Gifting</span><h2 style="margin-top:18px">Wrapped in the <em>maison box.</em></h2></div>
+    <div class="step2"><span>Box <em id="gBoxN">Noir</em></span><div class="opts" id="gBox"><button aria-pressed="true" data-v="0">Noir</button><button aria-pressed="false" data-v="1">Ivory</button><button aria-pressed="false" data-v="2">Oxblood</button></div></div>
+    <div class="step2"><span>Ribbon <em id="gRibN">Champagne silk</em></span><div class="opts" id="gRib"><button aria-pressed="true" data-v="0"><i style="background:#CDB38B"></i>Champagne</button><button aria-pressed="false" data-v="1"><i style="background:#6E1F2A"></i>Oxblood</button><button aria-pressed="false" data-v="2"><i style="background:#2F3B2E"></i>Forest</button></div></div>
+    <div class="step2"><span>Card message</span><textarea id="gMsg" maxlength="120" aria-label="Card message">For Hugo, who has never once been late for dinner.</textarea><div class="cnt" id="gCnt"></div></div>
+    <div class="tot"><div><small>Box, ribbon and handwritten card</small><strong id="gTot">$15</strong></div><button class="btn btn-d" id="gAdd">Add gift wrap</button></div>
+   </div>
+  </div>
+ </div></section>
+
+ <section class="sec" data-dawn="multicolumn"><div class="wrap">
+  <div class="sh reveal"><div><span class="k">Materials</span><h2>Chosen for the <em>long run.</em></h2></div></div>
+  <div class="mats reveal"><div><small>Leather</small><h3>Full-grain hides</h3><p>Vegetable tanned, so it darkens and softens with every walk.</p></div><div><small>Velvet</small><h3>Cotton velvet</h3><p>Dense pile that holds its colour. Removable covers, gentle wash.</p></div><div><small>Knit</small><h3>Cashmere blend</h3><p>Warm without weight, knitted for long backs and narrow chests.</p></div></div>
+ </div></section>
+
+ <section class="sec t" data-dawn="sbs-appointment" id="appoint"><div class="wrap">
+  <div class="appt reveal"><div class="ph"><img data-k="walk" alt="Owner walking a dog on a Paris street"></div>
+   <div><span class="k">Private fittings</span><h2 style="margin:18px 0 34px">Book a <em>private fitting.</em></h2>
+    <div class="apf" id="apf">
+     <div class="step2" style="margin-bottom:28px"><span>Choose a service</span><div class="svc" id="apSvc"><button aria-pressed="true" data-v="0"><b>Collar fitting</b><small>We measure the neck and choose the width.</small><em>30 min</em></button><button aria-pressed="false" data-v="1"><b>Bed consultation</b><small>Sleeping style, size and fabric.</small><em>45 min</em></button><button aria-pressed="false" data-v="2"><b>Coat measuring</b><small>Back length, chest and neck for knitwear.</small><em>30 min</em></button></div></div>
+     <div class="step2" style="margin-bottom:28px"><span>Day <em id="apDayN"></em></span><div class="dates" id="apDays"></div></div>
+     <div class="step2" style="margin-bottom:28px"><span>Time</span><div class="slots" id="apSlots"></div></div>
+     <div class="two" style="margin-bottom:30px"><input class="fld" id="apName" placeholder="Your name" aria-label="Your name" style="font-size:20px"><input class="fld" id="apMail" type="email" placeholder="Email" aria-label="Email" style="font-size:20px"></div>
+     <div class="tot" style="border:0;padding:0"><div><small>In studio or by video. No charge.</small><strong id="apSum" style="font-size:22px"></strong></div><button class="btn btn-g" id="apGo">Request fitting</button></div>
+    </div>
+    <div class="conf" id="apConf"><span class="k">Requested</span><b id="apConfT"></b><p>We will confirm by email within one working day.</p><button class="lk" id="apAgain" style="margin-top:22px">Book another</button></div>
+   </div></div>
+ </div></section>
+
+ <section class="sec t" data-dawn="multicolumn"><div class="wrap">
+  <div class="quote reveal" id="quote"></div>
+ </div></section>
+
+ <section class="sec t" data-dawn="newsletter"><div class="wrap">
+  <div class="nl reveal"><span class="k">Correspondence</span><h2>Letters from the <em>maison.</em></h2><p>New pieces, private sales and the odd story. Four letters a year.</p>
+   <form onsubmit="event.preventDefault();toast('Thank you. You are on the list.')"><input type="email" required placeholder="Email address" aria-label="Email"><button>Subscribe</button></form></div>
+ </div></section>
+</section>
+
+<!-- COLLECTION -->
+<section class="page" id="p-collection">
+ <div class="cban" data-dawn="main-collection-banner"><img data-k="p1" id="cImg" alt="Velvet dog bed"><div class="wrap"><div class="crumb" data-dawn="sbs-breadcrumbs" style="padding:0"><a href="#" data-go="home">Home</a><span>/</span><b id="cCrumb">The atelier</b></div><h1 id="cTitle">The atelier</h1><p id="cDesc">Beds, collars, knitwear and travel pieces, made in small numbered runs.</p></div></div>
+ <div class="wrap">
+ <div class="cchips" id="cCats"><button class="on" data-c="all">All pieces</button><button data-c="Sleep">Sleep</button><button data-c="Walk">Walk</button><button data-c="Wear">Wear</button><button data-c="Dine">Dine</button><button data-c="Travel">Travel</button></div>
+ <div data-dawn="main-collection-product-grid">
+  <div class="ctool"><button class="btn btn-l fbtn" id="fopen">Filter</button><span class="cct"><b id="cCount">8</b> pieces</span><div class="sort"><label for="cSort">Sort</label><select id="cSort"><option value="feat">Featured</option><option value="lo">Price, low to high</option><option value="hi">Price, high to low</option><option value="rt">Top rated</option></select></div></div>
+  <div class="cl">
+   <aside class="filters" id="filters"><div class="fhd"><span>Filter</span><button class="ib" id="fclose" aria-label="Close">✕</button></div>
+    <div class="fg"><h6>For</h6><label><input type="checkbox" data-f="p" value="dog">Dogs<em>0</em></label><label><input type="checkbox" data-f="p" value="cat">Cats<em>0</em></label></div>
+    <div class="fg"><h6>Size</h6><div class="fsz" id="fsz"><button aria-pressed="false">XS</button><button aria-pressed="false">S</button><button aria-pressed="false">M</button><button aria-pressed="false">L</button></div></div>
+    <div class="fg"><h6>Tone</h6><div class="fcol"><button aria-pressed="false" style="background:#6E1F2A" aria-label="Oxblood"></button><button aria-pressed="false" style="background:#8B5A33" aria-label="Cognac"></button><button aria-pressed="false" style="background:#1E1A18" aria-label="Noir"></button><button aria-pressed="false" style="background:#EDE4D6" aria-label="Ivory"></button></div></div>
+    <div class="fg"><h6>Price <span id="fPv">up to $600</span></h6><input type="range" class="range" id="fPrice" min="50" max="600" step="50" value="600" aria-label="Maximum price"></div>
+    <div class="fg" style="border:0"><label><input type="checkbox" id="fSale">Private sale</label></div>
+    <button class="btn btn-l" style="width:100%;height:46px" id="freset">Clear all</button>
+   </aside>
+   <div><div class="grid g3" id="cGrid"></div><div class="more"><small>Showing <span id="cShow">8</span> of 24</small><div class="bar"><i></i></div><button class="btn btn-l" onclick="toast('Demo: more pieces load here')">Load more</button></div></div>
+  </div>
+ </div>
+ <section class="sec t" data-dawn="sbs-appointment" style="padding-top:110px"><div class="solo"><div><h2>Not sure of the size?</h2><p>Book a private fitting, in studio or by video.</p></div><a href="#appoint" data-go="home" class="btn btn-l">Book a fitting</a></div></section>
+</div></section>
+
+<!-- PRODUCT -->
+<section class="page" id="p-product">
+ <div class="wrap"><div class="crumb" data-dawn="sbs-breadcrumbs"><a href="#" data-go="home">Home</a><span>/</span><a href="#" data-go="collection" id="pCat">Walk</a><span>/</span><b id="pCrumb"></b></div>
+  <div class="pdp" data-dawn="main-product">
+   <div class="gal" id="gal"></div>
+   <div class="pinfo">
+    <div class="ptop"><span class="k" id="pKick">Walk</span><div class="rt"><span id="pStars"></span><a href="#reviews">Reviews</a></div></div>
+    <h1 id="pName"></h1>
+    <p class="pdesc" id="pSub"></p>
+    <div class="pp2"><strong id="pPrice"></strong><s id="pWas"></s><small id="pNo"></small></div>
+    <div class="opt" id="colOpt"><div class="lb"><span>Tone</span><b id="pColL"></b></div><div class="cols2" id="pCols"></div></div>
+    <div class="opt" data-dawn="variant-picker" id="szOpt"><div class="lb"><span>Size</span><b id="pSizeL">Choose a size</b><a href="#" id="sgOpen">Size guide</a></div><div class="sizes" id="pSizes"></div><div class="fitn" id="pFit"></div></div>
+    <div class="engopt" id="engOpt"><label><input type="checkbox" id="pEng"> Add engraving <em>Included</em></label><div class="ef"><input class="fld" id="pEngT" maxlength="12" placeholder="Name to engrave" aria-label="Name to engrave"></div></div>
+    <div class="buy" data-dawn="buy-buttons" id="atc"><div class="qty"><button id="qm" aria-label="Less">−</button><b id="qv">1</b><button id="qp" aria-label="More">+</button></div><button class="btn btn-g" id="pAdd">Add to bag</button></div>
+    <div class="pnote"><span>Ships in 2 to 3 days</span><span>Gift wrap available</span><span>30-day returns</span></div>
+    <div class="acc" data-dawn="collapsible-content">
+     <details open><summary>The piece</summary><div class="in" id="pDesc"></div></details>
+     <details><summary>Materials and care</summary><div class="in"><ul id="pTech"></ul></div></details>
+     <details><summary>Delivery and returns</summary><div class="in">Complimentary delivery on orders over $250. Returns within 30 days, unless engraved.</div></details>
+    </div>
+   </div>
+  </div>
+ </div>
+ <section class="sec t" data-dawn="sbs-frequently-bought"><div class="wrap"><div class="sh"><div><span class="k">Complete the set</span><h2 class="h2s">Worn together</h2></div></div>
+  <div class="fbt"><div class="its" id="fbtIts"></div><div class="tot2"><small>The set, 10% less</small><strong id="fbtTot"></strong><button class="btn btn-g" style="width:100%" id="fbtAdd">Add the set</button></div></div></div></section>
+ <section class="sec light" data-dawn="main-product" id="reviews"><div class="wrap"><div class="rv"><div class="rsum"><span class="k">Reviews</span><div class="avg"><strong id="prAvg"></strong><span id="prStars"></span></div><div id="prbars"></div></div><div class="rv3" id="prcards"></div></div></div></section>
+ <section class="sec" data-dawn="related-products"><div class="wrap"><div class="sh ctr"><div><span class="k">You may also like</span><h2 class="h2s">From the atelier</h2></div></div><div class="grid" id="relGrid"></div></div></section>
+ <section class="sec t" data-dawn="sbs-recently-viewed"><div class="wrap"><div class="sh ctr"><div><span class="k">Recently viewed</span><h2 class="h2s">Seen before</h2></div></div><div class="grid" id="rvGrid"></div></div></section>
+ <div class="sticky" id="sticky" data-dawn="sticky add to cart"><div class="wrap in"><img id="stImg" alt=""><div><b id="stName"></b><small id="stOpt"></small></div><span class="sp2" id="stPrice"></span><button class="btn btn-g" id="stAdd">Add to bag</button></div></div>
+</section>
+
+<!-- CART -->
+<section class="page" id="p-cart"><div class="wrap"><div class="crumb" data-dawn="sbs-breadcrumbs"><a href="#" data-go="home">Home</a><span>/</span><b>Bag</b></div>
+ <div class="cartp"><div data-dawn="main-cart-items"><h1>Your bag</h1><div class="ship" id="cShip"></div><div id="cLines"></div></div>
+  <aside class="csum" data-dawn="main-cart-footer"><div class="r"><span>Subtotal</span><span id="cSub"></span></div><div class="r"><span>Set savings</span><span id="cSave" class="sv"></span></div><div class="r"><span>Delivery</span><span id="cShipT"></span></div><div class="r t"><span>Total</span><b id="cTot"></b></div>
+   <label class="giftl"><input type="checkbox" id="giftc"> Send as a gift, without prices</label>
+   <textarea placeholder="Note for the atelier" aria-label="Order note"></textarea><button class="btn btn-g" style="width:100%" onclick="toast('Demo checkout')">Checkout</button>
+   <div class="pay"><span>VISA</span><span>MC</span><span>AMEX</span><span>PAYPAL</span><span>APPLE PAY</span></div>
+   <p class="cnote">Engraved pieces ship within 3 days.</p></aside></div>
+ <section class="sec t" data-dawn="featured-collection" style="padding-top:110px"><div class="sh ctr"><div><span class="k">Finishing touches</span><h2 class="h2s">To complete it</h2></div></div><div class="grid" id="upsell"></div></section>
+</div></section>
+
+<!-- SEARCH -->
+<section class="page" id="p-search"><div class="wrap" data-dawn="main-search" style="padding-bottom:110px"><div class="crumb"><a href="#" data-go="home">Home</a><span>/</span><b>Search</b></div>
+ <div class="sbig"><input id="sq" value="leather" aria-label="Search"><button class="btn btn-l" onclick="runSearch()">Search</button></div>
+ <div class="sugs" id="sugs">Popular <button>velvet</button><button>collar</button><button>cashmere</button><button>cat</button></div>
+ <p class="scount"><span id="sCount">0</span> results for "<span id="sTerm"></span>"</p><div class="grid" id="sGrid"></div></div></section>
+
+<!-- BLOG -->
+<section class="page" id="p-blog"><div class="wrap" data-dawn="main-blog" style="padding-bottom:110px"><div class="crumb"><a href="#" data-go="home">Home</a><span>/</span><b>Journal</b></div>
+ <div class="sh"><div><span class="k">The journal</span><h2>Notes from the <em>maison</em></h2></div><div class="seg" id="bcats"><button aria-pressed="true">All</button><button aria-pressed="false">Care</button><button aria-pressed="false">Atelier</button><button aria-pressed="false">Living</button></div></div>
+ <a href="#" class="bfeat" data-go="article"><div class="ph"><img data-k="artisan" alt="Hands stitching a leather collar"></div><div><span class="k">Care · 6 min</span><h2>How to care for a leather collar</h2><p>Leather is skin. Clean it gently, feed it twice a year and it will outlast every walk you take together.</p><span class="lk">Read <span>→</span></span></div></a>
+ <div class="posts" id="posts"></div></div></section>
+
+<!-- ARTICLE -->
+<section class="page" id="p-article"><div class="wrap" data-dawn="main-article" style="padding-bottom:30px"><div class="crumb"><a href="#" data-go="home">Home</a><span>/</span><a href="#" data-go="blog">Journal</a><span>/</span><b>Leather care</b></div>
+ <div class="art"><div class="hd"><span class="k">Care · 6 min · Sample article</span><h1>How to care for a <em>leather collar</em></h1></div>
+  <div class="hero2"><img data-k="artisan" alt="Artisan stitching leather"></div>
+  <div class="body"><p>Full-grain leather is the top layer of the hide. It is the strongest part, and it changes over time. Dark spots and soft creases are not damage. They are the collar learning the shape of the neck it lives on.</p>
+   <h2>Clean it gently</h2><p>Wipe off mud with a damp cloth and let the collar dry flat, away from a radiator. Never put leather in the washing machine, and never dry it in the sun.</p>
+   <div class="care"><div><h4>Do</h4><ul><li>Wipe with a damp cloth</li><li>Dry flat at room temperature</li><li>Feed with balm twice a year</li></ul></div><div><h4>Avoid</h4><ul><li>Soaking or swimming</li><li>Radiators and direct sun</li><li>Harsh soaps and sprays</li></ul></div></div>
+   <blockquote>Leather is skin. Treat it like your own and it will last for years.</blockquote>
+   <h2>Feed it twice a year</h2><p>A thin layer of leather balm in spring and autumn keeps the fibres supple. Rub it in with a soft cloth, wait an hour, then buff. Check the stitching and the buckle at the same time.</p></div>
+ </div>
+ <section class="sec t" data-dawn="featured-collection" style="padding-top:110px"><div class="sh ctr"><div><span class="k">In this story</span><h2 class="h2s">The leather pieces</h2></div></div><div class="grid" id="artGrid"></div></section>
+</div></section>
+
+<!-- ABOUT -->
+<section class="page" id="p-about"><div class="wrap">
+ <section class="sec t" data-dawn="image-with-text" style="padding-top:40px"><div class="ab"><div><span class="k">The maison</span><h1>Made for the dogs who <em>share the sofa.</em></h1><p class="l">Aurelle is a small atelier making beds, collars and knitwear in small numbered runs. We design for the way dogs and cats live with us now: in the living room, not the yard.</p><a href="#" data-go="collection" class="btn btn-g">Discover the atelier</a></div><div class="ph"><img data-k="jumper" alt="Dog wearing an ivory cashmere jumper"></div></div></section>
+ <section class="sec t" data-dawn="multicolumn"><div class="pr4 reveal"><div><b>I</b><h4>Small runs</h4><p>Every piece is numbered.</p></div><div><b>II</b><h4>Honest materials</h4><p>Leather, velvet and wool blends.</p></div><div><b>III</b><h4>Made to repair</h4><p>Buckles and covers can be replaced.</p></div><div><b>IV</b><h4>Engraved free</h4><p>On every collar and tag.</p></div></div></section>
+</div>
+ <section class="sec light" data-dawn="image-with-text"><div class="wrap"><div class="split"><div class="ph reveal"><img data-k="gift" alt="Gift box with oxblood ribbon"></div><div class="reveal"><span class="k">Our story</span><h2>It began with one <em>good collar.</em></h2><p>We could not find a collar that looked as good on the sofa as on the street. So we made one, then a lead to match, then a bed to come home to.</p><p class="smp">This is sample brand copy. Replace it with your own story in the theme editor.</p></div></div></div></section>
+ <div class="wrap"><section class="sec" data-dawn="sbs-gift-wrap"><div class="solo"><div><h2>Sending a gift?</h2><p>Choose the box, the ribbon and the card.</p></div><a href="#gift" data-go="home" class="btn btn-l">Wrap a gift</a></div></section></div>
+</section>
+
+<!-- CONTACT -->
+<section class="page" id="p-contact"><div class="wrap" style="padding-bottom:120px"><div class="crumb"><a href="#" data-go="home">Home</a><span>/</span><b>Contact</b></div>
+ <div class="ct"><div data-dawn="rich-text"><span class="k">Client services</span><h1>At your <em>service.</em></h1><p class="l">Sizing, engraving, orders or a private fitting. We reply within one working day.</p>
+  <div class="card2"><b>Email</b><span>hello@yourstore.com</span></div>
+  <div class="card2"><b>Hours</b><span>Monday to Saturday, 10 to 6</span></div>
+  <div class="card2"><b>Fittings</b><span>In studio or by video</span></div></div>
+  <form class="cform" data-dawn="contact-form" onsubmit="event.preventDefault();toast('Message sent')"><label class="w">Subject<select><option>Sizing</option><option>Engraving</option><option>My order</option><option>Private fitting</option></select></label>
+   <label>Name<input required></label><label>Pet's name<input></label><label class="w">Email<input type="email" required></label><label class="w">Message<textarea required></textarea></label><button class="btn btn-g w">Send</button></form></div>
+</div></section>
+
+<!-- 404 -->
+<section class="page" id="p-404"><div class="wrap" style="padding-top:40px"><div class="nf" data-dawn="main-404"><div><b class="big">404</b><h1>This room is <em>empty.</em></h1><p class="l">The page has moved or no longer exists. The rest of the maison is still open.</p><div class="ctas"><a href="#" class="btn btn-g" data-go="home">Home</a><a href="#" class="btn btn-l" data-go="collection">The atelier</a></div></div><div class="ph"><img data-k="collar" alt="Dog portrait"></div></div>
+ <section class="sec t" data-dawn="featured-collection"><div class="sh ctr"><div><span class="k">Popular</span><h2 class="h2s">Begin here</h2></div></div><div class="grid" id="nfGrid"></div></section>
+</div></section>
+</main>
+
+<footer class="ft" data-dawn="footer"><div class="wrap"><div class="big" aria-hidden="true">AURELLE</div><div class="cols">
+ <div><span class="k">Maison pour chiens</span><p style="margin-top:18px">Beds, collars and knitwear for dogs and cats, made in small numbered runs.</p><form onsubmit="event.preventDefault();toast('Thank you. You are on the list.')"><input type="email" placeholder="Letters from the maison" aria-label="Email" required><button aria-label="Subscribe">→</button></form></div>
+ <div><h5>Collections</h5><a href="#" data-go="collection" data-cat="Sleep">Sleep</a><a href="#" data-go="collection" data-cat="Walk">Walk</a><a href="#" data-go="collection" data-cat="Wear">Wear</a><a href="#" data-go="collection" data-cat="Dine">Dine</a><a href="#" data-go="collection" data-cat="Travel">Travel</a></div>
+ <div><h5>Services</h5><a href="#engrave" data-go="home">Engraving studio</a><a href="#gift" data-go="home">Gifting</a><a href="#appoint" data-go="home">Private fittings</a><a href="#" id="sgOpen2">Size guide</a></div>
+ <div><h5>Maison</h5><a href="#" data-go="about">About</a><a href="#" data-go="blog">Journal</a><a href="#" data-go="contact">Contact</a><a href="#" data-go="contact">Care and repairs</a></div>
+</div><div class="bot"><span>© 2026 Aurelle. Demo store for the Aurelle Shopify theme.</span><div class="soc"><a href="#">Instagram</a><a href="#">Pinterest</a></div></div></div></footer>
+
+<div class="scrim" id="scrim"></div>
+<aside class="drawer" id="drawer" data-dawn="cart-drawer" aria-label="Bag"><div class="hd"><h3>Bag<span id="dCount">0</span></h3><button class="ib" id="dx" aria-label="Close bag">✕</button></div><div class="ship" id="dShip"></div><div class="ls" id="dLines"></div><div class="ft2"><div class="r"><span>Subtotal</span><b id="dSub"></b></div><button class="btn btn-g" style="width:100%" onclick="toast('Demo checkout')">Checkout</button><button class="btn btn-l" data-go="cart" style="width:100%">View bag</button></div></aside>
+<div class="modal" id="sg" role="dialog" aria-label="Size guide"><div class="box"><div class="mh"><h3>Size guide</h3><button class="ib" id="sgx" aria-label="Close">✕</button></div><table><thead><tr><th>Size</th><th>Neck (cm)</th><th>Back (cm)</th><th>Typical breeds</th></tr></thead><tbody id="sgT"></tbody></table>
+ <div class="finder2"><label>Neck<select id="fh"><option value="24">Under 28 cm</option><option value="32" selected>28 to 36 cm</option><option value="40">36 to 44 cm</option><option value="48">44 to 52 cm</option></select></label><label>Build<select id="ff"><option value="0">Slim, like a whippet</option><option value="1" selected>Average</option><option value="2">Broad chest</option></select></label><button class="btn btn-g" id="fgo">Find size</button></div><p class="fres" id="fres"></p></div></div>
+<div class="toast" id="toast"><span id="tmsg"></span></div>
+<script>
+const IMG='img/aurelle-demo-';
+const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)];
+const money=n=>'$'+(Math.round(n*100)/100).toFixed(2).replace(/\.00$/,'');
+const PETN={dog:'Dogs',cat:'Cats'};
+const P=[
+ {k:'p1',n:'Velour Bed',c:'Sleep',pt:['dog','cat'],sz:['S','M','L'],pz:[340,420,520],hint:['60 cm','80 cm','100 cm'],b:'Signature',r:4.9,rc:214,h:'hero',no:'No. 01',sub:'Cotton velvet on a brushed brass base',sw:[['Oxblood','#6E1F2A'],['Noir','#1E1A18'],['Ivory','#EDE4D6']],x:[],low:['L'],fit:'Measure your pet lying curled and add 10 cm.',tech:['Cotton velvet cover, removable','Brushed brass-finish steel base','Recycled fibre cushion','Cover: gentle wash at 30°'],set:[1,6]},
+ {k:'p2',n:'Saddle Collar',c:'Walk',pt:['dog'],sz:['XS','S','M','L'],pz:[145,145,145,145],hint:['24-30','30-36','36-44','44-52'],b:'Atelier exclusive',r:4.9,rc:388,h:'collar',no:'No. 02',sub:'Full-grain leather, saddle-stitched by hand',sw:[['Cognac','#8B5A33'],['Noir','#1E1A18'],['Oxblood','#6E1F2A']],x:[],low:['L'],eng:1,fit:'Two fingers should slide under the collar. Runs true to size.',tech:['Vegetable-tanned full-grain leather','Solid brass buckle and D-ring','Hand-burnished edges','Engraving included'],set:[2,6]},
+ {k:'p3',n:'Saddle Lead',c:'Walk',pt:['dog'],sz:['One size'],pz:[165],r:4.8,rc:201,h:'walk',no:'No. 03',sub:'1.4 m of leather with a solid brass clip',sw:[['Cognac','#8B5A33'],['Noir','#1E1A18']],x:[],fit:'One size. 1.4 m long, 18 mm wide.',tech:['Vegetable-tanned full-grain leather','Solid brass trigger clip','Hand-stitched loop','Wipe clean with a damp cloth'],set:[1,6]},
+ {k:'p4',n:'Cashmere Jumper',c:'Wear',pt:['dog'],sz:['XS','S','M','L'],pz:[210,210,230,230],hint:['30 cm','36 cm','44 cm','52 cm'],b:'New',r:4.8,rc:156,h:'jumper',no:'No. 04',sub:'Cable knit in a soft cashmere blend',sw:[['Ivory','#EDE4D6'],['Oxblood','#6E1F2A']],x:['XS'],low:[],fit:'Measured on back length. Slim breeds: size up one.',tech:['Cashmere and merino blend','Ribbed neck and cuffs','Hand wash cold, dry flat','Knitted in small runs'],set:[1,0]},
+ {k:'p5',n:'Marble Bowl Set',c:'Dine',pt:['dog','cat'],sz:['S','M'],pz:[180,220],hint:['2 × 0.5 L','2 × 1 L'],r:4.7,rc:119,h:'bowl',no:'No. 05',sub:'Nero marble stand with two brass-finish bowls',sw:[['Nero','#1E1A18']],x:[],fit:'S for cats and small dogs, M for medium and large.',tech:['Solid marble stand, felt base','Stainless steel bowls, brass finish','Bowls are dishwasher safe','Each stand is unique'],set:[0,6]},
+ {k:'p6',n:'Voyage Carrier',c:'Travel',pt:['dog','cat'],sz:['One size'],pz:[480],r:4.9,rc:87,h:'carrier',no:'No. 06',sub:'Leather tote with a mesh window, for pets up to 7 kg',sw:[['Cognac','#8B5A33'],['Noir','#1E1A18']],x:[],fit:'For pets up to 7 kg. Fits most cabin size rules.',tech:['Full-grain leather and canvas','Ventilated mesh panels','Removable quilted cushion','Brass hardware'],set:[6,1]},
+ {k:'p7',n:'Brass ID Tag',c:'Walk',pt:['dog','cat'],sz:['One size'],pz:[48],r:4.9,rc:443,h:'collar',no:'No. 07',sub:'Engraved front and back, three shapes',sw:[['Brass','#C9A55C'],['Silver','#C8C8C6'],['Rose gold','#D4A08A']],x:[],eng:1,fit:'Fits any collar ring up to 25 mm.',tech:['Solid brass, silver or rose-gold plate','Deep laser engraving','Split ring included','Ships in 3 days'],set:[1,2]},
+ {k:'p8',n:'Boucle Lounger',c:'Sleep',pt:['cat'],sz:['One size'],pz:[290],w:340,b:'Private sale',r:4.8,rc:98,h:'cat',no:'No. 08',sub:'Ivory boucle on an oak frame, for cats',sw:[['Ivory','#EDE4D6']],x:[],fit:'One size. 55 cm across.',tech:['Boucle cover, removable','Solid oak legs','Memory foam pad','Spot clean'],set:[4,0]},
+ {k:'gift',n:'Maison gift wrap',c:'Gift',pt:[],sz:['One size'],pz:[15],hide:1,sw:[['Noir','#1E1A18']],x:[],tech:[]}
+];
+const unitP=(i,s)=>{const p=P[i],k=p.sz.indexOf(s);return p.pz[k<0?0:k]};
+const heart=`<svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20s-7-4.5-7-10a4 4 0 017-2.5A4 4 0 0119 10c0 5.5-7 10-7 10z"/></svg>`;
+function src(k){return IMG+k+'.jpg'}
+function imgs(){$$('img[data-k]').forEach(i=>{i.src=src(i.dataset.k)})}
+function stars(r,c){return `<span class="stars">★★★★★ ${r}${c!=null?`<em>(${c})</em>`:''}</span>`}
+const first=p=>p.sz.find(s=>!(p.x||[]).includes(s))||p.sz[0];
+const minP=p=>Math.min(...p.pz);
+function card(i){const p=P[i],one=p.sz.length===1,var_=new Set(p.pz).size>1;
+ return `<div class="card reveal" data-ci="${i}"><div class="im">${p.b?`<span class="badge ${p.b==='Private sale'?'s':''}">${p.b}</span>`:''}
+ <a href="#" data-go="product" data-p="${i}" aria-label="${p.n}"><img class="m" src="${src(p.k)}" alt="${p.n}"><img class="h" src="${src(p.h)}" alt=""></a>
+ <button class="wish" aria-label="Save ${p.n}">${heart}</button>
+ <div class="qa">${one?`<button class="one" data-qa="${i}" data-s="${p.sz[0]}">Add to bag · ${money(p.pz[0])}</button>`:`<small>Choose a size</small><div class="sz">${p.sz.map(s=>`<button data-qa="${i}" data-s="${s}" class="${(p.x||[]).includes(s)?'x':''}">${s}</button>`).join('')}</div>`}</div></div>
+ <div class="meta"><span class="ty">${p.c} · ${p.no}</span><h4><a href="#" data-go="product" data-p="${i}">${p.n}</a></h4><div class="pr">${var_?'From ':''}${money(minP(p))}${p.w?`<s>${money(p.w)}</s>`:''}</div>
+ <div class="sw">${p.sw.map(c=>`<i style="background:${c[1]}" title="${c[0]}"></i>`).join('')}</div></div></div>`}
+function fill(id,list){const el=$(id);if(el)el.innerHTML=list.map(card).join('')}
+
+/* names, routing */
+$('#names').addEventListener('change',e=>document.body.classList.toggle('names',e.target.checked));
+function go(pg,hash){$$('.page').forEach(p=>p.classList.toggle('on',p.id==='p-'+pg));$$('.pv .tabs button').forEach(b=>b.classList.toggle('on',b.dataset.go===pg));closeAll();
+ document.body.classList.toggle('ovr',pg==='home');hdr();
+ if(pg==='cart')renderCart();
+ if(hash){const t=$(hash);if(t)setTimeout(()=>t.scrollIntoView({behavior:'smooth'}),30)}else window.scrollTo({top:0});obs()}
+document.addEventListener('click',e=>{const a=e.target.closest('[data-go]');if(!a)return;e.preventDefault();
+ if(a.dataset.p!=null){setProduct(+a.dataset.p);seen(+a.dataset.p)}
+ if(a.dataset.go==='collection')setCat(a.dataset.cat||'all');
+ const h=a.getAttribute('href');go(a.dataset.go,h&&h.length>1?h:null)});
+function hdr(){$('#hdr').classList.toggle('sc',scrollY>40)}addEventListener('scroll',hdr,{passive:true});
+$('#menub').onclick=()=>$('#ovm').classList.add('on');$('#mmx').onclick=()=>$('#ovm').classList.remove('on');
+$('#ovnav').addEventListener('mouseover',e=>{const a=e.target.closest('[data-img]');if(!a)return;$$('#ovm .r img').forEach(i=>i.classList.toggle('on',i.dataset.k===a.dataset.img))});
+$('#sbtn').onclick=()=>{$('#srch').classList.add('on');$('#hq').focus()};$('#sx').onclick=()=>$('#srch').classList.remove('on');
+$('#hq').addEventListener('keydown',e=>{if(e.key==='Enter')$('#hqgo').click()});
+$('#hqgo').addEventListener('click',()=>{$('#sq').value=$('#hq').value||'leather';runSearch()});
+function closeAll(){$('#ovm').classList.remove('on');$('#srch').classList.remove('on');closeDrawer();$('#filters').classList.remove('on');$('#sg').classList.remove('on')}
+document.addEventListener('keydown',e=>{if(e.key==='Escape')closeAll()});
+const ANN=['Complimentary engraving on every collar','Private fittings, in studio or by video','Complimentary delivery over $250'];let ai=0;
+setInterval(()=>{ai=(ai+1)%ANN.length;const t=$('#annTxt');t.style.opacity=0;setTimeout(()=>{t.textContent=ANN[ai];t.style.opacity=1},400)},5000);
+
+/* collections index with floating image */
+const CIDX=[['01','Sleep','Beds and loungers','p1'],['02','Walk','Collars, leads and tags','collar'],['03','Wear','Knitwear','jumper'],['04','Dine','Bowls and stands','bowl'],['05','Travel','Carriers','carrier']];
+$('#cidx').innerHTML=CIDX.map(c=>`<a href="#" class="ci reveal" data-go="collection" data-cat="${c[1]}" data-img="${c[3]}"><small>${c[0]}</small><b>${c[1]}</b><span>${c[2]}</span><i>→</i></a>`).join('');
+const cf=$('#cfloat');$('#cidx').addEventListener('mousemove',e=>{const a=e.target.closest('.ci');if(!a){cf.classList.remove('on');return}const s=src(a.dataset.img);if(!$('#cfimg').src.endsWith(s))$('#cfimg').src=s;cf.style.left=e.clientX+'px';cf.style.top=e.clientY+'px';cf.classList.add('on')});
+$('#cidx').addEventListener('mouseleave',()=>cf.classList.remove('on'));
+
+/* engraving studio */
+const MET=[['Brass','#F1DDA6','#B08A45','#7A5A24'],['Silver','#FAFAF8','#B4B5B8','#7B7C80'],['Rose gold','#F6D3C1','#C08872','#8A5444']];
+const EG={shape:'round',m:0,f:0,back:false};const NS='http://www.w3.org/2000/svg';
+function el(svg,t,a,txt){const e=document.createElementNS(NS,t);for(const k in a)e.setAttribute(k,a[k]);if(txt!=null)e.textContent=txt;svg.appendChild(e);return e}
+function eng(){const svg=$('#egSvg'),m=MET[EG.m];svg.innerHTML='';
+ const d=el(svg,'defs',{});d.innerHTML=`<linearGradient id="mg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="${m[1]}"/><stop offset=".55" stop-color="${m[2]}"/><stop offset="1" stop-color="${m[3]}"/></linearGradient><radialGradient id="sh" cx=".35" cy=".3" r=".7"><stop offset="0" stop-color="#fff" stop-opacity=".55"/><stop offset=".5" stop-color="#fff" stop-opacity="0"/></radialGradient>`;
+ const shape={round:'M150 70a110 110 0 110 220a110 110 0 110-220z',bone:'M70 130a40 40 0 0160-35h40a40 40 0 1160 35v100a40 40 0 01-60 35h-40a40 40 0 11-60-35z',shield:'M150 70l110 30v80c0 70-50 110-110 130C90 290 40 250 40 180v-80z'}[EG.shape];
+ const g=el(svg,'g',{transform:EG.back?'translate(300 0) scale(-1 1)':''});
+ el(g,'circle',{cx:150,cy:40,r:22,fill:'none',stroke:'url(#mg)','stroke-width':8});
+ const base=document.createElementNS(NS,'path');base.setAttribute('d',shape);base.setAttribute('fill','url(#mg)');g.appendChild(base);
+ const sh=document.createElementNS(NS,'path');sh.setAttribute('d',shape);sh.setAttribute('fill','url(#sh)');g.appendChild(sh);
+ const hole=document.createElementNS(NS,'circle');hole.setAttribute('cx',150);hole.setAttribute('cy',EG.shape==='bone'?110:92);hole.setAttribute('r',8);hole.setAttribute('fill','#1d1714');g.appendChild(hole);
+ const fam=EG.f===2?'Urbanist, sans-serif':'Gilda Display, serif',sty=EG.f===1?'italic':'normal',wt=EG.f===2?'600':'400',ls=EG.f===2?'.18em':'0';
+ const txt=EG.back?($('#egBack').value||' '):($('#egName').value||' ');const fs=EG.back?Math.max(16,30-txt.length):Math.max(26,58-txt.length*3);
+ el(svg,'text',{x:150,y:EG.shape==='shield'?200:192,'text-anchor':'middle','font-family':fam,'font-style':sty,'font-weight':wt,'letter-spacing':ls,'font-size':fs,fill:m[3],opacity:.9,style:'paint-order:stroke',stroke:'rgba(255,255,255,.35)','stroke-width':1},EG.f===2?txt.toUpperCase():txt);
+ $('#egShN').textContent=EG.shape[0].toUpperCase()+EG.shape.slice(1);$('#egMtN').textContent=m[0];$('#egLeft').textContent=(12-$('#egName').value.length)+' left';
+ $('#egFlip').textContent=EG.back?'Show the front':'Show the back'}
+function opts(id,key,num){$(id).addEventListener('click',e=>{const b=e.target.closest('button');if(!b)return;$$(id+' button').forEach(x=>x.setAttribute('aria-pressed',x===b));EG[key]=num?+b.dataset.v:b.dataset.v;eng()})}
+opts('#egShape','shape');opts('#egMetal','m',1);opts('#egFont','f',1);
+$('#egName').addEventListener('input',()=>{EG.back=false;eng()});$('#egBack').addEventListener('input',()=>{EG.back=true;eng()});
+$('#egFlip').onclick=()=>{EG.back=!EG.back;eng()};
+$('#egAdd').onclick=()=>add(6,'One size',1,false,false,{note:`${MET[EG.m][0]}, ${EG.shape}, "${$('#egName').value}"`});
+
+/* gift wrap */
+const GB=[['Noir','#1E1A18','#2A2420'],['Ivory','#EFE7DA','#E3D9C9'],['Oxblood','#6E1F2A','#5A1822']],GR=[['Champagne silk','#CDB38B'],['Oxblood silk','#8A2B37'],['Forest silk','#2F3B2E']];const GW={b:0,r:0};
+function gift(){const b=GB[GW.b],r=GR[GW.r];const box=$('#gbox');box.querySelector('.lid').style.background=b[1];box.querySelector('.body').style.background=b[2];
+ box.querySelectorAll('.rv,.rh').forEach(x=>x.style.background=r[1]);$('#bowP').setAttribute('fill',r[1]);$('#bowC').setAttribute('fill',r[1]);$('#bowC').setAttribute('stroke','rgba(0,0,0,.2)');
+ $('#gNote').textContent=$('#gMsg').value||' ';$('#gBoxN').textContent=b[0];$('#gRibN').textContent=r[0];$('#gCnt').textContent=(120-$('#gMsg').value.length)+' characters left'}
+function gopts(id,key){$(id).addEventListener('click',e=>{const b=e.target.closest('button');if(!b)return;$$(id+' button').forEach(x=>x.setAttribute('aria-pressed',x===b));GW[key]=+b.dataset.v;gift()})}
+gopts('#gBox','b');gopts('#gRib','r');$('#gMsg').addEventListener('input',gift);
+$('#gAdd').onclick=()=>add(8,'One size',1,false,false,{note:`${GB[GW.b][0]} box, ${GR[GW.r][0].toLowerCase()}`});
+
+/* appointment */
+const AP={s:0,d:null,t:null};const SV=['Collar fitting','Bed consultation','Coat measuring'];
+function apDays(){const d0=new Date(2026,10,13),W=['Sun','Mon','Tue','Wed','Thu','Fri','Sat'];let h='';
+ for(let n=1;n<=7;n++){const x=new Date(d0);x.setDate(d0.getDate()+n);const off=x.getDay()===0;h+=`<button data-d="${n}" aria-pressed="false" ${off?'disabled':''}>${W[x.getDay()]}<b>${x.getDate()}</b></button>`}
+ $('#apDays').innerHTML=h;const fb=$('#apDays button:not([disabled])');fb.setAttribute('aria-pressed','true');AP.d=+fb.dataset.d;apSlots()}
+function apSlots(){const T=['10:00','11:30','13:00','14:30','16:00'];$('#apSlots').innerHTML=T.map((t,k)=>{const off=((AP.d*3+k*2+AP.s)%5)===1;return `<button data-t="${t}" aria-pressed="false" ${off?'disabled':''}>${t}</button>`}).join('');
+ const fb=$('#apSlots button:not([disabled])');fb.setAttribute('aria-pressed','true');AP.t=fb.dataset.t;apSum()}
+function apDate(){const d=new Date(2026,10,13);d.setDate(d.getDate()+AP.d);return d.toLocaleDateString('en-US',{weekday:'long',month:'long',day:'numeric'})}
+function apSum(){$('#apDayN').textContent=apDate();$('#apSum').textContent=`${SV[AP.s]}, ${AP.t}`}
+$('#apSvc').addEventListener('click',e=>{const b=e.target.closest('button');if(!b)return;$$('#apSvc button').forEach(x=>x.setAttribute('aria-pressed',x===b));AP.s=+b.dataset.v;apSlots()});
+$('#apDays').addEventListener('click',e=>{const b=e.target.closest('button');if(!b||b.disabled)return;$$('#apDays button').forEach(x=>x.setAttribute('aria-pressed',x===b));AP.d=+b.dataset.d;apSlots()});
+$('#apSlots').addEventListener('click',e=>{const b=e.target.closest('button');if(!b||b.disabled)return;$$('#apSlots button').forEach(x=>x.setAttribute('aria-pressed',x===b));AP.t=b.dataset.t;apSum()});
+$('#apGo').onclick=()=>{const n=$('#apName').value.trim(),m=$('#apMail').value.trim();if(!n||!/@/.test(m)){toast('Please add your name and email');(n?$('#apMail'):$('#apName')).focus();return}
+ $('#apConfT').textContent=`${SV[AP.s]}, ${apDate()} at ${AP.t}`;$('#apf').classList.add('done');$('#apConf').classList.add('on')};
+$('#apAgain').onclick=()=>{$('#apf').classList.remove('done');$('#apConf').classList.remove('on')};
+
+/* quotes */
+const RV=[['"The collar softened in a week and the engraving is perfect. He looks like he was born in it."','Owner of a whippet','Saddle Collar'],['"The velvet bed is the only piece of pet furniture we have ever wanted in the living room."','Owner of two greyhounds','Velour Bed'],['"Our cat sleeps on the boucle lounger every afternoon. It matches the sofa, which matters."','Owner of a Birman cat','Boucle Lounger']];let qi=0;
+function quote(){const r=RV[qi];$('#quote').innerHTML=`<span class="smp">Sample review · ★★★★★</span><blockquote>${r[0]}</blockquote><div class="who">${r[1]} · ${r[2]}</div><div class="qdots">${RV.map((x,k)=>`<button data-q="${k}" aria-current="${k===qi}" aria-label="Review ${k+1}"></button>`).join('')}</div>`}
+$('#quote').addEventListener('click',e=>{const b=e.target.closest('[data-q]');if(b){qi=+b.dataset.q;quote()}});setInterval(()=>{qi=(qi+1)%RV.length;quote()},7000);
+function rcards(id){$(id).innerHTML=RV.slice(0,2).map(r=>`<div class="rcard reveal"><span class="smp">Sample review · ★★★★★</span><p>${r[0]}</p><div class="who">${r[1]} · ${r[2]}</div></div>`).join('')}
+function rbars(){$('#prbars').innerHTML=[[5,91],[4,7],[3,1],[2,1],[1,0]].map(([s,w])=>`<div class="rbar"><span>${s}★</span><i style="--w:${w}%"></i><span>${w}%</span></div>`).join('')}
+
+/* cart */
+let cart=[];
+function add(i,s,q=1,kitd=false,quiet=false,o){const key=o&&o.note;const f=cart.find(c=>c.i===i&&c.s===s&&c.note===key);f?(f.q+=q,f.kit=f.kit||kitd):cart.push({i,s,q,kit:kitd,note:key});render();
+ const c=$('#cc');c.classList.remove('bump');c.offsetWidth;c.classList.add('bump');$$('.card.qo').forEach(x=>x.classList.remove('qo'));if(!quiet){openDrawer();toast(P[i].n+' added')}}
+const count=()=>cart.reduce((s,c)=>s+c.q,0),sub=()=>cart.reduce((s,c)=>s+unitP(c.i,c.s)*c.q,0),save=()=>cart.reduce((s,c)=>s+(c.kit?unitP(c.i,c.s)*.1*c.q:0),0);
+function shipHTML(){const t=sub()-save(),left=250-t;return `<p>${left>0?`<b>${money(left)}</b> from complimentary delivery`:'Complimentary delivery'}</p><div class="bar"><i style="width:${Math.min(100,t/250*100)}%"></i></div>`}
+function lineHTML(c,k){const p=P[c.i];return `<div class="line"><img src="${src(p.k)}" alt="${p.n}"><div><b>${p.n}</b><small>${p.sz.length>1?c.s+' · ':''}${c.note?c.note:p.sw[0][0]}${c.kit?' · set, 10% less':''}</small><div class="q"><button data-cq="${k}" data-d="-1" aria-label="Less">−</button><span>${c.q}</span><button data-cq="${k}" data-d="1" aria-label="More">+</button><button class="rm" data-rm="${k}">Remove</button></div></div><div class="lp">${money(unitP(c.i,c.s)*c.q*(c.kit?.9:1))}</div></div>`}
+function render(){$('#cc').textContent='('+count()+')';$('#dCount').textContent=count();$('#dShip').innerHTML=shipHTML();$('#dLines').innerHTML=cart.length?cart.map(lineHTML).join(''):'<div class="empty">Your bag is empty.</div>';$('#dSub').textContent=money(sub()-save());if($('#p-cart').classList.contains('on'))renderCart()}
+function renderCart(){$('#cShip').innerHTML=shipHTML();$('#cLines').innerHTML=cart.length?cart.map(lineHTML).join(''):'<div class="empty">Your bag is empty. <a href="#" data-go="collection" class="lk">Discover the atelier <span>→</span></a></div>';
+ const t=sub()-save(),free=t>=250||!cart.length;$('#cSub').textContent=money(sub());$('#cSave').textContent=save()?'−'+money(save()):'$0';$('#cShipT').textContent=free?'Complimentary':'$15';$('#cTot').textContent=money(t+(free?0:15))}
+document.addEventListener('click',e=>{const q=e.target.closest('[data-cq]'),r=e.target.closest('[data-rm]');if(q){const c=cart[+q.dataset.cq];c.q+=+q.dataset.d;if(c.q<1)cart.splice(+q.dataset.cq,1);render()}if(r){cart.splice(+r.dataset.rm,1);render()}});
+function openDrawer(){$('#drawer').classList.add('on');$('#scrim').classList.add('on')}
+function closeDrawer(){$('#drawer').classList.remove('on');$('#scrim').classList.remove('on')}
+$('#cbtn').onclick=openDrawer;$('#dx').onclick=closeDrawer;$('#scrim').onclick=closeDrawer;
+document.addEventListener('click',e=>{const b=e.target.closest('[data-qa]');if(!b)return;e.preventDefault();add(+b.dataset.qa,b.dataset.s)});
+document.addEventListener('click',e=>{const w=e.target.closest('.wish');if(w){w.classList.toggle('on');toast(w.classList.contains('on')?'Saved to wishlist':'Removed')}});
+let tt;function toast(m){$('#tmsg').textContent=m;$('#toast').classList.add('on');clearTimeout(tt);tt=setTimeout(()=>$('#toast').classList.remove('on'),2400)}
+
+/* collection */
+let cc='all',fs=[];
+const CB={Sleep:['Sleep','Beds and loungers in velvet and boucle.','p1'],Walk:['Walk','Collars, leads and engraved tags in full-grain leather.','collar'],Wear:['Wear','Knitwear in a soft cashmere blend.','jumper'],Dine:['Dine','Marble stands and brass-finish bowls.','bowl'],Travel:['Travel','Leather carriers for the cabin and the car.','carrier']};
+function setCat(c){cc=c;$$('#cCats button').forEach(b=>b.classList.toggle('on',b.dataset.c===c));const d=CB[c];
+ $('#cTitle').textContent=d?d[0]:'The atelier';$('#cCrumb').textContent=d?d[0]:'The atelier';$('#cDesc').textContent=d?d[1]:'Beds, collars, knitwear and travel pieces, made in small numbered runs.';$('#cImg').src=src(d?d[2]:'hero');coll()}
+$('#cCats').addEventListener('click',e=>{const b=e.target.closest('button');if(b)setCat(b.dataset.c)});
+$$('[data-f="p"]').forEach(x=>{x.parentNode.querySelector('em').textContent=P.filter(p=>!p.hide&&p.pt.includes(x.value)).length});
+function coll(){const pt=$$('[data-f="p"]:checked').map(x=>x.value),max=+$('#fPrice').value,so=$('#cSort').value,sale=$('#fSale').checked;
+ $('#fPv').textContent='up to $'+max;
+ let L=P.map((p,i)=>i).filter(i=>{const p=P[i];return !p.hide&&(cc==='all'||p.c===cc)&&(!pt.length||pt.some(x=>p.pt.includes(x)))&&minP(p)<=max&&(!sale||p.w)&&(!fs.length||fs.some(s=>p.sz.includes(s)))});
+ if(so==='lo')L.sort((a,b)=>minP(P[a])-minP(P[b]));if(so==='hi')L.sort((a,b)=>minP(P[b])-minP(P[a]));if(so==='rt')L.sort((a,b)=>P[b].r-P[a].r);
+ const h=L.map(card);if(h.length>3)h.splice(3,0,`<a href="#engrave" data-go="home" class="promo reveal"><img src="${src('p7')}" alt="Engraved brass tag"><div><span class="k">Engraving studio</span><h3>Their name, in brass.</h3><span class="btn btn-l">Engrave a tag</span></div></a>`);
+ $('#cGrid').innerHTML=h.join('')||'<div class="empty" style="grid-column:1/-1">No pieces match. <a href="#" id="fr2" class="lk">Clear filters</a></div>';$('#cCount').textContent=L.length;$('#cShow').textContent=L.length;obs()}
+$$('.filters input').forEach(x=>x.addEventListener('input',coll));$('#cSort').addEventListener('change',coll);
+$('#fsz').addEventListener('click',e=>{const b=e.target.closest('button');if(!b)return;b.setAttribute('aria-pressed',b.getAttribute('aria-pressed')!=='true');fs=$$('#fsz button[aria-pressed=true]').map(x=>x.textContent);coll()});
+$$('.fcol button').forEach(b=>b.addEventListener('click',()=>b.setAttribute('aria-pressed',b.getAttribute('aria-pressed')!=='true')));
+function resetF(){$$('.filters input[type=checkbox]').forEach(x=>x.checked=false);$('#fPrice').value=600;fs=[];$$('#fsz button,.fcol button').forEach(b=>b.setAttribute('aria-pressed','false'));coll()}
+$('#freset').onclick=resetF;document.addEventListener('click',e=>{if(e.target.id==='fr2'){e.preventDefault();resetF()}});
+$('#fopen').onclick=()=>$('#filters').classList.add('on');$('#fclose').onclick=()=>$('#filters').classList.remove('on');
+
+/* product */
+let cur={i:1,s:null,q:1,c:0};const VIEW=[];
+function setProduct(i){const p=P[i];cur={i,s:p.sz.length===1?p.sz[0]:null,q:1,c:0};
+ $('#pName').textContent=p.n;$('#pCrumb').textContent=p.n;$('#pCat').textContent=p.c;$('#pKick').textContent=p.c+' · for '+p.pt.map(t=>PETN[t].toLowerCase()).join(' and ');$('#pStars').innerHTML=stars(p.r,p.rc);$('#pNo').textContent=p.no;
+ $('#pSub').textContent=p.sub+'.';
+ const G=[p.k,p.h,i===6?'p2':'artisan'];
+ $('#gal').innerHTML=G.map((k,n)=>`<div class="g">${n===0&&p.b?`<span class="badge ${p.b==='Private sale'?'s':''}">${p.b}</span>`:''}<img src="${src(k)}" alt="${n?'':p.n}"></div>`).join('');
+ $('#colOpt').style.display='';$('#pCols').innerHTML=p.sw.map((c,n)=>`<button aria-pressed="${n===0}" data-pc="${n}" aria-label="${c[0]}" title="${c[0]}" style="background:${c[1]}"></button>`).join('');
+ $('#szOpt').style.display=p.sz.length===1?'none':'';
+ $('#pSizes').innerHTML=p.sz.map((s,k)=>`<button aria-pressed="false" data-ps="${s}" class="${(p.x||[]).includes(s)?'x':''} ${(p.low||[]).includes(s)?'low':''}">${s}${p.hint?`<small>${p.hint[k]}${p.c==='Walk'?' cm':''}</small>`:''}</button>`).join('');
+ $('#pFit').innerHTML=`<i>◆</i>${p.fit}`;$('#engOpt').style.display=p.eng?'':'none';$('#engOpt').classList.remove('on');$('#pEng').checked=false;$('#pEngT').value='';
+ $('#pDesc').textContent=`${p.n}, ${p.no.toLowerCase()} of the autumn collection. ${p.sub}. Made in a small run and finished by hand in our atelier.`;
+ $('#pTech').innerHTML=p.tech.map(t=>`<li>${t}</li>`).join('');
+ $('#stImg').src=src(p.k);$('#stName').textContent=p.n;fbt();fill('#relGrid',P.map((x,j)=>j).filter(j=>j!==i&&!P[j].hide).sort((a,b)=>(P[b].c===p.c)-(P[a].c===p.c)).slice(0,4));
+ rbars();rcards('#prcards');$('#prStars').innerHTML=stars(p.r,p.rc);$('#prAvg').textContent=p.r;pupd()}
+function pupd(){const p=P[cur.i],base=cur.s?unitP(cur.i,cur.s):minP(p),pr=base*cur.q;
+ $('#pPrice').textContent=(!cur.s&&new Set(p.pz).size>1?'From ':'')+money(base);$('#pWas').textContent=p.w?money(p.w):'';
+ $('#qv').textContent=cur.q;$('#pSizeL').textContent=cur.s||'Choose a size';$('#pColL').textContent=p.sw[cur.c][0];
+ $('#stPrice').textContent=money(pr);$('#stOpt').textContent=p.sw[cur.c][0]+' · '+(cur.s||'choose a size');$('#pAdd').textContent=cur.s?'Add to bag · '+money(pr):'Choose a size'}
+$('#pSizes').addEventListener('click',e=>{const b=e.target.closest('[data-ps]');if(!b||b.classList.contains('x'))return;cur.s=b.dataset.ps;$$('#pSizes button').forEach(x=>x.setAttribute('aria-pressed',x===b));pupd()});
+$('#pCols').addEventListener('click',e=>{const b=e.target.closest('[data-pc]');if(!b)return;cur.c=+b.dataset.pc;$$('#pCols button').forEach(x=>x.setAttribute('aria-pressed',x===b));pupd()});
+$('#pEng').addEventListener('change',e=>$('#engOpt').classList.toggle('on',e.target.checked));
+$('#qm').onclick=()=>{cur.q=Math.max(1,cur.q-1);pupd()};$('#qp').onclick=()=>{cur.q++;pupd()};
+$('#gal').addEventListener('click',e=>{const g=e.target.closest('.g');if(g)g.classList.toggle('zm')});
+$('#gal').addEventListener('mousemove',e=>{const g=e.target.closest('.g.zm');if(!g)return;const r=g.getBoundingClientRect();g.querySelector('img').style.transformOrigin=`${(e.clientX-r.left)/r.width*100}% ${(e.clientY-r.top)/r.height*100}%`});
+function padd(btn){if(!cur.s){$('#pSizes').animate([{transform:'translateX(0)'},{transform:'translateX(-6px)'},{transform:'translateX(6px)'},{transform:'translateX(0)'}],{duration:300});$('#pSizeL').textContent='Please choose a size';toast('Choose a size first');window.scrollTo({top:$('#pSizes').getBoundingClientRect().top+scrollY-200,behavior:'smooth'});return}
+ const en=$('#pEng').checked&&$('#pEngT').value.trim();add(cur.i,cur.s,cur.q,false,false,en?{note:'engraved "'+$('#pEngT').value.trim()+'"'}:null);btn.textContent='Added';setTimeout(()=>{pupd();$('#stAdd').textContent='Add to bag'},1200)}
+$('#pAdd').onclick=e=>padd(e.currentTarget);$('#stAdd').onclick=e=>padd(e.currentTarget);
+function fbt(){const i=cur.i,its=[i,...P[i].set.filter(x=>x!==i)].slice(0,3);$('#fbtIts').innerHTML=its.map((j,k)=>`${k?'<span class="plus">+</span>':''}<label><img src="${src(P[j].k)}" alt=""><span><input type="checkbox" checked data-fi="${j}" ${k===0?'disabled':''}> ${P[j].n} · ${money(minP(P[j]))}</span></label>`).join('');ftot()}
+function ftot(){const s=$$('#fbtIts input:checked').reduce((t,x)=>{const j=+x.dataset.fi;return t+(j===cur.i&&cur.s?unitP(j,cur.s):minP(P[j]))},0);$('#fbtTot').textContent=money(s*.9)}
+$('#fbtIts').addEventListener('change',ftot);$('#fbtAdd').onclick=()=>{$$('#fbtIts input:checked').forEach(x=>{const j=+x.dataset.fi;add(j,j===cur.i&&cur.s?cur.s:first(P[j]),1,true,true)});openDrawer();toast('Set added, 10% less')};
+new IntersectionObserver(([e])=>$('#sticky').classList.toggle('on',!e.isIntersecting&&$('#p-product').classList.contains('on')&&e.boundingClientRect.top<0)).observe($('#atc'));
+function seen(i){const k=VIEW.indexOf(i);if(k>-1)VIEW.splice(k,1);VIEW.unshift(i);fill('#rvGrid',(VIEW.length>1?VIEW.slice(1):[]).concat([0,3,5,7].filter(x=>!VIEW.includes(x))).slice(0,4))}
+
+/* size guide */
+const SG=[['XS','24 to 30','28 to 32','Italian greyhound, dachshund'],['S','30 to 36','32 to 38','Whippet, French bulldog'],['M','36 to 44','40 to 48','Spaniel, beagle'],['L','44 to 52','50 to 60','Greyhound, labrador']];
+function sgT(h){$('#sgT').innerHTML=SG.map(r=>`<tr class="${r[0]===h?'hl':''}"><td>${r[0]}</td><td>${r[1]}</td><td>${r[2]}</td><td>${r[3]}</td></tr>`).join('')}
+function sgOpen(e){e.preventDefault();$('#sg').classList.add('on');sgT()}$('#sgOpen').onclick=sgOpen;$('#sgOpen2').onclick=sgOpen;$('#sgx').onclick=()=>$('#sg').classList.remove('on');
+$('#sg').addEventListener('click',e=>{if(e.target.id==='sg')$('#sg').classList.remove('on')});
+$('#fgo').onclick=()=>{const n=+$('#fh').value,f=+$('#ff').value;let k=n<28?0:n<36?1:n<44?2:3;if(f===2)k=Math.min(3,k+1);const s=SG[k][0];$('#fres').textContent='We suggest size '+s+'.';sgT(s);
+ const p=P[cur.i];if(p.sz.includes(s)&&!(p.x||[]).includes(s)){cur.s=s;$$('#pSizes button').forEach(x=>x.setAttribute('aria-pressed',x.dataset.ps===s));pupd()}};
+
+/* search, blog */
+function runSearch(){const t=$('#sq').value.trim().toLowerCase();$('#sTerm').textContent=t;const L=P.map((p,i)=>i).filter(i=>{const p=P[i];return !p.hide&&(!t||(p.n+' '+p.c+' '+p.sub+' '+p.tech.join(' ')+' '+p.pt.join(' ')).toLowerCase().includes(t))});
+ $('#sGrid').innerHTML=L.map(card).join('')||'<div class="empty" style="grid-column:1/-1">No results. Try "velvet" or "collar".</div>';$('#sCount').textContent=L.length;obs()}
+$('#sq').addEventListener('input',runSearch);$('#sq').addEventListener('keydown',e=>{if(e.key==='Enter')runSearch()});
+$('#sugs').addEventListener('click',e=>{const b=e.target.closest('button');if(b){$('#sq').value=b.textContent;runSearch()}});
+const POSTS=[['jumper','Care','Washing cashmere at home','Cold water, a flat towel and patience. Our three rules.'],['p1','Living','Choosing a bed for a sighthound','Long backs need room to stretch and a soft rim to lean on.'],['cat','Living','A corner of their own','Why cats choose high, quiet places, and how to give them one.'],['gift','Atelier','Inside the maison box','The box, the ribbon and the card, made to be kept.'],['walk','Living','City walks in winter','Coats, collars and the short routes we love.'],['bowl','Care','Marble and the everyday bowl','How to keep a stone stand looking new.']];
+$('#posts').innerHTML=POSTS.map(p=>`<a href="#" class="post reveal" data-go="article"><div class="im"><img src="${src(p[0])}" alt=""></div><span class="k">${p[1]} · 4 min</span><h3>${p[2]}</h3><p>${p[3]}</p></a>`).join('');
+$('#bcats').addEventListener('click',e=>{const b=e.target.closest('button');if(b)$$('#bcats button').forEach(x=>x.setAttribute('aria-pressed',x===b))});
+
+/* reveal */
+let io;function obs(){if(!io)io=new IntersectionObserver(es=>es.forEach(x=>{if(x.isIntersecting){x.target.classList.add('in');io.unobserve(x.target)}}),{rootMargin:'0px 0px -6% 0px'});$$('.reveal:not(.in)').forEach(r=>io.observe(r))}
+
+/* init */
+imgs();fill('#newGrid',[0,1,3,5]);eng();gift();apDays();quote();
+fill('#upsell',[6,2,4,3]);fill('#artGrid',[1,2,6,5]);fill('#nfGrid',[0,1,3,7]);setCat('all');setProduct(1);seen(1);render();runSearch();hdr();obs();
+</script>
+</body>
+</html>
