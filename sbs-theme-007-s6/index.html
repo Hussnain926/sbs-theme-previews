@@ -1,0 +1,1053 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Cairn · Shopify pet store theme preview (SBS-THEME-007-S6)</title>
+<meta name="robots" content="noindex">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anybody:wght@500;700;800;900&family=Libre+Franklin:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--bas:#1F2421;--bas2:#2B312D;--kh:#ECE6D7;--kh2:#F5F1E7;--sand:#E4DCC8;--rust:#B4532A;--rust2:#9A4220;--gl:#9CC5D3;--gl2:#D6E8EE;--moss:#5F6B3C;--sl:#4A5450;--mute:#6E746C;--line:#CFC6B1;--lineD:rgba(236,230,215,.16);
+--disp:"Anybody",Impact,sans-serif;--body:"Libre Franklin",system-ui,sans-serif;--r:10px}
+*{box-sizing:border-box}html{scroll-behavior:smooth}
+body{margin:0;font:400 16px/1.6 var(--body);color:var(--bas);background:var(--kh);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+img{max-width:100%;display:block}a{color:inherit;text-decoration:none}button{font:inherit;color:inherit;cursor:pointer;background:none;border:0;padding:0}
+input,select,textarea{font:inherit;color:inherit}
+h1,h2,h3,h4{font-family:var(--disp);font-weight:800;line-height:.95;letter-spacing:-.01em;margin:0;text-transform:uppercase}
+h2{font-size:clamp(34px,4.4vw,64px)}
+.page{display:none}.page.on{display:block}
+.wrap{max-width:1400px;margin:0 auto;padding:0 40px}
+.sec{padding:104px 0}
+.k{display:inline-flex;align-items:center;gap:10px;font:700 12px var(--body);letter-spacing:.18em;text-transform:uppercase;color:var(--rust2)}
+.k::before{content:"";width:18px;height:10px;background:currentColor;clip-path:polygon(0 100%,35% 20%,55% 60%,75% 0,100% 100%)}
+.dark .k,.k.lt{color:var(--gl)}
+.dark{background:var(--bas);color:var(--kh)}
+.hd{display:flex;align-items:flex-end;justify-content:space-between;gap:30px;margin-bottom:44px;flex-wrap:wrap}
+.hd h2{margin-top:14px}.hd p{max-width:440px;margin:0;color:var(--sl)}.dark .hd p{color:#B9BDB3}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;height:54px;padding:0 28px;border-radius:var(--r);background:var(--rust);color:#fff;font:700 14px var(--body);letter-spacing:.06em;text-transform:uppercase;transition:background .25s,transform .25s}
+.btn:hover{background:var(--rust2)}.btn:active{transform:translateY(1px)}
+.btn.o{background:transparent;color:inherit;box-shadow:inset 0 0 0 2px currentColor}.btn.o:hover{background:rgba(255,255,255,.08)}
+.btn.d{background:var(--bas);color:var(--kh)}.btn.d:hover{background:var(--bas2)}
+.btn.w{width:100%}
+.lk{font-weight:700;border-bottom:2px solid var(--rust);padding-bottom:2px}
+.reveal{opacity:0;transform:translateY(18px);transition:opacity .7s,transform .7s}.reveal.in{opacity:1;transform:none}
+@media(prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}*{animation:none!important;transition:none!important}}
+:focus-visible{outline:3px solid var(--gl);outline-offset:2px}
+.topo{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='260' viewBox='0 0 400 260' fill='none' stroke='%23000' stroke-opacity='.07' stroke-width='1.2'%3E%3Cpath d='M-20 60c60-30 120 30 190 0s140-40 250 10'/%3E%3Cpath d='M-20 95c70-35 130 30 200 0s130-35 240 12'/%3E%3Cpath d='M-20 130c80-30 140 25 210-5s120-30 230 15'/%3E%3Cpath d='M-20 170c90-25 150 20 220-10s110-25 220 20'/%3E%3Cpath d='M-20 210c90-20 160 15 230-15s110-20 210 25'/%3E%3Cellipse cx='300' cy='70' rx='40' ry='18'/%3E%3Cellipse cx='300' cy='70' rx='22' ry='9'/%3E%3C/svg%3E")}
+.dark.topo{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='260' viewBox='0 0 400 260' fill='none' stroke='%23fff' stroke-opacity='.06' stroke-width='1.2'%3E%3Cpath d='M-20 60c60-30 120 30 190 0s140-40 250 10'/%3E%3Cpath d='M-20 95c70-35 130 30 200 0s130-35 240 12'/%3E%3Cpath d='M-20 130c80-30 140 25 210-5s120-30 230 15'/%3E%3Cpath d='M-20 170c90-25 150 20 220-10s110-25 220 20'/%3E%3Cpath d='M-20 210c90-20 160 15 230-15s110-20 210 25'/%3E%3Cellipse cx='300' cy='70' rx='40' ry='18'/%3E%3C/svg%3E")}
+
+/* preview toolbar */
+.pv{position:fixed;left:50%;bottom:16px;transform:translateX(-50%);z-index:300;background:var(--bas);color:var(--kh);border-radius:14px;padding:8px;display:flex;gap:6px;align-items:center;box-shadow:0 14px 40px rgba(0,0,0,.35);max-width:calc(100vw - 24px);overflow-x:auto}
+.pv .tabs{display:flex;gap:2px}.pv .tabs button{padding:8px 11px;border-radius:9px;font:600 12px var(--body);white-space:nowrap;opacity:.7}.pv .tabs button.on{background:var(--rust);opacity:1}
+.pv label{display:flex;gap:6px;align-items:center;font:600 12px var(--body);white-space:nowrap;padding:0 8px;border-left:1px solid var(--lineD)}
+body.names [data-dawn]{position:relative;outline:2px dashed rgba(180,83,42,.65);outline-offset:-2px}
+body.names [data-dawn]::after{content:attr(data-dawn);position:absolute;top:6px;left:6px;z-index:60;background:var(--rust);color:#fff;font:700 11px/1 var(--body);padding:6px 8px;border-radius:5px;letter-spacing:.02em;text-transform:none}
+
+/* announcement */
+.ann{background:var(--bas);color:var(--kh);font:600 13px var(--body)}
+.ann .wrap{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;height:40px;gap:20px}
+.ann .wx{display:flex;align-items:center;gap:10px;color:#B9BDB3}.ann .wx b{color:var(--gl);font-weight:700}
+.ann .wx i{width:8px;height:8px;border-radius:50%;background:#7FBF7A;box-shadow:0 0 0 4px rgba(127,191,122,.18);animation:pulse 2s infinite}
+@keyframes pulse{50%{box-shadow:0 0 0 8px rgba(127,191,122,0)}}
+.ann #annTxt{transition:opacity .4s;text-align:center}.ann .ul{display:flex;gap:22px;justify-content:flex-end;color:#B9BDB3}.ann .ul a:hover{color:#fff}
+
+/* header */
+.hdr{position:sticky;top:0;z-index:120;background:var(--kh);border-bottom:1px solid var(--line);transition:box-shadow .3s}
+.hdr.sc{box-shadow:0 10px 30px rgba(31,36,33,.12)}
+.hrow{display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:36px;height:80px}
+.logo{display:flex;align-items:center;gap:12px}
+.logo svg{flex:none}.logo b{font:900 30px/1 var(--disp);letter-spacing:.06em}.logo small{display:block;font:700 9.5px var(--body);letter-spacing:.3em;color:var(--mute);margin-top:4px}
+.hs{position:relative;max-width:620px;width:100%;justify-self:center}
+.hs input{width:100%;height:48px;border:2px solid var(--bas);border-radius:var(--r);background:var(--kh2);padding:0 120px 0 48px;font-size:15px;outline:0}
+.hs input:focus{border-color:var(--rust)}
+.hs>svg{position:absolute;left:16px;top:14px}
+.hs button{position:absolute;right:5px;top:5px;height:38px;padding:0 16px;border-radius:7px;background:var(--bas);color:var(--kh);font:700 12px var(--body);letter-spacing:.08em;text-transform:uppercase}
+.hic{display:flex;align-items:center;gap:6px}
+.hic>a,.hic>button{display:grid;place-items:center;width:44px;height:44px;border-radius:var(--r)}.hic>a:hover,.hic>button:hover{background:var(--sand)}
+.hic .cart{width:auto;padding:0 14px 0 12px;display:flex;gap:8px;background:var(--bas);color:var(--kh);font:700 13px var(--body);letter-spacing:.06em;text-transform:uppercase}
+.hic .cart:hover{background:var(--bas2)}
+#cc{min-width:22px;height:22px;border-radius:6px;background:var(--rust);display:grid;place-items:center;font-size:12px;padding:0 5px}
+#cc.bump{animation:bump .5s}@keyframes bump{40%{transform:scale(1.35)}}
+.burger{display:none}.hic .srb{display:none}
+.nav{border-top:1px solid var(--line)}
+.nav .wrap{display:flex;align-items:center;gap:4px;height:52px}
+.nav .ni{position:static}
+.nav .ni>a{display:flex;align-items:center;gap:9px;height:52px;padding:0 14px;font:700 14px var(--body);letter-spacing:.04em;text-transform:uppercase;border-bottom:3px solid transparent}
+.nav .ni>a svg{color:var(--rust)}
+.nav .ni:hover>a,.nav .ni>a.on{border-color:var(--rust)}
+.nav .sp{margin-left:auto;display:flex;align-items:center;gap:8px;font:600 13px var(--body);color:var(--sl)}
+.nav .sp b{background:var(--gl2);color:var(--bas);padding:4px 9px;border-radius:6px;font-size:12px}
+.mega{position:absolute;left:0;right:0;top:100%;background:var(--kh2);border-top:1px solid var(--line);box-shadow:0 30px 50px rgba(31,36,33,.14);opacity:0;visibility:hidden;transform:translateY(-6px);transition:.25s}
+.ni:hover .mega,.ni:focus-within .mega{opacity:1;visibility:visible;transform:none}
+.mega .wrap{display:grid;grid-template-columns:repeat(3,1fr) 1.4fr;gap:40px;padding-top:36px;padding-bottom:40px}
+.mega h5{font:800 13px var(--disp);letter-spacing:.12em;text-transform:uppercase;margin:0 0 14px;color:var(--rust2)}
+.mega ul{list-style:none;margin:0;padding:0;display:grid;gap:9px}.mega li a{font-weight:500}.mega li a:hover{color:var(--rust)}
+.mega li a small{color:var(--mute);margin-left:6px}
+.mtile{position:relative;border-radius:var(--r);overflow:hidden;min-height:250px;color:#fff}
+.mtile img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .8s}.mtile:hover img{transform:scale(1.05)}
+.mtile::after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,rgba(20,24,22,.8),rgba(20,24,22,0) 60%)}
+.mtile div{position:absolute;left:22px;bottom:20px;right:22px;z-index:2}.mtile b{display:block;font:800 26px/1 var(--disp);text-transform:uppercase;margin:6px 0 10px}
+.mtile span{font:700 12px var(--body);letter-spacing:.14em;text-transform:uppercase;color:var(--gl)}
+/* mobile menu */
+.mm{position:fixed;inset:0;z-index:250;background:var(--bas);color:var(--kh);transform:translateX(-100%);transition:transform .4s;display:flex;flex-direction:column;padding:22px 20px;overflow:auto}
+.mm.on{transform:none}
+.mm .top{display:flex;justify-content:space-between;align-items:center;margin-bottom:26px}
+.mm a.big{display:flex;justify-content:space-between;align-items:center;font:800 30px/1 var(--disp);text-transform:uppercase;padding:16px 0;border-bottom:1px solid var(--lineD)}
+.mm a.big span{color:var(--gl);font:600 13px var(--body);text-transform:none}
+.mm .row{display:flex;gap:10px;overflow-x:auto;margin:24px -20px 0;padding:0 20px}
+.mm .row a{flex:none;width:150px}.mm .row img{aspect-ratio:1;object-fit:cover;border-radius:var(--r);margin-bottom:8px}
+/* search overlay (mobile) */
+.srch{position:fixed;inset:0;z-index:240;background:rgba(31,36,33,.55);display:none;align-items:flex-start}
+.srch.on{display:flex}.srch .box{background:var(--kh);width:100%;padding:22px 20px}
+.srch .box div{display:flex;gap:10px}.srch input{flex:1;height:50px;border:2px solid var(--bas);border-radius:var(--r);padding:0 14px;background:var(--kh2)}
+
+/* hero */
+.hero{position:relative;height:min(860px,calc(100vh - 172px));min-height:640px;overflow:hidden;color:#fff;background:var(--bas)}
+.hero>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:60% 40%}
+.hero::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(18,22,20,.62) 0,rgba(18,22,20,.25) 42%,rgba(18,22,20,0) 62%),linear-gradient(0deg,rgba(18,22,20,.55),rgba(18,22,20,0) 38%)}
+.hero .wrap{position:relative;z-index:3;height:100%;display:flex;flex-direction:column;justify-content:flex-end;padding-bottom:110px}
+.hero .k{color:var(--gl)}
+.hero h1{font-size:clamp(56px,7.6vw,128px);line-height:.86;font-weight:900;margin:20px 0 22px;max-width:900px;letter-spacing:-.02em}
+.hero h1 span{color:transparent;-webkit-text-stroke:2px #fff}
+.hero p{max-width:470px;font-size:18px;margin:0 0 30px;color:#E7E5DD}
+.hero .ctas{display:flex;gap:14px;flex-wrap:wrap}
+.hero .btn.o{color:#fff}
+.pin{position:absolute;z-index:4;left:73%;top:44%}
+.pin button{width:30px;height:30px;border-radius:50%;background:var(--rust);color:#fff;font:800 14px var(--disp);box-shadow:0 0 0 7px rgba(180,83,42,.35);animation:ring 2.4s infinite}
+@keyframes ring{50%{box-shadow:0 0 0 13px rgba(180,83,42,0)}}
+.pin .tip{position:absolute;left:44px;top:-12px;width:240px;background:var(--kh);color:var(--bas);border-radius:var(--r);padding:14px;display:grid;grid-template-columns:56px 1fr;gap:12px;align-items:center;box-shadow:0 14px 30px rgba(0,0,0,.3);opacity:0;visibility:hidden;transform:translateX(-6px);transition:.25s}
+.pin:hover .tip,.pin.on .tip{opacity:1;visibility:visible;transform:none}
+.pin .tip img{border-radius:7px;background:var(--sand)}.pin .tip b{display:block;font:800 15px var(--disp);text-transform:uppercase}.pin .tip span{font-size:13px;color:var(--sl)}
+.alt{position:absolute;right:40px;top:40px;z-index:4;width:190px;background:rgba(31,36,33,.72);backdrop-filter:blur(8px);border:1px solid rgba(255,255,255,.18);border-radius:var(--r);padding:16px 18px;font:600 12px var(--body);letter-spacing:.06em}
+.alt small{display:block;color:var(--gl);letter-spacing:.16em;text-transform:uppercase;font-size:10.5px;margin-bottom:8px}
+.alt b{display:block;font:800 34px/1 var(--disp);letter-spacing:-.01em}
+.alt svg{display:block;margin-top:12px}
+.alt .r{display:flex;justify-content:space-between;margin-top:8px;color:#C9CCC4}
+.hstrip{position:absolute;left:0;right:0;bottom:0;z-index:3;border-top:1px solid rgba(255,255,255,.18);background:rgba(18,22,20,.35);backdrop-filter:blur(6px)}
+.hstrip .wrap{display:grid;grid-template-columns:repeat(4,1fr);height:64px;align-items:center;padding-bottom:0}
+.hstrip span{display:flex;gap:10px;align-items:center;font:600 13px var(--body);color:#E7E5DD}.hstrip svg{color:var(--gl);flex:none}
+
+/* shop by dog size */
+.sizes{display:grid;grid-template-columns:repeat(4,1fr);gap:24px}
+.sz{display:grid;justify-items:center;gap:14px;text-align:center}
+.sz .c{width:100%;aspect-ratio:1;border-radius:50%;background:var(--sand);display:grid;place-items:end center;overflow:hidden;position:relative;border:2px solid transparent;transition:border-color .3s}
+.sz .c img{width:100%;height:100%;object-fit:cover;transition:transform .7s}
+.sz:hover .c{border-color:var(--rust)}.sz:hover img{transform:scale(1.06)}
+.sz b{font:800 24px/1 var(--disp);text-transform:uppercase}.sz small{display:block;color:var(--mute);font-weight:600;margin-top:4px}
+.sz .tag{position:absolute;bottom:9%;left:50%;transform:translateX(-50%);background:var(--bas);color:var(--kh);font:700 11px var(--body);letter-spacing:.1em;padding:6px 9px;border-radius:6px}
+
+/* adventure tiles */
+.adv{display:grid;grid-template-columns:1.25fr 1fr 1fr;grid-template-rows:300px 300px;gap:18px}
+.at{position:relative;border-radius:var(--r);overflow:hidden;color:#fff;isolation:isolate}
+.at:first-child{grid-row:span 2}
+.at img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .9s;z-index:-2}
+.at:hover img{transform:scale(1.06)}
+.at::before{content:"";position:absolute;inset:0;background:linear-gradient(0deg,rgba(18,22,20,.78),rgba(18,22,20,0) 58%);z-index:-1}
+.at .el{position:absolute;top:18px;left:18px;font:700 11px var(--body);letter-spacing:.16em;text-transform:uppercase;background:rgba(18,22,20,.55);padding:7px 10px;border-radius:6px;backdrop-filter:blur(4px)}
+.at .tx{position:absolute;left:24px;right:24px;bottom:22px;display:flex;justify-content:space-between;align-items:flex-end;gap:16px}
+.at h3{font-size:clamp(28px,2.6vw,44px)}.at p{margin:8px 0 0;color:#DADCD4;font-size:14px}
+.at .go{flex:none;width:46px;height:46px;border-radius:var(--r);background:var(--rust);display:grid;place-items:center;transition:transform .3s}.at:hover .go{transform:translateX(4px)}
+
+/* product cards */
+.grid{display:grid;grid-template-columns:repeat(4,1fr);gap:28px 22px}
+.card{position:relative;display:flex;flex-direction:column}
+.card .im{position:relative;aspect-ratio:1;border-radius:var(--r);overflow:hidden;background:var(--sand)}
+.card .im img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:opacity .45s,transform .8s}
+.card .im img.h{opacity:0}.card:hover .im img.h{opacity:1}.card:hover .im img.m{transform:scale(1.04)}
+.htag{position:absolute;top:14px;left:-2px;z-index:3;background:var(--bas);color:var(--kh);font:700 11px var(--body);letter-spacing:.1em;text-transform:uppercase;padding:7px 12px 7px 20px;clip-path:polygon(0 0,100% 0,100% 100%,0 100%,8px 50%)}
+.htag::before{content:"";position:absolute;left:11px;top:50%;width:5px;height:5px;margin-top:-2.5px;border-radius:50%;background:var(--kh)}
+.htag.s{background:var(--rust)}.htag.n{background:var(--moss)}
+.wish{position:absolute;top:12px;right:12px;z-index:3;width:38px;height:38px;border-radius:9px;background:rgba(245,241,231,.9);display:grid;place-items:center;transition:.2s}
+.wish:hover{background:#fff}.wish.on{color:var(--rust)}.wish.on svg{fill:currentColor}
+.szt{position:absolute;left:12px;bottom:12px;z-index:3;display:flex;gap:4px}
+.szt span{background:rgba(245,241,231,.92);font:700 11px var(--body);padding:4px 7px;border-radius:5px}
+.card .meta{padding:14px 2px 0;display:grid;gap:6px;flex:1}
+.card .row1{display:flex;justify-content:space-between;align-items:center;font:600 12px var(--body);color:var(--mute);letter-spacing:.04em}
+.stars{color:var(--rust);font-size:13px;letter-spacing:1px;white-space:nowrap}.stars em{font-style:normal;color:var(--mute);letter-spacing:0;margin-left:4px}
+.card h4{font:800 20px/1.05 var(--disp)}.card h4 a:hover{color:var(--rust)}
+.card .pr{font:700 16px var(--body)}.card .pr s{color:var(--mute);font-weight:500;margin-left:8px}.card .pr .sv{color:var(--rust2);font-size:12px;margin-left:8px}
+.card .sw{display:flex;gap:6px}.card .sw i{width:14px;height:14px;border-radius:50%;box-shadow:inset 0 0 0 1px rgba(0,0,0,.15)}
+.card .ab{margin-top:10px;height:44px;border-radius:var(--r);background:transparent;box-shadow:inset 0 0 0 2px var(--bas);font:700 13px var(--body);letter-spacing:.06em;text-transform:uppercase;display:flex;align-items:center;justify-content:center;gap:8px;transition:.25s}
+.card .ab:hover{background:var(--bas);color:var(--kh)}
+.card .ab.done{background:var(--moss);color:#fff;box-shadow:none}
+.qs{position:absolute;left:10px;right:10px;bottom:10px;z-index:4;background:var(--kh2);border-radius:var(--r);padding:12px;box-shadow:0 14px 30px rgba(0,0,0,.2);opacity:0;visibility:hidden;transform:translateY(8px);transition:.25s}
+.card.qo .qs{opacity:1;visibility:visible;transform:none}
+.qs small{display:flex;justify-content:space-between;font:700 11px var(--body);letter-spacing:.12em;text-transform:uppercase;color:var(--mute);margin-bottom:8px}
+.qs div{display:flex;flex-wrap:wrap;gap:6px}.qs div button{min-width:44px;height:38px;border-radius:7px;box-shadow:inset 0 0 0 1.5px var(--line);font:700 13px var(--body);padding:0 8px}
+.qs div button:hover{box-shadow:inset 0 0 0 2px var(--bas)}.qs div button.x{opacity:.4;text-decoration:line-through;pointer-events:none}
+.dark .card .ab{box-shadow:inset 0 0 0 2px var(--kh)}.dark .card .ab:hover{background:var(--kh);color:var(--bas)}.dark .card .row1,.dark .card .pr s{color:#9EA39A}
+
+/* fit finder */
+.ff{display:grid;grid-template-columns:1.05fr 1fr;gap:0;border-radius:16px;overflow:hidden;background:var(--kh2);box-shadow:0 0 0 1px var(--line)}
+.ff>*{min-width:0}
+.ffv{background:var(--bas);color:var(--kh);padding:34px;position:relative;display:flex;flex-direction:column}
+.ffv .lb{display:flex;justify-content:space-between;font:700 11px var(--body);letter-spacing:.16em;text-transform:uppercase;color:var(--gl)}
+.ffv svg{width:100%;height:auto;margin:auto 0}
+.ffv .res{display:flex;align-items:flex-end;justify-content:space-between;gap:16px;border-top:1px solid var(--lineD);padding-top:18px}
+.ffv .res small{display:block;font:700 11px var(--body);letter-spacing:.14em;text-transform:uppercase;color:#9EA39A}
+.ffv .res b{font:900 72px/.85 var(--disp)}
+.ffv .res p{margin:0;max-width:260px;font-size:14px;color:#C9CCC4}
+.fff{padding:40px 44px;display:flex;flex-direction:column;gap:24px}
+.fff h2{font-size:clamp(32px,3.2vw,48px);margin-top:12px}
+.lab{display:flex;justify-content:space-between;align-items:baseline;font:700 12px var(--body);letter-spacing:.14em;text-transform:uppercase;color:var(--sl);margin-bottom:10px}
+.lab b{font:800 22px var(--disp);letter-spacing:0;color:var(--bas)}
+input[type=range]{-webkit-appearance:none;appearance:none;width:100%;height:6px;border-radius:3px;background:linear-gradient(90deg,var(--rust) var(--p,50%),var(--line) var(--p,50%));outline:0}
+input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:26px;height:26px;border-radius:7px;background:var(--bas);border:3px solid var(--kh2);box-shadow:0 2px 6px rgba(0,0,0,.3);cursor:grab}
+input[type=range]::-moz-range-thumb{width:22px;height:22px;border-radius:7px;background:var(--bas);border:3px solid var(--kh2)}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chips button{height:40px;padding:0 14px;border-radius:8px;box-shadow:inset 0 0 0 1.5px var(--line);font:600 14px var(--body);transition:.2s;display:inline-flex;align-items:center;gap:8px}
+.chips button:hover{box-shadow:inset 0 0 0 2px var(--bas)}
+.chips button[aria-pressed=true]{background:var(--bas);color:var(--kh);box-shadow:none}
+.chips button i{width:14px;height:14px;border-radius:50%;box-shadow:inset 0 0 0 1px rgba(0,0,0,.2)}
+.sztab{width:100%;border-collapse:collapse;font-size:14px}
+.sztab td,.sztab th{padding:9px 10px;text-align:left;border-bottom:1px solid var(--line)}
+.sztab th{font:700 11px var(--body);letter-spacing:.12em;text-transform:uppercase;color:var(--mute)}
+.sztab tr.hl td{background:var(--gl2);font-weight:700}.sztab td:first-child{font-family:var(--disp);font-weight:800}
+.tot{display:flex;align-items:center;justify-content:space-between;gap:20px;border-top:1px solid var(--line);padding-top:22px;margin-top:auto;flex-wrap:wrap}
+.tot small{display:block;font:700 11px var(--body);letter-spacing:.14em;text-transform:uppercase;color:var(--mute)}.tot strong{font:900 36px var(--disp)}
+
+/* kit planner */
+.kp{display:grid;grid-template-columns:380px 1fr;gap:40px;align-items:start}
+.kp>*{min-width:0}
+.advs{display:grid;gap:10px}
+.advs button{position:relative;display:grid;grid-template-columns:76px 1fr auto;gap:16px;align-items:center;text-align:left;padding:10px;border-radius:12px;background:rgba(255,255,255,.04);box-shadow:inset 0 0 0 1px var(--lineD);transition:.25s}
+.advs button img{width:76px;height:76px;object-fit:cover;border-radius:8px}
+.advs button b{display:block;font:800 20px var(--disp);text-transform:uppercase}.advs button small{color:#9EA39A;font-size:13px}
+.advs button em{font:700 11px var(--body);font-style:normal;letter-spacing:.12em;color:var(--gl);margin-right:8px}
+.advs button[aria-pressed=true]{background:rgba(156,197,211,.12);box-shadow:inset 0 0 0 2px var(--gl)}
+.dark .chips button{box-shadow:inset 0 0 0 1.5px var(--lineD)}.dark .chips button:hover{box-shadow:inset 0 0 0 2px var(--kh)}
+.dark .chips button[aria-pressed=true]{background:var(--kh);color:var(--bas)}
+.kit{background:var(--bas2);border-radius:16px;padding:30px;box-shadow:inset 0 0 0 1px var(--lineD)}
+.kit .kh{display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap;margin-bottom:20px}
+.kit .kh h3{font-size:34px}.kit .kh p{margin:6px 0 0;color:#B9BDB3;font-size:14px}
+.kl{display:grid;gap:10px}
+.ki{display:grid;grid-template-columns:28px 72px 1fr auto;gap:16px;align-items:center;padding:12px;border-radius:12px;background:rgba(255,255,255,.04);transition:opacity .3s}
+.ki.off{opacity:.45}
+.ki input{width:20px;height:20px;accent-color:var(--rust)}
+.ki img{width:72px;height:72px;border-radius:8px;background:var(--sand);object-fit:cover}
+.ki b{display:block;font:800 18px var(--disp);text-transform:uppercase}.ki small{display:block;color:#B9BDB3;font-size:13px}.ki .why{color:var(--gl);font-weight:600}
+.ki .p{font:700 16px var(--body)}
+.kit .tot{border-color:var(--lineD)}.kit .tot small{color:#9EA39A}
+.kit .tot .sv{color:var(--gl);font:700 13px var(--body);display:block;margin-top:4px}
+.meter{height:8px;border-radius:4px;background:rgba(255,255,255,.08);overflow:hidden;margin-top:16px}.meter i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--gl),var(--rust));transition:width .5s}
+.mtr{display:flex;justify-content:space-between;font:600 12px var(--body);color:#9EA39A;margin-top:8px}
+
+/* pack log map */
+.pl{display:grid;grid-template-columns:1.35fr 1fr;gap:28px;align-items:stretch}
+.pl>*{min-width:0}
+.map{position:relative;border-radius:16px;overflow:hidden;background:#DCD4BF;min-height:520px;box-shadow:0 0 0 1px var(--line)}
+.map svg.t{position:absolute;inset:0;width:100%;height:100%}
+.map .mp{position:absolute;transform:translate(-50%,-100%);z-index:2}
+.map .mp button{display:flex;align-items:center;gap:8px;background:var(--bas);color:var(--kh);border-radius:20px 20px 20px 4px;padding:4px 12px 4px 4px;font:700 12px var(--body);box-shadow:0 8px 18px rgba(0,0,0,.25);transition:.2s;white-space:nowrap}
+.map .mp img{width:30px;height:30px;border-radius:50%;object-fit:cover}
+.map .mp button[aria-pressed=true]{background:var(--rust);transform:scale(1.08)}
+.map .leg{position:absolute;left:18px;bottom:16px;display:flex;gap:16px;font:700 11px var(--body);letter-spacing:.12em;text-transform:uppercase;color:var(--sl)}
+.map .comp{position:absolute;right:20px;top:18px;width:60px;height:60px}
+.logc{background:var(--kh2);border-radius:16px;overflow:hidden;box-shadow:0 0 0 1px var(--line);display:flex;flex-direction:column}
+.logc .ph{position:relative;aspect-ratio:4/3;overflow:hidden}.logc .ph img{width:100%;height:100%;object-fit:cover}
+.logc .potw{position:absolute;left:14px;top:14px;background:var(--rust);color:#fff;font:700 11px var(--body);letter-spacing:.12em;text-transform:uppercase;padding:7px 10px;border-radius:6px}
+.logc .smp{position:absolute;right:14px;top:14px;background:rgba(245,241,231,.9);font:600 11px var(--body);padding:6px 9px;border-radius:6px}
+.logc .bd{padding:22px 24px;display:flex;flex-direction:column;gap:14px;flex:1}
+.logc h3{font-size:30px}.logc .tr{color:var(--sl);font-weight:600;font-size:14px}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);border:1px solid var(--line);border-radius:var(--r)}
+.stats div{padding:10px 12px}.stats div+div{border-left:1px solid var(--line)}
+.stats small{display:block;font:700 10.5px var(--body);letter-spacing:.14em;text-transform:uppercase;color:var(--mute)}.stats b{font:800 22px var(--disp)}
+.logc q{font-size:15px;color:var(--sl);quotes:none}
+.gear{display:flex;flex-wrap:wrap;gap:8px;margin-top:auto}
+.gear button{display:flex;align-items:center;gap:8px;height:40px;padding:0 12px 0 4px;border-radius:8px;box-shadow:inset 0 0 0 1.5px var(--line);font:600 13px var(--body)}
+.gear button img{width:32px;height:32px;border-radius:6px;background:var(--sand)}.gear button:hover{box-shadow:inset 0 0 0 2px var(--bas)}
+
+/* story / promise */
+.story{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center}
+.story .ph{position:relative;border-radius:16px;overflow:hidden;aspect-ratio:5/6}.story .ph img{width:100%;height:100%;object-fit:cover}
+.story .ph .badge2{position:absolute;right:20px;bottom:20px;width:140px;height:140px;border-radius:50%;background:var(--rust);color:#fff;display:grid;place-items:center;text-align:center;font:800 15px/1.1 var(--disp);text-transform:uppercase;padding:18px;transform:rotate(-8deg)}
+.story p.l{font-size:18px;color:var(--sl);margin:20px 0 28px}
+.prom{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin:0 0 34px}
+.prom div{border-top:3px solid var(--bas);padding-top:14px}.prom b{display:block;font:900 34px/1 var(--disp)}.prom span{font-size:14px;color:var(--sl)}
+
+/* reviews */
+.rv{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.rc{background:var(--kh2);color:var(--bas);border-radius:var(--r);padding:26px;box-shadow:0 0 0 1px var(--line);display:flex;flex-direction:column;gap:14px}
+.rc .top{display:flex;justify-content:space-between;align-items:center}
+.smp{font:600 11px var(--body);letter-spacing:.06em;color:var(--mute);text-transform:uppercase}
+.rc p{margin:0;font-size:17px;line-height:1.55}
+.rc .who{display:flex;align-items:center;gap:12px;margin-top:auto;font:600 14px var(--body)}
+.rc .who img{width:44px;height:44px;border-radius:50%;object-fit:cover}.rc .who small{display:block;color:var(--mute);font-weight:500}
+.rsum{display:flex;align-items:center;gap:22px;flex-wrap:wrap}.rv2{grid-template-columns:1fr 1fr}.rsum b{font:900 64px/1 var(--disp)}
+
+/* newsletter */
+.news{position:relative;overflow:hidden}
+.news .wrap{display:grid;grid-template-columns:1.1fr 1fr;gap:60px;align-items:center}
+.news h2{font-size:clamp(36px,4.4vw,64px)}
+.news form{display:flex;gap:10px}.news input{flex:1;min-width:0;height:56px;border-radius:var(--r);border:2px solid var(--lineD);background:rgba(255,255,255,.05);padding:0 18px;color:var(--kh);outline:0}
+.news input:focus{border-color:var(--gl)}.news small{display:block;color:#9EA39A;margin-top:12px}
+
+/* footer */
+.ft{background:var(--bas2);color:#C9CCC4;padding:80px 0 30px}
+.ft .cols{display:grid;grid-template-columns:1.5fr 1fr 1fr 1fr 1.3fr;gap:40px;padding-bottom:50px;border-bottom:1px solid var(--lineD)}
+.ft h5{font:800 14px var(--disp);letter-spacing:.12em;text-transform:uppercase;color:var(--kh);margin:0 0 18px}
+.ft ul{list-style:none;padding:0;margin:0;display:grid;gap:10px}.ft a:hover{color:#fff}
+.ft .logo{color:var(--kh);margin-bottom:18px}.ft .logo small{color:#9EA39A}
+.ft p{margin:0 0 18px;font-size:14px}
+.soc{display:flex;gap:8px}.soc a{width:40px;height:40px;border-radius:9px;display:grid;place-items:center;box-shadow:inset 0 0 0 1.5px var(--lineD)}.soc a:hover{box-shadow:inset 0 0 0 1.5px var(--kh)}
+.ft form{display:flex;gap:8px}.ft form input{flex:1;min-width:0;height:46px;border-radius:9px;border:1.5px solid var(--lineD);background:transparent;padding:0 14px;color:#fff}
+.ft form button{height:46px;padding:0 16px;border-radius:9px;background:var(--rust);color:#fff;font:700 13px var(--body)}
+.fb{display:flex;justify-content:space-between;align-items:center;gap:20px;padding-top:26px;font-size:13px;flex-wrap:wrap}
+.pay{display:flex;gap:6px}.pay span{height:26px;padding:0 8px;border-radius:5px;background:rgba(255,255,255,.08);display:grid;place-items:center;font:700 10.5px var(--body);letter-spacing:.04em;color:#E7E5DD}
+
+/* crumbs */
+.crumbs{padding:20px 0;font:600 13px var(--body);color:var(--mute);display:flex;gap:10px;flex-wrap:wrap}.crumbs a:hover{color:var(--rust)}.crumbs b{color:var(--bas)}
+
+/* collection */
+.cban{position:relative;border-radius:16px;overflow:hidden;color:#fff;min-height:300px;display:flex;align-items:flex-end;margin-bottom:28px}
+.cban img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.cban::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(18,22,20,.78),rgba(18,22,20,.1) 70%)}
+.cban div{position:relative;z-index:2;padding:40px;max-width:640px}.cban h1{font-size:clamp(44px,5vw,80px);margin:14px 0 10px}.cban p{margin:0;color:#E2E2DA}
+.ctabs{display:flex;gap:8px;overflow-x:auto;padding-bottom:4px;margin-bottom:24px}
+.ctabs button{flex:none;height:42px;padding:0 16px;border-radius:9px;box-shadow:inset 0 0 0 1.5px var(--line);font:700 13px var(--body);letter-spacing:.04em;text-transform:uppercase}
+.ctabs button.on{background:var(--bas);color:var(--kh);box-shadow:none}
+.cl{display:grid;grid-template-columns:260px 1fr;gap:40px;align-items:start}
+.filters{position:sticky;top:150px;display:grid;gap:4px}
+.fg{border-bottom:1px solid var(--line);padding:16px 0}
+.fg h6{font:800 14px var(--disp);letter-spacing:.08em;text-transform:uppercase;margin:0 0 12px;display:flex;justify-content:space-between}
+.fg label{display:flex;align-items:center;gap:10px;padding:5px 0;font-size:15px;cursor:pointer}.fg label em{margin-left:auto;font-style:normal;color:var(--mute);font-size:13px}
+.fg input[type=checkbox]{width:18px;height:18px;accent-color:var(--rust)}
+.fsz{display:flex;flex-wrap:wrap;gap:6px}.fsz button{min-width:44px;height:38px;border-radius:7px;box-shadow:inset 0 0 0 1.5px var(--line);font:700 13px var(--body)}
+.fsz button[aria-pressed=true]{background:var(--bas);color:var(--kh);box-shadow:none}
+.fcol{display:flex;gap:8px}.fcol button{width:30px;height:30px;border-radius:50%;box-shadow:inset 0 0 0 1px rgba(0,0,0,.2)}.fcol button[aria-pressed=true]{box-shadow:0 0 0 2px var(--kh),0 0 0 4px var(--bas)}
+.fhd{display:none}
+.tb{display:flex;justify-content:space-between;align-items:center;gap:16px;margin-bottom:22px;font-weight:600;color:var(--sl);flex-wrap:wrap}
+.tb select{height:42px;border-radius:9px;border:1.5px solid var(--line);background:var(--kh2);padding:0 12px;font-weight:600}
+#fopen{display:none}
+.cgrid{grid-template-columns:repeat(3,1fr)}
+.promo{position:relative;border-radius:var(--r);overflow:hidden;color:#fff;min-height:100%;display:flex;align-items:flex-end;background:var(--bas)}
+.promo img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.7}
+.promo div{position:relative;padding:24px;display:grid;gap:10px;justify-items:start}.promo h3{font-size:34px}
+.more{display:grid;justify-items:center;gap:12px;margin-top:44px;color:var(--sl);font-weight:600}
+.more .bar{width:220px;height:4px;border-radius:2px;background:var(--line);overflow:hidden}.more .bar i{display:block;height:100%;background:var(--bas)}
+.empty{padding:40px 0;color:var(--sl)}
+
+/* product */
+.pdp{display:grid;grid-template-columns:1.15fr 1fr;gap:56px;align-items:start;padding-bottom:40px}
+.pdp>*{min-width:0}
+.gmain{position:relative;aspect-ratio:1;border-radius:16px;overflow:hidden;background:var(--sand);cursor:zoom-in}
+.gmain img{width:100%;height:100%;object-fit:cover;transition:transform .4s}
+.gmain.zm{cursor:zoom-out}.gmain.zm img{transform:scale(2)}
+.gmain .htag{top:20px}
+.hp{position:absolute;z-index:3;transform:translate(-50%,-50%)}
+.hp button{width:30px;height:30px;border-radius:50%;background:var(--bas);color:var(--kh);font:800 13px var(--disp);box-shadow:0 0 0 5px rgba(245,241,231,.6)}
+.hp span{position:absolute;left:38px;top:50%;transform:translateY(-50%);white-space:nowrap;background:var(--bas);color:var(--kh);font:600 12px var(--body);padding:7px 10px;border-radius:7px;opacity:0;visibility:hidden;transition:.2s}
+.hp:hover span,.hp.on span{opacity:1;visibility:visible}
+.gmain.zm .hp{display:none}
+.thumbs{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:12px}
+.thumbs button{aspect-ratio:1;border-radius:10px;overflow:hidden;background:var(--sand);box-shadow:inset 0 0 0 2px transparent;position:relative}
+.thumbs button img{width:100%;height:100%;object-fit:cover}
+.thumbs button[aria-current=true]::after{content:"";position:absolute;inset:0;border-radius:10px;box-shadow:inset 0 0 0 3px var(--rust)}
+.pinfo{position:sticky;top:150px;display:grid;gap:22px}
+.pinfo .ptop{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}
+.pinfo h1{font-size:clamp(40px,4.2vw,64px)}
+.pinfo .sub{margin:-8px 0 0;color:var(--sl);font-size:17px}
+.price{display:flex;align-items:baseline;gap:12px;font:800 32px var(--disp)}.price s{font:500 18px var(--body);color:var(--mute)}.price .off{font:700 12px var(--body);background:var(--rust);color:#fff;padding:5px 8px;border-radius:6px;letter-spacing:.06em}
+.spec{display:flex;gap:8px;flex-wrap:wrap}.spec span{display:inline-flex;gap:6px;align-items:center;font:600 13px var(--body);background:var(--kh2);box-shadow:inset 0 0 0 1px var(--line);padding:7px 10px;border-radius:7px}
+.opt .lab a{color:var(--rust2);text-transform:none;letter-spacing:0;font-size:14px;border-bottom:1.5px solid currentColor}
+.cols{display:flex;gap:10px}.cols button{display:flex;align-items:center;gap:8px;height:44px;padding:0 14px 0 8px;border-radius:9px;box-shadow:inset 0 0 0 1.5px var(--line);font:600 14px var(--body)}
+.cols button i{width:26px;height:26px;border-radius:6px;box-shadow:inset 0 0 0 1px rgba(0,0,0,.15)}
+.cols button[aria-pressed=true]{box-shadow:inset 0 0 0 2px var(--bas)}
+.psz{display:grid;grid-template-columns:repeat(var(--n,5),1fr);gap:8px}
+.psz button{position:relative;padding:10px 4px;border-radius:9px;box-shadow:inset 0 0 0 1.5px var(--line);text-align:center;font:800 18px var(--disp)}
+.psz button small{display:block;font:600 11.5px var(--body);color:var(--mute);margin-top:2px}
+.psz button:hover{box-shadow:inset 0 0 0 2px var(--bas)}
+.psz button[aria-pressed=true]{background:var(--bas);color:var(--kh);box-shadow:none}.psz button[aria-pressed=true] small{color:#C9CCC4}
+.psz button.x{opacity:.45;pointer-events:none}.psz button.x::after{content:"";position:absolute;left:10%;right:10%;top:50%;height:1.5px;background:var(--bas);transform:rotate(-14deg)}
+.psz button.low::before{content:"Low";position:absolute;top:-8px;right:-4px;background:var(--rust);color:#fff;font:700 9.5px var(--body);padding:2px 5px;border-radius:4px}
+.fitn{display:flex;gap:10px;align-items:flex-start;background:var(--gl2);border-radius:9px;padding:12px 14px;font-size:14px}.fitn svg{flex:none;margin-top:2px}
+.buy{display:grid;grid-template-columns:140px 1fr;gap:12px}
+.qty{display:flex;align-items:center;justify-content:space-between;height:54px;border-radius:var(--r);box-shadow:inset 0 0 0 2px var(--bas);padding:0 6px}
+.qty button{width:40px;height:40px;border-radius:7px;font-size:20px}.qty button:hover{background:var(--sand)}.qty span{font-weight:700}
+.trust{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+.trust div{display:flex;gap:10px;align-items:center;font:600 13px/1.3 var(--body);color:var(--sl)}.trust svg{flex:none;color:var(--rust)}
+.acc{border-top:1px solid var(--line)}
+.acc details{border-bottom:1px solid var(--line)}
+.acc summary{list-style:none;display:flex;justify-content:space-between;align-items:center;padding:18px 0;font:800 17px var(--disp);text-transform:uppercase;cursor:pointer}
+.acc summary::-webkit-details-marker{display:none}.acc summary i{font-style:normal;font-size:22px;transition:transform .3s}.acc details[open] summary i{transform:rotate(45deg)}
+.acc .in{padding:0 0 20px;color:var(--sl)}.acc ul{margin:0;padding-left:18px}
+.spect{width:100%;border-collapse:collapse;font-size:14px}.spect td{padding:8px 0;border-bottom:1px dashed var(--line)}.spect td:last-child{text-align:right;font-weight:600;color:var(--bas)}
+.fbt{display:grid;grid-template-columns:1fr auto;gap:30px;align-items:center;background:var(--kh2);border-radius:16px;padding:30px;box-shadow:0 0 0 1px var(--line)}
+.fbt .its{display:flex;align-items:center;gap:14px;flex-wrap:wrap}
+.fbt label{display:grid;grid-template-columns:90px;gap:8px;font-size:13px;cursor:pointer}
+.fbt label img{width:90px;height:90px;border-radius:10px;background:var(--sand);object-fit:cover}
+.fbt .plus{font:800 26px var(--disp);color:var(--mute)}
+.fbt .tot2{display:grid;gap:8px;justify-items:start}.fbt .tot2 small{font:700 11px var(--body);letter-spacing:.14em;text-transform:uppercase;color:var(--mute)}.fbt .tot2 strong{font:900 36px var(--disp)}
+.revs{display:grid;grid-template-columns:320px 1fr;gap:50px;align-items:start}
+.rbar{display:grid;grid-template-columns:30px 1fr 40px;gap:10px;align-items:center;font:600 13px var(--body);color:var(--sl);margin:6px 0}
+.rbar i{height:8px;border-radius:4px;background:var(--line);position:relative;overflow:hidden}.rbar i::after{content:"";position:absolute;inset:0;width:var(--w);background:var(--rust)}
+.sticky{position:fixed;left:0;right:0;bottom:0;z-index:110;background:var(--kh2);border-top:1px solid var(--line);box-shadow:0 -10px 30px rgba(31,36,33,.12);transform:translateY(100%);transition:transform .35s}
+.sticky.on{transform:none}
+.sticky .wrap{display:flex;align-items:center;gap:18px;height:80px}
+.sticky img{width:54px;height:54px;border-radius:8px;background:var(--sand)}.sticky b{font:800 18px var(--disp);text-transform:uppercase}.sticky small{display:block;color:var(--mute);font-weight:600}
+.sticky .sp{margin-left:auto;display:flex;align-items:center;gap:18px}.sticky .sp strong{font:800 24px var(--disp)}
+
+/* modal size guide */
+.modal{position:fixed;inset:0;z-index:260;background:rgba(18,22,20,.6);display:none;align-items:center;justify-content:center;padding:20px}
+.modal.on{display:flex}.modal .box{background:var(--kh);border-radius:16px;max-width:720px;width:100%;max-height:90vh;overflow:auto;padding:34px}
+.modal .box h3{font-size:34px;margin-bottom:6px}.modal .x{float:right;width:40px;height:40px;border-radius:9px;background:var(--sand);font-size:20px}
+
+/* drawer */
+.scrim{position:fixed;inset:0;z-index:200;background:rgba(18,22,20,.5);opacity:0;visibility:hidden;transition:.3s}.scrim.on{opacity:1;visibility:visible}
+.drawer{position:fixed;right:0;top:0;bottom:0;z-index:210;width:min(460px,100vw);background:var(--kh);transform:translateX(100%);transition:transform .4s;display:flex;flex-direction:column}
+.drawer.on{transform:none}
+.drawer .dh{display:flex;justify-content:space-between;align-items:center;padding:22px 24px;border-bottom:1px solid var(--line)}
+.drawer .dh b{font:800 24px var(--disp);text-transform:uppercase}.drawer .dh button{width:40px;height:40px;border-radius:9px;background:var(--sand);font-size:20px}
+.ship{padding:16px 24px;background:var(--gl2)}.ship p{margin:0 0 8px;font-size:14px}.ship .bar{height:8px;border-radius:4px;background:rgba(31,36,33,.12);overflow:hidden}.ship .bar i{display:block;height:100%;background:var(--bas);transition:width .5s;position:relative}
+.dl{flex:1;overflow:auto;padding:8px 24px}
+.line{display:grid;grid-template-columns:84px 1fr auto;gap:16px;padding:16px 0;border-bottom:1px solid var(--line)}
+.line img{width:84px;height:84px;border-radius:9px;background:var(--sand);object-fit:cover}
+.line b{font:800 17px var(--disp);text-transform:uppercase}.line small{display:block;color:var(--mute);font-size:13px;margin:2px 0 8px}
+.line .q{display:flex;align-items:center;gap:8px}.line .q button{width:30px;height:30px;border-radius:7px;box-shadow:inset 0 0 0 1.5px var(--line)}.line .q .rm{width:auto;box-shadow:none;color:var(--mute);font-size:13px;text-decoration:underline;margin-left:6px}
+.line .lp{font-weight:700}
+.df{padding:20px 24px;border-top:1px solid var(--line);display:grid;gap:12px}
+.df .r{display:flex;justify-content:space-between;font-weight:700;font-size:18px}
+.toast{position:fixed;left:50%;top:24px;z-index:300;transform:translate(-50%,-140%);background:var(--bas);color:var(--kh);padding:12px 18px;border-radius:10px;font:600 14px var(--body);display:flex;gap:10px;align-items:center;transition:transform .35s;box-shadow:0 14px 30px rgba(0,0,0,.25)}
+.toast.on{transform:translate(-50%,0)}.toast i{width:20px;height:20px;border-radius:50%;background:var(--moss);display:grid;place-items:center;font-style:normal;font-size:12px}
+
+/* cart page */
+.cartp{display:grid;grid-template-columns:1fr 400px;gap:50px;align-items:start}
+.cartp>*{min-width:0}
+.cartp h1{font-size:clamp(44px,5vw,72px);margin-bottom:24px}
+.sumc{background:var(--kh2);border-radius:16px;padding:28px;box-shadow:0 0 0 1px var(--line);display:grid;gap:14px;position:sticky;top:150px}
+.sumc .r{display:flex;justify-content:space-between}.sumc .r.t{font:800 24px var(--disp);border-top:1px solid var(--line);padding-top:14px}
+.sumc textarea{width:100%;border-radius:9px;border:1.5px solid var(--line);background:var(--kh);padding:12px;min-height:80px;resize:vertical}
+.sumc .tb2{display:flex;gap:14px;flex-wrap:wrap;font:600 12px var(--body);color:var(--sl)}.sumc .tb2 span{display:flex;gap:6px;align-items:center}
+.cartp .ship{border-radius:12px;margin-bottom:10px}
+
+/* search, blog */
+.sbar{display:flex;gap:10px;max-width:760px}.sbar input{flex:1;min-width:0;height:60px;border-radius:var(--r);border:2px solid var(--bas);background:var(--kh2);padding:0 20px;font-size:18px;outline:0}
+.sugs{display:flex;gap:8px;flex-wrap:wrap;margin:16px 0 40px}.sugs button{height:36px;padding:0 14px;border-radius:8px;background:var(--sand);font:600 13px var(--body)}
+.posts{display:grid;grid-template-columns:repeat(3,1fr);gap:30px}
+.post .im{aspect-ratio:4/3;border-radius:var(--r);overflow:hidden;margin-bottom:16px}.post .im img{width:100%;height:100%;object-fit:cover;transition:transform .8s}.post:hover img{transform:scale(1.05)}
+.post .k{margin-bottom:10px}.post h3{font-size:26px}.post p{color:var(--sl);margin:10px 0 0}
+.feat{display:grid;grid-template-columns:1.3fr 1fr;gap:40px;align-items:center;margin-bottom:60px}
+.feat .im{aspect-ratio:16/10;border-radius:16px;overflow:hidden}.feat .im img{width:100%;height:100%;object-fit:cover}.feat h2{margin:14px 0}
+.bcats{display:flex;gap:8px;margin-bottom:34px;flex-wrap:wrap}
+.art{max-width:780px;margin:0 auto}.art h1{font-size:clamp(44px,5.4vw,84px);margin:16px 0}
+.art .meta{display:flex;gap:16px;color:var(--mute);font-weight:600;font-size:14px;margin-bottom:30px}
+.art .hero2{border-radius:16px;overflow:hidden;margin:0 -60px 40px}.art .hero2 img{width:100%;aspect-ratio:16/9;object-fit:cover}
+.art p{font-size:19px;line-height:1.75;color:#33392F}.art h3{font-size:32px;margin:40px 0 12px}
+.art blockquote{margin:36px 0;padding:26px 30px;border-left:6px solid var(--rust);background:var(--kh2);font:800 28px/1.15 var(--disp);text-transform:uppercase;border-radius:0 12px 12px 0}
+.art .chk{display:grid;gap:10px;padding:24px;border-radius:12px;background:var(--gl2);margin:24px 0}.art .chk label{display:flex;gap:10px;align-items:center;font-weight:600}
+.art .chk input{width:18px;height:18px;accent-color:var(--rust)}
+
+/* about */
+.abh{position:relative;min-height:560px;display:flex;align-items:flex-end;color:#fff;overflow:hidden;border-radius:0}
+.abh img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}.abh::after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,rgba(18,22,20,.8),rgba(18,22,20,.1) 70%)}
+.abh .wrap{position:relative;z-index:2;padding-bottom:70px;width:100%}.abh h1{font-size:clamp(52px,7vw,116px);max-width:1000px;margin-top:16px}
+.vals{display:grid;grid-template-columns:repeat(4,1fr);gap:22px}
+.vals div{border-top:3px solid var(--rust);padding-top:18px}.vals b{display:block;font:800 22px var(--disp);text-transform:uppercase;margin-bottom:8px}.vals p{margin:0;color:var(--sl)}
+.tl{display:grid;grid-template-columns:repeat(4,1fr);gap:0;position:relative;margin-top:20px}
+.tl::before{content:"";position:absolute;left:0;right:0;top:9px;height:2px;background:var(--lineD)}
+.tl div{position:relative;padding-top:34px;padding-right:20px}.tl div::before{content:"";position:absolute;left:0;top:0;width:20px;height:20px;border-radius:50%;background:var(--rust);box-shadow:0 0 0 5px var(--bas)}
+.tl b{display:block;font:900 40px/1 var(--disp);color:var(--gl)}.tl span{display:block;font:800 18px var(--disp);text-transform:uppercase;margin:10px 0 6px}.tl p{margin:0;color:#B9BDB3;font-size:14px}
+
+/* contact */
+.ct{display:grid;grid-template-columns:1fr 1.1fr;gap:60px;align-items:start}
+.ct h1{font-size:clamp(48px,5.6vw,88px);margin:16px 0 20px}
+.cinfo{display:grid;gap:16px;margin-top:30px}.cinfo div{display:flex;gap:14px;align-items:flex-start}.cinfo svg{flex:none;color:var(--rust);margin-top:3px}.cinfo b{display:block;font:800 17px var(--disp);text-transform:uppercase}.cinfo span{color:var(--sl)}
+.cform{background:var(--kh2);border-radius:16px;padding:36px;box-shadow:0 0 0 1px var(--line);display:grid;gap:16px}
+.cform label{display:grid;gap:6px;font:700 12px var(--body);letter-spacing:.12em;text-transform:uppercase;color:var(--sl)}
+.cform input,.cform select,.cform textarea{height:50px;border-radius:9px;border:1.5px solid var(--line);background:var(--kh);padding:0 14px;font:400 16px var(--body);letter-spacing:0;text-transform:none;color:var(--bas);outline:0}
+.cform textarea{height:auto;min-height:130px;padding:12px 14px;resize:vertical}
+.cform input:focus,.cform textarea:focus{border-color:var(--bas)}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.okm{display:none;background:var(--gl2);border-radius:10px;padding:16px;font-weight:600}.okm.on{display:block}
+.faq{max-width:900px}
+
+/* 404 */
+.nf{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;padding:80px 0}
+.nf .big{font:900 clamp(120px,16vw,240px)/.8 var(--disp);color:transparent;-webkit-text-stroke:3px var(--bas)}
+.nf h1{font-size:clamp(40px,4.6vw,68px);margin:20px 0}
+.nf .ph{border-radius:16px;overflow:hidden;aspect-ratio:4/5;position:relative}.nf .ph img{width:100%;height:100%;object-fit:cover}
+.nf .cmp{position:absolute;left:20px;bottom:20px;background:var(--kh);border-radius:12px;padding:12px 16px;display:flex;gap:12px;align-items:center;font-weight:600}
+.nf .cmp svg{animation:spin 6s ease-in-out infinite}@keyframes spin{50%{transform:rotate(200deg)}}
+
+/* responsive */
+@media(max-width:1180px){.grid{grid-template-columns:repeat(3,1fr)}.hs{max-width:420px}.kp{grid-template-columns:320px 1fr}.ft .cols{grid-template-columns:1fr 1fr 1fr}.ft .cols>div:first-child{grid-column:1/-1}}
+@media(max-width:980px){
+ .wrap{padding:0 20px}.sec{padding:72px 0}
+ .ann .wrap{grid-template-columns:1fr;justify-items:center}.ann .wx,.ann .ul{display:none}
+ .hrow{grid-template-columns:auto 1fr auto;height:66px;gap:10px}.hs,.nav{display:none}.burger{display:grid}
+ .logo{justify-self:center}.logo svg{width:30px;height:30px}.logo b{font-size:24px}.logo small{display:none}
+ .hic .acct,.hic .wl{display:none}.hic .cart span.t{display:none}.hic .srb{display:grid}
+ .hero{height:auto;min-height:0}.hero>img{position:relative;height:420px;object-position:72% 50%}
+ .hero::after{display:none}.hero .wrap{background:var(--bas);padding-top:32px;padding-bottom:40px}
+ .hero h1{font-size:54px;margin-top:14px}.hero p{font-size:16px}
+ .alt{right:16px;top:16px;width:150px;padding:12px}.alt b{font-size:26px}.alt svg{display:none}
+ .pin{left:66%;top:22%}.pin .tip{left:auto;right:-10px;top:42px}
+ .hstrip{position:relative;background:var(--bas2)}.hstrip .wrap{grid-template-columns:1fr 1fr;height:auto;gap:12px;padding:16px 20px}
+ .sizes{grid-template-columns:repeat(4,160px);overflow-x:auto;margin:0 -20px;padding:0 20px 6px}
+ .adv{grid-template-columns:1fr 1fr;grid-template-rows:260px 200px 200px}.at:first-child{grid-column:1/-1;grid-row:auto}
+ .grid,.cgrid{grid-template-columns:1fr 1fr;gap:22px 12px}
+ .ff,.kp,.pl,.story,.news .wrap,.pdp,.cartp,.ct,.nf,.feat,.revs,.cl{grid-template-columns:1fr}
+ .ffv{padding:24px}.fff{padding:28px 20px}.ffv .res b{font-size:56px}
+ .map{min-height:420px}
+ .story{gap:40px}.rv,.posts,.vals{grid-template-columns:1fr}
+ .tl{grid-template-columns:1fr 1fr;gap:30px}.tl::before{display:none}
+ .filters{position:fixed;inset:0;z-index:230;background:var(--kh);padding:20px;overflow:auto;transform:translateX(-100%);transition:transform .35s;top:0}
+ .filters.on{transform:none}.fhd{display:flex;justify-content:space-between;align-items:center}.fhd b{font:800 26px var(--disp);text-transform:uppercase}
+ #fopen{display:inline-flex}
+ .pinfo{position:static}.psz{grid-template-columns:repeat(3,1fr)}
+ .fbt{grid-template-columns:1fr}.sumc{position:static}
+ .art .hero2{margin:0 0 30px}
+ .ft .cols{grid-template-columns:1fr 1fr}
+ .sticky .wrap{height:70px;gap:12px}.sticky img,.sticky .nm{display:none}.sticky .sp{margin-left:0;width:100%;justify-content:space-between}
+}
+@media(max-width:600px){
+ .hero h1{font-size:46px}.hero .btn{flex:1}.cban div{padding:24px}
+ .card h4{font-size:17px}.card .ab{height:40px;font-size:12px}.szt{display:none}.card .row1 .stars em{display:none}
+ .trust{grid-template-columns:1fr}.two{grid-template-columns:1fr}.buy{grid-template-columns:120px 1fr}
+ .stats b{font-size:18px}.ki{grid-template-columns:24px 56px 1fr;gap:10px}.ki img{width:56px;height:56px}.ki .p{grid-column:3}
+ .advs button{grid-template-columns:60px 1fr}.advs button img{width:60px;height:60px}.advs button em{display:none}
+ .map .mp button span{display:none}.map .mp button{padding:4px}
+ .ft .cols{grid-template-columns:1fr}.fb{flex-direction:column;align-items:flex-start}
+ .news form{flex-direction:column}.nf .big{font-size:130px}
+ .prom b{font-size:26px}
+ .at h3{font-size:22px}.at .go{width:36px;height:36px}.at .tx{left:14px;right:14px;bottom:14px;gap:8px}.at .el{font-size:9.5px;top:12px;left:12px}
+ .sbar .btn{padding:0 18px}
+}
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
+<symbol id="i-s" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="M20 20l-4-4"/></g></symbol>
+<symbol id="i-u" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="8" r="4"/><path d="M4 21c1.5-4 4.5-6 8-6s6.5 2 8 6"/></g></symbol>
+<symbol id="i-h" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" d="M12 20s-7-4.5-7-10a4 4 0 017-2.5A4 4 0 0119 10c0 5.5-7 10-7 10z"/></symbol>
+<symbol id="i-b" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M6 8h12l-1 12H7z"/><path d="M9 8V6a3 3 0 016 0v2"/></g></symbol>
+<symbol id="i-m" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M3 20l6-11 4 6 2-3 6 8z"/></symbol>
+<symbol id="i-t" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M2 7h12v9H2zM14 10h4l3 3v3h-7"/><circle cx="6" cy="17" r="2"/><circle cx="17" cy="17" r="2"/></g></symbol>
+<symbol id="i-r" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 12a8 8 0 0114-5l2-2v6h-6l2-2a5 5 0 10.9 6"/></g></symbol>
+<symbol id="i-sh" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" d="M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6z"/></symbol>
+<symbol id="i-pin" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21s7-6 7-12a7 7 0 10-14 0c0 6 7 12 7 12z"/><circle cx="12" cy="9" r="2.5"/></g></symbol>
+<symbol id="i-mail" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></g></symbol>
+<symbol id="i-clk" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></g></symbol>
+<symbol id="i-ha" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M5 9c3-3 11-3 14 0l-2 9H7z"/><path d="M9 9v9M15 9v9"/></g></symbol>
+<symbol id="i-le" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 4c6 0 6 8 0 8M4 12c8 0 10 4 10 8"/><circle cx="17" cy="20" r="2"/></g></symbol>
+<symbol id="i-pk" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><rect x="3" y="8" width="7" height="10" rx="2"/><rect x="14" y="8" width="7" height="10" rx="2"/><path d="M10 10h4"/></g></symbol>
+<symbol id="i-ja" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M8 4l4 3 4-3 4 4-3 3v9H7v-9L4 8z"/></g></symbol>
+<symbol id="i-wa" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 15c2 0 2-2 4.5-2S10 15 12 15s2-2 4.5-2S19 15 21 15M3 19c2 0 2-2 4.5-2S10 19 12 19s2-2 4.5-2S19 19 21 19"/><path d="M12 3l3 6H9z"/></g></symbol>
+<symbol id="i-ca" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M3 20L12 4l9 16zM12 4v16M8 20l4-6 4 6"/></g></symbol>
+</defs></svg>
+
+<div class="pv" role="toolbar" aria-label="Preview"><div class="tabs">
+<button data-go="home" class="on">Home</button><button data-go="collection">Collection</button><button data-go="product">Product</button><button data-go="cart">Cart</button><button data-go="search">Search</button><button data-go="blog">Blog</button><button data-go="article">Article</button><button data-go="about">About</button><button data-go="contact">Contact</button><button data-go="404">404</button></div>
+<label><input type="checkbox" id="names"> Show section names</label></div>
+
+<div class="ann" data-dawn="announcement-bar"><div class="wrap">
+<div class="wx"><i></i>Trail report: <b>Clear</b> · 9°C at the trailhead</div>
+<span id="annTxt">Free shipping on orders over $75</span>
+<div class="ul"><a href="#" data-go="contact">Fit help</a><a href="#" data-go="about">Warranty</a><a href="#" data-go="blog">Trail notes</a></div></div></div>
+
+<header class="hdr" id="hdr" data-dawn="header">
+<div class="wrap hrow">
+<button class="burger hic" id="burger" aria-label="Open menu"><svg width="26" height="26" viewBox="0 0 24 24"><path d="M3 6h18M3 12h18M3 18h12" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></svg></button>
+<a href="#" class="logo" data-go="home" aria-label="Cairn home"><svg width="38" height="38" viewBox="0 0 40 40"><ellipse cx="20" cy="33" rx="15" ry="5" fill="#1F2421"/><ellipse cx="20" cy="24" rx="11" ry="4.5" fill="#B4532A"/><ellipse cx="20" cy="16" rx="8" ry="3.8" fill="#1F2421"/><ellipse cx="20" cy="9" rx="5" ry="3" fill="#9CC5D3"/></svg><span><b>CAIRN</b><small>TRAIL GEAR FOR DOGS</small></span></a>
+<div class="hs"><svg width="20" height="20"><use href="#i-s"/></svg><input id="hq" placeholder="Search harnesses, packs, float coats" aria-label="Search"><button id="hqgo">Search</button></div>
+<div class="hic"><button class="srb" id="sbtn" aria-label="Search"><svg width="22" height="22"><use href="#i-s"/></svg></button>
+<a href="#" class="acct" aria-label="Account"><svg width="22" height="22"><use href="#i-u"/></svg></a><a href="#" class="wl" aria-label="Wishlist"><svg width="22" height="22"><use href="#i-h"/></svg></a>
+<button class="cart" id="cbtn" aria-label="Open pack"><svg width="20" height="20"><use href="#i-b"/></svg><span class="t">Pack</span><span id="cc">0</span></button></div>
+</div>
+<nav class="nav" aria-label="Main"><div class="wrap">
+<div class="ni"><a href="#" data-go="collection" data-cat="all"><svg width="18" height="18"><use href="#i-m"/></svg>Shop all</a>
+<div class="mega"><div class="wrap">
+<div><h5>Walk and hike</h5><ul><li><a href="#" data-go="collection" data-cat="Harness">Harnesses <small>4</small></a></li><li><a href="#" data-go="collection" data-cat="Leads">Leads and belts</a></li><li><a href="#" data-go="collection" data-cat="Packs">Dog packs</a></li><li><a href="#" data-go="collection" data-cat="Paws">Booties and paw care</a></li></ul></div>
+<div><h5>Weather and water</h5><ul><li><a href="#" data-go="collection" data-cat="Jackets">Rain and snow jackets</a></li><li><a href="#" data-go="collection" data-cat="Water">Float coats</a></li><li><a href="#" data-go="collection" data-cat="Water">Cooling vests</a></li><li><a href="#" data-go="collection" data-cat="Jackets">Reflective gear</a></li></ul></div>
+<div><h5>Camp</h5><ul><li><a href="#" data-go="collection" data-cat="Camp">Camp beds</a></li><li><a href="#" data-go="collection" data-cat="Camp">Trail bowls</a></li><li><a href="#" data-go="collection" data-cat="Camp">Treat pouches</a></li><li><a href="#fit" data-go="home">Harness fit finder</a></li></ul></div>
+<a href="#" class="mtile" data-go="collection" data-cat="Packs"><img data-k="hike" alt="Border collie with a saddle pack on a trail"><div><span>New this season</span><b>Packhound saddle pack</b><span class="lk" style="color:#fff">Shop packs →</span></div></a>
+</div></div></div>
+<div class="ni"><a href="#" data-go="collection" data-cat="Harness"><svg width="18" height="18"><use href="#i-ha"/></svg>Harnesses</a></div>
+<div class="ni"><a href="#" data-go="collection" data-cat="Leads"><svg width="18" height="18"><use href="#i-le"/></svg>Leads</a></div>
+<div class="ni"><a href="#" data-go="collection" data-cat="Packs"><svg width="18" height="18"><use href="#i-pk"/></svg>Packs</a></div>
+<div class="ni"><a href="#" data-go="collection" data-cat="Jackets"><svg width="18" height="18"><use href="#i-ja"/></svg>Jackets</a></div>
+<div class="ni"><a href="#" data-go="collection" data-cat="Water"><svg width="18" height="18"><use href="#i-wa"/></svg>Water</a></div>
+<div class="ni"><a href="#" data-go="collection" data-cat="Camp"><svg width="18" height="18"><use href="#i-ca"/></svg>Camp</a></div>
+<div class="sp"><b>Fit help</b>Not sure of the size? <a href="#fit" data-go="home" class="lk">Find it in 30 seconds</a></div>
+</div></nav>
+</header>
+
+<div class="mm" id="mm"><div class="top"><span class="logo"><b style="color:#ECE6D7">CAIRN</b></span><button id="mmx" aria-label="Close menu" style="font-size:28px">×</button></div>
+<a href="#" class="big" data-go="collection" data-cat="Harness">Harnesses <span>4 styles</span></a><a href="#" class="big" data-go="collection" data-cat="Leads">Leads <span>Rope and belts</span></a><a href="#" class="big" data-go="collection" data-cat="Packs">Packs</a><a href="#" class="big" data-go="collection" data-cat="Jackets">Jackets</a><a href="#" class="big" data-go="collection" data-cat="Water">Water</a><a href="#" class="big" data-go="collection" data-cat="Camp">Camp</a><a href="#fit" class="big" data-go="home">Fit finder <span>30 seconds</span></a>
+<div class="row"><a href="#" data-go="collection" data-cat="Packs"><img data-k="hike" alt=""><b>New: Packhound</b></a><a href="#" data-go="collection" data-cat="Water"><img data-k="swim" alt=""><b>Lake season</b></a><a href="#" data-go="collection" data-cat="Jackets"><img data-k="snow" alt=""><b>Snow ready</b></a></div></div>
+<div class="srch" id="srch"><div class="box"><div><input id="hq2" placeholder="Search Cairn"><button class="btn" id="hq2go">Go</button><button id="sx" aria-label="Close" style="font-size:26px;padding:0 6px">×</button></div></div></div>
+
+<main>
+<!-- HOME -->
+<section class="page on" id="p-home">
+<div class="hero" data-dawn="image-banner"><img data-k="hero" alt="Australian shepherd in a rust harness on a mountain ridge">
+<div class="alt"><small>Today's summit</small><b>2,340 m</b><svg width="154" height="36" viewBox="0 0 154 36"><path d="M0 34 L18 26 L30 29 L48 14 L62 20 L80 6 L96 16 L112 10 L130 22 L154 18" fill="none" stroke="#9CC5D3" stroke-width="2"/><circle cx="80" cy="6" r="3" fill="#B4532A"/></svg><div class="r"><span>14.2 km</span><span>+980 m</span></div></div>
+<div class="pin" id="hpin"><button aria-label="Ridge Harness, worn here">1</button><a href="#" class="tip" data-go="product" data-p="0"><img data-k="p1" alt=""><span><b>Ridge Harness</b>Worn here in Rust · $68</span></a></div>
+<div class="wrap"><span class="k">Field-tested on 400 km of trail</span>
+<h1>Built for the <span>long way</span> round.</h1>
+<p>Harnesses, packs and weather gear for dogs who would rather be outside. Made to fit, made to last, made to come home muddy.</p>
+<div class="ctas"><a href="#" class="btn" data-go="collection" data-cat="all">Shop the gear</a><a href="#fit" class="btn o" data-go="home">Find their harness size</a></div></div>
+<div class="hstrip"><div class="wrap"><span><svg width="22" height="22"><use href="#i-t"/></svg>Free shipping over $75</span><span><svg width="22" height="22"><use href="#i-r"/></svg>60-day trail test</span><span><svg width="22" height="22"><use href="#i-sh"/></svg>Lifetime warranty on hardware</span><span><svg width="22" height="22"><use href="#i-ha"/></svg>Free size exchange</span></div></div>
+</div>
+
+<section class="sec" data-dawn="collection-list"><div class="wrap">
+<div class="hd"><div><span class="k">Shop by dog</span><h2>Every size, one fit.</h2></div><p>Our sizes are built around chest girth, not breed guesses. Start with the size of your dog.</p></div>
+<div class="sizes">
+<a href="#" class="sz reveal" data-go="collection" data-cat="all" data-sz="S"><span class="c"><img data-k="snow" alt="Small terrier in a jacket"><span class="tag">XS · S</span></span><span><b>Small</b><small>Up to 10 kg</small></span></a>
+<a href="#" class="sz reveal" data-go="collection" data-cat="all" data-sz="M"><span class="c"><img data-k="hike" alt="Border collie on a trail"><span class="tag">M</span></span><span><b>Medium</b><small>10 to 25 kg</small></span></a>
+<a href="#" class="sz reveal" data-go="collection" data-cat="all" data-sz="L"><span class="c"><img data-k="swim" alt="Labrador swimming"><span class="tag">L</span></span><span><b>Large</b><small>25 to 40 kg</small></span></a>
+<a href="#" class="sz reveal" data-go="collection" data-cat="all" data-sz="XL"><span class="c"><img data-k="camp" alt="Bernese mountain dog resting"><span class="tag">XL</span></span><span><b>Giant</b><small>40 kg and up</small></span></a>
+</div></div></section>
+
+<section class="sec" style="padding-top:0" data-dawn="multicolumn"><div class="wrap">
+<div class="hd"><div><span class="k">Shop by adventure</span><h2>Where are you headed?</h2></div><a href="#" class="lk" data-go="collection" data-cat="all">See all gear →</a></div>
+<div class="adv">
+<a href="#" class="at reveal" data-go="collection" data-cat="Harness"><img data-k="hike" alt=""><span class="el">Elev. 1,200 to 2,800 m</span><div class="tx"><div><h3>Summit days</h3><p>Harnesses, packs and leads for long climbs.</p></div><span class="go"><svg width="20" height="20" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6" fill="none" stroke="#fff" stroke-width="2.2"/></svg></span></div></a>
+<a href="#" class="at reveal" data-go="collection" data-cat="Water"><img data-k="swim" alt=""><span class="el">Lakes and rivers</span><div class="tx"><div><h3>Water days</h3></div><span class="go"><svg width="20" height="20" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6" fill="none" stroke="#fff" stroke-width="2.2"/></svg></span></div></a>
+<a href="#" class="at reveal" data-go="collection" data-cat="Camp"><img data-k="camp" alt=""><span class="el">Overnight</span><div class="tx"><div><h3>Camp nights</h3></div><span class="go"><svg width="20" height="20" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6" fill="none" stroke="#fff" stroke-width="2.2"/></svg></span></div></a>
+<a href="#" class="at reveal" data-go="collection" data-cat="Jackets"><img data-k="snow" alt=""><span class="el">Below 0°C</span><div class="tx"><div><h3>Snow and rain</h3></div><span class="go"><svg width="20" height="20" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6" fill="none" stroke="#fff" stroke-width="2.2"/></svg></span></div></a>
+<a href="#" class="at reveal" data-go="collection" data-cat="Leads"><img data-k="run" alt=""><span class="el">Trail running</span><div class="tx"><div><h3>Run together</h3></div><span class="go"><svg width="20" height="20" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6" fill="none" stroke="#fff" stroke-width="2.2"/></svg></span></div></a>
+</div></div></section>
+
+<section class="sec" style="padding-top:0" data-dawn="featured-collection"><div class="wrap">
+<div class="hd"><div><span class="k">Best sellers</span><h2>Most-packed this month.</h2></div><a href="#" class="lk" data-go="collection" data-cat="all">Shop all gear →</a></div>
+<div class="grid" id="bestGrid"></div></div></section>
+
+<section class="sec topo" id="fit" data-dawn="sbs-fit-finder"><div class="wrap">
+<div class="ff">
+<div class="ffv"><div class="lb"><span>Live fit</span><span id="ffBreed">Your dog</span></div>
+<svg id="ffSvg" viewBox="0 0 520 330" role="img" aria-label="Dog outline with harness at the measured chest"></svg>
+<div class="res"><div><small>Recommended size</small><b id="ffSize">M</b></div><p id="ffNote">Right in the middle of M. Adjust the straps two fingers loose.</p></div></div>
+<div class="fff">
+<div><span class="k">Harness fit finder</span><h2>The right size in 30 seconds.</h2></div>
+<div><div class="lab">Start with a breed<span></span></div><div class="chips" id="ffBr">
+<button data-c="38" data-w="7" aria-pressed="false">Jack Russell</button><button data-c="56" data-w="16" aria-pressed="false">Border collie</button><button data-c="66" data-w="22" aria-pressed="false">Aussie</button><button data-c="78" data-w="32" aria-pressed="false">Labrador</button><button data-c="92" data-w="45" aria-pressed="false">Bernese</button></div></div>
+<div><div class="lab">Chest girth <b id="ffCv">60 cm</b></div><input type="range" id="ffC" min="30" max="105" value="60" aria-label="Chest girth in centimetres"></div>
+<div><div class="lab">Weight <b id="ffWv">20 kg</b></div><input type="range" id="ffW" min="3" max="60" value="20" aria-label="Weight in kilograms"></div>
+<table class="sztab"><thead><tr><th>Size</th><th>Chest</th><th>Weight</th></tr></thead><tbody id="ffTab"></tbody></table>
+<div><div class="lab">Colour <b id="ffColN">Rust</b></div><div class="chips" id="ffCol"><button data-v="0" aria-pressed="true"><i style="background:#B4532A"></i>Rust</button><button data-v="1" aria-pressed="false"><i style="background:#9CC5D3"></i>Glacier</button><button data-v="2" aria-pressed="false"><i style="background:#4A5450"></i>Slate</button></div></div>
+<div class="tot"><div><small>Ridge Harness · size <span id="ffS2">M</span></small><strong>$68</strong></div><button class="btn" id="ffAdd">Add harness in M</button></div>
+</div></div></div></section>
+
+<section class="sec dark topo" data-dawn="sbs-trail-kit"><div class="wrap">
+<div class="hd"><div><span class="k">Adventure kit planner</span><h2>Pack for where you're going.</h2></div><p>Pick the plan and your dog's size. We build the kit. Three pieces or more and the whole kit is 15% off.</p></div>
+<div class="kp">
+<div><div class="advs" id="kpAdv">
+<button data-v="0" aria-pressed="true"><img data-k="hike" alt=""><span><b>Summit day</b><small>6 to 8 hours, rocky</small></span><em>DAY</em></button>
+<button data-v="1" aria-pressed="false"><img data-k="swim" alt=""><span><b>Lake day</b><small>Swims and sun</small></span><em>DAY</em></button>
+<button data-v="2" aria-pressed="false"><img data-k="camp" alt=""><span><b>Overnight</b><small>Pack in, sleep out</small></span><em>1 NIGHT</em></button>
+<button data-v="3" aria-pressed="false"><img data-k="snow" alt=""><span><b>Snow walk</b><small>Below freezing</small></span><em>DAY</em></button></div>
+<div style="margin-top:24px"><div class="lab" style="color:#9EA39A">Dog size</div><div class="chips" id="kpSz"><button data-v="S" aria-pressed="false">S</button><button data-v="M" aria-pressed="true">M</button><button data-v="L" aria-pressed="false">L</button><button data-v="XL" aria-pressed="false">XL</button></div></div></div>
+<div class="kit"><div class="kh"><div><h3 id="kpT">Summit day kit</h3><p id="kpD">Built for long, rocky climbs above the treeline.</p></div><span class="smp" style="color:#9EA39A">Size <b id="kpSzN" style="color:#fff">M</b></span></div>
+<div class="kl" id="kpList"></div>
+<div class="meter"><i id="kpBar"></i></div><div class="mtr"><span id="kpCnt">4 of 4 pieces</span><span>15% off from 3 pieces</span></div>
+<div class="tot"><div><small>Kit total</small><strong id="kpTot">$0</strong><span class="sv" id="kpSv"></span></div><button class="btn" id="kpAdd">Add kit to pack</button></div></div>
+</div></div></section>
+
+<section class="sec" data-dawn="image-with-text"><div class="wrap story">
+<div class="ph reveal"><img data-k="paws" alt="Dog paws in booties on granite"><span class="badge2">60-day trail test</span></div>
+<div class="reveal"><span class="k">Why Cairn</span><h2 style="margin-top:14px">Tested where the trail runs out.</h2>
+<p class="l">Every piece is worn by our test pack of eleven dogs for a full season before it reaches the shop. If it rubs, slips or snaps, it does not ship. If yours ever does, send it back and we fix or replace it.</p>
+<div class="prom"><div><b>11</b><span>dogs in the test pack</span></div><div><b>400</b><span>km tested per product</span></div><div><b>60</b><span>days to try it outside</span></div></div>
+<a href="#" class="btn d" data-go="about">Meet the test pack</a></div>
+</div></section>
+
+<section class="sec" style="padding-top:0" id="log" data-dawn="sbs-pack-log"><div class="wrap">
+<div class="hd"><div><span class="k">Pack log</span><h2>Where the pack went this month.</h2></div><p>Customer trails, pinned on the map. Tap a pin to see the dog, the route and the gear they wore.</p></div>
+<div class="pl">
+<div class="map" id="map"><svg class="t" id="topo" viewBox="0 0 800 560" preserveAspectRatio="xMidYMid slice" aria-hidden="true"></svg>
+<svg class="comp" viewBox="0 0 60 60"><circle cx="30" cy="30" r="28" fill="#ECE6D7" stroke="#1F2421" stroke-width="2"/><path d="M30 8l6 22h-12z" fill="#B4532A"/><path d="M30 52l-6-22h12z" fill="#1F2421"/><text x="30" y="7" font-size="0">N</text></svg>
+<div id="pins"></div>
+<div class="leg"><span>— Contour 50 m</span><span>● Logged trail</span></div></div>
+<div class="logc" id="logc"></div>
+</div></div></section>
+
+<section class="sec dark" data-dawn="multicolumn"><div class="wrap">
+<div class="hd"><div><span class="k">Reviews</span><h2>Straight from the trailhead.</h2></div><div class="rsum"><b>4.8</b><div><span class="stars">★★★★★</span><br><span style="color:#9EA39A;font-weight:600">Sample rating · 2,140 reviews</span></div></div></div>
+<div class="rv" id="rvHome"></div></div></section>
+
+<section class="sec dark topo news" style="background-color:#2B312D" data-dawn="newsletter"><div class="wrap">
+<div><span class="k">Trail notes</span><h2 style="margin-top:14px">Routes, kit lists, first dibs.</h2></div>
+<div><form onsubmit="event.preventDefault();toast('You are on the list');this.reset()"><input type="email" required placeholder="Email address" aria-label="Email address"><button class="btn">Sign up</button></form><small>One email a month with a dog-friendly route and new gear. 10% off your first order.</small></div>
+</div></section>
+</section>
+
+<!-- COLLECTION -->
+<section class="page" id="p-collection"><div class="wrap">
+<div class="crumbs" data-dawn="sbs-breadcrumbs"><a href="#" data-go="home">Home</a>/<b id="cCrumb">All gear</b></div>
+<div class="cban" data-dawn="main-collection-banner"><img id="cImg" alt=""><div><span class="k lt">Collection</span><h1 id="cTitle">All gear</h1><p id="cDesc">Everything the test pack wears.</p></div></div>
+<div class="ctabs" id="cCats"><button data-c="all" class="on">All gear</button><button data-c="Harness">Harnesses</button><button data-c="Leads">Leads</button><button data-c="Packs">Packs</button><button data-c="Jackets">Jackets</button><button data-c="Water">Water</button><button data-c="Camp">Camp</button><button data-c="Paws">Paws</button></div>
+<div class="cl" data-dawn="main-collection-product-grid">
+<aside class="filters" id="filters"><div class="fhd"><b>Filters</b><button id="fclose" style="font-size:28px" aria-label="Close filters">×</button></div>
+<div class="fg"><h6>Dog size</h6><div class="fsz" id="fsz"><button aria-pressed="false">XS</button><button aria-pressed="false">S</button><button aria-pressed="false">M</button><button aria-pressed="false">L</button><button aria-pressed="false">XL</button></div></div>
+<div class="fg"><h6>Adventure</h6><label><input type="checkbox" data-f="a" value="hike"> Hiking <em></em></label><label><input type="checkbox" data-f="a" value="water"> Water <em></em></label><label><input type="checkbox" data-f="a" value="camp"> Camping <em></em></label><label><input type="checkbox" data-f="a" value="snow"> Snow and rain <em></em></label></div>
+<div class="fg"><h6>Price <span id="fPv" style="font:600 13px var(--body);text-transform:none;letter-spacing:0;color:var(--mute)">up to $140</span></h6><input type="range" id="fPrice" min="20" max="140" value="140" aria-label="Maximum price"></div>
+<div class="fg"><h6>Colour</h6><div class="fcol"><button style="background:#B4532A" aria-pressed="false" aria-label="Rust"></button><button style="background:#9CC5D3" aria-pressed="false" aria-label="Glacier"></button><button style="background:#4A5450" aria-pressed="false" aria-label="Slate"></button><button style="background:#5F6B3C" aria-pressed="false" aria-label="Moss"></button></div></div>
+<div class="fg"><label><input type="checkbox" id="fSale"> On sale only</label></div>
+<button class="lk" id="freset" style="justify-self:start;margin-top:14px">Clear all</button>
+</aside>
+<div><div class="tb"><button class="btn o" id="fopen" style="height:42px">Filters</button><span><b id="cCount">8</b> products</span><label>Sort <select id="cSort"><option value="f">Featured</option><option value="lo">Price, low to high</option><option value="hi">Price, high to low</option><option value="rt">Top rated</option></select></label></div>
+<div class="grid cgrid" id="cGrid"></div>
+<div class="more"><span>Showing <span id="cShow">8</span> of 24</span><div class="bar"><i style="width:33%"></i></div><button class="btn o" onclick="toast('More gear loaded')">Load more</button></div>
+</div></div>
+<section class="sec" data-dawn="featured-collection"><div class="hd"><div><span class="k">Recently viewed</span><h2>Back on the trail.</h2></div></div><div class="grid" id="rvGrid2"></div></section>
+</div></section>
+
+<!-- PRODUCT -->
+<section class="page" id="p-product"><div class="wrap">
+<div class="crumbs" data-dawn="sbs-breadcrumbs"><a href="#" data-go="home">Home</a>/<a href="#" data-go="collection" id="pCat">Harnesses</a>/<b id="pCrumb">Ridge Harness</b></div>
+<div class="pdp" data-dawn="main-product">
+<div><div class="gmain" id="gmain"><img id="gimg" alt=""><div id="hps"></div></div><div class="thumbs" id="thumbs"></div></div>
+<div class="pinfo">
+<div class="ptop"><span class="k" id="pKick">Harness · for hikes</span><span id="pStars"></span></div>
+<h1 id="pName">Ridge Harness</h1><p class="sub" id="pSub"></p>
+<div class="price" id="pPrice"></div>
+<div class="spec" id="pSpec"></div>
+<div class="opt" data-dawn="variant-picker"><div class="lab">Colour <b id="pColL" style="font-size:16px">Rust</b></div><div class="cols" id="pCols"></div></div>
+<div class="opt" id="szOpt"><div class="lab"><span>Size <b id="pSizeL" style="font-size:16px">Choose a size</b></span><a href="#" id="sgOpen">Size guide</a></div><div class="psz" id="pSizes"></div></div>
+<div class="fitn" id="pFit"></div>
+<div class="buy" id="atc" data-dawn="buy-buttons"><div class="qty"><button id="qm" aria-label="Less">−</button><span id="qv">1</span><button id="qp" aria-label="More">+</button></div><button class="btn" id="pAdd">Add to pack</button></div>
+<div class="trust"><div><svg width="24" height="24"><use href="#i-t"/></svg>Ships in 24 h, free over $75</div><div><svg width="24" height="24"><use href="#i-r"/></svg>60-day trail test</div><div><svg width="24" height="24"><use href="#i-sh"/></svg>Lifetime hardware warranty</div></div>
+<div class="acc" data-dawn="collapsible-content"><details open><summary>Details <i>+</i></summary><div class="in" id="pDesc"></div></details>
+<details><summary>Materials and specs <i>+</i></summary><div class="in"><table class="spect" id="pTech"></table></div></details>
+<details><summary>Shipping and returns <i>+</i></summary><div class="in">Free shipping on orders over $75, otherwise $6. Orders before 2 pm ship the same day. Try it outside for 60 days; wrong size exchanges are free.</div></details></div>
+</div></div>
+
+<section class="sec" style="padding-top:40px" data-dawn="sbs-frequently-bought"><div class="fbt"><div><span class="k">Pairs well with</span><h3 style="font-size:32px;margin:12px 0 20px">The trail set</h3><div class="its" id="fbtIts"></div></div><div class="tot2"><small>Set price, 10% off</small><strong id="fbtTot">$0</strong><button class="btn" id="fbtAdd">Add set to pack</button></div></div></section>
+
+<section class="sec" style="padding-top:0" data-dawn="product-reviews"><div class="revs">
+<div><span class="k">Reviews</span><h2 style="font-size:44px;margin:14px 0 18px">How it fits on trail.</h2><div class="rsum"><b id="prAvg">4.9</b><span id="prStars"></span></div><div id="prbars" style="margin-top:16px"></div><button class="btn o" style="margin-top:20px" onclick="toast('Review form opens here')">Write a review</button></div>
+<div class="rv rv2" id="prcards"></div></div></section>
+
+<section class="sec" style="padding-top:0" data-dawn="related-products"><div class="hd"><div><span class="k">Also in the pack</span><h2>Complete the kit.</h2></div></div><div class="grid" id="relGrid"></div></section>
+<section class="sec" style="padding-top:0" data-dawn="sbs-recently-viewed"><div class="hd"><div><span class="k">Recently viewed</span><h2>You looked at.</h2></div></div><div class="grid" id="rvGrid"></div></section>
+</div>
+<div class="sticky" id="sticky" data-dawn="sticky add to cart"><div class="wrap"><img id="stImg" alt=""><div class="nm"><b id="stName">Ridge Harness</b><small id="stOpt">Rust · choose a size</small></div><div class="sp"><strong id="stPrice">$68</strong><button class="btn" id="stAdd">Add to pack</button></div></div></div>
+</section>
+
+<!-- CART -->
+<section class="page" id="p-cart"><div class="wrap">
+<div class="crumbs" data-dawn="sbs-breadcrumbs"><a href="#" data-go="home">Home</a>/<b>Your pack</b></div>
+<div class="cartp"><div data-dawn="main-cart-items"><h1>Your pack</h1><div class="ship" id="cShip"></div><div id="cLines"></div></div>
+<aside class="sumc" data-dawn="main-cart-footer"><h3 style="font-size:28px">Summary</h3>
+<div class="r"><span>Subtotal</span><b id="cSub">$0</b></div><div class="r"><span>Kit savings</span><b id="cSave">$0</b></div><div class="r"><span>Shipping</span><b id="cShipT">Free</b></div><div class="r t"><span>Total</span><span id="cTot">$0</span></div>
+<label style="font:700 12px var(--body);letter-spacing:.12em;text-transform:uppercase;color:var(--sl)">Order note<textarea placeholder="Gift message or delivery note"></textarea></label>
+<button class="btn w" onclick="toast('Checkout opens here')">Check out</button>
+<div class="tb2"><span><svg width="16" height="16"><use href="#i-sh"/></svg>Secure checkout</span><span><svg width="16" height="16"><use href="#i-r"/></svg>60-day trail test</span><span><svg width="16" height="16"><use href="#i-t"/></svg>Ships in 24 h</span></div>
+<div class="pay"><span style="background:#E4DCC8;color:#1F2421">VISA</span><span style="background:#E4DCC8;color:#1F2421">MC</span><span style="background:#E4DCC8;color:#1F2421">AMEX</span><span style="background:#E4DCC8;color:#1F2421">PAYPAL</span><span style="background:#E4DCC8;color:#1F2421">SHOP PAY</span></div></aside></div>
+<section class="sec" data-dawn="featured-collection"><div class="hd"><div><span class="k">Before you head out</span><h2>Room in the pack?</h2></div></div><div class="grid" id="upsell"></div></section>
+</div></section>
+
+<!-- SEARCH -->
+<section class="page" id="p-search"><div class="wrap sec" style="padding-top:48px" data-dawn="main-search">
+<span class="k">Search</span><h1 style="font-size:clamp(44px,5vw,76px);margin:14px 0 26px">Find your gear.</h1>
+<div class="sbar"><input id="sq" value="harness" aria-label="Search"><button class="btn" onclick="runSearch()">Search</button></div>
+<div class="sugs" id="sugs"><button>harness</button><button>waterproof</button><button>reflective</button><button>pack</button><button>float</button><button>booties</button></div>
+<p style="font-weight:600;color:var(--sl)"><b id="sCount">0</b> results for "<span id="sTerm"></span>"</p>
+<div class="grid" id="sGrid"></div></div></section>
+
+<!-- BLOG -->
+<section class="page" id="p-blog"><div class="wrap sec" style="padding-top:48px" data-dawn="main-blog">
+<span class="k">Trail notes</span><h1 style="font-size:clamp(44px,5vw,76px);margin:14px 0 30px">Routes, fit and field tests.</h1>
+<a href="#" class="feat" data-go="article"><div class="im"><img data-k="hike" alt=""></div><div><span class="k">Routes · 6 min</span><h2>Five ridge walks your dog will love.</h2><p style="color:var(--sl)">Water on the way, shade at the top and no ladders. Our favourite dog-friendly ridges, with kit lists.</p><span class="lk">Read the route →</span></div></a>
+<div class="bcats" id="bcats"><div class="chips"><button aria-pressed="true">All</button><button aria-pressed="false">Routes</button><button aria-pressed="false">Fit</button><button aria-pressed="false">Field tests</button><button aria-pressed="false">Care</button></div></div>
+<div class="posts" id="posts"></div></div></section>
+
+<!-- ARTICLE -->
+<section class="page" id="p-article"><div class="wrap">
+<div class="crumbs" data-dawn="sbs-breadcrumbs"><a href="#" data-go="home">Home</a>/<a href="#" data-go="blog">Trail notes</a>/<b>Five ridge walks</b></div>
+<article class="art" data-dawn="main-article"><span class="k">Routes · 6 min read</span><h1>Five ridge walks your dog will love.</h1><div class="meta"><span>By the Cairn test pack</span><span>October 2026</span></div>
+<div class="hero2"><img data-k="hike" alt="Border collie with a saddle pack on a ridge"></div>
+<p>A good ridge walk for a dog is not the one with the best view. It is the one with water on the way up, shade at the top and nothing your dog has to be lifted over. These five tick all three.</p>
+<h3>1. Start early, finish before the heat</h3><p>Rock holds heat. By early afternoon a granite slab can be too hot for bare pads, so we plan to be on the way down by noon in summer, and carry booties for the last stretch.</p>
+<blockquote>Pack water for two. Your dog drinks more than you think above the treeline.</blockquote>
+<h3>2. What goes in the pack</h3><p>Our test pack carries the same short list on every ridge day. Tick it off before you leave:</p>
+<div class="chk"><label><input type="checkbox" checked> Harness with a back clip and a handle</label><label><input type="checkbox" checked> 1 litre of water per 10 kg of dog</label><label><input type="checkbox"> Collapsible bowl</label><label><input type="checkbox"> Booties for hot rock or scree</label><label><input type="checkbox"> A light layer for the summit wind</label></div>
+<h3>3. Read the trail</h3><p>Loose scree, long ladders and narrow ledges are where dogs get hurt. If a route needs a hand on the rock, it is not a dog route. Turn around, there is always another ridge.</p>
+</article>
+<section class="sec" data-dawn="featured-collection"><div class="hd"><div><span class="k">Gear in this story</span><h2>Pack the list.</h2></div></div><div class="grid" id="artGrid"></div></section>
+</div></section>
+
+<!-- ABOUT -->
+<section class="page" id="p-about">
+<div class="abh" data-dawn="image-banner"><img data-k="run" alt="Runner and dog on a trail"><div class="wrap"><span class="k lt">About Cairn</span><h1>We make gear for the dogs who lead the way.</h1></div></div>
+<section class="sec" data-dawn="rich-text"><div class="wrap" style="max-width:900px"><p style="font:700 clamp(24px,2.6vw,36px)/1.3 var(--disp);text-transform:uppercase;margin:0">A cairn is a stack of stones that marks the trail for whoever comes next. We started Cairn after one too many harnesses rubbed, slipped or snapped halfway up a mountain.</p><p style="font-size:18px;color:var(--sl);margin-top:24px">Today a small team of designers and a test pack of eleven dogs make every harness, lead and pack we sell. Nothing reaches the shop until it has done a full season outside.</p></div></section>
+<section class="sec" style="padding-top:0" data-dawn="multicolumn"><div class="wrap"><div class="vals">
+<div><b>Fit first</b><p>Sized by chest girth with five sizes, not guesses by breed.</p></div><div><b>Built to repair</b><p>Replaceable buckles and straps, fixed for free under warranty.</p></div><div><b>Tested outside</b><p>400 km of trail per product before it ships.</p></div><div><b>Lighter footprint</b><p>Recycled ripstop and webbing wherever it holds up.</p></div></div></div></section>
+<section class="sec dark topo" data-dawn="multicolumn"><div class="wrap"><span class="k">How a product is made</span><h2 style="margin:14px 0 40px">From sketch to summit.</h2>
+<div class="tl"><div><b>01</b><span>Sketch and pattern</span><p>Patterns are cut around real chest and neck measurements.</p></div><div><b>02</b><span>Test pack</span><p>Eleven dogs wear the prototype for a season.</p></div><div><b>03</b><span>Fix and refine</span><p>Anything that rubs or slips is redesigned.</p></div><div><b>04</b><span>To the shop</span><p>Only then does it go on sale, with a 60-day trail test.</p></div></div></div></section>
+<section class="sec" data-dawn="featured-collection"><div class="wrap"><div class="hd"><div><span class="k">The pack's favourites</span><h2>Worn on every walk.</h2></div></div><div class="grid" id="abGrid"></div></div></section>
+</section>
+
+<!-- CONTACT -->
+<section class="page" id="p-contact"><div class="wrap">
+<div class="crumbs" data-dawn="sbs-breadcrumbs"><a href="#" data-go="home">Home</a>/<b>Contact</b></div>
+<div class="ct sec" style="padding-top:20px"><div data-dawn="rich-text"><span class="k">Fit help and support</span><h1>Talk to the trail team.</h1><p style="font-size:18px;color:var(--sl)">Sizing questions, a broken buckle or a route idea. We answer within one working day.</p>
+<div class="cinfo"><div><svg width="22" height="22"><use href="#i-mail"/></svg><div><b>Email</b><span>help@cairn-demo.com</span></div></div><div><svg width="22" height="22"><use href="#i-clk"/></svg><div><b>Hours</b><span>Monday to Friday, 8 am to 6 pm</span></div></div><div><svg width="22" height="22"><use href="#i-pin"/></svg><div><b>Workshop</b><span>Open for fittings on Saturdays</span></div></div></div></div>
+<form class="cform" data-dawn="contact-form" onsubmit="event.preventDefault();document.getElementById('okm').classList.add('on');this.reset()"><div class="two"><label>Name<input required></label><label>Email<input type="email" required></label></div>
+<label>Topic<select><option>Sizing and fit</option><option>Order and delivery</option><option>Warranty repair</option><option>Something else</option></select></label>
+<div class="two"><label>Dog's chest girth (cm)<input type="number" placeholder="Optional"></label><label>Order number<input placeholder="Optional"></label></div>
+<label>Message<textarea required></textarea></label><button class="btn">Send message</button><div class="okm" id="okm">Thanks, we will reply within one working day.</div></form></div>
+<section class="sec faq" style="padding-top:0" data-dawn="collapsible-content"><span class="k">Quick answers</span><h2 style="margin:14px 0 24px">Before you ask.</h2><div class="acc">
+<details open><summary>How do I measure chest girth? <i>+</i></summary><div class="in">Wrap a soft tape around the widest part of the rib cage, just behind the front legs. Keep it snug, not tight, and use the fit finder for the size.</div></details>
+<details><summary>What if the size is wrong? <i>+</i></summary><div class="in">Exchanges for a different size are free within 60 days, even if you have been out on the trail.</div></details>
+<details><summary>What does the warranty cover? <i>+</i></summary><div class="in">All buckles, clips and hardware for life. Straps and fabric for two years of normal use.</div></details></div></section>
+</div></section>
+
+<!-- 404 -->
+<section class="page" id="p-404"><div class="wrap">
+<div class="nf" data-dawn="main-404"><div><div class="big">404</div><h1>You're off trail.</h1><p style="font-size:18px;color:var(--sl);max-width:440px">This page wandered off. Head back to the trailhead or search the gear.</p><div style="display:flex;gap:12px;flex-wrap:wrap;margin-top:26px"><a href="#" class="btn" data-go="home">Back to the trailhead</a><a href="#" class="btn o" data-go="search">Search gear</a></div></div>
+<div class="ph"><img data-k="potw" alt="Muddy happy dog"><div class="cmp"><svg width="34" height="34" viewBox="0 0 60 60"><circle cx="30" cy="30" r="28" fill="none" stroke="#1F2421" stroke-width="3"/><path d="M30 8l6 22h-12z" fill="#B4532A"/><path d="M30 52l-6-22h12z" fill="#1F2421"/></svg>Recalculating route…</div></div></div>
+<section class="sec" style="padding-top:0" data-dawn="featured-collection"><div class="hd"><div><span class="k">Popular</span><h2>Start here instead.</h2></div></div><div class="grid" id="nfGrid"></div></section>
+</div></section>
+</main>
+
+<footer class="ft" data-dawn="footer"><div class="wrap"><div class="cols">
+<div><span class="logo"><svg width="38" height="38" viewBox="0 0 40 40"><ellipse cx="20" cy="33" rx="15" ry="5" fill="#ECE6D7"/><ellipse cx="20" cy="24" rx="11" ry="4.5" fill="#B4532A"/><ellipse cx="20" cy="16" rx="8" ry="3.8" fill="#ECE6D7"/><ellipse cx="20" cy="9" rx="5" ry="3" fill="#9CC5D3"/></svg><span><b>CAIRN</b><small>TRAIL GEAR FOR DOGS</small></span></span><p>Harnesses, packs and weather gear for dogs who would rather be outside. Tested by a pack of eleven.</p><div class="soc"><a href="#" aria-label="Instagram"><svg width="18" height="18" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="5" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="2"/></svg></a><a href="#" aria-label="YouTube"><svg width="18" height="18" viewBox="0 0 24 24"><rect x="2" y="5" width="20" height="14" rx="4" fill="none" stroke="currentColor" stroke-width="2"/><path d="M10 9l5 3-5 3z" fill="currentColor"/></svg></a><a href="#" aria-label="Strava"><svg width="18" height="18" viewBox="0 0 24 24"><path d="M3 20l6-11 4 6 2-3 6 8" fill="none" stroke="currentColor" stroke-width="2"/></svg></a></div></div>
+<div><h5>Shop</h5><ul><li><a href="#" data-go="collection" data-cat="Harness">Harnesses</a></li><li><a href="#" data-go="collection" data-cat="Leads">Leads</a></li><li><a href="#" data-go="collection" data-cat="Packs">Packs</a></li><li><a href="#" data-go="collection" data-cat="Jackets">Jackets</a></li><li><a href="#" data-go="collection" data-cat="Camp">Camp</a></li></ul></div>
+<div><h5>Help</h5><ul><li><a href="#fit" data-go="home">Fit finder</a></li><li><a href="#" data-go="contact">Contact</a></li><li><a href="#" data-go="contact">Warranty repair</a></li><li><a href="#" data-go="contact">Shipping</a></li><li><a href="#" data-go="contact">Returns</a></li></ul></div>
+<div><h5>Cairn</h5><ul><li><a href="#" data-go="about">Our story</a></li><li><a href="#" data-go="about">The test pack</a></li><li><a href="#" data-go="blog">Trail notes</a></li><li><a href="#log" data-go="home">Pack log</a></li></ul></div>
+<div><h5>Trail notes by email</h5><p>A route a month and early access to new gear.</p><form onsubmit="event.preventDefault();toast('You are on the list');this.reset()"><input type="email" required placeholder="Email" aria-label="Email"><button>Join</button></form></div>
+</div>
+<div class="fb"><span>© 2026 Cairn demo store. Theme preview with sample content.</span><div class="pay"><span>VISA</span><span>MC</span><span>AMEX</span><span>PAYPAL</span><span>SHOP PAY</span><span>G PAY</span></div></div></div></footer>
+
+<div class="scrim" id="scrim"></div>
+<aside class="drawer" id="drawer" aria-label="Pack" data-dawn="cart-drawer"><div class="dh"><b>Your pack (<span id="dCount">0</span>)</b><button id="dx" aria-label="Close">×</button></div><div class="ship" id="dShip"></div><div class="dl" id="dLines"></div>
+<div class="df"><div class="r"><span>Subtotal</span><span id="dSub">$0</span></div><a href="#" class="btn w" data-go="cart">View pack and check out</a><small style="color:var(--mute);text-align:center">Taxes and shipping at checkout</small></div></aside>
+<div class="modal" id="sg"><div class="box"><button class="x" id="sgx" aria-label="Close">×</button><h3>Size guide</h3><p style="color:var(--sl)">Measure chest girth behind the front legs. Between two sizes? Choose the larger one and tighten the straps.</p>
+<table class="sztab"><thead><tr><th>Size</th><th>Chest cm</th><th>Neck cm</th><th>Weight kg</th><th>Often fits</th></tr></thead><tbody id="sgT"></tbody></table>
+<div style="display:flex;gap:10px;margin-top:20px;align-items:center;flex-wrap:wrap"><label style="font-weight:700">Chest <input type="number" id="sgC" value="62" style="width:90px;height:44px;border-radius:9px;border:1.5px solid var(--line);padding:0 10px;margin-left:6px"> cm</label><button class="btn" id="sgGo" style="height:44px">Find size</button><b id="sgRes"></b></div></div></div>
+<div class="toast" id="toast" role="status"><i>✓</i><span id="tmsg"></span></div>
+<script>
+const IMG='img/cairn-demo-';
+const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)];
+const money=n=>'$'+(Math.round(n*100)/100).toFixed(2).replace(/\.00$/,'');
+const CH=['35-45','45-55','55-68','68-82','82-100'];
+const P=[
+ {k:'p1',n:'Ridge Harness',c:'Harness',a:['hike','snow'],sz:['XS','S','M','L','XL'],pz:[68,68,68,68,68],hint:CH,b:'Best seller',r:4.9,rc:1284,h:'hike',sub:'Padded ripstop harness with two clips and a grab handle',sw:[['Rust','#B4532A'],['Glacier','#9CC5D3'],['Slate','#4A5450']],x:[],low:['XL'],spec:['340 g','Reflective','Machine wash'],fit:'Sized by chest girth. Two fingers should slide under every strap.',tech:[['Shell','Recycled 210D ripstop'],['Hardware','Aluminium V-ring, front and back'],['Padding','Closed-cell foam chest plate'],['Weight (M)','340 g'],['Care','Machine wash cold']],hp:[[34,46,'Padded chest plate'],[58,28,'Back clip and grab handle'],[70,64,'360° reflective trim']],set:[1,7]},
+ {k:'p2',n:'Summit Rope Lead',c:'Leads',a:['hike','water'],sz:['One size'],pz:[38],r:4.8,rc:642,h:'run',sub:'1.5 m climbing rope with a locking carabiner',sw:[['Rust','#B4532A'],['Slate','#4A5450']],x:[],spec:['1.5 m','Locking clip','Floats'],fit:'One size. 10 mm rope for dogs from 5 to 60 kg.',tech:[['Rope','10 mm dynamic climbing rope'],['Clip','Locking aluminium carabiner'],['Length','1.5 m'],['Weight','190 g'],['Care','Rinse after salt water']],hp:[[40,40,'Locking carabiner'],[64,60,'Soft rope handle']],set:[0,4]},
+ {k:'p3',n:'Packhound Saddle Pack',c:'Packs',a:['hike','camp'],sz:['S','M','L'],pz:[96,104,112],hint:CH.slice(1,4),b:'New',r:4.8,rc:211,h:'hike',sub:'Balanced saddle bags on a harness base, for day hikes and overnights',sw:[['Slate','#4A5450'],['Rust','#B4532A']],x:[],low:['L'],spec:['2 × 4 L','Rain cover','Harness base'],fit:'Load up to 15% of your dog\'s weight. Same chest sizing as the Ridge Harness.',tech:[['Bags','2 × 4 L, water resistant'],['Base','Ridge Harness padding'],['Extras','Rain cover, bottle pockets'],['Weight (M)','620 g'],['Care','Hand wash']],hp:[[32,50,'Two 4 L bags'],[56,30,'Top handle'],[72,60,'Compression straps']],set:[0,5]},
+ {k:'p4',n:'Stormline Jacket',c:'Jackets',a:['snow'],sz:['XS','S','M','L','XL'],pz:[82,82,82,82,82],w:98,hint:CH,b:'Sale',r:4.7,rc:388,h:'snow',sub:'Waterproof shell with a fleece lining and a harness port',sw:[['Glacier','#9CC5D3'],['Rust','#B4532A']],x:['XS'],low:['S'],spec:['Waterproof','Fleece lined','Harness port'],fit:'Sized by chest girth. Fits over the Ridge Harness through the back port.',tech:[['Shell','2-layer waterproof, 10k'],['Lining','Recycled fleece'],['Closure','Side buckle and hook strips'],['Weight (M)','280 g'],['Care','Machine wash cold']],hp:[[36,36,'High fleece collar'],[60,54,'Harness port'],[74,72,'Reflective piping']],set:[0,7]},
+ {k:'p5',n:'Float Coat',c:'Water',a:['water'],sz:['S','M','L'],pz:[74,78,84],hint:['6-15 kg','15-30 kg','30-50 kg'],b:'New',r:4.9,rc:174,h:'swim',sub:'High-visibility buoyancy coat with a lift handle',sw:[['Rust','#B4532A'],['Glacier','#9CC5D3']],x:[],spec:['Buoyancy foam','Lift handle','High-vis'],fit:'Sized by weight. Snug at the chest so it cannot slip off in the water.',tech:[['Float','Closed-cell foam panels'],['Handle','Reinforced lift handle'],['Visibility','High-vis panels, reflective'],['Weight (M)','410 g'],['Care','Rinse and dry in shade']],hp:[[38,40,'Chin float'],[58,30,'Lift handle'],[66,62,'Belly panel']],set:[1,5]},
+ {k:'p6',n:'Trail Bowl',c:'Camp',a:['hike','camp','water'],sz:['One size'],pz:[18],r:4.8,rc:931,h:'drink',sub:'Collapsible 1 litre bowl that clips to any pack',sw:[['Slate','#4A5450'],['Glacier','#9CC5D3']],x:[],spec:['1 L','Collapsible','95 g'],fit:'One size. Folds flat to 2 cm.',tech:[['Material','Food-grade silicone'],['Volume','1 litre'],['Folded','2 cm'],['Weight','95 g'],['Care','Dishwasher safe']],hp:[[50,46,'Folds flat'],[70,30,'Clip ring']],set:[2,1]},
+ {k:'p7',n:'Bivvy Camp Bed',c:'Camp',a:['camp'],sz:['M','L'],pz:[110,130],hint:['80 × 60 cm','100 × 75 cm'],r:4.8,rc:156,h:'camp',sub:'Insulated, packable bed with a waterproof base',sw:[['Moss','#5F6B3C'],['Slate','#4A5450']],x:[],spec:['Insulated','Packs to 3 L','Waterproof base'],fit:'M for dogs up to 25 kg, L for larger dogs or curled-up giants.',tech:[['Fill','Recycled synthetic insulation'],['Base','Waterproof coated nylon'],['Packed','3 litres'],['Weight (M)','720 g'],['Care','Machine wash cold']],hp:[[40,50,'Raised bolster'],[66,66,'Waterproof base']],set:[2,3]},
+ {k:'p8',n:'Grip Booties',c:'Paws',a:['hike','snow'],sz:['S','M','L'],pz:[44,44,48],hint:['4-5 cm','5-6.5 cm','6.5-8 cm'],b:'Set of 4',r:4.6,rc:503,h:'paws',sub:'Set of four booties with rubber soles for hot rock and snow',sw:[['Slate','#4A5450']],x:[],spec:['Set of 4','Rubber sole','Velcro cuff'],fit:'Sized by paw width. Measure the front paw standing on paper.',tech:[['Sole','Natural rubber'],['Upper','Breathable mesh'],['Closure','Hook strap'],['Set','4 booties'],['Care','Hand wash']],hp:[[40,60,'Rubber sole'],[60,36,'Hook strap']],set:[0,3]}
+];
+const unitP=(i,s)=>{const p=P[i],k=p.sz.indexOf(s);return p.pz[k<0?0:k]};
+const first=p=>p.sz.find(s=>!(p.x||[]).includes(s))||p.sz[0];
+const minP=p=>Math.min(...p.pz);
+function src(k){return IMG+k+'.jpg'}
+function imgs(){$$('img[data-k]').forEach(i=>{i.src=src(i.dataset.k)})}
+function stars(r,c){return `<span class="stars">★★★★★ ${r}${c!=null?`<em>(${c})</em>`:''}</span>`}
+const heart='<svg width="18" height="18"><use href="#i-h"/></svg>';
+function card(i){const p=P[i],one=p.sz.length===1,v=new Set(p.pz).size>1;
+ return `<div class="card reveal" data-ci="${i}"><div class="im">${p.b?`<span class="htag ${p.b==='Sale'?'s':p.b==='New'?'n':''}">${p.b}</span>`:''}
+ <a href="#" data-go="product" data-p="${i}" aria-label="${p.n}"><img class="m" src="${src(p.k)}" alt="${p.n}"><img class="h" src="${src(p.h)}" alt=""></a>
+ <button class="wish" aria-label="Save ${p.n}">${heart}</button>${one?'':`<div class="szt">${p.sz.length>3?`<span>${p.sz[0]}–${p.sz[p.sz.length-1]}</span>`:p.sz.map(s=>`<span>${s}</span>`).join('')}</div>`}
+ ${one?'':`<div class="qs"><small><span>Choose a size</span><button data-qx aria-label="Close">×</button></small><div>${p.sz.map(s=>`<button data-qa="${i}" data-s="${s}" class="${(p.x||[]).includes(s)?'x':''}">${s}</button>`).join('')}</div></div>`}</div>
+ <div class="meta"><div class="row1"><span>${p.c}</span>${stars(p.r,p.rc)}</div><h4><a href="#" data-go="product" data-p="${i}">${p.n}</a></h4>
+ <div class="pr">${v?'From ':''}${money(minP(p))}${p.w?`<s>${money(p.w)}</s><span class="sv">Save ${Math.round((1-minP(p)/p.w)*100)}%</span>`:''}</div>
+ <div class="sw">${p.sw.map(c=>`<i style="background:${c[1]}" title="${c[0]}"></i>`).join('')}</div>
+ ${one?`<button class="ab" data-qa="${i}" data-s="${p.sz[0]}">Add · ${money(p.pz[0])}</button>`:`<button class="ab" data-qo="${i}">Choose size</button>`}</div></div>`}
+function fill(id,list){const el=$(id);if(el)el.innerHTML=list.map(card).join('')}
+
+/* routing */
+$('#names').addEventListener('change',e=>document.body.classList.toggle('names',e.target.checked));
+function go(pg,hash){$$('.page').forEach(p=>p.classList.toggle('on',p.id==='p-'+pg));$$('.pv .tabs button').forEach(b=>b.classList.toggle('on',b.dataset.go===pg));closeAll();
+ if(pg==='cart')renderCart();if(pg==='search')runSearch();
+ if(hash){const t=$(hash);if(t)setTimeout(()=>t.scrollIntoView({behavior:'smooth'}),30)}else window.scrollTo({top:0});obs()}
+document.addEventListener('click',e=>{const a=e.target.closest('[data-go]');if(!a)return;e.preventDefault();
+ if(a.dataset.p!=null){setProduct(+a.dataset.p);seen(+a.dataset.p)}
+ if(a.dataset.go==='collection'){setCat(a.dataset.cat||'all');if(a.dataset.sz){fs=[a.dataset.sz];$$('#fsz button').forEach(b=>b.setAttribute('aria-pressed',b.textContent===a.dataset.sz));coll()}}
+ const h=a.getAttribute('href');go(a.dataset.go,h&&h.length>1?h:null)});
+function hdr(){$('#hdr').classList.toggle('sc',scrollY>20)}addEventListener('scroll',hdr,{passive:true});
+$('#burger').onclick=()=>$('#mm').classList.add('on');$('#mmx').onclick=()=>$('#mm').classList.remove('on');
+$('#sbtn').onclick=()=>{$('#srch').classList.add('on');$('#hq2').focus()};$('#sx').onclick=()=>$('#srch').classList.remove('on');
+function doSearch(v){$('#sq').value=v||'harness';go('search')}
+$('#hqgo').onclick=()=>doSearch($('#hq').value);$('#hq').addEventListener('keydown',e=>{if(e.key==='Enter')doSearch($('#hq').value)});
+$('#hq2go').onclick=()=>doSearch($('#hq2').value);
+function closeAll(){$('#mm').classList.remove('on');$('#srch').classList.remove('on');closeDrawer();$('#filters').classList.remove('on');$('#sg').classList.remove('on')}
+document.addEventListener('keydown',e=>{if(e.key==='Escape')closeAll()});
+const ANN=['Free shipping on orders over $75','60-day trail test on every piece','Free size exchanges, always'];let ai=0;
+setInterval(()=>{ai=(ai+1)%ANN.length;const t=$('#annTxt');t.style.opacity=0;setTimeout(()=>{t.textContent=ANN[ai];t.style.opacity=1},400)},4500);
+$('#hpin button').onclick=()=>$('#hpin').classList.toggle('on');
+
+/* fit finder */
+const FS=[['XS',35,45,2,6,'Jack Russell, dachshund'],['S',45,55,6,12,'Beagle, cocker spaniel'],['M',55,68,12,22,'Border collie, Aussie'],['L',68,82,22,34,'Labrador, boxer'],['XL',82,100,34,55,'Bernese, Newfoundland']];
+const FF={c:60,w:20,col:0};const FCOL=[['Rust','#B4532A'],['Glacier','#9CC5D3'],['Slate','#4A5450']];const NS='http://www.w3.org/2000/svg';
+function sizeFor(c,w){let k=FS.findIndex(s=>c<s[2]);if(k<0)k=4;const near=k<4&&FS[k][2]-c<=2;if(w>FS[k][4]+4&&k<4)k++;return {k,near}}
+function rng(el){el.style.setProperty('--p',((el.value-el.min)/(el.max-el.min)*100)+'%')}
+function dogSvg(){const s=$('#ffSvg');const f=.72+(FF.c-30)/75*.5,col=FCOL[FF.col][1];
+ const by=292;const X=x=>(262+(x-294)*f).toFixed(1),Y=y=>(by+(y-290)*f).toFixed(1),T=(x,y)=>X(x)+','+Y(y);
+ const body=`M${T(150,172)} C${T(148,124)} ${T(320,112)} ${T(356,146)} L${T(374,116)} C${T(384,96)} ${T(424,90)} ${T(446,104)} C${T(462,112)} ${T(470,122)} ${T(486,130)} C${T(494,136)} ${T(490,150)} ${T(478,152)} L${T(444,156)} C${T(432,170)} ${T(404,186)} ${T(380,196)} L${T(374,280)} L${T(354,280)} L${T(348,210)} L${T(214,210)} L${T(206,280)} L${T(186,280)} L${T(178,206)} C${T(158,200)} ${T(148,188)} ${T(150,172)} Z`;
+ const legs2=`M${T(330,200)} L${T(336,280)} L${T(320,280)} L${T(312,206)} Z M${T(196,200)} L${T(170,280)} L${T(154,280)} L${T(170,196)} Z`;
+ const tail=`M${T(156,166)} C${T(126,150)} ${T(118,124)} ${T(128,104)}`;
+ const ear=`M${T(408,100)} C${T(398,112)} ${T(396,140)} ${T(404,152)} C${T(414,148)} ${T(424,132)} ${T(426,110)} Z`;
+ const hx=X(332),cy=Y(166);
+ s.innerHTML=`<defs><pattern id="gr" width="20" height="20" patternUnits="userSpaceOnUse"><path d="M20 0H0V20" fill="none" stroke="rgba(236,230,215,.07)"/></pattern></defs><rect width="520" height="330" fill="url(#gr)"/>
+ <line x1="20" y1="${by}" x2="500" y2="${by}" stroke="rgba(236,230,215,.25)" stroke-width="2"/>
+ <path d="${legs2}" fill="#474E49"/>
+ <path d="${tail}" fill="none" stroke="#5A615C" stroke-width="${16*f}" stroke-linecap="round"/>
+ <path d="${body}" fill="#5A615C"/><path d="${ear}" fill="#3F4641"/>
+ <circle cx="${X(450)}" cy="${Y(116)}" r="${4.5*f}" fill="#1F2421"/><circle cx="${X(486)}" cy="${Y(134)}" r="${5*f}" fill="#1F2421"/>
+ <path d="M${T(326,124)} C${T(336,164)} ${T(340,190)} ${T(336,210)}" fill="none" stroke="${col}" stroke-width="${20*f}" stroke-linecap="round"/>
+ <path d="M${T(248,122)} C${T(254,160)} ${T(256,190)} ${T(252,210)}" fill="none" stroke="${col}" stroke-width="${13*f}" stroke-linecap="round"/>
+ <path d="M${T(248,128)} C${T(282,116)} ${T(304,116)} ${T(326,128)}" fill="none" stroke="${col}" stroke-width="${11*f}"/>
+ <rect x="${X(276)}" y="${Y(112)}" width="${22*f}" height="${11*f}" rx="2" fill="#ECE6D7"/>
+ <ellipse cx="${hx}" cy="${cy}" rx="${15*f}" ry="${44*f}" fill="none" stroke="#9CC5D3" stroke-width="2.5" stroke-dasharray="6 5"/>
+ <g transform="translate(${+hx+18*f+8},${+cy-60*f})"><rect x="0" y="-15" width="78" height="30" rx="6" fill="#9CC5D3"/><text x="39" y="6" text-anchor="middle" font-family="Anybody,sans-serif" font-weight="800" font-size="16" fill="#1F2421">${FF.c} cm</text></g>`}
+function ff(){const r=sizeFor(FF.c,FF.w),s=FS[r.k];$('#ffCv').textContent=FF.c+' cm';$('#ffWv').textContent=FF.w+' kg';rng($('#ffC'));rng($('#ffW'));
+ $('#ffSize').textContent=s[0];$('#ffS2').textContent=s[0];$('#ffAdd').textContent='Add harness in '+s[0];$('#ffColN').textContent=FCOL[FF.col][0];
+ $('#ffNote').textContent=r.near&&r.k<4?`Close to the top of ${s[0]}. If your dog is still growing or has a deep chest, take ${FS[r.k+1][0]}.`:FF.w>s[4]?`Heavier than most in ${s[0]}, so we sized up for a comfortable fit.`:`Right in ${s[0]}. Adjust the straps so two fingers slide underneath.`;
+ $('#ffTab').innerHTML=FS.map((x,k)=>`<tr class="${k===r.k?'hl':''}"><td>${x[0]}</td><td>${x[1]} to ${x[2]} cm</td><td>${x[3]} to ${x[4]} kg</td></tr>`).join('');dogSvg()}
+$('#ffC').addEventListener('input',e=>{FF.c=+e.target.value;$$('#ffBr button').forEach(b=>b.setAttribute('aria-pressed','false'));$('#ffBreed').textContent='Your dog';ff()});
+$('#ffW').addEventListener('input',e=>{FF.w=+e.target.value;ff()});
+$('#ffBr').addEventListener('click',e=>{const b=e.target.closest('button');if(!b)return;$$('#ffBr button').forEach(x=>x.setAttribute('aria-pressed',x===b));FF.c=+b.dataset.c;FF.w=+b.dataset.w;$('#ffC').value=FF.c;$('#ffW').value=FF.w;$('#ffBreed').textContent=b.textContent;ff()});
+$('#ffCol').addEventListener('click',e=>{const b=e.target.closest('button');if(!b)return;$$('#ffCol button').forEach(x=>x.setAttribute('aria-pressed',x===b));FF.col=+b.dataset.v;ff()});
+$('#ffAdd').onclick=()=>add(0,FS[sizeFor(FF.c,FF.w).k][0],1,false,false,{note:FCOL[FF.col][0]});
+
+/* kit planner */
+const KP=[['Summit day kit','Built for long, rocky climbs above the treeline.',[[0,'Two clips for scrambles'],[2,'Carries their own water'],[1,'Clips short on ledges'],[7,'Hot rock and scree']]],
+ ['Lake day kit','For swims, shorelines and a long afternoon in the sun.',[[4,'Floats and lifts out easily'],[1,'Rope floats, dries fast'],[5,'Fresh water between swims'],[0,'Dries in an hour']]],
+ ['Overnight kit','Pack in, sleep out, wake up warm.',[[6,'Off the cold ground'],[2,'Carries food for two days'],[5,'Dinner and breakfast'],[3,'Night temperatures drop']]],
+ ['Snow walk kit','Below freezing, with short daylight.',[[3,'Fleece lined and waterproof'],[7,'No ice between the toes'],[0,'Reflective for dark afternoons'],[1,'Grippy rope in cold hands']]]];
+const KS={a:0,s:'M',off:new Set()};
+function kSize(p){if(p.sz.length===1)return p.sz[0];if(p.sz.includes(KS.s))return p.sz.includes(KS.s)&&!(p.x||[]).includes(KS.s)?KS.s:first(p);return KS.s==='XS'||KS.s==='S'?p.sz[0]:p.sz[p.sz.length-1]}
+function kp(){const d=KP[KS.a];$('#kpT').textContent=d[0];$('#kpD').textContent=d[1];$('#kpSzN').textContent=KS.s;
+ $('#kpList').innerHTML=d[2].map(([i,w])=>{const p=P[i],s=kSize(p),on=!KS.off.has(i);return `<label class="ki ${on?'':'off'}"><input type="checkbox" data-ki="${i}" ${on?'checked':''} aria-label="Include ${p.n}"><img src="${src(p.k)}" alt=""><span><b>${p.n}</b><small>${p.sz.length>1?'Size '+s+' · ':''}<span class="why">${w}</span></small></span><span class="p">${money(unitP(i,s))}</span></label>`}).join('');
+ const sel=d[2].filter(([i])=>!KS.off.has(i)),sum=sel.reduce((t,[i])=>t+unitP(i,kSize(P[i])),0),disc=sel.length>=3?.15:0;
+ $('#kpTot').textContent=money(sum*(1-disc));$('#kpSv').textContent=disc?`You save ${money(sum*disc)} (15%)`:`Add ${3-sel.length} more for 15% off`;
+ $('#kpCnt').textContent=`${sel.length} of 4 pieces`;$('#kpBar').style.width=sel.length/4*100+'%';$('#kpAdd').disabled=!sel.length;$('#kpAdd').textContent=sel.length?`Add ${sel.length} to pack`:'Pick a piece'}
+$('#kpAdv').addEventListener('click',e=>{const b=e.target.closest('button');if(!b)return;$$('#kpAdv button').forEach(x=>x.setAttribute('aria-pressed',x===b));KS.a=+b.dataset.v;KS.off.clear();kp()});
+$('#kpSz').addEventListener('click',e=>{const b=e.target.closest('button');if(!b)return;$$('#kpSz button').forEach(x=>x.setAttribute('aria-pressed',x===b));KS.s=b.dataset.v;kp()});
+$('#kpList').addEventListener('change',e=>{const c=e.target.closest('[data-ki]');if(!c)return;c.checked?KS.off.delete(+c.dataset.ki):KS.off.add(+c.dataset.ki);kp()});
+$('#kpAdd').onclick=()=>{const sel=KP[KS.a][2].filter(([i])=>!KS.off.has(i)),kit=sel.length>=3;sel.forEach(([i])=>add(i,kSize(P[i]),1,kit,true));openDrawer();toast(kit?'Kit added, 15% off':'Added to pack')};
+
+/* pack log map */
+const LOG=[{x:22,y:30,k:'hike',n:'Juno',br:'Border collie',t:'North ridge loop',km:14.2,g:980,h:'6 h',q:'Juno carried her own water for the first time. She was very proud of herself.',gear:[2,0],potw:1},
+ {x:46,y:62,k:'swim',n:'Bear',br:'Labrador',t:'Long lake shore',km:8.4,g:120,h:'4 h',q:'Bear did four laps of the bay and still wanted more. The handle made lifting him out easy.',gear:[4,1]},
+ {x:70,y:26,k:'snow',n:'Pip',br:'Jack Russell',t:'Pine col in the snow',km:6.1,g:420,h:'3 h',q:'Pip used to hate the snow. Now she waits at the door when it falls.',gear:[3,7]},
+ {x:80,y:58,k:'camp',n:'Otto',br:'Bernese',t:'Two lakes overnight',km:18.6,g:760,h:'2 days',q:'Otto slept through the night on the camp bed. First time ever outside.',gear:[6,5]},
+ {x:34,y:78,k:'run',n:'Moss',br:'Vizsla',t:'Valley trail run',km:11.0,g:310,h:'1 h 10',q:'Hands-free on the descent and Moss never once pulled.',gear:[1,0]},
+ {x:58,y:40,k:'potw',n:'Fig',br:'Mixed breed',t:'Muddy forest circuit',km:9.3,g:260,h:'3 h',q:'Fig found every puddle on the route. The harness washed clean.',gear:[0,7]}];
+let li=0;
+function topo(){const s=$('#topo');let h='<rect width="800" height="560" fill="#DCD4BF"/>';
+ const peaks=[[180,170,9],[560,150,11],[640,420,7],[300,430,6]];
+ peaks.forEach(([cx,cy,n],pi)=>{for(let r=1;r<=n;r++){let d='';for(let a=0;a<=36;a++){const t=a/36*Math.PI*2,rr=r*22*(1+.18*Math.sin(t*3+pi+r*.4)+.1*Math.cos(t*5+pi*2));d+=(a?'L':'M')+(cx+Math.cos(t)*rr*1.25).toFixed(1)+' '+(cy+Math.sin(t)*rr).toFixed(1)}
+  h+=`<path d="${d}Z" fill="${r===1?'rgba(180,83,42,.12)':'none'}" stroke="rgba(31,36,33,${r%5===0?.32:.16})" stroke-width="${r%5===0?1.6:1}"/>`}});
+ h+='<path d="M380 300c40-30 120-20 140 20s-20 80-80 70-90-60-60-90z" fill="#9CC5D3" stroke="rgba(31,36,33,.25)"/>';
+ h+='<path d="M60 520 C140 470 150 380 176 300 S260 230 368 330 S470 470 640 470 S700 300 640 210" fill="none" stroke="#B4532A" stroke-width="3" stroke-dasharray="8 7"/>';
+ s.innerHTML=h}
+function pins(){$('#pins').innerHTML=LOG.map((l,k)=>`<div class="mp" style="left:${l.x}%;top:${l.y}%"><button data-li="${k}" aria-pressed="${k===li}"><img src="${src(l.k)}" alt=""><span>${l.n}</span></button></div>`).join('')}
+function logc(){const l=LOG[li];$('#logc').innerHTML=`<div class="ph"><img src="${src(l.k)}" alt="${l.n} on ${l.t}">${l.potw?'<span class="potw">Pet of the week</span>':''}<span class="smp">Sample post</span></div><div class="bd"><div><h3>${l.n}</h3><span class="tr">${l.br} · ${l.t}</span></div><div class="stats"><div><small>Distance</small><b>${l.km} km</b></div><div><small>Climb</small><b>+${l.g} m</b></div><div><small>Time</small><b>${l.h}</b></div></div><q>"${l.q}"</q><div><div class="lab" style="margin-bottom:8px">Gear on this trail</div><div class="gear">${l.gear.map(i=>`<button data-go="product" data-p="${i}"><img src="${src(P[i].k)}" alt="">${P[i].n}</button>`).join('')}</div></div></div>`}
+$('#pins').addEventListener('click',e=>{const b=e.target.closest('[data-li]');if(!b)return;li=+b.dataset.li;$$('#pins button').forEach(x=>x.setAttribute('aria-pressed',x===b));logc()});
+
+/* reviews */
+const RV=[['"The only harness that does not rub under the legs on a full day out. She runs in it, swims in it, sleeps in it."','Owner of a border collie','Ridge Harness','hike'],['"Fit finder said L, fits like it was made for him. The handle has pulled him up two rock steps already."','Owner of a labrador','Ridge Harness','swim'],['"Our terrier finally stays dry on winter walks, and the jacket goes straight over the harness."','Owner of a Jack Russell','Stormline Jacket','snow']];
+function rv(id,n){$(id).innerHTML=RV.slice(0,n).map(r=>`<div class="rc reveal"><div class="top">${stars('5.0')}<span class="smp">Sample review</span></div><p>${r[0]}</p><div class="who"><img src="${src(r[3])}" alt=""><span>${r[1]}<small>Bought ${r[2]}</small></span></div></div>`).join('')}
+function rbars(){$('#prbars').innerHTML=[[5,88],[4,9],[3,2],[2,1],[1,0]].map(([s,w])=>`<div class="rbar"><span>${s}★</span><i style="--w:${w}%"></i><span>${w}%</span></div>`).join('')}
+
+/* cart */
+let cart=[];const FREE=75;
+function add(i,s,q=1,kitd=false,quiet=false,o){const note=o&&o.note;const f=cart.find(c=>c.i===i&&c.s===s&&c.note===note);f?(f.q+=q,f.kit=f.kit||kitd):cart.push({i,s,q,kit:kitd,note});render();
+ const c=$('#cc');c.classList.remove('bump');c.offsetWidth;c.classList.add('bump');$$('.card.qo').forEach(x=>x.classList.remove('qo'));
+ $$(`.card[data-ci="${i}"] .ab`).forEach(b=>{const t=b.textContent;b.classList.add('done');b.textContent='Added ✓';setTimeout(()=>{b.classList.remove('done');b.textContent=t},1300)});
+ if(!quiet){openDrawer();toast(P[i].n+' added')}}
+const count=()=>cart.reduce((s,c)=>s+c.q,0),sub=()=>cart.reduce((s,c)=>s+unitP(c.i,c.s)*c.q,0),save=()=>cart.reduce((s,c)=>s+(c.kit?unitP(c.i,c.s)*.15*c.q:0),0);
+function shipHTML(){const t=sub()-save(),left=FREE-t;return `<p>${left>0?`You are <b>${money(left)}</b> from free shipping`:'<b>Free shipping</b> unlocked'}</p><div class="bar"><i style="width:${Math.min(100,t/FREE*100)}%"></i></div>`}
+function lineHTML(c,k){const p=P[c.i];return `<div class="line"><img src="${src(p.k)}" alt="${p.n}"><div><b>${p.n}</b><small>${p.sz.length>1?'Size '+c.s+' · ':''}${c.note||p.sw[0][0]}${c.kit?' · kit, 15% off':''}</small><div class="q"><button data-cq="${k}" data-d="-1" aria-label="Less">−</button><span>${c.q}</span><button data-cq="${k}" data-d="1" aria-label="More">+</button><button class="rm" data-rm="${k}">Remove</button></div></div><div class="lp">${money(unitP(c.i,c.s)*c.q*(c.kit?.85:1))}</div></div>`}
+function render(){$('#cc').textContent=count();$('#dCount').textContent=count();$('#dShip').innerHTML=shipHTML();$('#dLines').innerHTML=cart.length?cart.map(lineHTML).join(''):'<div class="empty">Your pack is empty.</div>';$('#dSub').textContent=money(sub()-save());if($('#p-cart').classList.contains('on'))renderCart()}
+function renderCart(){$('#cShip').innerHTML=shipHTML();$('#cLines').innerHTML=cart.length?cart.map(lineHTML).join(''):'<div class="empty">Your pack is empty. <a href="#" data-go="collection" class="lk">Shop the gear</a></div>';
+ const t=sub()-save(),free=t>=FREE||!cart.length;$('#cSub').textContent=money(sub());$('#cSave').textContent=save()?'−'+money(save()):'$0';$('#cShipT').textContent=free?'Free':'$6';$('#cTot').textContent=money(t+(free?0:6))}
+document.addEventListener('click',e=>{const q=e.target.closest('[data-cq]'),r=e.target.closest('[data-rm]');if(q){const c=cart[+q.dataset.cq];c.q+=+q.dataset.d;if(c.q<1)cart.splice(+q.dataset.cq,1);render()}if(r){cart.splice(+r.dataset.rm,1);render()}});
+function openDrawer(){$('#drawer').classList.add('on');$('#scrim').classList.add('on')}
+function closeDrawer(){$('#drawer').classList.remove('on');$('#scrim').classList.remove('on')}
+$('#cbtn').onclick=openDrawer;$('#dx').onclick=closeDrawer;$('#scrim').onclick=closeDrawer;
+document.addEventListener('click',e=>{const o=e.target.closest('[data-qo]');if(o){e.preventDefault();const c=o.closest('.card');const was=c.classList.contains('qo');$$('.card.qo').forEach(x=>x.classList.remove('qo'));if(!was)c.classList.add('qo');return}
+ const x=e.target.closest('[data-qx]');if(x){x.closest('.card').classList.remove('qo');return}
+ const b=e.target.closest('[data-qa]');if(!b)return;e.preventDefault();add(+b.dataset.qa,b.dataset.s)});
+document.addEventListener('click',e=>{const w=e.target.closest('.wish');if(w){w.classList.toggle('on');toast(w.classList.contains('on')?'Saved to wishlist':'Removed from wishlist')}});
+let tt;function toast(m){$('#tmsg').textContent=m;$('#toast').classList.add('on');clearTimeout(tt);tt=setTimeout(()=>$('#toast').classList.remove('on'),2400)}
+
+/* collection */
+let cc='all',fs=[];
+const CB={Harness:['Harnesses','Padded, two-clip harnesses sized by chest girth.','p1'],Leads:['Leads','Climbing-rope leads and hands-free belts.','run'],Packs:['Packs','Saddle packs so they carry their own water.','hike'],Jackets:['Jackets','Waterproof shells for rain, wind and snow.','snow'],Water:['Water','Float coats for lakes, rivers and the sea.','swim'],Camp:['Camp','Beds and bowls for nights out.','camp'],Paws:['Paws','Booties for hot rock, ice and scree.','paws']};
+function setCat(c){cc=c;$$('#cCats button').forEach(b=>b.classList.toggle('on',b.dataset.c===c));const d=CB[c];
+ $('#cTitle').textContent=d?d[0]:'All gear';$('#cCrumb').textContent=d?d[0]:'All gear';$('#cDesc').textContent=d?d[1]:'Everything the test pack wears, from harnesses to camp beds.';$('#cImg').src=src(d?d[2]:'hero');coll()}
+$('#cCats').addEventListener('click',e=>{const b=e.target.closest('button');if(b)setCat(b.dataset.c)});
+$$('[data-f="a"]').forEach(x=>{x.parentNode.querySelector('em').textContent=P.filter(p=>p.a.includes(x.value==='water'?'water':x.value)).length});
+function coll(){const av=$$('[data-f="a"]:checked').map(x=>x.value),max=+$('#fPrice').value,so=$('#cSort').value,sale=$('#fSale').checked;
+ $('#fPv').textContent='up to $'+max;
+ let L=P.map((p,i)=>i).filter(i=>{const p=P[i];return (cc==='all'||p.c===cc)&&(!av.length||av.some(x=>p.a.includes(x)))&&minP(p)<=max&&(!sale||p.w)&&(!fs.length||fs.some(s=>p.sz.includes(s)||p.sz[0]==='One size'))});
+ if(so==='lo')L.sort((a,b)=>minP(P[a])-minP(P[b]));if(so==='hi')L.sort((a,b)=>minP(P[b])-minP(P[a]));if(so==='rt')L.sort((a,b)=>P[b].r-P[a].r);
+ const h=L.map(card);if(h.length>3)h.splice(4,0,`<a href="#fit" data-go="home" class="promo reveal"><img src="${src('hike')}" alt="Dog in a harness on a ridge"><div><span class="k lt">Fit finder</span><h3>Not sure of the size?</h3><span class="btn">Find it in 30 seconds</span></div></a>`);
+ $('#cGrid').innerHTML=h.join('')||'<div class="empty" style="grid-column:1/-1">No gear matches. <a href="#" id="fr2" class="lk">Clear filters</a></div>';$('#cCount').textContent=L.length;$('#cShow').textContent=L.length;obs()}
+$$('.filters input').forEach(x=>x.addEventListener('input',coll));$('#cSort').addEventListener('change',coll);
+$('#fsz').addEventListener('click',e=>{const b=e.target.closest('button');if(!b)return;b.setAttribute('aria-pressed',b.getAttribute('aria-pressed')!=='true');fs=$$('#fsz button[aria-pressed=true]').map(x=>x.textContent);coll()});
+$$('.fcol button').forEach(b=>b.addEventListener('click',()=>b.setAttribute('aria-pressed',b.getAttribute('aria-pressed')!=='true')));
+function resetF(){$$('.filters input[type=checkbox]').forEach(x=>x.checked=false);$('#fPrice').value=140;rng($('#fPrice'));fs=[];$$('#fsz button,.fcol button').forEach(b=>b.setAttribute('aria-pressed','false'));coll()}
+$('#freset').onclick=resetF;document.addEventListener('click',e=>{if(e.target.id==='fr2'){e.preventDefault();resetF()}});
+$('#fPrice').addEventListener('input',e=>rng(e.target));
+$('#fopen').onclick=()=>$('#filters').classList.add('on');$('#fclose').onclick=()=>$('#filters').classList.remove('on');
+
+/* product */
+let cur={i:0,s:null,q:1,c:0,g:0};const VIEW=[];
+function setG(n){const p=P[cur.i],G=[p.k,p.h,p.set[0]!=null?P[p.set[0]].h:'potw','paws'];cur.g=n;$('#gimg').src=src(G[n]);$('#gimg').alt=p.n;$('#gmain').classList.remove('zm');
+ $('#thumbs').innerHTML=G.map((k,j)=>`<button data-g="${j}" aria-current="${j===n}" aria-label="Image ${j+1}"><img src="${src(k)}" alt=""></button>`).join('');
+ $('#hps').innerHTML=n===0?p.hp.map((h,j)=>`<div class="hp" style="left:${h[0]}%;top:${h[1]}%"><button aria-label="${h[2]}">${j+1}</button><span>${h[2]}</span></div>`).join('')+(p.b?`<span class="htag ${p.b==='Sale'?'s':p.b==='New'?'n':''}">${p.b}</span>`:''):''}
+function setProduct(i){const p=P[i];cur={i,s:p.sz.length===1?p.sz[0]:null,q:1,c:0,g:0};
+ $('#pName').textContent=p.n;$('#pCrumb').textContent=p.n;$('#pCat').textContent=(CB[p.c]||[p.c])[0];$('#pCat').dataset.cat=p.c;$('#pKick').textContent=p.c+' · for '+p.a.map(a=>({hike:'hikes',water:'water days',camp:'camp',snow:'snow'})[a]).join(', ');
+ $('#pStars').innerHTML=stars(p.r,p.rc);$('#pSub').textContent=p.sub+'.';setG(0);
+ $('#pSpec').innerHTML=p.spec.map(s=>`<span>${s}</span>`).join('');
+ $('#pCols').innerHTML=p.sw.map((c,n)=>`<button aria-pressed="${n===0}" data-pc="${n}"><i style="background:${c[1]}"></i>${c[0]}</button>`).join('');
+ $('#szOpt').style.display=p.sz.length===1?'none':'';$('#pSizes').style.setProperty('--n',Math.min(p.sz.length,5));
+ $('#pSizes').innerHTML=p.sz.map((s,k)=>`<button aria-pressed="false" data-ps="${s}" class="${(p.x||[]).includes(s)?'x':''} ${(p.low||[]).includes(s)?'low':''}">${s}${p.hint?`<small>${p.hint[k]}${/kg|cm|×/.test(p.hint[k])?'':' cm'}</small>`:''}</button>`).join('');
+ $('#pFit').innerHTML=`<svg width="18" height="18"><use href="#i-ha"/></svg><span>${p.fit} <a href="#fit" data-go="home" class="lk">Use the fit finder</a></span>`;
+ $('#pDesc').innerHTML=`<p style="margin:0 0 10px">${p.n}. ${p.sub}. Worn by our test pack for a full season before it went on sale.</p><ul><li>${p.spec.join('</li><li>')}</li></ul>`;
+ $('#pTech').innerHTML=p.tech.map(t=>`<tr><td>${t[0]}</td><td>${t[1]}</td></tr>`).join('');
+ $('#stImg').src=src(p.k);$('#stName').textContent=p.n;fbt();fill('#relGrid',P.map((x,j)=>j).filter(j=>j!==i).sort((a,b)=>p.set.includes(b)-p.set.includes(a)).slice(0,4));
+ rbars();rv('#prcards',2);$('#prStars').innerHTML=stars(p.r,p.rc);$('#prAvg').textContent=p.r;pupd()}
+function pupd(){const p=P[cur.i],base=cur.s?unitP(cur.i,cur.s):minP(p),pr=base*cur.q;
+ $('#pPrice').innerHTML=(!cur.s&&new Set(p.pz).size>1?'<span style="font:600 16px var(--body)">From</span> ':'')+money(base)+(p.w?`<s>${money(p.w)}</s><span class="off">Save ${Math.round((1-base/p.w)*100)}%</span>`:'');
+ $('#qv').textContent=cur.q;$('#pSizeL').textContent=cur.s||'Choose a size';$('#pColL').textContent=p.sw[cur.c][0];
+ $('#stPrice').textContent=money(pr);$('#stOpt').textContent=p.sw[cur.c][0]+' · '+(cur.s?'size '+cur.s:'choose a size');$('#pAdd').textContent=cur.s?'Add to pack · '+money(pr):'Choose a size'}
+$('#pSizes').addEventListener('click',e=>{const b=e.target.closest('[data-ps]');if(!b||b.classList.contains('x'))return;cur.s=b.dataset.ps;$$('#pSizes button').forEach(x=>x.setAttribute('aria-pressed',x===b));pupd()});
+$('#pCols').addEventListener('click',e=>{const b=e.target.closest('[data-pc]');if(!b)return;cur.c=+b.dataset.pc;$$('#pCols button').forEach(x=>x.setAttribute('aria-pressed',x===b));pupd()});
+$('#qm').onclick=()=>{cur.q=Math.max(1,cur.q-1);pupd()};$('#qp').onclick=()=>{cur.q++;pupd()};
+$('#thumbs').addEventListener('click',e=>{const b=e.target.closest('[data-g]');if(b)setG(+b.dataset.g)});
+$('#gmain').addEventListener('click',e=>{if(e.target.closest('.hp')){e.target.closest('.hp').classList.toggle('on');return}$('#gmain').classList.toggle('zm')});
+$('#gmain').addEventListener('mousemove',e=>{const g=$('#gmain');if(!g.classList.contains('zm'))return;const r=g.getBoundingClientRect();$('#gimg').style.transformOrigin=`${(e.clientX-r.left)/r.width*100}% ${(e.clientY-r.top)/r.height*100}%`});
+function padd(btn){if(!cur.s){$('#pSizes').animate([{transform:'translateX(0)'},{transform:'translateX(-6px)'},{transform:'translateX(6px)'},{transform:'translateX(0)'}],{duration:300});$('#pSizeL').textContent='Please choose a size';toast('Choose a size first');window.scrollTo({top:$('#pSizes').getBoundingClientRect().top+scrollY-220,behavior:'smooth'});return}
+ add(cur.i,cur.s,cur.q,false,false,{note:P[cur.i].sw[cur.c][0]});btn.textContent='Added ✓';setTimeout(()=>{pupd();$('#stAdd').textContent='Add to pack'},1200)}
+$('#pAdd').onclick=e=>padd(e.currentTarget);$('#stAdd').onclick=e=>padd(e.currentTarget);
+function fbt(){const i=cur.i,its=[i,...P[i].set.filter(x=>x!==i)].slice(0,3);$('#fbtIts').innerHTML=its.map((j,k)=>`${k?'<span class="plus">+</span>':''}<label><img src="${src(P[j].k)}" alt=""><span><input type="checkbox" checked data-fi="${j}" ${k===0?'disabled':''}> ${P[j].n}<br><b>${money(minP(P[j]))}</b></span></label>`).join('');ftot()}
+function ftot(){const s=$$('#fbtIts input:checked').reduce((t,x)=>{const j=+x.dataset.fi;return t+(j===cur.i&&cur.s?unitP(j,cur.s):minP(P[j]))},0);$('#fbtTot').textContent=money(s*.9)}
+$('#fbtIts').addEventListener('change',ftot);$('#fbtAdd').onclick=()=>{$$('#fbtIts input:checked').forEach(x=>{const j=+x.dataset.fi;add(j,j===cur.i&&cur.s?cur.s:first(P[j]),1,false,true)});openDrawer();toast('Trail set added')};
+new IntersectionObserver(([e])=>$('#sticky').classList.toggle('on',!e.isIntersecting&&$('#p-product').classList.contains('on')&&e.boundingClientRect.top<0)).observe($('#atc'));
+function seen(i){const k=VIEW.indexOf(i);if(k>-1)VIEW.splice(k,1);VIEW.unshift(i);const L=(VIEW.length>1?VIEW.slice(1):[]).concat([2,4,6,3].filter(x=>!VIEW.includes(x))).slice(0,4);fill('#rvGrid',L);fill('#rvGrid2',L)}
+
+/* size guide */
+function sgT(h){$('#sgT').innerHTML=FS.map(r=>`<tr class="${r[0]===h?'hl':''}"><td>${r[0]}</td><td>${r[1]} to ${r[2]}</td><td>${Math.round(r[1]*.62)} to ${Math.round(r[2]*.62)}</td><td>${r[3]} to ${r[4]}</td><td>${r[5]}</td></tr>`).join('')}
+$('#sgOpen').onclick=e=>{e.preventDefault();$('#sg').classList.add('on');sgT()};$('#sgx').onclick=()=>$('#sg').classList.remove('on');
+$('#sg').addEventListener('click',e=>{if(e.target.id==='sg')$('#sg').classList.remove('on')});
+$('#sgGo').onclick=()=>{const c=+$('#sgC').value;const s=FS[sizeFor(c,0).k][0];$('#sgRes').textContent='Size '+s;sgT(s);const p=P[cur.i];
+ if(p.sz.includes(s)&&!(p.x||[]).includes(s)){cur.s=s;$$('#pSizes button').forEach(x=>x.setAttribute('aria-pressed',x.dataset.ps===s));pupd()}};
+
+/* search, blog */
+function runSearch(){const t=$('#sq').value.trim().toLowerCase();$('#sTerm').textContent=t;const L=P.map((p,i)=>i).filter(i=>{const p=P[i];return !t||(p.n+' '+p.c+' '+p.sub+' '+p.spec.join(' ')+' '+p.tech.map(x=>x.join(' ')).join(' ')+' '+p.a.join(' ')).toLowerCase().includes(t)});
+ $('#sGrid').innerHTML=L.map(card).join('')||'<div class="empty" style="grid-column:1/-1">No results. Try "harness" or "waterproof".</div>';$('#sCount').textContent=L.length;obs()}
+$('#sq').addEventListener('input',runSearch);$('#sugs').addEventListener('click',e=>{const b=e.target.closest('button');if(b){$('#sq').value=b.textContent;runSearch()}});
+const POSTS=[['swim','Field tests','Float coats, tested on cold lakes','Four coats, eleven dogs and one very cold October.'],['p1','Fit','How to measure chest girth','One tape, one treat and 30 seconds. With a printable guide.'],['camp','Routes','A first night out with your dog','The short list, the easy route and what to do at 3 am.'],['snow','Care','Paws in the snow','Ice balls, salt and booties: what actually helps.'],['run','Routes','Trail running with a young dog','When to start, how far and the lead we use.'],['paws','Care','Washing your harness','Mud comes out. Here is how to keep the foam soft.']];
+$('#posts').innerHTML=POSTS.map(p=>`<a href="#" class="post reveal" data-go="article"><div class="im"><img src="${src(p[0])}" alt=""></div><span class="k">${p[1]} · 5 min</span><h3>${p[2]}</h3><p>${p[3]}</p></a>`).join('');
+$('#bcats').addEventListener('click',e=>{const b=e.target.closest('button');if(b)$$('#bcats button').forEach(x=>x.setAttribute('aria-pressed',x===b))});
+
+/* reveal */
+let io;function obs(){if(!io)io=new IntersectionObserver(es=>es.forEach(x=>{if(x.isIntersecting){x.target.classList.add('in');io.unobserve(x.target)}}),{rootMargin:'0px 0px -6% 0px'});$$('.reveal:not(.in)').forEach(r=>io.observe(r))}
+
+/* init */
+imgs();fill('#bestGrid',[0,2,3,4]);ff();kp();topo();pins();logc();rv('#rvHome',3);
+fill('#upsell',[5,1,7,4]);fill('#artGrid',[0,2,5,7]);fill('#nfGrid',[0,2,4,6]);fill('#abGrid',[0,1,2,3]);rng($('#fPrice'));setCat('all');setProduct(0);seen(0);render();runSearch();hdr();obs();
+</script>
+</body>
+</html>
