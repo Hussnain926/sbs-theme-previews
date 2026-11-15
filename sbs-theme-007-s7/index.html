@@ -1,0 +1,1377 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Kotatsu · Quiet goods for indoor cats · SBS-THEME-007-S7</title>
+<meta name="robots" content="noindex">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@500;600;700;800&family=Zen+Kaku+Gothic+New:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{--washi:#F4EFE6;--paper:#FBF8F2;--sumi:#1E1C1A;--sumi2:#2B2825;--oak:#B98A57;--oakL:#E6D3B8;--pers:#C24E22;--persL:#F3DCCF;--matcha:#66764A;--matL:#DDE3D0;--mute:#6B655C;--line:#DDD4C5;--lineD:rgba(251,248,242,.16);
+--disp:"Shippori Mincho",Georgia,serif;--body:"Zen Kaku Gothic New",system-ui,sans-serif;--r:6px;--rl:14px;--w:1360px}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--washi);color:var(--sumi);font:400 16px/1.7 var(--body);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+body::before{content:"";position:fixed;inset:0;pointer-events:none;z-index:0;opacity:.35;background-image:radial-gradient(rgba(140,120,90,.10) 1px,transparent 1px),radial-gradient(rgba(140,120,90,.07) 1px,transparent 1px);background-size:7px 7px,13px 13px;background-position:0 0,3px 5px}
+main,header,footer,.ann{position:relative;z-index:1}
+img{display:block;max-width:100%}
+a{color:inherit;text-decoration:none}
+button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
+input,select,textarea{font:inherit;color:inherit}
+:focus-visible{outline:2px solid var(--pers);outline-offset:3px}
+.wrap{max-width:var(--w);margin:0 auto;padding:0 40px}
+h1,h2,h3,h4{font-family:var(--disp);font-weight:700;letter-spacing:-.005em;line-height:1.18}
+.h1{font-size:clamp(42px,5.4vw,76px);line-height:1.08;font-weight:700}
+.h2{font-size:clamp(30px,3.2vw,46px)}
+.h3{font-size:24px}
+.k{font:700 12px/1 var(--body);letter-spacing:.22em;text-transform:uppercase;color:var(--pers);display:inline-flex;align-items:center;gap:10px}
+.k::before{content:"";width:22px;height:1px;background:currentColor}
+.lede{color:var(--mute);font-size:17px;max-width:540px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;height:52px;padding:0 28px;border-radius:var(--r);font:700 15px var(--body);letter-spacing:.04em;transition:background .25s,color .25s,transform .2s,box-shadow .25s;white-space:nowrap}
+.btn.d{background:var(--sumi);color:var(--paper)}.btn.d:hover{background:var(--pers)}
+.btn.p{background:var(--pers);color:#fff}.btn.p:hover{background:#A33F18}
+.btn.o{border:1.5px solid var(--sumi);color:var(--sumi)}.btn.o:hover{background:var(--sumi);color:var(--paper)}
+.btn.l{border:1.5px solid rgba(251,248,242,.5);color:var(--paper)}.btn.l:hover{background:var(--paper);color:var(--sumi)}
+.btn:active{transform:translateY(1px)}
+.btn.ok{background:var(--matcha)!important;color:#fff!important}
+.ul{background-image:linear-gradient(currentColor,currentColor);background-size:0 1px;background-repeat:no-repeat;background-position:0 100%;transition:background-size .3s}
+.ul:hover{background-size:100% 1px}
+.sec{padding:112px 0}
+.sh{display:flex;justify-content:space-between;align-items:flex-end;gap:32px;margin-bottom:48px}
+.sh p{max-width:440px;color:var(--mute)}
+.sh .h2{margin-top:14px}
+.reveal{opacity:0;transform:translateY(18px);transition:opacity .8s ease,transform .8s ease}
+.reveal.in{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}.reveal{opacity:1;transform:none}}
+.cban .wrap>*,.cban .ims>*,.cart>*,.pdp>*,.clay>*,.cgr>*,.pgrid>*,.tf>*,.dpanel>*,.fbt>*{min-width:0}
+.page{display:none}.page.on{display:block}
+.sample{display:inline-block;font:700 10px/1 var(--body);letter-spacing:.14em;text-transform:uppercase;color:var(--mute);border:1px solid var(--line);padding:5px 7px;border-radius:3px}
+
+/* preview bar */
+.pv{position:fixed;left:50%;bottom:16px;transform:translateX(-50%);z-index:300;background:var(--sumi);color:var(--paper);border-radius:10px;padding:7px;display:flex;gap:6px;align-items:center;box-shadow:0 14px 40px rgba(0,0,0,.3);max-width:calc(100vw - 24px);overflow-x:auto}
+.pv .tabs{display:flex;gap:2px}.pv .tabs button{padding:8px 11px;border-radius:6px;font:700 12px var(--body);white-space:nowrap;opacity:.7}.pv .tabs button.on{background:var(--pers);opacity:1}
+.pv label{display:flex;gap:6px;align-items:center;font:700 12px var(--body);white-space:nowrap;padding:0 8px;border-left:1px solid var(--lineD)}
+body.names [data-dawn]{position:relative;outline:2px dashed rgba(194,78,34,.6);outline-offset:-2px}
+body.names [data-dawn]::after{content:attr(data-dawn);position:absolute;top:6px;left:6px;z-index:60;background:var(--pers);color:#fff;font:700 11px/1 var(--body);padding:6px 8px;border-radius:4px;letter-spacing:.02em;text-transform:none}
+
+/* announcement */
+.ann{background:var(--sumi);color:var(--paper);font-size:13px}
+.ann .wrap{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;height:40px;gap:16px}
+.ann .se{display:flex;align-items:center;gap:10px;color:rgba(251,248,242,.75);font-size:12px;letter-spacing:.08em}
+.ann .se b{font-family:var(--disp);font-size:15px;color:var(--paper);font-weight:600;letter-spacing:0}
+.ann .msg{text-align:center;position:relative;height:40px;overflow:hidden;min-width:380px}
+.ann .msg span{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;gap:8px;transition:transform .6s ease,opacity .6s;opacity:0;transform:translateY(100%)}
+.ann .msg span.on{opacity:1;transform:none}.ann .msg span.out{opacity:0;transform:translateY(-100%)}
+.ann .msg span::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--pers)}
+.ann .lk{display:flex;justify-content:flex-end;gap:22px;font-size:12px;color:rgba(251,248,242,.8)}
+
+/* header */
+.hdr{position:sticky;top:0;z-index:100;background:rgba(244,239,230,.94);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:1px solid var(--line);transition:box-shadow .3s}
+.hdr.sc{box-shadow:0 8px 28px rgba(30,28,26,.07)}
+.hrow{display:grid;grid-template-columns:auto 1fr auto;align-items:center;height:84px;gap:40px}
+.logo{display:flex;align-items:center;gap:13px}
+.seal{width:44px;height:44px;border-radius:5px;background:var(--pers);display:grid;place-items:center;transform:rotate(-3deg);box-shadow:inset 0 0 0 2px rgba(255,255,255,.18)}
+.logo b{display:block;font:700 25px/1 var(--disp);letter-spacing:.06em}
+.logo small{display:block;font:500 10.5px/1 var(--body);letter-spacing:.28em;color:var(--mute);margin-top:6px;text-transform:uppercase}
+.nav{display:flex;justify-content:center;gap:6px}
+.nav>li{list-style:none;position:static}
+.nav>li>a,.nav>li>button{display:flex;flex-direction:column;align-items:center;padding:10px 16px;font:500 15px/1 var(--body);border-radius:var(--r);transition:background .2s}
+.nav>li>a i,.nav>li>button i{font:600 11px/1 var(--disp);font-style:normal;color:var(--pers);margin-bottom:6px;letter-spacing:.1em}
+.nav>li>a:hover,.nav>li>button:hover,.nav>li.op>button{background:rgba(185,138,87,.14)}
+.hic{display:flex;gap:4px;align-items:center}
+.ib{width:44px;height:44px;border-radius:50%;display:grid;place-items:center;position:relative;transition:background .2s}
+.ib:hover{background:rgba(185,138,87,.16)}
+.bk{display:flex;align-items:center;gap:10px;height:44px;padding:0 16px 0 14px;border-radius:999px;background:var(--sumi);color:var(--paper);font:700 14px var(--body);margin-left:8px;transition:background .2s}
+.bk:hover{background:var(--pers)}
+.bk em{font-style:normal;min-width:22px;height:22px;border-radius:50%;background:var(--paper);color:var(--sumi);display:grid;place-items:center;font-size:12px}
+.bk em.bump{animation:bump .5s}
+@keyframes bump{40%{transform:scale(1.35)}}
+.burger{display:none}
+.mega{position:absolute;left:0;right:0;top:100%;background:var(--paper);border-bottom:1px solid var(--line);box-shadow:0 30px 60px rgba(30,28,26,.12);opacity:0;visibility:hidden;transform:translateY(-6px);transition:.25s}
+.nav>li.op .mega{opacity:1;visibility:visible;transform:none}
+.mega .wrap{display:grid;grid-template-columns:1fr 1fr 1fr 1.25fr;gap:40px;padding-top:40px;padding-bottom:44px}
+.mega h5{font:700 11px var(--body);letter-spacing:.2em;text-transform:uppercase;color:var(--mute);margin-bottom:16px;padding-bottom:12px;border-bottom:1px solid var(--line)}
+.mega li{list-style:none}.mega li a{display:flex;justify-content:space-between;padding:7px 0;font-size:15px}
+.mega li a span{color:var(--mute);font-size:12px}
+.mega li a:hover{color:var(--pers)}
+.mtile{position:relative;border-radius:var(--rl);overflow:hidden;min-height:250px;color:var(--paper)}
+.mtile img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .8s}
+.mtile:hover img{transform:scale(1.05)}
+.mtile::after{content:"";position:absolute;inset:0;background:linear-gradient(transparent 35%,rgba(30,28,26,.75))}
+.mtile div{position:absolute;left:22px;bottom:20px;right:22px;z-index:1}
+.mtile b{font:700 24px/1.2 var(--disp);display:block;margin:6px 0 4px}
+.mtile small{font-size:13px;opacity:.85}
+.srch{position:absolute;left:0;right:0;top:100%;background:var(--paper);border-bottom:1px solid var(--line);padding:26px 0;display:none}
+.srch.on{display:block}
+.srch .wrap{display:flex;gap:14px;align-items:center}
+.srch input{flex:1;height:56px;border:0;border-bottom:1.5px solid var(--sumi);background:none;font:500 24px var(--disp);outline:0}
+.srch .sg{display:flex;gap:8px;flex-wrap:wrap;margin-top:14px}
+.chip{display:inline-flex;align-items:center;height:34px;padding:0 14px;border:1px solid var(--line);border-radius:999px;font-size:13px;background:var(--paper);transition:.2s}
+.chip:hover{border-color:var(--sumi)}
+/* mobile menu */
+.mm{position:fixed;inset:0;z-index:400;background:var(--washi);transform:translateX(-100%);transition:transform .4s;display:flex;flex-direction:column;overflow:auto}
+.mm.on{transform:none}
+.mm .top{display:flex;justify-content:space-between;align-items:center;padding:16px 20px;border-bottom:1px solid var(--line)}
+.mm nav a{display:flex;justify-content:space-between;align-items:center;padding:18px 20px;border-bottom:1px solid var(--line);font:600 24px var(--disp)}
+.mm nav a i{font:500 13px var(--body);font-style:normal;color:var(--pers)}
+.mm .row{display:flex;gap:12px;overflow-x:auto;padding:20px}
+.mm .row a{flex:0 0 130px;text-align:center;font-size:14px}
+.mm .row img{width:130px;height:130px;object-fit:cover;border-radius:50%;margin-bottom:8px}
+
+/* hero */
+.hero{padding:56px 0 96px}
+.hero .wrap{display:grid;grid-template-columns:.86fr 1.14fr;gap:64px;align-items:center}
+.hero .tx{position:relative;padding-left:64px}
+.vert{position:absolute;left:0;top:4px;writing-mode:vertical-rl;font:600 13px/1 var(--body);letter-spacing:.32em;text-transform:uppercase;color:var(--mute);display:flex;align-items:center;gap:14px}
+.vert::after{content:"";width:1px;height:90px;background:var(--line)}
+.hero .h1 em{font-style:normal;color:var(--pers)}
+.hero .lede{margin:26px 0 36px}
+.hero .cta{display:flex;gap:12px;flex-wrap:wrap}
+.hero .note{display:flex;gap:28px;margin-top:48px;padding-top:28px;border-top:1px solid var(--line)}
+.hero .note div{font-size:13px;color:var(--mute);line-height:1.5}
+.hero .note b{display:block;font:700 22px var(--disp);color:var(--sumi);margin-bottom:2px}
+.shoji{position:relative;border-radius:240px 240px var(--rl) var(--rl);overflow:hidden;aspect-ratio:1.02;box-shadow:0 40px 80px -30px rgba(30,28,26,.35)}
+.shoji>img{width:100%;height:100%;object-fit:cover;object-position:68% 50%;transform:scale(1.04);transition:transform 6s ease}
+.hero.in .shoji>img,.shoji:hover>img{transform:scale(1)}
+.shoji .lat{position:absolute;inset:0;pointer-events:none;background-image:linear-gradient(90deg,rgba(251,248,242,.22) 1px,transparent 1px);background-size:25% 100%;mix-blend-mode:screen;mask:linear-gradient(90deg,#000 0,#000 18%,transparent 34%)}
+.hcard{position:absolute;right:24px;bottom:24px;background:rgba(251,248,242,.95);backdrop-filter:blur(6px);border-radius:12px;padding:14px;display:flex;gap:14px;align-items:center;width:310px;box-shadow:0 18px 40px rgba(30,28,26,.18)}
+.hcard img{width:66px;height:66px;border-radius:8px;object-fit:cover}
+.hcard b{display:block;font:700 16px var(--disp)}
+.hcard small{font-size:13px;color:var(--mute)}
+.hcard .go{margin-left:auto;width:40px;height:40px;border-radius:50%;background:var(--sumi);color:var(--paper);display:grid;place-items:center;flex:none}
+.hcard .go:hover{background:var(--pers)}
+.hseal{position:absolute;left:24px;top:46%;width:96px;height:96px;border-radius:50%;background:var(--pers);color:#fff;display:grid;place-items:center;text-align:center;font:700 13px/1.2 var(--disp);transform:rotate(-8deg);box-shadow:0 10px 26px rgba(194,78,34,.35)}
+.hseal span{display:block;font-size:24px}
+
+/* life stage circles */
+.stages{padding:0 0 96px}
+.stages .wrap{display:grid;grid-template-columns:1fr 4fr;gap:24px;align-items:center}.sts{display:grid;grid-template-columns:repeat(4,1fr);gap:24px}
+.stages .lab{align-self:center}
+.stages .lab .h3{margin-top:12px;font-size:28px}
+.st{text-align:center}
+.st .c{width:100%;aspect-ratio:1;border-radius:50%;overflow:hidden;position:relative;border:1px solid var(--line);padding:8px;background:var(--paper);transition:border-color .3s}
+.st .c img{width:100%;height:100%;object-fit:cover;border-radius:50%;transition:transform .7s}
+.st:hover .c{border-color:var(--pers)}.st:hover .c img{transform:scale(1.06)}
+.st b{display:block;font:700 20px var(--disp);margin-top:16px}
+.st small{color:var(--mute);font-size:13px}
+
+/* needs */
+.needs{background:var(--paper);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.needs .grid{display:grid;grid-template-columns:repeat(5,1fr);border-left:1px solid var(--line)}
+.need{border-right:1px solid var(--line);padding:34px 26px 30px;display:flex;flex-direction:column;gap:12px;transition:background .3s;min-height:270px}
+.need:hover{background:var(--washi)}
+.need .n{font:600 13px var(--disp);color:var(--pers);letter-spacing:.1em}
+.need svg{color:var(--sumi)}
+.need b{font:700 22px var(--disp)}
+.need p{font-size:14px;color:var(--mute);flex:1}
+.need span{font:700 13px var(--body);display:flex;gap:8px;align-items:center}
+.need:hover span{color:var(--pers)}
+
+/* product cards */
+.tabsr{display:flex;gap:6px;border:1px solid var(--line);border-radius:999px;padding:4px;background:var(--paper)}
+.tabsr button{height:38px;padding:0 18px;border-radius:999px;font:700 13px var(--body);color:var(--mute)}
+.tabsr button[aria-pressed=true]{background:var(--sumi);color:var(--paper)}
+.grid4{display:grid;grid-template-columns:repeat(4,1fr);gap:28px 22px}
+.card{position:relative}
+.card .im{position:relative;border-radius:var(--rl);overflow:hidden;background:#EDE5D7;aspect-ratio:1}
+.card .im img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:opacity .5s,transform .8s}
+.card .im img.h{opacity:0}
+.card:hover .im img.h{opacity:1}.card:hover .im img{transform:scale(1.04)}
+.badge{position:absolute;left:12px;top:12px;z-index:2;font:700 11px/1 var(--body);letter-spacing:.12em;text-transform:uppercase;background:var(--paper);color:var(--sumi);padding:7px 9px;border-radius:4px}
+.badge.s{background:var(--pers);color:#fff}.badge.n{background:var(--matcha);color:#fff}
+.wish{position:absolute;right:12px;top:12px;z-index:2;width:38px;height:38px;border-radius:50%;background:rgba(251,248,242,.92);display:grid;place-items:center;transition:.2s}
+.wish:hover,.wish.on{color:var(--pers)}.wish.on svg path{fill:var(--pers)}
+.qa{position:absolute;left:12px;right:12px;bottom:12px;z-index:2;transform:translateY(12px);opacity:0;transition:.3s}
+.card:hover .qa,.card:focus-within .qa{transform:none;opacity:1}
+.qa>button{width:100%;height:44px;border-radius:var(--r);background:var(--sumi);color:var(--paper);font:700 13px var(--body);letter-spacing:.04em;display:flex;align-items:center;justify-content:center;gap:8px}
+.qa>button:hover{background:var(--pers)}
+.qa .szp{display:none;background:var(--paper);border-radius:var(--r);padding:10px;box-shadow:0 10px 30px rgba(0,0,0,.15)}
+.qa.op .szp{display:block}.qa.op>button{display:none}
+.szp p{font:700 11px var(--body);letter-spacing:.14em;text-transform:uppercase;color:var(--mute);margin-bottom:8px}
+.szp div{display:flex;gap:6px;flex-wrap:wrap}
+.szp button{flex:1;min-width:54px;height:38px;border:1px solid var(--line);border-radius:5px;font:700 12px var(--body);background:var(--paper)}
+.szp button:hover{border-color:var(--sumi);background:var(--sumi);color:var(--paper)}
+.szp button[disabled]{opacity:.35;text-decoration:line-through;pointer-events:none}
+.ci{padding:14px 2px 0}
+.ci .row1{display:flex;justify-content:space-between;gap:10px;align-items:baseline}
+.ci h3{font:700 18px/1.3 var(--disp)}
+.ci .pr{font:700 15px var(--body);white-space:nowrap}
+.ci .pr s{color:var(--mute);font-weight:400;margin-right:6px}
+.ci .pr.sale b{color:var(--pers)}
+.ci .sub{font-size:13px;color:var(--mute);margin:3px 0 8px}
+.ci .row2{display:flex;justify-content:space-between;align-items:center;gap:8px}
+.stars{font-size:12px;color:var(--sumi);letter-spacing:.06em;white-space:nowrap}.stars em{font-style:normal;color:var(--mute);margin-left:4px;letter-spacing:0}
+.sw{display:flex;gap:5px}.sw i{width:15px;height:15px;border-radius:50%;box-shadow:inset 0 0 0 1px rgba(0,0,0,.12);display:block}
+.sw button{width:18px;height:18px;border-radius:50%;box-shadow:inset 0 0 0 1px rgba(0,0,0,.14);outline-offset:2px}
+.sw button[aria-pressed=true]{outline:1.5px solid var(--sumi)}
+.ptag{display:inline-block;font:700 11px var(--body);letter-spacing:.06em;color:var(--matcha);background:var(--matL);border-radius:3px;padding:3px 7px;margin-top:8px}
+
+/* profile builder (sbs-cat-profile) */
+.prof{background:var(--sumi);color:var(--paper);position:relative;overflow:hidden}
+.prof::before{content:"";position:absolute;right:-120px;top:-120px;width:460px;height:460px;border-radius:50%;border:1px solid var(--lineD);box-shadow:0 0 0 60px rgba(251,248,242,.02),0 0 0 120px rgba(251,248,242,.015)}
+.prof .k{color:#E9A37F}
+.prof .sh p{color:rgba(251,248,242,.7)}
+.pgrid{display:grid;grid-template-columns:1fr 1.05fr;gap:56px;position:relative}
+.pstep{padding:22px 0;border-top:1px solid var(--lineD)}
+.pstep:first-child{border-top:0;padding-top:0}
+.pstep h4{font:700 12px var(--body);letter-spacing:.2em;text-transform:uppercase;color:rgba(251,248,242,.6);margin-bottom:14px;display:flex;gap:12px}
+.pstep h4 i{font:600 13px var(--disp);font-style:normal;color:#E9A37F;letter-spacing:.05em}
+.pname{display:flex;align-items:center;gap:12px;border-bottom:1.5px solid rgba(251,248,242,.4);max-width:420px}
+.pname input{flex:1;min-width:0;width:100%;background:none;border:0;height:52px;font:600 26px var(--disp);color:var(--paper);outline:0}
+.pname input::placeholder{color:rgba(251,248,242,.35)}
+.opts{display:flex;gap:8px;flex-wrap:wrap}
+.opts button{min-height:46px;padding:8px 16px;border-radius:var(--r);border:1px solid rgba(251,248,242,.25);font:500 14px var(--body);display:flex;align-items:center;gap:8px;transition:.2s;text-align:left}
+.opts button small{display:block;font-size:11.5px;opacity:.65}
+.opts button:hover{border-color:rgba(251,248,242,.6)}
+.opts button[aria-pressed=true]{background:var(--paper);color:var(--sumi);border-color:var(--paper)}
+.opts.big button{flex:1;min-width:150px;flex-direction:column;align-items:flex-start;padding:14px 16px;gap:2px}
+.opts.big b{font:700 17px var(--disp)}
+.pres{background:var(--paper);color:var(--sumi);border-radius:var(--rl);padding:30px;position:relative}
+.pres .hd{display:flex;justify-content:space-between;align-items:flex-start;gap:16px;margin-bottom:6px}
+.pres .hd h3{font-size:28px}
+.pres .hd p{font-size:14px;color:var(--mute);margin-top:6px;max-width:360px}
+.pcat{width:76px;height:76px;flex:none}
+.plist{margin:18px 0}
+.pit{display:grid;grid-template-columns:auto 64px 1fr auto;gap:14px;align-items:center;padding:12px 0;border-top:1px solid var(--line)}
+.pit input{width:18px;height:18px;accent-color:var(--pers)}
+.pit img{width:64px;height:64px;border-radius:8px;object-fit:cover}
+.pit b{font:700 16px var(--disp);display:block}
+.pit small{font-size:12.5px;color:var(--mute);display:block;line-height:1.45}
+.pit .pp{font-weight:700;font-size:15px}
+.pit.off{opacity:.45}
+.ptot{display:flex;justify-content:space-between;align-items:center;gap:16px;padding-top:18px;border-top:1px solid var(--sumi)}
+.ptot small{display:block;font-size:12px;color:var(--mute)}
+.ptot strong{font:700 30px var(--disp)}
+.ptot strong s{font:400 16px var(--body);color:var(--mute);margin-right:8px}
+.pmsg{font-size:13px;color:var(--matcha);margin-top:10px;min-height:20px}
+
+/* tree fit (sbs-tree-fit) */
+.tf{display:grid;grid-template-columns:1fr 1fr;gap:72px;align-items:center}
+.tfbox{background:var(--paper);border:1px solid var(--line);border-radius:var(--rl);padding:32px}
+.tfrow{padding:18px 0;border-top:1px solid var(--line)}
+.tfrow:first-child{border-top:0;padding-top:0}
+.tfrow label,.tfrow .lb{display:flex;justify-content:space-between;font:700 12px var(--body);letter-spacing:.16em;text-transform:uppercase;color:var(--mute);margin-bottom:12px}
+.tfrow output{font:700 20px var(--disp);color:var(--sumi);letter-spacing:0;text-transform:none}
+input[type=range]{width:100%;accent-color:var(--pers);height:28px}
+.seg{display:grid;grid-template-columns:repeat(3,1fr);gap:6px}
+.seg button{height:46px;border:1px solid var(--line);border-radius:var(--r);font:700 14px var(--body);background:var(--washi)}
+.seg button[aria-pressed=true]{background:var(--sumi);color:var(--paper);border-color:var(--sumi)}
+.tfres{display:flex;gap:16px;align-items:center;margin-top:22px;padding:18px;border-radius:12px;background:var(--washi)}
+.tfres img{width:84px;height:84px;border-radius:8px;object-fit:cover}
+.tfres b{font:700 20px var(--disp);display:block}
+.tfres small{font-size:13px;color:var(--mute);display:block;line-height:1.5}
+.tfres .btn{margin-left:auto;height:46px;padding:0 18px}
+.tfdraw{position:relative;aspect-ratio:1/1.02;background:var(--paper);border-radius:var(--rl);border:1px solid var(--line);overflow:hidden}
+.tfdraw svg{width:100%;height:100%;display:block}
+.tfdraw .lg{position:absolute;left:20px;top:18px;font:700 12px var(--body);letter-spacing:.16em;text-transform:uppercase;color:var(--mute)}
+
+/* room hotspots (sbs-cat-room) */
+.room{position:relative;border-radius:var(--rl);overflow:hidden}
+.room>img{width:100%;aspect-ratio:16/9;object-fit:cover}
+.hs{position:absolute;width:34px;height:34px;margin:-17px 0 0 -17px;border-radius:50%;background:var(--paper);display:grid;place-items:center;box-shadow:0 6px 18px rgba(0,0,0,.25);z-index:2}
+.hs::before{content:"";position:absolute;inset:-7px;border-radius:50%;border:1.5px solid rgba(251,248,242,.85);animation:pulse 2.4s infinite}
+.hs i{width:10px;height:10px;border-radius:50%;background:var(--pers)}
+.hs[aria-expanded=true]{background:var(--pers)}.hs[aria-expanded=true] i{background:#fff}
+@keyframes pulse{0%{transform:scale(.8);opacity:1}100%{transform:scale(1.5);opacity:0}}
+.hpop{position:absolute;z-index:3;width:270px;background:var(--paper);border-radius:12px;padding:12px;display:none;gap:12px;align-items:center;box-shadow:0 20px 40px rgba(0,0,0,.25)}
+.hpop.on{display:flex}
+.hpop img{width:64px;height:64px;border-radius:8px;object-fit:cover}
+.hpop b{font:700 16px var(--disp);display:block}
+.hpop small{color:var(--mute);font-size:13px}
+.hpop button{margin-left:auto;width:38px;height:38px;border-radius:50%;background:var(--sumi);color:#fff;display:grid;place-items:center;flex:none}
+.hpop button:hover{background:var(--pers)}
+.rlist{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:20px}
+.rlist button{display:flex;gap:12px;align-items:center;text-align:left;padding:10px;border-radius:10px;border:1px solid var(--line);background:var(--paper);transition:.2s}
+.rlist button:hover,.rlist button.on{border-color:var(--sumi)}
+.rlist img{width:52px;height:52px;border-radius:6px;object-fit:cover}
+.rlist b{font:700 15px var(--disp);display:block}.rlist small{font-size:12.5px;color:var(--mute)}
+
+/* craft story */
+.craft{background:var(--oakL)}
+.craft .wrap{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center}
+.craft .ph{position:relative}
+.craft .ph img{border-radius:var(--rl);width:100%;aspect-ratio:4/5;object-fit:cover}
+.craft .ph img.s{position:absolute;width:44%;aspect-ratio:1;right:-36px;bottom:-36px;border:8px solid var(--oakL)}
+.craft ul{list-style:none;margin:30px 0 36px;display:grid;gap:16px}
+.craft li{display:grid;grid-template-columns:44px 1fr;gap:14px;align-items:start}
+.craft li i{font:600 15px var(--disp);font-style:normal;width:44px;height:44px;border-radius:50%;border:1px solid var(--oak);display:grid;place-items:center;color:var(--sumi)}
+.craft li b{display:block;font:700 18px var(--disp)}
+.craft li span{font-size:14.5px;color:#5A5248}
+
+/* refill subscription */
+.refill{display:grid;grid-template-columns:1.1fr .9fr;background:var(--matcha);color:#fff;border-radius:var(--rl);overflow:hidden}
+.refill .tx{padding:56px}
+.refill .k{color:#F1E9D6}
+.refill .h2{margin:14px 0 14px}
+.refill p{opacity:.88;max-width:440px}
+.refill .every{display:flex;gap:8px;margin:26px 0 8px;flex-wrap:wrap}
+.refill .every button{height:44px;padding:0 18px;border-radius:999px;border:1px solid rgba(255,255,255,.4);font:700 14px var(--body)}
+.refill .every button[aria-pressed=true]{background:#fff;color:var(--matcha)}
+.refill .bx{display:flex;align-items:center;gap:22px;margin-top:22px}
+.refill .bx strong{font:700 34px var(--disp)}
+.refill .bx small{display:block;font-size:13px;opacity:.8}
+.refill .im{position:relative;min-height:380px}
+.refill .im img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+
+/* cat diary (pet of the week) */
+.diary{display:grid;grid-template-columns:1.25fr 1fr 1fr;grid-template-rows:auto auto;gap:18px}
+.dc{position:relative;border-radius:var(--rl);overflow:hidden;background:var(--paper)}
+.dc img{width:100%;height:100%;object-fit:cover;aspect-ratio:1;transition:transform .8s}
+.dc:hover img{transform:scale(1.04)}
+.dc.big{grid-row:span 2}.dc.big img{aspect-ratio:auto;height:100%}
+.dc .cap{position:absolute;left:14px;right:14px;bottom:14px;background:rgba(251,248,242,.94);border-radius:10px;padding:12px 14px;font-size:13px;line-height:1.5}
+.dc .cap b{font:700 16px var(--disp);display:block}
+.dc.big .cap{padding:18px}
+.dc.big .cap b{font-size:22px}
+.potw{position:absolute;left:16px;top:16px;background:var(--pers);color:#fff;font:700 11px/1 var(--body);letter-spacing:.14em;text-transform:uppercase;padding:8px 10px;border-radius:4px}
+
+/* reviews */
+.revs{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.rc{background:var(--paper);border:1px solid var(--line);border-radius:var(--rl);padding:28px;display:flex;flex-direction:column;gap:14px}
+.rc q{font:500 19px/1.5 var(--disp);quotes:none}
+.rc .who{display:flex;align-items:center;gap:12px;margin-top:auto;font-size:13px;color:var(--mute)}
+.rc .who img{width:44px;height:44px;border-radius:50%;object-fit:cover}
+.rc .who b{color:var(--sumi);display:block;font-size:14px}
+
+/* newsletter */
+.news{background:var(--persL)}
+.news .wrap{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center;padding-top:80px;padding-bottom:80px}
+.nf{display:flex;gap:10px;border-bottom:1.5px solid var(--sumi);padding-bottom:6px}
+.nf input{flex:1;background:none;border:0;height:52px;font:500 20px var(--disp);outline:0;min-width:0}
+.news small{display:block;margin-top:12px;color:var(--mute);font-size:13px}
+
+/* footer */
+.ft{background:var(--sumi);color:rgba(251,248,242,.78);padding:84px 0 28px;font-size:14px}
+.ft .top{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr 1.3fr;gap:40px;padding-bottom:56px;border-bottom:1px solid var(--lineD)}
+.ft h6{font:700 12px var(--body);letter-spacing:.2em;text-transform:uppercase;color:var(--paper);margin-bottom:18px}
+.ft li{list-style:none;padding:5px 0}.ft li a:hover{color:var(--paper)}
+.ft .logo b{color:var(--paper)}.ft .logo small{color:rgba(251,248,242,.55)}
+.ft .about{margin-top:20px;max-width:300px;line-height:1.7}
+.soc{display:flex;gap:8px;margin-top:22px}
+.soc a{width:40px;height:40px;border-radius:50%;border:1px solid var(--lineD);display:grid;place-items:center;transition:.2s}
+.soc a:hover{background:var(--paper);color:var(--sumi)}
+.ft .nf{border-color:rgba(251,248,242,.5)}.ft .nf input{color:var(--paper);font-size:17px}.ft .nf input::placeholder{color:rgba(251,248,242,.45)}
+.ft .bot{display:flex;justify-content:space-between;align-items:center;gap:20px;padding-top:26px;font-size:13px;flex-wrap:wrap}
+.pay{display:flex;gap:6px}.pay span{height:26px;padding:0 9px;border-radius:4px;background:rgba(251,248,242,.1);display:grid;place-items:center;font:700 10.5px var(--body);letter-spacing:.06em;color:var(--paper)}
+
+/* breadcrumbs */
+.bc{font-size:13px;color:var(--mute);padding:22px 0 0;display:flex;gap:10px;flex-wrap:wrap}
+.bc a:hover{color:var(--pers)}.bc span{opacity:.5}
+
+/* collection */
+.cban{padding:24px 0 40px}
+.cban .wrap{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:end}
+.cban .h1{font-size:clamp(40px,4.4vw,62px);margin-top:16px}
+.cban .ims{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.cban .ims img{border-radius:120px 120px var(--rl) var(--rl);aspect-ratio:.9;object-fit:cover;width:100%}
+.cban .ims img:last-child{margin-top:40px}
+.cbar{position:sticky;top:84px;z-index:20;background:rgba(244,239,230,.95);backdrop-filter:blur(8px);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.cbar .wrap{display:flex;align-items:center;gap:14px;height:64px}
+.cbar .cats{display:flex;gap:6px;overflow-x:auto;flex:1;min-width:0;scrollbar-width:none}
+.cbar .cats button{height:36px;padding:0 15px;border-radius:999px;border:1px solid var(--line);font:500 13.5px var(--body);white-space:nowrap;background:var(--paper)}
+.cbar .cats button[aria-pressed=true]{background:var(--sumi);color:var(--paper);border-color:var(--sumi)}
+.cbar select{height:40px;border:1px solid var(--line);border-radius:var(--r);background:var(--paper);padding:0 12px;font-size:14px}
+.cnt{font-size:13px;color:var(--mute);white-space:nowrap}
+.fbtn{display:none}
+.clay{display:grid;grid-template-columns:250px 1fr;gap:48px;padding:40px 0 112px}
+.fil h5{font:700 12px var(--body);letter-spacing:.18em;text-transform:uppercase;margin-bottom:14px;display:flex;justify-content:space-between}
+.fil .fg{padding:22px 0;border-top:1px solid var(--line)}
+.fil .fg:first-child{border-top:0;padding-top:0}
+.fil label{display:flex;align-items:center;gap:10px;padding:5px 0;font-size:14.5px;cursor:pointer}
+.fil label span{margin-left:auto;color:var(--mute);font-size:12px}
+.fil input[type=checkbox]{width:17px;height:17px;accent-color:var(--sumi)}
+.fil .fsw{display:flex;gap:8px;flex-wrap:wrap}
+.fil .fsw button{width:30px;height:30px;border-radius:50%;box-shadow:inset 0 0 0 1px rgba(0,0,0,.14);outline-offset:3px}
+.fil .fsw button[aria-pressed=true]{outline:1.5px solid var(--sumi)}
+.fil .fst{display:flex;gap:6px;flex-wrap:wrap}
+.fil .fst button{height:34px;padding:0 12px;border:1px solid var(--line);border-radius:999px;font-size:13px;background:var(--paper)}
+.fil .fst button[aria-pressed=true]{background:var(--sumi);color:var(--paper);border-color:var(--sumi)}
+.prg b{font:700 15px var(--body)}
+.chips{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:18px;min-height:0}
+.chips button{height:32px;padding:0 12px;border-radius:999px;background:var(--sumi);color:var(--paper);font-size:12.5px;display:flex;align-items:center;gap:6px}
+.cgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:34px 22px}
+.promo{border-radius:var(--rl);overflow:hidden;position:relative;color:var(--paper);background:var(--sumi);display:flex;flex-direction:column;justify-content:flex-end;padding:26px;min-height:100%}
+.promo img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.55}
+.promo>*{position:relative}
+.promo b{font:700 26px/1.2 var(--disp);margin:10px 0 8px}
+.promo .k{color:#F1C2A9}
+.promo p{font-size:14px;opacity:.85;margin-bottom:18px}
+.more{text-align:center;margin-top:56px}
+.more p{font-size:13px;color:var(--mute);margin-bottom:10px}
+.more .bar{width:220px;height:3px;background:var(--line);margin:0 auto 20px;border-radius:2px;overflow:hidden}
+.more .bar i{display:block;height:100%;background:var(--sumi)}
+.empty{grid-column:1/-1;text-align:center;padding:60px 0;color:var(--mute)}
+
+/* product */
+.pdp{display:grid;grid-template-columns:1.12fr .88fr;gap:64px;padding:28px 0 96px}
+.gal{display:grid;grid-template-columns:84px 1fr;gap:16px;position:sticky;top:110px;align-self:start}
+.thumbs{display:flex;flex-direction:column;gap:10px}
+.thumbs button{border-radius:8px;overflow:hidden;border:1.5px solid transparent;aspect-ratio:1;padding:0}
+.thumbs button[aria-pressed=true]{border-color:var(--sumi)}
+.thumbs img{width:100%;height:100%;object-fit:cover}
+.gmain{position:relative;border-radius:var(--rl);overflow:hidden;aspect-ratio:1;background:#EDE5D7;cursor:zoom-in}
+.gmain img{width:100%;height:100%;object-fit:cover;transition:transform .3s}
+.gmain.z img{transform:scale(1.9)}
+.gmain .zh{position:absolute;right:14px;bottom:14px;background:rgba(251,248,242,.92);border-radius:999px;padding:8px 12px;font:700 12px var(--body);display:flex;gap:6px;align-items:center}
+.gdots{display:none}
+.pi .crumbs{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--pers);font-weight:700}
+.pi h1{font-size:clamp(34px,3.2vw,48px);margin:12px 0 10px;line-height:1.12}
+.pi .rt{display:flex;gap:12px;align-items:center;font-size:13px;color:var(--mute)}
+.pi .rt a{text-decoration:underline}
+.pi .price{display:flex;align-items:baseline;gap:12px;margin:20px 0 6px;font:700 28px var(--disp)}
+.pi .price s{font:400 18px var(--body);color:var(--mute)}
+.pi .price em{font:700 12px var(--body);font-style:normal;background:var(--pers);color:#fff;padding:5px 8px;border-radius:4px;letter-spacing:.06em}
+.pi .tax{font-size:13px;color:var(--mute)}
+.pi .ds{margin:20px 0;color:#4A443D}
+.opt{margin:24px 0}
+.opt .ol{display:flex;justify-content:space-between;font:700 12px var(--body);letter-spacing:.16em;text-transform:uppercase;margin-bottom:12px}
+.opt .ol span{font-weight:500;letter-spacing:0;text-transform:none;color:var(--mute);font-size:14px}
+.opt .ol a{text-decoration:underline;letter-spacing:0;text-transform:none;font-weight:500;font-size:13px}
+.swl{display:flex;gap:10px}
+.swl button{width:40px;height:40px;border-radius:50%;box-shadow:inset 0 0 0 1px rgba(0,0,0,.14);outline-offset:3px}
+.swl button[aria-pressed=true]{outline:1.5px solid var(--sumi)}
+.szl{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+.szl button{border:1px solid var(--line);border-radius:var(--r);padding:12px;text-align:left;background:var(--paper);transition:.2s}
+.szl button b{display:block;font:700 15px var(--body)}
+.szl button small{font-size:12px;color:var(--mute)}
+.szl button[aria-pressed=true]{border-color:var(--sumi);box-shadow:inset 0 0 0 1px var(--sumi)}
+.szl button[disabled]{opacity:.45}
+.szl button[disabled] b{text-decoration:line-through}
+.low{font-size:13px;color:var(--pers);margin-top:10px;display:flex;align-items:center;gap:8px;min-height:20px}
+.buy{display:grid;grid-template-columns:130px 1fr;gap:10px;margin-top:22px}
+.qty{display:grid;grid-template-columns:40px 1fr 40px;border:1px solid var(--sumi);border-radius:var(--r);height:56px;align-items:center;text-align:center;background:var(--paper)}
+.qty button{height:100%;font-size:20px}
+.qty input{border:0;background:none;text-align:center;width:100%;font-weight:700}
+.buy .btn{height:56px}
+.trust{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:20px}
+.trust div{display:flex;flex-direction:column;gap:6px;padding:14px;border-radius:10px;background:var(--paper);border:1px solid var(--line);font-size:12.5px;color:var(--mute);line-height:1.4}
+.trust b{color:var(--sumi);font-size:13.5px}
+.acc{margin-top:28px;border-top:1px solid var(--line)}
+.acc details{border-bottom:1px solid var(--line)}
+.acc summary{list-style:none;display:flex;justify-content:space-between;align-items:center;padding:18px 0;font:700 18px var(--disp);cursor:pointer}
+.acc summary::-webkit-details-marker{display:none}
+.acc summary::after{content:"+";font:400 24px var(--body);transition:transform .3s}
+.acc details[open] summary::after{transform:rotate(45deg)}
+.acc .in{padding:0 0 20px;font-size:15px;color:#4A443D}
+.acc table{width:100%;border-collapse:collapse;font-size:14px}
+.acc td{padding:9px 0;border-top:1px solid var(--line)}
+.acc td:first-child{color:var(--mute);width:40%}
+.fit{display:flex;gap:14px;align-items:center;background:var(--matL);border-radius:10px;padding:14px 16px;margin-top:14px;font-size:14px}
+.fit svg{flex:none;color:var(--matcha)}
+.hsimg{position:relative;border-radius:var(--rl);overflow:hidden}
+.dpanel{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center}
+.dpanel ul{list-style:none;display:grid;gap:0;margin-top:26px}
+.dpanel li{display:grid;grid-template-columns:40px 1fr;gap:14px;padding:16px 0;border-top:1px solid var(--line);cursor:pointer}
+.dpanel li i{font:600 14px var(--disp);font-style:normal;color:var(--pers)}
+.dpanel li.on b{color:var(--pers)}
+.dpanel li b{font:700 18px var(--disp);display:block}
+.dpanel li span{font-size:14px;color:var(--mute)}
+.fbt{background:var(--paper);border:1px solid var(--line);border-radius:var(--rl);padding:32px;display:grid;grid-template-columns:1.5fr 1fr;gap:40px;align-items:center}
+.fbt .its{display:flex;align-items:center;gap:14px}
+.fbt .it{flex:1;text-align:center;position:relative}
+.fbt .it img{border-radius:10px;aspect-ratio:1;object-fit:cover;width:100%}
+.fbt .it label{position:absolute;left:8px;top:8px;background:var(--paper);border-radius:5px;width:28px;height:28px;display:grid;place-items:center}
+.fbt .it input{width:17px;height:17px;accent-color:var(--pers)}
+.fbt .it b{display:block;font:700 15px var(--disp);margin-top:10px}
+.fbt .it small{color:var(--mute);font-size:13px}
+.fbt .it.off{opacity:.45}
+.fbt .plus{font:400 26px var(--disp);color:var(--mute)}
+.fbt .sum strong{display:block;font:700 34px var(--disp);margin:6px 0 4px}
+.fbt .sum p{font-size:14px;color:var(--mute);margin-bottom:18px}
+.rsum{display:grid;grid-template-columns:300px 1fr;gap:56px}
+.rsum .big{font:700 72px/1 var(--disp)}
+.bars{margin-top:18px;display:grid;gap:8px}
+.bars div{display:grid;grid-template-columns:28px 1fr 34px;gap:10px;align-items:center;font-size:13px;color:var(--mute)}
+.bars span{height:6px;border-radius:3px;background:var(--line);overflow:hidden}
+.bars span i{display:block;height:100%;background:var(--sumi)}
+.rlist2{display:grid;gap:0}
+.rv{display:grid;grid-template-columns:180px 1fr;gap:24px;padding:24px 0;border-top:1px solid var(--line)}
+.rv:first-child{border-top:0;padding-top:0}
+.rv .m{font-size:13px;color:var(--mute);line-height:1.6}
+.rv .m b{display:block;color:var(--sumi);font-size:15px}
+.rv h4{font:700 19px var(--disp);margin:6px 0 6px}
+.rv p{color:#4A443D;font-size:15px}
+.rv .vf{font-size:12px;color:var(--matcha);font-weight:700;margin-top:10px}
+.sticky{position:fixed;left:0;right:0;bottom:0;z-index:150;background:rgba(251,248,242,.97);backdrop-filter:blur(8px);border-top:1px solid var(--line);transform:translateY(105%);transition:transform .35s}
+.sticky.on{transform:none}
+.sticky .wrap{display:flex;align-items:center;gap:16px;height:76px}
+.sticky img{width:52px;height:52px;border-radius:8px;object-fit:cover}
+.sticky b{font:700 17px var(--disp);display:block}
+.sticky small{font-size:13px;color:var(--mute)}
+.sticky .sp{margin-left:auto;display:flex;gap:10px;align-items:center}
+.sticky select{height:46px;border:1px solid var(--line);border-radius:var(--r);background:var(--paper);padding:0 10px}
+.sticky .btn{height:48px}
+
+/* cart */
+.cart{display:grid;grid-template-columns:1fr 400px;gap:56px;padding:20px 0 112px}
+.cart .h1{font-size:clamp(38px,4vw,56px);margin:10px 0 26px}
+.ship{background:var(--paper);border:1px solid var(--line);border-radius:12px;padding:18px 20px;margin-bottom:22px}
+.ship p{font-size:14px;margin-bottom:10px}.ship p b{color:var(--pers)}
+.ship .tr{height:6px;border-radius:3px;background:var(--line);overflow:hidden}
+.ship .tr i{display:block;height:100%;background:var(--matcha);transition:width .5s}
+.line{display:grid;grid-template-columns:110px 1fr auto;gap:20px;padding:22px 0;border-top:1px solid var(--line);align-items:start}
+.line img{width:110px;height:110px;border-radius:10px;object-fit:cover}
+.line h3{font:700 19px var(--disp)}
+.line .va{font-size:13px;color:var(--mute);margin:4px 0 12px}
+.line .ctl{display:flex;gap:16px;align-items:center}
+.line .qty{height:40px;width:118px;grid-template-columns:34px 1fr 34px;border-color:var(--line)}
+.line .rm{font-size:13px;text-decoration:underline;color:var(--mute)}
+.line .lp{font:700 16px var(--body);text-align:right}
+.line .lp s{display:block;font-weight:400;color:var(--mute);font-size:13px}
+.ups h4{font:700 20px var(--disp);margin:36px 0 16px}
+.ups .row{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+.mini{background:var(--paper);border:1px solid var(--line);border-radius:12px;padding:10px;display:flex;flex-direction:column;gap:8px}
+.mini img{border-radius:8px;aspect-ratio:1;object-fit:cover;width:100%}
+.mini b{font:700 15px var(--disp)}
+.mini .mr{display:flex;justify-content:space-between;align-items:center;font-size:14px}
+.mini button{height:34px;padding:0 12px;border-radius:999px;background:var(--sumi);color:var(--paper);font:700 12px var(--body)}
+.mini button:hover{background:var(--pers)}
+.csum{background:var(--paper);border:1px solid var(--line);border-radius:var(--rl);padding:28px;position:sticky;top:110px;align-self:start}
+.csum h3{font-size:24px;margin-bottom:16px}
+.csum .r{display:flex;justify-content:space-between;padding:8px 0;font-size:15px}
+.csum .r.t{border-top:1px solid var(--sumi);margin-top:10px;padding-top:16px;font:700 22px var(--disp)}
+.csum textarea{width:100%;min-height:80px;border:1px solid var(--line);border-radius:var(--r);padding:12px;background:var(--washi);margin:14px 0 6px;resize:vertical;font-size:14px}
+.csum label{font:700 12px var(--body);letter-spacing:.14em;text-transform:uppercase;color:var(--mute);display:block;margin-top:16px}
+.csum .btn{width:100%;margin-top:14px}
+.csum .tb{display:flex;gap:6px;justify-content:center;margin-top:16px;flex-wrap:wrap}
+.csum .tb span{font:700 10.5px var(--body);padding:6px 8px;border-radius:4px;background:var(--washi);letter-spacing:.05em}
+.csum .tl{display:grid;gap:10px;margin-top:18px;padding-top:18px;border-top:1px solid var(--line);font-size:13px;color:var(--mute)}
+.csum .tl div{display:flex;gap:10px;align-items:center}
+.cempty{padding:60px 0;text-align:center}
+/* drawer */
+.ov{position:fixed;inset:0;background:rgba(30,28,26,.45);z-index:250;opacity:0;visibility:hidden;transition:.3s}
+.ov.on{opacity:1;visibility:visible}
+.drawer{position:fixed;right:0;top:0;bottom:0;width:440px;max-width:100vw;background:var(--washi);z-index:260;transform:translateX(100%);transition:transform .45s cubic-bezier(.2,.8,.2,1);display:flex;flex-direction:column}
+.drawer.on{transform:none}
+.drawer .dh{display:flex;justify-content:space-between;align-items:center;padding:22px 24px;border-bottom:1px solid var(--line)}
+.drawer .dh h3{font-size:24px}
+.drawer .db{flex:1;overflow:auto;padding:0 24px}
+.drawer .ship{margin:18px 0 6px}
+.drawer .line{grid-template-columns:76px 1fr auto;gap:14px}
+.drawer .line img{width:76px;height:76px}
+.drawer .line h3{font-size:16px}
+.drawer .df{padding:20px 24px;border-top:1px solid var(--line);background:var(--paper)}
+.drawer .df .r{display:flex;justify-content:space-between;font:700 18px var(--disp);margin-bottom:14px}
+.drawer .df .bb{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.drawer .df .btn{height:50px}
+.drawer .rec{margin:16px 0 22px}
+.drawer .rec h5{font:700 12px var(--body);letter-spacing:.16em;text-transform:uppercase;color:var(--mute);margin-bottom:10px}
+.drawer .rec .mini{flex-direction:row;align-items:center}
+.drawer .rec .mini img{width:56px}
+.toast{position:fixed;left:50%;top:100px;transform:translate(-50%,-20px);background:var(--sumi);color:var(--paper);padding:12px 18px;border-radius:999px;font-size:14px;z-index:500;opacity:0;transition:.3s;pointer-events:none;display:flex;gap:8px;align-items:center}
+.toast.on{opacity:1;transform:translate(-50%,0)}
+
+/* search */
+.sbig{display:flex;gap:12px;align-items:center;border-bottom:1.5px solid var(--sumi);margin:18px 0 22px}
+.sbig input{flex:1;border:0;background:none;height:72px;font:600 clamp(28px,3vw,40px) var(--disp);outline:0;min-width:0}
+.stabs{display:flex;gap:6px;margin-bottom:28px;flex-wrap:wrap}
+.sres{display:grid;grid-template-columns:repeat(4,1fr);gap:28px 22px}
+.sart{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:20px}
+
+/* blog */
+.bhero{display:grid;grid-template-columns:1.2fr .8fr;gap:56px;align-items:center;padding:40px 0 64px}
+.bhero img{border-radius:var(--rl);aspect-ratio:16/11;object-fit:cover;width:100%}
+.bhero h2{font-size:clamp(32px,3.4vw,48px);margin:16px 0}
+.bmeta{font-size:13px;color:var(--mute);display:flex;gap:12px;flex-wrap:wrap}
+.bgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:40px 26px}
+.post img{border-radius:var(--rl);aspect-ratio:4/3;object-fit:cover;width:100%;transition:transform .8s}
+.post .pim{overflow:hidden;border-radius:var(--rl)}
+.post:hover img{transform:scale(1.04)}
+.post h3{font-size:22px;margin:14px 0 8px}
+.post p{font-size:14.5px;color:var(--mute)}
+.btags{display:flex;gap:6px;flex-wrap:wrap;margin:8px 0 36px}
+/* article */
+.art{max-width:760px;margin:0 auto;padding:30px 0 80px}
+.art h1{font-size:clamp(36px,4vw,56px);margin:18px 0}
+.art .cv{border-radius:var(--rl);aspect-ratio:16/9;object-fit:cover;width:100%;margin:30px 0 40px}
+.art p{font-size:18px;line-height:1.85;margin-bottom:22px;color:#36312C}
+.art h2{font-size:30px;margin:44px 0 16px}
+.art blockquote{font:500 26px/1.5 var(--disp);border-left:3px solid var(--pers);padding-left:24px;margin:36px 0}
+.art .tip{background:var(--matL);border-radius:12px;padding:22px 24px;margin:30px 0;font-size:16px}
+.art .tip b{display:block;font:700 18px var(--disp);margin-bottom:6px}
+.art ol{padding-left:22px;margin-bottom:22px;font-size:17px;line-height:1.8}
+.share{display:flex;gap:10px;align-items:center;font-size:13px;color:var(--mute);padding-top:24px;border-top:1px solid var(--line)}
+/* about */
+.ahero{position:relative;min-height:620px;display:flex;align-items:flex-end;color:var(--paper)}
+.ahero img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.ahero::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(30,28,26,.75),rgba(30,28,26,.1))}
+.ahero .wrap{position:relative;z-index:1;padding-bottom:72px;width:100%}
+.ahero .h1{max-width:760px;margin-top:16px}
+.ahero .k{color:#F1C2A9}
+.vals{display:grid;grid-template-columns:repeat(3,1fr);gap:0;border-top:1px solid var(--line)}
+.val{padding:40px 36px 40px 0;border-right:1px solid var(--line)}
+.val+.val{padding-left:36px}.val:last-child{border-right:0}
+.val i{font:600 40px var(--disp);color:var(--pers);font-style:normal}
+.val b{display:block;font:700 24px var(--disp);margin:12px 0 10px}
+.val p{color:var(--mute)}
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:22px;counter-reset:s}
+.stp img{border-radius:var(--rl);aspect-ratio:1;object-fit:cover;width:100%}
+.stp b{display:block;font:700 20px var(--disp);margin:16px 0 6px}
+.stp b::before{counter-increment:s;content:"0" counter(s) "  ";color:var(--pers);font-size:15px}
+.stp p{font-size:14.5px;color:var(--mute)}
+/* contact */
+.cgr{display:grid;grid-template-columns:1fr 1.1fr;gap:72px;padding:30px 0 112px}
+.cinfo .h1{font-size:clamp(38px,4vw,58px);margin:14px 0 18px}
+.cinfo .blocks{display:grid;gap:14px;margin-top:34px}
+.cinfo .blocks>div{display:flex;gap:16px;padding:18px;background:var(--paper);border:1px solid var(--line);border-radius:12px}
+.cinfo .blocks svg{flex:none;color:var(--pers)}
+.cinfo .blocks b{display:block;font:700 17px var(--disp)}
+.cinfo .blocks span{font-size:14px;color:var(--mute)}
+.cform{background:var(--paper);border:1px solid var(--line);border-radius:var(--rl);padding:36px}
+.cform .r2{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.fl{display:flex;flex-direction:column;gap:7px;margin-bottom:16px}
+.fl label{font:700 12px var(--body);letter-spacing:.14em;text-transform:uppercase;color:var(--mute)}
+.fl input,.fl select,.fl textarea{height:52px;border:1px solid var(--line);border-radius:var(--r);background:var(--washi);padding:0 14px;font-size:15px;outline:0}
+.fl textarea{height:140px;padding:14px;resize:vertical}
+.fl input:focus,.fl textarea:focus,.fl select:focus{border-color:var(--sumi)}
+.topics{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:18px}
+.topics button{height:38px;padding:0 14px;border:1px solid var(--line);border-radius:999px;font-size:13.5px;background:var(--washi)}
+.topics button[aria-pressed=true]{background:var(--sumi);color:var(--paper);border-color:var(--sumi)}
+.faq{margin-top:56px}
+.cok{display:none;margin-top:12px;color:var(--matcha);font-weight:700}
+/* 404 */
+.nf4{text-align:center;padding:80px 0 60px}
+.nf4 .big{font:700 clamp(120px,16vw,220px)/1 var(--disp);color:var(--sumi);display:flex;justify-content:center;align-items:center;gap:12px}
+.nf4 .big svg{width:clamp(110px,14vw,190px);height:auto}
+.nf4 .h2{margin:22px 0 12px}
+.nf4 p{color:var(--mute);max-width:460px;margin:0 auto 30px}
+.nf4 .sb{display:flex;max-width:480px;margin:0 auto 26px;border-bottom:1.5px solid var(--sumi)}
+.nf4 .sb input{flex:1;height:54px;background:none;border:0;font:500 20px var(--disp);outline:0;min-width:0}
+
+/* responsive */
+@media (max-width:1180px){
+ .nav>li>a,.nav>li>button{padding:10px 10px}
+ .hrow{gap:20px}
+ .grid4,.sres{grid-template-columns:repeat(3,1fr)}
+ .needs .grid{grid-template-columns:repeat(3,1fr)}
+ .ft .top{grid-template-columns:1fr 1fr 1fr}
+}
+@media (max-width:989px){
+ .wrap{padding:0 20px}
+ .ann .wrap{grid-template-columns:1fr;height:38px}.ann .se,.ann .lk{display:none}.ann .msg{min-width:0;height:38px}
+ .hrow{grid-template-columns:44px 1fr auto;height:66px;gap:8px}
+ .burger{display:grid}
+ .nav{display:none}
+ .logo{justify-self:center;gap:10px}.seal{width:36px;height:36px}.seal svg{width:24px;height:24px}
+ .logo b{font-size:21px}.hdr .logo small{display:none}
+ .hic .ib.ac{display:none}
+ .bk{padding:0 12px;height:40px;margin-left:2px}.bk span{display:none}
+ .sec{padding:72px 0}
+ .sh{flex-direction:column;align-items:flex-start;gap:14px;margin-bottom:30px}
+ .hero{padding:20px 0 64px}
+ .hero .wrap{grid-template-columns:1fr;gap:34px}
+ .hero .tx{padding-left:0;order:2}
+ .vert{display:none}
+ .hero .shoji{order:1;border-radius:180px 180px var(--rl) var(--rl);aspect-ratio:.95}
+ .hseal{width:76px;height:76px;font-size:11px;left:14px;top:auto;bottom:118px}.hseal span{font-size:19px}
+ .hcard{left:14px;right:14px;bottom:14px;width:auto}
+ .hero .note{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:34px}
+ .hero .note b{font-size:17px}.hero .note div{font-size:12px}
+ .hero .cta .btn{flex:1 1 100%}
+ .stages{padding:0 0 64px}
+ .stages .wrap{grid-template-columns:1fr;gap:20px}.sts{grid-template-columns:none;grid-auto-flow:column;grid-auto-columns:40%;overflow-x:auto;gap:14px;padding-bottom:6px}
+ .needs .grid{grid-template-columns:none;grid-auto-flow:column;grid-auto-columns:72%;overflow-x:auto;border-left:0}
+ .need{min-height:240px;border-left:1px solid var(--line)}
+ .grid4{grid-template-columns:1fr 1fr;gap:26px 12px}
+ .qa{opacity:1;transform:none;left:8px;right:8px;bottom:8px}
+ .qa>button{height:38px;font-size:12px}
+ .ci h3{font-size:15.5px}.ci .row1{flex-direction:column;gap:2px}.ci .sub{display:none}.ci .row2{flex-direction:column;align-items:flex-start;gap:6px}
+ .pgrid,.tf,.craft .wrap,.news .wrap,.refill,.dpanel,.fbt,.rsum,.cgr,.bhero,.cban .wrap{grid-template-columns:1fr;gap:32px}
+ .pres{padding:20px}
+ .pit{grid-template-columns:auto 52px 1fr auto;gap:10px}.pit img{width:52px;height:52px}.pit .pp{font-size:14px}.pit b{font-size:15px}
+ .opts.big button{min-width:calc(50% - 4px)}
+ .ptot{flex-direction:column;align-items:stretch}
+ .tfbox{padding:22px}
+ .tfres{flex-wrap:wrap}.tfres .btn{margin-left:0;width:100%}
+ .rlist{grid-template-columns:none;grid-auto-flow:column;grid-auto-columns:78%;overflow-x:auto}
+ .hpop{width:220px;padding:8px}.hpop img{width:48px;height:48px}.hs{width:28px;height:28px;margin:-14px 0 0 -14px}
+ .craft .ph img.s{right:-6px;bottom:-26px;width:42%}
+ .refill .tx{padding:32px 24px}.refill .im{min-height:260px}
+ .diary{grid-template-columns:1fr 1fr}.dc.big{grid-column:1/-1;grid-row:auto}.dc.big img{aspect-ratio:1}
+ .dc .cap{left:8px;right:8px;bottom:8px;padding:8px 10px;font-size:12px}.dc .cap span{display:none}
+ .revs{grid-template-columns:none;grid-auto-flow:column;grid-auto-columns:86%;overflow-x:auto}
+ .news .wrap{padding-top:56px;padding-bottom:56px}
+ .ft .top{grid-template-columns:1fr 1fr;gap:30px}.ft .top>div:first-child,.ft .top>div:last-child{grid-column:1/-1}
+ .cbar{top:66px}.cbar .wrap{height:58px}
+ .cbar select,.cnt.d{display:none}
+ .fbtn{display:inline-flex;height:38px;padding:0 14px;border-radius:999px;background:var(--sumi);color:var(--paper);align-items:center;gap:6px;font:700 13px var(--body);flex:none}
+ .clay{grid-template-columns:1fr;padding-top:20px}
+ .fil{position:fixed;inset:0;z-index:420;background:var(--washi);padding:22px;overflow:auto;transform:translateY(100%);transition:transform .4s}
+ .fil.on{transform:none}
+ .fil .fh{display:flex!important}
+ .cgrid{grid-template-columns:1fr 1fr;gap:26px 12px}
+ .promo{grid-column:1/-1;min-height:260px}
+ .cban .ims img:last-child{margin-top:24px}
+ .pdp{grid-template-columns:1fr;gap:26px;padding-top:12px}
+ .gal{grid-template-columns:1fr;position:static}
+ .thumbs{flex-direction:row;order:2;overflow-x:auto}.thumbs button{flex:0 0 64px}
+ .szl{grid-template-columns:repeat(2,1fr)}
+ .trust{grid-template-columns:1fr 1fr 1fr}.trust div{padding:10px;font-size:11.5px}
+ .fbt .its{gap:6px}.fbt .plus{font-size:18px}
+ .rv{grid-template-columns:1fr;gap:8px}
+ .sticky .wrap{height:auto;padding-top:10px;padding-bottom:10px}
+ .sticky .wrap>div:first-of-type,.sticky img{display:none}
+ .sticky .sp{margin-left:0;width:100%}.sticky select{flex:1;min-width:0}.sticky .btn{flex:1.4;padding:0 12px}
+ .cart{grid-template-columns:1fr;gap:30px}
+ .line{grid-template-columns:84px 1fr;gap:14px}.line img{width:84px;height:84px}.line .lp{grid-column:2;text-align:left}
+ .ups .row{grid-template-columns:none;grid-auto-flow:column;grid-auto-columns:44%;overflow-x:auto}
+ .csum{position:static}
+ .sres{grid-template-columns:1fr 1fr;gap:26px 12px}.sart{grid-template-columns:1fr}
+ .bgrid{grid-template-columns:1fr;gap:30px}
+ .ahero{min-height:520px}
+ .vals{grid-template-columns:1fr}.val,.val+.val{padding:28px 0;border-right:0;border-bottom:1px solid var(--line)}
+ .steps{grid-template-columns:1fr 1fr}
+ .cform{padding:22px}.cform .r2{grid-template-columns:1fr;gap:0}
+ .drawer{width:100%}
+ .art p{font-size:17px}
+}
+.fil .fh{display:none;justify-content:space-between;align-items:center;margin-bottom:18px}
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
+<symbol id="i-s" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="M20 20l-4-4"/></g></symbol>
+<symbol id="i-u" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"><circle cx="12" cy="8" r="4"/><path d="M4 21c1.5-4 4.5-6 8-6s6.5 2 8 6"/></g></symbol>
+<symbol id="i-h" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round" d="M12 20s-7-4.5-7-10a4 4 0 017-2.5A4 4 0 0119 10c0 5.5-7 10-7 10z"/></symbol>
+<symbol id="i-b" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"><path d="M4 9h16l-2 11H6z"/><path d="M8 9l3-5M16 9l-3-5"/></g></symbol>
+<symbol id="i-a" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" d="M5 12h14M13 6l6 6-6 6"/></symbol>
+<symbol id="i-x" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" d="M6 6l12 12M18 6L6 18"/></symbol>
+<symbol id="i-p" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" d="M12 5v14M5 12h14"/></symbol>
+<symbol id="i-t" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"><path d="M2 7h12v9H2zM14 10h4l3 3v3h-7"/><circle cx="6" cy="17" r="2"/><circle cx="17" cy="17" r="2"/></g></symbol>
+<symbol id="i-r" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"><path d="M4 12a8 8 0 0114-5l2-2v6h-6l2-2a5 5 0 10.9 6"/></g></symbol>
+<symbol id="i-lf" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M5 19c0-8 6-13 14-14 0 8-5 14-14 14z"/><path d="M5 19l7-7"/></g></symbol>
+<symbol id="i-pin" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7"><path d="M12 21s7-6 7-12a7 7 0 10-14 0c0 6 7 12 7 12z"/><circle cx="12" cy="9" r="2.5"/></g></symbol>
+<symbol id="i-mail" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></g></symbol>
+<symbol id="i-clk" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></g></symbol>
+<symbol id="i-paw" viewBox="0 0 24 24"><g fill="currentColor"><ellipse cx="12" cy="16" rx="4.5" ry="3.8"/><circle cx="6.5" cy="10.5" r="2"/><circle cx="17.5" cy="10.5" r="2"/><circle cx="9.5" cy="6.5" r="2"/><circle cx="14.5" cy="6.5" r="2"/></g></symbol>
+<symbol id="i-moon" viewBox="0 0 32 32"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><ellipse cx="16" cy="20" rx="12" ry="5"/><path d="M6 20c2-5 6-8 10-8s8 3 10 8"/><path d="M12 12c0-3 2-5 4-5"/></g></symbol>
+<symbol id="i-play" viewBox="0 0 32 32"><g fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="11" cy="20" r="6"/><circle cx="22" cy="12" r="4"/><path d="M15 16c3-3 6-8 13-10" stroke-linecap="round"/></g></symbol>
+<symbol id="i-scr" viewBox="0 0 32 32"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><rect x="12" y="6" width="8" height="20" rx="1"/><path d="M12 10l8 3M12 15l8 3M12 20l8 3M7 27h18"/></g></symbol>
+<symbol id="i-bowl" viewBox="0 0 32 32"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M5 15h22c0 6-5 10-11 10S5 21 5 15z"/><path d="M10 25l-1 3h14l-1-3M12 11c1-2 3-2 4 0s3 2 4 0"/></g></symbol>
+<symbol id="i-climb" viewBox="0 0 32 32"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M4 27h8v-6h8v-6h8"/><path d="M6 6v21M26 6v9"/></g></symbol>
+</defs></svg>
+
+<div class="pv" role="toolbar" aria-label="Preview"><div class="tabs">
+<button data-go="home" class="on">Home</button><button data-go="collection">Collection</button><button data-go="product">Product</button><button data-go="cart">Cart</button><button data-go="search">Search</button><button data-go="blog">Blog</button><button data-go="article">Article</button><button data-go="about">About</button><button data-go="contact">Contact</button><button data-go="404">404</button></div>
+<label><input type="checkbox" id="names"> Show section names</label></div>
+
+<div class="ann" data-dawn="announcement-bar"><div class="wrap">
+<div class="se"><b>Seasonal note</b><span>· Late autumn: warm beds, slow mornings</span></div>
+<div class="msg" id="annMsg"><span class="on">Free shipping on orders over $99</span><span>Oak furniture made to order in 3 to 4 weeks</span><span>60 days to settle in, free returns</span></div>
+<div class="lk"><a href="#" class="ul" data-go="contact">Help</a><a href="#" class="ul" data-go="about">Our workshop</a><a href="#" class="ul" data-go="blog">Journal</a></div></div></div>
+
+<header class="hdr" id="hdr" data-dawn="header">
+<div class="wrap hrow">
+<button class="burger ib" id="burger" aria-label="Open menu"><svg width="24" height="24" viewBox="0 0 24 24"><path d="M3 7h18M3 12h18M3 17h11" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></button>
+<a href="#" class="logo" data-go="home" aria-label="Kotatsu home"><span class="seal"><svg width="28" height="28" viewBox="0 0 32 32"><path d="M6 27V12l5 4h10l5-4v15z" fill="#FBF8F2"/><circle cx="12.5" cy="20" r="1.6" fill="#C24E22"/><circle cx="19.5" cy="20" r="1.6" fill="#C24E22"/><path d="M4 27h24" stroke="#FBF8F2" stroke-width="2"/></svg></span><span><b>KOTATSU</b><small>Quiet goods for indoor cats</small></span></a>
+<ul class="nav" id="nav">
+<li id="shopLi"><button aria-expanded="false" id="shopBtn"><i>一</i>Shop</button>
+<div class="mega"><div class="wrap">
+<div><h5>By need</h5><ul><li><a href="#" data-go="collection" data-cat="Rest">Rest &amp; beds <span>12</span></a></li><li><a href="#" data-go="collection" data-cat="Scratch">Scratch <span>9</span></a></li><li><a href="#" data-go="collection" data-cat="Climb">Climb &amp; trees <span>8</span></a></li><li><a href="#" data-go="collection" data-cat="Play">Play <span>14</span></a></li><li><a href="#" data-go="collection" data-cat="Eat">Eat &amp; drink <span>10</span></a></li></ul></div>
+<div><h5>By life stage</h5><ul><li><a href="#" data-go="collection" data-st="Kitten">Kitten <span>under 1</span></a></li><li><a href="#" data-go="collection" data-st="Adult">Adult <span>1 to 10</span></a></li><li><a href="#" data-go="collection" data-st="Senior">Senior <span>10 and up</span></a></li><li><a href="#" data-go="collection">Multi-cat homes <span>sets</span></a></li></ul></div>
+<div><h5>Kotatsu</h5><ul><li><a href="#" data-go="home" data-h="#profile">Build a cat profile</a></li><li><a href="#" data-go="home" data-h="#treefit">Cat tree size finder</a></li><li><a href="#" data-go="home" data-h="#refill">Treat &amp; toy refills</a></li><li><a href="#" data-go="about">Our oak workshop</a></li></ul></div>
+<a href="#" class="mtile" data-go="product" data-p="7"><img data-k="room" alt="Oak cat tree in a calm living room"><div><span class="k" style="color:#F1C2A9">New in oak</span><b>The Pagoda tree</b><small>Three heights, one quiet tower</small></div></a>
+</div></div></li>
+<li><a href="#" data-go="collection" data-cat="Rest"><i>二</i>Beds</a></li>
+<li><a href="#" data-go="collection" data-cat="Climb"><i>三</i>Trees</a></li>
+<li><a href="#" data-go="home" data-h="#profile"><i>四</i>Cat profile</a></li>
+<li><a href="#" data-go="blog"><i>五</i>Journal</a></li>
+</ul>
+<div class="hic">
+<button class="ib" id="sbtn" aria-label="Search"><svg width="22" height="22"><use href="#i-s"/></svg></button>
+<a href="#" class="ib ac" aria-label="Account" data-go="contact"><svg width="22" height="22"><use href="#i-u"/></svg></a>
+<a href="#" class="ib ac" aria-label="Wishlist"><svg width="22" height="22"><use href="#i-h"/></svg></a>
+<button class="bk" id="bkBtn" aria-label="Open basket"><svg width="18" height="18"><use href="#i-b"/></svg><span>Basket</span><em id="cc">0</em></button>
+</div></div>
+<div class="srch" id="srch"><div class="wrap" style="flex-direction:column;align-items:stretch">
+<div style="display:flex;gap:14px;align-items:center"><svg width="26" height="26"><use href="#i-s"/></svg><input id="hq" placeholder="Search beds, trees, toys..." aria-label="Search"><button class="btn d" id="hqgo">Search</button><button class="ib" id="sx" aria-label="Close search"><svg width="22" height="22"><use href="#i-x"/></svg></button></div>
+<div class="sg"><span style="font-size:13px;color:var(--mute);margin-right:6px;align-self:center">Popular:</span><button class="chip" data-q="bed">Oak bed</button><button class="chip" data-q="tree">Cat tree</button><button class="chip" data-q="fountain">Water fountain</button><button class="chip" data-q="felt">Felt toys</button><button class="chip" data-q="senior">Senior cats</button></div>
+</div></div>
+</header>
+
+<div class="mm" id="mm" aria-label="Menu"><div class="top"><span class="logo"><span class="seal"><svg width="24" height="24" viewBox="0 0 32 32"><path d="M6 27V12l5 4h10l5-4v15z" fill="#FBF8F2"/></svg></span><span><b>KOTATSU</b></span></span><button class="ib" id="mmx" aria-label="Close menu"><svg width="22" height="22"><use href="#i-x"/></svg></button></div>
+<div class="row"><a href="#" data-go="collection" data-st="Kitten"><img data-k="kitten" alt="">Kitten</a><a href="#" data-go="collection" data-st="Adult"><img data-k="climb" alt="">Adult</a><a href="#" data-go="collection" data-st="Senior"><img data-k="senior" alt="">Senior</a><a href="#" data-go="collection"><img data-k="play" alt="">Multi-cat</a></div>
+<nav><a href="#" data-go="collection">Shop all <i>一</i></a><a href="#" data-go="collection" data-cat="Rest">Beds <i>二</i></a><a href="#" data-go="collection" data-cat="Climb">Trees &amp; shelves <i>三</i></a><a href="#" data-go="collection" data-cat="Play">Play <i>四</i></a><a href="#" data-go="home" data-h="#profile">Cat profile <i>五</i></a><a href="#" data-go="blog">Journal <i>六</i></a><a href="#" data-go="about">Workshop <i>七</i></a><a href="#" data-go="contact">Help <i>八</i></a></nav>
+</div>
+
+<main>
+<!-- HOME -->
+<section class="page on" id="p-home">
+<div class="hero reveal" data-dawn="image-banner"><div class="wrap">
+<div class="tx"><span class="vert">For indoor cats · since 2026</span>
+<span class="k">Late autumn collection</span>
+<h1 class="h1" style="margin-top:20px">A slow, warm room <em>for a curious cat.</em></h1>
+<p class="lede">Oak beds, sisal posts and wall shelves made to sit quietly in your living room, and to be loved hard by the cat who lives there.</p>
+<div class="cta"><a href="#" class="btn d" data-go="collection">Shop the collection</a><a href="#profile" class="btn o" data-go="home" data-h="#profile">Build a cat profile</a></div>
+<div class="note"><div><b>Solid oak</b>no veneer, oiled by hand</div><div><b>60 days</b>to settle in at home</div><div><b>Free shipping</b>on orders over $99</div></div>
+</div>
+<div class="shoji"><img data-k="hero" alt="Grey cat asleep on a round oak bed in a calm room" fetchpriority="high"><div class="lat"></div>
+<div class="hseal"><div><span>秋</span>Autumn<br>edit</div></div>
+<div class="hcard"><img data-k="p1" alt=""><div><b>Oak Moon Bed</b><small>From $129 · 3 sizes</small></div><a href="#" class="go" data-go="product" data-p="0" aria-label="View Oak Moon Bed"><svg width="18" height="18"><use href="#i-a"/></svg></a></div>
+</div>
+</div></div>
+
+<div class="stages" data-dawn="collection-list"><div class="wrap">
+<div class="lab reveal"><span class="k">Shop by cat</span><h2 class="h3">Every age has its favourite spot.</h2></div>
+<div class="sts"><a href="#" class="st reveal" data-go="collection" data-st="Kitten"><div class="c"><img data-k="kitten" alt="Kitten playing with a felt ball"></div><b>Kitten</b><small>under 1 year</small></a>
+<a href="#" class="st reveal" data-go="collection" data-st="Adult"><div class="c"><img data-k="climb" alt="Cat climbing oak wall shelves"></div><b>Adult</b><small>1 to 10 years</small></a>
+<a href="#" class="st reveal" data-go="collection" data-st="Senior"><div class="c"><img data-k="senior" alt="Older cat resting by a window"></div><b>Senior</b><small>10 years and up</small></a>
+<a href="#" class="st reveal" data-go="collection"><div class="c"><img data-k="play" alt="Cat playing with a feather wand"></div><b>Multi-cat</b><small>sets and tall trees</small></a></div>
+</div></div>
+
+<div class="needs" data-dawn="multicolumn"><div class="wrap"><div class="grid">
+<a href="#" class="need reveal" data-go="collection" data-cat="Rest"><span class="n">一 · Rest</span><svg width="36" height="36"><use href="#i-moon"/></svg><b>Beds &amp; caves</b><p>Raised oak rims and linen caves for cats who sleep 15 hours a day.</p><span>Shop rest <svg width="16" height="16"><use href="#i-a"/></svg></span></a>
+<a href="#" class="need reveal" data-go="collection" data-cat="Scratch"><span class="n">二 · Scratch</span><svg width="36" height="36"><use href="#i-scr"/></svg><b>Posts &amp; boards</b><p>Tall, heavy sisal posts that do not tip, so the sofa can rest too.</p><span>Shop scratch <svg width="16" height="16"><use href="#i-a"/></svg></span></a>
+<a href="#" class="need reveal" data-go="collection" data-cat="Climb"><span class="n">三 · Climb</span><svg width="36" height="36"><use href="#i-climb"/></svg><b>Trees &amp; shelves</b><p>Vertical space for small flats: wall steps and oak towers.</p><span>Shop climb <svg width="16" height="16"><use href="#i-a"/></svg></span></a>
+<a href="#" class="need reveal" data-go="collection" data-cat="Play"><span class="n">四 · Play</span><svg width="36" height="36"><use href="#i-play"/></svg><b>Felt &amp; wands</b><p>Wool felt toys and wands for ten minutes of hunting a day.</p><span>Shop play <svg width="16" height="16"><use href="#i-a"/></svg></span></a>
+<a href="#" class="need reveal" data-go="collection" data-cat="Eat"><span class="n">五 · Eat &amp; drink</span><svg width="36" height="36"><use href="#i-bowl"/></svg><b>Bowls &amp; water</b><p>Raised ceramic bowls and a quiet fountain that cats drink from.</p><span>Shop bowls <svg width="16" height="16"><use href="#i-a"/></svg></span></a>
+</div></div></div>
+
+<section class="sec" data-dawn="featured-collection"><div class="wrap">
+<div class="sh"><div><span class="k">Most loved</span><h2 class="h2">Pieces cats choose first.</h2></div><div style="display:flex;gap:16px;align-items:center;flex-wrap:wrap"><div class="tabsr" id="bestTabs"><button aria-pressed="true" data-t="best">Best sellers</button><button aria-pressed="false" data-t="new">New in</button><button aria-pressed="false" data-t="sale">On sale</button></div><a href="#" class="ul" data-go="collection" style="font-weight:700;font-size:14px">View all</a></div></div>
+<div class="grid4" id="bestGrid"></div>
+</div></section>
+
+<section class="sec prof" id="profile" data-dawn="sbs-cat-profile"><div class="wrap">
+<div class="sh"><div><span class="k">Cat profile builder</span><h2 class="h2">Tell us about your cat.<br>We set up the room.</h2></div><p>Four quick answers. We pick three pieces that suit their age, their habits and your space. Untick anything you already own.</p></div>
+<div class="pgrid">
+<div>
+<div class="pstep"><h4><i>01</i>Their name</h4><div class="pname"><input id="pfName" value="Mochi" maxlength="16" aria-label="Cat name"><svg width="22" height="22" style="color:#E9A37F"><use href="#i-paw"/></svg></div></div>
+<div class="pstep"><h4><i>02</i>Age</h4><div class="opts" data-g="age"><button aria-pressed="false" data-v="Kitten">Kitten <small>&lt; 1</small></button><button aria-pressed="true" data-v="Adult">Adult <small>1-10</small></button><button aria-pressed="false" data-v="Senior">Senior <small>10+</small></button></div></div>
+<div class="pstep"><h4><i>03</i>Personality</h4><div class="opts big" data-g="pers"><button aria-pressed="true" data-v="Climber"><b>Climber</b><small>always on the top shelf</small></button><button aria-pressed="false" data-v="Napper"><b>Napper</b><small>finds the sunny spot</small></button><button aria-pressed="false" data-v="Hunter"><b>Hunter</b><small>stalks socks at 3 am</small></button><button aria-pressed="false" data-v="Explorer"><b>Explorer</b><small>opens every cupboard</small></button></div></div>
+<div class="pstep"><h4><i>04</i>Your home</h4><div class="opts" data-g="home"><button aria-pressed="true" data-v="Studio">Studio flat</button><button aria-pressed="false" data-v="Flat">Flat with rooms</button><button aria-pressed="false" data-v="House">House</button></div></div>
+</div>
+<div class="pres" aria-live="polite">
+<div class="hd"><div><span class="k" id="pfTag">Adult · Climber</span><h3 class="h3" id="pfTitle" style="margin-top:10px">Mochi's room</h3><p id="pfWhy">Vertical routes save floor space in a studio. A post and a high bed give a climber a lookout.</p></div>
+<svg class="pcat" viewBox="0 0 80 80" aria-hidden="true"><circle cx="40" cy="40" r="38" fill="#F3DCCF"/><path d="M20 62V34l9 7h22l9-7v28z" fill="#1E1C1A"/><circle cx="32" cy="50" r="2.6" fill="#E9A37F"/><circle cx="48" cy="50" r="2.6" fill="#E9A37F"/><path d="M37 56l3 2 3-2" stroke="#E9A37F" stroke-width="1.6" fill="none" stroke-linecap="round"/></svg></div>
+<div class="plist" id="pfList"></div>
+<div class="ptot"><div><small>Room set · 10% off three pieces</small><strong id="pfTot"></strong></div><button class="btn p" id="pfAdd">Add set to basket</button></div>
+<p class="pmsg" id="pfMsg" role="status"></p>
+</div>
+</div>
+</div></section>
+
+<section class="sec" id="room" data-dawn="sbs-cat-room"><div class="wrap">
+<div class="sh"><div><span class="k">Shop the room</span><h2 class="h2">One corner, four quiet pieces.</h2></div><p>Tap a dot to see what is in the room. Everything here fits a corner of about 2 by 2 metres.</p></div>
+<div class="room reveal" id="roomBox"><img data-k="room" alt="Calm living room with an oak cat tree, wall shelves and a bed"></div>
+<div class="rlist" id="roomList"></div>
+</div></section>
+
+<section class="sec craft" data-dawn="image-with-text"><div class="wrap">
+<div class="ph reveal"><img data-k="cave" alt="Cat peeking out of a linen cave bed"><img class="s" data-k="p3" alt="Sisal scratching post with oak base"></div>
+<div class="reveal"><span class="k">How it is made</span><h2 class="h2" style="margin:16px 0 18px">Furniture first.<br>Cat furniture second.</h2>
+<p class="lede">We design every piece to sit next to your sofa without apology. Then we ask the cats.</p>
+<ul><li><i>木</i><div><b>Solid oak, oiled</b><span>FSC oak from one small mill, finished with a pet-safe hard wax oil.</span></div></li><li><i>麻</i><div><b>Replaceable sisal and linen</b><span>Worn rope and cushion covers swap out in minutes, so the frame lasts.</span></div></li><li><i>静</i><div><b>Built to stay still</b><span>Weighted bases and wall fixings, because a wobbly post never gets used.</span></div></li></ul>
+<a href="#" class="btn d" data-go="about">Visit the workshop</a></div>
+</div></section>
+
+<section class="sec" id="treefit" data-dawn="sbs-tree-fit"><div class="wrap">
+<div class="tf">
+<div class="reveal"><span class="k">Cat tree size finder</span><h2 class="h2" style="margin:16px 0 14px">Which Pagoda fits your ceiling?</h2><p class="lede" style="margin-bottom:28px">Set your ceiling height, the number of cats and the heaviest cat. We match the tree height and show it in your room.</p>
+<div class="tfbox">
+<div class="tfrow"><label for="tfH">Ceiling height <output id="tfHo">250 cm</output></label><input type="range" id="tfH" min="210" max="320" step="5" value="250"></div>
+<div class="tfrow"><div class="lb">Cats in the home</div><div class="seg" data-g="tfc"><button aria-pressed="true" data-v="1">One</button><button aria-pressed="false" data-v="2">Two</button><button aria-pressed="false" data-v="3">Three +</button></div></div>
+<div class="tfrow"><div class="lb">Heaviest cat</div><div class="seg" data-g="tfw"><button aria-pressed="false" data-v="3">Under 4 kg</button><button aria-pressed="true" data-v="5">4 to 6 kg</button><button aria-pressed="false" data-v="7">Over 6 kg</button></div></div>
+<div class="tfres"><img data-k="p8" alt=""><div><b id="tfName">Pagoda Mid · 140 cm</b><small id="tfWhy">Leaves 110 cm of headroom. Three platforms for one cat.</small></div><button class="btn d" id="tfAdd">Add · $249</button></div>
+<p class="pmsg" id="tfMsg" role="status"></p>
+</div></div>
+<div class="tfdraw reveal"><span class="lg">Your room, to scale</span><svg id="tfSvg" viewBox="0 0 400 410" aria-label="Drawing of the tree next to your ceiling height"></svg></div>
+</div>
+</div></section>
+
+<section class="sec" style="padding-top:0" id="refill" data-dawn="featured-product"><div class="wrap">
+<div class="refill reveal"><div class="tx"><span class="k">Treat &amp; toy refill</span><h2 class="h2">A small box of new things, on your schedule.</h2><p>Freeze-dried fish treats, a silvervine stick and one new felt toy. Skip, pause or cancel any time from your account.</p>
+<div class="every" data-g="every"><button aria-pressed="false" data-v="4">Every 4 weeks</button><button aria-pressed="true" data-v="6">Every 6 weeks</button><button aria-pressed="false" data-v="8">Every 8 weeks</button></div>
+<div class="bx"><div><strong>$24</strong><small id="refTxt">per box · delivered every 6 weeks · save 15%</small></div><button class="btn l" id="refAdd">Start a refill</button></div></div>
+<div class="im"><img data-k="eat" alt="Cat eating from a raised persimmon ceramic bowl"></div></div>
+</div></section>
+
+<section class="sec" style="padding-top:0" data-dawn="collage"><div class="wrap">
+<div class="sh"><div><span class="k">Cat diary</span><h2 class="h2">From your homes this week.</h2></div><p>Share a photo with #kotatsucats. One cat of the week gets a felt toy set. <span class="sample">Sample content</span></p></div>
+<div class="diary">
+<div class="dc big reveal"><img data-k="senior" alt="Senior cat resting by the window"><span class="potw">Cat of the week</span><div class="cap"><b>Mochi, 14</b><span>Claims the Oak Moon Bed from 7 am to 4 pm, then the window.</span></div></div>
+<div class="dc reveal"><img data-k="kitten" alt="Kitten with a felt ball"><div class="cap"><b>Yuzu, 4 months</b><span>Lost two felt balls under the sofa already.</span></div></div>
+<div class="dc reveal"><img data-k="climb" alt="Cat on oak wall shelves"><div class="cap"><b>Sumi, 3</b><span>Uses the wall steps as a commute.</span></div></div>
+<div class="dc reveal"><img data-k="cave" alt="Cat in a linen cave"><div class="cap"><b>Kinako, 6</b><span>Only comes out of the cave for fish.</span></div></div>
+<div class="dc reveal"><img data-k="play" alt="Cat jumping at a feather wand"><div class="cap"><b>Tofu, 2</b><span>Ten minutes of wand, two hours of nap.</span></div></div>
+</div>
+</div></section>
+
+<section class="sec" style="padding-top:0" data-dawn="multicolumn"><div class="wrap">
+<div class="sh"><div><span class="k">Kind words</span><h2 class="h2">What the humans say.</h2></div><p>★★★★★ 4.9 average from sample reviews <span class="sample">Sample reviews</span></p></div>
+<div class="revs">
+<div class="rc reveal"><span class="stars">★★★★★</span><q>The first cat tree that does not look like a cat tree. Both cats fight over the top platform.</q><div class="who"><img data-k="play" alt=""><div><b>Sample review</b>Pagoda Tall · two cats</div></div></div>
+<div class="rc reveal"><span class="stars">★★★★★</span><q>Our old boy struggles to jump now. The low oak rim is easy for him and he sleeps there all day.</q><div class="who"><img data-k="senior" alt=""><div><b>Sample review</b>Oak Moon Bed · senior cat</div></div></div>
+<div class="rc reveal"><span class="stars">★★★★☆</span><q>The fountain is truly quiet. She drinks more than she did from a bowl. Cleaning takes five minutes.</q><div class="who"><img data-k="drink" alt=""><div><b>Sample review</b>Stillwater Fountain</div></div></div>
+</div>
+</div></section>
+</section>
+
+<!-- COLLECTION -->
+<section class="page" id="p-collection">
+<div class="wrap"><nav class="bc" data-dawn="sbs-breadcrumbs"><a href="#" data-go="home">Home</a><span>/</span><span id="bcCat" style="opacity:1">All pieces</span></nav></div>
+<div class="cban" data-dawn="main-collection-banner"><div class="wrap">
+<div><span class="k">The collection</span><h1 class="h1" id="cTitle">Everything for a quiet cat room.</h1><p class="lede" style="margin-top:16px" id="cDesc">Oak furniture, linen and ceramics for indoor cats. Made to order pieces ship in 3 to 4 weeks.</p></div>
+<div class="ims"><img data-k="cave" alt=""><img data-k="climb" alt=""></div>
+</div></div>
+<div class="cbar"><div class="wrap">
+<button class="fbtn" id="fOpen"><svg width="16" height="16" viewBox="0 0 24 24"><path d="M4 6h16M7 12h10M10 18h4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>Filter</button>
+<div class="cats" id="cats"><button aria-pressed="true" data-c="all">All</button><button aria-pressed="false" data-c="Rest">Rest</button><button aria-pressed="false" data-c="Scratch">Scratch</button><button aria-pressed="false" data-c="Climb">Climb</button><button aria-pressed="false" data-c="Play">Play</button><button aria-pressed="false" data-c="Eat">Eat &amp; drink</button></div>
+<span class="cnt d" id="cnt">8 pieces</span>
+<select id="sort" aria-label="Sort"><option value="f">Featured</option><option value="lo">Price, low to high</option><option value="hi">Price, high to low</option><option value="r">Top rated</option><option value="n">Newest</option></select>
+</div></div>
+<div class="wrap"><div class="clay" data-dawn="main-collection-product-grid">
+<aside class="fil" id="fil" aria-label="Filters">
+<div class="fh"><h3 class="h3">Filter</h3><button class="ib" id="fClose" aria-label="Close filters"><svg width="22" height="22"><use href="#i-x"/></svg></button></div>
+<div class="fg"><h5>Life stage</h5><div class="fst" id="fSt"><button aria-pressed="false">Kitten</button><button aria-pressed="false">Adult</button><button aria-pressed="false">Senior</button></div></div>
+<div class="fg"><h5>Availability</h5><label><input type="checkbox" id="fIn"> In stock <span>7</span></label><label><input type="checkbox" id="fSale"> On sale <span>2</span></label></div>
+<div class="fg"><h5>Material</h5><label><input type="checkbox" data-m="Oak"> Solid oak <span>4</span></label><label><input type="checkbox" data-m="Ceramic"> Ceramic <span>2</span></label><label><input type="checkbox" data-m="Linen"> Linen <span>2</span></label><label><input type="checkbox" data-m="Wool"> Wool felt <span>1</span></label></div>
+<div class="fg"><h5>Colour</h5><div class="fsw" id="fCol"><button style="background:#E8DDCB" aria-label="Oat" data-c="Oat" aria-pressed="false"></button><button style="background:#3A3633" aria-label="Charcoal" data-c="Charcoal" aria-pressed="false"></button><button style="background:#C24E22" aria-label="Persimmon" data-c="Persimmon" aria-pressed="false"></button><button style="background:#7E8D5E" aria-label="Matcha" data-c="Matcha" aria-pressed="false"></button><button style="background:#C79A64" aria-label="Natural oak" data-c="Natural oak" aria-pressed="false"></button><button style="background:#6A4A30" aria-label="Dark oak" data-c="Dark oak" aria-pressed="false"></button></div></div>
+<div class="fg prg"><h5>Price <b id="fPv">up to $320</b></h5><input type="range" id="fPrice" min="20" max="320" step="10" value="320" aria-label="Maximum price"></div>
+<button class="btn o" id="fReset" style="width:100%;height:44px">Clear all</button>
+</aside>
+<div><div class="chips" id="chips"></div><div class="cgrid" id="cgrid"></div>
+<div class="more"><p id="moreTxt">Showing 8 of 24 pieces</p><div class="bar"><i style="width:33%"></i></div><button class="btn o" id="moreBtn">Load more</button></div></div>
+</div></div>
+</section>
+
+<!-- PRODUCT -->
+<section class="page" id="p-product">
+<div class="wrap"><nav class="bc" data-dawn="sbs-breadcrumbs"><a href="#" data-go="home">Home</a><span>/</span><a href="#" data-go="collection" id="pdBc">Rest</a><span>/</span><span id="pdBc2" style="opacity:1">Oak Moon Bed</span></nav>
+<div class="pdp" data-dawn="main-product">
+<div class="gal"><div class="thumbs" id="thumbs"></div><div class="gmain" id="gmain"><img id="gimg" alt=""><span class="zh"><svg width="14" height="14"><use href="#i-s"/></svg>Click to zoom</span></div></div>
+<div class="pi">
+<span class="crumbs" id="pdCat">Rest · Solid oak</span>
+<h1 id="pdName">Oak Moon Bed</h1>
+<div class="rt"><span class="stars" id="pdStars"></span><a href="#revs" data-go="product" data-h="#revs">Read reviews</a></div>
+<div class="price" id="pdPrice"></div><div class="tax">Tax included. Free shipping over $99.</div>
+<p class="ds" id="pdDesc"></p>
+<div data-dawn="variant-picker">
+<div class="opt" id="pdSwO"><div class="ol">Cushion <span id="pdSwN">Oat</span></div><div class="swl" id="pdSw"></div></div>
+<div class="opt"><div class="ol">Size <a href="#" id="szGuide" data-go="home" data-h="#treefit">Size guide</a></div><div class="szl" id="pdSz"></div><div class="low" id="pdLow"></div>
+<div class="fit"><svg width="22" height="22"><use href="#i-paw"/></svg><span id="pdFit"></span></div></div>
+</div>
+<div class="buy" data-dawn="buy-buttons"><div class="qty"><button id="qm" aria-label="Less">−</button><input id="qv" value="1" aria-label="Quantity"><button id="qp" aria-label="More">+</button></div><button class="btn d" id="pdAdd">Add to basket</button></div>
+<div class="trust"><div><svg width="20" height="20"><use href="#i-t"/></svg><b>Free shipping</b>over $99, 2 to 4 days</div><div><svg width="20" height="20"><use href="#i-r"/></svg><b>60 day trial</b>free returns</div><div><svg width="20" height="20"><use href="#i-lf"/></svg><b>Solid oak</b>FSC, hand oiled</div></div>
+<div class="acc" data-dawn="collapsible-content">
+<details open><summary>Details</summary><div class="in" id="pdDet"></div></details>
+<details><summary>Materials &amp; size</summary><div class="in"><table id="pdTech"></table></div></details>
+<details><summary>Care</summary><div class="in">Wipe the oak with a damp cloth. Covers zip off and wash at 30°C. Re-oil the oak once a year with the included wax.</div></details>
+<details><summary>Shipping &amp; returns</summary><div class="in">In stock pieces ship in 1 to 2 days. Made to order oak ships in 3 to 4 weeks. Try it for 60 days; if your cat ignores it, send it back for free.</div></details>
+</div>
+</div></div></div>
+
+<section class="sec" style="padding-top:24px" data-dawn="image-with-text"><div class="wrap"><div class="dpanel">
+<div class="hsimg reveal" id="dImg"><img id="dPic" alt="" style="width:100%;aspect-ratio:1;object-fit:cover"></div>
+<div class="reveal"><span class="k">The details</span><h2 class="h2" style="margin-top:14px" id="dTitle">Made to be slept on.</h2><ul id="dList"></ul></div>
+</div></div></section>
+
+<section class="sec" style="padding-top:0" data-dawn="sbs-frequently-bought"><div class="wrap">
+<div class="sh"><div><span class="k">Pairs well with</span><h2 class="h2">Complete the corner.</h2></div></div>
+<div class="fbt"><div class="its" id="fbtIts"></div><div class="sum"><small style="font-size:13px;color:var(--mute)">Total for selected pieces</small><strong id="fbtTot"></strong><p>Bought together: 10% off at checkout.</p><button class="btn d" id="fbtAdd" style="width:100%">Add selected to basket</button></div></div>
+</div></section>
+
+<section class="sec" id="revs" style="padding-top:0" data-dawn="product-reviews"><div class="wrap">
+<div class="sh"><div><span class="k">Reviews</span><h2 class="h2">From homes with cats.</h2></div><span class="sample">Sample reviews</span></div>
+<div class="rsum"><div><div class="big" id="rBig">4.9</div><div class="stars" style="font-size:15px;margin-top:8px" id="rStars">★★★★★</div><p style="font-size:14px;color:var(--mute);margin-top:6px" id="rCnt">Based on 412 reviews</p><div class="bars" id="rBars"></div><button class="btn o" style="margin-top:24px;width:100%;height:46px">Write a review</button></div>
+<div class="rlist2">
+<div class="rv"><div class="m"><b>Sample review</b>Senior cat, 13<br>Size M · Oat</div><div><span class="stars">★★★★★</span><h4>She stopped sleeping on the radiator.</h4><p>The rim is low enough for her stiff legs and the cushion is thick. It looks like a piece of furniture, not a pet bed.</p><div class="vf">✓ Verified buyer</div></div></div>
+<div class="rv"><div class="m"><b>Sample review</b>Two cats, 3 and 5<br>Size L · Charcoal</div><div><span class="stars">★★★★★</span><h4>Big enough for both of them.</h4><p>We took L for two cats and they share it most evenings. The cover came off and washed without shrinking.</p><div class="vf">✓ Verified buyer</div></div></div>
+<div class="rv"><div class="m"><b>Sample review</b>Adult cat, 4<br>Size M · Matcha</div><div><span class="stars">★★★★☆</span><h4>Took a week, now it is hers.</h4><p>She ignored it for a few days. A sprinkle of silvervine did the trick. Lovely oak, ships well packed.</p><div class="vf">✓ Verified buyer</div></div></div>
+</div></div>
+</div></section>
+
+<section class="sec" style="padding-top:0" data-dawn="related-products"><div class="wrap"><div class="sh"><div><span class="k">You may also like</span><h2 class="h2">More for the same corner.</h2></div></div><div class="grid4" id="relGrid"></div></div></section>
+<section class="sec" style="padding-top:0" data-dawn="sbs-recently-viewed"><div class="wrap"><div class="sh"><div><span class="k">Recently viewed</span><h2 class="h2">Still thinking it over?</h2></div></div><div class="grid4" id="rvGrid"></div></div></section>
+<div class="sticky" id="sticky" data-dawn="sticky add to cart"><div class="wrap"><img id="stImg" alt=""><div><b id="stName">Oak Moon Bed</b><small id="stInfo">M · Oat</small></div><div class="sp"><select id="stSz" aria-label="Size"></select><button class="btn d" id="stAdd">Add · $149</button></div></div></div>
+</section>
+
+<!-- CART -->
+<section class="page" id="p-cart">
+<div class="wrap"><nav class="bc" data-dawn="sbs-breadcrumbs"><a href="#" data-go="home">Home</a><span>/</span><span style="opacity:1">Basket</span></nav>
+<div class="cart">
+<div data-dawn="main-cart-items"><span class="k">Your basket</span><h1 class="h1" id="cartH">Your basket</h1>
+<div class="ship" id="cShip"></div>
+<div id="cLines"></div>
+<div class="ups"><h4>Small things cats love</h4><div class="row" id="upsell"></div></div>
+</div>
+<aside class="csum" data-dawn="main-cart-footer"><h3>Summary</h3>
+<div class="r"><span>Subtotal</span><b id="cSub">$0</b></div><div class="r"><span>Set savings</span><b id="cSave" style="color:var(--matcha)">−$0</b></div><div class="r"><span>Shipping</span><b id="cShipV">Free</b></div><div class="r t"><span>Total</span><span id="cTot">$0</span></div>
+<label for="cNote">Order note</label><textarea id="cNote" placeholder="A note for the workshop, or gift wrap details"></textarea>
+<button class="btn d" id="chk">Check out</button>
+<div class="tb"><span>VISA</span><span>MC</span><span>AMEX</span><span>PAYPAL</span><span>APPLE PAY</span><span>SHOP PAY</span></div>
+<div class="tl"><div><svg width="18" height="18"><use href="#i-t"/></svg>Free shipping over $99</div><div><svg width="18" height="18"><use href="#i-r"/></svg>60 day trial, free returns</div><div><svg width="18" height="18"><use href="#i-lf"/></svg>Secure checkout</div></div>
+</aside></div></div>
+</section>
+
+<!-- SEARCH -->
+<section class="page" id="p-search">
+<div class="wrap" style="padding-bottom:112px" data-dawn="main-search"><nav class="bc"><a href="#" data-go="home">Home</a><span>/</span><span style="opacity:1">Search</span></nav>
+<div class="sbig"><svg width="30" height="30"><use href="#i-s"/></svg><input id="sq" value="bed" aria-label="Search"><button class="btn d" id="sgo">Search</button></div>
+<p id="sInfo" style="color:var(--mute);margin-bottom:14px"></p>
+<div class="stabs" id="sTabs"><button class="chip" data-q="bed">bed</button><button class="chip" data-q="oak">oak</button><button class="chip" data-q="kitten">kitten</button><button class="chip" data-q="fountain">fountain</button><button class="chip" data-q="sisal">sisal</button></div>
+<div class="sres" id="sres"></div>
+<h3 class="h3" style="margin-top:64px">From the journal</h3>
+<div class="sart" id="sart"></div>
+</div>
+</section>
+
+<!-- BLOG -->
+<section class="page" id="p-blog">
+<div class="wrap" style="padding-bottom:112px" data-dawn="main-blog"><nav class="bc"><a href="#" data-go="home">Home</a><span>/</span><span style="opacity:1">Journal</span></nav>
+<div class="bhero"><a href="#" data-go="article" class="pim"><img data-k="senior" alt="Older cat resting on a bed by a window"></a><div><span class="k">Journal · Care</span><h2><a href="#" data-go="article">Setting up a home for an older cat</a></h2><p class="lede">Lower edges, warmer beds and water in more than one room. Small changes that help a senior cat move with ease.</p><div class="bmeta" style="margin:18px 0 24px"><span>6 min read</span><span>·</span><span>Kotatsu workshop</span></div><a href="#" class="btn d" data-go="article">Read the story</a></div></div>
+<div class="btags"><button class="chip" style="background:var(--sumi);color:var(--paper)">All</button><button class="chip">Care</button><button class="chip">Play</button><button class="chip">Small spaces</button><button class="chip">Workshop</button></div>
+<div class="bgrid" id="bgrid"></div>
+</div>
+</section>
+
+<!-- ARTICLE -->
+<section class="page" id="p-article">
+<div class="wrap"><nav class="bc" data-dawn="sbs-breadcrumbs"><a href="#" data-go="home">Home</a><span>/</span><a href="#" data-go="blog">Journal</a><span>/</span><span style="opacity:1">Older cats</span></nav>
+<article class="art" data-dawn="main-article"><span class="k">Care · 6 min read</span>
+<h1>Setting up a home for an older cat</h1>
+<div class="bmeta"><span>By the Kotatsu workshop</span><span>·</span><span>November 2026</span></div>
+<img class="cv" data-k="senior" alt="Older cat by a window">
+<p>Cats over ten slow down quietly. They still want the high spot and the warm spot, but the jump costs more. A few changes at home let them keep their routines without strain.</p>
+<h2>Lower the way up</h2>
+<p>Add a step halfway to favourite places: a low shelf by the window, a stool next to the sofa. Wall steps work well when the gap is no more than 30 cm.</p>
+<blockquote>Keep the old favourite places. Just make the route there shorter.</blockquote>
+<h2>Warm, low and firm</h2>
+<p>Older joints like a bed with a low entry and a thick, firm cushion. Place it away from draughts and close to where you sit in the evening.</p>
+<div class="tip"><b>Workshop tip</b>Put a second water bowl or a fountain on each floor of the home. Older cats drink more when water is close.</div>
+<h2>A short checklist</h2>
+<ol><li>A bed with a rim under 10 cm high.</li><li>One step to every high favourite place.</li><li>Water in two places, away from food.</li><li>Ten minutes of slow play each day.</li></ol>
+<p>None of this needs a full redesign. Start with the spot your cat already loves and make it easier to reach.</p>
+<div class="share">Share <a href="#" class="chip">Copy link</a><a href="#" class="chip">Pinterest</a><a href="#" class="chip">Email</a></div>
+</article></div>
+<section class="sec" style="padding-top:0" data-dawn="featured-collection"><div class="wrap"><div class="sh"><div><span class="k">Shop the story</span><h2 class="h2">Made for older cats.</h2></div></div><div class="grid4" id="artGrid"></div></div></section>
+</section>
+
+<!-- ABOUT -->
+<section class="page" id="p-about">
+<div class="ahero" data-dawn="image-banner"><img data-k="room" alt="Calm room with oak cat furniture"><div class="wrap"><span class="k">Our workshop</span><h1 class="h1">We make furniture for two: you and your cat.</h1></div></div>
+<section class="sec" data-dawn="rich-text"><div class="wrap" style="max-width:900px;text-align:center"><span class="k">Why Kotatsu</span><h2 class="h2" style="margin:18px 0">A kotatsu is a low, warm table where the whole home gathers in winter. The cat always gets there first.</h2><p class="lede" style="margin:0 auto">We started with one oak bed for one old cat. Now we make a small range of pieces for indoor cats, built to last and to look calm in a lived-in room.</p></div></section>
+<section class="sec" style="padding-top:0" data-dawn="multicolumn"><div class="wrap"><div class="vals">
+<div class="val"><i>木</i><b>Honest materials</b><p>Solid oak, sisal, linen, wool and stoneware. Nothing plastic where a cat can chew it.</p></div>
+<div class="val"><i>静</i><b>Quiet design</b><p>Low profiles, soft colours and no logos. The cat is the star of the room.</p></div>
+<div class="val"><i>長</i><b>Made to last</b><p>Every rope, cushion and cover can be replaced, so the frame stays for years.</p></div>
+</div></div></section>
+<section class="sec" style="padding-top:0" data-dawn="multicolumn"><div class="wrap"><div class="sh"><div><span class="k">From oak to living room</span><h2 class="h2">How a piece is made.</h2></div></div><div class="steps">
+<div class="stp reveal"><img data-k="p8" alt=""><b>Drawn</b><p>Each piece starts with a sketch and a cardboard test with our own cats.</p></div>
+<div class="stp reveal"><img data-k="p1" alt=""><b>Cut and oiled</b><p>Oak is cut, sanded and oiled by hand in our small workshop.</p></div>
+<div class="stp reveal"><img data-k="p3" alt=""><b>Wrapped</b><p>Sisal is wound by hand and fixed so it can be replaced later.</p></div>
+<div class="stp reveal"><img data-k="climb" alt=""><b>Tested</b><p>Every design spends a month in a real home before it goes on sale.</p></div>
+</div></div></section>
+<section class="sec" style="padding-top:0" data-dawn="featured-collection"><div class="wrap"><div class="sh"><div><span class="k">Start here</span><h2 class="h2">Our first four pieces.</h2></div></div><div class="grid4" id="abGrid"></div></div></section>
+</section>
+
+<!-- CONTACT -->
+<section class="page" id="p-contact">
+<div class="wrap"><nav class="bc" data-dawn="sbs-breadcrumbs"><a href="#" data-go="home">Home</a><span>/</span><span style="opacity:1">Help</span></nav>
+<div class="cgr">
+<div class="cinfo" data-dawn="rich-text"><span class="k">Help &amp; contact</span><h1 class="h1">Ask us anything about your cat's room.</h1><p class="lede">Sizing, oak care, a cat who ignores the new bed. We answer within one working day.</p>
+<div class="blocks"><div><svg width="24" height="24"><use href="#i-mail"/></svg><div><b>Email</b><span>hello@kotatsu.example · replies within 1 day</span></div></div><div><svg width="24" height="24"><use href="#i-clk"/></svg><div><b>Hours</b><span>Monday to Friday, 9 am to 5 pm</span></div></div><div><svg width="24" height="24"><use href="#i-pin"/></svg><div><b>Workshop</b><span>Visits by appointment</span></div></div></div></div>
+<div class="cform" data-dawn="contact-form"><h3 class="h3" style="margin-bottom:18px">Send a message</h3>
+<div class="topics" data-g="topic"><button aria-pressed="true">Sizing</button><button aria-pressed="false">Order</button><button aria-pressed="false">Returns</button><button aria-pressed="false">Care</button><button aria-pressed="false">Other</button></div>
+<div class="r2"><div class="fl"><label for="cn">Name</label><input id="cn" placeholder="Your name"></div><div class="fl"><label for="ce">Email</label><input id="ce" type="email" placeholder="you@example.com"></div></div>
+<div class="fl"><label for="co">Order number (optional)</label><input id="co" placeholder="#1001"></div>
+<div class="fl"><label for="cm">Message</label><textarea id="cm" placeholder="Tell us about your cat and your space"></textarea></div>
+<button class="btn d" id="csend" style="width:100%">Send message</button><p class="cok" id="cok">Thank you. We will reply within one working day.</p></div>
+</div>
+<div class="faq acc" data-dawn="collapsible-content" style="max-width:900px;margin:0 auto 112px"><h2 class="h2" style="margin-bottom:18px">Common questions</h2>
+<details open><summary>How long do made to order pieces take?</summary><div class="in">Oak beds and trees are made in 3 to 4 weeks, then ship in 2 to 4 days. You get an email when your piece leaves the workshop.</div></details>
+<details><summary>My cat ignores the new bed. What now?</summary><div class="in">Put it where your cat already sleeps, add a worn t-shirt and a pinch of silvervine. If it still is not used after 60 days, return it for free.</div></details>
+<details><summary>Can I replace the sisal rope?</summary><div class="in">Yes. Replacement rope and cushion covers are sold separately and fit in a few minutes with the included key.</div></details>
+<details><summary>Do the trees fix to the wall?</summary><div class="in">Pagoda Mid and Tall come with a wall strap and fixings. We recommend using it in homes with more than one cat.</div></details>
+</div></div>
+</section>
+
+<!-- 404 -->
+<section class="page" id="p-404">
+<div class="wrap" data-dawn="main-404"><div class="nf4">
+<div class="big">4<svg viewBox="0 0 120 120" aria-hidden="true"><circle cx="60" cy="60" r="56" fill="#F3DCCF"/><path d="M28 92V46l13 11h38l13-11v46z" fill="#1E1C1A"/><path d="M45 72q5-4 10 0M65 72q5-4 10 0" stroke="#E9A37F" stroke-width="3" fill="none" stroke-linecap="round"/><text x="84" y="40" font-family="Shippori Mincho,serif" font-size="16" fill="#C24E22">z z</text></svg>4</div>
+<h1 class="h2">This page curled up somewhere.</h1><p>The cat may have pushed it off the table. Try a search, or head back to the collection.</p>
+<div class="sb"><input id="nfq" placeholder="Search the shop" aria-label="Search"><button class="ib" id="nfgo" aria-label="Search"><svg width="22" height="22"><use href="#i-s"/></svg></button></div>
+<div style="display:flex;gap:10px;justify-content:center;flex-wrap:wrap"><a href="#" class="btn d" data-go="home">Back home</a><a href="#" class="btn o" data-go="collection">Shop all pieces</a></div>
+</div></div>
+<section class="sec" style="padding-top:24px" data-dawn="featured-collection"><div class="wrap"><div class="sh"><div><span class="k">Perhaps this</span><h2 class="h2">Popular right now.</h2></div></div><div class="grid4" id="nfGrid"></div></div></section>
+</section>
+</main>
+
+<section class="news" data-dawn="newsletter"><div class="wrap">
+<div><span class="k">Letters from the workshop</span><h2 class="h2" style="margin-top:14px">One quiet email a month.</h2><p class="lede" style="margin-top:12px">New pieces, cat care notes and first access to small oak batches.</p></div>
+<div><div class="nf"><input placeholder="Your email address" aria-label="Email" id="nlE"><button class="btn d" id="nlB">Subscribe</button></div><small id="nlM">No spam. Unsubscribe in one click.</small></div>
+</div></section>
+
+<footer class="ft" data-dawn="footer"><div class="wrap">
+<div class="top">
+<div><span class="logo"><span class="seal"><svg width="28" height="28" viewBox="0 0 32 32"><path d="M6 27V12l5 4h10l5-4v15z" fill="#FBF8F2"/><circle cx="12.5" cy="20" r="1.6" fill="#C24E22"/><circle cx="19.5" cy="20" r="1.6" fill="#C24E22"/></svg></span><span><b>KOTATSU</b><small>Quiet goods for indoor cats</small></span></span><p class="about">Oak, sisal, linen and stoneware for cats who live indoors, and the people who share the sofa with them.</p>
+<div class="soc"><a href="#" aria-label="Instagram"><svg width="17" height="17" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/></g></svg></a><a href="#" aria-label="Pinterest"><svg width="17" height="17" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" d="M9 21l2-8M12 3a7 7 0 00-3 13.4M12 3a7 7 0 012 13.7c-1.5.4-2.6-.4-3-1.7"/></svg></a><a href="#" aria-label="TikTok"><svg width="17" height="17" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" d="M14 3v11a4 4 0 11-4-4M14 3c0 3 2 5 5 5"/></svg></a><a href="#" aria-label="YouTube"><svg width="17" height="17" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="5" width="20" height="14" rx="4"/><path d="M10 9l5 3-5 3z"/></g></svg></a></div></div>
+<div><h6>Shop</h6><ul><li><a href="#" data-go="collection" data-cat="Rest">Beds &amp; caves</a></li><li><a href="#" data-go="collection" data-cat="Climb">Trees &amp; shelves</a></li><li><a href="#" data-go="collection" data-cat="Scratch">Scratch</a></li><li><a href="#" data-go="collection" data-cat="Play">Play</a></li><li><a href="#" data-go="collection" data-cat="Eat">Eat &amp; drink</a></li></ul></div>
+<div><h6>Help</h6><ul><li><a href="#" data-go="contact">Contact</a></li><li><a href="#" data-go="contact">Shipping</a></li><li><a href="#" data-go="contact">Returns</a></li><li><a href="#" data-go="home" data-h="#treefit">Tree size finder</a></li><li><a href="#" data-go="contact">Replacement parts</a></li></ul></div>
+<div><h6>Kotatsu</h6><ul><li><a href="#" data-go="about">Workshop</a></li><li><a href="#" data-go="blog">Journal</a></li><li><a href="#" data-go="home" data-h="#profile">Cat profile</a></li><li><a href="#" data-go="home" data-h="#refill">Refill box</a></li><li><a href="#" data-go="404">Careers</a></li></ul></div>
+<div><h6>Newsletter</h6><p style="margin-bottom:12px">Workshop letters, once a month.</p><div class="nf"><input placeholder="Email address" aria-label="Email"><button class="ib" aria-label="Subscribe" style="color:var(--paper)"><svg width="20" height="20"><use href="#i-a"/></svg></button></div></div>
+</div>
+<div class="bot"><span>© 2026 Kotatsu. Demo store design.</span><div class="pay"><span>VISA</span><span>MC</span><span>AMEX</span><span>PAYPAL</span><span>APPLE PAY</span><span>SHOP PAY</span></div><span>Privacy · Terms · Accessibility</span></div>
+</div></footer>
+
+<div class="ov" id="ov"></div>
+<aside class="drawer" id="drawer" aria-label="Basket" data-dawn="cart-drawer"><div class="dh"><h3>Basket <span id="dCnt" style="font:500 15px var(--body);color:var(--mute)"></span></h3><button class="ib" id="dx" aria-label="Close basket"><svg width="22" height="22"><use href="#i-x"/></svg></button></div>
+<div class="db"><div class="ship" id="dShip"></div><div id="dLines"></div><div class="rec"><h5>Add a small thing</h5><div id="dRec" style="display:grid;gap:8px"></div></div></div>
+<div class="df"><div class="r"><span>Subtotal</span><span id="dSub">$0</span></div><div class="bb"><button class="btn o" data-go="cart" id="dCart">View basket</button><button class="btn d">Check out</button></div></div></aside>
+<div class="toast" id="toast"><svg width="16" height="16"><use href="#i-paw"/></svg><span id="toastT">Added</span></div>
+<script>
+const IMG='img/kotatsu-demo-';
+const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)];
+const money=n=>'$'+(Math.round(n*100)/100).toFixed(2).replace(/\.00$/,'');
+const P=[
+ {k:'p1',n:'Oak Moon Bed',c:'Rest',st:['Adult','Senior'],m:'Oak',sz:['S','M','L'],pz:[129,149,169],hint:['up to 4 kg','up to 7 kg','up to 10 kg'],b:'Best seller',r:4.9,rc:412,h:'senior',sub:'Low oak rim, thick linen cushion',sw:[['Oat','#E8DDCB'],['Charcoal','#3A3633'],['Matcha','#7E8D5E']],x:[],low:['L'],nw:3,
+  ds:'A low, round bed in solid oak with a thick, firm linen cushion. The 9 cm rim is easy for older legs and makes a cat feel held.',fit:'Measure your cat curled up. M fits most adult cats up to 7 kg. Two cats who share: take L.',
+  tech:[['Frame','Solid FSC oak, hard wax oil'],['Cushion','Linen cover, recycled fibre fill'],['Size M','58 cm across, 9 cm rim'],['Weight M','5.2 kg'],['Made','To order, 3 to 4 weeks']],
+  det:[['Low 9 cm rim','Easy to step into for kittens and seniors.'],['Zip-off linen cover','Washes at 30°C, spare covers sold separately.'],['Felt-lined base','Silent on wooden floors, no sliding.']],set:[5,6]},
+ {k:'p2',n:'Kaki Raised Bowl',c:'Eat',st:['Kitten','Adult','Senior'],m:'Ceramic',sz:['One size'],pz:[38],b:'New',r:4.8,rc:236,h:'eat',sub:'Stoneware bowl on a small oak stand',sw:[['Persimmon','#C24E22'],['Charcoal','#3A3633'],['Oat','#E8DDCB']],x:[],nw:1,
+  ds:'A wide, shallow stoneware bowl that keeps whiskers clear, raised 9 cm on an oak stand for a straighter neck while eating.',fit:'One size. Holds 300 ml, for wet or dry food.',
+  tech:[['Bowl','Glazed stoneware, dishwasher safe'],['Stand','Solid oak, 9 cm high'],['Volume','300 ml'],['Width','16 cm'],['Made','In small batches']],
+  det:[['Wide and shallow','No whisker stress at the edges.'],['Raised 9 cm','A calmer posture for older cats.'],['Lifts out','The bowl goes in the dishwasher.']],set:[6,3]},
+ {k:'p3',n:'Sisal Tower Post',c:'Scratch',st:['Kitten','Adult'],m:'Oak',sz:['70 cm','90 cm'],pz:[79,99],hint:['for kittens','full stretch'],r:4.8,rc:351,h:'scratch',sub:'Heavy oak base, replaceable sisal',sw:[['Natural oak','#C79A64'],['Dark oak','#6A4A30']],x:[],nw:2,
+  ds:'A tall post on a heavy oak base, wound with thick natural sisal. Tall enough for a full stretch, heavy enough that it never tips.',fit:'Take 90 cm for adult cats so they can stretch at full length. 70 cm suits kittens and small flats.',
+  tech:[['Base','Solid oak, 40 × 40 cm, 6 kg'],['Rope','Natural sisal, 10 mm'],['Top','Oak perch, 30 cm round'],['Rope swap','About 10 minutes'],['Made','In stock, ships in 2 days']],
+  det:[['6 kg oak base','The post does not move, so it gets used.'],['Replaceable sisal','Fresh rope in about ten minutes.'],['Oak perch on top','A small lookout after a good scratch.']],set:[3,0]},
+ {k:'p4',n:'Felt Ball Set',c:'Play',st:['Kitten','Adult'],m:'Wool',sz:['One size'],pz:[18],w:24,b:'Sale',r:4.7,rc:528,h:'kitten',sub:'Five wool felt balls in a basket',sw:[['Mixed','#7E8D5E']],x:[],nw:4,
+  ds:'Five soft wool felt balls, hand felted and dyed with plant colours, in a small woven basket for tidying up.',fit:'One set of five. Each ball is 5 cm, too big to swallow.',
+  tech:[['Material','100% wool felt'],['Colours','Plant-based dyes'],['Ball size','5 cm'],['Basket','Woven seagrass'],['Care','Air out in the sun']],
+  det:[['Hand felted','Dense enough to bat for months.'],['Silent on floors','No midnight rattling.'],['Basket included','Tidy up after play.']],set:[2,1]},
+ {k:'p5',n:'Step Wall Shelves',c:'Climb',st:['Kitten','Adult'],m:'Oak',sz:['Set of 3','Set of 5'],pz:[119,179],hint:['one wall','a full route'],b:'New',r:4.8,rc:142,h:'climb',sub:'Oak steps with a carpet top',sw:[['Natural oak','#C79A64'],['Dark oak','#6A4A30']],x:[],nw:0,
+  ds:'Solid oak wall steps with a soft carpet top, for a climbing route in a small flat. Hidden steel brackets hold cats up to 12 kg.',fit:'A set of 3 makes a route to a shelf or window. A set of 5 crosses a full wall. Space steps 25 to 30 cm apart.',
+  tech:[['Step','Solid oak, 40 × 22 cm'],['Top','Wool carpet pad, removable'],['Holds','Up to 12 kg per step'],['Fixings','Hidden steel bracket, screws included'],['Made','In stock']],
+  det:[['Hidden brackets','A clean line on the wall.'],['Carpet top','Grip for take-off and landing.'],['Holds 12 kg','For big cats and bold jumps.']],set:[7,0]},
+ {k:'p6',n:'Linen Cave Bed',c:'Rest',st:['Kitten','Adult','Senior'],m:'Linen',sz:['S','M'],pz:[89,99],hint:['up to 5 kg','up to 8 kg'],b:'New',r:4.9,rc:198,h:'cave',sub:'Hooded hideaway in washed linen',sw:[['Oat','#E8DDCB'],['Charcoal','#3A3633']],x:['S'],nw:1,
+  ds:'A soft hooded cave in washed linen with a removable cushion. A dark, quiet place for cats who like to watch the room unseen.',fit:'M fits most adult cats. Small cats and kittens can take S when it is back in stock.',
+  tech:[['Cover','Washed linen'],['Base','Felt, non slip'],['Size M','50 × 45 × 38 cm'],['Cushion','Removable, washable'],['Care','Wash at 30°C']],
+  det:[['Hooded shape','A safe, dark hideaway.'],['Holds its shape','A light frame keeps the hood up.'],['All washable','Cover and cushion at 30°C.']],set:[0,3]},
+ {k:'p7',n:'Stillwater Fountain',c:'Eat',st:['Kitten','Adult','Senior'],m:'Ceramic',sz:['One size'],pz:[69],w:79,b:'Sale',r:4.6,rc:307,h:'drink',sub:'Quiet ceramic fountain, 2 litres',sw:[['Oat','#E8DDCB'],['Charcoal','#3A3633']],x:[],nw:2,
+  ds:'A ceramic fountain with a quiet pump and a gentle flow. Many cats drink more from moving water; this one is quiet enough for a bedroom.',fit:'One size, 2 litres. Refill every 2 to 3 days, clean once a week.',
+  tech:[['Body','Glazed ceramic'],['Volume','2 litres'],['Pump','Low noise, USB powered'],['Filter','Carbon, change monthly'],['Care','Dishwasher safe body']],
+  det:[['Quiet pump','Barely audible at night.'],['Ceramic body','No plastic taste, easy to clean.'],['Gentle flow','Water stays fresh and moving.']],set:[1,0]},
+ {k:'p8',n:'Pagoda Cat Tree',c:'Climb',st:['Kitten','Adult'],m:'Oak',sz:['Low 95 cm','Mid 140 cm','Tall 185 cm'],pz:[189,249,319],hint:['2 platforms','3 platforms','5 platforms'],r:4.9,rc:264,h:'play',sub:'Oak and sisal tower, three heights',sw:[['Natural oak','#C79A64'],['Dark oak','#6A4A30']],x:[],low:['Tall 185 cm'],nw:0,
+  ds:'A calm oak tower with sisal posts and staggered platforms. Built like a piece of furniture, so it can stand in the living room.',fit:'Use the size finder: leave at least 60 cm between the top platform and the ceiling.',
+  tech:[['Frame','Solid FSC oak'],['Posts','Natural sisal, replaceable'],['Footprint','55 × 55 cm'],['Platforms','2, 3 or 5 with linen pads'],['Wall strap','Included with Mid and Tall']],
+  det:[['Staggered platforms','Short, safe jumps up the tower.'],['Linen pads','Zip off and wash.'],['Wall strap','Stays still with two cats.']],set:[4,2]}
+];
+const unitP=(i,s)=>{const p=P[i],k=p.sz.indexOf(s);return p.pz[k<0?0:k]};
+const first=p=>p.sz.find(s=>!(p.x||[]).includes(s))||p.sz[0];
+const minP=p=>Math.min(...p.pz);
+const src=k=>IMG+k+'.jpg';
+function imgs(){$$('img[data-k]').forEach(i=>{i.src=src(i.dataset.k)})}
+const stars=(r,c)=>`<span class="stars">${'★'.repeat(Math.round(r))}${'☆'.repeat(5-Math.round(r))} ${r}${c!=null?`<em>(${c})</em>`:''}</span>`;
+const heart='<svg width="17" height="17"><use href="#i-h"/></svg>';
+function card(i){const p=P[i],one=p.sz.length===1,v=new Set(p.pz).size>1;
+ return `<div class="card reveal" data-ci="${i}"><div class="im">${p.b?`<span class="badge ${p.b==='Sale'?'s':p.b==='New'?'n':''}">${p.b}</span>`:''}
+ <a href="#" data-go="product" data-p="${i}" aria-label="${p.n}"><img class="m" src="${src(p.k)}" alt="${p.n}" loading="lazy"><img class="h" src="${src(p.h)}" alt="" loading="lazy"></a>
+ <button class="wish" aria-label="Save ${p.n}" aria-pressed="false">${heart}</button>
+ <div class="qa">${one?`<button data-qa="${i}">Add · ${money(p.pz[0])}</button>`:`<button data-qo="${i}">Choose size</button><div class="szp"><p>Choose size</p><div>${p.sz.map(s=>`<button data-qs="${i}" data-s="${s}" ${(p.x||[]).includes(s)?'disabled':''}>${s}</button>`).join('')}</div></div>`}</div></div>
+ <div class="ci"><div class="row1"><h3><a href="#" data-go="product" data-p="${i}">${p.n}</a></h3><span class="pr ${p.w?'sale':''}">${p.w?`<s>${money(p.w)}</s>`:''}<b>${v?'From ':''}${money(minP(p))}</b></span></div>
+ <p class="sub">${p.sub}</p><div class="row2">${stars(p.r,p.rc)}<span class="sw">${p.sw.map(s=>`<i style="background:${s[1]}" title="${s[0]}"></i>`).join('')}</span></div>${one?'':`<span class="ptag">${p.sz.length} sizes · ${p.st.join(', ')}</span>`}</div></div>`}
+function fill(sel,arr){const el=$(sel);if(el)el.innerHTML=arr.map(card).join('')}
+
+/* routing */
+function go(pg,hash){$$('.page').forEach(p=>p.classList.toggle('on',p.id==='p-'+pg));$$('.pv .tabs button').forEach(b=>b.classList.toggle('on',b.dataset.go===pg));closeAll();
+ if(pg==='cart')renderCart();if(pg==='search')runSearch();
+ if(hash){const t=$(hash);if(t)setTimeout(()=>t.scrollIntoView({behavior:'smooth'}),40)}else window.scrollTo({top:0});setTimeout(obs,30)}
+document.addEventListener('click',e=>{const a=e.target.closest('[data-go]');if(!a)return;e.preventDefault();
+ if(a.dataset.p!=null){setProduct(+a.dataset.p);seen(+a.dataset.p)}
+ if(a.dataset.go==='collection'){resetF(true);if(a.dataset.cat)setCat(a.dataset.cat);else setCat('all');if(a.dataset.st){fst=[a.dataset.st];$$('#fSt button').forEach(b=>b.setAttribute('aria-pressed',b.textContent===a.dataset.st));coll()}}
+ go(a.dataset.go,a.dataset.h||null)});
+function closeAll(){$('#mm').classList.remove('on');$('#srch').classList.remove('on');$('#shopLi').classList.remove('op');$('#shopBtn').setAttribute('aria-expanded','false');closeDrawer();$('#fil').classList.remove('on')}
+function hdr(){$('#hdr').classList.toggle('sc',scrollY>10);const s=$('#sticky');if(s){const b=$('#pdAdd'),r=b.getBoundingClientRect();s.classList.toggle('on',$('#p-product').classList.contains('on')&&r.bottom<0)}}
+addEventListener('scroll',hdr,{passive:true});
+$('#names').onchange=e=>document.body.classList.toggle('names',e.target.checked);
+/* announcement */
+let ai=0;setInterval(()=>{const s=$$('#annMsg span');s[ai].classList.remove('on');s[ai].classList.add('out');const o=s[ai];setTimeout(()=>o.classList.remove('out'),650);ai=(ai+1)%s.length;s[ai].classList.add('on')},4200);
+/* mega + search + menu */
+const li=$('#shopLi');li.addEventListener('mouseenter',()=>{if(innerWidth>989){li.classList.add('op');$('#shopBtn').setAttribute('aria-expanded','true')}});li.addEventListener('mouseleave',()=>{li.classList.remove('op');$('#shopBtn').setAttribute('aria-expanded','false')});
+$('#shopBtn').onclick=()=>{const o=li.classList.toggle('op');$('#shopBtn').setAttribute('aria-expanded',o)};
+$('#sbtn').onclick=()=>{$('#srch').classList.toggle('on');$('#hq').focus()};$('#sx').onclick=()=>$('#srch').classList.remove('on');
+function doSearch(v){$('#sq').value=v||'bed';go('search')}
+$('#hqgo').onclick=()=>doSearch($('#hq').value);$('#hq').addEventListener('keydown',e=>{if(e.key==='Enter')doSearch($('#hq').value)});
+$$('#srch [data-q]').forEach(b=>b.onclick=()=>doSearch(b.dataset.q));
+$('#burger').onclick=()=>$('#mm').classList.add('on');$('#mmx').onclick=()=>$('#mm').classList.remove('on');
+document.addEventListener('keydown',e=>{if(e.key==='Escape')closeAll()});
+$('#nfgo').onclick=()=>doSearch($('#nfq').value);
+/* generic toggle groups */
+function setG(g,b){[...b.parentNode.children].forEach(x=>x.setAttribute('aria-pressed',x===b?'true':'false'))}
+const gv=g=>{const b=$(`[data-g="${g}"] [aria-pressed=true]`);return b?b.dataset.v:null};
+
+/* cards: quick add + wish + tabs */
+document.addEventListener('click',e=>{let b=e.target.closest('[data-qa]');if(b){add(+b.dataset.qa,P[+b.dataset.qa].sz[0],P[+b.dataset.qa].sw[0][0],1,false,b);return}
+ b=e.target.closest('[data-qo]');if(b){$$('.qa.op').forEach(q=>q.classList.remove('op'));b.parentNode.classList.add('op');return}
+ b=e.target.closest('[data-qs]');if(b){const i=+b.dataset.qs;add(i,b.dataset.s,P[i].sw[0][0],1);b.closest('.qa').classList.remove('op');return}
+ b=e.target.closest('.wish');if(b){const o=b.classList.toggle('on');b.setAttribute('aria-pressed',o);toast(o?'Saved to wishlist':'Removed from wishlist');return}
+ if(!e.target.closest('.qa'))$$('.qa.op').forEach(q=>q.classList.remove('op'))});
+const TABS={best:[0,7,2,6],new:[4,5,1,0],sale:[3,6,7,2]};
+$$('#bestTabs button').forEach(b=>b.onclick=()=>{setG(0,b);fill('#bestGrid',TABS[b.dataset.t]);obs()});
+
+/* cart */
+let cart=[];const FREE=99;
+function add(i,s,c,q=1,silent,btn,disc){const ex=cart.find(l=>l.i===i&&l.s===s&&l.c===c);if(ex)ex.q+=q;else cart.push({i,s,c,q,d:disc||0});render();
+ const cc=$('#cc');cc.classList.remove('bump');void cc.offsetWidth;cc.classList.add('bump');
+ if(btn){const t=btn.innerHTML;btn.classList.add('ok');btn.innerHTML='✓ Added';setTimeout(()=>{btn.classList.remove('ok');btn.innerHTML=t},1300)}
+ if(!silent)openDrawer()}
+const lineT=l=>unitP(l.i,l.s)*l.q;
+const sub=()=>cart.reduce((a,l)=>a+lineT(l),0);
+const save=()=>cart.reduce((a,l)=>a+lineT(l)*(l.d||0),0);
+function shipHTML(){const s=sub()-save(),left=FREE-s;return left>0?`<p>You are <b>${money(left)}</b> away from free shipping.</p><div class="tr"><i style="width:${Math.min(100,s/FREE*100)}%"></i></div>`:`<p><b style="color:var(--matcha)">Free shipping unlocked.</b> Your order ships for free.</p><div class="tr"><i style="width:100%"></i></div>`}
+function lineHTML(l,k){const p=P[l.i];return `<div class="line"><img src="${src(p.k)}" alt=""><div><h3>${p.n}</h3><div class="va">${p.sz.length>1?l.s+' · ':''}${l.c}${l.d?' · <span style="color:var(--matcha)">set −10%</span>':''}</div><div class="ctl"><div class="qty"><button data-lq="${k}" data-d="-1" aria-label="Less">−</button><input value="${l.q}" aria-label="Quantity" readonly><button data-lq="${k}" data-d="1" aria-label="More">+</button></div><button class="rm" data-rm="${k}">Remove</button></div></div><div class="lp">${p.w?`<s>${money(p.w*l.q)}</s>`:''}${money(lineT(l))}</div></div>`}
+function render(){const n=cart.reduce((a,l)=>a+l.q,0);$('#cc').textContent=n;$('#dCnt').textContent=n?`(${n})`:'';
+ $('#dShip').innerHTML=shipHTML();$('#dLines').innerHTML=cart.length?cart.map(lineHTML).join(''):'<p style="padding:30px 0;color:var(--mute)">Your basket is empty. A cat bed is a good start.</p>';
+ $('#dSub').textContent=money(sub()-save());
+ const inC=new Set(cart.map(l=>l.i));$('#dRec').innerHTML=[3,1,6,2].filter(i=>!inC.has(i)).slice(0,2).map(i=>`<div class="mini"><img src="${src(P[i].k)}" alt=""><div style="flex:1"><b>${P[i].n}</b><div class="mr">${money(minP(P[i]))}</div></div><button data-qa="${i}">Add</button></div>`).join('');
+ if($('#p-cart').classList.contains('on'))renderCart()}
+function renderCart(){$('#cartH').textContent=cart.length?`Your basket (${cart.reduce((a,l)=>a+l.q,0)})`:'Your basket is empty';$('#cShip').innerHTML=shipHTML();
+ $('#cLines').innerHTML=cart.length?cart.map(lineHTML).join(''):'<div class="cempty"><p class="lede" style="margin:0 auto 20px">Nothing here yet. Start with a warm bed.</p><a href="#" class="btn d" data-go="collection">Shop the collection</a></div>';
+ const s=sub(),sv=save(),sh=s-sv>=FREE||!cart.length?0:8;$('#cSub').textContent=money(s);$('#cSave').textContent='−'+money(sv);$('#cShipV').textContent=sh?money(sh):'Free';$('#cTot').textContent=money(s-sv+sh);
+ const inC=new Set(cart.map(l=>l.i));$('#upsell').innerHTML=[3,1,6,2,4,5].filter(i=>!inC.has(i)).slice(0,4).map(i=>`<div class="mini"><img src="${src(P[i].k)}" alt=""><b>${P[i].n}</b><div class="mr"><span>${money(minP(P[i]))}</span><button data-qa="${i}">Add</button></div></div>`).join('')}
+document.addEventListener('click',e=>{let b=e.target.closest('[data-lq]');if(b){const l=cart[+b.dataset.lq];l.q+=+b.dataset.d;if(l.q<1)cart.splice(+b.dataset.lq,1);render();renderCart();return}
+ b=e.target.closest('[data-rm]');if(b){cart.splice(+b.dataset.rm,1);render();renderCart()}});
+function openDrawer(){$('#drawer').classList.add('on');$('#ov').classList.add('on')}
+function closeDrawer(){$('#drawer').classList.remove('on');$('#ov').classList.remove('on')}
+$('#bkBtn').onclick=openDrawer;$('#dx').onclick=closeDrawer;$('#ov').onclick=closeDrawer;
+let tt;function toast(t){$('#toastT').textContent=t;$('#toast').classList.add('on');clearTimeout(tt);tt=setTimeout(()=>$('#toast').classList.remove('on'),1800)}
+$('#chk').onclick=()=>toast('Demo store: checkout is disabled');
+
+/* sbs-cat-profile */
+const PERS={Climber:{p:[[4,7],[2]],why:'Climbers want height. A route up the wall and a tall post give them a lookout without taking floor space.'},
+ Napper:{p:[[0],[5]],why:'Nappers need two good spots: a warm open bed for the day and a quiet cave for the evening.'},
+ Hunter:{p:[[3],[2]],why:'Hunters need short, daily play and a strong post to finish on. Ten minutes a day keeps 3 am quiet.'},
+ Explorer:{p:[[5],[4,7]],why:'Explorers like hidden corners and new routes. A cave to watch from and steps to patrol.'}};
+const AGE={Kitten:{add:3,note:'Kittens grow fast, so we pick the smaller sizes.'},Adult:{add:6,note:''},Senior:{add:0,note:'For a senior cat we keep jumps short and beds low.'}};
+let pfSet=[];
+function pfSize(i,age,home){const p=P[i];if(p.sz.length===1)return p.sz[0];if(i===7)return home==='Studio'?'Low 95 cm':home==='House'?'Tall 185 cm':'Mid 140 cm';
+ if(age==='Kitten')return first(p);if(i===0)return age==='Senior'?'M':'M';if(i===2)return '90 cm';if(i===4)return home==='Studio'?'Set of 3':'Set of 5';const a=p.sz.filter(s=>!(p.x||[]).includes(s));return a[a.length-1]}
+function prof(){const age=gv('age'),pers=gv('pers'),home=gv('home'),nm=($('#pfName').value.trim()||'Your cat').replace(/[<>]/g,'');
+ const R=PERS[pers];let ids=[];R.p.forEach(o=>{let c=o.length>1?(home==='Studio'?o[0]:o[1]):o[0];if(age==='Senior'&&c===7)c=4;ids.push(c)});
+ let ex=AGE[age].add;if(age==='Senior'&&pers==='Climber')ids[1]=0;if(!ids.includes(ex))ids.push(ex);
+ [6,1,0,3].forEach(f=>{if(ids.length<3&&!ids.includes(f))ids.push(f)});ids=[...new Set(ids)].slice(0,3);
+ const old=pfSet;pfSet=ids.map(i=>{const o=old.find(x=>x.i===i);return {i,s:pfSize(i,age,home),on:o?o.on:true}});
+ $('#pfTag').textContent=age+' · '+pers;$('#pfTitle').textContent=nm+(nm.endsWith('s')?"' room":"'s room");$('#pfWhy').textContent=R.why+(AGE[age].note?' '+AGE[age].note:'');
+ $('#pfList').innerHTML=pfSet.map((x,k)=>{const p=P[x.i];return `<label class="pit ${x.on?'':'off'}"><input type="checkbox" data-pf="${k}" ${x.on?'checked':''} aria-label="Include ${p.n}"><img src="${src(p.k)}" alt=""><span><b>${p.n}</b><small>${p.sz.length>1?x.s+' · ':''}${p.det[0][0]}</small></span><span class="pp">${money(unitP(x.i,x.s))}</span></label>`}).join('');
+ const on=pfSet.filter(x=>x.on),t=on.reduce((a,x)=>a+unitP(x.i,x.s),0),d=on.length===3?t*.9:t;
+ $('#pfTot').innerHTML=(on.length===3?`<s>${money(t)}</s>`:'')+money(d);$('#pfAdd').disabled=!on.length;$('#pfAdd').textContent=on.length?`Add ${on.length} piece${on.length>1?'s':''} to basket`:'Pick a piece'}
+$('#profile').addEventListener('click',e=>{const b=e.target.closest('[data-g] button');if(b){setG(0,b);prof()}});
+$('#pfList').addEventListener('change',e=>{if(e.target.dataset.pf!=null){pfSet[+e.target.dataset.pf].on=e.target.checked;prof()}});
+$('#pfName').addEventListener('input',prof);
+$('#pfAdd').onclick=()=>{const on=pfSet.filter(x=>x.on);on.forEach(x=>add(x.i,x.s,P[x.i].sw[0][0],1,true,null,on.length===3?.1:0));$('#pfMsg').textContent=`${on.length} piece${on.length>1?'s':''} added for ${$('#pfName').value||'your cat'}.`;const b=$('#pfAdd');b.classList.add('ok');b.textContent='✓ Added to basket';setTimeout(()=>{b.classList.remove('ok');prof()},1500);openDrawer()};
+
+/* sbs-tree-fit */
+const TREES=[{n:'Low',h:95,pl:2},{n:'Mid',h:140,pl:3},{n:'Tall',h:185,pl:5}];let tfPick=1;
+function tree(){const H=+$('#tfH').value,c=+gv('tfc'),w=+gv('tfw');$('#tfHo').textContent=H+' cm';
+ let sc=c+(w===7?1:w===3?-1:0);let k=sc<=0?0:sc===1?1:2;while(k>0&&H-TREES[k].h<60)k--;tfPick=k;const t=TREES[k],hr=H-t.h;
+ $('#tfName').textContent=`Pagoda ${t.n} · ${t.h} cm`;
+ $('#tfWhy').textContent=`Leaves ${hr} cm of headroom. ${t.pl} platforms for ${c===3?'three or more cats':c===2?'two cats':'one cat'}${k<2&&sc>=2&&H-185<60?'. Your ceiling is too low for the Tall tree':''}.`;
+ $('#tfAdd').textContent='Add · '+money(P[7].pz[k]);
+ const s=1.12,fy=388,cy=fy-H*s,ty=fy-t.h*s,x0=150,wd=96;let g='';
+ g+=`<rect x="0" y="${fy}" width="400" height="30" fill="#E6D3B8"/><line x1="0" y1="${fy}" x2="400" y2="${fy}" stroke="#B98A57" stroke-width="2"/>`;
+ g+=`<rect x="0" y="0" width="400" height="${Math.max(0,cy)}" fill="#EDE5D7"/><line x1="0" y1="${cy}" x2="400" y2="${cy}" stroke="#1E1C1A" stroke-width="2" stroke-dasharray="6 5"/><text x="14" y="${cy+20}" font-family="Zen Kaku Gothic New,sans-serif" font-size="13" font-weight="700" fill="#1E1C1A">Ceiling ${H} cm</text>`;
+ g+=`<rect x="300" y="${fy-52}" width="84" height="52" rx="8" fill="#DDD4C5"/><rect x="292" y="${fy-70}" width="16" height="70" rx="6" fill="#CFC5B4"/><text x="342" y="${fy+20}" text-anchor="middle" font-family="Zen Kaku Gothic New,sans-serif" font-size="11" fill="#6B655C">sofa for scale</text>`;
+ g+=`<rect x="${x0-8}" y="${fy-10}" width="${wd+16}" height="10" rx="2" fill="#B98A57"/>`;
+ g+=`<rect x="${x0+14}" y="${ty}" width="12" height="${fy-ty-10}" fill="#D8C3A0"/><rect x="${x0+wd-26}" y="${ty+40*s}" width="12" height="${fy-ty-10-40*s}" fill="#D8C3A0"/>`;
+ for(let p=0;p<t.pl;p++){const y=fy-((p+1)/t.pl)*t.h*s,lft=p%2?x0+wd*.35:x0-10,ww=p===t.pl-1?wd+20:wd*.75;g+=`<rect x="${lft}" y="${y}" width="${ww}" height="8" rx="3" fill="#B98A57"/><rect x="${lft+4}" y="${y-4}" width="${ww-8}" height="5" rx="2" fill="#E8DDCB"/>`}
+ g+=`<path d="M${x0+30} ${ty-4}v-22l7 6h18l7-6v22z" fill="#1E1C1A"/><path d="M${x0+62} ${ty-8}q14 2 10-12" stroke="#1E1C1A" stroke-width="4" fill="none" stroke-linecap="round"/>`;
+ g+=`<line x1="${x0+wd+34}" y1="${ty}" x2="${x0+wd+34}" y2="${fy}" stroke="#C24E22" stroke-width="1.5"/><path d="M${x0+wd+28} ${ty}h12M${x0+wd+28} ${fy}h12" stroke="#C24E22" stroke-width="1.5"/><text x="${x0+wd+40}" y="${(ty+fy)/2}" font-family="Shippori Mincho,serif" font-size="17" font-weight="700" fill="#C24E22">${t.h} cm</text>`;
+ g+=`<line x1="${x0+wd/2}" y1="${cy+2}" x2="${x0+wd/2}" y2="${ty-30}" stroke="#66764A" stroke-width="1.5" stroke-dasharray="3 4"/><text x="${x0+wd/2+8}" y="${(cy+ty-30)/2+5}" font-family="Zen Kaku Gothic New,sans-serif" font-size="12" font-weight="700" fill="#66764A">${hr} cm headroom</text>`;
+ $('#tfSvg').innerHTML=g}
+$('#tfH').oninput=tree;$('#treefit').addEventListener('click',e=>{const b=e.target.closest('[data-g] button');if(b){setG(0,b);tree()}});
+$('#tfAdd').onclick=e=>{add(7,P[7].sz[tfPick],'Natural oak',1,false,e.currentTarget);$('#tfMsg').textContent=`Pagoda ${TREES[tfPick].n} added to your basket.`};
+
+/* sbs-cat-room */
+const ROOM=[[7,20,47],[4,52,27],[0,62,76],[6,90,80]];
+function room(){const bx=$('#roomBox');ROOM.forEach((r,k)=>{const p=P[r[0]];bx.insertAdjacentHTML('beforeend',`<button class="hs" style="left:${r[1]}%;top:${r[2]}%" aria-expanded="false" aria-label="${p.n}" data-hs="${k}"><i></i></button><div class="hpop" id="hp${k}" style="left:${r[1]>60?'auto':r[1]+'%'};right:${r[1]>60?(100-r[1])+'%':'auto'};${r[2]>60?`bottom:calc(${100-r[2]}% + 24px)`:`top:calc(${r[2]}% + 24px)`}"><img src="${src(p.k)}" alt=""><div><b>${p.n}</b><small>From ${money(minP(p))}</small></div><button data-go="product" data-p="${r[0]}" aria-label="View ${p.n}"><svg width="16" height="16"><use href="#i-a"/></svg></button></div>`)});
+ $('#roomList').innerHTML=ROOM.map((r,k)=>{const p=P[r[0]];return `<button data-hl="${k}"><img src="${src(p.k)}" alt=""><span><b>${p.n}</b><small>From ${money(minP(p))}</small></span></button>`}).join('')}
+function hsOpen(k){$$('.hs').forEach((h,j)=>h.setAttribute('aria-expanded',j===k?'true':'false'));$$('.hpop').forEach((h,j)=>h.classList.toggle('on',j===k));$$('#roomList button').forEach((h,j)=>h.classList.toggle('on',j===k))}
+$('#room').addEventListener('click',e=>{const h=e.target.closest('[data-hs],[data-hl]');if(h){const k=+(h.dataset.hs??h.dataset.hl);hsOpen(h.getAttribute('aria-expanded')==='true'?-1:k)}});
+
+/* refill */
+$('#refill').addEventListener('click',e=>{const b=e.target.closest('[data-g] button');if(b){setG(0,b);$('#refTxt').textContent=`per box · delivered every ${b.dataset.v} weeks · save 15%`}});
+$('#refAdd').onclick=e=>{toast(`Refill set: every ${gv('every')} weeks`);const b=e.currentTarget;b.textContent='✓ Refill started';setTimeout(()=>b.textContent='Start a refill',1500)};
+$('#nlB').onclick=()=>{$('#nlM').textContent=$('#nlE').value.includes('@')?'Thank you. Your first letter arrives next month.':'Please enter a valid email address.'};
+
+/* collection */
+let cat='all',fst=[],fcol=[],fmat=[],fmax=320,sortV='f',shown=8;
+const CDESC={all:['Everything for a quiet cat room.','Oak furniture, linen and ceramics for indoor cats. Made to order pieces ship in 3 to 4 weeks.'],Rest:['Beds for long, warm naps.','Low oak rims, thick cushions and linen caves for cats who sleep most of the day.'],Scratch:['Posts that never tip over.','Heavy bases and thick sisal, so your cat chooses the post over the sofa.'],Climb:['Room to climb, even in a small flat.','Wall steps and oak towers that add vertical space without taking the floor.'],Play:['Ten good minutes a day.','Wool felt toys and wands for short, daily hunts.'],Eat:['Calm bowls, fresh water.','Raised stoneware bowls and a quiet ceramic fountain.']};
+function setCat(c){cat=c;$$('#cats button').forEach(b=>b.setAttribute('aria-pressed',b.dataset.c===c));const d=CDESC[c]||CDESC.all;$('#cTitle').textContent=d[0];$('#cDesc').textContent=d[1];$('#bcCat').textContent=c==='all'?'All pieces':c==='Eat'?'Eat & drink':c;coll()}
+function coll(){let L=P.map((p,i)=>i).filter(i=>{const p=P[i];return (cat==='all'||p.c===cat)&&(!fst.length||fst.some(s=>p.st.includes(s)))&&(!fcol.length||p.sw.some(s=>fcol.includes(s[0])))&&(!fmat.length||fmat.includes(p.m))&&minP(p)<=fmax&&(!$('#fIn').checked||p.x.length===0)&&(!$('#fSale').checked||p.w)});
+ if(sortV==='lo')L.sort((a,b)=>minP(P[a])-minP(P[b]));if(sortV==='hi')L.sort((a,b)=>minP(P[b])-minP(P[a]));if(sortV==='r')L.sort((a,b)=>P[b].r-P[a].r);if(sortV==='n')L.sort((a,b)=>P[a].nw-P[b].nw);
+ let h=L.map(card);if(L.length>=3)h.splice(2,0,`<a href="#" class="promo reveal" data-go="home" data-h="#treefit"><img src="${src('room')}" alt=""><span class="k">Size finder</span><b>Which tree fits your ceiling?</b><p>Three answers, one right height. See it drawn to scale.</p><span class="btn l" style="height:44px;align-self:flex-start">Find my size</span></a>`);
+ $('#cgrid').innerHTML=h.length?h.join(''):'<div class="empty"><p class="lede" style="margin:0 auto 16px">No pieces match these filters.</p><button class="btn o" onclick="resetF()">Clear filters</button></div>';
+ $('#cnt').textContent=L.length+' piece'+(L.length===1?'':'s');$('#moreTxt').textContent=`Showing ${L.length} of ${L.length+16} pieces`;
+ const ch=[...fst,...fcol,...fmat];if(fmax<320)ch.push('Up to $'+fmax);$('#chips').innerHTML=ch.map(c=>`<button data-chip="${c}">${c} <svg width="12" height="12"><use href="#i-x"/></svg></button>`).join('');obs()}
+function resetF(q){fst=[];fcol=[];fmat=[];fmax=320;$('#fPrice').value=320;$('#fPv').textContent='up to $320';$$('#fSt button,#fCol button').forEach(b=>b.setAttribute('aria-pressed','false'));$$('#fil input[type=checkbox]').forEach(c=>c.checked=false);if(!q)coll()}
+$('#cats').onclick=e=>{const b=e.target.closest('button');if(b)setCat(b.dataset.c)};
+$('#fSt').onclick=e=>{const b=e.target.closest('button');if(!b)return;const on=b.getAttribute('aria-pressed')!=='true';b.setAttribute('aria-pressed',on);fst=$$('#fSt [aria-pressed=true]').map(x=>x.textContent);coll()};
+$('#fCol').onclick=e=>{const b=e.target.closest('button');if(!b)return;const on=b.getAttribute('aria-pressed')!=='true';b.setAttribute('aria-pressed',on);fcol=$$('#fCol [aria-pressed=true]').map(x=>x.dataset.c);coll()};
+$('#fil').addEventListener('change',e=>{if(e.target.dataset.m!=null)fmat=$$('#fil [data-m]').filter(c=>c.checked).map(c=>c.dataset.m);coll()});
+$('#fPrice').oninput=e=>{fmax=+e.target.value;$('#fPv').textContent='up to $'+fmax;coll()};
+$('#sort').onchange=e=>{sortV=e.target.value;coll()};$('#fReset').onclick=()=>resetF();
+$('#chips').onclick=e=>{const b=e.target.closest('[data-chip]');if(!b)return;const c=b.dataset.chip;fst=fst.filter(x=>x!==c);fcol=fcol.filter(x=>x!==c);fmat=fmat.filter(x=>x!==c);if(c.startsWith('Up to')){fmax=320;$('#fPrice').value=320;$('#fPv').textContent='up to $320'}
+ $$('#fSt button').forEach(x=>x.setAttribute('aria-pressed',fst.includes(x.textContent)));$$('#fCol button').forEach(x=>x.setAttribute('aria-pressed',fcol.includes(x.dataset.c)));$$('#fil [data-m]').forEach(x=>x.checked=fmat.includes(x.dataset.m));coll()};
+$('#fOpen').onclick=()=>$('#fil').classList.add('on');$('#fClose').onclick=()=>$('#fil').classList.remove('on');
+$('#moreBtn').onclick=e=>{const b=e.currentTarget;b.textContent='Loading...';setTimeout(()=>{b.textContent='All pieces shown';b.disabled=true;$('.more .bar i').style.width='100%'},700)};
+
+/* product */
+let cp=0,cs='M',cc='Oat',gi=0;
+function setProduct(i){cp=i;const p=P[i];cs=first(p);cc=p.sw[0][0];gi=0;
+ $('#pdName').textContent=p.n;$('#pdBc2').textContent=p.n;$('#pdBc').textContent=p.c==='Eat'?'Eat & drink':p.c;$('#pdBc').dataset.cat=p.c;$('#pdCat').textContent=(p.c==='Eat'?'Eat & drink':p.c)+' · '+(p.m==='Oak'?'Solid oak':p.m);
+ $('#pdStars').innerHTML=stars(p.r,p.rc).replace('class="stars"','class="stars" style="font-size:13px"');$('#pdDesc').textContent=p.ds;$('#pdFit').textContent=p.fit;
+ $('#pdSwO').querySelector('.ol').firstChild.textContent=i===3?'Colours ':p.m==='Oak'&&i!==0?'Finish ':'Colour ';
+ $('#pdSw').innerHTML=p.sw.map((s,k)=>`<button style="background:${s[1]}" aria-label="${s[0]}" aria-pressed="${k===0}" data-sw="${s[0]}"></button>`).join('');$('#pdSwN').textContent=cc;
+ $('#pdSz').innerHTML=p.sz.map((s,k)=>`<button data-sz="${s}" aria-pressed="${s===cs}" ${(p.x||[]).includes(s)?'disabled':''}><b>${s}</b><small>${(p.x||[]).includes(s)?'Sold out':p.hint?p.hint[k]:money(p.pz[k])}</small></button>`).join('');
+ $('#pdSz').closest('.opt').querySelector('.ol').firstChild.textContent=i===4?'Set ':i===7?'Height ':'Size ';
+ const G=[p.k,p.h,p.set.length?P[p.set[0]].h:'room','room'];$('#thumbs').innerHTML=G.map((k,j)=>`<button aria-pressed="${j===0}" data-gi="${j}" data-src="${k}" aria-label="Image ${j+1}"><img src="${src(k)}" alt=""></button>`).join('');$('#gimg').src=src(p.k);$('#gimg').alt=p.n;
+ $('#pdDet').innerHTML=`<p>${p.ds}</p><ul style="margin:12px 0 0 18px">${p.det.map(d=>`<li><b>${d[0]}.</b> ${d[1]}</li>`).join('')}</ul>`;
+ $('#pdTech').innerHTML=p.tech.map(t=>`<tr><td>${t[0]}</td><td>${t[1]}</td></tr>`).join('');
+ $('#dPic').src=src(p.h);$('#dTitle').textContent=p.c==='Rest'?'Made to be slept on.':p.c==='Climb'?'Made to be climbed.':p.c==='Scratch'?'Made to be scratched.':p.c==='Play'?'Made to be chased.':'Made for calm meals.';
+ $('#dList').innerHTML=p.det.map((d,k)=>`<li class="${k===0?'on':''}"><i>0${k+1}</i><div><b>${d[0]}</b><span>${d[1]}</span></div></li>`).join('');
+ $('#rBig').textContent=p.r;$('#rCnt').textContent=`Based on ${p.rc} reviews`;const dist=p.r>=4.85?[86,10,3,1,0]:p.r>=4.75?[80,14,4,1,1]:[72,18,6,3,1];$('#rBars').innerHTML=dist.map((d,k)=>`<div>${5-k}★<span><i style="width:${d}%"></i></span>${d}%</div>`).join('');
+ $('#stImg').src=src(p.k);$('#stName').textContent=p.n;$('#stSz').innerHTML=p.sz.map(s=>`<option ${(p.x||[]).includes(s)?'disabled':''} ${s===cs?'selected':''}>${s}</option>`).join('');$('#stSz').style.display=p.sz.length>1?'':'none';
+ fill('#relGrid',[...p.set,...[0,7,2,6,5,1].filter(x=>x!==i&&!p.set.includes(x))].slice(0,4));fbt();pupd();$('#qv').value=1}
+function pupd(){const p=P[cp],u=unitP(cp,cs);$('#pdPrice').innerHTML=`${money(u)}${p.w?`<s>${money(p.w)}</s><em>Save ${money(p.w-u)}</em>`:''}`;
+ $('#pdLow').innerHTML=(p.low||[]).includes(cs)?'<svg width="16" height="16"><use href="#i-clk"/></svg>Only a few left in this size':'';
+ $('#stInfo').textContent=(p.sz.length>1?cs+' · ':'')+cc;$('#stAdd').textContent='Add · '+money(u);$('#pdSwN').textContent=cc;$('#stSz').value=cs}
+$('#pdSz').onclick=e=>{const b=e.target.closest('[data-sz]');if(!b||b.disabled)return;cs=b.dataset.sz;setG(0,b);pupd()};
+$('#pdSw').onclick=e=>{const b=e.target.closest('[data-sw]');if(!b)return;cc=b.dataset.sw;setG(0,b);pupd()};
+$('#stSz').onchange=e=>{cs=e.target.value;$$('#pdSz button').forEach(b=>b.setAttribute('aria-pressed',b.dataset.sz===cs));pupd()};
+$('#thumbs').onclick=e=>{const b=e.target.closest('[data-gi]');if(!b)return;setG(0,b);$('#gimg').src=src(b.dataset.src)};
+$('#gmain').onclick=e=>{const g=$('#gmain');if(g.classList.toggle('z')){const r=g.getBoundingClientRect();$('#gimg').style.transformOrigin=`${(e.clientX-r.left)/r.width*100}% ${(e.clientY-r.top)/r.height*100}%`}};
+$('#gmain').onmousemove=e=>{const g=$('#gmain');if(!g.classList.contains('z'))return;const r=g.getBoundingClientRect();$('#gimg').style.transformOrigin=`${(e.clientX-r.left)/r.width*100}% ${(e.clientY-r.top)/r.height*100}%`};
+$('#qm').onclick=()=>{$('#qv').value=Math.max(1,(+$('#qv').value||1)-1)};$('#qp').onclick=()=>{$('#qv').value=(+$('#qv').value||1)+1};
+$('#pdAdd').onclick=e=>add(cp,cs,cc,Math.max(1,+$('#qv').value||1),false,e.currentTarget);
+$('#stAdd').onclick=e=>add(cp,cs,cc,1,false,e.currentTarget);
+$('#dList').onclick=e=>{const l=e.target.closest('li');if(!l)return;$$('#dList li').forEach(x=>x.classList.toggle('on',x===l))};
+let fsel=[];function fbt(){const p=P[cp],ids=[cp,...p.set].slice(0,3);fsel=ids.map(()=>true);
+ $('#fbtIts').innerHTML=ids.map((i,k)=>`${k?'<span class="plus">+</span>':''}<div class="it" data-fi="${k}"><label><input type="checkbox" checked data-fb="${k}" aria-label="Include ${P[i].n}"></label><img src="${src(P[i].k)}" alt=""><b>${k===0?'This: ':''}${P[i].n}</b><small>${money(i===cp?unitP(cp,cs):minP(P[i]))}</small></div>`).join('');ftot()}
+function ftot(){const p=P[cp],ids=[cp,...p.set].slice(0,3);let t=0,n=0;ids.forEach((i,k)=>{if(fsel[k]){t+=i===cp?unitP(cp,cs):minP(P[i]);n++}});$('#fbtTot').innerHTML=(n>1?`<s style="font:400 18px var(--body);color:var(--mute);margin-right:8px">${money(t)}</s>`:'')+money(n>1?t*.9:t);
+ $$('#fbtIts .it').forEach((el,k)=>el.classList.toggle('off',!fsel[k]));$('#fbtAdd').textContent=n?`Add ${n} to basket`:'Pick a piece';$('#fbtAdd').disabled=!n}
+$('#fbtIts').onchange=e=>{if(e.target.dataset.fb!=null){fsel[+e.target.dataset.fb]=e.target.checked;ftot()}};
+$('#fbtAdd').onclick=()=>{const p=P[cp],ids=[cp,...p.set].slice(0,3),n=fsel.filter(Boolean).length;ids.forEach((i,k)=>{if(fsel[k])add(i,i===cp?cs:first(P[i]),i===cp?cc:P[i].sw[0][0],1,true,null,n>1?.1:0)});openDrawer()};
+let rvL=[];function seen(i){rvL=[i,...rvL.filter(x=>x!==i)].slice(0,5);const l=rvL.filter(x=>x!==cp);fill('#rvGrid',(l.length?l:[2,5,6,3]).concat([2,5,6,3].filter(x=>!l.includes(x)&&x!==cp)).slice(0,4))}
+
+/* search + blog */
+const POSTS=[['senior','Care','Setting up a home for an older cat','Lower edges, warmer beds and water in more than one room.'],['climb','Small spaces','A climbing route in a 30 m² flat','How three wall steps and one post doubled the space a cat can use.'],['play','Play','Ten minutes of play, every day','Short hunts with a wand calm busy indoor cats. Here is a simple routine.'],['cave','Care','Why cats love a hiding place','A dark, quiet spot lowers stress. Where to put a cave, and where not to.'],['drink','Care','Getting a cat to drink more water','Moving water, wide bowls and more than one water point.'],['p3','Workshop','How we wind a sisal post','From raw rope to a post that lasts years, with photos from the bench.']];
+function runSearch(){const q=($('#sq').value||'').toLowerCase().trim();const L=P.map((p,i)=>i).filter(i=>{const p=P[i];return !q||(p.n+' '+p.c+' '+p.sub+' '+p.m+' '+p.st.join(' ')+' '+p.ds).toLowerCase().includes(q)});
+ $('#sInfo').textContent=`${L.length} result${L.length===1?'':'s'} for “${q||'everything'}”`;$('#sres').innerHTML=L.length?L.map(card).join(''):'<div class="empty">No pieces found. Try “bed”, “oak” or “tree”.</div>';
+ const A=POSTS.filter(p=>(p[2]+' '+p[3]+' '+p[1]).toLowerCase().includes(q));$('#sart').innerHTML=(A.length?A:POSTS.slice(0,3)).slice(0,3).map(post).join('');obs()}
+$('#sgo').onclick=runSearch;$('#sq').addEventListener('keydown',e=>{if(e.key==='Enter')runSearch()});$('#sTabs').onclick=e=>{const b=e.target.closest('[data-q]');if(b){$('#sq').value=b.dataset.q;runSearch()}};
+function post(p){return `<a href="#" class="post reveal" data-go="article"><div class="pim"><img src="${src(p[0])}" alt="" loading="lazy"></div><span class="k" style="margin-top:16px">${p[1]}</span><h3>${p[2]}</h3><p>${p[3]}</p></a>`}
+$('#bgrid').innerHTML=POSTS.slice(1).map(post).join('');
+/* contact */
+$('#p-contact').addEventListener('click',e=>{const b=e.target.closest('.topics button');if(b)setG(0,b)});
+$('#csend').onclick=()=>{$('#cok').style.display='block'};
+let io;function obs(){if(!io)io=new IntersectionObserver(es=>es.forEach(x=>{if(x.isIntersecting){x.target.classList.add('in');io.unobserve(x.target)}}),{rootMargin:'0px 0px -6% 0px'});$$('.reveal:not(.in)').forEach(r=>io.observe(r))}
+
+/* init */
+imgs();fill('#bestGrid',TABS.best);prof();tree();room();fill('#artGrid',[0,5,6,1]);fill('#nfGrid',[0,7,2,6]);fill('#abGrid',[0,2,4,6]);
+setCat('all');setProduct(0);seen(0);render();runSearch();hdr();obs();
+</script>
+</body>
+</html>
